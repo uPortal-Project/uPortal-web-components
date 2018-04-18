@@ -1,4 +1,4 @@
-# Setup uPortal WebComponents Locally
+# Setup uPortal Components Locally
 
 ## Prerequisits
 
@@ -9,8 +9,8 @@
 ## Installation
 
 1.  From a terminal or command line
-2.  `git clone https://github.com/ChristianMurphy/uPortal-webcomponents`
-3.  `cd uPortal-webcomponents`
+2.  `git clone https://github.com/ChristianMurphy/uPortal-components`
+3.  `cd uPortal-components`
 4.  `yarn`
 
 ## Running a Component Locally

@@ -1,4 +1,4 @@
-# Automation in uPortal WebComponents
+# Automation in uPortal Components
 
 ## Formatting
 

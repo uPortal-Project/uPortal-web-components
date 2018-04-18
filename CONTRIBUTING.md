@@ -24,6 +24,6 @@ Reach out on [Slack][] or on the [Mailing List][].
 * Write a convincing description of why we should land your pull request: it’s your job to convince us
 
 [failing test]: https://twitter.com/sindresorhus/status/579306280495357953
-[issue tracker]: https://github.com/ChristianMurphy/uPortal-webcomponents/issues
+[issue tracker]: https://github.com/ChristianMurphy/uPortal-components/issues
 [mailing list]: https://groups.google.com/a/apereo.org/forum/#!forum/uportal-user
 [slack]: https://apereo.slack.com

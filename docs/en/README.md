@@ -1,6 +1,6 @@
-# uPortal WebComponents
+# uPortal Components
 
-[![Build Status](https://travis-ci.org/ChristianMurphy/uPortal-webcomponents.svg?branch=master)](https://travis-ci.org/ChristianMurphy/uPortal-webcomponents)
+[![Build Status](https://travis-ci.org/ChristianMurphy/uPortal-components.svg?branch=master)](https://travis-ci.org/ChristianMurphy/uPortal-components)
 
 > A collection of reusable, standardized, and accessible [web components][] for [uPortal][]
 
@@ -48,15 +48,15 @@ For example an `example-component` would be loaded by adding
 
 ## Contribute
 
-uPortal WebComponents are built by people just like you! Check out [CONTRIBUTING.md][] for ways to get started.
+uPortal Components are built by people just like you! Check out [CONTRIBUTING.md][] for ways to get started.
 
 Want to chat with the community and contributors? Join us in [Slack][] and the [Mailing List][]!
 
 ## Additional Topics
 
-* [Local Project Setup](SETUP.md)
-* [Project Automation Tools](AUTOMATION.md)
-* [Project Conventions and Practices](CONVENTIONS.md)
+* [Local Project Setup](developer/SETUP.md)
+* [Project Automation Tools](developer/AUTOMATION.md)
+* [Project Conventions and Practices](developer/CONVENTIONS.md)
 
 [contributing.md]: ../../CONTRIBUTING.md
 [gradle]: https://docs.gradle.org
