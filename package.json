@@ -1,4 +1,5 @@
 {
+  "private": true,
   "devDependencies": {
     "@commitlint/cli": "^6.1.3",
     "@commitlint/config-conventional": "^6.1.3",
@@ -19,9 +20,8 @@
     "stylelint-config-standard": "^18.2.0"
   },
   "scripts": {
-    "precommit": "lint-staged",
+    "ci:commitlint": "commitlint-travis",
     "commitmsg": "commitlint -e",
-    "commit:travis": "commitlint-travis",
     "format": "npm-run-all format:*",
     "format:js": "prettier-eslint --write **/*.{js,jsx,vue}",
     "format:md": "prettier --write **/*.md",
@@ -29,6 +29,7 @@
     "lint": "npm-run-all lint:*",
     "lint:js": "eslint .",
     "lint:md": "remark --frail *.md @uportal/*/**.md",
+    "precommit": "lint-staged",
     "test": "npm-run-all test:* lint:*",
     "test:packages": "lerna run test"
   },

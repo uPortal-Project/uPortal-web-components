@@ -1,0 +1,9 @@
+language: node_js
+node_js:
+  - lts/* # latest long term support release
+  - stable # latest stable release
+script:
+  - yarn test
+  - yarn lint
+  - yarn commit:travis
+cache: yarn
