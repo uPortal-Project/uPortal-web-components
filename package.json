@@ -1,6 +1,56 @@
 {
   "devDependencies": {
-    "lerna": "^2.10.1"
+    "@commitlint/cli": "^6.1.3",
+    "@commitlint/config-conventional": "^6.1.3",
+    "@commitlint/config-lerna-scopes": "^6.1.3",
+    "@commitlint/travis-cli": "^6.1.3",
+    "eslint": "^4.19.1",
+    "eslint-config-google": "^0.9.1",
+    "husky": "^0.14.3",
+    "lerna": "^2.10.2",
+    "lint-staged": "^7.0.4",
+    "npm-run-all": "^4.1.2",
+    "prettier-eslint-cli": "^4.7.1",
+    "prettier-stylelint": "^0.4.2",
+    "remark-cli": "^5.0.0",
+    "remark-preset-lint-recommended": "^3.0.1",
+    "remark-validate-links": "^7.0.0",
+    "stylelint": "^9.2.0",
+    "stylelint-config-standard": "^18.2.0"
   },
-  "workspaces": ["@uportal/*"]
+  "scripts": {
+    "precommit": "lint-staged",
+    "commitmsg": "commitlint -e",
+    "commit:travis": "commitlint-travis",
+    "format": "npm-run-all format:*",
+    "format:js": "prettier-eslint --write **/*.{js,jsx,vue}",
+    "format:md": "prettier --write **/*.md",
+    "format:css": "prettier-stylelint --write **/*.{css,scss}",
+    "lint": "npm-run-all lint:*",
+    "lint:js": "eslint .",
+    "lint:md": "remark --frail *.md @uportal/*/**.md",
+    "test": "npm-run-all test:* lint:*",
+    "test:packages": "lerna run test"
+  },
+  "workspaces": ["@uportal/*"],
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional",
+      "@commitlint/config-lerna-scopes"
+    ]
+  },
+  "eslintConfig": {
+    "extends": ["google"]
+  },
+  "lint-staged": {
+    "*.{js,jsx,vue}": "prettier-eslint --write",
+    "*.{css,scss}": "prettier-stylelint --write",
+    "*.{md,json}": "prettier --write"
+  },
+  "stylelint": {
+    "extends": "stylelint-config-standard"
+  },
+  "remarkConfig": {
+    "plugins": ["preset-lint-recommended", "validate-links"]
+  }
 }
