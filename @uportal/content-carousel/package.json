@@ -1,14 +1,7 @@
 {
   "name": "@uportal/content-carousel",
-  "version": "1.0.0",
   "description": "Display portlet content in a browsable carousel",
-  "main": "index.js",
-  "publishConfig": {
-    "access": "public"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "version": "0.1.0",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ChristianMurphy/uPortal-components.git"
@@ -19,5 +12,34 @@
   "bugs": {
     "url": "https://github.com/ChristianMurphy/uPortal-components/issues"
   },
-  "homepage": "https://christianmurphy.github.io/uPortal-components/"
+  "homepage": "https://christianmurphy.github.io/uPortal-components/",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "vue": "^2.5.13"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^3.0.0-beta.6",
+    "@vue/cli-plugin-eslint": "^3.0.0-beta.6",
+    "@vue/cli-service": "^3.0.0-beta.6",
+    "vue-template-compiler": "^2.5.13"
+  },
+  "babel": {
+    "presets": ["@vue/app"]
+  },
+  "eslintConfig": {
+    "extends": ["plugin:vue/essential"]
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  },
+  "browserslist": ["> 1%", "last 2 versions", "not ie <= 8"]
 }
