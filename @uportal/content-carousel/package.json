@@ -1,0 +1,20 @@
+{
+  "name": "content-carousel",
+  "version": "1.0.0",
+  "description": "Display portlet content in a browsable carousel",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ChristianMurphy/uPortal-webcomponents.git"
+  },
+  "keywords": ["apereo", "uportal", "content", "carousel", "browse", "list"],
+  "author": "Apereo <uportal-dev@apereo.org>",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/ChristianMurphy/uPortal-webcomponents/issues"
+  },
+  "homepage": "https://github.com/ChristianMurphy/uPortal-webcomponents#readme"
+}
