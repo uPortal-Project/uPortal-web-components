@@ -52,6 +52,12 @@ uPortal WebComponents are built by people just like you! Check out [CONTRIBUTING
 
 Want to chat with the community and contributors? Join us in [Slack][] and the [Mailing List][]!
 
+## Additional Topics
+
+* [Local Project Setup](docs/en/SETUP.md)
+* [Project Automation Tools](docs/en/AUTOMATION.md)
+* [Project Conventions and Practices](docs/en/CONVENTIONS.md)
+
 [contributing.md]: CONTRIBUTING.md
 [gradle]: https://docs.gradle.org
 [mailing list]: https://groups.google.com/a/apereo.org/forum/#!forum/uportal-user
