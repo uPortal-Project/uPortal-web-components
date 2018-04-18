@@ -1,5 +1,5 @@
 {
-  "name": "content-carousel",
+  "name": "@uportal/content-carousel",
   "version": "1.0.0",
   "description": "Display portlet content in a browsable carousel",
   "main": "index.js",
