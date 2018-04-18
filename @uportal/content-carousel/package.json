@@ -18,11 +18,11 @@
   },
   "scripts": {
     "start": "vue-cli-service serve",
-    "build": "vue-cli-service build"
+    "build": "vue-cli-service build --name content-carousel --target wc"
   },
   "dependencies": {
-    "@vue/web-component-wrapper": "^1.2.0",
-    "vue": "^2.5.13"
+    "vue": "^2.5.13",
+    "vue-carousel": "^0.7.1"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.0.0-beta.6",
@@ -34,7 +34,7 @@
     "presets": ["@vue/app"]
   },
   "eslintConfig": {
-    "extends": ["plugin:vue/recommended"]
+    "extends": ["plugin:vue/essential"]
   },
   "postcss": {
     "plugins": {

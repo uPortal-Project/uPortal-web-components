@@ -1,7 +1,8 @@
 import Vue from "vue";
-import ContentCarousel from "./content-carousel.vue";
-import wrap from "@vue/web-component-wrapper";
+import ContentCarousel from "./App.vue";
 
 Vue.config.productionTip = false;
 
-window.customElements.define("content-carousel", wrap(Vue, ContentCarousel));
+new Vue({
+  render: h => h(ContentCarousel)
+}).$mount("#app");
