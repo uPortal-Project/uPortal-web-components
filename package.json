@@ -28,15 +28,14 @@
     "format:css": "prettier-stylelint --write **/*.{css,scss}",
     "lint": "npm-run-all lint:*",
     "lint:js": "eslint .",
+    "lint:css": "stylelint **.{css,scss,vue}",
     "lint:md": "remark --frail *.md @uportal/*/**.md",
     "precommit": "lint-staged",
     "start": "lerna run start",
     "test": "npm-run-all test:* lint:*",
     "test:packages": "lerna run test"
   },
-  "workspaces": [
-    "@uportal/*"
-  ],
+  "workspaces": ["@uportal/*"],
   "commitlint": {
     "extends": [
       "@commitlint/config-conventional",
@@ -45,10 +44,7 @@
   },
   "eslintConfig": {
     "root": true,
-    "extends": [
-      "eslint:recommended",
-      "google"
-    ]
+    "extends": ["eslint:recommended", "google"]
   },
   "lint-staged": {
     "*.{js,jsx,vue}": "prettier-eslint --write",
@@ -61,7 +57,8 @@
   "remarkConfig": {
     "plugins": [
       "preset-lint-recommended",
-      "validate-links"
+      "validate-links",
+      ["remark-lint-list-item-indent", "mixed"]
     ]
   },
   "renovate": {

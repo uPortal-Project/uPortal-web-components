@@ -6,14 +6,7 @@
     "type": "git",
     "url": "git+https://github.com/ChristianMurphy/uPortal-components.git"
   },
-  "keywords": [
-    "apereo",
-    "uportal",
-    "content",
-    "carousel",
-    "browse",
-    "list"
-  ],
+  "keywords": ["apereo", "uportal", "content", "carousel", "browse", "list"],
   "author": "Apereo <uportal-dev@apereo.org>",
   "license": "Apache-2.0",
   "bugs": {
@@ -24,9 +17,8 @@
     "access": "public"
   },
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "start": "vue-cli-service serve",
+    "build": "vue-cli-service build"
   },
   "dependencies": {
     "@vue/web-component-wrapper": "^1.2.0",
@@ -39,23 +31,15 @@
     "vue-template-compiler": "^2.5.13"
   },
   "babel": {
-    "presets": [
-      "@vue/app"
-    ]
+    "presets": ["@vue/app"]
   },
   "eslintConfig": {
-    "extends": [
-      "plugin:vue/essential"
-    ]
+    "extends": ["plugin:vue/recommended"]
   },
   "postcss": {
     "plugins": {
       "autoprefixer": {}
     }
   },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not ie <= 8"
-  ]
+  "browserslist": ["> 1%", "last 2 versions", "not ie <= 8"]
 }
