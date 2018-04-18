@@ -30,6 +30,7 @@
     "lint:js": "eslint .",
     "lint:md": "remark --frail *.md @uportal/*/**.md",
     "precommit": "lint-staged",
+    "start": "lerna run start",
     "test": "npm-run-all test:* lint:*",
     "test:packages": "lerna run test"
   },
