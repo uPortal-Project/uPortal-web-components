@@ -8,7 +8,7 @@
     "eslint": "^4.19.1",
     "eslint-config-google": "^0.9.1",
     "lerna": "^2.10.2",
-    "lint-staged": "^7.0.4",
+    "lint-staged": "^7.0.5",
     "npm-run-all": "^4.1.2",
     "prettier-eslint-cli": "^4.7.1",
     "prettier-stylelint": "^0.4.2",
@@ -21,7 +21,6 @@
   },
   "scripts": {
     "ci:commitlint": "commitlint-travis",
-    "commitmsg": "commitlint -e",
     "format": "npm-run-all format:*",
     "format:js": "prettier-eslint --write **/*.{js,jsx,vue}",
     "format:md": "prettier --write **/*.md",
@@ -30,7 +29,6 @@
     "lint:js": "eslint .",
     "lint:css": "stylelint **.{css,scss,vue}",
     "lint:md": "remark --frail *.md @uportal/*/**.md",
-    "precommit": "lint-staged",
     "start": "lerna run start",
     "test": "npm-run-all test:* lint:*",
     "test:packages": "lerna run test"
@@ -45,6 +43,10 @@
   "eslintConfig": {
     "root": true,
     "extends": ["eslint:recommended", "google"]
+  },
+  "gitHooks": {
+    "commit-msg": "commitlint -e",
+    "pre-commit": "lint-staged"
   },
   "lint-staged": {
     "*.{js,jsx,vue}": "prettier-eslint --write",
