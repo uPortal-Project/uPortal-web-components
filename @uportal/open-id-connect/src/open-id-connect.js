@@ -1,29 +1,61 @@
-let bearerToken = null;
+import {get} from 'axios';
+import {decode} from 'jsonwebtoken';
+import {DateTime} from 'luxon';
+
+let token = null;
 
 export default async function openIdConnect({
-  setTimeout = setTimeout, // allow a custom timeout function to be used
-  userInfoApiUrl = '/uPortal/api/v5-1/userinfo',
-  tokenTimeoutMs = 180000, // 3 minutes
+  userInfoApiUrl,
+  smear = 1000, // Expect clocks to be as much as a second off
   callback = () => {}, // optional callback
 }) {
-  if (bearerToken !== null) {
-    return bearerToken;
+  if (token !== null) {
+    return token;
   }
 
-  const response = await fetch(userInfoApiUrl, {
-    credentials: 'same-origin',
-  });
-  if (!response.ok) {
-    throw new Error(response.statusText);
+  const response = await getToken(userInfoApiUrl);
+
+  token = {
+    encoded: response,
+    decoded: decode(response.data),
+  };
+
+  const msToExpiration = milliSecondsUntilExpires(token.decoded.exp, smear);
+
+  if (isExpired(msToExpiration)) {
+    throw new RangeError('token has already expired');
   }
-  bearerToken = await response.text();
 
   // clear token after timeout has passed
   setTimeout(() => {
-    bearerToken = null;
-  }, tokenTimeoutMs);
+    token = null;
+  }, msToExpiration);
 
-  callback(bearerToken);
+  callback(token);
 
-  return bearerToken;
+  return {
+    token,
+  };
+}
+
+export function isExpired(timeTilExpires) {
+  return isNaN(timeTilExpires) || timeTilExpires < 1;
+}
+
+export async function getToken(userInfoApiUrl = '/uPortal/api/v5-1/userinfo') {
+  return await get(userInfoApiUrl, {responseType: 'text'});
+}
+
+export function milliSecondsUntilExpires(
+  expiration, // millisecond timestamp for expiration
+  smear = 1000, // millisecond smear to account for clock differences
+  now = DateTime.utc() // current time
+) {
+  // Java generates timestamps in seconds, JavaScript expects MilliSeconds
+  const expirationWithSmear = DateTime.fromMillis(expiration * 1000, {
+    zone: 'utc',
+  }).minus({
+    milliseconds: smear,
+  });
+  return now.diff(expirationWithSmear).as('milliseconds');
 }

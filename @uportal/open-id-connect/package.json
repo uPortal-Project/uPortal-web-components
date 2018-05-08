@@ -20,12 +20,33 @@
     "access": "public"
   },
   "scripts": {
-    "build": "babel src -d dist"
+    "build": "babel src -d dist",
+    "test": "jest"
   },
-  "browserslist": ["> 1%", "not dead"],
+  "dependencies": {
+    "axios": "^0.18.0",
+    "jsonwebtoken": "^8.2.1",
+    "luxon": "^1.2.0"
+  },
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.6.1",
-    "babel-preset-minify": "^0.4.1"
-  }
+    "babel-preset-minify": "^0.4.1",
+    "eslint-plugin-jest": "^21.15.1",
+    "jest": "^22.4.3"
+  },
+  "eslintConfig": {
+    "parserOptions": {
+      "ecmaVersion": 2017,
+      "sourceType": "module"
+    },
+    "env": {
+      "node": true,
+      "browser": true
+    }
+  },
+  "babel": {
+    "presets": ["env", "minify"]
+  },
+  "browserslist": ["> 1%", "not dead"]
 }
