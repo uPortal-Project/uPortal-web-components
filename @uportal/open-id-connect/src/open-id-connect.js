@@ -1,6 +1,6 @@
 let bearerToken = null;
 
-export default async function openIdConnec({
+export default async function openIdConnect({
   setTimeout = setTimeout, // allow a custom timeout function to be used
   userInfoApiUrl = '/uPortal/api/v5-1/userinfo',
   tokenTimeoutMs = 180000, // 3 minutes
