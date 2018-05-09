@@ -82,7 +82,7 @@ oidc(options, callback); //-> Promise
 
 * (optional) **Options**
   * (optional) _string_ `userInfoApiUrl` - URL for Open ID Connect endpoint
-  * (optional) _number_ smear - time smear to account for potential [clock skew](https://en.wikipedia.org/wiki/Clock_skew)
+  * (optional) _number_ timeout - time until token should be renewed
 * (optional) **Callback**
   * _Error_ `err` - null if resonse is okay, error object otherwise
   * _Object_ `token` - object with `encoded` and `decoded` keys

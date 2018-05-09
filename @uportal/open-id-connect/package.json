@@ -42,6 +42,10 @@
     "env": {
       "node": true,
       "browser": true
+    },
+    "globals": {
+      "test": true,
+      "expect": true
     }
   },
   "babel": {
