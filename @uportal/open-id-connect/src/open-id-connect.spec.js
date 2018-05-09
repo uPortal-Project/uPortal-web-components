@@ -1,31 +1,15 @@
-import {
-  isTokenExpStillValid,
-  milliSecondsUntilExpires,
-} from './open-id-connect';
-import {DateTime} from 'luxon';
+import {tokenize} from './open-id-connect';
 
-test('Error is expired', () => {
-  expect(isTokenExpStillValid(new Error())).toBe(false);
-});
-
-test('NaN is expired', () => {
-  expect(isTokenExpStillValid(NaN)).toBe(false);
-});
-
-test('zero time is expired', () => {
-  expect(isTokenExpStillValid(0)).toBe(false);
-});
-
-test('negative time is expired', () => {
-  expect(isTokenExpStillValid(-1)).toBe(false);
-});
-
-test('positive time is valid', () => {
-  expect(isTokenExpStillValid(1)).toBe(true);
-});
-
-test('expires includes time smear', () => {
+test('token decodes', () => {
   expect(
-    milliSecondsUntilExpires(0, 1000, DateTime.utc(1970, 1, 1, 0, 0, 0))
-  ).toBe(1000);
+    tokenize(
+      'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiJiMDhmODZhZi0zNWRhLTQ4ZjItOGZhYi1jZWYzOTA0NjYwYmQifQ.-xN_h82PHVTCMA9vdoHrcZxH-x5mb11y1537t3rGzcM'
+    )
+  ).toEqual({
+    encoded:
+      'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiJiMDhmODZhZi0zNWRhLTQ4ZjItOGZhYi1jZWYzOTA0NjYwYmQifQ.-xN_h82PHVTCMA9vdoHrcZxH-x5mb11y1537t3rGzcM',
+    decoded: {
+      userId: 'b08f86af-35da-48f2-8fab-cef3904660bd',
+    },
+  });
 });
