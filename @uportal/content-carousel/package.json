@@ -1,12 +1,19 @@
 {
   "name": "@uportal/content-carousel",
   "description": "Display portlet content in a browsable carousel",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ChristianMurphy/uPortal-components.git"
   },
-  "keywords": ["apereo", "uportal", "content", "carousel", "browse", "list"],
+  "keywords": [
+    "apereo",
+    "uportal",
+    "content",
+    "carousel",
+    "browse",
+    "list"
+  ],
   "author": "Apereo <uportal-dev@apereo.org>",
   "license": "Apache-2.0",
   "bugs": {
@@ -33,13 +40,22 @@
     "vue-template-compiler": "^2.5.13"
   },
   "babel": {
-    "presets": ["@vue/app"]
+    "presets": [
+      "@vue/app"
+    ]
   },
   "eslintConfig": {
-    "extends": ["plugin:vue/essential"]
+    "extends": [
+      "plugin:vue/essential"
+    ]
   },
   "jest": {
-    "moduleFileExtensions": ["js", "jsx", "json", "vue"],
+    "moduleFileExtensions": [
+      "js",
+      "jsx",
+      "json",
+      "vue"
+    ],
     "transform": {
       "^.+\\.vue$": "vue-jest",
       "^.+\\.jsx?$": "babel-jest"
@@ -47,12 +63,17 @@
     "moduleNameMapper": {
       "^@/(.*)$": "<rootDir>/src/$1"
     },
-    "snapshotSerializers": ["jest-serializer-vue"]
+    "snapshotSerializers": [
+      "jest-serializer-vue"
+    ]
   },
   "postcss": {
     "plugins": {
       "autoprefixer": {}
     }
   },
-  "browserslist": ["> 1%", "not dead"]
+  "browserslist": [
+    "> 1%",
+    "not dead"
+  ]
 }
