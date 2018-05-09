@@ -1,7 +1,7 @@
 {
   "name": "@uportal/content-carousel",
   "description": "Display portlet content in a browsable carousel",
-  "version": "0.0.2",
+  "version": "0.0.7",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ChristianMurphy/uPortal-components.git"
