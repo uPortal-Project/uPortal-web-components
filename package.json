@@ -73,5 +73,6 @@
       ":ignoreUnstable",
       ":renovatePrefix"
     ]
-  }
+  },
+  "dependencies": {}
 }
