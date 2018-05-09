@@ -49,9 +49,9 @@ export default async function openIdConnect(
     // store the encoded and decoded versions
     token = tokenize(data);
 
-    // Allow for additional transforms to be applied to specific properties
+    // Allow for additional transforms to be applied to decoded properties
     Object.entries(propertyTransforms).forEach(([property, transform]) => {
-      token[property] = transform(token[property]);
+      token.decoded[property] = transform(token.decoded[property]);
     });
 
     // automatically clear token after expiration
