@@ -55,5 +55,5 @@
       "autoprefixer": {}
     }
   },
-  "browserslist": ["> 1%", "not dead"]
+  "browserslist": ["> 1%", "not ie < 11"]
 }
