@@ -29,7 +29,7 @@ let token = null;
  */
 export default async function openIdConnect(
   {userInfoApiUrl = '/uPortal/api/v5-1/userinfo', timeout = 50000} = {},
-  callback
+  callback = () => {}
 ) {
   // If there already is a valid token, resolve it
   if (token !== null) {
