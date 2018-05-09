@@ -38,10 +38,10 @@ export default async function openIdConnect(
 
   try {
     // get a new token
-    const response = await get(userInfoApiUrl, {responseType: 'text'});
+    const {data} = await get(userInfoApiUrl, {responseType: 'text'});
 
     // store the encoded and decoded versions
-    token = tokenize(response);
+    token = tokenize(data);
 
     // automatically clear token after expiration
     setTimeout(() => {
