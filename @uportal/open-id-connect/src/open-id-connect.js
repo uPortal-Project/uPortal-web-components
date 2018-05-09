@@ -1,6 +1,6 @@
-import { get } from "axios";
-import { decode } from "jsonwebtoken";
-import { DateTime } from "luxon";
+import {get} from 'axios';
+import {decode} from 'jsonwebtoken';
+import {DateTime} from 'luxon';
 
 let token = null;
 
@@ -22,12 +22,12 @@ let token = null;
  * Get token from uPortal Open ID Connect service
  * @param {Options} [options] - allow setting a custom user info API url and a custom clock smear
  * @param {tokenCallback} [callback] - optional callback, alternative to Promise API
- * @returns {Promise<Object>} Promise that resolves with the encoded and decoded token in an Object
+ * @return {Promise<Object>} Promise that resolves with the encoded and decoded token in an Object
  */
 export default async function openIdConnect(
   {
-    userInfoApiUrl = "/uPortal/api/v5-1/userinfo",
-    smear = 1000 // Expect clocks to be as much as a second off
+    userInfoApiUrl = '/uPortal/api/v5-1/userinfo',
+    smear = 1000, // Expect clocks to be as much as a second off
   } = {},
   callback
 ) {
@@ -38,12 +38,12 @@ export default async function openIdConnect(
 
   try {
     // get a new token
-    const response = await get(userInfoApiUrl, { responseType: "text" });
+    const response = await get(userInfoApiUrl, {responseType: 'text'});
 
     // store the encoded and decoded versions
     token = {
       encoded: response,
-      decoded: decode(response.data)
+      decoded: decode(response.data),
     };
 
     // check how long the token will be valid
@@ -51,7 +51,7 @@ export default async function openIdConnect(
 
     // if it has already expired something is very wrong, raise exception to caller
     if (!isTokenExpStillValid(msToExpiration)) {
-      throw new RangeError("token has already expired");
+      throw new RangeError('token has already expired');
     }
 
     // automatically clear token after expiration
@@ -78,10 +78,10 @@ export default async function openIdConnect(
 /**
  * Checks if token is still active based off duration until expiration
  * @param {number} duration - millisecond duration
- * @returns {boolean} true for expired or invalid, false for active
+ * @return {boolean} true for expired or invalid, false for active
  */
 export function isTokenExpStillValid(duration) {
-  return typeof duration === "number" && duration >= 1;
+  return typeof duration === 'number' && duration >= 1;
 }
 
 /**
@@ -97,11 +97,11 @@ export function milliSecondsUntilExpires(
 ) {
   // Java generates timestamps in seconds, JavaScript expects milliseconds
   const expirationWithSmear = DateTime.fromMillis(expiration * 1000, {
-    zone: "utc"
+    zone: 'utc',
   }).minus({
-    milliseconds: smear
+    milliseconds: smear,
   });
 
   // get the difference in milliseconds
-  return now.diff(expirationWithSmear).as("milliseconds");
+  return now.diff(expirationWithSmear).as('milliseconds');
 }
