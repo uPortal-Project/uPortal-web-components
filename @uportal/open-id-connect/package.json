@@ -36,7 +36,6 @@
     "jest": "^22.4.3"
   },
   "eslintConfig": {
-    "extends": ["plugin:jest/recommended"],
     "parserOptions": {
       "ecmaVersion": 2017,
       "sourceType": "module"
