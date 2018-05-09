@@ -9,6 +9,8 @@ let token = null;
  * @property {string} [userInfoApiUrl] - url to Open ID Connect endpoint
  * @property {number} [timeout] - time in milliseconds until token will be
  *                                invalid
+ * @property {Object} [propertyTransforms] - apply additional transforms to
+ *                                           specific properties
  */
 
 /**
@@ -28,7 +30,11 @@ let token = null;
  *                           token in an Object
  */
 export default async function openIdConnect(
-  {userInfoApiUrl = '/uPortal/api/v5-1/userinfo', timeout = 50000} = {},
+  {
+    userInfoApiUrl = '/uPortal/api/v5-1/userinfo',
+    timeout = 50000,
+    propertyTransforms = {},
+  } = {},
   callback = () => {}
 ) {
   // If there already is a valid token, resolve it
@@ -42,6 +48,11 @@ export default async function openIdConnect(
 
     // store the encoded and decoded versions
     token = tokenize(data);
+
+    // Allow for additional transforms to be applied to specific properties
+    Object.entries(propertyTransforms).forEach(([property, transform]) => {
+      token[property] = transform(token[property]);
+    });
 
     // automatically clear token after expiration
     setTimeout(() => {
