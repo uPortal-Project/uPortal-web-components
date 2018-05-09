@@ -1,19 +1,30 @@
-import {isExpired, milliSecondsUntilExpires} from './open-id-connect';
-import {DateTime} from 'luxon';
+import {
+  isTokenExpStillValid,
+  milliSecondsUntilExpires
+} from "./open-id-connect";
+import { DateTime } from "luxon";
 
-test('NaN is expired', () => {
-  expect(isExpired(NaN)).toBe(true);
+test("Error is expired", () => {
+  expect(isTokenExpStillValid(new Error())).toBe(false);
 });
 
-test('zero time is expired', () => {
-  expect(isExpired(0)).toBe(true);
+test("NaN is expired", () => {
+  expect(isTokenExpStillValid(NaN)).toBe(false);
 });
 
-test('negative time is expired', () => {
-  expect(isExpired(-1)).toBe(true);
+test("zero time is expired", () => {
+  expect(isTokenExpStillValid(0)).toBe(false);
 });
 
-test('expires includes time smear', () => {
+test("negative time is expired", () => {
+  expect(isTokenExpStillValid(-1)).toBe(false);
+});
+
+test("positive time is valid", () => {
+  expect(isTokenExpStillValid(1)).toBe(true);
+});
+
+test("expires includes time smear", () => {
   expect(
     milliSecondsUntilExpires(0, 1000, DateTime.utc(1970, 1, 1, 0, 0, 0))
   ).toBe(1000);

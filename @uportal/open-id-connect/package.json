@@ -6,10 +6,20 @@
     "type": "git",
     "url": "git+https://github.com/ChristianMurphy/uPortal-components.git"
   },
-  "files": ["src/open-id-connect.js", "dist/open-id-connect.js"],
+  "files": [
+    "src/open-id-connect.js",
+    "dist/open-id-connect.js"
+  ],
   "main": "dist/open-id-connect.js",
   "module": "src/open-id-connect.js",
-  "keywords": ["apereo", "uportal", "open", "id", "connect", "oidc"],
+  "keywords": [
+    "apereo",
+    "uportal",
+    "open",
+    "id",
+    "connect",
+    "oidc"
+  ],
   "author": "Apereo <uportal-dev@apereo.org>",
   "license": "Apache-2.0",
   "bugs": {
@@ -36,7 +46,9 @@
     "jest": "^22.4.3"
   },
   "eslintConfig": {
-    "extends": ["plugin:jest/recommended"],
+    "extends": [
+      "plugin:jest/recommended"
+    ],
     "parserOptions": {
       "ecmaVersion": 2017,
       "sourceType": "module"
@@ -47,7 +59,13 @@
     }
   },
   "babel": {
-    "presets": ["env", "minify"]
+    "presets": [
+      "env",
+      "minify"
+    ]
   },
-  "browserslist": ["> 1%", "not dead"]
+  "browserslist": [
+    "> 1%",
+    "not dead"
+  ]
 }

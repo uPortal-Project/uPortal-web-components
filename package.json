@@ -33,9 +33,7 @@
     "test": "npm-run-all test:* lint:*",
     "test:packages": "lerna run test"
   },
-  "workspaces": [
-    "@uportal/*"
-  ],
+  "workspaces": ["@uportal/*"],
   "commitlint": {
     "extends": [
       "@commitlint/config-conventional",
@@ -44,10 +42,7 @@
   },
   "eslintConfig": {
     "root": true,
-    "extends": [
-      "eslint:recommended",
-      "google"
-    ]
+    "extends": ["eslint:recommended", "google"]
   },
   "gitHooks": {
     "commit-msg": "commitlint -e",
@@ -65,10 +60,7 @@
     "plugins": [
       "preset-lint-recommended",
       "validate-links",
-      [
-        "remark-lint-list-item-indent",
-        "mixed"
-      ]
+      ["remark-lint-list-item-indent", "mixed"]
     ]
   },
   "renovate": {
