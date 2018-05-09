@@ -1,5 +1,7 @@
 # uPortal Open ID Connect
 
+[![Build Status](https://travis-ci.org/ChristianMurphy/uPortal-components.svg?branch=master)](https://travis-ci.org/ChristianMurphy/uPortal-components)
+
 > A client side abstraction to efficiently get Open ID Connect tokens from uPortal
 
 ## Installation
