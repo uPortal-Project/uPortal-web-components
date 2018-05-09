@@ -1,5 +1,6 @@
 # uPortal Open ID Connect
 
+[![NPM Version](https://img.shields.io/npm/v/@uportal/open-id-connect.svg)](https://www.npmjs.com/package/@uportal/open-id-connect)
 [![Build Status](https://travis-ci.org/ChristianMurphy/uPortal-components.svg?branch=master)](https://travis-ci.org/ChristianMurphy/uPortal-components)
 
 > A client side abstraction to efficiently get Open ID Connect tokens from uPortal
@@ -65,8 +66,24 @@ _use with ES6+_
 ```js
 import oicd from '@uportal/open-id-connect';
 
+// with default values
 try {
   const {encoded, decoded} = await oidc();
+  console.log(encoded);
+  console.log(decoded);
+} catch (err) {
+  console.error(err);
+}
+
+// with options
+try {
+  const {encoded, decoded} = await oidc({
+    userInfoApiUrl: '/uPortal/api/v5-1/userinfo',
+    timeout: 5000,
+    propertyTransforms: {
+      example: JSON.parse
+    }
+  });
   console.log(encoded);
   console.log(decoded);
 } catch (err) {
@@ -82,7 +99,10 @@ oidc(options, callback); //-> Promise
 
 * (optional) **Options**
   * (optional) _string_ `userInfoApiUrl` - URL for Open ID Connect endpoint
-  * (optional) _number_ smear - time smear to account for potential [clock skew](https://en.wikipedia.org/wiki/Clock_skew)
+  * (optional) _number_ timeout - time until token should be renewed
+  * (optional) _object_ propertyTransforms - transforms to apply to specific properties
+    * _string_ `key` - name of property to be transformed
+    * _function_ `value` - function to apply to property
 * (optional) **Callback**
   * _Error_ `err` - null if resonse is okay, error object otherwise
   * _Object_ `token` - object with `encoded` and `decoded` keys

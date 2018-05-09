@@ -1,5 +1,6 @@
 # uPortal Open ID Connect
 
+[![NPM Version](https://img.shields.io/npm/v/@uportal/open-id-connect.svg)](https://www.npmjs.com/package/@uportal/open-id-connect)
 [![Build Status](https://travis-ci.org/ChristianMurphy/uPortal-components.svg?branch=master)](https://travis-ci.org/ChristianMurphy/uPortal-components)
 
 > A client side abstraction to efficiently get Open ID Connect tokens from uPortal
@@ -35,7 +36,7 @@ compile 'org.webjars.npm:uportal__open-id-connect:{version number goes here}'
 _use with ES5_
 
 ```js
-var oidc = require('@uportal/open-id-connect');
+var oidc = require("@uportal/open-id-connect");
 
 // with a promise
 oidc
