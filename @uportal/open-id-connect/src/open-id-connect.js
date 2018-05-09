@@ -35,7 +35,7 @@ export default async function openIdConnect(
     timeout = 50000,
     propertyTransforms = {},
   } = {},
-  callback = () => {}
+  callback
 ) {
   // If there already is a valid token, resolve it
   if (token !== null) {
@@ -60,18 +60,20 @@ export default async function openIdConnect(
     }, timeout);
 
     // pass value to optional call back
-    callback(null, token);
+    if (callback) {
+      return callback(null, token);
+    }
 
     // resolve the promise
     return token;
   } catch (err) {
-    if (!callback) {
-      // re-throw error for promises
-      throw err;
+    // pass back error for callback
+    if (callback) {
+      return callback(err);
     }
 
-    // pass back error for callback
-    callback(err);
+    // re-throw error for promises
+    throw err;
   }
 }
 
