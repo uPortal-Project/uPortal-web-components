@@ -1,6 +1,6 @@
-# uPortal Components
+# uPortal Web Components
 
-[![Build Status](https://travis-ci.org/ChristianMurphy/uPortal-components.svg?branch=master)](https://travis-ci.org/ChristianMurphy/uPortal-components)
+[![Build Status](https://travis-ci.org/ChristianMurphy/uPortal-web-components.svg?branch=master)](https://travis-ci.org/ChristianMurphy/uPortal-web-components)
 
 > A collection of reusable, standardized, and accessible [web components][] for [uPortal][]
 

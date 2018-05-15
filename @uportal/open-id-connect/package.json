@@ -4,28 +4,18 @@
   "version": "0.0.7",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ChristianMurphy/uPortal-components.git"
+    "url": "git+https://github.com/ChristianMurphy/uPortal-web-components.git"
   },
-  "files": [
-    "src/open-id-connect.js",
-    "dist/open-id-connect.js"
-  ],
+  "files": ["src/open-id-connect.js", "dist/open-id-connect.js"],
   "main": "dist/open-id-connect.js",
   "module": "src/open-id-connect.js",
-  "keywords": [
-    "apereo",
-    "uportal",
-    "open",
-    "id",
-    "connect",
-    "oidc"
-  ],
+  "keywords": ["apereo", "uportal", "open", "id", "connect", "oidc"],
   "author": "Apereo <uportal-dev@apereo.org>",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/ChristianMurphy/uPortal-components/issues"
+    "url": "https://github.com/ChristianMurphy/uPortal-web-components/issues"
   },
-  "homepage": "https://christianmurphy.github.io/uPortal-components/",
+  "homepage": "https://christianmurphy.github.io/uPortal-web-components/",
   "publishConfig": {
     "access": "public"
   },
@@ -60,13 +50,7 @@
     }
   },
   "babel": {
-    "presets": [
-      "env",
-      "minify"
-    ]
+    "presets": ["env", "minify"]
   },
-  "browserslist": [
-    "> 1%",
-    "not dead"
-  ]
+  "browserslist": ["> 1%", "not dead"]
 }
