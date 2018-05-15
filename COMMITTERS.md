@@ -2,9 +2,11 @@
 
 # Project Lead
 
-@ChristianMurphy
+Christian Murphy (@ChristianMurphy)
 
 # Committers
 
-* @ChristianMurphy
-* @bjagg
+* Benito Gonzalez (@bjagg)
+* Chris Beach (@cbeach47)
+* Christian Murphy (@ChristianMurphy)
+* Drew Wills (@DrewWills)
