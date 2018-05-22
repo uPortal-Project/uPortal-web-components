@@ -35,7 +35,6 @@
     "@babel/preset-env": "^7.0.0-0",
     "babel-core": "^7.0.0-0",
     "babel-jest": "^22.4.4",
-    "babel-preset-minify": "^0.4.1",
     "eslint-plugin-jest": "^21.15.1",
     "jest": "^22.4.4"
   },
@@ -58,10 +57,9 @@
       [
         "@babel/preset-env",
         {
-          "useBuiltIns": "entry"
+          "useBuiltIns": "usage"
         }
-      ],
-      "minify"
+      ]
     ]
   },
   "browserslist": ["last 2 versions", "> 1%", "not dead"]
