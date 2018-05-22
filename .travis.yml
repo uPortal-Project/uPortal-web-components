@@ -5,5 +5,5 @@ node_js:
 script:
   - yarn test
   - yarn lint
-  - yarn commit:travis
+  - yarn ci:commitlint
 cache: yarn
