@@ -4,22 +4,15 @@
   "version": "0.0.8",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ChristianMurphy/uPortal-web-components.git"
+    "url": "git+https://github.com/uPortal-contrib/uPortal-web-components.git"
   },
-  "keywords": [
-    "apereo",
-    "uportal",
-    "content",
-    "carousel",
-    "browse",
-    "list"
-  ],
+  "keywords": ["apereo", "uportal", "content", "carousel", "browse", "list"],
   "author": "Apereo <uportal-dev@apereo.org>",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/ChristianMurphy/uPortal-web-components/issues"
+    "url": "https://github.com/uPortal-contrib/uPortal-web-components/issues"
   },
-  "homepage": "https://christianmurphy.github.io/uPortal-web-components/",
+  "homepage": "https://uportal-contrib.github.io/uPortal-web-components/",
   "publishConfig": {
     "access": "public"
   },
@@ -41,22 +34,13 @@
     "vue-template-compiler": "^2.5.13"
   },
   "babel": {
-    "presets": [
-      "@vue/app"
-    ]
+    "presets": ["@vue/app"]
   },
   "eslintConfig": {
-    "extends": [
-      "plugin:vue/essential"
-    ]
+    "extends": ["plugin:vue/essential"]
   },
   "jest": {
-    "moduleFileExtensions": [
-      "js",
-      "jsx",
-      "json",
-      "vue"
-    ],
+    "moduleFileExtensions": ["js", "jsx", "json", "vue"],
     "transform": {
       "^.+\\.vue$": "vue-jest",
       "^.+\\.jsx?$": "babel-jest"
@@ -64,17 +48,12 @@
     "moduleNameMapper": {
       "^@/(.*)$": "<rootDir>/src/$1"
     },
-    "snapshotSerializers": [
-      "jest-serializer-vue"
-    ]
+    "snapshotSerializers": ["jest-serializer-vue"]
   },
   "postcss": {
     "plugins": {
       "autoprefixer": {}
     }
   },
-  "browserslist": [
-    "> 1%",
-    "not ie < 11"
-  ]
+  "browserslist": ["> 1%", "not ie < 11"]
 }

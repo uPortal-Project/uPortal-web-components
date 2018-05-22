@@ -9,7 +9,7 @@
 ## Installation
 
 1.  From a terminal or command line
-2.  `git clone https://github.com/ChristianMurphy/uPortal-web-components`
+2.  `git clone https://github.com/uPortal-contrib/uPortal-web-components`
 3.  `cd uPortal-web-components`
 4.  `yarn`
 
