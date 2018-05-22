@@ -6,20 +6,10 @@
     "type": "git",
     "url": "git+https://github.com/uPortal-contrib/uPortal-web-components.git"
   },
-  "files": [
-    "src/open-id-connect.js",
-    "dist/open-id-connect.js"
-  ],
+  "files": ["src/open-id-connect.js", "dist/open-id-connect.js"],
   "main": "dist/open-id-connect.js",
   "module": "src/open-id-connect.js",
-  "keywords": [
-    "apereo",
-    "uportal",
-    "open",
-    "id",
-    "connect",
-    "oidc"
-  ],
+  "keywords": ["apereo", "uportal", "open", "id", "connect", "oidc"],
   "author": "Apereo <uportal-dev@apereo.org>",
   "license": "Apache-2.0",
   "bugs": {
@@ -40,11 +30,11 @@
     "jsonwebtoken": "^8.2.1"
   },
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-preset-env": "^1.6.1",
+    "babel-cli": "^7.0.0-beta.3",
+    "babel-preset-env": "^7.0.0-beta.3",
     "babel-preset-minify": "^0.4.1",
     "eslint-plugin-jest": "^21.15.1",
-    "jest": "^22.4.3"
+    "jest": "^23.0.0-charlie.3"
   },
   "eslintConfig": {
     "parserOptions": {
@@ -65,15 +55,11 @@
       [
         "env",
         {
-          "useBuiltIns": true
+          "useBuiltIns": "entry"
         }
       ],
       "minify"
     ]
   },
-  "browserslist": [
-    "last 2 versions",
-    "> 1%",
-    "not dead"
-  ]
+  "browserslist": ["last 2 versions", "> 1%", "not dead"]
 }
