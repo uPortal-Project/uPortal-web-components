@@ -1,7 +1,7 @@
 # Content Carousel
 
 [![NPM Version](https://img.shields.io/npm/v/@uportal/content-carousel.svg)](https://www.npmjs.com/package/@uportal/content-carousel)
-[![Build Status](https://travis-ci.org/ChristianMurphy/uPortal-web-components.svg?branch=master)](https://travis-ci.org/ChristianMurphy/uPortal-web-components)
+[![Build Status](https://travis-ci.org/uPortal-contrib/uPortal-web-components.svg?branch=master)](https://travis-ci.org/uPortal-contrib/uPortal-web-components)
 
 ## Installation
 
