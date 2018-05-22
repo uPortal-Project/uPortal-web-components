@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Documentation
 
 * Add release notes in _CHANGELOG.md_.
+* Add links to component documentation from _README.md_
 
 ### Build
 
