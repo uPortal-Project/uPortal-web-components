@@ -1,6 +1,6 @@
 {
   "name": "@uportal/content-carousel",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "scripts": {
     "build": "vue-cli-service build --name content-carousel --target wc",
     "test": "vue-cli-service lint",
@@ -21,10 +21,15 @@
     "vue-template-compiler": "^2.5.16"
   },
   "babel": {
-    "presets": ["@vue/app"]
+    "presets": [
+      "@vue/app"
+    ]
   },
   "eslintConfig": {
-    "extends": ["plugin:vue/essential", "@vue/prettier"],
+    "extends": [
+      "plugin:vue/essential",
+      "@vue/prettier"
+    ],
     "root": true,
     "env": {
       "node": true
@@ -39,7 +44,10 @@
       "autoprefixer": {}
     }
   },
-  "browserslist": ["> 1%", "not ie < 11"],
+  "browserslist": [
+    "> 1%",
+    "not ie < 11"
+  ],
   "publishConfig": {
     "access": "public"
   },
@@ -49,7 +57,14 @@
   },
   "license": "Apache-2.0",
   "author": "Apereo <uportal-dev@apereo.org>",
-  "keywords": ["apereo", "uportal", "content", "carousel", "browse", "list"],
+  "keywords": [
+    "apereo",
+    "uportal",
+    "content",
+    "carousel",
+    "browse",
+    "list"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/uPortal-contrib/uPortal-web-components.git"
