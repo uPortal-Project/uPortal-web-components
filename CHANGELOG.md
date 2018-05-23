@@ -10,6 +10,17 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Documentation
 
 * Add release notes in _CHANGELOG.md_.
+* Add links to component documentation from _README.md_
+* Add a guide for creating a Vue web component
+
+### Build
+
+* Upgrade build to leverage Babel 7
+
+### Test
+
+* Ensure test processes leverage Babel 7
+* Correct commit message checking script on Travis CI
 
 ## [0.0.9][] - 2018-05-22
 

@@ -46,6 +46,11 @@ For example an `example-component` would be loaded by adding
 <script src="node_modules/@uportal/example-component/dist/js/example-component.js"></script>
 ```
 
+## Components
+
+* [Content Carousel](components/content-carousel/README.md)
+* [Open ID Connect](components/open-id-connect/README.md)
+
 ## Contribute
 
 uPortal Components are built by people just like you! Check out [CONTRIBUTING.md][] for ways to get started.
@@ -57,6 +62,7 @@ Want to chat with the community and contributors? Join us in [Slack][] and the [
 * [Local Project Setup](developer/SETUP.md)
 * [Project Automation Tools](developer/AUTOMATION.md)
 * [Project Conventions and Practices](developer/CONVENTIONS.md)
+* [Creating a Vue web component](developer/VUE-COMPONENT.md)
 
 [contributing.md]: ../../CONTRIBUTING.md
 [gradle]: https://docs.gradle.org

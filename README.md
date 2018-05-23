@@ -46,6 +46,11 @@ For example an `example-component` would be loaded by adding
 <script src="node_modules/@uportal/example-component/dist/js/example-component.js"></script>
 ```
 
+## Components
+
+* [Content Carousel](@uportal/content-carousel/README.md)
+* [Open ID Connect](@uportal/open-id-connect/README.md)
+
 ## Contribute
 
 uPortal Components are built by people just like you! Check out [CONTRIBUTING.md][] for ways to get started.
