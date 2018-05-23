@@ -62,6 +62,7 @@ Want to chat with the community and contributors? Join us in [Slack][] and the [
 * [Local Project Setup](developer/SETUP.md)
 * [Project Automation Tools](developer/AUTOMATION.md)
 * [Project Conventions and Practices](developer/CONVENTIONS.md)
+* [Creating a Vue web component](developer/VUE-COMPONENT.md)
 
 [contributing.md]: ../../CONTRIBUTING.md
 [gradle]: https://docs.gradle.org
