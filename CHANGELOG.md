@@ -7,11 +7,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased][]
 
+## [1.0.1][] - 2018-05-23
+
 ### Fix
 
 * **content-carousel**: Ensure `browserslist` support query can be handled by Vue CLI service.
 
-## [1.0.0][]
+## [1.0.0][] - 2018-05-23
 
 ### Documentation
 
@@ -101,7 +103,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 * **open-id-connect**: Initial version of an OpenID Connect helper script to use in web components and JavaScript modules.
 * **content-carousel**: Initial version of content carousel, a carousel based portlet metadata display system.
 
-[unreleased]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.0.0...HEAD
+[unreleased]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.0.1...HEAD
+[1.0.1]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.0.0...1.0.1
 [1.0.0]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v0.0.9...1.0.0
 [0.0.9]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v0.0.8...v0.0.9
 [0.0.8]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v0.0.7...v0.0.8
