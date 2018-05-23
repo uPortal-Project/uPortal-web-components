@@ -1,15 +1,25 @@
 {
   "name": "@uportal/open-id-connect",
   "description": "A shared Open ID Connect authorization helper for uPortal",
-  "version": "0.0.9",
+  "version": "1.0.0",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/uPortal-contrib/uPortal-web-components.git"
   },
-  "files": ["src/open-id-connect.js", "dist/open-id-connect.js"],
+  "files": [
+    "src/open-id-connect.js",
+    "dist/open-id-connect.js"
+  ],
   "main": "dist/open-id-connect.js",
   "module": "src/open-id-connect.js",
-  "keywords": ["apereo", "uportal", "open", "id", "connect", "oidc"],
+  "keywords": [
+    "apereo",
+    "uportal",
+    "open",
+    "id",
+    "connect",
+    "oidc"
+  ],
   "author": "Apereo <uportal-dev@apereo.org>",
   "license": "Apache-2.0",
   "bugs": {
@@ -62,5 +72,9 @@
       ]
     ]
   },
-  "browserslist": ["last 2 versions", "> 1%", "not dead"]
+  "browserslist": [
+    "last 2 versions",
+    "> 1%",
+    "not dead"
+  ]
 }
