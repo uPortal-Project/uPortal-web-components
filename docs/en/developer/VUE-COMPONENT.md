@@ -12,6 +12,9 @@
 # clone the repository if you haven't already
 git clone https://github.com/uPortal-contrib/uPortal-web-components
 
+# install vue cli if you haven't already
+npm install --global vue-cli
+
 # navigate to the packages folder
 cd uPortal-web-components/@uportal
 
