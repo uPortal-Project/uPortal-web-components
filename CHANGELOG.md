@@ -11,6 +11,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 * Add webjar version badge to each component _README.md_
 
+## Test
+
+* Update Jest test library to version 23
+* Update ESLint plugin Jest to version 23
+
 ## [1.0.1][] - 2018-05-23
 
 ### Fix
