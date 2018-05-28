@@ -1,5 +1,5 @@
 import {get} from 'axios';
-import {decode} from 'jsonwebtoken';
+import decode from 'jsonwebtoken/decode';
 import 'babel-polyfill'; // needed to apply async/await polyfills
 
 let token = null;
