@@ -13,14 +13,14 @@
 git clone https://github.com/uPortal-contrib/uPortal-web-components
 
 # install vue cli if you haven't already
-npm install --global vue-cli
+npm install --global @vue/cli
 
 # navigate to the packages folder
 cd uPortal-web-components/@uportal
 
 # generate a new application template
 # replace {component-name} with the desired name for the component
-vue create {component-name} --default
+vue init {component-name} --default
 
 # navigate into newly created component folder
 cd {component-name}
