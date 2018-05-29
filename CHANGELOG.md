@@ -15,12 +15,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Documentation
 
-* Add webjar version badge to each component _README.md_
+* Add webjar version badge to each component _README.md_.
 
 ### Test
 
-* Update Jest test library to version 23
-* Update ESLint plugin Jest to version 23
+* Update Jest test library to version 23.
+* Update ESLint plugin Jest to version 23.
 
 ## [1.0.1][] - 2018-05-23
 
@@ -33,17 +33,17 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Documentation
 
 * Add release notes in _CHANGELOG.md_.
-* Add links to component documentation from _README.md_
-* Add a guide for creating a Vue web component
+* Add links to component documentation from _README.md_.
+* Add a guide for creating a Vue web component.
 
 ### Build
 
-* Upgrade build to leverage Babel 7
+* Upgrade build to leverage Babel 7.
 
 ### Test
 
-* Ensure test processes leverage Babel 7
-* Correct commit message checking script on Travis CI
+* Ensure test processes leverage Babel 7.
+* Correct commit message checking script on Travis CI.
 
 ## [0.0.9][] - 2018-05-22
 
@@ -64,7 +64,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Documentation
 
 * Update project name from `uPortal-components` to `uPortal-web-components`.
-* Document people with write access in _COMMITTERS.md_
+* Document people with write access in _COMMITTERS.md_.
 
 ## [0.0.7][] - 2018-05-09
 
@@ -74,7 +74,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Documentation
 
-* Add NPM version badge to each package _README_
+* Add NPM version badge to each package _README_.
 
 ## [0.0.6][] - 2018-05-09
 
