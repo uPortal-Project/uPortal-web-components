@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased][]
 
+### Build
+
+* **open-id-connect**: manually tree shake `json-web-token` to reduce bundle size.
+
 ## [1.0.2][] - 2018-05-28
 
 ### Documentation
