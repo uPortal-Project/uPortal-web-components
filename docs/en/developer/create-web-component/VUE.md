@@ -52,7 +52,7 @@ edit the build step to automatically generate a web component
 Done!
 There is now a new component added to the project.
 
-Use `yarn` and `yarn start` to start a demo web server and follow the [Vue guide][] to see how to build a component
+Use `npm install` and `npm run serve` to start a demo web server and follow the [Vue guide][] to see how to build a component
 
 [git]: https://git-scm.com/download
 [node.js]: https://nodejs.org/en/download/
