@@ -64,13 +64,14 @@ Want to chat with the community and contributors? Join us in [Slack][] and the [
 * [Project Conventions and Practices](developer/CONVENTIONS.md)
 * Create a Web Component:
   * [without a framework](developer/create-web-component/PLAIN.md)
-  * [in Angular.js](developer/create-web-component/ANGULAR-JS.md)
   * [in Angular](developer/create-web-component/ANGULAR.md)
-  * [in Polymer](developer/create-web-component/POLYMER.md)
-  * [in Preact](developer/create-web-component/PREACT.md)
+  * [in Polymer](developer/create-web-component/POLYMER.md) :star:
+  * [in Preact](developer/create-web-component/PREACT.md) :star:
   * [in React](developer/create-web-component/REACT.md)
   * [in Svelte](developer/create-web-component/SVELTE.md)
-  * [in Vue](developer/create-web-component/VUE.md)
+  * [in Vue](developer/create-web-component/VUE.md) :star:
+
+:star: Recommended
 
 [contributing.md]: ../../CONTRIBUTING.md
 [gradle]: https://docs.gradle.org

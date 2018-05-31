@@ -1,5 +1,20 @@
 # Creating a Vue Web Component
 
+> The Progressive JavaScript Framework
+
+<https://vuejs.org>
+
+## Advantages
+
+* Vue has official support for web components
+* Vue components are compact, usually under 50kb apiece
+
+## Trade offs
+
+* Vue does not embed the framework in the component
+  * this requires a secondary import
+  * can lead to version conflict
+
 ## Prerequisites
 
 * [Git][]
