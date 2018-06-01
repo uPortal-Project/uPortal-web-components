@@ -4,8 +4,7 @@ node_js:
   - stable # latest stable release
 install:
   - npm install
-  - npm install --global lerna
-  - lerna bootstrap
+  - npx lerna bootstrap
 script:
   - npm test
   - npm run lint
