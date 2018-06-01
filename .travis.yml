@@ -2,6 +2,10 @@ language: node_js
 node_js:
   - lts/* # latest long term support release
   - stable # latest stable release
+install:
+  - npm install
+  - npm install --global lerna
+  - lerna bootstrap
 script:
   - npm test
   - npm run lint
