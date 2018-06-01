@@ -7,12 +7,17 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased][]
 
+### Feature
+
+- **content-carousel**: Code reworked to use a strategy pattern for getting content from different sources.
+- **content-carousel**: Code reworked into Typescript and Sass to provide better developer abstractions.
+
 ### Build
 
 - **open-id-connect**: Manually tree shake `json-web-token` to reduce bundle size.
 - Replace `yarn` with `npm` as package manager
 
-## Documentation
+### Documentation
 
 - Add more information on project conventions.
 - Add required `lerna` step to setup guide.
@@ -25,7 +30,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
   - Svelte
   - Vue
 
-## Test
+### Test
 
 - Ensure that subprojects are bootstraped into lerna on the continuous integration server.
 

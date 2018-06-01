@@ -33,10 +33,31 @@ compile 'org.webjars.npm:uportal__content-carousel:{version number goes here}'
 ## Usage
 
 ```html
-<content-carousel></content-carousel>
-<script src="node_modules/@uportal/content-carousel/dist/js/content-carousel.js"></script>
+<script src="https://unpkg.com/vue"></script>
+<script src="./content-carousel.js"></script>
+
+<div id="example"></div>
+
+<script>
+(() => {
+  const ContentCarousel = customElements.get('content-carousel')
+  const example = new ContentCarousel();
+  example.strategy = function () {
+    return [
+      {
+        id: '7b35d00d-7f7f-449e-a4a0-58a8de88059d',
+        destinationUrl: 'https://example.com',
+        imageUrl: 'http://placehold.it/2000x1000',
+        altText: 'demo'
+      }
+    ];
+  }
+
+  document.getElementById('example').appendChild(example);
+})()
+</script>
 ```
 
 ## Options
 
-TBD
+http://kenwheeler.github.io/slick/#settings
