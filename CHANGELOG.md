@@ -17,7 +17,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Add more information on project conventions.
 - Add required `lerna` step to setup guide.
 - Add guides for creating web components in:
-
   - no framework
   - Angular
   - Polymer
