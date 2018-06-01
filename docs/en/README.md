@@ -62,7 +62,16 @@ Want to chat with the community and contributors? Join us in [Slack][] and the [
 * [Local Project Setup](developer/SETUP.md)
 * [Project Automation Tools](developer/AUTOMATION.md)
 * [Project Conventions and Practices](developer/CONVENTIONS.md)
-* [Creating a Vue web component](developer/VUE-COMPONENT.md)
+* Create a Web Component:
+  * [without a framework](developer/create-web-component/PLAIN.md)
+  * [in Angular](developer/create-web-component/ANGULAR.md)
+  * [in Polymer](developer/create-web-component/POLYMER.md) :star:
+  * [in Preact](developer/create-web-component/PREACT.md) :star:
+  * [in React](developer/create-web-component/REACT.md)
+  * [in Svelte](developer/create-web-component/SVELTE.md)
+  * [in Vue](developer/create-web-component/VUE.md) :star:
+
+:star: Recommended
 
 [contributing.md]: ../../CONTRIBUTING.md
 [gradle]: https://docs.gradle.org

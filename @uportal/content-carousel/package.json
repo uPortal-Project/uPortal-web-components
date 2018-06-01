@@ -3,8 +3,6 @@
   "version": "1.0.2",
   "scripts": {
     "build": "vue-cli-service build --name content-carousel --target wc",
-    "test": "vue-cli-service lint",
-    "lint": "vue-cli-service lint",
     "prepublishOnly": "npm run build",
     "start": "vue-cli-service serve"
   },
@@ -14,10 +12,7 @@
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.0.0-beta.11",
-    "@vue/cli-plugin-eslint": "^3.0.0-beta.11",
-    "@vue/cli-plugin-unit-jest": "^3.0.0-beta.11",
     "@vue/cli-service": "^3.0.0-beta.11",
-    "@vue/eslint-config-prettier": "^3.0.0-beta.11",
     "vue-template-compiler": "^2.5.16"
   },
   "babel": {

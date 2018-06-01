@@ -3,7 +3,7 @@
 ## Formatting
 
 This project follows the [Google Code Style][], to simplify the process
-[prettier][] a `yarn format` script is provided that will automatically adapt
+[prettier][] a `npm run format` script is provided that will automatically adapt
 code to meet a majority of the [Google Code Style][] conventions.
 
 ## Static Analysis
