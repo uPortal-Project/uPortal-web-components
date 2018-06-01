@@ -2,37 +2,22 @@
   "name": "@uportal/content-carousel",
   "version": "1.0.2",
   "scripts": {
+    "serve": "vue-cli-service serve",
     "build": "vue-cli-service build --name content-carousel --target wc",
-    "prepublishOnly": "npm run build",
-    "start": "vue-cli-service serve"
+    "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "vue": "^2.5.13",
-    "vue-carousel": "^0.7.1"
+    "vue": "^2.5.16",
+    "vue-class-component": "^6.0.0",
+    "vue-property-decorator": "^6.0.0"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^3.0.0-beta.11",
-    "@vue/cli-service": "^3.0.0-beta.11",
+    "@vue/cli-plugin-babel": "^3.0.0-beta.15",
+    "@vue/cli-plugin-typescript": "^3.0.0-beta.15",
+    "@vue/cli-service": "^3.0.0-beta.15",
+    "node-sass": "^4.9.0",
+    "sass-loader": "^7.0.1",
     "vue-template-compiler": "^2.5.16"
-  },
-  "babel": {
-    "presets": [
-      "@vue/app"
-    ]
-  },
-  "eslintConfig": {
-    "extends": [
-      "plugin:vue/essential",
-      "@vue/prettier"
-    ],
-    "root": true,
-    "env": {
-      "node": true
-    },
-    "rules": {},
-    "parserOptions": {
-      "parser": "babel-eslint"
-    }
   },
   "postcss": {
     "plugins": {
@@ -41,11 +26,9 @@
   },
   "browserslist": [
     "> 1%",
-    "not ie < 11"
+    "last 2 versions",
+    "not ie <= 8"
   ],
-  "publishConfig": {
-    "access": "public"
-  },
   "description": "Display portlet content in a browsable carousel",
   "bugs": {
     "url": "https://github.com/uPortal-contrib/uPortal-web-components/issues"
