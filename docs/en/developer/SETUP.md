@@ -11,6 +11,7 @@
 2.  `git clone https://github.com/uPortal-contrib/uPortal-web-components`
 3.  `cd uPortal-web-components`
 4.  `npm install`
+5.  `npx lerna bootstrap`
 
 ## Running a Component Locally
 

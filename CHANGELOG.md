@@ -15,7 +15,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## Documentation
 
 - Add more information on project conventions.
+- Add required `lerna` step to setup guide.
 - Add guides for creating web components in:
+
   - no framework
   - Angular
   - Polymer
@@ -23,6 +25,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
   - React
   - Svelte
   - Vue
+
+## Test
+
+- Ensure that subprojects are bootstraped into lerna on the continuous integration server.
 
 ## [1.0.2][] - 2018-05-28
 
