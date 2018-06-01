@@ -1,19 +1,17 @@
 <template>
   <slick
-  ref="slick"
   :options="slickOptions">
-  <a href="http://placehold.it/2000x1000">{{ msg }}</a>
-  <a href="http://placehold.it/2000x1000"><img src="http://placehold.it/2000x1000" alt=""></a>
-  <a href="http://placehold.it/2000x1000"><img src="http://placehold.it/2000x1000" alt=""></a>
-  <a href="http://placehold.it/2000x1000"><img src="http://placehold.it/2000x1000" alt=""></a>
-  <a href="http://placehold.it/2000x1000"><img src="http://placehold.it/2000x1000" alt=""></a>
+  <a v-for="item in computedItems" :key="item.id" :href="item.destinationUrl">
+    <img :src="item.imageUrl" :alt="item.altText">
+  </a>
 </slick>
 
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from 'vue-property-decorator';
+import { Component, Prop, Provide, Vue } from 'vue-property-decorator';
 import Slick from 'vue-slick';
+import { CarouselStrategy, CarouselItem } from './../lib/Definitions';
 
 @Component({
   components: {
@@ -21,10 +19,19 @@ import Slick from 'vue-slick';
   },
 })
 export default class ContentCarousel extends Vue {
-  @Prop() private msg!: string;
+  @Prop() public strategy!: CarouselStrategy;
+  @Prop() public slickOptions: any; // TODO: track down an official slick options type definition
+
+  get computedItems() {
+    if (typeof this.strategy === 'function') {
+      return this.strategy({});
+    } else {
+      return [];
+    }
+  }
 }
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
 @import '../../node_modules/slick-carousel/slick/slick.css';
 </style>

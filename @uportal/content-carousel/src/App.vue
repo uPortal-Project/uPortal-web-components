@@ -1,15 +1,18 @@
 <template>
-  <ContentCarousel msg="Welcome to Your Vue.js + TypeScript App"/>
+  <ContentCarousel :strategy="demoStrategy"/>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+import { Component, Provide, Vue } from 'vue-property-decorator';
 import ContentCarousel from './components/ContentCarousel.vue';
+import { demoStrategy } from './lib/DemoStrategy';
 
 @Component({
   components: {
     ContentCarousel,
   },
 })
-export default class App extends Vue {}
+export default class App extends Vue {
+  @Provide() private demoStrategy = demoStrategy;
+}
 </script>

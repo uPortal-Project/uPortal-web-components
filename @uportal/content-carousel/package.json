@@ -3,7 +3,7 @@
   "version": "1.0.2",
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build --name content-carousel --target wc",
+    "build": "vue-cli-service build --name content-carousel --target wc 'src/components/*.vue'",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
