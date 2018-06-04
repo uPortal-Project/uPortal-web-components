@@ -1,4 +1,4 @@
-import {CarouselStrategy, CarouselItem} from './Definitions';
+import { CarouselStrategy, CarouselItem } from './Definitions';
 
 export const demoStrategy: CarouselStrategy = () => [
     {
