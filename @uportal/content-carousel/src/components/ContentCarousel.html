@@ -1,0 +1,6 @@
+<slick
+  :options="slickOptions">
+  <a v-for="item in computedItems" :key="item.id" :href="item.destinationUrl">
+    <img :src="item.imageUrl" :alt="item.altText">
+  </a>
+</slick>

@@ -7,4 +7,4 @@ interface CarouselItem {
 
 type CarouselStrategy = (options: any) => CarouselItem[];
 
-export {CarouselItem, CarouselStrategy};
+export { CarouselItem, CarouselStrategy };
