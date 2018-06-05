@@ -9,7 +9,7 @@ import { CarouselItem, DataStrategy } from './../lib/Definitions';
 })
 export default class ContentCarousel extends Vue {
     @Prop() public strategy!: DataStrategy;
-    @Prop() public slickOptions: any; // TODO: track down an official slick options type definition
+    @Prop() public slickOptions: any;
 
     get computedItems(): CarouselItem[] {
         return this.strategy.items;
