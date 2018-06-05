@@ -35,7 +35,7 @@ cd uPortal-web-components/@uportal
 
 # generate a new application template
 # replace {component-name} with the desired name for the component
-vue init {component-name} --default
+vue create {component-name} --default
 
 # navigate into newly created component folder
 cd {component-name}
