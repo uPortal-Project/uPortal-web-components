@@ -1,12 +1,28 @@
 <template>
-  <ContentCarousel :strategy="demoStrategy" :slickOptions="options"/>
+  <main>
+    <section>
+      <ContentCarousel :strategy="heroStrategy" :slickOptions="heroOptions" :carouselHeight="heroHeight" :fitToContainer="true" />
+    </section>
+    <section class="content">
+      <ContentCarousel :strategy="contentStrategy" :slickOptions="contentOptions" :carouselHeight="contentHeight" />
+    </section>
+  </main>
 </template>
 <script lang="ts" src="./App.ts">
 </script>
 <style lang="scss">
 body {
-  background: gray;
-  margin: 0px;
-  padding: 0px;
+  background: #dddddd;
+  height: 100%;
+  main {
+    & > section {
+      margin-bottom: 50px;
+
+      &.content {
+        width: 720px;
+        margin: auto;
+      }
+    }
+  }
 }
 </style>

@@ -3,14 +3,13 @@
 @import '../../node_modules/slick-carousel/slick/slick.css';
 @import '../../node_modules/slick-carousel/slick/slick-theme.css';
 
-.slick-slider {
+.slick-container.responsive {
   .slick-list {
-    height: 500px;
     width: 100%;
 
     img {
-      width: 100%;
-      height: auto;
+      max-width: 100%;
+      height: inherit;
       vertical-align: middle;
     }
   }
