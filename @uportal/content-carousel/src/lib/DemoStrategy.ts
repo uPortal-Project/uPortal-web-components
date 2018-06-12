@@ -1,8 +1,9 @@
-import { CarouselStrategy, CarouselItem, DataStrategy } from './Definitions';
+import { DataStrategy } from './Strategy';
 
 export function getDemoStrategy(size: string = '1920x500'): DataStrategy {
   return {
     feed: '',
+    type: 'rss',
     items: [
       {
         id: '7b35d00d-7f7f-449e-a4a0-58a8de88059d',

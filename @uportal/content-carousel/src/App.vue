@@ -1,10 +1,17 @@
 <template>
   <main>
     <section>
-      <ContentCarousel :strategy="heroStrategy" :slickOptions="heroOptions" :carouselHeight="heroHeight" :fitToContainer="true" />
+      <ContentCarousel
+        :rss="'/hero.rss'"
+        :slickOptions="heroOptions"
+        :carouselHeight="heroHeight"
+        :fitToContainer="true" />
     </section>
     <section class="content">
-      <ContentCarousel :strategy="contentStrategy" :slickOptions="contentOptions" :carouselHeight="contentHeight" />
+      <ContentCarousel
+        :rss="'/content.rss'"
+        :slickOptions="contentOptions"
+        :carouselHeight="contentHeight" />
     </section>
   </main>
 </template>
