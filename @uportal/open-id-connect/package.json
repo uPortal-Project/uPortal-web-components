@@ -37,8 +37,8 @@
     "clean": "rimraf -rf global node",
     "build": "npm-run-all clean build:*",
     "build:node": "babel esm/open-id-connect.js -d node",
-    "build:global": "browserify esm/open-id-connect.js -o global/open-id-connect.js -t [ babelify --presets [ \"@babel/preset-env\" ] ]",
-    "build:global-min": "browserify esm/open-id-connect.js -o global/open-id-connect.min.js -p tinyify -t [ babelify --presets [ \"@babel/preset-env\" ] ]",
+    "build:global": "browserify esm/open-id-connect.js -o global/open-id-connect.js",
+    "build:global-min": "browserify esm/open-id-connect.js -o global/open-id-connect.min.js -p tinyify",
     "test": "jest"
   },
   "dependencies": {
@@ -82,6 +82,29 @@
           "targets": {
             "node": "6"
           }
+        }
+      ]
+    ]
+  },
+  "browserify": {
+    "transform": [
+      [
+        "babelify",
+        {
+          "presets": [
+            [
+              "@babel/preset-env",
+              {
+                "modules": "umd",
+                "targets": {
+                  "browsers": [
+                    "last 2 versions",
+                    "not dead"
+                  ]
+                }
+              }
+            ]
+          ]
         }
       ]
     ]
