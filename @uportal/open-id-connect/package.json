@@ -8,10 +8,13 @@
   },
   "files": [
     "esm/open-id-connect.js",
-    "node/open-id-connect.js"
+    "node/open-id-connect.js",
+    "global/open-id-connect.js",
+    "global/open-id-connect.min.js"
   ],
   "main": "node/open-id-connect.js",
   "module": "esm/open-id-connect.js",
+  "browser": "global/open-id-connect.min.js",
   "keywords": [
     "apereo",
     "uportal",
@@ -31,7 +34,11 @@
   },
   "scripts": {
     "prepublishOnly": "npm run build",
-    "build": "babel esm -d node",
+    "clean": "rimraf -rf global node",
+    "build": "npm-run-all clean build:*",
+    "build:node": "babel esm/open-id-connect.js -d node",
+    "build:global": "browserify esm/open-id-connect.js -o global/open-id-connect.js",
+    "build:global-min": "browserify esm/open-id-connect.js -o global/open-id-connect.min.js -p tinyify",
     "test": "jest"
   },
   "dependencies": {
@@ -45,8 +52,12 @@
     "@babel/preset-env": "^7.0.0-0",
     "babel-core": "^7.0.0-0",
     "babel-jest": "^23.0.0",
+    "babelify": "^9.0.0",
+    "browserify": "^16.2.2",
     "eslint-plugin-jest": "^21.15.1",
-    "jest": "^23.0.0"
+    "jest": "^23.0.0",
+    "npm-run-all": "^4.1.3",
+    "tinyify": "^2.4.3"
   },
   "eslintConfig": {
     "parserOptions": {
@@ -71,6 +82,29 @@
           "targets": {
             "node": "6"
           }
+        }
+      ]
+    ]
+  },
+  "browserify": {
+    "transform": [
+      [
+        "babelify",
+        {
+          "presets": [
+            [
+              "@babel/preset-env",
+              {
+                "modules": "umd",
+                "targets": {
+                  "browsers": [
+                    "last 2 versions",
+                    "not dead"
+                  ]
+                }
+              }
+            ]
+          ]
         }
       ]
     ]
