@@ -7,32 +7,36 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased][]
 
+### Feature
+
+- **content-carousel**: Add RSS strategy for content carousel (#22).
+
 ## [1.1.0][] - 2018-06-14
 
 ### Feature
 
-- **content-carousel**: Code reworked to use a strategy pattern for getting content from different sources.
-- **content-carousel**: Code reworked into Typescript and Sass to provide better developer abstractions.
+- **content-carousel**: Code reworked to use a strategy pattern for getting content from different sources (#17).
+- **content-carousel**: Code reworked into Typescript and Sass to provide better developer abstractions (#17).
 
 ### Build
 
-- **open-id-connect**: Manually tree shake `json-web-token` to reduce bundle size.
-- Replace `yarn` with `npm` as package manager
-- **open-id-connect** switch `jsonwebtoken` for `jwt-decode` to further reduce size.
-- **open-id-connect** rename `src` folder to `esm` and `dist` to `node` to better reflect their intended platform
+- **open-id-connect**: Manually tree shake `json-web-token` to reduce bundle size (#15).
+- Replace `yarn` with `npm` as package manager (#16).
+- **open-id-connect** switch `jsonwebtoken` for `jwt-decode` to further reduce size (#21).
+- **open-id-connect** rename `src` folder to `esm` and `dist` to `node` to better reflect their intended platform (#21).
 
 ### Documentation
 
 - Add more information on project conventions.
 - Add required `lerna` step to setup guide.
 - Add guides for creating web components in:
-- no framework
-- Angular
-- Polymer
-- Preact
-- React
-- Svelte
-- Vue
+  - no framework
+  - Angular
+  - Polymer
+  - Preact
+  - React
+  - Svelte
+  - Vue
 
 ### Test
 
