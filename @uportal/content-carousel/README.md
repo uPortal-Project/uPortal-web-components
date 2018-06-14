@@ -60,4 +60,4 @@ compile 'org.webjars.npm:uportal__content-carousel:{version number goes here}'
 
 ## Options
 
-http://kenwheeler.github.io/slick/#settings
+<http://kenwheeler.github.io/slick/#settings>

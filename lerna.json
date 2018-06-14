@@ -1,7 +1,5 @@
 {
   "lerna": "2.10.1",
-  "packages": [
-    "@uportal/*"
-  ],
-  "version": "1.0.2"
+  "packages": ["@uportal/*"],
+  "version": "1.1.0"
 }

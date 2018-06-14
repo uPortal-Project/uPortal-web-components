@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased][]
 
+## [1.1.0][] - 2018-06-14
+
 ### Feature
 
 - **content-carousel**: Code reworked to use a strategy pattern for getting content from different sources.
@@ -16,19 +18,21 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - **open-id-connect**: Manually tree shake `json-web-token` to reduce bundle size.
 - Replace `yarn` with `npm` as package manager
+- **open-id-connect** switch `jsonwebtoken` for `jwt-decode` to further reduce size.
+- **open-id-connect** rename `src` folder to `esm` and `dist` to `node` to better reflect their intended platform
 
 ### Documentation
 
 - Add more information on project conventions.
 - Add required `lerna` step to setup guide.
 - Add guides for creating web components in:
-  - no framework
-  - Angular
-  - Polymer
-  - Preact
-  - React
-  - Svelte
-  - Vue
+- no framework
+- Angular
+- Polymer
+- Preact
+- React
+- Svelte
+- Vue
 
 ### Test
 
@@ -141,7 +145,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - **open-id-connect**: Initial version of an OpenID Connect helper script to use in web components and JavaScript modules.
 - **content-carousel**: Initial version of content carousel, a carousel based portlet metadata display system.
 
-[unreleased]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.0.2...HEAD
+[unreleased]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.1.0...HEAD
+[1.1.0]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.0.2...v1.1.0
 [1.0.2]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.0.1...v1.0.2
 [1.0.1]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v0.0.9...v1.0.0

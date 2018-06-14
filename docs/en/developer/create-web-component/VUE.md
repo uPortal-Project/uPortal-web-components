@@ -6,20 +6,20 @@
 
 ## Advantages
 
-* Vue has official support for web components
-* Vue components are compact, usually under 50kb apiece
+- Vue has official support for web components
+- Vue components are compact, usually under 50kb apiece
 
 ## Trade offs
 
-* Vue does not embed the framework in the component
-  * this requires a secondary import
-  * can lead to version conflict
+- Vue does not embed the framework in the component
+  - this requires a secondary import
+  - can lead to version conflict
 
 ## Prerequisites
 
-* [Git][]
-* [Node.js][] (using [NVM][] is recommended)
-* [Vue CLI][]
+- [Git][]
+- [Node.js][] (using [NVM][] is recommended)
+- [Vue CLI][]
 
 ## Setup
 
@@ -35,7 +35,7 @@ cd uPortal-web-components/@uportal
 
 # generate a new application template
 # replace {component-name} with the desired name for the component
-vue init {component-name} --default
+vue create {component-name} --default
 
 # navigate into newly created component folder
 cd {component-name}
