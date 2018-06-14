@@ -7,11 +7,11 @@
     "url": "git+https://github.com/uPortal-contrib/uPortal-web-components.git"
   },
   "files": [
-    "src/open-id-connect.js",
-    "dist/open-id-connect.js"
+    "esm/open-id-connect.js",
+    "node/open-id-connect.js"
   ],
-  "main": "dist/open-id-connect.js",
-  "module": "src/open-id-connect.js",
+  "main": "node/open-id-connect.js",
+  "module": "esm/open-id-connect.js",
   "keywords": [
     "apereo",
     "uportal",
@@ -31,13 +31,13 @@
   },
   "scripts": {
     "prepublishOnly": "npm run build",
-    "build": "babel src -d dist",
+    "build": "babel esm -d node",
     "test": "jest"
   },
   "dependencies": {
     "axios": "^0.18.0",
     "babel-polyfill": "^6.26.0",
-    "jsonwebtoken": "^8.2.1"
+    "jwt-decode": "^2.2.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.0.0-0",
@@ -67,14 +67,12 @@
       [
         "@babel/preset-env",
         {
-          "useBuiltIns": "usage"
+          "useBuiltIns": "usage",
+          "targets": {
+            "node": "6"
+          }
         }
       ]
     ]
-  },
-  "browserslist": [
-    "last 2 versions",
-    "> 1%",
-    "not dead"
-  ]
+  }
 }
