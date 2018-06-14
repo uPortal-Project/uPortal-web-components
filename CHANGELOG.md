@@ -1,4 +1,21 @@
-# Changelog
+# Change Log
+
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+      <a name="1.1.0"></a>
+# [1.1.0](https://github.com/ChristianMurphy/uPortal-web-components/compare/v1.0.2...v1.1.0) (2018-06-14)
+
+
+### Features
+
+* **content-carousel:** implement strategy pattern for getting content ([cae4ba6](https://github.com/ChristianMurphy/uPortal-web-components/commit/cae4ba6))
+* **content-carousel:** setup slick carousel and vue integration ([58ad3d9](https://github.com/ChristianMurphy/uPortal-web-components/commit/58ad3d9))
+
+
+
+
+      # Changelog
 
 All notable changes to this project will be documented in this file.
 
@@ -23,13 +40,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Add more information on project conventions.
 - Add required `lerna` step to setup guide.
 - Add guides for creating web components in:
-  - no framework
-  - Angular
-  - Polymer
-  - Preact
-  - React
-  - Svelte
-  - Vue
+- no framework
+- Angular
+- Polymer
+- Preact
+- React
+- Svelte
+- Vue
 
 ### Test
 
