@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased][]
 
+### Build
+
+- **open-id-connect**: provide browser ready bundle in `global` folder.
+
 ## [1.1.0][] - 2018-06-14
 
 ### Feature
@@ -18,8 +22,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - **open-id-connect**: Manually tree shake `json-web-token` to reduce bundle size.
 - Replace `yarn` with `npm` as package manager
-- **open-id-connect** switch `jsonwebtoken` for `jwt-decode` to further reduce size.
-- **open-id-connect** rename `src` folder to `esm` and `dist` to `node` to better reflect their intended platform
+- **open-id-connect**: switch `jsonwebtoken` for `jwt-decode` to further reduce size.
+- **open-id-connect**: rename `src` folder to `esm` and `dist` to `node` to better reflect their intended platform
 
 ### Documentation
 

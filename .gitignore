@@ -203,3 +203,4 @@ $RECYCLE.BIN/
 
 !tsconfig.json
 @uportal/open-id-connect/node
+@uportal/open-id-connect/global
