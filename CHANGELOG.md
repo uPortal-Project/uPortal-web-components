@@ -1,21 +1,4 @@
-# Change Log
-
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
-
-      <a name="1.1.0"></a>
-# [1.1.0](https://github.com/ChristianMurphy/uPortal-web-components/compare/v1.0.2...v1.1.0) (2018-06-14)
-
-
-### Features
-
-* **content-carousel:** implement strategy pattern for getting content ([cae4ba6](https://github.com/ChristianMurphy/uPortal-web-components/commit/cae4ba6))
-* **content-carousel:** setup slick carousel and vue integration ([58ad3d9](https://github.com/ChristianMurphy/uPortal-web-components/commit/58ad3d9))
-
-
-
-
-      # Changelog
+# Changelog
 
 All notable changes to this project will be documented in this file.
 
@@ -23,6 +6,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased][]
+
+## [1.1.0][] - 2018-06-14
 
 ### Feature
 
@@ -159,7 +144,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - **open-id-connect**: Initial version of an OpenID Connect helper script to use in web components and JavaScript modules.
 - **content-carousel**: Initial version of content carousel, a carousel based portlet metadata display system.
 
-[unreleased]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.0.2...HEAD
+[unreleased]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.1.0...HEAD
+[1.1.0]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.0.2...v1.1.0
 [1.0.2]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.0.1...v1.0.2
 [1.0.1]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v0.0.9...v1.0.0
