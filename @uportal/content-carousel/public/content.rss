@@ -1,16 +1,16 @@
 <rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/">
-<channel>
-<title>Academic Notices</title>
-<link>http://localhost:8080/Announcements/getRssFeed?topic=2</link>
-<description>Notices to all students, faculty, and staff</description>
-<item>
-<title>Open registration next month from the 1st to the 8th</title>
-<link>http://localhost:8080/uPortal/p/announcements?pP_announcementId=2&amp;pP_action=displayFullAnnouncement</link>
-<description>Open registration for next semester begins next month on the first at 8:00AM</description>
-<pubDate>Mon, 01 Aug 2016 07:00:00 GMT</pubDate>
-<guid>http://localhost:8080/uPortal/p/announcements?pP_announcementId=2&amp;pP_action=displayFullAnnouncement</guid>
-<dc:creator>admin</dc:creator>
-<dc:date>2016-08-01T07:00:00Z</dc:date>
-</item>
-</channel>
+    <channel>
+        <title>Academic Notices</title>
+        <link>http://localhost:8080/Announcements/getRssFeed?topic=2</link>
+        <description>Notices to all students, faculty, and staff</description>
+        <item>
+            <title>Open registration next month from the 1st to the 8th</title>
+            <link>http://localhost:8080/uPortal/p/announcements?pP_announcementId=2&amp;pP_action=displayFullAnnouncement</link>
+            <description>Open registration for next semester begins next month on the first at 8:00AM</description>
+            <pubDate>Mon, 01 Aug 2016 07:00:00 GMT</pubDate>
+            <guid>http://localhost:8080/uPortal/p/announcements?pP_announcementId=2&amp;pP_action=displayFullAnnouncement</guid>
+            <dc:creator>admin</dc:creator>
+            <dc:date>2016-08-01T07:00:00Z</dc:date>
+        </item>
+    </channel>
 </rss>

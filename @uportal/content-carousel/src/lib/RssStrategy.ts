@@ -4,7 +4,7 @@ import { CarouselItem } from '@/lib/CarouselItem';
 export class RssStrategy implements DataStrategy {
     public readonly type = 'RSS';
 
-    public readonly items = [];
+    public readonly items: CarouselItem[] = [];
 
     constructor(
         public feed: string,
@@ -12,44 +12,33 @@ export class RssStrategy implements DataStrategy {
         this.load(feed);
     }
 
+    private getFirst(item: Element, key: string): string {
+        return [
+            ...item.getElementsByTagName(key),
+        ].reduce((c: string, val: Node, index: number) => index < 1 ? `${val.textContent}` : c, '');
+    }
+
     private async load(path: string): Promise<any> {
-        const response = await fetch(`${path}`);
-        if (!response.ok) {
-            throw new Error(response.statusText);
-        }
-        const data = await response.text();
-        const dom = new DOMParser().parseFromString(data, 'application/xml');
-        const items = dom.getElementsByTagName('item');
-        /*
-        items.forEach(item => {
-            this.items.push({
-                id: item.getElementsByTagName('guid')[0].textContent,
-                altText: `${name} - ${description}`
-            });
-        });
-        */
-        return new Promise((resolve, reject) => resolve([]));
-        /*
         try {
             const response = await fetch(`${path}`);
             if (!response.ok) {
                 throw new Error(response.statusText);
             }
-            const data = await response.json();
-            this.items = data.results.map(
-                ({ uuid, name, description, attachments }) => ({
-                    id: uuid,
-                    altText: `${ name } - ${ description }`,
-                    destinationUrl,
-                    imageUrl: attachments[0].links.view
-                })
-            );
-        } catch (err) {
-            // TODO: User-appropriate feedback
-            // eslint-disable-next-line
-            console.error(err);
+            const data = await response.text();
+            const dom = new DOMParser().parseFromString(data, 'application/xml');
+            const rssItems = [...dom.getElementsByTagName('item')];
+            rssItems.forEach((item, index) => {
+                this.items.push({
+                    id: `${index}-${new Date().getTime()}`,
+                    altText: `${this.getFirst(item, 'name')} - ${this.getFirst(item, 'description')}`,
+                    destinationUrl: this.getFirst(item, 'link'),
+                    imageUrl: `http://placehold.it/1920x500`,
+                });
+            });
+            return Promise.resolve(this.items);
+        } catch {
+            return Promise.reject('not found');
         }
-        */
     }
 }
 
