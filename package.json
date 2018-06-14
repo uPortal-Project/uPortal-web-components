@@ -7,7 +7,7 @@
     "@commitlint/travis-cli": "^7.0.0",
     "eslint": "^4.19.1",
     "eslint-config-google": "^0.9.1",
-    "lerna": "^2.10.2",
+    "lerna": "^2.11.0",
     "lint-staged": "^7.0.5",
     "npm-run-all": "^4.1.2",
     "prettier-eslint-cli": "^4.7.1",
