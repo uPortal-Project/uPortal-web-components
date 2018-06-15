@@ -20,10 +20,7 @@
     "@vue/eslint-config-prettier": "^3.0.0-beta.15",
     "vue-template-compiler": "^2.5.16"
   },
-  "entry": [
-    "babel-polyfill",
-    "./src/main.js"
-  ],
+  "entry": ["babel-polyfill", "./src/main.js"],
   "vue": {
     "lintOnSave": true
   },
@@ -32,10 +29,7 @@
       "autoprefixer": {}
     }
   },
-  "browserslist": [
-    "> 1%",
-    "not ie < 11"
-  ],
+  "browserslist": ["> 1%", "not ie < 11"],
   "publishConfig": {
     "access": "public"
   }

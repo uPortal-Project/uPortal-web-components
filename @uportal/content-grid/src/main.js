@@ -8,12 +8,10 @@ Vue.use(lineClamp, {
   // plugin options
 });
 
-
 Vue.config.productionTip = false;
 
 new Vue({
   el: "#app",
   i18n,
-  render: h => h(ContentGrid),
+  render: h => h(ContentGrid)
 });
-

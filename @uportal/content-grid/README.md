@@ -1,12 +1,14 @@
 ## To install dependencies of the project
 
-```npm install```
+`npm install`
 
 ## To run in dev :
-```npm run serve```
+
+`npm run serve`
 
 ## To deploy :
-```npm run build```
+
+`npm run build`
 deploy on webapps/uPortal/scripts/
 
 and Import portlets definition into uPortal :

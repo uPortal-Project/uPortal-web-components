@@ -97,12 +97,13 @@ export default {
           );
           return (
             cats.length > 0 ||
-            portlet.title
-              .toLowerCase().indexOf(filterValue.toLowerCase()) !== -1 ||
-            portlet.name
-              .toLowerCase().indexOf(filterValue.toLowerCase()) !== -1 ||
+            portlet.title.toLowerCase().indexOf(filterValue.toLowerCase()) !==
+              -1 ||
+            portlet.name.toLowerCase().indexOf(filterValue.toLowerCase()) !==
+              -1 ||
             portlet.description
-              .toLowerCase().indexOf(filterValue.toLowerCase()) !== -1
+              .toLowerCase()
+              .indexOf(filterValue.toLowerCase()) !== -1
           );
         });
       } else {
@@ -122,44 +123,43 @@ export default {
         this.filteredPortlets.sort(this.sortPortlets);
       } else {
         oidc({
-          userInfoApiUrl: process.env.VUE_APP_PORTAL_BASE_URL +
-          process.env.VUE_APP_PORTAL_CONTEXT + '/api/v5-1/userinfo', timeout: 180000
+          userInfoApiUrl:
+            process.env.VUE_APP_PORTAL_BASE_URL +
+            process.env.VUE_APP_PORTAL_CONTEXT +
+            "/api/v5-1/userinfo",
+          timeout: 180000
         })
           .then(token => {
-          const options = {
-            method: "GET",
-            credentials: "same-origin",
-            headers: {
-              Authorization: "Bearer " + token.encoded,
-              "Content-Type": "application/json"
-            }
-          };
-        fetch(
-          process.env.VUE_APP_PORTAL_BASE_URL +
-          process.env.VUE_APP_PORTAL_CONTEXT +
-          process.env.VUE_APP_BROWSABLE_PORTLETS_URI,
-          options
-        )
-          .then(checkStatus)
-          .then(parseJSON)
-          .then(data => {
-          console.log("getting data 1 ", data.portlets);
-        this.portlets = data.portlets;
-        console.log("getting data 2", this.filteredPortlets);
-        this.filteredPortlets = this.portlets;
-        console.log("getting data 3", this.filteredPortlets);
-        this.filteredPortlets.sort(this.sortPortlets);
-        console.log("getting data 4", this.filteredPortlets);
-      })
-        ;
+            const options = {
+              method: "GET",
+              credentials: "same-origin",
+              headers: {
+                Authorization: "Bearer " + token.encoded,
+                "Content-Type": "application/json"
+              }
+            };
+            fetch(
+              process.env.VUE_APP_PORTAL_BASE_URL +
+                process.env.VUE_APP_PORTAL_CONTEXT +
+                process.env.VUE_APP_BROWSABLE_PORTLETS_URI,
+              options
+            )
+              .then(checkStatus)
+              .then(parseJSON)
+              .then(data => {
+                console.log("getting data 1 ", data.portlets);
+                this.portlets = data.portlets;
+                console.log("getting data 2", this.filteredPortlets);
+                this.filteredPortlets = this.portlets;
+                console.log("getting data 3", this.filteredPortlets);
+                this.filteredPortlets.sort(this.sortPortlets);
+                console.log("getting data 4", this.filteredPortlets);
+              });
+          })
 
-
-      })
-
-      .
-        catch(function (err) {
-          console.log(err);
-        });
+          .catch(function(err) {
+            console.log(err);
+          });
       }
     }
   },
@@ -192,7 +192,7 @@ export default {
       this.filteredPortlets = this.portlets;
       this.filteredPortlets.sort(this.sortPortlets);
     } else { */
-        //this.fetchPortlets();
+    //this.fetchPortlets();
     //}
   }
 };
