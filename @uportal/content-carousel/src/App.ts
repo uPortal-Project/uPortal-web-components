@@ -20,6 +20,6 @@ export default class App extends Vue {
         dots: true,
     };
 
-    @Provide() private heroHeight = '500px';
+    @Provide() private heroHeight = '30rem';
     @Provide() private contentHeight = 'auto';
 }

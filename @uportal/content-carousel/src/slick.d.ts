@@ -1,3 +1,1 @@
-declare module 'vue-slick' {
-    // import Slick from 'vue-slick';
-}
+declare module 'vue-slick' {}

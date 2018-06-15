@@ -7,14 +7,12 @@
         :carouselHeight="heroHeight"
         :fitToContainer="true" />
     </section>
-    <!--
     <section class="content">
       <ContentCarousel
         :rss="'/content.rss'"
         :slickOptions="contentOptions"
         :carouselHeight="contentHeight" />
     </section>
-    -->
   </main>
 </template>
 <script lang="ts" src="./App.ts">
