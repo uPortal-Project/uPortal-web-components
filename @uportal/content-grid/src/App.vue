@@ -29,7 +29,7 @@
 
 <script>
 import PortletCard from "./components/PortletCard.vue";
-import oidc from "@uportal/open-id-connect/src/open-id-connect";
+import oidc from "@uportal/open-id-connect";
 import i18n from "./i18n.js";
 
 const checkStatus = function(response) {
