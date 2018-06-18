@@ -1,4 +1,4 @@
-import { Component, Prop, Provide, Vue } from 'vue-property-decorator';
+import { Component, Prop, Vue } from 'vue-property-decorator';
 import Slick from 'vue-slick';
 import { DataStrategy } from '../lib/Strategy';
 import { CarouselItem } from '../lib/CarouselItem';
@@ -15,7 +15,7 @@ export default class ContentCarousel extends Vue {
     @Prop([String]) public carouselHeight?: string;
     @Prop([Boolean]) public fitToContainer?: boolean;
 
-    public readonly strategies: DataStrategy[] = [];
+    public strategy: DataStrategy = {items: [] as CarouselItem[]} as DataStrategy;
 
     public mounted(): void {
         const list = Array.from(this.$el.getElementsByClassName('slick-list'));
@@ -24,7 +24,7 @@ export default class ContentCarousel extends Vue {
         }
 
         if (this.rss) {
-            this.strategies.push(new RssStrategy(this.rss));
+            this.strategy = new RssStrategy(this.rss);
         }
     }
 
@@ -37,6 +37,6 @@ export default class ContentCarousel extends Vue {
     }
 
     get computedItems(): CarouselItem[] {
-        return this.strategies.reduce((list, strategy) => [...list, ...strategy.items], [] as CarouselItem[]);
+        return this.strategy.items;
     }
 }
