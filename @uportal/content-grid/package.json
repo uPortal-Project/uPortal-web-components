@@ -4,20 +4,23 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build --name content-grid --target wc",
+    "build": "vue-cli-service build --name content-grid --target wc --mode production",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
     "@uportal/open-id-connect": "^1.1.0",
     "vue": "^2.5.16",
-    "vue-i18n": "^7.8.0",
+    "vue-i18n": "^7.8.1",
     "vue-line-clamp": "^1.2.3"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^3.0.0-beta.15",
-    "@vue/cli-plugin-eslint": "^3.0.0-beta.15",
-    "@vue/cli-service": "^3.0.0-beta.15",
-    "@vue/eslint-config-prettier": "^3.0.0-beta.15",
+    "@vue/cli-plugin-babel": "^3.0.0-rc.3",
+    "@vue/cli-plugin-eslint": "^3.0.0-rc.3",
+    "@vue/cli-service": "^3.0.0-rc.3",
+    "@vue/eslint-config-prettier": "^3.0.0-rc.3",
+    "css-loader": "^0.28.11",
+    "node-sass": "^4.9.0",
+    "sass-loader": "^7.0.3",
     "vue-template-compiler": "^2.5.16"
   },
   "entry": [

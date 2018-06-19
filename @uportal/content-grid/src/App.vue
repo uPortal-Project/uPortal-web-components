@@ -33,8 +33,8 @@ import oidc from "@uportal/open-id-connect";
 import i18n from "./i18n.js";
 
 const checkStatus = function(response) {
-  console.log("check response ", response);
-  if (response.status >= 200 && response.status < 300) {
+  //console.log("check response ", response);
+  if (response.ok) {
     return response;
   } else {
     var error = new Error(response.statusText);
@@ -44,7 +44,7 @@ const checkStatus = function(response) {
 };
 
 const parseJSON = function(response) {
-  console.log("Parse response for json ", response);
+  //console.log("Parse response for json ", response);
   return response.json();
 };
 
@@ -65,7 +65,6 @@ export default {
       this.isXs();
       this.fetchPortlets();
     });
-    console.log(this, i18n.t("message.services.title"));
   },
   methods: {
     translate: function(text, lang) {
@@ -84,8 +83,7 @@ export default {
       return url;
     },
     isFavorite: function(fname) {
-      //console.log("TODO implementation is needed");
-      console.log("look for " + fname + " is favorites ?");
+      console.log("TODO implementation is needed look for " + fname + " is favorites ?");
       return false;
     },
     sourceChanged: function(event) {
@@ -122,13 +120,7 @@ export default {
         this.filteredPortlets = this.portlets;
         this.filteredPortlets.sort(this.sortPortlets);
       } else {
-        oidc({
-          userInfoApiUrl:
-            process.env.VUE_APP_PORTAL_BASE_URL +
-            process.env.VUE_APP_PORTAL_CONTEXT +
-            "/api/v5-1/userinfo",
-          timeout: 180000
-        })
+        oidc({ timeout: 180000 })
           .then(token => {
             const options = {
               method: "GET",
@@ -147,13 +139,9 @@ export default {
               .then(checkStatus)
               .then(parseJSON)
               .then(data => {
-                console.log("getting data 1 ", data.portlets);
                 this.portlets = data.portlets;
-                console.log("getting data 2", this.filteredPortlets);
                 this.filteredPortlets = this.portlets;
-                console.log("getting data 3", this.filteredPortlets);
                 this.filteredPortlets.sort(this.sortPortlets);
-                console.log("getting data 4", this.filteredPortlets);
               });
           })
 
@@ -183,17 +171,6 @@ export default {
   },
   beforeDestroy() {
     window.removeEventListener("resize", this.getWindowWidth);
-  },
-  created() {
-    /*if (process.env.NODE_ENV === "development") {
-      let datas = require("./assets/browseable.json");
-
-      this.portlets = datas.portlets;
-      this.filteredPortlets = this.portlets;
-      this.filteredPortlets.sort(this.sortPortlets);
-    } else { */
-    //this.fetchPortlets();
-    //}
   }
 };
 </script>
