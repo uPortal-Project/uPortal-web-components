@@ -9,7 +9,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Feature
 
-- **content-carousel**: Add RSS strategy for content carousel (#22).
+- **content-carousel**: Add RSS strategy for content carousel (#22, #24, #25).
+
+### Fix
+
+- **open-id-connect**: Allow components leveraging open id connect helper to run off a different host and port than uPortal (#26).
 
 ## [1.1.0][] - 2018-06-14
 
