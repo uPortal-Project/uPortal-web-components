@@ -45,7 +45,10 @@ export default async function openIdConnect(
 
   try {
     // get a new token
-    const {data} = await get(userInfoApiUrl, {responseType: 'text'});
+    const {data} = await get(userInfoApiUrl, {
+      responseType: 'text',
+      withCredentials: true,
+    });
 
     // store the encoded and decoded versions
     token = tokenize(data);
