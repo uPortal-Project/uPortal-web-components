@@ -5,7 +5,7 @@ import { parseXml } from '@/lib/parse';
 export class RssStrategy implements DataStrategy {
   public readonly type = 'RSS';
 
-  public readonly items: CarouselItem[] = [];
+  public items: CarouselItem[] = [];
 
   constructor(public feed: string) {
     this.load(feed);
@@ -34,13 +34,18 @@ export class RssStrategy implements DataStrategy {
           media: any;
           enclosures: any;
         },
-        index: number
-      ) => ({
-        id: `${index}-${new Date().getTime()}`,
-        altText: `${title} - ${description}`,
-        destinationUrl: link,
-        imageUrl: media ? media.content : enclosures ? enclosures[0] : null,
-      })
+        index: number,
+      ) => {
+          const image = media ? media.content : enclosures ? enclosures[0] : null;
+          return {
+              id: `${index}-${new Date().getTime()}`,
+              altText: `${title} - ${description}`,
+              destinationUrl: link,
+              imageUrl: image,
+              title: image ? null : title,
+              description: image ? null : description,
+          };
+      },
     );
   }
 }

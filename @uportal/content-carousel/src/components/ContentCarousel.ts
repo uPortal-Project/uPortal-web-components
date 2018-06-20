@@ -11,7 +11,7 @@ import { RssStrategy } from '@/lib/RssStrategy';
 })
 export default class ContentCarousel extends Vue {
     @Prop() public rss!: string;
-    @Prop() public slickOptions: any;
+    @Prop() public slickOptions: any = {};
     @Prop([String]) public carouselHeight?: string;
     @Prop([Boolean]) public fitToContainer?: boolean;
 
