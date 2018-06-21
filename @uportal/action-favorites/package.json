@@ -1,7 +1,6 @@
 {
   "name": "action-favorites",
   "version": "0.1.0",
-  "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build --target wc --name action-favorites './src/components/ActionFavorites.vue'",
@@ -26,16 +25,32 @@
   },
   "eslintConfig": {
     "root": true,
+    "env": {
+      "node": true
+    },
     "extends": [
       "plugin:vue/essential",
       "eslint:recommended"
-    ]
+    ],
+    "rules": {},
+    "parserOptions": {
+      "parser": "babel-eslint"
+    }
   },
   "postcss": {
     "plugins": {
       "autoprefixer": {}
     }
   },
+  "description": "Display an icon button that permit to add or remove from favorites items into uPortal",
+  "license": "Apache-2.0",
+  "author": "Julien Gribonvald<julien.gribonvald@gmail.com>",
+  "keywords": [
+    "apereo",
+    "uportal",
+    "action",
+    "favorite"
+  ],
   "browserslist": [
     "> 1%",
     "last 2 versions",
