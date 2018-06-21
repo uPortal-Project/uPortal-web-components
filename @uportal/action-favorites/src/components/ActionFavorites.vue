@@ -13,7 +13,6 @@ import "vue-awesome/icons/star";
 import "vue-awesome/icons/star-o";
 
 const checkStatus = function(response) {
-  console.log("check response ", response);
   if (response.ok) {
     return response;
   } else {
@@ -49,7 +48,6 @@ export default {
       return i18n.t(text, lang);
     },
     toggleFavorite: function(chanId, event) {
-      console.log("toggle to favorites ", chanId, event);
       event.preventDefault();
       if (this.favorite) {
         this.removeFromFavorite(chanId, event);
@@ -66,48 +64,44 @@ export default {
       }
     },
     addToFavorite: function(chanId, event) {
-      console.log("Adding to favorites ", chanId);
-      oidc()
-        .then(token => {
-          const options = {
-            method: "POST",
-            credentials: "same-origin",
-            headers: {
-              Authorization: "Bearer " + token.encoded,
-              "Content-Type": "application/json"
-            }
-          };
-          fetch(
-            this.favoriteApiUrl + "?action=addFavorite&channelId=" + chanId,
-            options
-          )
-            .then(checkStatus)
-            .then(parseJSON)
-            .then(this.changeFavoriteValue(event));
-        })
-        .catch(err => console.log("Error, with message:", err.statusText));
+      oidc().then(token => {
+        const options = {
+          method: "POST",
+          credentials: "same-origin",
+          headers: {
+            Authorization: "Bearer " + token.encoded,
+            "Content-Type": "application/json"
+          }
+        };
+        fetch(
+          this.favoriteApiUrl + "?action=addFavorite&channelId=" + chanId,
+          options
+        )
+          .then(checkStatus)
+          .then(parseJSON)
+          .then(this.changeFavoriteValue(event));
+      });
+      //.catch(err => console.log("Error, with message:", err.statusText));
     },
     removeFromFavorite: function(chanId, event) {
-      console.log("Removing to favorites " + chanId);
-      oidc()
-        .then(token => {
-          const options = {
-            method: "POST",
-            credentials: "same-origin",
-            headers: {
-              Authorization: "Bearer " + token.encoded,
-              "Content-Type": "application/json"
-            }
-          };
-          fetch(
-            this.favoriteApiUrl + "?action=removeFavorite&channelId=" + chanId,
-            options
-          )
-            .then(checkStatus)
-            .then(parseJSON)
-            .then(this.changeFavoriteValue(event));
-        })
-        .catch(err => console.log("Error, with message:", err.statusText));
+      oidc().then(token => {
+        const options = {
+          method: "POST",
+          credentials: "same-origin",
+          headers: {
+            Authorization: "Bearer " + token.encoded,
+            "Content-Type": "application/json"
+          }
+        };
+        fetch(
+          this.favoriteApiUrl + "?action=removeFavorite&channelId=" + chanId,
+          options
+        )
+          .then(checkStatus)
+          .then(parseJSON)
+          .then(this.changeFavoriteValue(event));
+      });
+      //.catch(err => console.log("Error, with message:", err.statusText));
     }
   }
 };
@@ -124,9 +118,9 @@ export default {
   background-color: transparent;
   box-shadow: none;
   cursor: pointer;
+  transition: all 0.2s ease-in-out;
   width: 44px;
   height: 44px;
-  transition: all 0.2s ease-in-out;
 }
 .favorite-button:hover {
   transform: scale(1.3, 1.3);
