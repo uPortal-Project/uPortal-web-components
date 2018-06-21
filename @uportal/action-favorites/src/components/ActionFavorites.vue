@@ -24,14 +24,13 @@ const checkStatus = function(response) {
 };
 
 const parseJSON = function(response) {
-  console.log("Parse response for json ", response);
   return response.json();
 };
 
 export default {
   name: "ActionFavorites",
   props: {
-    fname: { type: String, required: true },
+    fname: String,
     chanId: { type: String, required: true },
     isFavorite: { type: Boolean, default: false },
     favoriteApiUrl: { type: String, default: "/uPortal/api/layout" },
