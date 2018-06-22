@@ -1,0 +1,68 @@
+{
+  "name": "portlet-card",
+  "version": "0.1.0",
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build --target wc --name portlet-card './src/components/PortletCard.vue'",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "action-favorites": "^0.1.2",
+    "vue": "^2.5.16"
+  },
+  "devDependencies": {
+    "node-sass": "^4.9.0",
+    "sass-loader": "^7.0.1",
+    "@vue/cli-plugin-babel": "^3.0.0-rc.3",
+    "@vue/cli-plugin-eslint": "^3.0.0-rc.3",
+    "@vue/cli-service": "^3.0.0-rc.3",
+    "vue-template-compiler": "^2.5.16"
+  },
+  "babel": {
+    "presets": [
+      "@vue/app"
+    ]
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended"
+    ],
+    "rules": {},
+    "parserOptions": {
+      "parser": "babel-eslint"
+    }
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  },
+  "main": "dist/portlet-card.js",
+  "description": "Display as a small card of a portlet description",
+  "license": "Apache-2.0",
+  "author": "Julien Gribonvald <julien.gribonvald@gmail.com>",
+  "keywords": [
+    "apereo",
+    "uportal",
+    "portlet",
+    "description"
+  ],
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jgribonvald/uPortal-web-components.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jgribonvald/uPortal-web-components/issues"
+  },
+  "homepage": "https://github.com/jgribonvald/uPortal-web-components#readme"
+}
