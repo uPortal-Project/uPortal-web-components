@@ -1,6 +1,6 @@
 {
   "name": "action-favorites",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build --target wc --name action-favorites './src/components/ActionFavorites.vue'",
@@ -44,7 +44,7 @@
   },
   "description": "Display an icon button that permit to add or remove from favorites items into uPortal",
   "license": "Apache-2.0",
-  "author": "Julien Gribonvald<julien.gribonvald@gmail.com>",
+  "author": "Julien Gribonvald <julien.gribonvald@gmail.com>",
   "keywords": [
     "apereo",
     "uportal",
@@ -55,5 +55,14 @@
     "> 1%",
     "last 2 versions",
     "not ie <= 8"
-  ]
+  ],
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jgribonvald/uPortal-web-components.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jgribonvald/uPortal-web-components/issues"
+  },
+  "homepage": "https://github.com/jgribonvald/uPortal-web-components#readme"
 }
