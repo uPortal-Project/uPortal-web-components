@@ -29,11 +29,11 @@ const parseJSON = function(response) {
 export default {
   name: "ActionFavorites",
   props: {
-    fname: String,
+    callOnToggleFav: Function,
     chanId: { type: String, required: true },
-    isFavorite: { type: Boolean, default: false },
     favoriteApiUrl: { type: String, default: "/uPortal/api/layout" },
-    callOnToggleFav: Function
+    fname: String,
+    isFavorite: { type: Boolean, default: false }
   },
   data() {
     return {
