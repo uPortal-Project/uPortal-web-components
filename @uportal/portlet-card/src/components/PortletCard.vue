@@ -21,7 +21,7 @@ export default {
   props: {
     iconUrl: String,
     fname: { type: String, required: true },
-    chanId: { type: Number, required: true },
+    chanId: { type: String, required: true },
     title: { type: String, required: true },
     description: { type: String, required: true },
     categories: Array,
