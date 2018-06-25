@@ -12,31 +12,31 @@
 <script>
 import Vue from "vue";
 import lineClamp from "vue-line-clamp";
-import ActionFavorites from "action-favorites/src/components/ActionFavorites";
+import ActionFavorites from "action-favorites/src/components/ActionFavorites.vue";
 
 Vue.use(lineClamp);
 
 export default {
   name: "PortletCard",
   props: {
-    iconUrl: String,
-    fname: { type: String, required: true },
-    channelId: { type: String, required: true },
-    title: { type: String, required: true },
-    description: { type: String, required: true },
-    categories: Array,
     canFavorite: { type: Boolean, default: true },
+    categories: { type: Array },
+    channelId: { type: String, required: true },
+    cssClass: { type: String, default: "portlet-card" },
+    description: { type: String, required: true },
+    fname: { type: String, required: true },
+    iconBackgroundColor: { type: String, default: "Transparent" },
+    iconUrl: { type: String },
     isFavorite: { type: Boolean, default: false },
     isSmall: { type: Boolean, default: false },
-    cssClass: { type: String, default: "portlet-card" },
-    iconBackgroundColor: { type: String, default: "Transparent" }
+    title: { type: String, required: true }
   },
   components: {
     "action-favorites": ActionFavorites
   },
   computed: {
     mainClass: function() {
-      var appClass =
+      let appClass =
         this.cssClass +
         " " +
         this.fname.toLowerCase() +
