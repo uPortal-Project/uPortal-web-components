@@ -4,7 +4,7 @@
         <div class="title">{{title}}</div>
         <div class="description" v-line-clamp:20="2">{{description}}</div>
         <div class="action">
-             <action-favorites v-if="canFavorite" :fname="fname" :chan-id="chanId" :is-favorite="isFavorite"></action-favorites>
+             <action-favorites v-if="canFavorite" :fname="fname" :chan-id="channelId" :is-favorite="isFavorite"></action-favorites>
         </div>
     </div>
 </template>
@@ -21,7 +21,7 @@ export default {
   props: {
     iconUrl: String,
     fname: { type: String, required: true },
-    chanId: { type: String, required: true },
+    channelId: { type: String, required: true },
     title: { type: String, required: true },
     description: { type: String, required: true },
     categories: Array,

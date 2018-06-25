@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <portlet-card fname="test" title="Un titre de test" description="Une description plutôt longue pour faire fonctionner le clamp.js et voir ce qu'il se passe"
-                  :is-favorite="true" chan-id="10" can-favorites="true" icon-background-color="#0088bf" icon-url="favicon.ico"></portlet-card>
+                  :is-favorite="true" channel-id="10" can-favorites="true" icon-background-color="#0088bf" icon-url="favicon.ico"></portlet-card>
   </div>
 </template>
 
