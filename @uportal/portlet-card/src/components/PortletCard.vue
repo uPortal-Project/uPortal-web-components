@@ -4,7 +4,7 @@
         <div class="title">{{title}}</div>
         <div class="description" v-line-clamp:20="2">{{description}}</div>
         <div class="action">
-             <action-favorites v-if="canFavorite" :fname="fname" :is-favorite="isFavorite"></action-favorites>
+             <action-favorites v-if="canFavorite" :fname="fname" :chan-id="chanId" :is-favorite="isFavorite"></action-favorites>
         </div>
     </div>
 </template>
@@ -21,17 +21,18 @@ export default {
   props: {
     iconUrl: String,
     fname: { type: String, required: true },
+    chanId: { type: Number, required: true },
     title: { type: String, required: true },
     description: { type: String, required: true },
     categories: Array,
-    canFavorite: {type: Boolean, default: true},
-    isFavorite: {type: Boolean, default: false},
-    isSmall: {type: Boolean, default: false},
+    canFavorite: { type: Boolean, default: true },
+    isFavorite: { type: Boolean, default: false },
+    isSmall: { type: Boolean, default: false },
     cssClass: { type: String, default: "portlet-card" },
-    iconBackgroundColor: {type: String, default: "Transparent"}
+    iconBackgroundColor: { type: String, default: "Transparent" }
   },
   components: {
-    'action-favorites' : ActionFavorites
+    "action-favorites": ActionFavorites
   },
   computed: {
     mainClass: function() {
@@ -40,7 +41,7 @@ export default {
         " " +
         this.fname.toLowerCase() +
         " " +
-        (this.categories ? this.categories.join(" ").toLowerCase() : '');
+        (this.categories ? this.categories.join(" ").toLowerCase() : "");
       if (this.isSmall) {
         appClass += " small-card";
       }

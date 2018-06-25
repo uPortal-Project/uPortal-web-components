@@ -6,19 +6,18 @@
 </template>
 
 <script>
-import PortletCard from './components/PortletCard.vue'
+import PortletCard from "./components/PortletCard.vue";
 
 export default {
-  name: 'app',
+  name: "app",
   components: {
     PortletCard
   }
-}
+};
 </script>
 
 <style>
-  #app{
-    margin:50px;
-  }
+#app {
+  margin: 50px;
+}
 </style>
-
