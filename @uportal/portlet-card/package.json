@@ -1,12 +1,14 @@
 {
   "name": "portlet-card",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build --target wc --name portlet-card './src/components/PortletCard.vue'",
+    "buildold": "vue-cli-service build --target wc --name portlet-card './src/components/PortletCard.vue'",
+    "build": "vue-cli-service build --target wc --name portlet-card './src/mainwc.js'",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@vue/web-component-wrapper": "^1.2.0",
     "action-favorites": "^0.1.3",
     "vue": "^2.5.16"
   },
