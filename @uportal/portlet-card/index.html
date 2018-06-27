@@ -13,12 +13,32 @@
     <script src="https://unpkg.com/vue"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/1.2.0/webcomponents-loader.js"></script>
     <script src="./dist/portlet-card.js"></script>
-    <div style="margin-top: 50px; display: flex;">
-      <portlet-card fname="test" channel-id="1" title="A test of title" description="A very long description to be sure it will be clamped at the end of the second line"
-                  is-favorite="true" can-favorite="true" icon-background-color="#0088bf" icon-url="src/assets/logo.png" is-small="false"></portlet-card>
-
-      <portlet-card fname="test2" channel-id="2" title="A test for small" description="A very long description to be sure it will be clamped at the end of the second line"
-                    is-favorite="true" can-favorite="true" icon-background-color="#0088bf" icon-url="src/assets/logo.png" is-small="true"></portlet-card>
+    <div id="content" style="margin-top: 50px; display: flex;">
     </div>
+    <script type="text/javascript" language="javascript">
+    var portlet1 =
+      '{"fname": "test", "title": "Un titre de test", "description":"A very long description to be sure it will be clamped at the end of the second line", "id": "10", ' +
+      '"canAdd": true, "layoutObject" : {"iconrl": "src/assets/logo.png"}}';
+    obj1 = JSON.parse(portlet1);
+    var portlet2 =
+      '{"fname": "test2", "title": "a test for a title","description":"A very long description to be sure it will be clamped at the end of the second line", "id": "11", ' +
+      '"canAdd": true, "layoutObject" : {"iconrl": "src/assets/logo.png"}}';
+    obj2 = JSON.parse(portlet2);
+
+    var element = document.createElement("portlet-card");
+    element.setAttribute("is-favorite",true);
+    element.setAttribute("portlet-desc", obj1);
+    element.setAttribute("icon-background-color","#0088bf");
+    element.setAttribute("is-small",false);
+    document.getElementById("content").appendChild(element);
+
+    element = document.createElement("portlet-card");
+    element.setAttribute("is-favorite",true);
+    element.portletDesc = obj2;
+    element.setAttribute("icon-background-color","#0088bf");
+    element.setAttribute("is-small",true);
+    document.getElementById("content").appendChild(element);
+
+  </script>
   </body>
 </html>

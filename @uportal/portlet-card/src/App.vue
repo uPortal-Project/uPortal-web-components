@@ -1,7 +1,6 @@
 <template>
   <div id="app">
-    <portlet-card fname="test" title="Un titre de test" description="Une description plutôt longue pour faire fonctionner le clamp.js et voir ce qu'il se passe"
-                  :is-favorite="true" channel-id="10" can-favorites="true" icon-background-color="#0088bf" icon-url="favicon.ico"></portlet-card>
+    <portlet-card :portlet-desc="portlet" :is-favorite="true" icon-background-color="#dddddd"></portlet-card>
   </div>
 </template>
 
@@ -12,6 +11,21 @@ export default {
   name: "app",
   components: {
     PortletCard
+  },
+  data() {
+    return {
+      portlet: {
+        fname: "test",
+        title: "Un titre de test",
+        description:
+          "Une description plutôt longue pour faire fonctionner le clamp.js et voir ce qu'il se passe",
+        id: "10",
+        canAdd: true,
+        layoutObject: {
+          iconUrl: null
+        }
+      }
+    };
   }
 };
 </script>

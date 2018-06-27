@@ -1,12 +1,12 @@
 <template>
-    <div :class="mainClass" >
-        <div class="icon"><div class="img-wrapper" :style="'background-color:' + iconBackgroundColor"><img ng-if="iconUrl !== null" :src="iconUrl"></div></div>
-        <div class="title">{{title}}</div>
-        <div class="description" v-line-clamp:20="2">{{description}}</div>
-        <div class="action">
-             <action-favorites v-if="canFavorite" :fname="fname" :chan-id="channelId" :is-favorite="isFavorite"></action-favorites>
-        </div>
+  <div :class="mainClass" >
+    <div class="icon"><div class="img-wrapper" :style="'background-color:' + iconBackgroundColor"><img ng-if="iconUrl !== null" :src="iconUrl"></div></div>
+    <div class="title">{{title}}</div>
+    <div class="description" v-line-clamp:20="2">{{description}}</div>
+    <div class="action">
+      <action-favorites v-if="canFavorite" :fname="fname" :chan-id="channelId" :is-favorite="isFavorite"></action-favorites>
     </div>
+  </div>
 </template>
 
 <script>
@@ -19,20 +19,27 @@ Vue.use(lineClamp);
 export default {
   name: "PortletCard",
   props: {
-    canFavorite: { type: Boolean, default: true },
-    categories: { type: Array },
-    channelId: { type: String, required: true },
     cssClass: { type: String, default: "portlet-card" },
-    description: { type: String, required: true },
-    fname: { type: String, required: true },
     iconBackgroundColor: { type: String, default: "Transparent" },
-    iconUrl: { type: String },
     isFavorite: { type: Boolean, default: false },
     isSmall: { type: Boolean, default: false },
-    title: { type: String, required: true }
+    portletDesc: { type: Object, required: true }
+  },
+  data() {
+    return {
+      fname: this.portletDesc.fname,
+      channelId: this.portletDesc.id,
+      description: this.portletDesc.description,
+      title: this.portletDesc.title,
+      canFavorite: this.portletDesc.canAdd,
+      iconUrl:
+        this.portletDesc.layoutObject.iconUrl !== null
+          ? this.computeIconUrl(this.portletDesc.layoutObject.iconUrl)
+          : null
+    };
   },
   components: {
-    "action-favorites": ActionFavorites
+    ActionFavorites
   },
   computed: {
     mainClass: function() {
@@ -41,11 +48,21 @@ export default {
         " " +
         this.fname.toLowerCase() +
         " " +
-        (this.categories ? this.categories.join(" ").toLowerCase() : "");
+        (this.portletDesc && this.portletDesc.categories
+          ? this.portletDesc.categories.join(" ").toLowerCase()
+          : "");
       if (this.isSmall) {
         appClass += " small-card";
       }
       return appClass;
+    }
+  },
+  methods: {
+    computeIconUrl: function(url) {
+      if (url != null && !url.startsWith("http")) {
+        return process.env.VUE_APP_PORTAL_BASE_URL + url;
+      }
+      return url;
     }
   }
 };
