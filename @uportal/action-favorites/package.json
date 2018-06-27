@@ -3,11 +3,13 @@
   "version": "0.1.3",
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build --target wc --name action-favorites './src/components/ActionFavorites.vue'",
+    "buildold": "vue-cli-service build --target wc --name action-favorites './src/components/ActionFavorites.vue'",
+    "build": "vue-cli-service build --target wc --name action-favorites './src/mainwc.js'",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
     "@uportal/open-id-connect": "^1.1.0",
+    "@vue/web-component-wrapper": "^1.2.0",
     "vue": "^2.5.16",
     "vue-awesome": "^2.3.7",
     "vue-i18n": "^7.8.1"
