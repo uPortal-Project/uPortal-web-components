@@ -1,6 +1,6 @@
 {
   "name": "content-grid",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "scripts": {
     "serve": "vue-cli-service serve",
     "buildold": "vue-cli-service build --name content-grid --target wc 'src/components/ContentGrid.vue'",
