@@ -1,6 +1,6 @@
 {
   "name": "portlet-card",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "scripts": {
     "serve": "vue-cli-service serve",
     "buildold": "vue-cli-service build --target wc --name portlet-card './src/components/PortletCard.vue'",
