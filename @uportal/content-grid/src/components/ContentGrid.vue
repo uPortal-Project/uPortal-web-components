@@ -91,7 +91,6 @@ export default {
   },
   computed: {
     getAllCategories: function() {
-      console.log(this.portlets);
       var cats = [];
       for (var i = 0, size = this.portlets.length; i < size; i++) {
         for (
