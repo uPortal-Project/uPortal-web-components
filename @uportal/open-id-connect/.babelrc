@@ -1,0 +1,64 @@
+{
+  "env": {
+    "test": {
+      "presets": [
+        [
+          "@babel/preset-env",
+          {
+            "useBuiltIns": "usage",
+            "targets": {
+              "browsers": ["last 2 versions", "not dead"],
+              "node": "6"
+            },
+            "modules": "commonjs"
+          }
+        ]
+      ]
+    },
+    "cjs": {
+      "presets": [
+        [
+          "@babel/preset-env",
+          {
+            "useBuiltIns": "usage",
+            "targets": {
+              "browsers": ["last 2 versions", "not dead"],
+              "node": "6"
+            },
+            "modules": "commonjs"
+          }
+        ]
+      ]
+    },
+    "umd": {
+      "presets": [
+        [
+          "@babel/preset-env",
+          {
+            "useBuiltIns": "usage",
+            "targets": {
+              "browsers": ["last 2 versions", "not dead"],
+              "node": "6"
+            },
+            "modules": "umd"
+          }
+        ]
+      ]
+    },
+    "esm": {
+      "presets": [
+        [
+          "@babel/preset-env",
+          {
+            "useBuiltIns": "usage",
+            "targets": {
+              "browsers": ["last 2 versions", "not dead"],
+              "node": "6"
+            },
+            "modules": false
+          }
+        ]
+      ]
+    }
+  }
+}

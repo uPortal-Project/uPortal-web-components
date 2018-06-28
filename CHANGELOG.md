@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased][]
 
+### Build
+
+- **open-id-connect**: generate [CJS](https://nodejs.org/docs/latest/api/modules.html), [ESM](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import), and [UMD](https://github.com/umdjs/umd), as well as providing an ES2018 source version (#30)
+
 ## [1.2.0][] - 2018-06-19
 
 ### Feature
