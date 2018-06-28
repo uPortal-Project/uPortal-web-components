@@ -8,10 +8,14 @@
   },
   "files": [
     "esm/open-id-connect.js",
-    "node/open-id-connect.js"
+    "cjs/open-id-connect.js",
+    "src/open-id-connect.js",
+    "umd/open-id-connect.js"
   ],
-  "main": "node/open-id-connect.js",
+  "main": "cjs/open-id-connect.js",
+  "umd:main": "umd/open-id-connect.js",
   "module": "esm/open-id-connect.js",
+  "source": "src/open-id-connect.js",
   "keywords": [
     "apereo",
     "uportal",
@@ -31,7 +35,10 @@
   },
   "scripts": {
     "prepublishOnly": "npm run build",
-    "build": "babel esm -d node",
+    "build": "npm-run-all build:*",
+    "build:cjs": "babel src/open-id-connect.js --env-name cjs --out-dir cjs",
+    "build:esm": "babel src/open-id-connect.js --env-name esm --out-dir esm",
+    "build:umd": "babel src/open-id-connect.js --env-name umd --out-dir umd",
     "test": "jest"
   },
   "dependencies": {
@@ -46,7 +53,8 @@
     "babel-core": "^7.0.0-0",
     "babel-jest": "^23.0.0",
     "eslint-plugin-jest": "^21.15.1",
-    "jest": "^23.0.0"
+    "jest": "^23.0.0",
+    "npm-run-all": "^4.1.3"
   },
   "eslintConfig": {
     "parserOptions": {
@@ -62,17 +70,7 @@
       "expect": true
     }
   },
-  "babel": {
-    "presets": [
-      [
-        "@babel/preset-env",
-        {
-          "useBuiltIns": "usage",
-          "targets": {
-            "node": "6"
-          }
-        }
-      ]
-    ]
+  "engines": {
+    "node": "^6.0.0 || ^8.0.0 || ^10.0.0"
   }
 }

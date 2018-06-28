@@ -202,4 +202,6 @@ $RECYCLE.BIN/
 # End of https://www.gitignore.io/api/node,code,macos,linux,windows,intellij+all
 
 !tsconfig.json
-@uportal/open-id-connect/node
+@uportal/open-id-connect/cjs
+@uportal/open-id-connect/esm
+@uportal/open-id-connect/umd
