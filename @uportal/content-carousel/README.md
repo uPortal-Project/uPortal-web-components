@@ -32,30 +32,35 @@ compile 'org.webjars.npm:uportal__content-carousel:{version number goes here}'
 
 ## Usage
 
+The component requires an rss file path, slick options (link below). It also allows for a carouselHeight (in rem units) and a `fitToContainer` property which causes it to size to its container (horizontally).
+
+```javascript
+heroOptions = {
+  slidesToShow: 1,
+  infinite: true,
+  arrows: true
+};
+
+contentOptions = {
+  slidesToShow: 3,
+  infinite: true,
+  arrows: true,
+  dots: true
+};
+```
+
 ```html
 <script src="https://unpkg.com/vue"></script>
 <script src="./content-carousel.js"></script>
 
-<div id="example"></div>
-
-<script>
-(() => {
-  const ContentCarousel = customElements.get('content-carousel')
-  const example = new ContentCarousel();
-  example.strategy = function () {
-    return [
-      {
-        id: '7b35d00d-7f7f-449e-a4a0-58a8de88059d',
-        destinationUrl: 'https://example.com',
-        imageUrl: 'http://placehold.it/2000x1000',
-        altText: 'demo'
-      }
-    ];
-  }
-
-  document.getElementById('example').appendChild(example);
-})()
-</script>
+<ContentCarousel
+  :rss="'/hero.rss'"
+  :slickOptions="heroOptions"
+  :carouselHeight="'30rem'"
+  :fitToContainer="true" />
+<ContentCarousel
+  :rss="'/content.rss'"
+  :slickOptions="contentOptions" />
 ```
 
 ## Options
