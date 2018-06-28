@@ -69,5 +69,8 @@
       "test": true,
       "expect": true
     }
+  },
+  "engines": {
+    "node": "^6.0.0 || ^8.0.0 || ^10.0.0"
   }
 }
