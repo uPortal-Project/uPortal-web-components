@@ -8,10 +8,14 @@
   },
   "files": [
     "esm/open-id-connect.js",
-    "node/open-id-connect.js"
+    "cjs/open-id-connect.js",
+    "src/open-id-connect.js",
+    "umd/open-id-connect.js"
   ],
-  "main": "node/open-id-connect.js",
+  "main": "cjs/open-id-connect.js",
+  "umd:main": "umd/open-id-connect.js",
   "module": "esm/open-id-connect.js",
+  "source": "src/open-id-connect.js",
   "keywords": [
     "apereo",
     "uportal",
@@ -31,7 +35,10 @@
   },
   "scripts": {
     "prepublishOnly": "npm run build",
-    "build": "babel esm -d node",
+    "build": "npm-run-all build:*",
+    "build:cjs": "babel src/open-id-connect.js --config-file ./cjs.babelrc --out-dir cjs",
+    "build:esm": "babel src/open-id-connect.js --config-file ./esm.babelrc --out-dir esm",
+    "build:umd": "babel src/open-id-connect.js --config-file ./umd.babelrc --out-dir umd",
     "test": "jest"
   },
   "dependencies": {
@@ -61,18 +68,5 @@
       "test": true,
       "expect": true
     }
-  },
-  "babel": {
-    "presets": [
-      [
-        "@babel/preset-env",
-        {
-          "useBuiltIns": "usage",
-          "targets": {
-            "node": "6"
-          }
-        }
-      ]
-    ]
   }
 }
