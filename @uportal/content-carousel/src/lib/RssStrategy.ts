@@ -12,7 +12,7 @@ export class RssStrategy implements DataStrategy {
   }
 
   private async load(path: string): Promise<any> {
-    const response = await fetch(`${path}`);
+    const response = await fetch(path);
     if (!response.ok) {
       throw new Error(response.statusText);
     }
