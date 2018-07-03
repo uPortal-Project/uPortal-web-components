@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import styled from "styled-components";
+import React, { Component } from 'react';
+import styled from 'styled-components';
 
 // --------  fancy styling magic ------- //
 const WaffleMenuContainer = styled.div`
@@ -101,7 +101,7 @@ const WaffleDropdownFooter = styled.li`
 // --------  done with fancy styling magic ------- //
 
 // menu item stateless component
-const MenuItem = props => {
+const MenuItem = (props) => {
   let { link, image, label } = props;
   return (
     <MIListItem>
@@ -118,8 +118,8 @@ class WaffleMenu extends Component {
   state = {
     menuOpen: false,
     data: [],
-    buttonColor: "#fff",
-    dataLoaded: false
+    buttonColor: '#fff',
+    dataLoaded: false,
   };
 
   // toggle the menu
@@ -128,7 +128,7 @@ class WaffleMenu extends Component {
   };
 
   // close the menu if we're clicking outside the menu or trigger
-  handleOutsideClick = event => {
+  handleOutsideClick = (event) => {
     if (
       this.menuRef &&
       !this.menuRef.contains(event.target) &&
@@ -147,7 +147,7 @@ class WaffleMenu extends Component {
       dataLoaded && (
         <WaffleMenuContainer>
           <WaffleTrigger
-            innerRef={node => (this.buttonRef = node)}
+            innerRef={(node) => (this.buttonRef = node)}
             onClick={() => this.toggleMenu()}
           >
             <svg
@@ -163,19 +163,19 @@ class WaffleMenu extends Component {
             </svg>
           </WaffleTrigger>
           <WaffleDropdown
-            innerRef={node => (this.menuRef = node)}
+            innerRef={(node) => (this.menuRef = node)}
             style={{
-              display: menuOpen ? "flex" : "none"
+              display: menuOpen ? 'flex' : 'none',
             }}
           >
             {data.map(
               (datum, index) =>
-                datum.type === "box" && <MenuItem key={index} {...datum} />
+                datum.type === 'box' && <MenuItem key={index} {...datum} />
             )}
 
             {data.map(
               (datum, index) =>
-                datum.type === "footer" && (
+                datum.type === 'footer' && (
                   <WaffleDropdownFooter key={index}>
                     <a href={datum.link}>{datum.label}</a>
                   </WaffleDropdownFooter>
@@ -198,10 +198,10 @@ class WaffleMenu extends Component {
     } else if (api) {
       // if an endpoint is passed through the api prop
       fetch(api)
-        .then(resp => {
+        .then((resp) => {
           return resp.json();
         })
-        .then(json => {
+        .then((json) => {
           this.setState({ data: json, dataLoaded: true });
         });
     } else {
@@ -211,7 +211,7 @@ class WaffleMenu extends Component {
     this.setState({ buttonColor: buttoncolor });
 
     // listen for outside clicks to close the dropdown
-    window.addEventListener("click", this.handleOutsideClick);
+    window.addEventListener('click', this.handleOutsideClick);
   }
 }
 

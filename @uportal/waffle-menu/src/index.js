@@ -1,4 +1,4 @@
-import WaffleMenu from "./WaffleMenu";
-import "reactive-elements";
+import WaffleMenu from './WaffleMenu';
+import 'reactive-elements';
 
-document.registerReact("waffle-menu", WaffleMenu);
+document.registerReact('waffle-menu', WaffleMenu);
