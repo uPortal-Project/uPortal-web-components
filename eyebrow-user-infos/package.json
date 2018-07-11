@@ -1,0 +1,66 @@
+{
+  "name": "@gip-recia/eyebrow-user-infos",
+  "version": "0.1.0",
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build --name eyebrow-user-infos --target wc './src/components/EyebrowUserInfos.vue'",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "vue": "^2.5.16",
+    "vue-i18n": "^8.0.0"
+  },
+  "devDependencies": {
+    "@kazupon/vue-i18n-loader": "^0.3.0",
+    "@vue/cli-plugin-babel": "^3.0.0-beta.15",
+    "@vue/cli-plugin-eslint": "^3.0.0-beta.15",
+    "@vue/cli-service": "^3.0.0-beta.15",
+    "node-sass": "^4.9.2",
+    "sass-loader": "^7.0.3",
+    "vue-cli-plugin-i18n": "^0.3.1",
+    "vue-template-compiler": "^2.5.16"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended"
+    ],
+    "rules": {},
+    "parserOptions": {
+      "parser": "babel-eslint"
+    }
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  },
+  "description": "Web component to display into eybrow menu a user-info menu with his picture and a more info",
+  "license": "Apache-2.0",
+  "author": "Julien Gribonvald <julien.gribonvald@gmail.com>",
+  "keywords": [
+    "apereo",
+    "uportal",
+    "content",
+    "menu",
+    "user-infos"
+  ],
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ],
+  "main": "dist/eyebrow-user-infos.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GIP-RECIA/uPortal-web-components.git"
+  },
+  "bugs": {
+    "url": "https://github.com/GIP-RECIA/uPortal-web-components/issues"
+  },
+  "homepage": "https://github.com/GIP-RECIA/uPortal-web-components#readme"
+}
