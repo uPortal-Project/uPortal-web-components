@@ -1,7 +1,5 @@
 language: node_js
-node_js:
-  - lts/* # latest long term support release
-  - stable # latest stable release
+node_js: 10 # latest stable release
 install:
   - npm ci
   - npm run bootstrap
