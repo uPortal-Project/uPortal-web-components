@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <header>
-      <eyebrow-user-infos display-name="John Doe" picture="https://lycees.netocentre.fr/portail/media/skins/respondr/common/images/noPictureUser.svg" email="john.doe@edu.univ.org"
-                  logout-link="/uPortal/Logout" avatarSize="48px"></eyebrow-user-infos>
+      <eyebrow-user-info display-name="John Doe" picture="https://lycees.netocentre.fr/portail/media/skins/respondr/common/images/noPictureUser.svg" email="john.doe@edu.univ.org"
+                  logout-link="/uPortal/Logout" avatarSize="48px"></eyebrow-user-info>
     </header>
     <div class="content">
       a content for test !
@@ -11,12 +11,12 @@
 </template>
 
 <script>
-import EyebrowUserInfos from './components/EyebrowUserInfos'
+import EyebrowUserInfo from './components/EyebrowUserInfo'
 
 export default {
   name: 'app',
   components: {
-    EyebrowUserInfos
+    EyebrowUserInfo
   }
 }
 </script>

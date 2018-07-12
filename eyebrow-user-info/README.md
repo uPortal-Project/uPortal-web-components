@@ -1,15 +1,15 @@
-![Example of rendering](/eyebrow-user-infos/doc/example.gif?raw=true)
+![Example of rendering](/eyebrow-user-info/doc/example.gif?raw=true)
 
 
 ## Usage into html 
 
 ```
-<eyebrow-user-infos 
+<eyebrow-user-info 
   display-name="John Doe" 
   picture="https://edu.univ.org/images/noPictureUser.svg" 
   email="john.doe@edu.univ.org"
   logout-link="/uPortal/Logout" 
-  avatarSize="48px"></eyebrow-user-infos>
+  avatarSize="48px"></eyebrow-user-info>
 
 ```
 
@@ -25,10 +25,10 @@
 ## Example of use into uPortal
 
 ###1. Deploy into uPortal the builded script
-You should use webjar, but to test you can run `npm run build` and move `dist/eyebrow-user-infos.js` into `$TOMCAT_WEBAPPS/uPortal/scripts/` 
+You should use webjar, but to test you can run `npm run build` and move `dist/eyebrow-user-info.js` into `$TOMCAT_WEBAPPS/uPortal/scripts/` 
 
 ###2. Creating a jsp invoker
-file should be deployed into uportal jsp invoker directory `src/main/webapp/WEB-INF/jsp/Invoker/eyebrow-user-infos.jsp`
+file should be deployed into uportal jsp invoker directory `src/main/webapp/WEB-INF/jsp/Invoker/eyebrow-user-info.jsp`
 
 ```jsp
  <%@ include file="/WEB-INF/jsp/include.jsp" %>
@@ -43,7 +43,7 @@ file should be deployed into uportal jsp invoker directory `src/main/webapp/WEB-
    var versionUpdate = (new Date()).getTime();
    var script = document.createElement("script");
    script.type = "module";
-   script.src = "${ctxPath}/scripts/eyebrow-user-infos.js?v=" + versionUpdate;
+   script.src = "${ctxPath}/scripts/eyebrow-user-info.js?v=" + versionUpdate;
    document.body.appendChild(script);
  </script>
  
@@ -56,20 +56,20 @@ file should be deployed into uportal jsp invoker directory `src/main/webapp/WEB-
      </c:choose>
  </c:set>
  
- <div class="eyebrow-user-infos">
-     <eyebrow-user-infos display-name="${userInfo['displayName']}"
+ <div class="eyebrow-user-info">
+     <eyebrow-user-info display-name="${userInfo['displayName']}"
                  picture="${avatar}"
                  email="${personManager.getPerson(request).getAttribute(userMailAttributeName[0])}"
                  more-link="${moreUserInfoUrl[0]}"
                  logout-link="${portalLogoutUrl[0]}"
-                 avatarSize="${avatarSize[0]}"></eyebrow-user-infos>
+                 avatarSize="${avatarSize[0]}"></eyebrow-user-info>
  </div>
 
 ```
 
 ###3. Importing the portlet definition
 
-create the file `eyebrow-user-infos.portlet-definition.xml` and import it
+create the file `eyebrow-user-info.portlet-definition.xml` and import it
 
 ```xml
 
@@ -77,7 +77,7 @@ create the file `eyebrow-user-infos.portlet-definition.xml` and import it
  <portlet-definition version="4.0" xsi:schemaLocation="https://source.jasig.org/schemas/uportal/io/portlet-definition https://source.jasig.org/schemas/uportal/io/portlet-definition/portlet-definition-4.0.xsd" xmlns:ns2="https://source.jasig.org/schemas/uportal" xmlns="https://source.jasig.org/schemas/uportal/io/portlet-definition" xmlns:ns4="https://source.jasig.org/schemas/uportal/io/portlet-type" xmlns:ns3="https://source.jasig.org/schemas/uportal/io/subscribed-fragment" xmlns:ns5="https://source.jasig.org/schemas/uportal/io/event-aggregation" xmlns:ns6="https://source.jasig.org/schemas/uportal/io/user" xmlns:ns7="https://source.jasig.org/schemas/uportal/io/stylesheet-descriptor" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns8="https://source.jasig.org/schemas/uportal/io/permission-owner">
      <title>User information Header</title>
      <name>User information Header</name>
-     <fname>eyebrow-user-infos</fname>
+     <fname>eyebrow-user-info</fname>
      <desc>Show user informations into eyebrow header</desc>
      <type>Portlet</type>
      <timeout>12000</timeout>
@@ -93,7 +93,7 @@ create the file `eyebrow-user-infos.portlet-definition.xml` and import it
      <portlet-preference>
          <name>JspInvokerPortletController.viewLocation</name>
          <readOnly>false</readOnly>
-         <value>/jsp/Invoker/eyebrow-user-infos</value>
+         <value>/jsp/Invoker/eyebrow-user-info</value>
      </portlet-preference>
      <portlet-preference>
          <name>JspInvokerPortletController.beans</name>
@@ -158,7 +158,7 @@ modify the file `authenticated-lo.fragment-layout.xml`
         </folder> -->
         <folder ID="s100" hidden="false" immutable="true" name="Eyebrow folder" type="eyebrow" unremovable="true">
             <channel fname="notification-icon" unremovable="false" hidden="false" immutable="false" ID="n110"/>
-            <channel fname="eyebrow-user-infos" unremovable="false" hidden="false" immutable="false" ID="n120"/>
+            <channel fname="eyebrow-user-info" unremovable="false" hidden="false" immutable="false" ID="n120"/>
             <channel fname="session-timeout" unremovable="false" hidden="false" immutable="false" ID="n140"/>
         </folder>
         <folder ID="s300" hidden="false" immutable="true" name="Customize folder" type="customize" unremovable="true">

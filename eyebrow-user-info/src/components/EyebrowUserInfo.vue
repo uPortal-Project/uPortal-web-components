@@ -1,5 +1,5 @@
 <template>
-  <div class="user-infos">
+  <div class="user-info">
     <div class="dropdown" ref="dropdownMenu">
       <div class="dropdown-menu" :class="menuIsDark ? 'lighter' : ''" @click="toggleDropdown($event)">
         <div class="user-name"><span class="label">{{displayName}}</span></div>
@@ -11,7 +11,7 @@
             <a v-if="moreLink" :href="moreLink" :title="translate('userInfoPortletUrl.title')"><img :src="picture" :alt="'avatar'"/></a>
             <img v-else :src="picture" :alt="'avatar'"/>
           </div>
-          <div class="wrapper-infos">
+          <div class="wrapper-info">
             <div class="user-name"><span class="label">{{displayName}}</span></div>
             <div class="user-mail"><span class="label">{{email}}</span></div>
           </div>
@@ -28,7 +28,7 @@
 import i18n from "../i18n.js"
 
 export default {
-  name: 'EyebrowUserInfos',
+  name: 'EyebrowUserInfo',
   props: {
     displayName: { type: String, required: true },
     email: String,
@@ -89,7 +89,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
-  .user-infos {
+  .user-info {
     // used fonts and content : we need to add them for the build to be able to use it into shadow DOM and from parent html
     .fa {
       display: inline-block;
@@ -175,7 +175,7 @@ export default {
             }
           }
 
-          .wrapper-infos {
+          .wrapper-info {
             display: flex;
             flex-flow: column nowrap;
             align-self: center;

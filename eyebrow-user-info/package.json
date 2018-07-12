@@ -1,9 +1,9 @@
 {
-  "name": "@gip-recia/eyebrow-user-infos",
-  "version": "0.1.0",
+  "name": "@gip-recia/eyebrow-user-info",
+  "version": "0.2.0",
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build --name eyebrow-user-infos --target wc './src/components/EyebrowUserInfos.vue'",
+    "build": "vue-cli-service build --name eyebrow-user-info --target wc './src/components/EyebrowUserInfo.vue'",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
@@ -57,7 +57,7 @@
     "last 2 versions",
     "not ie <= 8"
   ],
-  "main": "dist/eyebrow-user-infos.js",
+  "main": "dist/eyebrow-user-info.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/GIP-RECIA/uPortal-web-components.git"
