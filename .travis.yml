@@ -3,8 +3,8 @@ node_js:
   - lts/* # latest long term support release
   - stable # latest stable release
 install:
-  - npm install
-  - npx lerna bootstrap
+  - npm ci
+  - npm run bootstrap
 script:
   - npm test
   - npm run lint
