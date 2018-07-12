@@ -1,0 +1,20 @@
+{
+  "message": {
+    "services": {
+      "title": "All services",
+      "filter": "Find a service..."
+    },
+    "favorites": {
+      "add": "Add to favorites",
+      "remove": "Remove from favorites",
+      "title": "My Favorites"
+    },
+    "userInfoPortletUrl": {
+      "title": "See my account informations"
+    },
+    "buttons": {
+      "logout": "Sign out",
+      "menuClose": "Close menu"
+    }
+  }
+}

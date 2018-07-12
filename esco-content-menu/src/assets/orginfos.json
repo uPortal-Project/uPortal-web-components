@@ -1,0 +1,28 @@
+{
+  "18450311800020": {
+    "description": "COLLECTIVITE LOCALE",
+    "displayName": "GIP RECIA",
+    "id": "18450311800020",
+    "name": "GIP-RECIA",
+    "otherAttributes": {
+      "ENTStructureJointure": [
+        "GIP-RECIA$1"
+      ]
+    }
+  },
+  "77551105800056": {
+    "code": "0450805F",
+    "description": "CFA",
+    "displayName": "CFA des Pr\u00e9parateurs en Pharmacie de la r\u00e9gion Centre Val de Loire",
+    "id": "77551105800056",
+    "name": "CFA PHARMACIE D'ORLEANS",
+    "otherAttributes": {
+      "ENTStructureJointure": [
+        "CFA-CENTRE$0450805F"
+      ],
+      "ESCOStructureLogo": [
+        "/annuaire_images/logos/77551105800056/logoportail0.jpg?2"
+      ]
+    }
+  }
+}
