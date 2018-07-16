@@ -1,6 +1,5 @@
 import {get} from 'axios';
 import decode from 'jwt-decode';
-import 'babel-polyfill'; // needed to apply async/await polyfills
 
 let token = null;
 
