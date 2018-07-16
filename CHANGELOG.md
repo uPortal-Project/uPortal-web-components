@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased][]
 
+### Build
+
+- **open-id-connect**: do not include babel polyfill by default, including polyfill causes conflicts when multiple components using oidc helper are loaded on the page at the same time (#36).
+- Use [`npm ci`](https://docs.npmjs.com/cli/ci) to install dependencies, this is both faster and structure will exactly match the lockfile (#35)
+
 ## [1.3.0][] - 2018-06-28
 
 ### Feature
