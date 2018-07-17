@@ -2,7 +2,7 @@
   <div id="app">
     <header>
       <eyebrow-user-info display-name="John Doe" picture="https://lycees.netocentre.fr/portail/media/skins/respondr/common/images/noPictureUser.svg" email="john.doe@edu.univ.org"
-                  logout-link="/uPortal/Logout" avatarSize="48px"></eyebrow-user-info>
+                  logout-link="/uPortal/Logout" avatarSize="48px" :menu-is-dark="false"></eyebrow-user-info>
     </header>
     <div class="content">
       a content for test !
@@ -30,7 +30,7 @@ export default {
   background-color: #25b2f3;
 
 }
-#app > header > .user-infos {
+#app > header > * {
   float: right;
   margin-right: 25px;
 }

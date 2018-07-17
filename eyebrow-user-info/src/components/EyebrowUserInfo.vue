@@ -1,23 +1,23 @@
 <template>
-  <div class="user-info">
-    <div class="dropdown" ref="dropdownMenu">
-      <div class="dropdown-menu" :class="menuIsDark ? 'lighter' : ''" @click="toggleDropdown($event)">
-        <div class="user-name"><span class="label">{{displayName}}</span></div>
-        <div class="user-avatar"><img :src="picture" :alt="'avatar'" :style="'height: ' + avatarSize + '; width: ' + avatarSize + ';'"/></div>
+  <div :class="$style.userInfo">
+    <div :class="$style.dropdown" ref="dropdownMenu">
+      <div :class="menuIsDark ? [$style.lighter, $style.dropdownMenu] : $style.dropdownMenu" @click="toggleDropdown($event)">
+        <div :class="$style.userName"><span :class="$style.label">{{displayName}}</span></div>
+        <div :class="$style.userAvatar"><img :src="picture" :alt="'avatar'" :style="'height: ' + avatarSize + '; width: ' + avatarSize + ';'"/></div>
       </div>
-      <div v-if="visible" class="dropdown-content">
-        <div class="user-details">
-          <div class="user-avatar">
+      <div v-if="visible" :class="$style.dropdownContent">
+        <div :class="$style.userDetails">
+          <div :class="$style.userAvatar">
             <a v-if="moreLink" :href="moreLink" :title="translate('userInfoPortletUrl.title')"><img :src="picture" :alt="'avatar'"/></a>
             <img v-else :src="picture" :alt="'avatar'"/>
           </div>
-          <div class="wrapper-info">
-            <div class="user-name"><span class="label">{{displayName}}</span></div>
-            <div class="user-mail"><span class="label">{{email}}</span></div>
+          <div :class="$style.wrapperInfo">
+            <div :class="$style.userName"><span :class="$style.label">{{displayName}}</span></div>
+            <div :class="$style.userMail"><span :class="$style.label">{{email}}</span></div>
           </div>
         </div>
-        <div v-if="logoutLink" class="sign-out">
-          <a :href="logoutLink" :title="translate('buttons.logout')"><span>{{translate('buttons.logout')}}</span><i class="fa fa-sign-out" aria-hidden="true"></i></a>
+        <div v-if="logoutLink" :class="$style.signOut">
+          <a :href="logoutLink" :title="translate('buttons.logout')"><span>{{translate('buttons.logout')}}</span><i :class="[$style.fa, $style.faSignOut]" aria-hidden="true"></i></a>
         </div>
       </div>
     </div>
@@ -88,9 +88,10 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style lang="scss" scoped>
+<style lang="scss" module>
+  $grey: #d0d0d0;
   .user-info {
-    // used fonts and content : we need to add them for the build to be able to use it into shadow DOM and from parent html
+    /*used fonts and content : we need to add them for the build to be able to use it into shadow DOM and from parent html*/
     .fa {
       display: inline-block;
       font: normal normal normal 14px/1 FontAwesome;
@@ -102,7 +103,6 @@ export default {
     .fa-sign-out:before {
       content: "\f08b";
     }
-
 
     > .dropdown {
       height: 100%;
@@ -116,6 +116,7 @@ export default {
         display: flex;
         flex-flow: row nowrap;
         align-items: center;
+        color:#000;
 
         &.lighter {
           color: white;
@@ -123,11 +124,14 @@ export default {
         :not(:first-child) {
           margin-left: 5px;
         }
+        > .user-name {
+          display: block;
+        }
         > .user-avatar {
           display: flex;
           align-items: center;
           > img {
-            background-color: #d0d0d0;
+            background-color: $grey;
             border-radius: 50%;
             overflow: hidden;
           }
@@ -141,15 +145,15 @@ export default {
         min-width: 280px;
         background-color: #fff;
         color: #000;
-        border: solid 1px #d0d0d0;
+        border: solid 1px $grey;
         box-shadow: 0 5px 5px -3px #888, 5px 5px 5px -4px #888;
         z-index: 15;
         right: 0;
         border-bottom-right-radius: 2px;
         border-bottom-left-radius: 2px;
-        border-bottom: solid 1px #d0d0d0;
-        border-left: solid 1px #d0d0d0;
-        border-right: solid 1px #d0d0d0;
+        border-bottom: solid 1px $grey;
+        border-left: solid 1px $grey;
+        border-right: solid 1px $grey;
         text-align: initial;
 
         > div.user-details {
@@ -168,7 +172,7 @@ export default {
             display: flex;
             align-items: center;
             img {
-              background-color: #d0d0d0;
+              background-color: $grey;
               border-radius: 50%;
               height: 68px;
               width: 68px;
@@ -182,22 +186,26 @@ export default {
           }
         }
         > .sign-out {
-          display: block;
-          background-color: #d0d0d0;
+          display: flex;
+          background-color: $grey;
           width: 100%;
-          text-align: end;
+          text-align: right;
+
+          &:hover {
+            background-color: darken($grey, 10%);
+          }
           > a {
-            margin-right: 15px;
+            padding-right: 15px;
             text-decoration: none;
             color: inherit;
-            display: inline-block;
+            width: 100%;
             > * {
               line-height: 32px;
               vertical-align: top;
             }
             > span {
               text-transform: uppercase;
-              margin-right: 5px ;
+              margin-right: 5px;
             }
           }
         }
