@@ -9,7 +9,8 @@
   picture="https://edu.univ.org/images/noPictureUser.svg" 
   email="john.doe@edu.univ.org"
   logout-link="/uPortal/Logout" 
-  avatarSize="48px"></eyebrow-user-info>
+  avatar-size="48px"
+  menu-is-dark="true"></eyebrow-user-info>
 
 ```
 
@@ -18,7 +19,7 @@
   *  picture: required, the url of the user picture/avatar
   *  moreLink: optional, the url to go on user information management application or any other link you want when clicking on user picture
   *  logoutLink: optional, the url to sign out if you prefer to show it in the dropdown
-  *  menuIsDark: default value is true, if true set the text shown into the menu to white color, else black
+  *  menuIsDark: default value is true, set the text color into the menu to white, if false will be black, usefull for colored background
   *  avatarSize: default value is "28px", set the width and heigth size of the image.
   
   
@@ -29,6 +30,8 @@ You should use webjar, but to test you can run `npm run build` and move `dist/ey
 
 ###2. Creating a jsp invoker
 file should be deployed into uportal jsp invoker directory `src/main/webapp/WEB-INF/jsp/Invoker/eyebrow-user-info.jsp`
+
+You should use the cdn link, or use a deployed version localy for test only !
 
 ```jsp
  <%@ include file="/WEB-INF/jsp/include.jsp" %>
@@ -43,7 +46,7 @@ file should be deployed into uportal jsp invoker directory `src/main/webapp/WEB-
    var versionUpdate = (new Date()).getTime();
    var script = document.createElement("script");
    script.type = "module";
-   script.src = "${ctxPath}/scripts/eyebrow-user-info.js?v=" + versionUpdate;
+   script.src = "https://npm-cdn.herokuapp.com/@gip-recia/eyebrow-user-info@0.4.0/dist/eyebrow-user-info.js?v=" + versionUpdate;
    document.body.appendChild(script);
  </script>
  
@@ -62,7 +65,8 @@ file should be deployed into uportal jsp invoker directory `src/main/webapp/WEB-
                  email="${personManager.getPerson(request).getAttribute(userMailAttributeName[0])}"
                  more-link="${moreUserInfoUrl[0]}"
                  logout-link="${portalLogoutUrl[0]}"
-                 avatarSize="${avatarSize[0]}"></eyebrow-user-info>
+                 avatar-size="${avatarSize[0]}"
+                 menu-is-dark="true"></eyebrow-user-info>
  </div>
 
 ```
