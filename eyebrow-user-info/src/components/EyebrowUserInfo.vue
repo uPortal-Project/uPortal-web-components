@@ -5,7 +5,7 @@
         <div :class="$style.userName"><span :class="$style.label">{{displayName}}</span></div>
         <div :class="$style.userAvatar"><img :src="picture" :alt="'avatar'" :style="'height: ' + avatarSize + '; width: ' + avatarSize + ';'"/></div>
       </div>
-      <div v-if="visible" :class="$style.dropdownContent">
+      <div :class="visible ? $style.dropdownContent : [ $style.dropdownContent, $style.closed ]">
         <div :class="$style.userDetails">
           <div :class="$style.userAvatar">
             <a v-if="moreLink" :href="moreLink" :title="translate('userInfoPortletUrl.title')"><img :src="picture" :alt="'avatar'"/></a>
@@ -141,7 +141,6 @@ export default {
       > .dropdown-content {
 
         position: absolute;
-
         min-width: 280px;
         background-color: #fff;
         color: #000;
@@ -155,6 +154,16 @@ export default {
         border-left: solid 1px $grey;
         border-right: solid 1px $grey;
         text-align: initial;
+
+        visibility: visible;
+        opacity: 1;
+        transition: opacity 1s, visibility 1s;
+        animation: fade 1s;
+
+        &.closed {
+          visibility: hidden;
+          opacity: 0;
+        }
 
         > div.user-details {
           padding: 25px 10px;
