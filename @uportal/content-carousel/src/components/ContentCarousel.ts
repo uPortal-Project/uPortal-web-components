@@ -1,4 +1,4 @@
-import { Component, Prop, Vue } from 'vue-property-decorator';
+import { Component, Prop, Vue, Watch } from 'vue-property-decorator';
 import Slick from 'vue-slick';
 import { DataStrategy } from '../lib/Strategy';
 import { CarouselItem } from '../lib/CarouselItem';
@@ -14,6 +14,17 @@ export default class ContentCarousel extends Vue {
     @Prop() public slickOptions: any = {};
     @Prop([String]) public carouselHeight?: string;
     @Prop([Boolean]) public fitToContainer?: boolean;
+
+    @Watch('computedItems')
+    public onComputedItemsChange() {
+      const currentIndex = this.$refs.slick.currentSlide();
+
+      this.$refs.slick.destroy();
+      this.$nextTick(() => {
+        this.$refs.slick.create();
+        this.$refs.slick.goTo(currentIndex, true);
+      });
+    }
 
     public strategy: DataStrategy = {items: [] as CarouselItem[]} as DataStrategy;
 
