@@ -1,6 +1,6 @@
 <div class="slick-container" :class="{ 'responsive': isResponsiveToContainer }">
   <template :v-if="computedItems.length">
-    <slick :options="slickOptions">
+    <slick ref="slick" :options="slickOptions">
       <div v-for="item in computedItems" :key="item.id">
         <a :href="item.destinationUrl">
           <img v-if="item.imageUrl" :src="item.imageUrl" :alt="item.altText">
