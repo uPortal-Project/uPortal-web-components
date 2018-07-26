@@ -2,16 +2,25 @@
   <main>
     <section>
       <ContentCarousel
-        :rss="'/hero.rss'"
+        :type="'rss'"
+        :source="'/hero.rss'"
         :slickOptions="heroOptions"
         :carouselHeight="heroHeight"
         :fitToContainer="true" />
     </section>
     <section class="content">
       <ContentCarousel
-        :rss="'/content.rss'"
+        :type="'rss'"
+        :source="'/content.rss'"
         :slickOptions="contentOptions"
         :carouselHeight="contentHeight" />
+    </section>
+    <section class="content">
+      <ContentCarousel
+        :type="'portlet'"
+        :source="'/portletRegistry.json'"
+        :slickOptions="portletOptions"
+        :carouselHeight="portletHeight" />
     </section>
   </main>
 </template>
