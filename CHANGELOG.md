@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased][]
 
+### Feature
+
+- **content-carousel**: input strategy is now consistently managed with the `type` and `source` attributes (#39).
+
+### Fix
+
+- **content-carousel**: ensure carousel updates when its contents update (#38).
+
 ## [1.3.1][] - 2018-07-16
 
 ### Build
