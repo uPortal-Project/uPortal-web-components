@@ -19,12 +19,13 @@ export default class ContentCarousel extends Vue {
 
     @Watch('computedItems')
     public onComputedItemsChange() {
-        const currentIndex = this.$refs.slick.currentSlide();
+        const slick: any = this.$refs.slick;
+        const currentIndex = slick.currentSlide();
 
-        this.$refs.slick.destroy();
+        slick.destroy();
         this.$nextTick(() => {
-            this.$refs.slick.create();
-            this.$refs.slick.goTo(currentIndex, true);
+            slick.create();
+            slick.goTo(currentIndex, true);
         });
     }
 
