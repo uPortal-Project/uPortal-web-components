@@ -11,9 +11,9 @@ import { PortletStrategy } from '@/lib/PortletStrategy';
     },
 })
 export default class ContentCarousel extends Vue {
-    @Prop() public type!: string;
-    @Prop() public source!: string;
-    @Prop() public slickOptions: any = {};
+    @Prop([String]) public type!: string;
+    @Prop([String]) public source!: string;
+    @Prop() public slickOptions: any;
     @Prop([String]) public carouselHeight?: string;
     @Prop([Boolean]) public fitToContainer?: boolean;
 
