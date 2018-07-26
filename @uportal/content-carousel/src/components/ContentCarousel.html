@@ -8,6 +8,7 @@
         </a>
         <p v-if="!item.imageUrl">{{ item.description }}</p>
       </div>
+      <slot v-if="type === 'passthrough'" />
     </slick>
   </template>
 </div>
