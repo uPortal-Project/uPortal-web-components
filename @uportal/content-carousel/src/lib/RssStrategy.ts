@@ -1,4 +1,4 @@
-import { DataStrategy } from '@/lib/Strategy';
+import { DataStrategy } from '@/lib/DataStrategy';
 import { CarouselItem } from '@/lib/CarouselItem';
 import { parseXml } from '@/lib/parse';
 

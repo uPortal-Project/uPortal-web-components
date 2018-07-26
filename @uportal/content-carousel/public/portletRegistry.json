@@ -1,0 +1,210 @@
+{
+  "registry": {
+    "categories": [
+      {
+        "name": "Academics",
+        "description": "Academic Portlets",
+        "id": "local.31",
+        "portlets": [
+          {
+            "fname": "basiclti-portlet",
+            "keywords": [],
+            "averageRating": 0,
+            "name": "Basic LTI Portlet (demo)",
+            "description":
+              "Implements the IMS Basic Learning Tools Interoperability spec and allows you to render any Basic LTI enabled app inside uPortal",
+            "ratingsCount": 0,
+            "typeId": 2,
+            "id": 88,
+            "state": "PUBLISHED",
+            "title": "Basic LTI Portlet (demo)",
+            "parameters": {
+              "hideFromMobile": {
+                "name": "hideFromMobile",
+                "description": "",
+                "value": "false"
+              },
+              "highlight": {
+                "name": "highlight",
+                "description": "",
+                "value": "false"
+              },
+              "showChrome": {
+                "name": "showChrome",
+                "description": "",
+                "value": "true"
+              },
+              "blockImpersonation": {
+                "name": "blockImpersonation",
+                "description": "",
+                "value": "false"
+              },
+              "hasAbout": {
+                "name": "hasAbout",
+                "description": "",
+                "value": "false"
+              },
+              "editable": {
+                "name": "editable",
+                "description": "",
+                "value": "true"
+              },
+              "alternate": {
+                "name": "alternate",
+                "description": "",
+                "value": "false"
+              },
+              "disableDynamicTitle": {
+                "name": "disableDynamicTitle",
+                "description": "",
+                "value": "false"
+              },
+              "printable": {
+                "name": "printable",
+                "description": "",
+                "value": "false"
+              },
+              "configurable": {
+                "name": "configurable",
+                "description": "",
+                "value": "true"
+              },
+              "hasHelp": {
+                "name": "hasHelp",
+                "description": "",
+                "value": "false"
+              }
+            }
+          },
+          {
+            "fname": "courses",
+            "keywords": [],
+            "averageRating": 0,
+            "name": "Courses",
+            "description": "Course links and announcements.",
+            "ratingsCount": 0,
+            "typeId": 8,
+            "id": 52,
+            "state": "PUBLISHED",
+            "title": "Courses",
+            "parameters": {
+              "mobileIconUrl": {
+                "name": "mobileIconUrl",
+                "description": "",
+                "value": "/uPortal/media/skins/icons/mobile/courses_alt.png"
+              },
+              "iconUrl": {
+                "name": "iconUrl",
+                "description": "",
+                "value":
+                  "/ResourceServingWebapp/rs/tango/0.8.90/32x32/apps/accessories-text-editor.png"
+              },
+              "configurable": {
+                "name": "configurable",
+                "description": "",
+                "value": "true"
+              }
+            }
+          },
+          {
+            "fname": "sakai-connector",
+            "keywords": [],
+            "averageRating": 0,
+            "name": "Sakai Connector (demo)",
+            "description":
+              "Embed tools from any of your Sakai sites directly into the portal. Demo connection to Sakai Nightly demo site.",
+            "ratingsCount": 0,
+            "typeId": 2,
+            "id": 68,
+            "state": "PUBLISHED",
+            "title": "Sakai Connector (demo)",
+            "parameters": {
+              "hideFromMobile": {
+                "name": "hideFromMobile",
+                "description": "",
+                "value": "false"
+              },
+              "highlight": {
+                "name": "highlight",
+                "description": "",
+                "value": "false"
+              },
+              "showChrome": {
+                "name": "showChrome",
+                "description": "",
+                "value": "true"
+              },
+              "blockImpersonation": {
+                "name": "blockImpersonation",
+                "description": "",
+                "value": "false"
+              },
+              "hasAbout": {
+                "name": "hasAbout",
+                "description": "",
+                "value": "false"
+              },
+              "editable": {
+                "name": "editable",
+                "description": "",
+                "value": "true"
+              },
+              "alternate": {
+                "name": "alternate",
+                "description": "",
+                "value": "false"
+              },
+              "disableDynamicTitle": {
+                "name": "disableDynamicTitle",
+                "description": "",
+                "value": "false"
+              },
+              "printable": {
+                "name": "printable",
+                "description": "",
+                "value": "false"
+              },
+              "configurable": {
+                "name": "configurable",
+                "description": "",
+                "value": "true"
+              },
+              "hasHelp": {
+                "name": "hasHelp",
+                "description": "",
+                "value": "false"
+              }
+            }
+          },
+          {
+            "fname": "uportal-videos",
+            "keywords": [],
+            "averageRating": 0,
+            "name": "uPortal Videos",
+            "description":
+              "Recent uploads from uPortal's YouTube channel, featuring community demonstrations.",
+            "ratingsCount": 0,
+            "typeId": 2,
+            "id": 56,
+            "state": "PUBLISHED",
+            "title": "uPortal Videos",
+            "parameters": {
+              "mobileIconUrl": {
+                "name": "mobileIconUrl",
+                "description": "",
+                "value": "/uPortal/media/skins/icons/mobile/youtube.png"
+              },
+              "iconUrl": {
+                "name": "iconUrl",
+                "description": "",
+                "value":
+                  "/ResourceServingWebapp/rs/tango/0.8.90/32x32/mimetypes/video-x-generic.png"
+              }
+            }
+          }
+        ],
+        "subcategories": []
+      }
+    ]
+  }
+}

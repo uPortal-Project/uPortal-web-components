@@ -47,6 +47,13 @@ contentOptions = {
   arrows: true,
   dots: true
 };
+
+portletOptions = {
+  slidesToShow: 6,
+  infinite: true,
+  arrows: true,
+  dots: true
+};
 ```
 
 ```html
@@ -54,13 +61,19 @@ contentOptions = {
 <script src="./content-carousel.js"></script>
 
 <ContentCarousel
-  :rss="'/hero.rss'"
+  :type="'rss'"
+  :source="'/hero.rss'"
   :slickOptions="heroOptions"
   :carouselHeight="'30rem'"
   :fitToContainer="true" />
 <ContentCarousel
-  :rss="'/content.rss'"
+  :type="'rss'"
+  :source="'/content.rss'"
   :slickOptions="contentOptions" />
+<ContentCarousel
+  :type="'portlet'"
+  :source="'/portletRegistry.json'"
+  :slickOptions="portletOptions" />
 ```
 
 ## Options

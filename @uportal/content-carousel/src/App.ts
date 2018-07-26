@@ -7,19 +7,27 @@ import ContentCarousel from './components/ContentCarousel';
     },
 })
 export default class App extends Vue {
-    @Provide() private heroOptions: any = {
+    @Provide() public heroOptions: any = {
         slidesToShow: 1,
         infinite: true,
         arrows: true,
     };
 
-    @Provide() private contentOptions: any = {
+    @Provide() public contentOptions: any = {
         slidesToShow: 3,
         infinite: true,
         arrows: true,
         dots: true,
     };
 
-    @Provide() private heroHeight = '30rem';
-    @Provide() private contentHeight = 'auto';
+    @Provide() public portletOptions: any = {
+        slidesToShow: 6,
+        infinite: true,
+        arrows: true,
+        dots: true,
+    };
+
+    @Provide() public heroHeight = '30rem';
+    @Provide() public contentHeight = 'auto';
+    @Provide() public portletHeight = 'auto';
 }
