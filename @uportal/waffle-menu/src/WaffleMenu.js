@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import oidc from '@uportal/open-id-connect';
+import get from 'lodash/get';
+import PropTypes from 'prop-types';
 
 // --------  fancy styling magic ------- //
 const WaffleMenuContainer = styled.div`
@@ -114,12 +117,92 @@ const MenuItem = (props) => {
 };
 
 class WaffleMenu extends Component {
+  static propTypes = {
+    url: PropTypes.string,
+    category: PropTypes.string.isRequired,
+    oidcUrl: PropTypes.string,
+  };
+
+  static defaultProps = {
+    url: '/uPortal/api/v4-3/dlm/portletRegistry.json',
+    oidcUrl: '/uPortal/api/v5-1/userinfo',
+  };
+
   // Default component state
   state = {
     menuOpen: false,
     data: [],
     buttonColor: '#fff',
     dataLoaded: false,
+  };
+
+  handleOidcError = (err) => {
+    console.error(err);
+    this.setState({
+      hasError: true,
+      errorMessage: 'There was a problem authorizing this request.',
+    });
+  };
+
+  handleWflError = (err) => {
+    let message;
+    message = 'There was a problem cooking your waffle.';
+    this.setState({ hasError: true, errorMessage: message });
+  };
+
+  getToken = async () => {
+    const { oidcUrl } = this.props;
+
+    try {
+      return await oidc({ userInfoApiUrl: oidcUrl, timeout: 18000 });
+    } catch (err) {
+      console.error(err);
+      this.handleOidcError(err);
+    }
+  };
+
+  wafflePress = (payload) => {
+    console.log(payload);
+    let menuItems = get(payload, 'registry.categories.0.portlets').map((p) => {
+      return {
+        link: p.alternativeMaximizedLink || '/uPortal/p/' + p.fname,
+        image: 'http://localhost:8080' + p.parameters.iconUrl.value,
+        label: p.title,
+        type: 'box',
+      };
+    });
+    console.log(menuItems);
+    this.setState({
+      data: menuItems,
+      dataLoaded: true,
+    });
+  };
+
+  fetchMenuData = async () => {
+    const { url, category } = this.props;
+
+    try {
+      const response = await fetch(url + '?categoryId=' + category, {
+        credentials: 'same-origin',
+        headers: {
+          // Authorization: "Bearer " + (await this.getToken()).encoded,
+          // Authorization: "Bearer fT2-SkVvqqvso46g5tVU5eGX5OvM5PDY2uaD72nV",
+          'content-type': 'application/jwt',
+        },
+      });
+      if (!response.ok) {
+        if (response.status !== 404) {
+          throw new Error(response.statusText);
+        } else {
+          return;
+        }
+      }
+      const payload = await response.json();
+      this.wafflePress(payload);
+    } catch (err) {
+      console.error(err);
+      // this.handleFbmsError(err);
+    }
   };
 
   // toggle the menu
@@ -190,24 +273,10 @@ class WaffleMenu extends Component {
   // The component mounted. Work the magic.
   componentDidMount() {
     // grab the props passed to the component, parse the JSON
-    let { data, api, buttoncolor } = this.props;
+    const { buttoncolor } = this.props;
 
-    if (data) {
-      // if data is passed through the data prop
-      this.setState({ data: JSON.parse(data), dataLoaded: true });
-    } else if (api) {
-      // if an endpoint is passed through the api prop
-      fetch(api)
-        .then((resp) => {
-          return resp.json();
-        })
-        .then((json) => {
-          this.setState({ data: json, dataLoaded: true });
-        });
-    } else {
-      // we got nothing for data...
-      this.setState({ dataLoaded: false });
-    }
+    this.fetchMenuData();
+
     this.setState({ buttonColor: buttoncolor });
 
     // listen for outside clicks to close the dropdown

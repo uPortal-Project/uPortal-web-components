@@ -205,3 +205,5 @@ $RECYCLE.BIN/
 @uportal/open-id-connect/cjs
 @uportal/open-id-connect/esm
 @uportal/open-id-connect/umd
+
+@uportal/waffle-menu/package-lock\.json
