@@ -22,6 +22,28 @@
         :slickOptions="portletOptions"
         :carouselHeight="portletHeight" />
     </section>
+    <section class="content">
+      <ContentCarousel
+        :type="'passthrough'"
+        :slickOptions="contentOptions"
+        :carouselHeight="portletHeight">
+        <div>
+          arbitrary
+        </div>
+        <div>
+          content
+        </div>
+        <div>
+          displayed
+        </div>
+        <div>
+          as
+        </div>
+        <div>
+          slides
+        </div>
+      </ContentCarousel>
+    </section>
   </main>
 </template>
 <script lang="ts" src="./App.ts">

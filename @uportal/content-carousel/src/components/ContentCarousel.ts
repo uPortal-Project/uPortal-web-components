@@ -46,6 +46,12 @@ export default class ContentCarousel extends Vue {
           }
           case 'portlet': {
             this.strategy = new PortletStrategy(this.source);
+            break;
+          }
+          case 'passthrough': {
+            // ensure 'passthrough' is lowercase
+            this.type = this.type.toLowerCase();
+            break;
           }
           default: {
             console.error(`type: "${this.type}" is not recognized`);

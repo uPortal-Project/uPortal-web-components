@@ -74,6 +74,24 @@ portletOptions = {
   :type="'portlet'"
   :source="'/portletRegistry.json'"
   :slickOptions="portletOptions" />
+
+<ContentCarousel :type="'passthrough'">
+  <div>
+    arbitrary
+  </div>
+  <div>
+    content
+  </div>
+  <div>
+    displayed
+  </div>
+  <div>
+    as
+  </div>
+  <div>
+    slides
+  </div>
+</ContentCarousel>
 ```
 
 ## Options

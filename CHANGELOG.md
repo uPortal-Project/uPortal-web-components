@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased][]
 
+### Feature
+
+- **content-carousel**: `passthrough` mode which allows arbitrary content to be added as carousel slides (#41).
+
 ## [1.4.0][] - 2018-07-26
 
 ### Feature
