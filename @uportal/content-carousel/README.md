@@ -38,21 +38,21 @@ The component requires an rss file path, slick options (link below). It also all
 heroOptions = {
   slidesToShow: 1,
   infinite: true,
-  arrows: true,
+  arrows: true
 };
 
 contentOptions = {
   slidesToShow: 3,
   infinite: true,
   arrows: true,
-  dots: true,
+  dots: true
 };
 
 portletOptions = {
   slidesToShow: 6,
   infinite: true,
   arrows: true,
-  dots: true,
+  dots: true
 };
 ```
 
