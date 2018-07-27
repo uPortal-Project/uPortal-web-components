@@ -4,7 +4,8 @@
     <div class="title">{{title}}</div>
     <div class="description" v-line-clamp:20="2">{{description}}</div>
     <div class="action">
-      <action-favorites v-if="canFavorite" :fname="fname" :chan-id="channelId" :is-favorite="isFavorite" :call-on-toggle-fav="callAfterAction"></action-favorites>
+      <action-favorites v-if="canFavorite" :fname="fname" :chan-id="channelId" :is-favorite="isFavorite" :call-on-toggle-fav="callAfterAction"
+                        :favorites-api-url="favoriteApiUrl"></action-favorites>
     </div>
   </div>
 </template>
@@ -23,6 +24,7 @@ export default {
     cssClass: { type: String, default: "portlet-card" },
     iconBackgroundColor: { type: String, default: "Transparent" },
     isFavorite: { type: Boolean, default: false },
+    favoriteApiUrl: { type: String, default: process.env.VUE_APP_PORTAL_CONTEXT + "/api/layout" },
     isSmall: { type: Boolean, default: false },
     portletDesc: { type: Object, required: true },
     backGroundIsDark: { type: Boolean, default: false }

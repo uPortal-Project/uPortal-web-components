@@ -1,16 +1,16 @@
 <template>
   <div id="app">
-    <esco-content-menu />
+    <content-menu />
   </div>
 </template>
 
 <script>
-import EscoContentMenu from "./components/EscoContentMenu.vue"
+import ContentMenu from "./components/ContentMenu.vue"
 
 export default {
   name: "app",
   components: {
-    EscoContentMenu
+    ContentMenu
   }
 }
 </script>

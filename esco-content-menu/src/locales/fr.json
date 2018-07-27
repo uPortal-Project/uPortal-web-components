@@ -7,7 +7,8 @@
     "favorites": {
       "add": "Ajouter aux favoris",
       "remove": "Supprimer des favoris",
-      "title": "Mes favoris"
+      "title": "Mes favoris",
+      "empty": "Aucun favori défini"
     },
     "userInfoPortletUrl": {
       "title": "Voir les informations de mon compte"

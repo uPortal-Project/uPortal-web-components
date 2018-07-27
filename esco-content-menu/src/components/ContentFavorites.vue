@@ -3,11 +3,12 @@
     <div class="title">
       <h1>{{ translate("message.favorites.title") }}</h1>
     </div>
-    <div class="favorites" ref="favsSection">
+    <div class="favorites" :style="getFavoritesPortlets.length > 0 ? '' : 'display:none'" ref="favsSection">
       <swiper :options="swiperOption" ref="favSwiper">
         <swiper-slide v-for="portlet in getFavoritesPortlets" :key="portlet.id">
           <a class="no-style" v-bind:href="portlet.renderUrl" v-bind:target="portlet.layoutObject.altMaxUrl ? '_blank' : '_self'">
-            <portlet-card :portlet-desc="portlet" :is-favorite="true" :is-small="showSmall" :call-after-action="callAfterFavAction" :back-ground-is-dark="true"></portlet-card>
+            <portlet-card :portlet-desc="portlet" :is-favorite="true" :is-small="showSmall" :call-after-action="callAfterFavAction" :back-ground-is-dark="true"
+                          :favorites-api-url="favoriteApiUrl"></portlet-card>
           </a>
         </swiper-slide>
         <!--<div class="swiper-pagination" slot="pagination"></div>-->
@@ -17,12 +18,15 @@
       <div class="swiper-button-prev" :class="disablePrev ? 'fav-swiper-button-disabled' : ''" slot="button-prev" @click="slidePrev($event)"><icon :name="'chevron-left'"></icon></div>
       <div class="swiper-button-next" :class="disableNext ? 'fav-swiper-button-disabled' : ''" slot="button-next" @click="slideNext($event)"><icon :name="'chevron-right'"></icon></div>
     </div>
+    <div class="empty-favorites" :style="getFavoritesPortlets.length > 0 ? 'display:none' : ''">
+      <div>{{ translate("message.favorites.empty" )}}</div>
+    </div>
   </section>
 </template>
 
 <script>
-import PortletCard from "./PortletCard"
 import i18n from "../i18n.js"
+import PortletCard from "./PortletCard"
 import Icon from "vue-awesome/components/Icon"
 import "vue-awesome/icons/chevron-right"
 import "vue-awesome/icons/chevron-left"
@@ -34,6 +38,7 @@ export default {
   props: {
     backgroundColor: String,
     callAfterAction: Function,
+    favoriteApiUrl: { type: String, default: process.env.VUE_APP_PORTAL_CONTEXT + "/api/layout" },
     favorites: { type: Array, required: true, default: () => [] },
     isSmall: { type: Boolean, default: false },
     portlets: { type: Array, required: true, default: () => [] }
@@ -69,10 +74,10 @@ export default {
   },
   mounted() {
     this.$nextTick(function() {
-      window.addEventListener("resize", this.isXs);
-      this.isXs();
       this.swiper.slideTo(2, 1000, false);
       this.manageSlideClasses();
+      window.addEventListener("resize", this.isXs);
+      this.isXs();
     });
   },
   methods: {
@@ -86,7 +91,7 @@ export default {
       return url;
     },
     isXs() {
-      this.showSmall = this.isSmall || this.getWindowWidth() < 700;
+      this.showSmall = this.isSmall || this.getWindowWidth() < 660;
     },
     callAfterFavAction(favorite,fname){
       this.manageSlideClasses();
@@ -110,6 +115,7 @@ export default {
     manageSlideClasses() {
       this.disableNext = this.swiper.isEnd;
       this.disablePrev = this.swiper.isBeginning;
+      this.isXs();
     }
   },
   computed: {
@@ -208,6 +214,9 @@ export default {
       text-decoration: none;
       color: inherit;
     }
+  }
+  > .empty-favorites {
+    padding-left: 2em;
   }
 
   &.small {

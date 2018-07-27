@@ -25,13 +25,13 @@ const checkStatus = function(response) {
 const parseJSON = function(response) {
   return response.json();
 };
-
+/*eslint no-console: ["error", { allow: ["warn", "error"] }] */
 export default {
   name: "ActionFavorites",
   props: {
     callOnToggleFav: Function,
     chanId: { type: String, required: true },
-    favoriteApiUrl: { type: String, default: process.env.VUE_APP_PORTAL_CONTEXT + "/api/layout" },
+    favoriteApiUrl: { type: String, default: process.env.VUE_APP_PORTAL_CONTEXT + process.env.VUE_APP_FAVORITES_PORTLETS_URI },
     fname: String,
     isFavorite: { type: Boolean, default: false }
   },
@@ -84,8 +84,8 @@ export default {
           .then(checkStatus)
           .then(parseJSON)
           .then(this.changeFavoriteValue());
-      });
-      //.catch(err => console.log("Error, with message:", err.statusText));
+      })
+      .catch(err => console.error("Error, with message:", err.statusText));
     },
     removeFromFavorite: function() {
       oidc().then(token => {
@@ -106,8 +106,8 @@ export default {
           .then(checkStatus)
           .then(parseJSON)
           .then(this.changeFavoriteValue());
-      });
-      //.catch(err => console.log("Error, with message:", err.statusText));
+      })
+      .catch(err => console.error("Error, with message:", err.statusText));
     }
   }
 }

@@ -1,6 +1,6 @@
 <template>
   <section class="content-user" :class="isSmall ? 'small' : ''"
-           :style="isSmall ? 'background-image: url(' + getOrgImgUrl() + ');' : ''">
+           :style="isSmall ? 'background-image: linear-gradient(0deg, rgba(0,0,0,.2),rgba(0,0,0,.2)), url(' + getOrgImgUrl() + ');' : ''">
     <div>
       <div class="org-img" >
         <img :src="getOrgImgUrl()" :title="orgInfos.displayName" :alt="orgInfos.displayName" />
