@@ -144,21 +144,21 @@ export default {
         min-width: 280px;
         background-color: #fff;
         color: #000;
-        border: solid 1px $grey;
+        /*border: solid 1px $grey;*/
         box-shadow: 0 5px 5px -3px #888, 5px 5px 5px -4px #888;
         z-index: 15;
         right: 0;
-        border-bottom-right-radius: 2px;
+        /*border-bottom-right-radius: 2px;
         border-bottom-left-radius: 2px;
         border-bottom: solid 1px $grey;
         border-left: solid 1px $grey;
-        border-right: solid 1px $grey;
+        border-right: solid 1px $grey;*/
         text-align: initial;
 
         visibility: visible;
         opacity: 1;
-        transition: opacity 1s, visibility 1s;
-        animation: fade 1s;
+        transition: opacity 800ms, visibility 800ms;
+        animation: fade 800ms;
 
         &.closed {
           visibility: hidden;
