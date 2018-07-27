@@ -12,9 +12,9 @@
   },
   "devDependencies": {
     "@kazupon/vue-i18n-loader": "^0.3.0",
-    "@vue/cli-plugin-babel": "^3.0.0-beta.15",
-    "@vue/cli-plugin-eslint": "^3.0.0-beta.15",
-    "@vue/cli-service": "^3.0.0-beta.15",
+    "@vue/cli-plugin-babel": "^3.0.0-rc.7",
+    "@vue/cli-plugin-eslint": "^3.0.0-rc.7",
+    "@vue/cli-service": "^3.0.0-rc.7",
     "node-sass": "^4.9.2",
     "sass-loader": "^7.0.3",
     "vue-cli-plugin-i18n": "^0.3.1",
