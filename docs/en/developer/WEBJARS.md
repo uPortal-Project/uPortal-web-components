@@ -31,8 +31,8 @@ WebJars are client-side web libraries packaged into JAR files.
 ## Create a WebJar from NPM
 
 1. Visit <https://www.webjars.org>
-2. Click add a WebJar ![WebJars home](../assets/webars-home.png)
-3. Select a NPM package to add ![Selector](../assets/webars-add.png)
+2. Click add a WebJar ![WebJars home](../assets/webjars-home.png)
+3. Select a NPM package to add ![Selector](../assets/webjars-add.png)
    - Select type `NPM`
    - Choose the package name
    - Choose the version to add
