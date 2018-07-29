@@ -70,6 +70,9 @@
       "expect": true
     }
   },
+  "jest": {
+    "testURL": "http://localhost/"
+  },
   "engines": {
     "node": "^6.0.0 || ^8.0.0 || ^10.0.0"
   }
