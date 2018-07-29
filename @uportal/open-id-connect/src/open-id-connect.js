@@ -1,5 +1,6 @@
 import {get} from 'axios';
 import decode from 'jwt-decode';
+import regeneratorRuntime from 'regenerator-runtime';
 
 let token = null;
 
