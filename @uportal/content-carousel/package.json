@@ -2,6 +2,7 @@
   "name": "@uportal/content-carousel",
   "version": "1.4.0",
   "scripts": {
+    "prepublishOnly": "npm run build",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build --name content-carousel --target wc 'src/components/*.vue'",
     "lint": "vue-cli-service lint"
