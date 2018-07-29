@@ -11,6 +11,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - **content-carousel**: `passthrough` mode which allows arbitrary content to be added as carousel slides (#41).
 
+### Fix
+
+- **open-id-connect**: include a scoped version of regenerator runtime to allow usage of `async` (#44).
+
 ## [1.4.0][] - 2018-07-26
 
 ### Feature
