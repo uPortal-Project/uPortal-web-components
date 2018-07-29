@@ -36,6 +36,7 @@ WebJars are client-side web libraries packaged into JAR files.
    - Select type `NPM`
    - Choose the package name
    - Choose the version to add
+4. Click `Deploy!`
 
 ## Create a WebJar from a local directory
 

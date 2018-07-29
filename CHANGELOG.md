@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Docs
 
+- Document how to create and use WebJars.
 - Include new component documentation on the GitHub pages site.
 
 ## [1.5.0][] - 2018-07-29
