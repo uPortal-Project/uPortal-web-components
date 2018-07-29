@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased][]
 
+## [1.5.0][] - 2018-07-29
+
 ### Feature
 
 - **content-carousel**: `passthrough` mode which allows arbitrary content to be added as carousel slides (#41).
@@ -198,7 +200,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - **open-id-connect**: Initial version of an OpenID Connect helper script to use in web components and JavaScript modules.
 - **content-carousel**: Initial version of content carousel, a carousel based portlet metadata display system.
 
-[unreleased]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.4.0...HEAD
+[unreleased]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.5.0...HEAD
+[1.5.0]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.4.0...v1.5.0
 [1.4.0]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.3.1...v1.4.0
 [1.3.1]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.3.0...v1.3.1
 [1.3.0]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.2.0...v1.3.0
