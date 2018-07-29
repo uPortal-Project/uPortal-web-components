@@ -15,6 +15,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - **open-id-connect**: include a scoped version of regenerator runtime to allow usage of `async` (#44).
 
+### Build
+
+- **content-carousel**: ensure that build is run before the package is published (#45).
+
 ## [1.4.0][] - 2018-07-26
 
 ### Feature
