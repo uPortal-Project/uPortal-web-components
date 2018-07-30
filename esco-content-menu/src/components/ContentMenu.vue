@@ -77,8 +77,10 @@
       close(event) {
         this.visible = false;
         var element = document.querySelector('#' + this.id);
+        element.parentNode.style.display='none';
         element.setAttribute('is-hidden', true);
-        //this.isHidden = false;
+        //var element = document.querySelector('#');
+        this.isHidden = false;
         if (typeof this.callOnClose === "function") {
           this.callOnClose(event);
         }
@@ -249,6 +251,7 @@
       isHidden: {
         handler: function () {
           this.visible = !this.isHidden;
+          this.isXs();
         },
         deep: true
       }
