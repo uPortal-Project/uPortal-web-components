@@ -38,6 +38,7 @@ export default {
   props: {
     backgroundColor: String,
     callAfterAction: Function,
+    isHidden: Boolean,
     favoriteApiUrl: { type: String, default: process.env.VUE_APP_PORTAL_CONTEXT + "/api/layout" },
     favorites: { type: Array, required: true, default: () => [] },
     isSmall: { type: Boolean, default: false },
@@ -74,10 +75,9 @@ export default {
   },
   mounted() {
     this.$nextTick(function() {
-      this.swiper.slideTo(2, 1000, false);
-      this.manageSlideClasses();
       window.addEventListener("resize", this.isXs);
       this.isXs();
+      this.manageSlideClasses();
     });
   },
   methods: {
@@ -140,6 +140,13 @@ export default {
         },100);
       },
       deep: true
+    },
+    isHidden: {
+      handler: function() {
+        setTimeout(()=> {
+          this.manageSlideClasses();
+        }, 500);
+      }
     }
   }
 }

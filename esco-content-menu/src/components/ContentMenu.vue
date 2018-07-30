@@ -1,11 +1,11 @@
 <template>
-  <div class="content-menu" :class="isSmall ? 'small' : ''">
+  <div class="content-menu" :class="['toggler-menu', isSmall ? 'small ' : '', visible ? 'active-menu' : '']">
     <header>
       <header-buttons :call-on-close="close" :sign-out-url="signOutUrl"></header-buttons>
       <div class="wrapper">
         <content-user :org-infos="currentOrg" :user-infos="userInfos" :other-orgs="orgsInfos" :is-small="isSmall"></content-user>
         <content-favorites :portlets="portlets" :favorites="favorites" :call-after-action="actionToggleFav" :is-small="isSmall"
-                           :favorites-api-url="favoriteApiUrl"></content-favorites>
+                           :favorites-api-url="favoriteApiUrl" :is-hidden="isHidden"></content-favorites>
       </div>
       <div class="background" :style="(backgroundImg != null && !isSmall) ? 'background-image: linear-gradient(0deg, rgba(0,0,0,.2),rgba(0,0,0,.2)), url(' + backgroundImg + ');' : ''"></div>
     </header>
@@ -45,7 +45,9 @@
       HeaderButtons
     },
     props: {
+      id: String,
       callOnClose: Function,
+      isHidden: {type: Boolean, default: false },
       contextApiUrl: {type: String, default: process.env.VUE_APP_PORTAL_CONTEXT},
       signOutUrl: { type: String, default: process.env.VUE_APP_LOGOUT_URL }
     },
@@ -58,7 +60,8 @@
         isSmall: false,
         orgsInfos: [],
         portlets: [],
-        userInfos: {}
+        userInfos: {},
+        visible: !this.isHidden
       };
     },
     mounted() {
@@ -72,9 +75,12 @@
     },
     methods: {
       close(event) {
-        console.log("Call close window");
+        this.visible = false;
+        var element = document.querySelector('#' + this.id);
+        element.setAttribute('is-hidden', true);
+        //this.isHidden = false;
         if (typeof this.callOnClose === "function") {
-          this.callOnClose();
+          this.callOnClose(event);
         }
       },
       getWindowWidth: function() {
@@ -239,8 +245,13 @@
         }
       }
     },
-    computed: {
-
+    watch: {
+      isHidden: {
+        handler: function () {
+          this.visible = !this.isHidden;
+        },
+        deep: true
+      }
     },
     beforeDestroy() {
       window.removeEventListener("resize", this.getWindowWidth);
@@ -254,6 +265,23 @@
     min-width: 280px;
     min-height: 100vh;
     background-color: #D0D0D0;
+
+    &.toggler-menu {
+      position:absolute;
+      width: 100%;
+      min-heigth: 100vh;
+      top:0;
+      left:0;
+      z-index:1001;
+      visibility: hidden;
+      opacity: 0;
+      transition: opacity 600ms, visibility 600ms;
+      animation: fade 600ms;
+    }
+    &.active-menu {
+      visibility: visible;
+      opacity: 1;
+    }
 
     * {
       font-family: Roboto, sans-serif;
