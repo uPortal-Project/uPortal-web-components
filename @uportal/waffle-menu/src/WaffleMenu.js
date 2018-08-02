@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import styled from 'styled-components';
 import oidc from '@uportal/open-id-connect';
 import get from 'lodash/get';
@@ -105,7 +105,7 @@ const WaffleDropdownFooter = styled.li`
 
 // menu item stateless component
 const MenuItem = (props) => {
-  let { link, image, label } = props;
+  let {link, image, label} = props;
   return (
     <MIListItem>
       <a href={link} background={image}>
@@ -148,14 +148,14 @@ class WaffleMenu extends Component {
   handleWflError = (err) => {
     let message;
     message = 'There was a problem cooking your waffle.';
-    this.setState({ hasError: true, errorMessage: message });
+    this.setState({hasError: true, errorMessage: message});
   };
 
   getToken = async () => {
-    const { oidcUrl } = this.props;
+    const {oidcUrl} = this.props;
 
     try {
-      return await oidc({ userInfoApiUrl: oidcUrl, timeout: 18000 });
+      return await oidc({userInfoApiUrl: oidcUrl, timeout: 18000});
     } catch (err) {
       console.error(err);
       this.handleOidcError(err);
@@ -164,7 +164,7 @@ class WaffleMenu extends Component {
 
   wafflePress = (payload) => {
     let menuItems = get(payload, 'registry.categories.0.portlets').map(
-      ({ alternativeMaximizedLink, fname, parameters, title }) => {
+      ({alternativeMaximizedLink, fname, parameters, title}) => {
         return {
           link: alternativeMaximizedLink || '/uPortal/p/' + fname,
           image: get(parameters, 'iconUrl.value'),
@@ -181,7 +181,7 @@ class WaffleMenu extends Component {
   };
 
   fetchMenuData = async () => {
-    const { url, category, debug } = this.props;
+    const {url, category, debug} = this.props;
 
     const token = debug ? null : (await this.getToken()).encoded;
 
@@ -189,7 +189,7 @@ class WaffleMenu extends Component {
       const response = await fetch(url + '?categoryName=' + category, {
         credentials: 'same-origin',
         headers: {
-          Authorization: 'Bearer ' + token,
+          'Authorization': 'Bearer ' + token,
           'content-type': 'application/jwt',
         },
       });
@@ -209,7 +209,7 @@ class WaffleMenu extends Component {
 
   // toggle the menu
   toggleMenu = () => {
-    this.setState({ menuOpen: !this.state.menuOpen });
+    this.setState({menuOpen: !this.state.menuOpen});
   };
 
   // close the menu if we're clicking outside the menu or trigger
@@ -220,13 +220,13 @@ class WaffleMenu extends Component {
       this.buttonRef &&
       !this.buttonRef.contains(event.target)
     ) {
-      this.setState({ menuOpen: false });
+      this.setState({menuOpen: false});
     }
   };
 
   // Show it to us
   render() {
-    let { buttonColor, menuOpen, data, dataLoaded } = this.state;
+    let {buttonColor, menuOpen, data, dataLoaded} = this.state;
 
     return (
       dataLoaded && (
@@ -275,11 +275,11 @@ class WaffleMenu extends Component {
   // The component mounted. Work the magic.
   componentDidMount() {
     // grab the props passed to the component, parse the JSON
-    const { buttoncolor } = this.props;
+    const {buttoncolor} = this.props;
 
     this.fetchMenuData();
 
-    this.setState({ buttonColor: buttoncolor });
+    this.setState({buttonColor: buttoncolor});
 
     // listen for outside clicks to close the dropdown
     window.addEventListener('click', this.handleOutsideClick);
