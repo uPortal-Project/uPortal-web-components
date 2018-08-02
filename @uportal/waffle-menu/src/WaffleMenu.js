@@ -146,8 +146,7 @@ class WaffleMenu extends Component {
   };
 
   handleWflError = (err) => {
-    let message;
-    message = 'There was a problem cooking your waffle.';
+    const message = 'There was a problem cooking your waffle.';
     this.setState({hasError: true, errorMessage: message});
   };
 
@@ -163,7 +162,7 @@ class WaffleMenu extends Component {
   };
 
   wafflePress = (payload) => {
-    let menuItems = get(payload, 'registry.categories.0.portlets').map(
+    const menuItems = get(payload, 'registry.categories.0.portlets').map(
       ({alternativeMaximizedLink, fname, parameters, title}) => {
         return {
           link: alternativeMaximizedLink || '/uPortal/p/' + fname,
@@ -173,7 +172,6 @@ class WaffleMenu extends Component {
         };
       }
     );
-    console.log(menuItems);
     this.setState({
       data: menuItems,
       dataLoaded: true,

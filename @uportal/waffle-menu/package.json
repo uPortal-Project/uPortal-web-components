@@ -18,6 +18,13 @@
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
-    "parser": "babel-eslint"
+    "extends": [
+      "react-app",
+      "google"
+    ],
+    "rules": {
+      "no-invalid-this": "off",
+      "require-jsdoc": "off"
+    }
   }
 }
