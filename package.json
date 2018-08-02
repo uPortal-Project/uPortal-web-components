@@ -23,7 +23,7 @@
     "bootstrap": "lerna bootstrap --ci",
     "ci:commitlint": "commitlint-travis",
     "format": "npm-run-all format:*",
-    "format:js": "prettier-eslint --write **/*.{js,jsx,vue}",
+    "format:js": "prettier-eslint --write **/*.{ts,tsx,js,jsx,vue}",
     "format:md": "prettier --write **/*.md",
     "format:css": "prettier-stylelint --write **/*.{css,scss}",
     "lint": "npm-run-all lint:*",
