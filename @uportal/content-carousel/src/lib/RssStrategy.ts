@@ -34,18 +34,18 @@ export class RssStrategy implements DataStrategy {
           media: any;
           enclosures: any;
         },
-        index: number,
+        index: number
       ) => {
-          const image = media ? media.content : enclosures ? enclosures[0] : null;
-          return {
-              id: `${index}-${new Date().getTime()}`,
-              altText: `${title} - ${description}`,
-              destinationUrl: link,
-              imageUrl: image,
-              title: image ? null : title,
-              description: image ? null : description,
-          };
-      },
+        const image = media ? media.content : enclosures ? enclosures[0] : null;
+        return {
+          id: `${index}-${new Date().getTime()}`,
+          altText: `${title} - ${description}`,
+          destinationUrl: link,
+          imageUrl: image,
+          title: image ? null : title,
+          description: image ? null : description,
+        };
+      }
     );
   }
 }

@@ -6,68 +6,77 @@ import { RssStrategy } from '@/lib/RssStrategy';
 import { PortletStrategy } from '@/lib/PortletStrategy';
 
 @Component({
-    components: {
-        Slick,
-    },
+  components: {
+    Slick,
+  },
 })
 export default class ContentCarousel extends Vue {
-    @Prop([String]) public type!: string;
-    @Prop([String]) public source!: string;
-    @Prop() public slickOptions: any;
-    @Prop([String]) public carouselHeight?: string;
-    @Prop([Boolean]) public fitToContainer?: boolean;
+  @Prop([String])
+  public type!: string;
 
-    @Watch('computedItems')
-    public onComputedItemsChange() {
-        const slick: any = this.$refs.slick;
-        const currentIndex = slick.currentSlide();
+  @Prop([String])
+  public source!: string;
 
-        slick.destroy();
-        this.$nextTick(() => {
-            slick.create();
-            slick.goTo(currentIndex, true);
-        });
+  @Prop()
+  public slickOptions: any;
+
+  @Prop([String])
+  public carouselHeight?: string;
+
+  @Prop([Boolean])
+  public fitToContainer?: boolean;
+
+  @Watch('computedItems')
+  public onComputedItemsChange() {
+    const slick: any = this.$refs.slick;
+    const currentIndex = slick.currentSlide();
+
+    slick.destroy();
+    this.$nextTick(() => {
+      slick.create();
+      slick.goTo(currentIndex, true);
+    });
+  }
+
+  public strategy: DataStrategy = {
+    items: [] as CarouselItem[],
+  } as DataStrategy;
+
+  public mounted(): void {
+    const list = Array.from(this.$el.getElementsByClassName('slick-list'));
+    if (list.length > 0) {
+      list.forEach((el) => el.setAttribute('style', `height:${this.height}`));
     }
 
-    public strategy: DataStrategy = {
-        items: [] as CarouselItem[],
-    } as DataStrategy;
-
-    public mounted(): void {
-        const list = Array.from(this.$el.getElementsByClassName('slick-list'));
-        if (list.length > 0) {
-            list.forEach((el) => el.setAttribute('style', `height:${this.height}`));
-        }
-
-        switch (this.type.toLowerCase()) {
-          case 'rss': {
-            this.strategy = new RssStrategy(this.source);
-            break;
-          }
-          case 'portlet': {
-            this.strategy = new PortletStrategy(this.source);
-            break;
-          }
-          case 'passthrough': {
-            // ensure 'passthrough' is lowercase
-            this.type = this.type.toLowerCase();
-            break;
-          }
-          default: {
-            console.error(`type: "${this.type}" is not recognized`);
-          }
-        }
+    switch (this.type.toLowerCase()) {
+      case 'rss': {
+        this.strategy = new RssStrategy(this.source);
+        break;
+      }
+      case 'portlet': {
+        this.strategy = new PortletStrategy(this.source);
+        break;
+      }
+      case 'passthrough': {
+        // ensure 'passthrough' is lowercase
+        this.type = this.type.toLowerCase();
+        break;
+      }
+      default: {
+        console.error(`type: "${this.type}" is not recognized`);
+      }
     }
+  }
 
-    get height(): string {
-        return this.carouselHeight || 'auto';
-    }
+  get height(): string {
+    return this.carouselHeight || 'auto';
+  }
 
-    get isResponsiveToContainer(): boolean {
-        return this.fitToContainer ? true : false;
-    }
+  get isResponsiveToContainer(): boolean {
+    return this.fitToContainer ? true : false;
+  }
 
-    get computedItems(): CarouselItem[] {
-        return this.strategy.items;
-    }
+  get computedItems(): CarouselItem[] {
+    return this.strategy.items;
+  }
 }

@@ -201,6 +201,7 @@ $RECYCLE.BIN/
 
 # End of https://www.gitignore.io/api/node,code,macos,linux,windows,intellij+all
 
+yarn.lock
 !tsconfig.json
 @uportal/open-id-connect/cjs
 @uportal/open-id-connect/esm

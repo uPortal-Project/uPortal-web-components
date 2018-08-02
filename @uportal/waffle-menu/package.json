@@ -1,0 +1,56 @@
+{
+  "name": "@uportal/waffle-menu",
+  "description": "Display portlet content in a browsable carousel",
+  "version": "0.1.0",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@uportal/open-id-connect": "^1.3.1",
+    "lodash.get": "^4.4.2",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "reactive-elements": "^0.9.0",
+    "styled-components": "^3.3.3"
+  },
+  "devDependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.0-14",
+    "@fortawesome/free-solid-svg-icons": "^5.1.0-11",
+    "@fortawesome/react-fontawesome": "0.1.0-11",
+    "react-scripts": "1.1.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "google"
+    ],
+    "rules": {
+      "no-invalid-this": "off",
+      "require-jsdoc": "off"
+    }
+  },
+  "bugs": {
+    "url": "https://github.com/uPortal-contrib/uPortal-web-components/issues"
+  },
+  "license": "Apache-2.0",
+  "author": "Apereo <uportal-dev@apereo.org>",
+  "keywords": [
+    "apereo",
+    "uportal",
+    "waffle",
+    "menu",
+    "app",
+    "launcher"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uPortal-contrib/uPortal-web-components.git"
+  },
+  "homepage": "https://uportal-contrib.github.io/uPortal-web-components/"
+}

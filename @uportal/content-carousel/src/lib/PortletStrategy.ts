@@ -18,36 +18,34 @@ export class PortletStrategy implements DataStrategy {
     const portlets = await response.json();
 
     this.items = portlets.registry.categories[0].portlets.map(
-      (
-        {
-          fname,
-          name,
+      ({
+        fname,
+        name,
+        description,
+        parameters,
+      }: {
+        fname: string;
+        name: string;
+        description: string;
+        parameters: any;
+      }) => {
+        let imageUrl = '';
+        let altText = '';
+
+        if (parameters && parameters.iconUrl) {
+          imageUrl = parameters.iconUrl.value;
+          altText = parameters.iconUrl.description || description;
+        }
+
+        return {
+          id: fname,
+          altText,
+          destinationUrl: 'TODO',
+          imageUrl,
+          title: name,
           description,
-          parameters,
-        }: {
-          fname: string;
-          name: string;
-          description: string;
-          parameters: any;
-        },
-      ) => {
-          let imageUrl = '';
-          let altText = '';
-
-          if (parameters && parameters.iconUrl) {
-            imageUrl = parameters.iconUrl.value;
-            altText = parameters.iconUrl.description || description;
-          }
-
-          return {
-              id: fname,
-              altText,
-              destinationUrl: 'TODO',
-              imageUrl,
-              title: name,
-              description,
-          };
-      },
+        };
+      }
     );
   }
 }

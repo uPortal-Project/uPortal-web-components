@@ -7,10 +7,18 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased][]
 
+### Feature
+
+- **waffle-menu**: a new component, the waffle menu, this component offers an app launcher experience from a dropdown (#33).
+
 ### Docs
 
-- Document how to create and use WebJars.
-- Include new component documentation on the GitHub pages site.
+- Document how to create and use WebJars (#48).
+- Include new component documentation on the GitHub pages site (#46).
+
+### Style
+
+- Apply Google code style to content carousel and waffle menu (#33).
 
 ## [1.5.0][] - 2018-07-29
 

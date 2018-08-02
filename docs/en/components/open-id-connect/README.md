@@ -65,11 +65,11 @@ oidc.default({}, function(err, token) {
 _use with ES6+_
 
 ```js
-import oicd from '@uportal/open-id-connect';
+import oicd from "@uportal/open-id-connect";
 
 // with default values
 try {
-  const {encoded, decoded} = await oidc();
+  const { encoded, decoded } = await oidc();
   console.log(encoded);
   console.log(decoded);
 } catch (err) {
@@ -78,8 +78,8 @@ try {
 
 // with options
 try {
-  const {encoded, decoded} = await oidc({
-    userInfoApiUrl: '/uPortal/api/v5-1/userinfo',
+  const { encoded, decoded } = await oidc({
+    userInfoApiUrl: "/uPortal/api/v5-1/userinfo",
     timeout: 5000,
     propertyTransforms: {
       example: JSON.parse
