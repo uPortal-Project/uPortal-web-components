@@ -32,8 +32,10 @@ export default class App extends Vue {
 
   @Provide()
   public heroHeight = '30rem';
+
   @Provide()
   public contentHeight = 'auto';
+
   @Provide()
   public portletHeight = 'auto';
 }
