@@ -1,6 +1,8 @@
 import {get} from 'axios';
 import decode from 'jwt-decode';
-import 'babel-polyfill'; // needed to apply async/await polyfills
+// needed as a polyfill for browsers not yet supporting async
+// eslint-disable-next-line no-unused-vars
+import regeneratorRuntime from 'regenerator-runtime';
 
 let token = null;
 

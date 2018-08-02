@@ -8,8 +8,8 @@
 
 There are couple options for installing components:
 
-* a [node][] package through [npm][] or [yarn][]
-* a [webjar][] through [gradle][] or [maven][]
+- a [node][] package through [npm][] or [yarn][]
+- a [webjar][] through [gradle][] or [maven][]
 
 ```bash
 # install with npm
@@ -48,8 +48,8 @@ For example an `example-component` would be loaded by adding
 
 ## Components
 
-* [Content Carousel](components/content-carousel/README.md)
-* [Open ID Connect](components/open-id-connect/README.md)
+- [Content Carousel](components/content-carousel/README.md)
+- [Open ID Connect](components/open-id-connect/README.md)
 
 ## Contribute
 
@@ -59,17 +59,18 @@ Want to chat with the community and contributors? Join us in [Slack][] and the [
 
 ## Additional Topics
 
-* [Local Project Setup](developer/SETUP.md)
-* [Project Automation Tools](developer/AUTOMATION.md)
-* [Project Conventions and Practices](developer/CONVENTIONS.md)
-* Create a Web Component:
-  * [without a framework](developer/create-web-component/PLAIN.md)
-  * [in Angular](developer/create-web-component/ANGULAR.md)
-  * [in Polymer](developer/create-web-component/POLYMER.md) :star:
-  * [in Preact](developer/create-web-component/PREACT.md) :star:
-  * [in React](developer/create-web-component/REACT.md)
-  * [in Svelte](developer/create-web-component/SVELTE.md)
-  * [in Vue](developer/create-web-component/VUE.md) :star:
+- [Local Project Setup](developer/SETUP.md)
+- [Project Automation Tools](developer/AUTOMATION.md)
+- [Project Conventions and Practices](developer/CONVENTIONS.md)
+- [Working with WebJars](developer/WEBJARS.md)
+- Create a Web Component:
+  - [without a framework](developer/create-web-component/PLAIN.md)
+  - [in Angular](developer/create-web-component/ANGULAR.md)
+  - [in Polymer](developer/create-web-component/POLYMER.md) :star:
+  - [in Preact](developer/create-web-component/PREACT.md) :star:
+  - [in React](developer/create-web-component/REACT.md)
+  - [in Svelte](developer/create-web-component/SVELTE.md)
+  - [in Vue](developer/create-web-component/VUE.md) :star:
 
 :star: Recommended
 

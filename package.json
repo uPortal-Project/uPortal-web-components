@@ -20,6 +20,7 @@
     "yorkie": "^1.0.3"
   },
   "scripts": {
+    "bootstrap": "lerna bootstrap --ci",
     "ci:commitlint": "commitlint-travis",
     "format": "npm-run-all format:*",
     "format:js": "prettier-eslint --write **/*.{js,jsx,vue}",

@@ -1,8 +1,9 @@
-import { Component, Prop, Vue } from 'vue-property-decorator';
+import { Component, Prop, Vue, Watch } from 'vue-property-decorator';
 import Slick from 'vue-slick';
-import { DataStrategy } from '../lib/Strategy';
+import { DataStrategy } from '../lib/DataStrategy';
 import { CarouselItem } from '../lib/CarouselItem';
 import { RssStrategy } from '@/lib/RssStrategy';
+import { PortletStrategy } from '@/lib/PortletStrategy';
 
 @Component({
     components: {
@@ -10,12 +11,27 @@ import { RssStrategy } from '@/lib/RssStrategy';
     },
 })
 export default class ContentCarousel extends Vue {
-    @Prop() public rss!: string;
-    @Prop() public slickOptions: any = {};
+    @Prop([String]) public type!: string;
+    @Prop([String]) public source!: string;
+    @Prop() public slickOptions: any;
     @Prop([String]) public carouselHeight?: string;
     @Prop([Boolean]) public fitToContainer?: boolean;
 
-    public strategy: DataStrategy = {items: [] as CarouselItem[]} as DataStrategy;
+    @Watch('computedItems')
+    public onComputedItemsChange() {
+        const slick: any = this.$refs.slick;
+        const currentIndex = slick.currentSlide();
+
+        slick.destroy();
+        this.$nextTick(() => {
+            slick.create();
+            slick.goTo(currentIndex, true);
+        });
+    }
+
+    public strategy: DataStrategy = {
+        items: [] as CarouselItem[],
+    } as DataStrategy;
 
     public mounted(): void {
         const list = Array.from(this.$el.getElementsByClassName('slick-list'));
@@ -23,8 +39,23 @@ export default class ContentCarousel extends Vue {
             list.forEach((el) => el.setAttribute('style', `height:${this.height}`));
         }
 
-        if (this.rss) {
-            this.strategy = new RssStrategy(this.rss);
+        switch (this.type.toLowerCase()) {
+          case 'rss': {
+            this.strategy = new RssStrategy(this.source);
+            break;
+          }
+          case 'portlet': {
+            this.strategy = new PortletStrategy(this.source);
+            break;
+          }
+          case 'passthrough': {
+            // ensure 'passthrough' is lowercase
+            this.type = this.type.toLowerCase();
+            break;
+          }
+          default: {
+            console.error(`type: "${this.type}" is not recognized`);
+          }
         }
     }
 

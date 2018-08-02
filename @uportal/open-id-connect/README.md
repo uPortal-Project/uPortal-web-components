@@ -65,11 +65,11 @@ oidc.default({}, function(err, token) {
 _use with ES6+_
 
 ```js
-import oicd from '@uportal/open-id-connect';
+import oicd from "@uportal/open-id-connect";
 
 // with default values
 try {
-  const {encoded, decoded} = await oidc();
+  const { encoded, decoded } = await oidc();
   console.log(encoded);
   console.log(decoded);
 } catch (err) {
@@ -78,8 +78,8 @@ try {
 
 // with options
 try {
-  const {encoded, decoded} = await oidc({
-    userInfoApiUrl: '/uPortal/api/v5-1/userinfo',
+  const { encoded, decoded } = await oidc({
+    userInfoApiUrl: "/uPortal/api/v5-1/userinfo",
     timeout: 5000,
     propertyTransforms: {
       example: JSON.parse
@@ -98,19 +98,19 @@ try {
 oidc(options, callback); //-> Promise
 ```
 
-* (optional) **Options**
-  * (optional) _string_ `userInfoApiUrl` - URL for Open ID Connect endpoint
-  * (optional) _number_ timeout - time until token should be renewed
-  * (optional) _object_ propertyTransforms - transforms to apply to specific properties
-    * _string_ `key` - name of property to be transformed
-    * _function_ `value` - function to apply to property
-* (optional) **Callback**
-  * _Error_ `err` - null if resonse is okay, error object otherwise
-  * _Object_ `token` - object with `encoded` and `decoded` keys
-    * _string_ `encoded` has the raw JSON Web Token
-    * _Object_ `decoded` has the parsed JSON object
-* **Promise**
-  * _Object_ `resolve` token object
-    * _string_ `encoded` has the raw JSON Web Token
-    * _Object_ `decoded` has the parsed JSON object
-  * _Error_ `reject` reason Promise was rejected
+- (optional) **Options**
+  - (optional) _string_ `userInfoApiUrl` - URL for Open ID Connect endpoint
+  - (optional) _number_ timeout - time until token should be renewed
+  - (optional) _object_ propertyTransforms - transforms to apply to specific properties
+    - _string_ `key` - name of property to be transformed
+    - _function_ `value` - function to apply to property
+- (optional) **Callback**
+  - _Error_ `err` - null if resonse is okay, error object otherwise
+  - _Object_ `token` - object with `encoded` and `decoded` keys
+    - _string_ `encoded` has the raw JSON Web Token
+    - _Object_ `decoded` has the parsed JSON object
+- **Promise**
+  - _Object_ `resolve` token object
+    - _string_ `encoded` has the raw JSON Web Token
+    - _Object_ `decoded` has the parsed JSON object
+  - _Error_ `reject` reason Promise was rejected
