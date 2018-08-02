@@ -50,6 +50,7 @@ For example an `example-component` would be loaded by adding
 
 - [Content Carousel](components/content-carousel/README.md)
 - [Open ID Connect](components/open-id-connect/README.md)
+- [Waffle Menu](components/waffle-menu/README.md)
 
 ## Contribute
 
