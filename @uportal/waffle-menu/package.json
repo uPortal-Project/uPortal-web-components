@@ -1,6 +1,6 @@
 {
   "name": "@uportal/waffle-menu",
-  "description": "Display portlet content in a browsable carousel",
+  "description": "An app launcher dropdown",
   "version": "0.1.0",
   "publishConfig": {
     "access": "public"
