@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased][]
 
+### Docs
+
+- **waffle-menu**: add badges to readme.
+
+## [1.6.0][] - 2018-08-02
+
 ### Feature
 
 - **waffle-menu**: a new component, the waffle menu, this component offers an app launcher experience from a dropdown (#33).
@@ -213,7 +219,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - **open-id-connect**: Initial version of an OpenID Connect helper script to use in web components and JavaScript modules.
 - **content-carousel**: Initial version of content carousel, a carousel based portlet metadata display system.
 
-[unreleased]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.5.0...HEAD
+[unreleased]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.6.0...HEAD
+[1.6.0]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.5.0...v1.6.0
 [1.5.0]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.4.0...v1.5.0
 [1.4.0]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.3.1...v1.4.0
 [1.3.1]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.3.0...v1.3.1
