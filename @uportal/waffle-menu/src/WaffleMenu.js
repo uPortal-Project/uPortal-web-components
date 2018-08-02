@@ -120,12 +120,13 @@ class WaffleMenu extends Component {
   static propTypes = {
     url: PropTypes.string,
     category: PropTypes.string.isRequired,
-    oidcUrl: PropTypes.string,
+    debug: PropTypes.bool,
   };
 
   static defaultProps = {
     url: '/uPortal/api/v4-3/dlm/portletRegistry.json',
     oidcUrl: '/uPortal/api/v5-1/userinfo',
+    debug: false,
   };
 
   // Default component state
@@ -162,15 +163,16 @@ class WaffleMenu extends Component {
   };
 
   wafflePress = (payload) => {
-    console.log(payload);
-    let menuItems = get(payload, 'registry.categories.0.portlets').map((p) => {
-      return {
-        link: p.alternativeMaximizedLink || '/uPortal/p/' + p.fname,
-        image: 'http://localhost:8080' + p.parameters.iconUrl.value,
-        label: p.title,
-        type: 'box',
-      };
-    });
+    let menuItems = get(payload, 'registry.categories.0.portlets').map(
+      ({ alternativeMaximizedLink, fname, parameters, title }) => {
+        return {
+          link: alternativeMaximizedLink || '/uPortal/p/' + fname,
+          image: get(parameters, 'iconUrl.value'),
+          label: title,
+          type: 'box',
+        };
+      }
+    );
     console.log(menuItems);
     this.setState({
       data: menuItems,
@@ -179,14 +181,15 @@ class WaffleMenu extends Component {
   };
 
   fetchMenuData = async () => {
-    const { url, category } = this.props;
+    const { url, category, debug } = this.props;
+
+    const token = debug ? null : (await this.getToken()).encoded;
 
     try {
-      const response = await fetch(url + '?categoryId=' + category, {
+      const response = await fetch(url + '?categoryName=' + category, {
         credentials: 'same-origin',
         headers: {
-          // Authorization: "Bearer " + (await this.getToken()).encoded,
-          // Authorization: "Bearer fT2-SkVvqqvso46g5tVU5eGX5OvM5PDY2uaD72nV",
+          Authorization: 'Bearer ' + token,
           'content-type': 'application/jwt',
         },
       });
@@ -201,7 +204,6 @@ class WaffleMenu extends Component {
       this.wafflePress(payload);
     } catch (err) {
       console.error(err);
-      // this.handleFbmsError(err);
     }
   };
 
