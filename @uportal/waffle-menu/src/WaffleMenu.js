@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import oidc from '@uportal/open-id-connect';
 import get from 'lodash/get';
 import PropTypes from 'prop-types';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faTh} from '@fortawesome/free-solid-svg-icons';
 
 // --------  fancy styling magic ------- //
 const WaffleMenuContainer = styled.div`
@@ -121,11 +123,13 @@ class WaffleMenu extends Component {
     url: PropTypes.string,
     category: PropTypes.string.isRequired,
     debug: PropTypes.bool,
+    buttonColor: PropTypes.string,
   };
 
   static defaultProps = {
     url: '/uPortal/api/v4-3/dlm/portletRegistry.json',
     oidcUrl: '/uPortal/api/v5-1/userinfo',
+    buttonColor: '#fff',
     debug: false,
   };
 
@@ -133,7 +137,6 @@ class WaffleMenu extends Component {
   state = {
     menuOpen: false,
     data: [],
-    buttonColor: '#fff',
     dataLoaded: false,
   };
 
@@ -224,7 +227,8 @@ class WaffleMenu extends Component {
 
   // Show it to us
   render() {
-    let {buttonColor, menuOpen, data, dataLoaded} = this.state;
+    const {menuOpen, data, dataLoaded} = this.state;
+    const {buttonColor} = this.props;
 
     return (
       dataLoaded && (
@@ -233,17 +237,7 @@ class WaffleMenu extends Component {
             innerRef={(node) => (this.buttonRef = node)}
             onClick={() => this.toggleMenu()}
           >
-            <svg
-              aria-hidden="true"
-              role="img"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 512 512"
-            >
-              <path
-                fill={buttonColor}
-                d="M149.333 56v80c0 13.255-10.745 24-24 24H24c-13.255 0-24-10.745-24-24V56c0-13.255 10.745-24 24-24h101.333c13.255 0 24 10.745 24 24zm181.334 240v-80c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.256 0 24.001-10.745 24.001-24zm32-240v80c0 13.255 10.745 24 24 24H488c13.255 0 24-10.745 24-24V56c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24zm-32 80V56c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.256 0 24.001-10.745 24.001-24zm-205.334 56H24c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24zM0 376v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H24c-13.255 0-24 10.745-24 24zm386.667-56H488c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24zm0 160H488c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24zM181.333 376v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24z"
-              />
-            </svg>
+            <FontAwesomeIcon icon={faTh} color={buttonColor} size="2x" />
           </WaffleTrigger>
           <WaffleDropdown
             innerRef={(node) => (this.menuRef = node)}
@@ -272,12 +266,7 @@ class WaffleMenu extends Component {
 
   // The component mounted. Work the magic.
   componentDidMount() {
-    // grab the props passed to the component, parse the JSON
-    const {buttoncolor} = this.props;
-
     this.fetchMenuData();
-
-    this.setState({buttonColor: buttoncolor});
 
     // listen for outside clicks to close the dropdown
     window.addEventListener('click', this.handleOutsideClick);
