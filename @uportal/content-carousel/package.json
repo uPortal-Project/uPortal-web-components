@@ -21,10 +21,10 @@
     "xml2js": "^0.4.19"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^3.0.0-rc.5",
-    "@vue/cli-plugin-typescript": "^3.0.0-rc.5",
-    "@vue/cli-service": "^3.0.0-rc.5",
-    "node-sass": "^4.9.2",
+    "@vue/cli-plugin-babel": "^3.0.0-rc.12",
+    "@vue/cli-plugin-typescript": "^3.0.0-rc.12",
+    "@vue/cli-service": "^3.0.0-rc.12",
+    "node-sass": "^4.9.3",
     "sass-loader": "^7.0.3",
     "vue-template-compiler": "^2.5.16"
   },
