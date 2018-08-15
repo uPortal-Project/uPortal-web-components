@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Docs
 
 - **waffle-menu**: add badges to readme.
+- **content-carousel**: give example usage as a web component (#52).
 
 ## [1.6.0][] - 2018-08-02
 
