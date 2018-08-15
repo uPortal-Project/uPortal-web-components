@@ -5,21 +5,24 @@
     "@commitlint/config-conventional": "^7.0.0",
     "@commitlint/config-lerna-scopes": "^7.0.0",
     "@commitlint/travis-cli": "^7.0.0",
+    "@vue/eslint-config-prettier": "^3.0.0",
+    "babel-eslint": "^8.2.3",
     "eslint": "^5.3.0",
     "eslint-config-google": "^0.9.1",
     "eslint-config-react-app": "^2.1.0",
     "eslint-plugin-flowtype": "^2.50.0",
-    "eslint-plugin-import": "^2.13.0",
+    "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.1",
-    "eslint-plugin-react": "^7.10.0",
+    "eslint-plugin-react": "^7.11.1",
+    "eslint-plugin-vue": "^4.5.0",
     "lerna": "^2.11.0",
-    "lint-staged": "^7.0.5",
+    "lint-staged": "^7.2.2",
     "npm-run-all": "^4.1.2",
     "prettier-eslint-cli": "^4.7.1",
     "prettier-stylelint": "^0.4.2",
     "remark-cli": "^5.0.0",
     "remark-preset-lint-recommended": "^3.0.1",
-    "remark-validate-links": "^7.0.0",
+    "remark-validate-links": "^7.1.0",
     "stylelint": "^9.2.0",
     "stylelint-config-standard": "^18.2.0",
     "yorkie": "^2.0.0"
@@ -87,10 +90,5 @@
       ":ignoreUnstable",
       ":renovatePrefix"
     ]
-  },
-  "dependencies": {
-    "@vue/eslint-config-prettier": "^3.0.0-rc.12",
-    "babel-eslint": "^8.2.3",
-    "eslint-plugin-vue": "^4.5.0"
   }
 }
