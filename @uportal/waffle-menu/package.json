@@ -17,12 +17,13 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.0-14",
     "@fortawesome/free-solid-svg-icons": "^5.1.0-11",
     "@fortawesome/react-fontawesome": "0.1.1",
-    "react-scripts": "1.1.4"
+    "react-scripts": "1.1.4",
+    "shx": "^0.3.1"
   },
   "scripts": {
     "prepublishOnly": "npm run build",
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "react-scripts build && shx mv build/static/js/*.js build/static/js/waffle-press.js",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
@@ -49,6 +50,15 @@
     "app",
     "launcher"
   ],
+  "proxy": {
+    "/proxy": {
+      "target": "http://localhost:8080",
+      "changeOrigin": true,
+      "pathRewrite": {
+        "^/proxy": "/"
+      }
+    }
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/uPortal-contrib/uPortal-web-components.git"

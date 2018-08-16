@@ -1,10 +1,10 @@
-import React, {Component} from 'react';
-import styled from 'styled-components';
-import oidc from '@uportal/open-id-connect';
-import get from 'lodash/get';
-import PropTypes from 'prop-types';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faTh} from '@fortawesome/free-solid-svg-icons';
+import React, { Component } from "react";
+import styled from "styled-components";
+import oidc from "@uportal/open-id-connect";
+import get from "lodash/get";
+import PropTypes from "prop-types";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTh } from "@fortawesome/free-solid-svg-icons";
 
 // --------  fancy styling magic ------- //
 const WaffleMenuContainer = styled.div`
@@ -55,8 +55,8 @@ const WaffleDropdown = styled.ul`
 
 const MIListItem = styled.li`
   display: block;
-  flex: 1 0 40%;
-  margin: 0;
+  flex: 0 0 46%;
+  margin: 0 2%;
   line-height: 1rem;
   &:hover {
     background: white;
@@ -106,8 +106,8 @@ const WaffleDropdownFooter = styled.li`
 // --------  done with fancy styling magic ------- //
 
 // menu item stateless component
-const MenuItem = (props) => {
-  let {link, image, label} = props;
+const MenuItem = props => {
+  let { link, image, label } = props;
   return (
     <MIListItem>
       <a href={link} background={image}>
@@ -121,78 +121,82 @@ const MenuItem = (props) => {
 class WaffleMenu extends Component {
   static propTypes = {
     url: PropTypes.string,
-    category: PropTypes.string.isRequired,
     debug: PropTypes.bool,
-    buttonColor: PropTypes.string,
+    buttonColor: PropTypes.string
   };
 
   static defaultProps = {
-    url: '/uPortal/api/v4-3/dlm/portletRegistry.json',
-    oidcUrl: '/uPortal/api/v5-1/userinfo',
-    buttonColor: '#fff',
-    debug: false,
+    url: "/uPortal/api/v4-3/dlm/portletRegistry.json",
+    oidcUrl: "/uPortal/api/v5-1/userinfo",
+    buttonColor: "#fff",
+    debug: false
   };
 
   // Default component state
   state = {
     menuOpen: false,
     data: [],
-    dataLoaded: false,
+    dataLoaded: false
   };
 
-  handleOidcError = (err) => {
+  handleOidcError = err => {
     console.error(err);
     this.setState({
       hasError: true,
-      errorMessage: 'There was a problem authorizing this request.',
+      errorMessage: "There was a problem authorizing this request."
     });
   };
 
-  handleWflError = (err) => {
-    const message = 'There was a problem cooking your waffle.';
-    this.setState({hasError: true, errorMessage: message});
+  handleWflError = err => {
+    const message = "There was a problem cooking your waffle.";
+    this.setState({ hasError: true, errorMessage: message });
   };
 
   getToken = async () => {
-    const {oidcUrl} = this.props;
+    const { oidcUrl } = this.props;
 
     try {
-      return await oidc({userInfoApiUrl: oidcUrl, timeout: 18000});
+      return await oidc({ userInfoApiUrl: oidcUrl, timeout: 18000 });
     } catch (err) {
       console.error(err);
       this.handleOidcError(err);
     }
   };
 
-  wafflePress = (payload) => {
-    const menuItems = get(payload, 'registry.categories.0.portlets').map(
-      ({alternativeMaximizedLink, fname, parameters, title}) => {
+  wafflePress = payload => {
+    const menuItems = get(payload, "registry.categories.0.portlets").map(
+      ({ alternativeMaximizedLink, fname, parameters, title }) => {
+        let imgUrl = get(parameters, "iconUrl.value");
         return {
-          link: alternativeMaximizedLink || '/uPortal/p/' + fname,
-          image: get(parameters, 'iconUrl.value'),
+          link: alternativeMaximizedLink || "/uPortal/p/" + fname,
+          image: imgUrl
+            ? process.env.NODE_ENV === "development"
+              ? "proxy/" + imgUrl
+              : imgUrl
+            : undefined,
           label: title,
-          type: 'box',
+          type: "box"
         };
       }
     );
     this.setState({
       data: menuItems,
-      dataLoaded: true,
+      dataLoaded: true
     });
   };
 
   fetchMenuData = async () => {
-    const {url, category, debug} = this.props;
+    const { url, debug } = this.props;
 
     const token = debug ? null : (await this.getToken()).encoded;
 
     try {
-      const response = await fetch(url + '?categoryName=' + category, {
-        credentials: 'same-origin',
+      const response = await fetch(url, {
+        credentials: "same-origin",
         headers: {
-          'Authorization': 'Bearer ' + token,
-          'content-type': 'application/jwt',
-        },
+          Authorization: "Bearer " + token,
+          "content-type": "application/jwt"
+        }
       });
       if (!response.ok) {
         if (response.status !== 404) {
@@ -210,49 +214,49 @@ class WaffleMenu extends Component {
 
   // toggle the menu
   toggleMenu = () => {
-    this.setState({menuOpen: !this.state.menuOpen});
+    this.setState({ menuOpen: !this.state.menuOpen });
   };
 
   // close the menu if we're clicking outside the menu or trigger
-  handleOutsideClick = (event) => {
+  handleOutsideClick = event => {
     if (
       this.menuRef &&
       !this.menuRef.contains(event.target) &&
       this.buttonRef &&
       !this.buttonRef.contains(event.target)
     ) {
-      this.setState({menuOpen: false});
+      this.setState({ menuOpen: false });
     }
   };
 
   // Show it to us
   render() {
-    const {menuOpen, data, dataLoaded} = this.state;
-    const {buttonColor} = this.props;
+    const { menuOpen, data, dataLoaded } = this.state;
+    const { buttonColor } = this.props;
 
     return (
       dataLoaded && (
         <WaffleMenuContainer>
           <WaffleTrigger
-            innerRef={(node) => (this.buttonRef = node)}
+            innerRef={node => (this.buttonRef = node)}
             onClick={() => this.toggleMenu()}
           >
             <FontAwesomeIcon icon={faTh} color={buttonColor} size="2x" />
           </WaffleTrigger>
           <WaffleDropdown
-            innerRef={(node) => (this.menuRef = node)}
+            innerRef={node => (this.menuRef = node)}
             style={{
-              display: menuOpen ? 'flex' : 'none',
+              display: menuOpen ? "flex" : "none"
             }}
           >
             {data.map(
               (datum, index) =>
-                datum.type === 'box' && <MenuItem key={index} {...datum} />
+                datum.type === "box" && <MenuItem key={index} {...datum} />
             )}
 
             {data.map(
               (datum, index) =>
-                datum.type === 'footer' && (
+                datum.type === "footer" && (
                   <WaffleDropdownFooter key={index}>
                     <a href={datum.link}>{datum.label}</a>
                   </WaffleDropdownFooter>
@@ -269,7 +273,7 @@ class WaffleMenu extends Component {
     this.fetchMenuData();
 
     // listen for outside clicks to close the dropdown
-    window.addEventListener('click', this.handleOutsideClick);
+    window.addEventListener("click", this.handleOutsideClick);
   }
 }
 

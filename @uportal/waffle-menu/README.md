@@ -40,33 +40,45 @@ In `index.html`, you'll see that `<waffle-menu />` is hard coded in place. There
 Here's the guts of that html file:
 
 ```html
-<waffle-menu category="Academics" />
+<waffle-menu debug="true" button-color="red" url="/proxy/uPortal/api/v4-3/dlm/portletRegistry.json?categoryId=local.21" />
 ```
+
+##### Notice
+
+We have a `/proxy/` leading the `url` attribute. This is a developer convenience to be able to query against your local running instance of uPortal. The proxy is configured in `package.json`:
+
+```json
+  "proxy": {
+    "/proxy": {
+      "target": "http://localhost:8080",
+      "changeOrigin": true,
+      "pathRewrite": {
+        "^/proxy": "/"
+      }
+    }
+  },
+```
+
+
 
 ## Attributes
 
 `<waffle-menu>` takes the following attributes:
 
-### `category`
+### `oidc-url`
 
 ```html
-<waffle-menu category="Academics" />
+<waffle-menu oidc-url="https://example.com/uPortal/api/v5-1/userinfo" />
 ```
 
-### `oidcUrl`
-
-```html
-<waffle-menu oidcUrl="https://example.com/uPortal/api/v5-1/userinfo" />
-```
-
-### `buttonColor`
+### `button-color`
 
 applies a color to the waffle menu button. Useful if you want to avoid specifying the color in CSS.
-If not set, `buttoncolor` defaults to `#ffffff`.
+If not set, `button-color` defaults to `#ffffff`.
 
 Example:
 
-`<waffle-menu buttoncolor="#ffffff">`
+`<waffle-menu button-color="#ffffff">`
 
 ### `url`
 
@@ -75,7 +87,7 @@ Fully qualified url pointing to the API where `<waffle-menu>` can find data in p
 Example:
 
 ```html
-<waffle-menu url="https://example.com/uPortal/api/v4-3/dlm/portletRegistry.json" />
+<waffle-menu url="/uPortal/api/v4-3/dlm/portletRegistry.json?categoryId=local.21" />
 ```
 
 ### `debug`
