@@ -30,9 +30,49 @@ _install with gradle_
 compile 'org.webjars.npm:uportal__content-carousel:{version number goes here}'
 ```
 
-## Usage
+## Usage as Web Component
 
-The component requires an rss file path, slick options (link below). It also allows for a carouselHeight (in rem units) and a `fitToContainer` property which causes it to size to its container (horizontally).
+The component requires a type. It also allows for a `carousel-height` (in rem units), a `fit-to-container` property which causes it to size to its container (horizontally), and `slick-options`.
+
+```html
+<script src="https://unpkg.com/vue"></script>
+<script src="./content-carousel.js"></script>
+
+<ContentCarousel
+  type="rss"
+  source="/hero.rss"
+  slickOptions="{ \"slidesToShow\": 1, \"infinite\": true, \"arrows\": true }"
+  carousel-height="30rem"
+  fit-to-container="true" />
+<ContentCarousel
+  type="rss"
+  source="/content.rss" />
+<ContentCarousel
+  type="portlet"
+  source="/portletRegistry.json" />
+
+<ContentCarousel type="passthrough">
+  <div>
+    arbitrary
+  </div>
+  <div>
+    content
+  </div>
+  <div>
+    displayed
+  </div>
+  <div>
+    as
+  </div>
+  <div>
+    slides
+  </div>
+</ContentCarousel>
+```
+
+## Usage as Vue component
+
+The component requires a type. It also allows for a `carouselHeight` (in rem units), a `fitToContainer` property which causes it to size to its container (horizontally), and `slickOptions`.
 
 ```javascript
 heroOptions = {
