@@ -59,8 +59,6 @@ We have a `/proxy/` leading the `url` attribute. This is a developer convenience
   },
 ```
 
-
-
 ## Attributes
 
 `<waffle-menu>` takes the following attributes:
