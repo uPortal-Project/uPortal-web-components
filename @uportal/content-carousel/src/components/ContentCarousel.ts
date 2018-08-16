@@ -17,8 +17,7 @@ export default class ContentCarousel extends Vue {
   @Prop([String])
   public source!: string;
 
-  @Prop()
-  public slickOptions: any;
+  @Prop() public slickOptions: any;
 
   @Prop([String])
   public carouselHeight?: string;
