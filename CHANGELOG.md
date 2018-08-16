@@ -7,10 +7,19 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased][]
 
+### Fix
+
+- **waffle-menu**: drop deprecated `category` attribute (#54).
+
+### Build
+
+- **waffle-menu**: set produced filename to `waffle-menu` (#54).
+
 ### Docs
 
 - **waffle-menu**: add badges to readme.
 - **content-carousel**: give example usage as a web component (#52).
+- **waffle-menu**: document uPortal proxy used for local testing (#54).
 
 ## [1.6.0][] - 2018-08-02
 

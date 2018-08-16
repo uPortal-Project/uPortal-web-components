@@ -55,8 +55,8 @@ const WaffleDropdown = styled.ul`
 
 const MIListItem = styled.li`
   display: block;
-  flex: 1 0 40%;
-  margin: 0;
+  flex: 0 0 46%;
+  margin: 0 2%;
   line-height: 1rem;
   &:hover {
     background: white;
@@ -121,7 +121,6 @@ const MenuItem = (props) => {
 class WaffleMenu extends Component {
   static propTypes = {
     url: PropTypes.string,
-    category: PropTypes.string.isRequired,
     debug: PropTypes.bool,
     buttonColor: PropTypes.string,
   };
@@ -167,9 +166,14 @@ class WaffleMenu extends Component {
   wafflePress = (payload) => {
     const menuItems = get(payload, 'registry.categories.0.portlets').map(
       ({alternativeMaximizedLink, fname, parameters, title}) => {
+        let imgUrl = get(parameters, 'iconUrl.value');
         return {
           link: alternativeMaximizedLink || '/uPortal/p/' + fname,
-          image: get(parameters, 'iconUrl.value'),
+          image: imgUrl
+            ? process.env.NODE_ENV === 'development'
+              ? 'proxy/' + imgUrl
+              : imgUrl
+            : undefined,
           label: title,
           type: 'box',
         };
@@ -182,12 +186,12 @@ class WaffleMenu extends Component {
   };
 
   fetchMenuData = async () => {
-    const {url, category, debug} = this.props;
+    const {url, debug} = this.props;
 
     const token = debug ? null : (await this.getToken()).encoded;
 
     try {
-      const response = await fetch(url + '?categoryName=' + category, {
+      const response = await fetch(url, {
         credentials: 'same-origin',
         headers: {
           'Authorization': 'Bearer ' + token,

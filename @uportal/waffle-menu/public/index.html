@@ -1,40 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="theme-color" content="#000000">
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
-    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
-    <title>Waffle Menu</title>
-    <style>
-      /* basic styles for showing waffle menu in the header of a site */
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="theme-color" content="#000000">
+  <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
+  <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
+  <title>Waffle Menu</title>
+  <style>
+    /* basic styles for showing waffle menu in the header of a site */
 
-      header {
-        background: #2A5C1C;
-      }
+    header {
+      background: #2A5C1C;
+    }
 
-      nav {
-        display: flex;
-        flex-wrap: wrap;
-        padding: .5rem 1rem;
-      }
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      padding: .5rem 1rem;
+    }
 
-      .buttons {
-        margin-left: 90%;
-      }
-    </style>
-  </head>
+    .buttons {
+      margin-left: 90%;
+    }
+  </style>
+</head>
 
-  <body>
-    <header>
-      <nav>
-        <div class="buttons">
-          <waffle-menu debug="true" url="http://localhost:3000/portletRegistry.json" category="Academics" />
-        </div>
-      </nav>
-    </header>
-  </body>
+<body>
+  <header>
+    <nav>
+      <div class="buttons">
+        <waffle-menu debug="true" button-color="red" url="/proxy/uPortal/api/v4-3/dlm/portletRegistry.json?categoryId=local.21" />
+      </div>
+    </nav>
+  </header>
+</body>
 
 </html>
