@@ -7,6 +7,7 @@
   },
   "dependencies": {
     "@uportal/open-id-connect": "^1.6.0",
+    "@uportal/portlet-registry-to-array": "^1.6.0",
     "lodash.get": "^4.4.2",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
