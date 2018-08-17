@@ -7,9 +7,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased][]
 
+### Feature
+
+- **portlet-registry-to-array**: new utility to help flatten the registry tree into an array (#55).
+
 ### Fix
 
 - **waffle-menu**: drop deprecated `category` attribute (#54).
+- **waffle-menu**: leverage portlet registry utility (#55).
+- **content-carousel**: leverage portlet registry utility (#55).
 
 ### Build
 
