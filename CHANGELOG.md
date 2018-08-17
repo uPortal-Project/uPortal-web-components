@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased][]
 
+## [1.7.2][] - 2018-08-17
+
 ### Fix
 
 - **content-carousel**: ensure slick options are parsed to an object (#56).
@@ -248,7 +250,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - **open-id-connect**: Initial version of an OpenID Connect helper script to use in web components and JavaScript modules.
 - **content-carousel**: Initial version of content carousel, a carousel based portlet metadata display system.
 
-[unreleased]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.7.1...HEAD
+[unreleased]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.7.2...HEAD
+[1.7.2]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.7.1...v1.7.2
 [1.7.1]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.7.0...v1.7.1
 [1.7.0]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.6.0...v1.7.0
 [1.6.0]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.5.0...v1.6.0
