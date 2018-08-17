@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import styled from 'styled-components';
 import oidc from '@uportal/open-id-connect';
+import {portletRegistryToArray} from '@uportal/portlet-registry-to-array';
 import get from 'lodash/get';
 import PropTypes from 'prop-types';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
@@ -163,8 +164,8 @@ class WaffleMenu extends Component {
     }
   };
 
-  wafflePress = (payload) => {
-    const menuItems = get(payload, 'registry.categories.0.portlets').map(
+  wafflePress = (registry) => {
+    const menuItems = portletRegistryToArray(registry).map(
       ({alternativeMaximizedLink, fname, parameters, title}) => {
         let imgUrl = get(parameters, 'iconUrl.value');
         return {

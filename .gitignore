@@ -206,5 +206,8 @@ yarn.lock
 @uportal/open-id-connect/cjs
 @uportal/open-id-connect/esm
 @uportal/open-id-connect/umd
+@uportal/portlet-registry-to-array/cjs
+@uportal/portlet-registry-to-array/esm
+@uportal/portlet-registry-to-array/umd
 @uportal/waffle-menu/build
 @uportal/content-carousel/dist
