@@ -1,13 +1,13 @@
 {
   "name": "@uportal/waffle-menu",
   "description": "An app launcher dropdown",
-  "version": "1.7.0",
+  "version": "1.7.1",
   "publishConfig": {
     "access": "public"
   },
   "dependencies": {
-    "@uportal/open-id-connect": "^1.7.0",
-    "@uportal/portlet-registry-to-array": "^1.7.0",
+    "@uportal/open-id-connect": "^1.7.1",
+    "@uportal/portlet-registry-to-array": "^1.7.1",
     "lodash.get": "^4.4.2",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
