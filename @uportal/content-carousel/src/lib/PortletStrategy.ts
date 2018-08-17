@@ -1,5 +1,6 @@
 import { DataStrategy } from '@/lib/DataStrategy';
 import { CarouselItem } from '@/lib/CarouselItem';
+import { portletRegistryToArray } from '@uportal/portlet-registry-to-array';
 
 export class PortletStrategy implements DataStrategy {
   public readonly type = 'Portlet';
@@ -15,9 +16,9 @@ export class PortletStrategy implements DataStrategy {
     if (!response.ok) {
       throw new Error(response.statusText);
     }
-    const portlets = await response.json();
+    const registry = await response.json();
 
-    this.items = portlets.registry.categories[0].portlets.map(
+    this.items = portletRegistryToArray(registry).map(
       ({
         fname,
         name,

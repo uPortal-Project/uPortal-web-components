@@ -35,7 +35,7 @@ compile 'org.webjars.npm:uportal__portlet-registry-to-array:{version number goes
 ## Usage
 
 ```js
-import { portletRegistryToArray } from "portlet-registry-to-array";
+import { portletRegistryToArray } from "@uportal/portlet-registry-to-array";
 
 // In production this would come over the network
 const exampleRegistry = {
