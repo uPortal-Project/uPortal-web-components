@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased][]
 
+### Fix
+
+- **content-carousel**: resolve typescript errors in component.
+
 ## [1.7.2][] - 2018-08-17
 
 ### Fix
