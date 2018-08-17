@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Fix
 
 - **content-carousel**: ensure slick options are parsed to an object (#56).
+- **content-carousel**: ensure open id connect token is sent with portlet registry API request (#56).
 
 ## [1.7.1][] - 2018-08-17
 
