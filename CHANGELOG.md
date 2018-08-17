@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [1.7.4][] - 2018-08-17
 
-### build
+### Build
 
 - force rebuild and republish all packages to ensure fixes for 1.7.1, 1.7.2, and 1.7.3 have been applied with new lerna options.
 
@@ -19,7 +19,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - **content-carousel**: resolve typescript errors in component.
 
-### build
+### Build
 
 - add `requireScripts` option to lerna to make sure build scripts run during release.
 
