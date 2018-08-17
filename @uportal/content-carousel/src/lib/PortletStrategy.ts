@@ -1,6 +1,7 @@
 import { DataStrategy } from '@/lib/DataStrategy';
 import { CarouselItem } from '@/lib/CarouselItem';
 import { portletRegistryToArray } from '@uportal/portlet-registry-to-array';
+import oidc from '@uportal/open-id-connect';
 
 export class PortletStrategy implements DataStrategy {
   public readonly type = 'Portlet';
@@ -12,7 +13,14 @@ export class PortletStrategy implements DataStrategy {
   }
 
   private async load(path: string): Promise<any> {
-    const response = await fetch(path);
+    const token = (await oidc()).encoded;
+    const response = await fetch(path, {
+      credentials: 'same-origin',
+      headers: {
+        'Authorization': 'Bearer ' + token,
+        'content-type': 'application/jwt',
+      },
+    });
     if (!response.ok) {
       throw new Error(response.statusText);
     }

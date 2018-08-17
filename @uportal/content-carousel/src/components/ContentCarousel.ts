@@ -78,4 +78,8 @@ export default class ContentCarousel extends Vue {
   get computedItems(): CarouselItem[] {
     return this.strategy.items;
   }
+
+  get computedSlickOptions(): any {
+    return typeof this.slickOptions === 'string' ? JSON.stringify(this.slickOptions) : slickOptions;
+  }
 }
