@@ -1,6 +1,6 @@
 /**
  * Combines a array of arrays into a single level array
- * @param {Array<Portlet>} acc - accululator that combines all the arrays together
+ * @param {Array<Portlet>} acc - accululator that combines all the arrays
  * @param {Array<Portlet>} arr - new array to add to the accumulator
  * @return {Array<Portlet>} merged arrays
  */
@@ -10,7 +10,7 @@ function flatten(acc, arr) {
 
 /**
  * Walks the portlet registry tree
- * @param {Object} Portlet Registry Tree
+ * @param {Object} registryJson Portlet Registry Tree
  * @return {Array<Portlet>} list of portlets
  */
 export function portletRegistryToArray(registryJson) {

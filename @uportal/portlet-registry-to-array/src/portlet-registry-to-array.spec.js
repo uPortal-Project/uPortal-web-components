@@ -35,7 +35,7 @@ const sampleRegistry = {
                     name: 'iconUrl',
                     description: '',
                     value:
-                      '/ResourceServingWebapp/rs/tango/0.8.90/32x32/apps/accessories-text-editor.png',
+                      '/ResourceServingWebapp/rs/tango/0.8.90/32x32/apps/accessories-text-editor.png', // eslint-disable-line max-len
                   },
                   configurable: {
                     name: 'configurable',
@@ -74,7 +74,7 @@ const expectedOutput = [
         name: 'iconUrl',
         description: '',
         value:
-          '/ResourceServingWebapp/rs/tango/0.8.90/32x32/apps/accessories-text-editor.png',
+          '/ResourceServingWebapp/rs/tango/0.8.90/32x32/apps/accessories-text-editor.png', // eslint-disable-line max-len
       },
       configurable: {
         name: 'configurable',
