@@ -49,8 +49,12 @@ For example an `example-component` would be loaded by adding
 ## Components
 
 - [Content Carousel](@uportal/content-carousel/README.md)
-- [Open ID Connect](@uportal/open-id-connect/README.md)
 - [Waffle Menu](@uportal/waffle-menu/README.md)
+
+## Utilities
+
+- [Open ID Connect](@uportal/open-id-connect/README.md)
+- [Portlet Registry to Array](@uportal/portlet-registry-to-array/README.md)
 
 ## Contribute
 
