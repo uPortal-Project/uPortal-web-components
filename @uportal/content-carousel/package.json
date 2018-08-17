@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@types/xml2js": "^0.4.3",
+    "@uportal/open-id-connect": "^1.7.1",
     "@uportal/portlet-registry-to-array": "^1.7.1",
     "jquery": "^3.3.1",
     "rss-to-json": "^1.0.4",
