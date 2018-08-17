@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased][]
 
+### Fix
+
+- **content-carousel**: ensure slick options are parsed to an object (#56).
+
 ## [1.7.1][] - 2018-08-17
 
 ### Test
