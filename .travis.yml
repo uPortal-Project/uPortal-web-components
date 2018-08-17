@@ -6,7 +6,8 @@ install:
 script:
   - npm test
   - npm run lint
-  - npm run ci:commitlint
+  # TODO reenable when commitlint supports lerna 3
+  # - npm run ci:commitlint
 cache:
   directories:
     - ~/.npm
