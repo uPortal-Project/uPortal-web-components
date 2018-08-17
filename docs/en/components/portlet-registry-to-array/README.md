@@ -1,4 +1,4 @@
-# uPortal Open ID Connect
+# Portlet Registry to Array
 
 [![NPM Version](https://img.shields.io/npm/v/@uportal/portlet-registry-to-array.svg)](https://www.npmjs.com/package/@uportal/portlet-registry-to-array)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.webjars.npm/uportal__portlet-registry-to-array/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.webjars.npm/uportal__portlet-registry-to-array)
