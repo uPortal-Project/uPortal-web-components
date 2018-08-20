@@ -1,6 +1,6 @@
 {
   "name": "@gip-recia/eyebrow-user-info",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build --name eyebrow-user-info --target wc './src/components/EyebrowUserInfo.vue'",

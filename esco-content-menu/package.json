@@ -1,6 +1,6 @@
 {
   "name": "@gip-recia/esco-content-menu",
-  "version": "0.2.0",
+  "version": "0.2.2",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build --name esco-content-menu --target wc 'src/components/*.vue'",
