@@ -37,15 +37,11 @@ export default {
     otherOrgs: { type: Array, default: () => [] },
     userInfos: { type: Object, required: true, default: () => undefined },
     apiUrlOrgInfos: { type: String, default: process.env.VUE_APP_ORG_INFOS_URI},
-    defaultOrgLogo: {type: String, required: true }
+    defaultOrgLogo: {type: String, required: true },
+    userInfoPortletUrl: { type: String, default: "" }
   },
   components:{
     Icon
-  },
-  data() {
-    return {
-      userInfoPortletUrl: process.env.VUE_APP_USER_INFOS_PORTLET_URL
-    }
   },
   methods: {
     translate(text, lang) {

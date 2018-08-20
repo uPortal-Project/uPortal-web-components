@@ -5,7 +5,8 @@
       <div class="menu-wrapper"><div></div><div></div><div></div></div>
     </div>
 
-    <content-menu default-class="toggler-menu" visible-class="active-menu" :is-hidden="!visible" :default-org-logo="defaultOrgLogo"></content-menu>
+    <content-menu default-class="toggler-menu" visible-class="active-menu" :is-hidden="!visible" :default-org-logo="defaultOrgLogo"
+                  :user-info-portlet-url="userInfoPortletUrl"></content-menu>
 
   </div>
 </template>
@@ -19,7 +20,8 @@ export default {
   props: {
     contextApiUrl: {type: String, default: process.env.VUE_APP_PORTAL_CONTEXT},
     signOutUrl: { type: String, default: process.env.VUE_APP_LOGOUT_URL },
-    defaultOrgLogo: {type: String, required: true }
+    defaultOrgLogo: {type: String, required: true },
+    userInfoPortletUrl: { type: String, default: "" }
   },
   data () {
     return {
