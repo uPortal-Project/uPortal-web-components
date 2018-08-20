@@ -37,6 +37,7 @@ export default {
     otherOrgs: { type: Array, default: () => [] },
     userInfos: { type: Object, required: true, default: () => undefined },
     apiUrlOrgInfos: { type: String, default: process.env.VUE_APP_ORG_INFOS_URI},
+    defaultOrgLogo: {type: String, required: true }
   },
   components:{
     Icon
@@ -56,7 +57,7 @@ export default {
         && this.orgInfos.otherAttributes.ESCOStructureLogo.length > 0;
     },
     getOrgImgUrl() {
-      return this.hasOrgImage() ? this.computeImgUrl(this.orgInfos.otherAttributes.ESCOStructureLogo[0]) : require('../assets/default_banner.jpg');
+      return this.hasOrgImage() ? this.computeImgUrl(this.orgInfos.otherAttributes.ESCOStructureLogo[0]) : this.defaultOrgLogo;
     },
     getUserAvatar(){
       let avatar = this.userInfos.picture || null;

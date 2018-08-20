@@ -5,7 +5,7 @@
       <div class="menu-wrapper"><div></div><div></div><div></div></div>
     </div>
 
-    <content-menu default-class="toggler-menu" visible-class="active-menu" :is-hidden="!visible"></content-menu>
+    <content-menu default-class="toggler-menu" visible-class="active-menu" :is-hidden="!visible" :default-org-logo="defaultOrgLogo"></content-menu>
 
   </div>
 </template>
@@ -18,7 +18,8 @@ export default {
   name: "HamburgerMenu",
   props: {
     contextApiUrl: {type: String, default: process.env.VUE_APP_PORTAL_CONTEXT},
-    signOutUrl: { type: String, default: process.env.VUE_APP_LOGOUT_URL }
+    signOutUrl: { type: String, default: process.env.VUE_APP_LOGOUT_URL },
+    defaultOrgLogo: {type: String, required: true }
   },
   data () {
     return {

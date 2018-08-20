@@ -3,7 +3,7 @@
     <header>
       <header-buttons :call-on-close="close" :sign-out-url="signOutUrl"></header-buttons>
       <div class="wrapper">
-        <content-user :org-infos="currentOrg" :user-infos="userInfos" :other-orgs="orgsInfos" :is-small="isSmall"></content-user>
+        <content-user :org-infos="currentOrg" :user-infos="userInfos" :other-orgs="orgsInfos" :is-small="isSmall" :default-org-logo="defaultOrgLogo"></content-user>
         <content-favorites :portlets="portlets" :favorites="favorites" :call-after-action="actionToggleFav" :is-small="isSmall"
                            :favorites-api-url="favoriteApiUrl" :is-hidden="isHidden"></content-favorites>
       </div>
@@ -49,11 +49,12 @@
       callOnClose: Function,
       isHidden: {type: Boolean, default: false },
       contextApiUrl: {type: String, default: process.env.VUE_APP_PORTAL_CONTEXT},
-      signOutUrl: { type: String, default: process.env.VUE_APP_LOGOUT_URL }
+      signOutUrl: { type: String, default: process.env.VUE_APP_LOGOUT_URL },
+      defaultOrgLogo: {type: String, required: true }
     },
     data() {
       return {
-        backgroundImg: null,
+        backgroundImg: this.defaultOrgLogo,
         currentOrg: {},
         favorites: [],
         favoriteApiUrl: this.contextApiUrl + process.env.VUE_APP_FAVORITES_PORTLETS_URI,
@@ -312,7 +313,6 @@
       }
 
       div.background {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(208, 208, 208, 0.2)), url("../assets/default_banner.jpg");
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;

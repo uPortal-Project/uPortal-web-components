@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <!--<content-menu />-->
-    <hamburger-menu></hamburger-menu>
+    <hamburger-menu default-org-logo="https://lycees.netocentre.fr/annuaire_images/default_banner_v1.jpg"></hamburger-menu>
   </div>
 </template>
 
