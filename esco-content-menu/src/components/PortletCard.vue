@@ -1,6 +1,7 @@
 <template>
   <div :class="mainClass" >
-    <div class="icon"><div class="img-wrapper" :style="'background-color:' + iconBackColor"><img ng-if="iconUrl !== null" :src="iconUrl" :alt="title"></div></div>
+    <div class="icon"><div v-if="iconUrl !== null" class="img-wrapper" :style="'background-color:' + iconBackColor"><img :src="iconUrl" :alt="title"></div>
+      <div v-else class="img-wrapper" :style="'background-color:' + iconBackColor"></div></div>
     <div class="title">{{title}}</div>
     <div class="description" v-line-clamp:20="2">{{description}}</div>
     <div class="action">
