@@ -1,4 +1,4 @@
-import uniqBy from "lodash/uniqBy";
+import uniqBy from 'lodash/uniqBy';
 
 /**
  * Combines a array of arrays into a single level array
