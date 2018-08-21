@@ -17,7 +17,7 @@ function flatten(acc, arr) {
  * @return {Array<Portlet>} list of portlets
  */
 export function portletRegistryToArray(registryJson) {
-  return uniqBy(treeWalker(registryJson), "fname");
+  return uniqBy(treeWalker(registryJson), 'fname');
 }
 
 /**
