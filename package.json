@@ -59,7 +59,6 @@
     ]
   },
   "gitHooks": {
-    "commit-msg": "commitlint -e",
     "pre-commit": "lint-staged"
   },
   "lint-staged": {
