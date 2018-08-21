@@ -1,4 +1,4 @@
-import uniqBy from 'lodash/uniqBy';
+import uniqBy from "lodash/uniqBy";
 
 /**
  * Combines a array of arrays into a single level array
@@ -12,12 +12,12 @@ function flatten(acc, arr) {
 
 /**
  * Takes the returned array from treeWalker and removes duplicates
- * baed on "fname"
+ * based on "fname"
  * @param {Object} registryJson Portlet Registry Tree
  * @return {Array<Portlet>} list of portlets
  */
 export function portletRegistryToArray(registryJson) {
-  return uniqBy(treeWalker(registryJson), 'fname');
+  return uniqBy(treeWalker(registryJson), "fname");
 }
 
 /**
