@@ -7,6 +7,18 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased][]
 
+## Fix
+
+- **portlet-registry-to-array**: ensure portlet array has unique `fname` (#57).
+
+## Test
+
+- disable commitlint `commit-msg` hook until lerna 3 is supported (#58).
+
+## Docs
+
+- add uPortal committers, Chris P, Phil B, and Ryan M to committers list (#58).
+
 ## [1.7.4][] - 2018-08-17
 
 ### Build
