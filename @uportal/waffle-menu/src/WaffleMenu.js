@@ -133,6 +133,7 @@ class WaffleMenu extends Component {
     oidcUrl: '/uPortal/api/v5-1/userinfo',
     buttonColor: '#fff',
     debug: false,
+    // prettier-ignore
     // eslint-disable-next-line max-len
     defaultIcon: '/ResourceServingWebapp/rs/tango/0.8.90/32x32/categories/applications-other.png',
     truncateLength: 50,
@@ -172,7 +173,7 @@ class WaffleMenu extends Component {
   truncateTitle = (title) => {
     const truncate = parseInt(this.props.truncateLength, 10);
     return title.substring(0, truncate + 1) + '...';
-  }
+  };
 
   wafflePress = (registry) => {
     const {defaultIcon} = this.props;

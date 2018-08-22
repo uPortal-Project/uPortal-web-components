@@ -17,7 +17,7 @@ export class PortletStrategy implements DataStrategy {
     const response = await fetch(path, {
       credentials: 'same-origin',
       headers: {
-        'Authorization': 'Bearer ' + token,
+        Authorization: 'Bearer ' + token,
         'content-type': 'application/jwt',
       },
     });

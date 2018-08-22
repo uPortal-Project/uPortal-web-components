@@ -17,7 +17,8 @@ export default class ContentCarousel extends Vue {
   @Prop([String])
   public source!: string;
 
-  @Prop() public slickOptions: any;
+  @Prop({ type: [String, Object], default: () => ({}) })
+  public slickOptions!: string | Object;
 
   @Prop([String])
   public carouselHeight?: string;
@@ -79,7 +80,9 @@ export default class ContentCarousel extends Vue {
     return this.strategy.items;
   }
 
-  get computedSlickOptions(): any {
-    return typeof this.slickOptions === 'string' ? JSON.stringify(this.slickOptions) : this.slickOptions;
+  get computedSlickOptions(): Object {
+    return typeof this.slickOptions === 'string'
+      ? JSON.parse(this.slickOptions)
+      : this.slickOptions;
   }
 }
