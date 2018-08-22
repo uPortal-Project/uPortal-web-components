@@ -38,20 +38,20 @@ The component requires a type. It also allows for a `carousel-height` (in rem un
 <script src="https://unpkg.com/vue"></script>
 <script src="./content-carousel.js"></script>
 
-<ContentCarousel
+<content-carousel
   type="rss"
   source="/hero.rss"
-  slickOptions="{ \"slidesToShow\": 1, \"infinite\": true, \"arrows\": true }"
+  slick-options='{ "slidesToShow": 1, "infinite": true, "arrows": true }'
   carousel-height="30rem"
   fit-to-container="true" />
-<ContentCarousel
+<content-carousel
   type="rss"
   source="/content.rss" />
-<ContentCarousel
+<content-carousel
   type="portlet"
   source="/portletRegistry.json" />
 
-<ContentCarousel type="passthrough">
+<content-carousel type="passthrough">
   <div>
     arbitrary
   </div>
@@ -67,7 +67,7 @@ The component requires a type. It also allows for a `carousel-height` (in rem un
   <div>
     slides
   </div>
-</ContentCarousel>
+</content-carousel>
 ```
 
 ## Usage as Vue component
@@ -96,9 +96,11 @@ portletOptions = {
 };
 ```
 
-```html
-<script src="https://unpkg.com/vue"></script>
-<script src="./content-carousel.js"></script>
+```vue
+<script src="https://unpkg.com/vue">
+</script>
+<script src="./content-carousel.js">
+</script>
 
 <ContentCarousel
   :type="'rss'"
