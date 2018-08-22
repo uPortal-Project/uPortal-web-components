@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## Fix
 
 - **portlet-registry-to-array**: ensure portlet array has unique `fname` (#57).
+- **content-carousel**: support `slick-options` in web component mode (#60).
 
 ## Test
 
