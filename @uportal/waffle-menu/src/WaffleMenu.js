@@ -124,6 +124,8 @@ class WaffleMenu extends Component {
     url: PropTypes.string,
     debug: PropTypes.bool,
     buttonColor: PropTypes.string,
+    defaultIcon: PropTypes.string,
+    truncateLength: PropTypes.string,
   };
 
   static defaultProps = {
@@ -131,6 +133,9 @@ class WaffleMenu extends Component {
     oidcUrl: '/uPortal/api/v5-1/userinfo',
     buttonColor: '#fff',
     debug: false,
+    // eslint-disable-next-line max-len
+    defaultIcon: '/ResourceServingWebapp/rs/tango/0.8.90/32x32/categories/applications-other.png',
+    truncateLength: 50,
   };
 
   // Default component state
@@ -164,10 +169,16 @@ class WaffleMenu extends Component {
     }
   };
 
+  truncateTitle = (title) => {
+    const truncate = parseInt(this.props.truncateLength, 10);
+    return title.substring(0, truncate + 1) + '...';
+  }
+
   wafflePress = (registry) => {
+    const {defaultIcon} = this.props;
     const menuItems = portletRegistryToArray(registry).map(
       ({alternativeMaximizedLink, fname, parameters, title}) => {
-        let imgUrl = get(parameters, 'iconUrl.value');
+        let imgUrl = get(parameters, 'iconUrl.value') || defaultIcon;
         return {
           link: alternativeMaximizedLink || '/uPortal/p/' + fname,
           image: imgUrl
@@ -175,7 +186,7 @@ class WaffleMenu extends Component {
               ? 'proxy/' + imgUrl
               : imgUrl
             : undefined,
-          label: title,
+          label: this.truncateTitle(title),
           type: 'box',
         };
       }
