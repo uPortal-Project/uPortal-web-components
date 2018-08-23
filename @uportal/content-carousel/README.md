@@ -4,6 +4,10 @@
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.webjars.npm/uportal__content-carousel/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.webjars.npm/uportal__content-carousel)
 [![Build Status](https://travis-ci.org/uPortal-contrib/uPortal-web-components.svg?branch=master)](https://travis-ci.org/uPortal-contrib/uPortal-web-components)
 
+## Demo
+
+<https://uportal-contrib.github.io/uPortal-web-components/en/components/content-carousel/demo>
+
 ## Installation
 
 ```bash
@@ -67,7 +71,7 @@ The component requires a type. It also allows for a `carousel-height` (in rem un
   <div>
     slides
   </div>
-</ContentCarousel>
+</content-carousel>
 ```
 
 ## Usage as Vue component
@@ -96,9 +100,11 @@ portletOptions = {
 };
 ```
 
-```html
-<script src="https://unpkg.com/vue"></script>
-<script src="./content-carousel.js"></script>
+```vue
+<script src="https://unpkg.com/vue">
+</script>
+<script src="./content-carousel.js">
+</script>
 
 <ContentCarousel
   :type="'rss'"
