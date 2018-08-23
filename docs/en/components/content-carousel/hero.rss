@@ -11,7 +11,7 @@
             <guid>http://localhost:8080/uPortal/p/announcements?pP_announcementId=3&amp;pP_action=displayFullAnnouncement</guid>
             <dc:creator>admin</dc:creator>
             <dc:date>2016-08-01T07:00:00Z</dc:date>
-            <enclosure url="http://placehold.it/1920x500" length="5929" type="image/jpeg" />
+            <enclosure url="https://placehold.it/1920x500" length="5929" type="image/jpeg" />
         </item>
         <item>
             <title>New Portal Update</title>
@@ -21,7 +21,7 @@
             <guid>https://wiki.jasig.org/display/PLT/Home</guid>
             <dc:creator>admin</dc:creator>
             <dc:date>2016-08-01T07:00:00Z</dc:date>
-            <enclosure url="http://placehold.it/1920x500" length="5929" type="image/jpeg" />
+            <enclosure url="https://placehold.it/1920x500" length="5929" type="image/jpeg" />
         </item>
     </channel>
 </rss>
