@@ -4,6 +4,8 @@
   "publishConfig": {
     "access": "public"
   },
+  "main": "dist/content-carousel.js",
+  "source": "src/components/content-carousel.vue",
   "scripts": {
     "prepublishOnly": "npm run build",
     "serve": "vue-cli-service serve",
