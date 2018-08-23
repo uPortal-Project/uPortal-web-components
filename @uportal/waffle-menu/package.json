@@ -5,6 +5,8 @@
   "publishConfig": {
     "access": "public"
   },
+  "main": "build/static/js/waffle-menu.js",
+  "source": "src/WaffleMenu.js",
   "dependencies": {
     "@uportal/open-id-connect": "^1.8.0",
     "@uportal/portlet-registry-to-array": "^1.8.0",
