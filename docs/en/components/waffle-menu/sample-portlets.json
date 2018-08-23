@@ -1,0 +1,1859 @@
+{
+  "registry": {
+    "categories": [
+      {
+        "name": "All categories",
+        "description": "All channel categories",
+        "id": "local.1",
+        "portlets": [],
+        "subcategories": [
+          {
+            "name": "Academics",
+            "description": "Academic Portlets",
+            "id": "local.31",
+            "portlets": [
+              {
+                "fname": "courses",
+                "keywords": [],
+                "averageRating": 0,
+                "name": "Courses",
+                "description": "Course links and announcements.",
+                "ratingsCount": 0,
+                "typeId": 6,
+                "id": 92,
+                "state": "PUBLISHED",
+                "title": "Courses",
+                "parameters": {
+                  "mobileIconUrl": {
+                    "name": "mobileIconUrl",
+                    "description": "",
+                    "value": "images/mobile/courses_alt.png"
+                  },
+                  "iconUrl": {
+                    "name": "iconUrl",
+                    "description": "",
+                    "value": "images/accessories-text-editor.png"
+                  },
+                  "configurable": {
+                    "name": "configurable",
+                    "description": "",
+                    "value": "true"
+                  }
+                }
+              },
+              {
+                "fname": "uportal-videos",
+                "keywords": [],
+                "averageRating": 0,
+                "name": "uPortal Videos",
+                "description": "Recent uploads from uPortal's YouTube channel, featuring community demonstrations.",
+                "ratingsCount": 0,
+                "typeId": 4,
+                "id": 43,
+                "state": "PUBLISHED",
+                "title": "uPortal Videos",
+                "parameters": {
+                  "mobileIconUrl": {
+                    "name": "mobileIconUrl",
+                    "description": "",
+                    "value": "images/mobile/youtube.png"
+                  },
+                  "iconUrl": {
+                    "name": "iconUrl",
+                    "description": "",
+                    "value": "images/video-x-generic.png"
+                  }
+                }
+              }
+            ],
+            "subcategories": []
+          },
+          {
+            "name": "Administration",
+            "description": "Administrative Portlets",
+            "id": "local.10",
+            "portlets": [],
+            "subcategories": []
+          },
+          {
+            "name": "Advisor",
+            "description": "Advisor Portlets",
+            "id": "local.35",
+            "portlets": [],
+            "subcategories": []
+          },
+          {
+            "name": "Demonstration",
+            "description": "Demonstration Portlets",
+            "id": "local.26",
+            "portlets": [
+              {
+                "fname": "demo-feature",
+                "keywords": [],
+                "averageRating": 0,
+                "name": "Demo Welcome",
+                "description": "Demo-targeted welcome screen",
+                "ratingsCount": 0,
+                "typeId": 2,
+                "id": 48,
+                "state": "PUBLISHED",
+                "title": "Demo Welcome",
+                "parameters": {
+                  "disableDynamicTitle": {
+                    "name": "disableDynamicTitle",
+                    "description": "",
+                    "value": "true"
+                  },
+                  "iconUrl": {
+                    "name": "iconUrl",
+                    "description": "",
+                    "value": "images/text-html.png"
+                  }
+                }
+              },
+              {
+                "fname": "email-preview-demo",
+                "keywords": [],
+                "averageRating": 0,
+                "name": "Email Preview Demo",
+                "description": "Demo version of the Jasig Email Preview portlet",
+                "ratingsCount": 0,
+                "typeId": 4,
+                "id": 44,
+                "state": "PUBLISHED",
+                "title": "Email Preview Demo",
+                "parameters": {
+                  "showChrome": {
+                    "name": "showChrome",
+                    "description": "",
+                    "value": "true"
+                  },
+                  "blockImpersonation": {
+                    "name": "blockImpersonation",
+                    "description": "",
+                    "value": "false"
+                  },
+                  "mobileIconUrl": {
+                    "name": "mobileIconUrl",
+                    "description": "",
+                    "value": "images/mobile/email.png"
+                  },
+                  "hasAbout": {
+                    "name": "hasAbout",
+                    "description": "",
+                    "value": "false"
+                  },
+                  "editable": {
+                    "name": "editable",
+                    "description": "",
+                    "value": "true"
+                  },
+                  "alternate": {
+                    "name": "alternate",
+                    "description": "",
+                    "value": "false"
+                  },
+                  "disableDynamicTitle": {
+                    "name": "disableDynamicTitle",
+                    "description": "",
+                    "value": "true"
+                  },
+                  "hideFromMobile": {
+                    "name": "hideFromMobile",
+                    "description": "",
+                    "value": "false"
+                  },
+                  "highlight": {
+                    "name": "highlight",
+                    "description": "",
+                    "value": "false"
+                  },
+                  "iconUrl": {
+                    "name": "iconUrl",
+                    "description": "",
+                    "value": "images/internet-mail.png"
+                  },
+                  "configurable": {
+                    "name": "configurable",
+                    "description": "",
+                    "value": "true"
+                  },
+                  "hasHelp": {
+                    "name": "hasHelp",
+                    "description": "",
+                    "value": "true"
+                  }
+                }
+              },
+              {
+                "fname": "js-demo",
+                "keywords": [],
+                "averageRating": 0,
+                "name": "Javascript Demos",
+                "description": "Demonstrations of available jQuery functionality",
+                "ratingsCount": 0,
+                "typeId": 1,
+                "id": 63,
+                "state": "PUBLISHED",
+                "title": "Javascript Demos",
+                "parameters": {
+                  "iconUrl": {
+                    "name": "iconUrl",
+                    "description": "",
+                    "value": "images/applications-system.png"
+                  },
+                  "disableDynamicTitle": {
+                    "name": "disableDynamicTitle",
+                    "description": "",
+                    "value": "true"
+                  },
+                  "configurable": {
+                    "name": "configurable",
+                    "description": "",
+                    "value": "true"
+                  }
+                }
+              },
+              {
+                "fname": "what-is-uportal",
+                "keywords": [],
+                "averageRating": 0,
+                "name": "Welcome to uPortal",
+                "description": "Description of uPortal.",
+                "ratingsCount": 0,
+                "typeId": 6,
+                "id": 85,
+                "state": "PUBLISHED",
+                "title": "Welcome to uPortal",
+                "parameters": {
+                  "mobileIconUrl": {
+                    "name": "mobileIconUrl",
+                    "description": "",
+                    "value": "images/mobile/feedback.png"
+                  },
+                  "iconUrl": {
+                    "name": "iconUrl",
+                    "description": "",
+                    "value": "images/text-html.png"
+                  },
+                  "disableDynamicTitle": {
+                    "name": "disableDynamicTitle",
+                    "description": "",
+                    "value": "true"
+                  },
+                  "configurable": {
+                    "name": "configurable",
+                    "description": "",
+                    "value": "true"
+                  }
+                }
+              }
+            ],
+            "subcategories": []
+          },
+          {
+            "name": "Development",
+            "description": "Development Portlets",
+            "id": "local.17",
+            "portlets": [
+              {
+                "fname": "portlet-cas-test",
+                "keywords": [],
+                "averageRating": 0,
+                "name": "Portlet CAS Test",
+                "description": "Tests uPortal's ability to pass a valid CAS ticket to a portlet through the UserInfo map.",
+                "ratingsCount": 0,
+                "typeId": 4,
+                "id": 46,
+                "state": "PUBLISHED",
+                "title": "Portlet CAS Test",
+                "parameters": {
+                  "iconUrl": {
+                    "name": "iconUrl",
+                    "description": "",
+                    "value": "images/applications-development.png"
+                  }
+                }
+              }
+            ],
+            "subcategories": []
+          },
+          {
+            "name": "Entertainment",
+            "description": "Entertainment Portlets",
+            "id": "local.37",
+            "portlets": [
+              {
+                "fname": "about-college-life",
+                "keywords": [],
+                "averageRating": 0,
+                "name": "About.com College Life",
+                "description": "About.com College Life RSS feed",
+                "ratingsCount": 0,
+                "typeId": 7,
+                "id": 107,
+                "state": "PUBLISHED",
+                "title": "About.com College Life",
+                "parameters": {
+                  "mobileIconUrl": {
+                    "name": "mobileIconUrl",
+                    "description": "",
+                    "value": "images/mobile/feed.png"
+                  },
+                  "iconUrl": {
+                    "name": "iconUrl",
+                    "description": "",
+                    "value": "images/internet-news-reader.png"
+                  },
+                  "disableDynamicTitle": {
+                    "name": "disableDynamicTitle",
+                    "description": "",
+                    "value": "true"
+                  },
+                  "editable": {
+                    "name": "editable",
+                    "description": "",
+                    "value": "true"
+                  },
+                  "hasHelp": {
+                    "name": "hasHelp",
+                    "description": "",
+                    "value": "true"
+                  }
+                }
+              },
+              {
+                "fname": "daily-business-cartoon",
+                "keywords": [],
+                "averageRating": 0,
+                "name": "Daily Business Cartoon",
+                "description": "Daily Business Cartoon by Ted Goff, www.tedgoff.com",
+                "ratingsCount": 0,
+                "typeId": 2,
+                "id": 67,
+                "state": "PUBLISHED",
+                "title": "Daily Business Cartoon",
+                "parameters": {
+                  "mobileIconUrl": {
+                    "name": "mobileIconUrl",
+                    "description": "",
+                    "value": "images/mobile/feed.png"
+                  },
+                  "iconUrl": {
+                    "name": "iconUrl",
+                    "description": "",
+                    "value": "images/face-smile.png"
+                  },
+                  "disableDynamicTitle": {
+                    "name": "disableDynamicTitle",
+                    "description": "",
+                    "value": "true"
+                  },
+                  "editable": {
+                    "name": "editable",
+                    "description": "",
+                    "value": "true"
+                  },
+                  "hasHelp": {
+                    "name": "hasHelp",
+                    "description": "",
+                    "value": "true"
+                  }
+                }
+              },
+              {
+                "fname": "e-online",
+                "keywords": [],
+                "averageRating": 0,
+                "name": "E! Online",
+                "description": "Recent news from E! Online.",
+                "ratingsCount": 0,
+                "typeId": 7,
+                "id": 83,
+                "state": "PUBLISHED",
+                "title": "E! Online",
+                "parameters": {
+                  "mobileIconUrl": {
+                    "name": "mobileIconUrl",
+                    "description": "",
+                    "value": "images/mobile/news.png"
+                  },
+                  "iconUrl": {
+                    "name": "iconUrl",
+                    "description": "",
+                    "value": "images/internet-news-reader.png"
+                  },
+                  "disableDynamicTitle": {
+                    "name": "disableDynamicTitle",
+                    "description": "",
+                    "value": "true"
+                  }
+                }
+              },
+              {
+                "fname": "movie-news",
+                "keywords": [],
+                "averageRating": 0,
+                "name": "Movies.com Movie News",
+                "description": "Check out exclusive movie news only at Movies.com",
+                "ratingsCount": 0,
+                "typeId": 7,
+                "id": 86,
+                "state": "PUBLISHED",
+                "title": "Movies.com Movie News",
+                "parameters": {
+                  "mobileIconUrl": {
+                    "name": "mobileIconUrl",
+                    "description": "",
+                    "value": "images/mobile/feed.png"
+                  },
+                  "iconUrl": {
+                    "name": "iconUrl",
+                    "description": "",
+                    "value": "images/video-x-generic.png"
+                  },
+                  "disableDynamicTitle": {
+                    "name": "disableDynamicTitle",
+                    "description": "",
+                    "value": "true"
+                  },
+                  "editable": {
+                    "name": "editable",
+                    "description": "",
+                    "value": "true"
+                  },
+                  "hasHelp": {
+                    "name": "hasHelp",
+                    "description": "",
+                    "value": "true"
+                  }
+                }
+              },
+              {
+                "fname": "phd-comics",
+                "keywords": [],
+                "averageRating": 0,
+                "name": "PHD Comics",
+                "description": "Latest PHD Comics strip",
+                "ratingsCount": 0,
+                "typeId": 7,
+                "id": 101,
+                "state": "PUBLISHED",
+                "title": "PHD Comics",
+                "parameters": {
+                  "mobileIconUrl": {
+                    "name": "mobileIconUrl",
+                    "description": "",
+                    "value": "images/mobile/feed.png"
+                  },
+                  "iconUrl": {
+                    "name": "iconUrl",
+                    "description": "",
+                    "value": "images/face-smile.png"
+                  },
+                  "editable": {
+                    "name": "editable",
+                    "description": "",
+                    "value": "true"
+                  },
+                  "hasHelp": {
+                    "name": "hasHelp",
+                    "description": "",
+                    "value": "true"
+                  }
+                }
+              },
+              {
+                "fname": "sports-illustrated",
+                "keywords": [],
+                "averageRating": 0,
+                "name": "Sports Illustrated",
+                "description": "Top stories from Sports Illustrated",
+                "ratingsCount": 0,
+                "typeId": 7,
+                "id": 89,
+                "state": "PUBLISHED",
+                "title": "Sports Illustrated",
+                "parameters": {
+                  "mobileIconUrl": {
+                    "name": "mobileIconUrl",
+                    "description": "",
+                    "value": "images/mobile/feed.png"
+                  },
+                  "iconUrl": {
+                    "name": "iconUrl",
+                    "description": "",
+                    "value": "images/internet-news-reader.png"
+                  },
+                  "editable": {
+                    "name": "editable",
+                    "description": "",
+                    "value": "true"
+                  },
+                  "hasHelp": {
+                    "name": "hasHelp",
+                    "description": "",
+                    "value": "true"
+                  }
+                }
+              },
+              {
+                "fname": "chronicle-wired",
+                "keywords": [],
+                "averageRating": 0,
+                "name": "The Chronicle: Wired Campus",
+                "description": "Top stories from The Chronicle of Higher Education: Wired Campus Edition",
+                "ratingsCount": 0,
+                "typeId": 7,
+                "id": 75,
+                "state": "PUBLISHED",
+                "title": "The Chronicle: Wired Campus",
+                "parameters": {
+                  "mobileIconUrl": {
+                    "name": "mobileIconUrl",
+                    "description": "",
+                    "value": "images/mobile/feed.png"
+                  },
+                  "iconUrl": {
+                    "name": "iconUrl",
+                    "description": "",
+                    "value": "images/internet-news-reader.png"
+                  },
+                  "editable": {
+                    "name": "editable",
+                    "description": "",
+                    "value": "true"
+                  },
+                  "hasHelp": {
+                    "name": "hasHelp",
+                    "description": "",
+                    "value": "true"
+                  }
+                }
+              },
+              {
+                "fname": "motley-fool",
+                "keywords": [],
+                "averageRating": 0,
+                "name": "The Motley Fool",
+                "description": "Motley Fool channel",
+                "ratingsCount": 0,
+                "typeId": 7,
+                "id": 47,
+                "state": "PUBLISHED",
+                "title": "Motley Fool",
+                "parameters": {
+                  "mobileIconUrl": {
+                    "name": "mobileIconUrl",
+                    "description": "",
+                    "value": "images/mobile/news.png"
+                  },
+                  "iconUrl": {
+                    "name": "iconUrl",
+                    "description": "",
+                    "value": "images/internet-news-reader.png"
+                  },
+                  "disableDynamicTitle": {
+                    "name": "disableDynamicTitle",
+                    "description": "",
+                    "value": "true"
+                  }
+                }
+              },
+              {
+                "fname": "word-of-the-day",
+                "keywords": [],
+                "averageRating": 0,
+                "name": "Word of the Day",
+                "description": "Dictonary.com Word of the Day",
+                "ratingsCount": 0,
+                "typeId": 7,
+                "id": 81,
+                "state": "PUBLISHED",
+                "title": "Word of the Day",
+                "parameters": {
+                  "mobileIconUrl": {
+                    "name": "mobileIconUrl",
+                    "description": "",
+                    "value": "images/mobile/news.png"
+                  },
+                  "iconUrl": {
+                    "name": "iconUrl",
+                    "description": "",
+                    "value": "images/internet-news-reader.png"
+                  }
+                }
+              },
+              {
+                "fname": "xkcd",
+                "keywords": [],
+                "averageRating": 0,
+                "name": "XKCD",
+                "description": "Latest XKCD comic strip",
+                "ratingsCount": 0,
+                "typeId": 7,
+                "id": 104,
+                "state": "PUBLISHED",
+                "title": "XKCD",
+                "parameters": {
+                  "mobileIconUrl": {
+                    "name": "mobileIconUrl",
+                    "description": "",
+                    "value": "images/mobile/feed.png"
+                  },
+                  "iconUrl": {
+                    "name": "iconUrl",
+                    "description": "",
+                    "value": "images/face-smile.png"
+                  }
+                }
+              }
+            ],
+            "subcategories": []
+          },
+          {
+            "name": "Finances",
+            "description": "Financial Portlets",
+            "id": "local.28",
+            "portlets": [],
+            "subcategories": []
+          },
+          {
+            "name": "Information",
+            "description": "Informational Portlets",
+            "id": "local.22",
+            "portlets": [
+              {
+                "fname": "pbookmarks",
+                "keywords": [],
+                "averageRating": 0,
+                "name": "Bookmarks",
+                "description": "Bookmarks portlet",
+                "ratingsCount": 0,
+                "typeId": 8,
+                "id": 84,
+                "state": "PUBLISHED",
+                "title": "Bookmarks",
+                "parameters": {
+                  "mobileIconUrl": {
+                    "name": "mobileIconUrl",
+                    "description": "",
+                    "value": "images/mobile/bookmarks.png"
+                  },
+                  "iconUrl": {
+                    "name": "iconUrl",
+                    "description": "",
+                    "value": "images/x-office-address-book.png"
+                  },
+                  "quicklink": {
+                    "name": "quicklink",
+                    "description": "",
+                    "value": "1"
+                  },
+                  "editable": {
+                    "name": "editable",
+                    "description": "",
+                    "value": "true"
+                  }
+                }
+              },
+              {
+                "fname": "calendar",
+                "keywords": [],
+                "averageRating": 0,
+                "name": "Calendar",
+                "description": "Calendar of campus, academic, and personal events.",
+                "ratingsCount": 0,
+                "typeId": 4,
+                "id": 78,
+                "state": "PUBLISHED",
+                "title": "Calendar",
+                "parameters": {
+                  "hideFromMobile": {
+                    "name": "hideFromMobile",
+                    "description": "",
+                    "value": "false"
+                  },
+                  "highlight": {
+                    "name": "highlight",
+                    "description": "",
+                    "value": "false"
+                  },
+                  "showChrome": {
+                    "name": "showChrome",
+                    "description": "",
+                    "value": "true"
+                  },
+                  "blockImpersonation": {
+                    "name": "blockImpersonation",
+                    "description": "",
+                    "value": "false"
+                  },
+                  "mobileIconUrl": {
+                    "name": "mobileIconUrl",
+                    "description": "",
+                    "value": "images/mobile/calendar_alt.png"
+                  },
+                  "hasAbout": {
+                    "name": "hasAbout",
+                    "description": "",
+                    "value": "false"
+                  },
+                  "editable": {
+                    "name": "editable",
+                    "description": "",
+                    "value": "true"
+                  },
+                  "alternate": {
+                    "name": "alternate",
+                    "description": "",
+                    "value": "false"
+                  },
+                  "iconUrl": {
+                    "name": "iconUrl",
+                    "description": "",
+                    "value": "images/x-office-calendar.png"
+                  },
+                  "disableDynamicTitle": {
+                    "name": "disableDynamicTitle",
+                    "description": "",
+                    "value": "true"
+                  },
+                  "hasHelp": {
+                    "name": "hasHelp",
+                    "description": "",
+                    "value": "false"
+                  }
+                }
+              },
+              {
+                "fname": "dictionary-portlet",
+                "keywords": [],
+                "averageRating": 0,
+                "name": "Dictionary",
+                "description": "Dictionary portlet",
+                "ratingsCount": 0,
+                "typeId": 4,
+                "id": 73,
+                "state": "PUBLISHED",
+                "title": "Dictionary",
+                "parameters": {
+                  "mobileIconUrl": {
+                    "name": "mobileIconUrl",
+                    "description": "",
+                    "value": "images/mobile/library_alt.png"
+                  },
+                  "iconUrl": {
+                    "name": "iconUrl",
+                    "description": "",
+                    "value": "images/internet-news-reader.png"
+                  }
+                }
+              },
+              {
+                "fname": "google-docs",
+                "keywords": [],
+                "averageRating": 0,
+                "name": "Google Docs",
+                "description": "View your active Google documents",
+                "ratingsCount": 0,
+                "typeId": 4,
+                "id": 70,
+                "state": "PUBLISHED",
+                "title": "Google Docs",
+                "parameters": {
+                  "editable": {
+                    "name": "editable",
+                    "description": "",
+                    "value": "false"
+                  },
+                  "iconUrl": {
+                    "name": "iconUrl",
+                    "description": "",
+                    "value": "images/google.png"
+                  }
+                }
+              },
+              {
+                "fname": "google-maps-portlet",
+                "keywords": [],
+                "averageRating": 0,
+                "name": "Google Maps",
+                "description": "Jasig Google Maps Portlet",
+                "ratingsCount": 0,
+                "typeId": 4,
+                "id": 64,
+                "state": "PUBLISHED",
+                "title": "Map",
+                "parameters": {
+                  "mobileIconUrl": {
+                    "name": "mobileIconUrl",
+                    "description": "",
+                    "value": "images/mobile/map_alt.png"
+                  },
+                  "iconUrl": {
+                    "name": "iconUrl",
+                    "description": "",
+                    "value": "images/google.png"
+                  }
+                }
+              },
+              {
+                "fname": "google-portlet",
+                "keywords": [],
+                "averageRating": 0,
+                "name": "Google Search",
+                "description": "Google Portlet from http://code.google.com/p/googleportlet/",
+                "ratingsCount": 0,
+                "typeId": 4,
+                "id": 61,
+                "state": "PUBLISHED",
+                "title": "Google Search",
+                "parameters": {
+                  "mobileIconUrl": {
+                    "name": "mobileIconUrl",
+                    "description": "",
+                    "value": "images/google.png"
+                  },
+                  "iconUrl": {
+                    "name": "iconUrl",
+                    "description": "",
+                    "value": "images/google.png"
+                  }
+                }
+              },
+              {
+                "fname": "google-translate-portlet",
+                "keywords": [],
+                "averageRating": 0,
+                "name": "Google Translate",
+                "description": "Translate text to another language",
+                "ratingsCount": 0,
+                "typeId": 4,
+                "id": 51,
+                "state": "PUBLISHED",
+                "title": "Translate",
+                "parameters": {
+                  "mobileIconUrl": {
+                    "name": "mobileIconUrl",
+                    "description": "",
+                    "value": "images/google.png"
+                  },
+                  "iconUrl": {
+                    "name": "iconUrl",
+                    "description": "",
+                    "value": "images/google.png"
+                  }
+                }
+              },
+              {
+                "fname": "notification",
+                "keywords": [],
+                "averageRating": 0,
+                "name": "Notification Portlet",
+                "description": "Apereo Notification Portlet",
+                "ratingsCount": 0,
+                "typeId": 4,
+                "id": 87,
+                "state": "PUBLISHED",
+                "title": "Notification Portlet",
+                "parameters": {
+                  "hideFromMobile": {
+                    "name": "hideFromMobile",
+                    "description": "",
+                    "value": "false"
+                  },
+                  "highlight": {
+                    "name": "highlight",
+                    "description": "",
+                    "value": "false"
+                  },
+                  "showChrome": {
+                    "name": "showChrome",
+                    "description": "",
+                    "value": "true"
+                  },
+                  "blockImpersonation": {
+                    "name": "blockImpersonation",
+                    "description": "",
+                    "value": "false"
+                  },
+                  "mobileIconUrl": {
+                    "name": "mobileIconUrl",
+                    "description": "",
+                    "value": "images/mobile/bullhorn.png"
+                  },
+                  "hasAbout": {
+                    "name": "hasAbout",
+                    "description": "",
+                    "value": "false"
+                  },
+                  "editable": {
+                    "name": "editable",
+                    "description": "",
+                    "value": "false"
+                  },
+                  "alternate": {
+                    "name": "alternate",
+                    "description": "",
+                    "value": "false"
+                  },
+                  "iconUrl": {
+                    "name": "iconUrl",
+                    "description": "",
+                    "value": "images/dialog-warning.png"
+                  },
+                  "disableDynamicTitle": {
+                    "name": "disableDynamicTitle",
+                    "description": "",
+                    "value": "true"
+                  },
+                  "hasHelp": {
+                    "name": "hasHelp",
+                    "description": "",
+                    "value": "false"
+                  }
+                }
+              },
+              {
+                "fname": "penguin",
+                "keywords": [],
+                "averageRating": 0,
+                "name": "Penguin",
+                "description": "Poke the Penguin Google Gadget",
+                "ratingsCount": 0,
+                "typeId": 4,
+                "id": 88,
+                "state": "PUBLISHED",
+                "title": "Penguin",
+                "parameters": {
+                  "editable": {
+                    "name": "editable",
+                    "description": "",
+                    "value": "true"
+                  },
+                  "iconUrl": {
+                    "name": "iconUrl",
+                    "description": "",
+                    "value": "images/feed.png"
+                  }
+                }
+              },
+              {
+                "fname": "please-register",
+                "keywords": [],
+                "averageRating": 0,
+                "name": "Please Register",
+                "description": "uPortal registration message.",
+                "ratingsCount": 0,
+                "typeId": 6,
+                "id": 76,
+                "state": "PUBLISHED",
+                "title": "Please Register",
+                "parameters": {
+                  "mobileIconUrl": {
+                    "name": "mobileIconUrl",
+                    "description": "",
+                    "value": "images/mobile/advising.png"
+                  },
+                  "iconUrl": {
+                    "name": "iconUrl",
+                    "description": "",
+                    "value": "images/text-html.png"
+                  },
+                  "disableDynamicTitle": {
+                    "name": "disableDynamicTitle",
+                    "description": "",
+                    "value": "true"
+                  },
+                  "configurable": {
+                    "name": "configurable",
+                    "description": "",
+                    "value": "true"
+                  }
+                }
+              },
+              {
+                "fname": "staff-feature",
+                "keywords": [],
+                "averageRating": 0,
+                "name": "Staff Welcome",
+                "description": "Staff-targeted welcome screen",
+                "ratingsCount": 0,
+                "typeId": 2,
+                "id": 91,
+                "state": "PUBLISHED",
+                "title": "Staff Welcome",
+                "parameters": {
+                  "mobileIconUrl": {
+                    "name": "mobileIconUrl",
+                    "description": "",
+                    "value": "images/mobile/directory.png"
+                  },
+                  "iconUrl": {
+                    "name": "iconUrl",
+                    "description": "",
+                    "value": "images/image-x-generic.png"
+                  },
+                  "disableDynamicTitle": {
+                    "name": "disableDynamicTitle",
+                    "description": "",
+                    "value": "true"
+                  }
+                }
+              },
+              {
+                "fname": "student-feature",
+                "keywords": [],
+                "averageRating": 0,
+                "name": "Student Welcome",
+                "description": "Student-targeted welcome screen",
+                "ratingsCount": 0,
+                "typeId": 2,
+                "id": 74,
+                "state": "PUBLISHED",
+                "title": "Student Welcome",
+                "parameters": {
+                  "mobileIconUrl": {
+                    "name": "mobileIconUrl",
+                    "description": "",
+                    "value": "images/mobile/academics.png"
+                  },
+                  "iconUrl": {
+                    "name": "iconUrl",
+                    "description": "",
+                    "value": "images/image-x-generic.png"
+                  },
+                  "disableDynamicTitle": {
+                    "name": "disableDynamicTitle",
+                    "description": "",
+                    "value": "true"
+                  }
+                }
+              },
+              {
+                "fname": "weather",
+                "keywords": [],
+                "averageRating": 0,
+                "name": "Weather",
+                "description": "Current weather conditions and forecast.",
+                "ratingsCount": 0,
+                "typeId": 4,
+                "id": 52,
+                "state": "PUBLISHED",
+                "title": "Weather",
+                "parameters": {
+                  "mobileIconUrl": {
+                    "name": "mobileIconUrl",
+                    "description": "",
+                    "value": "images/mobile/weather.png"
+                  },
+                  "iconUrl": {
+                    "name": "iconUrl",
+                    "description": "",
+                    "value": "images/weather-few-clouds.png"
+                  },
+                  "editable": {
+                    "name": "editable",
+                    "description": "",
+                    "value": "true"
+                  },
+                  "portletName": {
+                    "name": "portletName",
+                    "description": "",
+                    "value": "Weather"
+                  }
+                }
+              },
+              {
+                "fname": "snappy",
+                "keywords": [],
+                "averageRating": 0,
+                "name": "Welcome",
+                "description": "Mockup image rotator thingy.",
+                "ratingsCount": 0,
+                "typeId": 1,
+                "id": 90,
+                "state": "PUBLISHED",
+                "title": "Welcome",
+                "parameters": {
+                  "mobileIconUrl": {
+                    "name": "mobileIconUrl",
+                    "description": "",
+                    "value": "images/mobile/default.png"
+                  },
+                  "iconUrl": {
+                    "name": "iconUrl",
+                    "description": "",
+                    "value": "images/text-html.png"
+                  },
+                  "disableDynamicTitle": {
+                    "name": "disableDynamicTitle",
+                    "description": "",
+                    "value": "true"
+                  },
+                  "configurable": {
+                    "name": "configurable",
+                    "description": "",
+                    "value": "true"
+                  }
+                }
+              },
+              {
+                "fname": "whos-online",
+                "keywords": [],
+                "averageRating": 0,
+                "name": "Who's Online",
+                "description": "Mockup of a Who's Online portlet.",
+                "ratingsCount": 0,
+                "typeId": 6,
+                "id": 65,
+                "state": "PUBLISHED",
+                "title": "Who's Online",
+                "parameters": {
+                  "mobileIconUrl": {
+                    "name": "mobileIconUrl",
+                    "description": "",
+                    "value": "images/mobile/user_search.png"
+                  },
+                  "iconUrl": {
+                    "name": "iconUrl",
+                    "description": "",
+                    "value": "images/text-html.png"
+                  },
+                  "disableDynamicTitle": {
+                    "name": "disableDynamicTitle",
+                    "description": "",
+                    "value": "true"
+                  },
+                  "configurable": {
+                    "name": "configurable",
+                    "description": "",
+                    "value": "true"
+                  }
+                }
+              }
+            ],
+            "subcategories": []
+          },
+          {
+            "name": "Instructors",
+            "description": "Instructor Portlets",
+            "id": "local.24",
+            "portlets": [
+              {
+                "fname": "faculty-feature",
+                "keywords": [],
+                "averageRating": 0,
+                "name": "Faculty Welcome",
+                "description": "Faculty-targeted welcome screen",
+                "ratingsCount": 0,
+                "typeId": 2,
+                "id": 93,
+                "state": "PUBLISHED",
+                "title": "Faculty Welcome",
+                "parameters": {
+                  "mobileIconUrl": {
+                    "name": "mobileIconUrl",
+                    "description": "",
+                    "value": "images/mobile/tutor.png"
+                  },
+                  "iconUrl": {
+                    "name": "iconUrl",
+                    "description": "",
+                    "value": "images/image-x-generic.png"
+                  },
+                  "disableDynamicTitle": {
+                    "name": "disableDynamicTitle",
+                    "description": "",
+                    "value": "true"
+                  }
+                }
+              }
+            ],
+            "subcategories": []
+          },
+          {
+            "name": "Library",
+            "description": "Library Portlets",
+            "id": "local.33",
+            "portlets": [],
+            "subcategories": []
+          },
+          {
+            "name": "News",
+            "description": "News Portlets",
+            "id": "local.27",
+            "portlets": [
+              {
+                "fname": "about-college-life",
+                "keywords": [],
+                "averageRating": 0,
+                "name": "About.com College Life",
+                "description": "About.com College Life RSS feed",
+                "ratingsCount": 0,
+                "typeId": 7,
+                "id": 107,
+                "state": "PUBLISHED",
+                "title": "About.com College Life",
+                "parameters": {
+                  "mobileIconUrl": {
+                    "name": "mobileIconUrl",
+                    "description": "",
+                    "value": "images/mobile/feed.png"
+                  },
+                  "iconUrl": {
+                    "name": "iconUrl",
+                    "description": "",
+                    "value": "images/internet-news-reader.png"
+                  },
+                  "disableDynamicTitle": {
+                    "name": "disableDynamicTitle",
+                    "description": "",
+                    "value": "true"
+                  },
+                  "editable": {
+                    "name": "editable",
+                    "description": "",
+                    "value": "true"
+                  },
+                  "hasHelp": {
+                    "name": "hasHelp",
+                    "description": "",
+                    "value": "true"
+                  }
+                }
+              },
+              {
+                "fname": "campus-news",
+                "keywords": [],
+                "averageRating": 0,
+                "name": "Campus News",
+                "description": "Campus News",
+                "ratingsCount": 0,
+                "typeId": 4,
+                "id": 56,
+                "state": "PUBLISHED",
+                "title": "Campus News",
+                "parameters": {
+                  "hideFromMobile": {
+                    "name": "hideFromMobile",
+                    "description": "",
+                    "value": "false"
+                  },
+                  "highlight": {
+                    "name": "highlight",
+                    "description": "",
+                    "value": "false"
+                  },
+                  "showChrome": {
+                    "name": "showChrome",
+                    "description": "",
+                    "value": "true"
+                  },
+                  "blockImpersonation": {
+                    "name": "blockImpersonation",
+                    "description": "",
+                    "value": "false"
+                  },
+                  "iconUrl": {
+                    "name": "iconUrl",
+                    "description": "",
+                    "value": "images/campus_life.png"
+                  },
+                  "hasAbout": {
+                    "name": "hasAbout",
+                    "description": "",
+                    "value": "false"
+                  },
+                  "editable": {
+                    "name": "editable",
+                    "description": "",
+                    "value": "true"
+                  },
+                  "alternate": {
+                    "name": "alternate",
+                    "description": "",
+                    "value": "false"
+                  },
+                  "disableDynamicTitle": {
+                    "name": "disableDynamicTitle",
+                    "description": "",
+                    "value": "true"
+                  },
+                  "hasHelp": {
+                    "name": "hasHelp",
+                    "description": "",
+                    "value": "true"
+                  }
+                }
+              },
+              {
+                "fname": "ny-times",
+                "keywords": [],
+                "averageRating": 0,
+                "name": "NY Times",
+                "description": "Recent news from the NY Times",
+                "ratingsCount": 0,
+                "typeId": 7,
+                "id": 82,
+                "state": "PUBLISHED",
+                "title": "NY Times",
+                "parameters": {
+                  "mobileIconUrl": {
+                    "name": "mobileIconUrl",
+                    "description": "",
+                    "value": "images/mobile/feed.png"
+                  },
+                  "iconUrl": {
+                    "name": "iconUrl",
+                    "description": "",
+                    "value": "images/internet-news-reader.png"
+                  },
+                  "disableDynamicTitle": {
+                    "name": "disableDynamicTitle",
+                    "description": "",
+                    "value": "true"
+                  },
+                  "editable": {
+                    "name": "editable",
+                    "description": "",
+                    "value": "true"
+                  },
+                  "hasHelp": {
+                    "name": "hasHelp",
+                    "description": "",
+                    "value": "true"
+                  }
+                }
+              },
+              {
+                "fname": "ny-times-education",
+                "keywords": [],
+                "averageRating": 0,
+                "name": "NY Times Education",
+                "description": "Recent education news from the New York Times.",
+                "ratingsCount": 0,
+                "typeId": 7,
+                "id": 53,
+                "state": "PUBLISHED",
+                "title": "NY Times - Education",
+                "parameters": {
+                  "mobileIconUrl": {
+                    "name": "mobileIconUrl",
+                    "description": "",
+                    "value": "images/mobile/feed.png"
+                  },
+                  "iconUrl": {
+                    "name": "iconUrl",
+                    "description": "",
+                    "value": "images/internet-news-reader.png"
+                  },
+                  "disableDynamicTitle": {
+                    "name": "disableDynamicTitle",
+                    "description": "",
+                    "value": "true"
+                  },
+                  "editable": {
+                    "name": "editable",
+                    "description": "",
+                    "value": "true"
+                  },
+                  "hasHelp": {
+                    "name": "hasHelp",
+                    "description": "",
+                    "value": "true"
+                  }
+                }
+              },
+              {
+                "fname": "salon",
+                "keywords": [],
+                "averageRating": 0,
+                "name": "Salon.com",
+                "description": "Salon.com channel",
+                "ratingsCount": 0,
+                "typeId": 7,
+                "id": 57,
+                "state": "PUBLISHED",
+                "title": "Salon.com",
+                "parameters": {
+                  "mobileIconUrl": {
+                    "name": "mobileIconUrl",
+                    "description": "",
+                    "value": "images/mobile/news.png"
+                  },
+                  "iconUrl": {
+                    "name": "iconUrl",
+                    "description": "",
+                    "value": "images/internet-news-reader.png"
+                  },
+                  "disableDynamicTitle": {
+                    "name": "disableDynamicTitle",
+                    "description": "",
+                    "value": "true"
+                  }
+                }
+              },
+              {
+                "fname": "chronicle-wired",
+                "keywords": [],
+                "averageRating": 0,
+                "name": "The Chronicle: Wired Campus",
+                "description": "Top stories from The Chronicle of Higher Education: Wired Campus Edition",
+                "ratingsCount": 0,
+                "typeId": 7,
+                "id": 75,
+                "state": "PUBLISHED",
+                "title": "The Chronicle: Wired Campus",
+                "parameters": {
+                  "mobileIconUrl": {
+                    "name": "mobileIconUrl",
+                    "description": "",
+                    "value": "images/mobile/feed.png"
+                  },
+                  "iconUrl": {
+                    "name": "iconUrl",
+                    "description": "",
+                    "value": "images/internet-news-reader.png"
+                  },
+                  "editable": {
+                    "name": "editable",
+                    "description": "",
+                    "value": "true"
+                  },
+                  "hasHelp": {
+                    "name": "hasHelp",
+                    "description": "",
+                    "value": "true"
+                  }
+                }
+              },
+              {
+                "fname": "uportal-home-page",
+                "keywords": [],
+                "averageRating": 0,
+                "name": "uPortal Home Page",
+                "description": "uPortal Home Page channel",
+                "ratingsCount": 0,
+                "typeId": 5,
+                "id": 49,
+                "state": "PUBLISHED",
+                "title": "uPortal Home Page",
+                "parameters": {
+                  "mobileIconUrl": {
+                    "name": "mobileIconUrl",
+                    "description": "",
+                    "value": "images/mobile/star.png"
+                  },
+                  "iconUrl": {
+                    "name": "iconUrl",
+                    "description": "",
+                    "value": "images/text-html.png"
+                  },
+                  "disableDynamicTitle": {
+                    "name": "disableDynamicTitle",
+                    "description": "",
+                    "value": "true"
+                  }
+                }
+              },
+              {
+                "fname": "uportal-links",
+                "keywords": [],
+                "averageRating": 0,
+                "name": "uPortal Links",
+                "description": "Useful uPortal links.",
+                "ratingsCount": 0,
+                "typeId": 6,
+                "id": 111,
+                "state": "PUBLISHED",
+                "title": "uPortal Links",
+                "parameters": {
+                  "mobileIconUrl": {
+                    "name": "mobileIconUrl",
+                    "description": "",
+                    "value": "images/mobile/links.png"
+                  },
+                  "iconUrl": {
+                    "name": "iconUrl",
+                    "description": "",
+                    "value": "images/text-html.png"
+                  },
+                  "disableDynamicTitle": {
+                    "name": "disableDynamicTitle",
+                    "description": "",
+                    "value": "true"
+                  },
+                  "configurable": {
+                    "name": "configurable",
+                    "description": "",
+                    "value": "true"
+                  }
+                }
+              }
+            ],
+            "subcategories": []
+          },
+          {
+            "name": "Research",
+            "description": "Research Portlets",
+            "id": "local.36",
+            "portlets": [],
+            "subcategories": []
+          },
+          {
+            "name": "Services",
+            "description": "Services Portlets",
+            "id": "local.23",
+            "portlets": [
+              {
+                "fname": "feedback-navigation",
+                "keywords": [],
+                "averageRating": 0,
+                "name": "Feedback Navigation",
+                "description": "User-facing link to give feedback",
+                "ratingsCount": 0,
+                "typeId": 4,
+                "id": 69,
+                "state": "PUBLISHED",
+                "title": "Feedback Navigation",
+                "parameters": {
+                  "iconUrl": {
+                    "name": "iconUrl",
+                    "description": "",
+                    "value": "images/campus_life.png"
+                  },
+                  "hideFromMobile": {
+                    "name": "hideFromMobile",
+                    "description": "",
+                    "value": "false"
+                  },
+                  "blockImpersonation": {
+                    "name": "blockImpersonation",
+                    "description": "",
+                    "value": "false"
+                  },
+                  "hasAbout": {
+                    "name": "hasAbout",
+                    "description": "",
+                    "value": "false"
+                  },
+                  "editable": {
+                    "name": "editable",
+                    "description": "",
+                    "value": "false"
+                  },
+                  "disableDynamicTitle": {
+                    "name": "disableDynamicTitle",
+                    "description": "",
+                    "value": "true"
+                  },
+                  "chromeStyle": {
+                    "name": "chromeStyle",
+                    "description": "",
+                    "value": "default"
+                  },
+                  "printable": {
+                    "name": "printable",
+                    "description": "",
+                    "value": "false"
+                  },
+                  "configurable": {
+                    "name": "configurable",
+                    "description": "",
+                    "value": "false"
+                  },
+                  "hasHelp": {
+                    "name": "hasHelp",
+                    "description": "",
+                    "value": "false"
+                  }
+                }
+              },
+              {
+                "fname": "esup-filemanager-demo",
+                "keywords": [],
+                "averageRating": 0,
+                "name": "My Drives",
+                "description": "Access to remote storage spaces",
+                "ratingsCount": 0,
+                "typeId": 4,
+                "id": 62,
+                "state": "PUBLISHED",
+                "title": "My Drives",
+                "parameters": {
+                  "hideFromDesktop": {
+                    "name": "hideFromDesktop",
+                    "description": "",
+                    "value": "false"
+                  },
+                  "showChrome": {
+                    "name": "showChrome",
+                    "description": "",
+                    "value": "true"
+                  },
+                  "blockImpersonation": {
+                    "name": "blockImpersonation",
+                    "description": "",
+                    "value": "false"
+                  },
+                  "mobileIconUrl": {
+                    "name": "mobileIconUrl",
+                    "description": "",
+                    "value": "images/${request.contextPath}/media/skins/icons/filesharing.png"
+                  },
+                  "hasAbout": {
+                    "name": "hasAbout",
+                    "description": "",
+                    "value": "false"
+                  },
+                  "editable": {
+                    "name": "editable",
+                    "description": "",
+                    "value": "false"
+                  },
+                  "alternate": {
+                    "name": "alternate",
+                    "description": "",
+                    "value": "false"
+                  },
+                  "locale": {
+                    "name": "locale",
+                    "description": "",
+                    "value": "false"
+                  },
+                  "secure": {
+                    "name": "secure",
+                    "description": "",
+                    "value": "false"
+                  },
+                  "disableDynamicTitle": {
+                    "name": "disableDynamicTitle",
+                    "description": "",
+                    "value": "true"
+                  },
+                  "hideFromMobile": {
+                    "name": "hideFromMobile",
+                    "description": "",
+                    "value": "false"
+                  },
+                  "highlight": {
+                    "name": "highlight",
+                    "description": "",
+                    "value": "false"
+                  },
+                  "iconUrl": {
+                    "name": "iconUrl",
+                    "description": "",
+                    "value": "images/filesharing.png"
+                  },
+                  "hasHelp": {
+                    "name": "hasHelp",
+                    "description": "",
+                    "value": "false"
+                  }
+                }
+              }
+            ],
+            "subcategories": []
+          },
+          {
+            "name": "Tenant Portlets",
+            "description": "Parent category for portlets belonging to tenants.  Each tenant has its own sub-category.",
+            "id": "local.16",
+            "portlets": [],
+            "subcategories": []
+          },
+          {
+            "name": "Testing",
+            "description": "Testing Portlets",
+            "id": "local.30",
+            "portlets": [
+              {
+                "fname": "test-portlet-1",
+                "keywords": [],
+                "averageRating": 0,
+                "name": "Test Portlet 1",
+                "description": "Test portlet 1 from Apache Pluto",
+                "ratingsCount": 0,
+                "typeId": 4,
+                "id": 72,
+                "state": "PUBLISHED",
+                "title": "Test Portlet 1",
+                "parameters": {
+                  "iconUrl": {
+                    "name": "iconUrl",
+                    "description": "",
+                    "value": "images/applications-development.png"
+                  }
+                }
+              },
+              {
+                "fname": "test-portlet-2",
+                "keywords": [],
+                "averageRating": 0,
+                "name": "Test Portlet 2",
+                "description": "Test portlet 2 from Apache Pluto",
+                "ratingsCount": 0,
+                "typeId": 4,
+                "id": 80,
+                "state": "PUBLISHED",
+                "title": "Test Portlet 2",
+                "parameters": {
+                  "iconUrl": {
+                    "name": "iconUrl",
+                    "description": "",
+                    "value": "images/applications-development.png"
+                  }
+                }
+              },
+              {
+                "fname": "jasig-test-portlet",
+                "keywords": [],
+                "averageRating": 0,
+                "name": "uPortal Test Portlet",
+                "description": "Test Portlet from Apereo uPortal",
+                "ratingsCount": 0,
+                "typeId": 4,
+                "id": 94,
+                "state": "PUBLISHED",
+                "title": "uPortal Test Portlet",
+                "parameters": {
+                  "iconUrl": {
+                    "name": "iconUrl",
+                    "description": "",
+                    "value": "images/applications-system.png"
+                  }
+                }
+              }
+            ],
+            "subcategories": []
+          },
+          {
+            "name": "Work",
+            "description": "Work Portlets",
+            "id": "local.25",
+            "portlets": [],
+            "subcategories": []
+          },
+          {
+            "name": "uPortal",
+            "description": "uPortal Integrated Portlets",
+            "id": "local.21",
+            "portlets": [
+              {
+                "fname": "favorites",
+                "keywords": [],
+                "averageRating": 0,
+                "name": "Favorites",
+                "description": "A list of all your favorite collections and portlets",
+                "ratingsCount": 0,
+                "typeId": 4,
+                "id": 30,
+                "state": "PUBLISHED",
+                "title": "Favorites",
+                "parameters": {
+                  "editable": {
+                    "name": "editable",
+                    "description": "",
+                    "value": "true"
+                  },
+                  "iconUrl": {
+                    "name": "iconUrl",
+                    "description": "",
+                    "value": "images/preferences-system.png"
+                  }
+                }
+              },
+              {
+                "fname": "popular-portlets",
+                "keywords": [],
+                "averageRating": 0,
+                "name": "Most Popular Apps",
+                "description": "Shows which apps (portlets) have been added by users and how often",
+                "ratingsCount": 0,
+                "typeId": 4,
+                "id": 7,
+                "state": "PUBLISHED",
+                "title": "Most Popular Apps",
+                "parameters": {
+                  "iconUrl": {
+                    "name": "iconUrl",
+                    "description": "",
+                    "value": "images/preferences-system.png"
+                  }
+                }
+              },
+              {
+                "fname": "portal-activity",
+                "keywords": [],
+                "averageRating": 0,
+                "name": "Portal Activity",
+                "description": "Shows general portal activity",
+                "ratingsCount": 0,
+                "typeId": 4,
+                "id": 13,
+                "state": "PUBLISHED",
+                "title": "Portal Activity",
+                "parameters": {
+                  "iconUrl": {
+                    "name": "iconUrl",
+                    "description": "",
+                    "value": "images/preferences-system.png"
+                  }
+                }
+              },
+              {
+                "fname": "portletmarketplace",
+                "keywords": [],
+                "averageRating": 0,
+                "name": "Portlet Marketplace",
+                "description": "Browse and add portlets",
+                "ratingsCount": 0,
+                "typeId": 4,
+                "id": 19,
+                "state": "PUBLISHED",
+                "title": "Portlet Marketplace",
+                "parameters": {
+                  "iconUrl": {
+                    "name": "iconUrl",
+                    "description": "",
+                    "value": "images/preferences-system.png"
+                  }
+                }
+              },
+              {
+                "fname": "user-locales-selector",
+                "keywords": [],
+                "averageRating": 0,
+                "name": "User Locales Selector",
+                "description": "Allows a user to indicate locale preferences",
+                "ratingsCount": 0,
+                "typeId": 4,
+                "id": 28,
+                "state": "PUBLISHED",
+                "title": "User Locales Selector",
+                "parameters": {
+                  "iconUrl": {
+                    "name": "iconUrl",
+                    "description": "",
+                    "value": "images/preferences-desktop-locale.png"
+                  }
+                }
+              }
+            ],
+            "subcategories": []
+          }
+        ]
+      },
+      {
+        "name": "Uncategorized",
+        "description": "Portlets that are not in any category",
+        "id": "Uncategorized",
+        "portlets": [],
+        "subcategories": []
+      }
+    ]
+  }
+}

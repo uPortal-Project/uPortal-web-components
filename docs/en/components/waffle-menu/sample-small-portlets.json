@@ -1,0 +1,114 @@
+{
+  "registry": {
+    "categories": [
+      {
+        "name": "uPortal",
+        "description": "uPortal Integrated Portlets",
+        "id": "local.21",
+        "portlets": [
+          {
+            "fname": "favorites",
+            "keywords": [],
+            "averageRating": 0,
+            "name": "Favorites",
+            "description": "A list of all your favorite collections and portlets",
+            "ratingsCount": 0,
+            "typeId": 4,
+            "id": 30,
+            "state": "PUBLISHED",
+            "title": "Favorites",
+            "parameters": {
+              "editable": {
+                "name": "editable",
+                "description": "",
+                "value": "true"
+              },
+              "iconUrl": {
+                "name": "iconUrl",
+                "description": "",
+                "value": "images/preferences-system.png"
+              }
+            }
+          },
+          {
+            "fname": "popular-portlets",
+            "keywords": [],
+            "averageRating": 0,
+            "name": "Most Popular Apps",
+            "description": "Shows which apps (portlets) have been added by users and how often",
+            "ratingsCount": 0,
+            "typeId": 4,
+            "id": 7,
+            "state": "PUBLISHED",
+            "title": "Most Popular Apps",
+            "parameters": {
+              "iconUrl": {
+                "name": "iconUrl",
+                "description": "",
+                "value": "images/preferences-system.png"
+              }
+            }
+          },
+          {
+            "fname": "portal-activity",
+            "keywords": [],
+            "averageRating": 0,
+            "name": "Portal Activity",
+            "description": "Shows general portal activity",
+            "ratingsCount": 0,
+            "typeId": 4,
+            "id": 13,
+            "state": "PUBLISHED",
+            "title": "Portal Activity",
+            "parameters": {
+              "iconUrl": {
+                "name": "iconUrl",
+                "description": "",
+                "value": "images/preferences-system.png"
+              }
+            }
+          },
+          {
+            "fname": "portletmarketplace",
+            "keywords": [],
+            "averageRating": 0,
+            "name": "Portlet Marketplace",
+            "description": "Browse and add portlets",
+            "ratingsCount": 0,
+            "typeId": 4,
+            "id": 19,
+            "state": "PUBLISHED",
+            "title": "Portlet Marketplace",
+            "parameters": {
+              "iconUrl": {
+                "name": "iconUrl",
+                "description": "",
+                "value": "images/preferences-system.png"
+              }
+            }
+          },
+          {
+            "fname": "user-locales-selector",
+            "keywords": [],
+            "averageRating": 0,
+            "name": "User Locales Selector",
+            "description": "Allows a user to indicate locale preferences",
+            "ratingsCount": 0,
+            "typeId": 4,
+            "id": 28,
+            "state": "PUBLISHED",
+            "title": "User Locales Selector",
+            "parameters": {
+              "iconUrl": {
+                "name": "iconUrl",
+                "description": "",
+                "value": "images/preferences-desktop-locale.png"
+              }
+            }
+          }
+        ],
+        "subcategories": []
+      }
+    ]
+  }
+}
