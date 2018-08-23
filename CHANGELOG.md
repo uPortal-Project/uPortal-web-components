@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased][]
 
+## Build
+
+- **content-carousel**: add default entry point set to the built code (#61).
+- **waffle-menu**: add default entry point set to the built code (#61).
+
+## Docs
+
+- **content-carousel**: add a live demo to documentation (#61).
+
 ## [1.8.0][] - 2018-08-22
 
 ## Feature
