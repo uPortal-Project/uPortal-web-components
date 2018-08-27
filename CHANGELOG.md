@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased][]
 
+## Style
+
+- **waffle-menu** improve default styles and make dropdown more material UI like (#66).
+
 ## Build
 
 - **content-carousel**: add default entry point set to the built code (#61).
@@ -14,7 +18,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## Docs
 
+- **content-carousel**: update example usage for web components and vue.
 - **content-carousel**: add a live demo to documentation (#61).
+- **waffle-menu**: add a live demo to documentation (#62).
 
 ## [1.8.0][] - 2018-08-22
 
