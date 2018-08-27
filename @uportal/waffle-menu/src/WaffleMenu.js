@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import styled from 'styled-components';
 import oidc from '@uportal/open-id-connect';
-import { portletRegistryToArray } from '@uportal/portlet-registry-to-array';
+import {portletRegistryToArray} from '@uportal/portlet-registry-to-array';
 import get from 'lodash/get';
 import PropTypes from 'prop-types';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTh } from '@fortawesome/free-solid-svg-icons';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faTh} from '@fortawesome/free-solid-svg-icons';
 
 // --------  fancy styling magic ------- //
 const WaffleMenuContainer = styled.div`
@@ -130,8 +130,8 @@ const WaffleTriangle = styled.div`
 // --------  done with fancy styling magic ------- //
 
 // menu item stateless component
-const MenuItem = props => {
-  let { link, image, label } = props;
+const MenuItem = (props) => {
+  let {link, image, label} = props;
   return (
     <MIListItem>
       <a href={link} background={image}>
@@ -148,7 +148,7 @@ class WaffleMenu extends Component {
     debug: PropTypes.bool,
     buttonColor: PropTypes.string,
     defaultIcon: PropTypes.string,
-    truncateLength: PropTypes.string
+    truncateLength: PropTypes.string,
   };
 
   static defaultProps = {
@@ -159,49 +159,49 @@ class WaffleMenu extends Component {
     // prettier-ignore
     // eslint-disable-next-line max-len
     defaultIcon: '/ResourceServingWebapp/rs/tango/0.8.90/32x32/categories/applications-other.png',
-    truncateLength: 50
+    truncateLength: 50,
   };
 
   // Default component state
   state = {
     menuOpen: false,
     data: [],
-    dataLoaded: false
+    dataLoaded: false,
   };
 
-  handleOidcError = err => {
+  handleOidcError = (err) => {
     console.error(err);
     this.setState({
       hasError: true,
-      errorMessage: 'There was a problem authorizing this request.'
+      errorMessage: 'There was a problem authorizing this request.',
     });
   };
 
-  handleWflError = err => {
+  handleWflError = (err) => {
     const message = 'There was a problem cooking your waffle.';
-    this.setState({ hasError: true, errorMessage: message });
+    this.setState({hasError: true, errorMessage: message});
   };
 
   getToken = async () => {
-    const { oidcUrl } = this.props;
+    const {oidcUrl} = this.props;
 
     try {
-      return await oidc({ userInfoApiUrl: oidcUrl, timeout: 18000 });
+      return await oidc({userInfoApiUrl: oidcUrl, timeout: 18000});
     } catch (err) {
       console.error(err);
       this.handleOidcError(err);
     }
   };
 
-  truncateTitle = title => {
+  truncateTitle = (title) => {
     const truncate = parseInt(this.props.truncateLength, 10);
     return title.substring(0, truncate + 1) + '...';
   };
 
-  wafflePress = registry => {
-    const { defaultIcon } = this.props;
+  wafflePress = (registry) => {
+    const {defaultIcon} = this.props;
     const menuItems = portletRegistryToArray(registry).map(
-      ({ alternativeMaximizedLink, fname, parameters, title }) => {
+      ({alternativeMaximizedLink, fname, parameters, title}) => {
         let imgUrl = get(parameters, 'iconUrl.value') || defaultIcon;
         return {
           link: alternativeMaximizedLink || '/uPortal/p/' + fname,
@@ -211,18 +211,18 @@ class WaffleMenu extends Component {
               : imgUrl
             : undefined,
           label: this.truncateTitle(title),
-          type: 'box'
+          type: 'box',
         };
       }
     );
     this.setState({
       data: menuItems,
-      dataLoaded: true
+      dataLoaded: true,
     });
   };
 
   fetchMenuData = async () => {
-    const { url, debug } = this.props;
+    const {url, debug} = this.props;
 
     const token = debug ? null : (await this.getToken()).encoded;
 
@@ -230,9 +230,9 @@ class WaffleMenu extends Component {
       const response = await fetch(url, {
         credentials: 'same-origin',
         headers: {
-          Authorization: 'Bearer ' + token,
-          'content-type': 'application/jwt'
-        }
+          'Authorization': 'Bearer ' + token,
+          'content-type': 'application/jwt',
+        },
       });
       if (!response.ok) {
         if (response.status !== 404) {
@@ -250,31 +250,31 @@ class WaffleMenu extends Component {
 
   // toggle the menu
   toggleMenu = () => {
-    this.setState({ menuOpen: !this.state.menuOpen });
+    this.setState({menuOpen: !this.state.menuOpen});
   };
 
   // close the menu if we're clicking outside the menu or trigger
-  handleOutsideClick = event => {
+  handleOutsideClick = (event) => {
     if (
       this.menuRef &&
       !this.menuRef.contains(event.target) &&
       this.buttonRef &&
       !this.buttonRef.contains(event.target)
     ) {
-      this.setState({ menuOpen: false });
+      this.setState({menuOpen: false});
     }
   };
 
   // Show it to us
   render() {
-    const { menuOpen, data, dataLoaded } = this.state;
-    const { buttonColor } = this.props;
+    const {menuOpen, data, dataLoaded} = this.state;
+    const {buttonColor} = this.props;
 
     return (
       dataLoaded && (
         <WaffleMenuContainer>
           <WaffleTrigger
-            innerRef={node => (this.buttonRef = node)}
+            innerRef={(node) => (this.buttonRef = node)}
             onClick={() => this.toggleMenu()}
           >
             <FontAwesomeIcon icon={faTh} color={buttonColor} size="2x" />
@@ -286,9 +286,9 @@ class WaffleMenu extends Component {
             )}
           </WaffleTrigger>
           <WaffleDropdown
-            innerRef={node => (this.menuRef = node)}
+            innerRef={(node) => (this.menuRef = node)}
             style={{
-              display: menuOpen ? 'flex' : 'none'
+              display: menuOpen ? 'flex' : 'none',
             }}
           >
             {data.map(
