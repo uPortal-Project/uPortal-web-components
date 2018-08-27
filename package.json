@@ -61,9 +61,18 @@
     "pre-commit": "lint-staged"
   },
   "lint-staged": {
-    "*.{js,jsx,vue}": "prettier-eslint --write",
-    "*.{css,scss}": "prettier-stylelint --write",
-    "*.{md,json}": "prettier --write"
+    "*.{js,jsx,vue}": [
+      "prettier-eslint --write",
+      "git add"
+    ],
+    "*.{css,scss}": [
+      "prettier-stylelint --write",
+      "git add"
+    ],
+    "*.{md,json}": [
+      "prettier --write",
+      "git add"
+    ]
   },
   "stylelint": {
     "extends": "stylelint-config-standard"
