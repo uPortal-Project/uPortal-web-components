@@ -89,5 +89,9 @@
       ":ignoreUnstable",
       ":renovatePrefix"
     ]
+  },
+  "engines": {
+    "node": "^10.9.0",
+    "npm": "^6.3.0"
   }
 }
