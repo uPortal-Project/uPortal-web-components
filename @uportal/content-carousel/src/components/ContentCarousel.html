@@ -11,12 +11,12 @@
           </div>
         </a>
         </div>
-        <div v-if="computedSlickOptions.slidesToShow > 1">
+        <div v-if="computedSlickOptions.slidesToShow > 1" style="padding: 10px;">
+          <p v-if="!item.imageUrl" style="min-height: 7rem;">{{ item.description }}</p>
           <a :href="item.destinationUrl">
             <img v-if="item.imageUrl" :src="item.imageUrl" :alt="item.altText">
-            <template v-if="!item.imageUrl">{{ item.title }}</template>
+            <template>{{ item.title }}</template>
           </a>
-          <p v-if="!item.imageUrl">{{ item.description }}</p>
         </div>
       </div>
       <slot v-if="type === 'passthrough'" />
