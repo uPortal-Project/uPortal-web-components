@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased][]
 
+### Feature
+
+- **content-carousel**: support configurable background color (#69).
+
 ### Style
 
 - **waffle-menu** improve default styles and make dropdown more material UI like (#66).
