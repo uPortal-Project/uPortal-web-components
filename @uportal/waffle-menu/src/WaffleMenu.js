@@ -1,11 +1,11 @@
-import React, { Component } from "react";
-import styled from "styled-components";
-import oidc from "@uportal/open-id-connect";
-import { portletRegistryToArray } from "@uportal/portlet-registry-to-array";
-import get from "lodash/get";
-import PropTypes from "prop-types";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTh } from "@fortawesome/free-solid-svg-icons";
+import React, { Component } from 'react';
+import styled from 'styled-components';
+import oidc from '@uportal/open-id-connect';
+import { portletRegistryToArray } from '@uportal/portlet-registry-to-array';
+import get from 'lodash/get';
+import PropTypes from 'prop-types';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTh } from '@fortawesome/free-solid-svg-icons';
 
 // --------  fancy styling magic ------- //
 const WaffleMenuContainer = styled.div`
@@ -44,11 +44,12 @@ const WaffleDropdown = styled.ul`
   color: #212529;
   text-align: left;
   list-style: none;
+  background-color: #fff;
   background-clip: padding-box;
   border: 1px solid rgba(0, 0, 0, 0.05);
   width: 220px;
   flex-flow: row wrap;
-  box-shadow: 2px 2px 5px #999;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
 `;
 
 const MIListItem = styled.li`
@@ -57,7 +58,7 @@ const MIListItem = styled.li`
   margin: 0 2%;
   line-height: 1rem;
   &:hover {
-    box-shadow: 0 0 2px rgba(0,0,0,0.25);
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.25);
   }
   a {
     display: block;
@@ -105,7 +106,7 @@ const WaffleTriangleBack = styled.div`
   border-color: transparent transparent #fff transparent;
   border-style: dashed dashed solid;
   border-width: 0 8.5px 8.5px;
-  border-bottom-color: rgba(0, 0, 0, 0.25);;
+  border-bottom-color: rgba(0, 0, 0, 0.25);
   width: 0;
   height: 0;
   position: absolute;
@@ -146,16 +147,14 @@ class WaffleMenu extends Component {
     url: PropTypes.string,
     debug: PropTypes.bool,
     buttonColor: PropTypes.string,
-    menuBackgroundColor: PropTypes.string,
     defaultIcon: PropTypes.string,
     truncateLength: PropTypes.string
   };
 
   static defaultProps = {
-    url: "/uPortal/api/v4-3/dlm/portletRegistry.json",
-    oidcUrl: "/uPortal/api/v5-1/userinfo",
-    buttonColor: "#fff",
-    menuBackgroundColor: `#e0e0e0`,
+    url: '/uPortal/api/v4-3/dlm/portletRegistry.json',
+    oidcUrl: '/uPortal/api/v5-1/userinfo',
+    buttonColor: '#fff',
     debug: false,
     // prettier-ignore
     // eslint-disable-next-line max-len
@@ -174,12 +173,12 @@ class WaffleMenu extends Component {
     console.error(err);
     this.setState({
       hasError: true,
-      errorMessage: "There was a problem authorizing this request."
+      errorMessage: 'There was a problem authorizing this request.'
     });
   };
 
   handleWflError = err => {
-    const message = "There was a problem cooking your waffle.";
+    const message = 'There was a problem cooking your waffle.';
     this.setState({ hasError: true, errorMessage: message });
   };
 
@@ -196,23 +195,23 @@ class WaffleMenu extends Component {
 
   truncateTitle = title => {
     const truncate = parseInt(this.props.truncateLength, 10);
-    return title.substring(0, truncate + 1) + "...";
+    return title.substring(0, truncate + 1) + '...';
   };
 
   wafflePress = registry => {
     const { defaultIcon } = this.props;
     const menuItems = portletRegistryToArray(registry).map(
       ({ alternativeMaximizedLink, fname, parameters, title }) => {
-        let imgUrl = get(parameters, "iconUrl.value") || defaultIcon;
+        let imgUrl = get(parameters, 'iconUrl.value') || defaultIcon;
         return {
-          link: alternativeMaximizedLink || "/uPortal/p/" + fname,
+          link: alternativeMaximizedLink || '/uPortal/p/' + fname,
           image: imgUrl
-            ? process.env.NODE_ENV === "development"
-              ? "proxy/" + imgUrl
+            ? process.env.NODE_ENV === 'development'
+              ? 'proxy/' + imgUrl
               : imgUrl
             : undefined,
           label: this.truncateTitle(title),
-          type: "box"
+          type: 'box'
         };
       }
     );
@@ -229,10 +228,10 @@ class WaffleMenu extends Component {
 
     try {
       const response = await fetch(url, {
-        credentials: "same-origin",
+        credentials: 'same-origin',
         headers: {
-          Authorization: "Bearer " + token,
-          "content-type": "application/jwt"
+          Authorization: 'Bearer ' + token,
+          'content-type': 'application/jwt'
         }
       });
       if (!response.ok) {
@@ -269,7 +268,7 @@ class WaffleMenu extends Component {
   // Show it to us
   render() {
     const { menuOpen, data, dataLoaded } = this.state;
-    const { buttonColor, menuBackgroundColor } = this.props;
+    const { buttonColor } = this.props;
 
     return (
       dataLoaded && (
@@ -279,28 +278,27 @@ class WaffleMenu extends Component {
             onClick={() => this.toggleMenu()}
           >
             <FontAwesomeIcon icon={faTh} color={buttonColor} size="2x" />
-            {menuOpen &&
+            {menuOpen && (
               <div>
-                <WaffleTriangleBack></WaffleTriangleBack>
-                <WaffleTriangle></WaffleTriangle>
+                <WaffleTriangleBack />
+                <WaffleTriangle />
               </div>
-            }
+            )}
           </WaffleTrigger>
           <WaffleDropdown
             innerRef={node => (this.menuRef = node)}
             style={{
-              display: menuOpen ? "flex" : "none",
-              backgroundColor: menuBackgroundColor
+              display: menuOpen ? 'flex' : 'none'
             }}
           >
             {data.map(
               (datum, index) =>
-                datum.type === "box" && <MenuItem key={index} {...datum} />
+                datum.type === 'box' && <MenuItem key={index} {...datum} />
             )}
 
             {data.map(
               (datum, index) =>
-                datum.type === "footer" && (
+                datum.type === 'footer' && (
                   <WaffleDropdownFooter key={index}>
                     <a href={datum.link}>{datum.label}</a>
                   </WaffleDropdownFooter>
@@ -317,7 +315,7 @@ class WaffleMenu extends Component {
     this.fetchMenuData();
 
     // listen for outside clicks to close the dropdown
-    window.addEventListener("click", this.handleOutsideClick);
+    window.addEventListener('click', this.handleOutsideClick);
   }
 }
 
