@@ -15,12 +15,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - **content-carousel**: add default entry point set to the built code (#61).
 - **waffle-menu**: add default entry point set to the built code (#61).
+- **content-carousel**: start local dev server with `npm start` to match docs (#70).
+- show a warning if an outdated version of Node.js or npm is used to build code (#70).
 
 ## Docs
 
 - **content-carousel**: update example usage for web components and vue.
 - **content-carousel**: add a live demo to documentation (#61).
 - **waffle-menu**: add a live demo to documentation (#62).
+- update required version of Node.js for overall build to Node.js 10.9.0 (#70).
 
 ## [1.8.0][] - 2018-08-22
 
