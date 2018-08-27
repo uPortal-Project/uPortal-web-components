@@ -4,6 +4,10 @@
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.webjars.npm/waffle-menu/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.webjars.npm/uportal__waffle-menu)
 [![Build Status](https://travis-ci.org/uPortal-contrib/uPortal-web-components.svg?branch=master)](https://travis-ci.org/uPortal-contrib/uPortal-web-components)
 
+## Demo
+
+<https://uportal-contrib.github.io/uPortal-web-components/en/components/waffle-menu/demo>
+
 ## Development
 
 ```bash
