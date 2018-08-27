@@ -21,6 +21,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - **waffle-menu**: add default entry point set to the built code (#61).
 - **content-carousel**: start local dev server with `npm start` to match docs (#70).
 - show a warning if an outdated version of Node.js or npm is used to build code (#70).
+- automatically add prettier formatted files during precommit hook (#71).
 
 ### Docs
 
