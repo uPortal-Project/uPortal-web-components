@@ -32,7 +32,7 @@ const WaffleTrigger = styled.button`
 
 const WaffleDropdown = styled.ul`
   position: absolute;
-  top: 100%;
+  top: 150%;
   right: 0;
   z-index: 1000;
   display: flex;
@@ -46,12 +46,10 @@ const WaffleDropdown = styled.ul`
   list-style: none;
   background-color: #fff;
   background-clip: padding-box;
-  border: 1px solid rgba(0, 0, 0, 0.15);
-  border-radius: 0.25rem;
+  border: 1px solid rgba(0, 0, 0, 0.05);
   width: 220px;
   flex-flow: row wrap;
-  background-color: #e0e0e0;
-  box-shadow: 2px 2px 5px #999;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
 `;
 
 const MIListItem = styled.li`
@@ -60,7 +58,7 @@ const MIListItem = styled.li`
   margin: 0 2%;
   line-height: 1rem;
   &:hover {
-    background: white;
+    box-shadow: 0 0 2px rgba(0,0,0,0.25);
   }
   a {
     display: block;
@@ -102,6 +100,31 @@ const WaffleDropdownFooter = styled.li`
       background: white;
     }
   }
+`;
+
+const WaffleTriangleBack = styled.div`
+  border-color: transparent transparent #fff transparent;
+  border-style: dashed dashed solid;
+  border-width: 0 8.5px 8.5px;
+  border-bottom-color: rgba(0, 0, 0, 0.25);;
+  width: 0;
+  height: 0;
+  position: absolute;
+  top: 31px;
+  right: 20px;
+  z-index: 2000;
+`;
+
+const WaffleTriangle = styled.div`
+  border-color: transparent transparent #fff transparent;
+  border-style: dashed dashed solid;
+  border-width: 0 8.5px 8.5px;
+  width: 0;
+  height: 0;
+  position: absolute;
+  top: 32px;
+  right: 20px;
+  z-index: 2000;
 `;
 
 // --------  done with fancy styling magic ------- //
@@ -255,6 +278,12 @@ class WaffleMenu extends Component {
             onClick={() => this.toggleMenu()}
           >
             <FontAwesomeIcon icon={faTh} color={buttonColor} size="2x" />
+            {menuOpen &&
+              <div>
+                <WaffleTriangleBack></WaffleTriangleBack>
+                <WaffleTriangle></WaffleTriangle>
+              </div>
+            }
           </WaffleTrigger>
           <WaffleDropdown
             innerRef={(node) => (this.menuRef = node)}
