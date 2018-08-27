@@ -3,7 +3,7 @@
 ## Prerequisits
 
 1.  [Git][]
-2.  [Node.js][] 10.3+ (using [NVM][] is recommended)
+2.  [Node.js][] 10.9+ (using [NVM][] is recommended)
 
 ## Installation
 

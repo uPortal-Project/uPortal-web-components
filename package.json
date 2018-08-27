@@ -3,7 +3,6 @@
   "devDependencies": {
     "@commitlint/cli": "^7.0.0",
     "@commitlint/config-conventional": "^7.0.0",
-    "@commitlint/config-lerna-scopes": "^7.0.0",
     "@commitlint/travis-cli": "^7.0.0",
     "@vue/eslint-config-prettier": "^3.0.0",
     "babel-eslint": "^8.2.3",
@@ -47,8 +46,7 @@
   ],
   "commitlint": {
     "extends": [
-      "@commitlint/config-conventional",
-      "@commitlint/config-lerna-scopes"
+      "@commitlint/config-conventional"
     ]
   },
   "eslintConfig": {
@@ -59,6 +57,7 @@
     ]
   },
   "gitHooks": {
+    "commit-msg": "commitlint -e",
     "pre-commit": "lint-staged"
   },
   "lint-staged": {
@@ -89,5 +88,9 @@
       ":ignoreUnstable",
       ":renovatePrefix"
     ]
+  },
+  "engines": {
+    "node": "^10.9.0",
+    "npm": "^6.3.0"
   }
 }
