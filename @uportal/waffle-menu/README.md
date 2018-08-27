@@ -78,6 +78,15 @@ Example:
 
 `<waffle-menu button-color="#ffffff">`
 
+### `menu-background-color`
+
+applies a color to the waffle menu dropdown. Useful if you want to avoid specifying the color in CSS.
+If not set, `menu-background-color` defaults to `#e0e0e0`.
+
+Example:
+
+`<waffle-menu menu-background-color="#99aa99">`
+
 ### `url`
 
 Fully qualified url pointing to the API where `<waffle-menu>` can find data in portlet registry format.

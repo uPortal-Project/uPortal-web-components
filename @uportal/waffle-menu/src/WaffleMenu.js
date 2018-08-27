@@ -24,6 +24,7 @@ const WaffleTrigger = styled.button`
   margin: 0;
   background: transparent;
   border: 0 none;
+
   svg {
     padding: 0;
     margin: 0;
@@ -49,7 +50,7 @@ const WaffleDropdown = styled.ul`
   border: 1px solid rgba(0, 0, 0, 0.05);
   width: 220px;
   flex-flow: row wrap;
-  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.25);
 `;
 
 const MIListItem = styled.li`
@@ -57,20 +58,24 @@ const MIListItem = styled.li`
   flex: 0 0 46%;
   margin: 0 2%;
   line-height: 1rem;
+
   &:hover {
-    box-shadow: 0 0 2px rgba(0,0,0,0.25);
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.25);
   }
+
   a {
     display: block;
     padding: 5px;
     margin: 0;
     position: relative;
     text-decoration: none;
+
     img {
       width: 60%;
       margin: 0 auto;
       display: block;
     }
+
     span {
       bottom: 0;
       display: block;
@@ -87,6 +92,7 @@ const WaffleDropdownFooter = styled.li`
   flex: 1 0 100%;
   line-height: 1rem;
   margin-top: 4px;
+
   a {
     display: block;
     font-size: 80%;
@@ -96,6 +102,7 @@ const WaffleDropdownFooter = styled.li`
     border-top: 1px solid rgba(0, 0, 0, 0.1);
     text-decoration: none;
     color: #333;
+
     &:hover {
       background: white;
     }
@@ -106,7 +113,7 @@ const WaffleTriangleBack = styled.div`
   border-color: transparent transparent #fff transparent;
   border-style: dashed dashed solid;
   border-width: 0 8.5px 8.5px;
-  border-bottom-color: rgba(0, 0, 0, 0.25);;
+  border-bottom-color: rgba(0, 0, 0, 0.25);
   width: 0;
   height: 0;
   position: absolute;
@@ -278,12 +285,12 @@ class WaffleMenu extends Component {
             onClick={() => this.toggleMenu()}
           >
             <FontAwesomeIcon icon={faTh} color={buttonColor} size="2x" />
-            {menuOpen &&
+            {menuOpen && (
               <div>
-                <WaffleTriangleBack></WaffleTriangleBack>
-                <WaffleTriangle></WaffleTriangle>
+                <WaffleTriangleBack />
+                <WaffleTriangle />
               </div>
-            }
+            )}
           </WaffleTrigger>
           <WaffleDropdown
             innerRef={(node) => (this.menuRef = node)}
