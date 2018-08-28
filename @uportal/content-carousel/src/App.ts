@@ -41,6 +41,4 @@ export default class App extends Vue {
 
   @Provide() public alignText = 'right';
 
-  @Provide() public portletHeight = 'auto';
-
 }
