@@ -7,7 +7,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased][]
 
+### Feature
+
+- **content-carousel**: render `description` as html (#74).
+
 ## [1.9.2][] - 2018-08-28
+
+### Refactor
+
+- **content-carousel**: make empty results configurable via slot (#72).
 
 ### Fix
 
