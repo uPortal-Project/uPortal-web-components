@@ -17,6 +17,13 @@
     </section>
     <section class="content">
       <ContentCarousel
+        :type="'rss'"
+        :source="'/empty.rss'"
+        :slickOptions="contentOptions"
+        :carouselHeight="contentHeight" />
+    </section>
+    <section class="content">
+      <ContentCarousel
         :type="'portlet'"
         :source="'/portletRegistry.json'"
         :slickOptions="portletOptions"

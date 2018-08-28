@@ -1,5 +1,12 @@
 <div class="slick-container" :class="{ 'responsive': isResponsiveToContainer }">
-  <template :v-if="computedItems.length">
+  <template v-if="computedItems.length < 1 && type !== 'passthrough'">
+    <slot name="empty">
+      <p>
+        no results found
+      </p>
+    </slot>
+  </template>
+  <template v-else>
     <slick ref="slick" :options="computedSlickOptions">
       <div v-for="item in computedItems" :key="item.id">
         <a :href="item.destinationUrl">
