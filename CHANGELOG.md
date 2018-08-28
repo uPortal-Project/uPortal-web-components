@@ -9,6 +9,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Refactor
 
+## [1.9.3][] - 2018-08-28
+
 - **content-carousel**: render `description` as html (#74).
 
 ### Fix
@@ -349,7 +351,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - **open-id-connect**: Initial version of an OpenID Connect helper script to use in web components and JavaScript modules.
 - **content-carousel**: Initial version of content carousel, a carousel based portlet metadata display system.
 
-[unreleased]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.9.2...HEAD
+[unreleased]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.9.3...HEAD
+[1.9.3]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.9.2...v1.9.3
 [1.9.2]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.9.1...v1.9.2
 [1.9.1]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.9.0...v1.9.1
 [1.9.0]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.8.0...v1.9.0
