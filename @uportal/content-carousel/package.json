@@ -1,6 +1,6 @@
 {
   "name": "@uportal/content-carousel",
-  "version": "1.8.0",
+  "version": "1.9.3",
   "publishConfig": {
     "access": "public"
   },
@@ -8,14 +8,14 @@
   "source": "src/components/content-carousel.vue",
   "scripts": {
     "prepublishOnly": "npm run build",
-    "serve": "vue-cli-service serve",
+    "start": "vue-cli-service serve",
     "build": "vue-cli-service build --name content-carousel --target wc 'src/components/*.vue'",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
     "@types/xml2js": "^0.4.3",
-    "@uportal/open-id-connect": "^1.8.0",
-    "@uportal/portlet-registry-to-array": "^1.8.0",
+    "@uportal/open-id-connect": "^1.9.1",
+    "@uportal/portlet-registry-to-array": "^1.9.1",
     "jquery": "^3.3.1",
     "rss-to-json": "^1.0.4",
     "typescript": "^3.0.1",

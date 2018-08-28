@@ -7,32 +7,88 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased][]
 
-## Build
+### Refactor
+
+## [1.9.3][] - 2018-08-28
+
+- **content-carousel**: render `description` as html (#74).
+
+### Fix
+
+- **content-carousel**: add a graceful fallback when slick carousel is slow to init (#76).
+- **content-carousel**: correct destination link in portlet strategy (#75).
+
+### Style
+
+- include typescript files in prettier pre commit hook (#76).
+
+## [1.9.2][] - 2018-08-28
+
+### Refactor
+
+- **content-carousel**: make empty results configurable via slot (#72).
+
+### Fix
+
+- **content-carousel**: ensure vue slick can reference itself in web component mode (#73).
+
+### Docs
+
+- use cannonical unpkg url generated starting with version 1.9.0
+- add link to waffle menu demo from README
+
+## [1.9.1][] - 2018-08-27
+
+### Build
+
+- re-release 1.9.0 because build scripts did not run as expected
+
+## [1.9.0][] - 2018-08-27
+
+### Feature
+
+- **content-carousel**: support configurable background color (#69).
+
+### Style
+
+- **waffle-menu** improve default styles and make dropdown more material UI like (#66).
+
+### Build
 
 - **content-carousel**: add default entry point set to the built code (#61).
 - **waffle-menu**: add default entry point set to the built code (#61).
+- **content-carousel**: start local dev server with `npm start` to match docs (#70).
+- show a warning if an outdated version of Node.js or npm is used to build code (#70).
+- automatically add prettier formatted files during precommit hook (#71).
 
-## Docs
+### Docs
 
+- **content-carousel**: update example usage for web components and vue.
 - **content-carousel**: add a live demo to documentation (#61).
+- **waffle-menu**: add a live demo to documentation (#62).
+- update required version of Node.js for overall build to Node.js 10.9.0 (#70).
+
+### Test
+
+- re-enable commitlint check without lerna scopes
 
 ## [1.8.0][] - 2018-08-22
 
-## Feature
+### Feature
 
 - **waffle-menu**: support for a configurable default icon to display (#59).
 - **waffle-meu**: support configurable truncation of text (#59).
 
-## Fix
+### Fix
 
 - **portlet-registry-to-array**: ensure portlet array has unique `fname` (#57).
 - **content-carousel**: support `slick-options` in web component mode (#60).
 
-## Test
+### Test
 
 - disable commitlint `commit-msg` hook until lerna 3 is supported (#58).
 
-## Docs
+### Docs
 
 - add uPortal committers, Chris P, Phil B, and Ryan M to committers list (#58).
 
@@ -295,7 +351,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - **open-id-connect**: Initial version of an OpenID Connect helper script to use in web components and JavaScript modules.
 - **content-carousel**: Initial version of content carousel, a carousel based portlet metadata display system.
 
-[unreleased]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.8.0...HEAD
+[unreleased]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.9.3...HEAD
+[1.9.3]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.9.2...v1.9.3
+[1.9.2]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.9.1...v1.9.2
+[1.9.1]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.9.0...v1.9.1
+[1.9.0]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.8.0...v1.9.0
 [1.8.0]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.7.4...v1.8.0
 [1.7.4]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.7.3...v1.7.4
 [1.7.3]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.7.2...v1.7.3

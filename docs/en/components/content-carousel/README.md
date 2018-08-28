@@ -47,13 +47,18 @@ The component requires a type. It also allows for a `carousel-height` (in rem un
   source="/hero.rss"
   slick-options='{ "slidesToShow": 1, "infinite": true, "arrows": true }'
   carousel-height="30rem"
-  fit-to-container="true" />
+  fit-to-container="true">
+</content-carousel>
+
 <content-carousel
   type="rss"
-  source="/content.rss" />
+  source="/content.rss">
+</content-carousel>
+
 <content-carousel
   type="portlet"
-  source="/portletRegistry.json" />
+  source="/portletRegistry.json">
+</content-carousel>
 
 <content-carousel type="passthrough">
   <div>

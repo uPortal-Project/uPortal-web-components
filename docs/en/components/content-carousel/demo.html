@@ -2,7 +2,7 @@
 <title>content-carousel demo</title>
 <script src="https://unpkg.com/vue"></script>
 <script src="https://unpkg.com/@webcomponents/webcomponentsjs"></script>
-<script src="https://unpkg.com/@uportal/content-carousel@1.8.0/dist/content-carousel.js"></script>
+<script src="https://unpkg.com/@uportal/content-carousel"></script>
 
 
 <content-carousel
@@ -10,13 +10,15 @@
   source="hero.rss"
   slick-options='{ "slidesToShow": 1, "infinite": true, "arrows": true }'
   carousel-height="30rem"
-  fit-to-container="true" />
+  fit-to-container="true">
+</content-carousel>
 
 <content-carousel
   type="rss"
   source="content.rss",
   slick-options='{ "slidesToShow": 2, "infinite": true, "arrows": true }'
-  carousel-height="50px" />
+  carousel-height="50px" >
+</content-carousel>
 
 <content-carousel type="passthrough">
   <div>

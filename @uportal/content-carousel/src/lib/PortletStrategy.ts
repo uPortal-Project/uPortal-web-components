@@ -49,7 +49,7 @@ export class PortletStrategy implements DataStrategy {
         return {
           id: fname,
           altText,
-          destinationUrl: 'TODO',
+          destinationUrl: '/uPortal/p/' + fname,
           imageUrl,
           title: name,
           description,

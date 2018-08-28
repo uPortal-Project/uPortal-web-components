@@ -31,7 +31,12 @@ export default class ContentCarousel extends Vue {
 
   @Watch('computedItems')
   public onComputedItemsChange() {
-    const slick: any = this.$refs.slick;
+    const slick: any = this.$refs.slick || {
+      currentSlide: () => {},
+      destroy: () => {},
+      create: () => {},
+      goTo: () => {},
+    };
     const currentIndex = slick.currentSlide();
 
     slick.destroy();
@@ -91,8 +96,13 @@ export default class ContentCarousel extends Vue {
   }
 
   get computedSlickOptions(): Object {
-    return typeof this.slickOptions === 'string'
-      ? JSON.parse(this.slickOptions)
-      : this.slickOptions;
+    const options =
+      typeof this.slickOptions === 'string'
+        ? JSON.parse(this.slickOptions)
+        : this.slickOptions;
+
+    // NOTE: in web component mode, jquery `$('')` goes haywire
+    // this ensures vue slick will get a consistent reference to itself
+    return { slick: this.$el || '', ...options };
   }
 }
