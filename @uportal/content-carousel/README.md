@@ -116,28 +116,68 @@ each slide be be rendered.
 </content-carousel>
 ```
 
+### Slots
+
+The HTML content of the component can also be modified using [slots](https://vuejs.org/v2/guide/components-slots.html).
+
+#### Header
+
+The `header` slot goes about the slides, and is outside the slide deck.
+
+```html
+<content-carousel type="rss" source="/content.rss">
+  <h1 slot="header">
+    Example Header
+  </h1>
+</content-carousel>
+```
+
+#### Empty
+
+The `empty` slot replaces the carousel when no content was found.
+
+```html
+<content-carousel type="rss" source="/content.rss">
+  <p slot="empty">
+    Uh Oh, that couldn't be found.
+  </p>
+</content-carousel>
+```
+
+#### Slide
+
+:warning: leveraging the Vue's templating language within a slide will not work until <https://github.com/vuejs/vue-web-component-wrapper/issues/8> is resolved :warning:
+
+The `slide` slot the rendering of individual slides to be changed.
+The template has access to the following data to display:
+
+```ts
+interface CarouselItem {
+  id: string;
+  destinationUrl?: string;
+  imageUrl?: string;
+  altText?: string;
+  title?: string;
+  description?: string;
+}
+```
+
+```html
+<content-carousel
+  type="rss"
+  source="example.rss">
+  <template slot="slide" slot-scope="props">
+    <h1 class="slick-item">
+      {{ props.item.title }}
+    </h1>
+  </template>
+</content-carousel>
+```
+
 ## Usage as Vue component
 
 The component source can also be imported and used directly within other Vue projects.
 
-```javascript
-heroOptions = {
-  slidesToShow: 1,
-  infinite: true,
-  arrows: true
-};
-```
-
-```vue
-<script src="https://unpkg.com/vue">
-</script>
-<script src="@uportal/content-carousel/components/ContentCarousel.vue">
-</script>
-
-<ContentCarousel
-  :type="'rss'"
-  :source="'/hero.rss'"
-  :slickOptions="heroOptions"
-  :carouselHeight="'30rem'"
-  :fitToContainer="true" />
+```js
+import contentCarousel from "@uportal/content-carousel/src/components/ContentCarousel.vue";
 ```
