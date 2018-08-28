@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased][]
 
+### Docs
+
+- use cannonical unpkg url generated starting with version 1.9.0
+- add link to waffle menu demo from README
+
 ## [1.9.1][] - 2018-08-27
 
 ### Build
