@@ -56,19 +56,5 @@
 </template>
 <script lang="ts" src="./App.ts">
 </script>
-<style lang="scss">
-body {
-  background: #dddddd;
-  height: 100%;
-  main {
-    & > section {
-      margin-bottom: 50px;
-
-      &.content {
-        width: 720px;
-        margin: auto;
-      }
-    }
-  }
-}
+<style lang="scss" src="./App.scss">
 </style>
