@@ -20,7 +20,7 @@ export default class ContentCarousel extends Vue {
   @Prop({ type: [String, Object], default: () => ({}) })
   public slickOptions!: string | Object;
 
-  @Prop([String])
+  @Prop({type: [String], default: 'auto'})
   public carouselHeight?: string;
 
   @Prop([Boolean])
@@ -74,7 +74,7 @@ export default class ContentCarousel extends Vue {
   }
 
   get height(): string {
-    return this.carouselHeight || 'auto';
+    return this.carouselHeight;
   }
 
   get isResponsiveToContainer(): boolean {

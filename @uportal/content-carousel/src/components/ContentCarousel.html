@@ -9,11 +9,13 @@
   <template v-else>
     <slick ref="slick" :options="computedSlickOptions">
       <div v-for="item in computedItems" :key="item.id">
-        <a :href="item.destinationUrl">
-          <img v-if="item.imageUrl" :src="item.imageUrl" :alt="item.altText">
-          <template v-if="!item.imageUrl">{{ item.title }}</template>
-        </a>
-        <p v-if="!item.imageUrl" v-html="item.description"></p>
+        <div v-if="computedSlickOptions.slidesToShow > 1" class="slick-item">
+          <p v-if="!item.imageUrl" v-html="item.description" class="slick-item-description"></p>
+          <a :href="item.destinationUrl">
+            <img v-if="item.imageUrl" :src="item.imageUrl" :alt="item.altText" class="slick-image">
+            <template>{{ item.title }}</template>
+          </a>
+        </div>
       </div>
       <slot v-if="type === 'passthrough'" />
     </slick>

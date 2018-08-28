@@ -6,7 +6,8 @@
         :source="'/hero.rss'"
         :slickOptions="heroOptions"
         :carouselHeight="heroHeight"
-        :fitToContainer="true" />
+        :fitToContainer="true" 
+        :textAlign="alignText" />
     </section>
     <section class="content">
       <ContentCarousel
