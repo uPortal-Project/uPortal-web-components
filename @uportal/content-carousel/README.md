@@ -61,19 +61,19 @@ The component requires a type. It also allows for a `carousel-height` (in rem un
 </content-carousel>
 
 <content-carousel type="passthrough">
-  <div>
+  <div class="slick-item">
     arbitrary
   </div>
-  <div>
+  <div class="slick-item">
     content
   </div>
-  <div>
+  <div class="slick-item">
     displayed
   </div>
-  <div>
+  <div class="slick-item">
     as
   </div>
-  <div>
+  <div class="slick-item">
     slides
   </div>
 </content-carousel>
@@ -127,19 +127,19 @@ portletOptions = {
   :slickOptions="portletOptions" />
 
 <ContentCarousel :type="'passthrough'">
-  <div>
+  <div class="slick-item">
     arbitrary
   </div>
-  <div>
+  <div class="slick-item">
     content
   </div>
-  <div>
+  <div class="slick-item">
     displayed
   </div>
-  <div>
+  <div class="slick-item">
     as
   </div>
-  <div>
+  <div class="slick-item">
     slides
   </div>
 </ContentCarousel>
