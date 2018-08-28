@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased][]
 
+### Fix
+
+- **content-carousel**: ensure vue slick can reference itself in web component mode (#73).
+
 ### Docs
 
 - use cannonical unpkg url generated starting with version 1.9.0
