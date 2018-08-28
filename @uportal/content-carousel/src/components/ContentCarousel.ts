@@ -20,8 +20,8 @@ export default class ContentCarousel extends Vue {
   @Prop({ type: [String, Object], default: () => ({}) })
   public slickOptions!: string | Object;
 
-  @Prop({type: [String], default: 'auto'})
-  public carouselHeight?: string;
+  @Prop({ type: [String], default: 'auto' })
+  public carouselHeight!: string;
 
   @Prop([Boolean])
   public fitToContainer?: boolean;
@@ -93,6 +93,7 @@ export default class ContentCarousel extends Vue {
 
     // NOTE: in web component mode, jquery `$('')` goes haywire
     // this ensures vue slick will get a consistent reference to itself
-    return { slick: this.$el || '', ...options };
+    // NOTE: changing the swipe to slide default gives a better touch experience
+    return { slick: this.$el || '', swipeToSlide: true, ...options };
   }
 }
