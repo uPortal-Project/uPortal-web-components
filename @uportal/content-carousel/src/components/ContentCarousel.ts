@@ -20,14 +20,11 @@ export default class ContentCarousel extends Vue {
   @Prop({ type: [String, Object], default: () => ({}) })
   public slickOptions!: string | Object;
 
-  @Prop([String])
+  @Prop({type: [String], default: 'auto'})
   public carouselHeight?: string;
 
   @Prop([Boolean])
   public fitToContainer?: boolean;
-
-  @Prop([String])
-  public textAlign?: string;
 
   @Watch('computedItems')
   public onComputedItemsChange() {
@@ -77,15 +74,8 @@ export default class ContentCarousel extends Vue {
   }
 
   get height(): string {
-    return this.carouselHeight || 'auto';
+    return this.carouselHeight;
   }
-
-  get alignText(): Object {
-    return {
-      textAlign: this.textAlign || 'left',
-    };
-  }
-
 
   get isResponsiveToContainer(): boolean {
     return this.fitToContainer ? true : false;
