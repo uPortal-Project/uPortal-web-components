@@ -7,7 +7,19 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased][]
 
+### Feature
+
+- **content-carousel**: support `header`, `empty`, and `slide` slots (#81).
+- **content-carousel**: update default slide markup to be more flexible (#67).
+
+### Documentation
+
+- **content-carousel**: revamp documentation to more explicitly spell out what options and slots are available (#81).
+- **content-carousel**: ensure web component examples include closing tag (#77).
+
 ### Refactor
+
+- **content-carousel**: move sass styles into their own file (#81).
 
 ## [1.9.3][] - 2018-08-28
 
