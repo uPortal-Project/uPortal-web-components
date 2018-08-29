@@ -13,6 +13,9 @@
     "userInfoPortletUrl": {
       "title": "Voir les informations de mon compte"
     },
+    "userChangeEtabUrl": {
+      "title": "Changer d'établissement"
+    },
     "buttons": {
       "logout": "Déconnexion",
       "menuClose": "Fermer le menu"

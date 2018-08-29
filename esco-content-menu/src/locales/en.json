@@ -13,6 +13,9 @@
     "userInfoPortletUrl": {
       "title": "See my account informations"
     },
+    "userChangeEtabUrl": {
+      "title": "Select an other organization"
+    },
     "buttons": {
       "logout": "Sign out",
       "menuClose": "Close menu"
