@@ -17,6 +17,9 @@
             <div class="user-name"><span class="label">{{userInfos.name}}</span></div>
             <div class="user-org"><span class="label">{{orgInfos.displayName}}</span></div>
           </div>
+          <div v-if="otherOrgs.length > 1" class="other-orgs">
+            <a :href="apiUrlOrgInfos" :title="translate('message.userChangeEtabUrl.title')"><icon :name="'exchange-alt'" ></icon></a>
+          </div>
         </div>
       </div>
     </div>
@@ -27,6 +30,7 @@
 import i18n from "../i18n.js"
 import Icon from "vue-awesome/components/Icon"
 import "vue-awesome/icons/user"
+import "vue-awesome/icons/exchange-alt"
 
 /*eslint no-console: ["error", { allow: ["warn", "error"] }] */
 export default {
@@ -154,6 +158,18 @@ export default {
           }
           .user-name {
             font-weight: bold;
+          }
+        }
+        .other-orgs{
+          flex: 1;
+          > a {
+            float: right;
+            color: white;
+            margin-right: 15px;
+            > svg {
+              width: 24px;
+              height: 24px;
+            }
           }
         }
       }
