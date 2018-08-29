@@ -25,12 +25,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [1.9.3][] - 2018-08-28
 
-- **content-carousel**: render `description` as html (#74).
-
 ### Fix
 
 - **content-carousel**: add a graceful fallback when slick carousel is slow to init (#76).
 - **content-carousel**: correct destination link in portlet strategy (#75).
+- **content-carousel**: render `description` as html (#74).
 
 ### Style
 
