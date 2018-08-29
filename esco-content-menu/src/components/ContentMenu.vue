@@ -4,7 +4,7 @@
       <header-buttons :call-on-close="close" :sign-out-url="signOutUrl"></header-buttons>
       <div class="wrapper">
         <content-user :org-infos="currentOrg" :user-infos="userInfos" :other-orgs="orgsInfos" :is-small="isSmall" :default-org-logo="defaultOrgLogo"
-                      :user-info-portlet-url="userInfoPortletUrl"></content-user>
+                      :user-info-portlet-url="userInfoPortletUrl" :api-url-org-infos="apiUrlOrgInfos"></content-user>
         <content-favorites :portlets="portlets" :favorites="favorites" :call-after-action="actionToggleFav" :is-small="isSmall"
                            :favorites-api-url="favoriteApiUrl" :is-hidden="isHidden"></content-favorites>
       </div>
@@ -52,7 +52,8 @@
       contextApiUrl: {type: String, default: process.env.VUE_APP_PORTAL_CONTEXT},
       signOutUrl: { type: String, default: process.env.VUE_APP_LOGOUT_URL },
       defaultOrgLogo: {type: String, required: true },
-      userInfoPortletUrl: { type: String, default: "" }
+      userInfoPortletUrl: { type: String, default: "" },
+      apiUrlOrgInfos: { type: String, default: ""}
     },
     data() {
       return {
