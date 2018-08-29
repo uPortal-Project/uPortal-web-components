@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased][]
 
+## [1.10.1][] - 2018-08-29
+
 ### Style
 
 - **content-carousel**: variable width is now enabled by default (#82).
@@ -381,7 +383,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - **open-id-connect**: Initial version of an OpenID Connect helper script to use in web components and JavaScript modules.
 - **content-carousel**: Initial version of content carousel, a carousel based portlet metadata display system.
 
-[unreleased]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.10.0...HEAD
+[unreleased]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.10.1...HEAD
+[1.10.1]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.10.0...v1.10.1
 [1.10.0]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.9.3...v1.10.0
 [1.9.3]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.9.2...v1.9.3
 [1.9.2]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.9.1...v1.9.2
