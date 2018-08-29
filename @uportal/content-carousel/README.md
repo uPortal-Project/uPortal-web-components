@@ -53,7 +53,7 @@ The component requires a type. It also allows for a `carousel-height` (in rem un
 
 ### Options
 
-- `type` (required, enum[rss, portlet, passthrough]): type of data source to use.
+- `type` (required, enum\[rss, portlet, passthrough\]): type of data source to use.
 - `source` (optional, string): location or content to render in slides.
 - `slick-options` (optional, [slick settings](https://kenwheeler.github.io/slick/#settings)): configuration for slick carousel.
 - `carousel-height` (optional, string): css height to apply on slides.
