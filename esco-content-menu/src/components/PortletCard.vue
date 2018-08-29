@@ -1,7 +1,7 @@
 <template>
   <div :class="mainClass" >
-    <div class="icon"><div v-if="iconUrl !== null" class="img-wrapper" :style="'background-color:' + iconBackColor"><img :src="iconUrl" :alt="title"></div>
-      <div v-else class="img-wrapper" :style="'background-color:' + iconBackColor"></div></div>
+    <div class="icon"><div v-if="iconUrl !== null" class="img-wrapper" :style="'background-color:' + iconBackgroundColor"><img :src="iconUrl" :alt="title"></div>
+      <div v-else class="img-wrapper" :style="'background-color:' + iconBackgroundColor"></div></div>
     <div class="title">{{title}}</div>
     <div class="description" v-line-clamp:20="2">{{description}}</div>
     <div class="action">
@@ -23,6 +23,7 @@ export default {
   props: {
     callAfterAction: Function,
     cssClass: { type: String, default: "portlet-card" },
+    // Background is needed if your icons doesn't have it integrated
     iconBackgroundColor: { type: String, default: "Transparent" },
     isFavorite: { type: Boolean, default: false },
     favoriteApiUrl: { type: String, default: process.env.VUE_APP_PORTAL_CONTEXT + "/api/layout" },
@@ -40,11 +41,7 @@ export default {
       iconUrl:
         this.portletDesc.layoutObject.iconUrl !== null
           ? this.computeIconUrl(this.portletDesc.layoutObject.iconUrl)
-          : null,
-      iconBackColor:
-        process.env.NODE_ENV === "development"
-          ? "#007aff"
-          : this.iconBackgroundColor
+          : null
     };
   },
   components: {
@@ -130,13 +127,14 @@ export default {
       border-radius: 10px;
 
       img {
-        height: 48px;
+        height: 100%;
         width: auto;
+        border-radius: 10px;
       }
     }
   }
   > .title {
-    padding-top: 1.5em;
+    padding-top: 1em;
     font-size: 18px;
     font-weight: bold;
   }
