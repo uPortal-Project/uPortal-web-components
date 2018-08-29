@@ -22,15 +22,29 @@
     z-index: 2;
   }
 }
-
-.slick-item {
-  padding: 10px;
-
-  .slick-item-description {
-    min-height: 7rem;
+.content {
+  .slick-slide {
+    width: 300px;
+    margin: 0 10px;
+    border: 1px solid rgba(0,0,0,.125);
   }
-
-  .slick-image {
+  
+  .slick-title {
+    padding-top: 10px;
+    border-top: 1px solid rgba(0,0,0,.125);
     display: block;
+    padding: 10px;
+  }
+  
+  .slick-item {
+    .slick-item-description {
+      min-height: 7rem;
+      padding: 0 10px;
+    }
+  
+    .slick-image {
+      display: block;
+    }
   }
 }
+
