@@ -3,7 +3,9 @@
     <div class="icon"><div v-if="iconUrl !== null" class="img-wrapper" :style="'background-color:' + iconBackgroundColor"><img :src="iconUrl" :alt="title"></div>
       <div v-else class="img-wrapper" :style="'background-color:' + iconBackgroundColor"></div></div>
     <div class="title">{{title}}</div>
-    <div class="description" v-line-clamp:20="2">{{description}}</div>
+    <div class="description">
+      <ellipsis :data="description" :line-clamp="2" :line-height="'20px'" :end-char="'...'"></ellipsis>
+    </div>
     <div class="action">
       <action-favorites v-if="canFavorite" :fname="fname" :chan-id="channelId" :is-favorite="isFavorite" :call-on-toggle-fav="callAfterAction"
                         :favorites-api-url="favoriteApiUrl"></action-favorites>
@@ -12,70 +14,68 @@
 </template>
 
 <script>
-import Vue from "vue"
-import lineClamp from "vue-line-clamp"
-import ActionFavorites from "./ActionFavorites"
+  import Vue from "vue"
+  import VueEllipsis from './Ellipsis'
+  import ActionFavorites from "./ActionFavorites"
 
-Vue.use(lineClamp);
-
-export default {
-  name: "PortletCard",
-  props: {
-    callAfterAction: Function,
-    cssClass: { type: String, default: "portlet-card" },
-    // Background is needed if your icons doesn't have it integrated
-    iconBackgroundColor: { type: String, default: "Transparent" },
-    isFavorite: { type: Boolean, default: false },
-    favoriteApiUrl: { type: String, default: process.env.VUE_APP_PORTAL_CONTEXT + "/api/layout" },
-    isSmall: { type: Boolean, default: false },
-    portletDesc: { type: Object, required: true },
-    backGroundIsDark: { type: Boolean, default: false }
-  },
-  data() {
-    return {
-      fname: this.portletDesc.fname,
-      channelId: this.portletDesc.id,
-      description: this.portletDesc.description,
-      title: this.portletDesc.title,
-      canFavorite: this.portletDesc.canAdd,
-      iconUrl:
-        this.portletDesc.layoutObject.iconUrl !== null
-          ? this.computeIconUrl(this.portletDesc.layoutObject.iconUrl)
-          : null
-    };
-  },
-  components: {
-    ActionFavorites,
-    lineClamp
-  },
-  computed: {
-    mainClass: function() {
-      let appClass =
-        this.cssClass +
-        " " +
-        this.fname.toLowerCase() +
-        " " +
-        (this.portletDesc && this.portletDesc.categories
-          ? this.portletDesc.categories.join(" ").toLowerCase()
-          : "");
-      if (this.isSmall) {
-        appClass += " small-card";
+  export default {
+    name: "PortletCard",
+    props: {
+      callAfterAction: Function,
+      cssClass: { type: String, default: "portlet-card" },
+      // Background is needed if your icons doesn't have it integrated
+      iconBackgroundColor: { type: String, default: "Transparent" },
+      isFavorite: { type: Boolean, default: false },
+      favoriteApiUrl: { type: String, default: process.env.VUE_APP_PORTAL_CONTEXT + "/api/layout" },
+      isSmall: { type: Boolean, default: false },
+      portletDesc: { type: Object, required: true },
+      backGroundIsDark: { type: Boolean, default: false }
+    },
+    data() {
+      return {
+        fname: this.portletDesc.fname,
+        channelId: this.portletDesc.id,
+        description: this.portletDesc.description,
+        title: this.portletDesc.title,
+        canFavorite: this.portletDesc.canAdd,
+        iconUrl:
+          this.portletDesc.layoutObject.iconUrl !== null
+            ? this.computeIconUrl(this.portletDesc.layoutObject.iconUrl)
+            : null
+      };
+    },
+    components: {
+      ActionFavorites,
+      ellipsis : VueEllipsis
+    },
+    computed: {
+      mainClass: function() {
+        let appClass =
+          this.cssClass +
+          " " +
+          this.fname.toLowerCase() +
+          " " +
+          (this.portletDesc && this.portletDesc.categories
+            ? this.portletDesc.categories.join(" ").toLowerCase()
+            : "");
+        if (this.isSmall) {
+          appClass += " small-card";
+        }
+        if (this.backGroundIsDark) {
+          appClass += " background-dark"
+        }
+        return appClass;
       }
-      if (this.backGroundIsDark) {
-        appClass += " background-dark"
+    },
+    methods: {
+      computeIconUrl: function(url) {
+        if (url != null && !url.startsWith("http")) {
+          return process.env.VUE_APP_PORTAL_BASE_URL + url;
+        }
+        return url;
       }
-      return appClass;
-    }
-  },
-  methods: {
-    computeIconUrl: function(url) {
-      if (url != null && !url.startsWith("http")) {
-        return process.env.VUE_APP_PORTAL_BASE_URL + url;
-      }
-      return url;
     }
   }
-}
 </script>
 
 
