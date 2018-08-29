@@ -13,7 +13,7 @@
         <slot name="slide" :item="item">
           <div class="slick-item">
             <p v-if="!item.imageUrl" v-html="item.description" class="slick-item-description"></p>
-            <a :href="item.destinationUrl">
+            <a :href="item.destinationUrl" class="slick-title">
               <img v-if="item.imageUrl" :src="item.imageUrl" :alt="item.altText" class="slick-image">
               {{ item.title }}
             </a>

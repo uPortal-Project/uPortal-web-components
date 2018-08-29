@@ -59,6 +59,15 @@ The component requires a type. It also allows for a `carousel-height` (in rem un
 - `carousel-height` (optional, string): css height to apply on slides.
 - `fit-to-container` (optional, boolean): by default carousel will fit content, `true` will make carousel match width of surrounding container.
 
+For custom width slides, set `variableWidth` to `true` in `slick-options` and target `.slick-side` in your CSS. 
+
+```
+// slick-options
+{ "slidesToShow": 2, "infinite": true, "arrows": true, "variableWidth": true }
+```
+
+By default, non-hero content slide width is set to `300px`.
+
 ### Types
 
 There are three data source types currently supported RSS, Portlet, and Passthrough.
