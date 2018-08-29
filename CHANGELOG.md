@@ -7,6 +7,19 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased][]
 
+### Style
+
+- **content-carousel**: variable width is now enabled by default (#82).
+- **content-carousel**: default border style has been improved to look more like Cal Poly Pomona and Contented UI mockups (#82).
+
+### Fix
+
+- **content-carousel**: links now have `slick-title` styles applied by default (#82).
+
+### Documentation
+
+- **content-carousel**: include a note on usage with variable width (#82).
+
 ### Chore
 
 - update dependencies
