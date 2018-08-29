@@ -1,4 +1,5 @@
 <div class="slick-container" :class="{ 'responsive': isResponsiveToContainer }">
+  <slot name="header"></slot>
   <template v-if="computedItems.length < 1 && type !== 'passthrough'">
     <slot name="empty">
       <p>
@@ -8,15 +9,17 @@
   </template>
   <template v-else>
     <slick ref="slick" :options="computedSlickOptions">
-      <div v-for="item in computedItems" :key="item.id">
-        <div v-if="computedSlickOptions.slidesToShow > 1" class="slick-item">
-          <p v-if="!item.imageUrl" v-html="item.description" class="slick-item-description"></p>
-          <a :href="item.destinationUrl">
-            <img v-if="item.imageUrl" :src="item.imageUrl" :alt="item.altText" class="slick-image">
-            <template>{{ item.title }}</template>
-          </a>
-        </div>
-      </div>
+      <template v-for="item in computedItems">
+        <slot name="slide" :item="item">
+          <div class="slick-item">
+            <p v-if="!item.imageUrl" v-html="item.description" class="slick-item-description"></p>
+            <a :href="item.destinationUrl">
+              <img v-if="item.imageUrl" :src="item.imageUrl" :alt="item.altText" class="slick-image">
+              {{ item.title }}
+            </a>
+          </div>
+        </slot>
+      </template>
       <slot v-if="type === 'passthrough'" />
     </slick>
   </template>

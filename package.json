@@ -36,7 +36,7 @@
     "lint": "npm-run-all lint:*",
     "lint:js": "eslint . --ignore-path=.gitignore",
     "lint:css": "stylelint **.{css,scss,vue}",
-    "lint:md": "remark --frail *.md @uportal/*/**.md",
+    "lint:md": "remark --frail *.md docs/**/*.md @uportal/*/*.md",
     "start": "lerna run start",
     "test": "npm-run-all test:* lint:*",
     "test:packages": "lerna run test"

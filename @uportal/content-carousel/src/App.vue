@@ -6,7 +6,7 @@
         :source="'/hero.rss'"
         :slickOptions="heroOptions"
         :carouselHeight="heroHeight"
-        :fitToContainer="true" 
+        :fitToContainer="true"
         :textAlign="alignText" />
     </section>
     <section class="content">
@@ -35,19 +35,19 @@
         :type="'passthrough'"
         :slickOptions="contentOptions"
         :carouselHeight="portletHeight">
-        <div>
+        <div class="slick-item">
           arbitrary
         </div>
-        <div>
+        <div class="slick-item">
           content
         </div>
-        <div>
+        <div class="slick-item">
           displayed
         </div>
-        <div>
+        <div class="slick-item">
           as
         </div>
-        <div>
+        <div class="slick-item">
           slides
         </div>
       </ContentCarousel>
@@ -56,19 +56,5 @@
 </template>
 <script lang="ts" src="./App.ts">
 </script>
-<style lang="scss">
-body {
-  background: #dddddd;
-  height: 100%;
-  main {
-    & > section {
-      margin-bottom: 50px;
-
-      &.content {
-        width: 720px;
-        margin: auto;
-      }
-    }
-  }
-}
+<style lang="scss" src="./App.scss">
 </style>
