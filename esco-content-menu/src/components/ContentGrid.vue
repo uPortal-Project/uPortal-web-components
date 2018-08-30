@@ -4,7 +4,7 @@
             <div class="title">
                 <h1>{{ translate("message.services.title") }}</h1>
                 <div class="filter" :class="visible ? 'opened' : 'closed'">
-                    <span class="caret"> <input :title="translate('message.services.filter')" type="text" v-on:input="sourceChanged" list="list"
+                    <span class="content-grid-caret"> <input :title="translate('message.services.filter')" type="text" v-on:input="sourceChanged" list="list"
                                                 :placeholder="translate('message.services.filter')"/>
                     </span>
                     <datalist id='list'>
@@ -46,7 +46,7 @@
     },
     data() {
       return {
-        filteredPortlets: this.portlets.sort(this.sortPortlets),
+        filteredPortlets: [],
         visible: false
       };
     },
@@ -58,9 +58,10 @@
         return this.favorites.indexOf(fname) > -1;
       },
       sourceChanged: function(event) {
-        let filterValue = event.target.value;
+        this.emptyArray(this.filteredPortlets);
+        let filterValue = (event && event.target) ? event.target.value : null;
         if (filterValue !== null) {
-          this.filteredPortlets = this.portlets.filter(function(portlet) {
+          let tmp = this.portlets.filter(function(portlet) {
             let cats = portlet.categories.filter(
               cat => cat.toLowerCase().indexOf(filterValue.toLowerCase()) !== -1
             );
@@ -75,13 +76,15 @@
                 .indexOf(filterValue.toLowerCase()) !== -1
             );
           });
+          this.filteredPortlets.push(...tmp);
         } else {
-          this.filteredPortlets = this.portlets.sort(this.sortPortlets);
+          //this.filteredPortlets = this.portlets.sort(this.sortPortlets);
+          this.filteredPortlets.push(...this.portlets);
         }
-        this.filteredPortlets.sort(this.sortPortlets);
+        //this.filteredPortlets.sort(this.sortPortlets);
       },
-      sortPortlets: function(a, b) {
-        return a.title.localeCompare(b.title);
+      emptyArray: function(array) {
+        while(array.length > 0) {array.pop();}
       }
     },
     computed: {
@@ -99,6 +102,15 @@
           }
         }
         return cats.sort();
+      }
+    },
+    watch : {
+      portlets: {
+        handler: function (oldVal, newVal) {
+          if (newVal.length > 0) {
+            this.sourceChanged();
+          }
+        }
       }
     }
   }
@@ -129,11 +141,11 @@
             font-style: italic;
         }
 
-        .caret {
+        .content-grid-caret {
             position: relative;
             cursor: pointer;
         }
-        .caret:after {
+        .content-grid-caret:after {
             content: '';
             position: absolute;
             width: 0;
@@ -163,7 +175,7 @@
 
 
         &.small {
-            .caret:after {
+            .content-grid-caret:after {
                 border:none;
             }
             > div {
@@ -232,6 +244,8 @@
                 > h1 {
                     margin-bottom: 15px;
                     margin-top: 15px;
+                    font-weight: normal;
+                    font-size: 24px;
                 }
 
                 > .filter {

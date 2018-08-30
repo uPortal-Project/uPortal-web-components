@@ -1,6 +1,6 @@
 <template>
-    <section class="header-buttons">
-        <button type="button" class="close" aria-label="Close" :title="translate('message.buttons.menuClose')" @click="callOnClose($event)"><icon :name="'times'"></icon></button>
+    <section class="content-menu-header-buttons">
+        <button type="button" class="content-menu-close" aria-label="Close" :title="translate('message.buttons.menuClose')" @click="callOnClose($event)"><icon :name="'times'"></icon></button>
         <a class="signout" :href="signOutUrl" :title="translate('message.buttons.logout')"><icon :name="'sign-out-alt'"></icon></a>
     </section>
 </template>
@@ -30,7 +30,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-   .header-buttons {
+   .content-menu-header-buttons {
        display: flex;
        flex-flow: row nowrap;
        justify-content: space-between;

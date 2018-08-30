@@ -1,5 +1,5 @@
 <template>
-  <div class="content-menu" :class="['toggler-menu', isSmall ? 'small ' : '', visible ? 'active-menu' : '']">
+  <div class="content-menu" :class="['toggler-menu', isSmall ? 'small ' : '', visible ? 'active-menu' : '']" :style="'min-height: ' + minHeight">
     <header>
       <header-buttons :call-on-close="close" :sign-out-url="signOutUrl"></header-buttons>
       <div class="wrapper">
@@ -65,16 +65,17 @@
         orgsInfos: [],
         portlets: [],
         userInfos: {},
-        visible: !this.isHidden
+        visible: !this.isHidden,
+        minHeight: "100vh"
       };
     },
     mounted() {
       this.$nextTick(function() {
         window.addEventListener("resize", this.isXs);
-        this.isXs();
-        this.fetchPortlets();
-        this.fetchFavorites();
-        this.fetchUserInfos();
+        // this.fetchPortlets();
+        // this.fetchFavorites();
+        // this.fetchUserInfos();
+        // this.isXs();
       });
     },
     methods: {
@@ -111,6 +112,7 @@
           let userInfos = require("../assets/userinfos");
           this.userInfos =  Object.assign({}, this.userInfos, userInfos);
           let orgsInfos = require("../assets/orginfos");
+          this.emptyArray(this.orgsInfos);
           for(let prop in orgsInfos) {
             this.orgsInfos.push(orgsInfos[prop]);
           }
@@ -136,6 +138,7 @@
                   .then(checkStatus)
                   .then(parseJSON)
                   .then(data => {
+                    this.emptyArray(this.orgsInfos);
                     for(let prop in data) {
                       this.orgsInfos.push(data[prop]);
                     }
@@ -151,7 +154,9 @@
       fetchPortlets() {
         if (process.env.NODE_ENV === "development") {
           let data = require("../assets/browseable.json");
+          this.emptyArray(this.portlets);
           this.portlets.push(...data.portlets);
+          this.portlets.sort(this.sortPortlets);
         } else {
           oidc({userInfoApiUrl: this.contextApiUrl + process.env.VUE_APP_USER_INFOS_URI})
             .then(token => {
@@ -171,7 +176,9 @@
                 .then(checkStatus)
                 .then(parseJSON)
                 .then(data => {
+                  this.emptyArray(this.portlets);
                   this.portlets.push(...data.portlets);
+                  this.portlets.sort(this.sortPortlets);
                 });
             })
 
@@ -182,10 +189,11 @@
       },
       fetchFavorites() {
         if (process.env.NODE_ENV === "development") {
+          this.emptyArray(this.favorites);
           this.favorites.push(
-            "pbookmarks",
-            "snooper",
-            "google-translate-portlet"
+            "search",
+            "CourrielAcademique",
+            "MILycees"
           );
         } else {
           oidc({userInfoApiUrl: this.contextApiUrl + process.env.VUE_APP_USER_INFOS_URI})
@@ -214,6 +222,7 @@
                     data.layout.globals.hasFavorites
                   ) {
                     if (data.layout.favorites) {
+                      this.emptyArray(this.favorites);
                       this.computeFavoritesContent(data.layout.favorites);
                     }
                   }
@@ -249,13 +258,25 @@
         } else {
           this.favorites = this.favorites.filter(value => (value !== fname));
         }
+      },
+      sortPortlets: function(a, b) {
+        return a.title.trim().toLowerCase().localeCompare(b.title.trim().toLowerCase(), undefined, {numberic: true});
+      },
+      emptyArray: function(array) {
+        while(array.length > 0) {array.pop();}
       }
     },
     watch: {
       isHidden: {
         handler: function () {
           this.visible = !this.isHidden;
-          this.isXs();
+          if (this.visible) {
+            this.fetchPortlets();
+            this.fetchFavorites();
+            this.fetchUserInfos();
+            this.isXs();
+            this.minHeight=document.body.getBoundingClientRect().height + 'px';
+          }
         },
         deep: true
       }
@@ -270,7 +291,6 @@
 <style lang="scss" scoped>
   .content-menu {
     min-width: 280px;
-    min-height: 100vh;
     background-color: #D0D0D0;
 
     &.toggler-menu {

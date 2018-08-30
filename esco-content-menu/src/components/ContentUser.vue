@@ -14,8 +14,8 @@
           </div>
           <div v-else class="user-avatar"><icon :name="'user'"></icon></div>
           <div class="wrapper-infos">
-            <div class="user-name"><span class="label">{{userInfos.name}}</span></div>
-            <div class="user-org"><span class="label">{{orgInfos.displayName}}</span></div>
+            <div class="user-name"><span>{{userInfos.name}}</span></div>
+            <div class="user-org"><span>{{orgInfos.displayName}}</span></div>
           </div>
           <div v-if="otherOrgs.length > 1" class="other-orgs">
             <a :href="apiUrlOrgInfos" :title="translate('message.userChangeEtabUrl.title')"><icon :name="'exchange-alt'" ></icon></a>
@@ -136,7 +136,7 @@ export default {
         :only-child:not(.user-avatar) {
           display: inline-block;
         }
-        .label {
+        span {
           color: white;
         }
         .user-avatar {

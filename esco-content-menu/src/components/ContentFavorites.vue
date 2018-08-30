@@ -1,11 +1,11 @@
 <template>
   <section class="content-favorites" :class="showSmall ? 'small' : ''" :style="'background-color:' + backgroundColor">
-    <div class="title">
+    <div class="content-favorites-title">
       <h1>{{ translate("message.favorites.title") }}</h1>
     </div>
-    <div class="favorites" :style="getFavoritesPortlets.length > 0 ? '' : 'display:none'" ref="favsSection">
+    <div class="favorites" :style="favorited.length > 0 ? '' : 'display:none'" ref="favsSection">
       <swiper :options="swiperOption" ref="favSwiper">
-        <swiper-slide v-for="portlet in getFavoritesPortlets" :key="portlet.id">
+        <swiper-slide v-for="portlet in favorited" :key="portlet.id">
           <a class="no-style" v-bind:href="portlet.renderUrl" v-bind:target="portlet.layoutObject.altMaxUrl ? '_blank' : '_self'">
             <portlet-card :portlet-desc="portlet" :is-favorite="true" :is-small="showSmall" :call-after-action="callAfterFavAction" :back-ground-is-dark="true"
                           :favorites-api-url="favoriteApiUrl"></portlet-card>
@@ -18,7 +18,7 @@
       <div class="swiper-button-prev" :class="disablePrev ? 'fav-swiper-button-disabled' : ''" slot="button-prev" @click="slidePrev($event)"><icon :name="'chevron-left'"></icon></div>
       <div class="swiper-button-next" :class="disableNext ? 'fav-swiper-button-disabled' : ''" slot="button-next" @click="slideNext($event)"><icon :name="'chevron-right'"></icon></div>
     </div>
-    <div class="empty-favorites" :style="getFavoritesPortlets.length > 0 ? 'display:none' : ''">
+    <div class="empty-favorites" :style="favorited.length > 0 ? 'display:none' : ''">
       <div>{{ translate("message.favorites.empty" )}}</div>
     </div>
   </section>
@@ -46,11 +46,12 @@ export default {
   },
   data() {
     return {
+      favorited: [],
       swiperOption: {
         slidesPerView: "auto",
         slidesPerGroup: 2,
         spaceBetween: 0,
-        speed: 1000,
+        speed: 800,
         freeMode: true,
         /** These params doesn't work after build */
         // pagination: {
@@ -76,6 +77,7 @@ export default {
   mounted() {
     this.$nextTick(function() {
       window.addEventListener("resize", this.isXs);
+      this.calcFavoritesPortlets();
       this.isXs();
       this.manageSlideClasses();
     });
@@ -100,34 +102,40 @@ export default {
       }
     },
     getWindowWidth: function() {
-      return this.$refs.favsSection.clientWidth;
+      if (this.$refs.favsSection)
+        return this.$refs.favsSection.clientWidth;
+      return 0;
     },
     slideNext(event) {
       event.preventDefault();
-      this.swiper.slideNext(1000);
+      this.swiper.slideNext(800);
       this.manageSlideClasses();
     },
     slidePrev(event) {
       event.preventDefault();
-      this.swiper.slidePrev(1000);
+      this.swiper.slidePrev(800);
       this.manageSlideClasses();
     },
     manageSlideClasses() {
       this.disableNext = this.swiper.isEnd;
       this.disablePrev = this.swiper.isBeginning;
       this.isXs();
+    },
+    calcFavoritesPortlets() {
+      this.emptyArray(this.favorited);
+      for (const fname of this.favorites) {
+        for (const portlet of this.portlets) {
+          if (portlet.fname === fname) {
+            this.favorited.push(portlet);
+          }
+        }
+      }
+    },
+    emptyArray: function(array) {
+      while(array.length > 0) {array.pop();}
     }
   },
   computed: {
-    getFavoritesPortlets() {
-      let favs = [];
-      for (const portlet of this.portlets) {
-        if (this.favorites.indexOf(portlet.fname) > -1) {
-          favs.push(portlet);
-        }
-      }
-      return favs;
-    },
     swiper() {
       return this.$refs.favSwiper.swiper;
     }
@@ -135,18 +143,30 @@ export default {
   watch: {
     favorites: {
       handler: function () {
+        this.calcFavoritesPortlets();
+      },
+      deep: true
+    },
+    portlets: {
+      handler: function () {
+        this.calcFavoritesPortlets();
+      },
+      deep: true
+    },
+    favorited: {
+      handler: function () {
         setTimeout(()=>{
           this.manageSlideClasses();
         },100);
-      },
-      deep: true
+      }
     },
     isHidden: {
       handler: function() {
         setTimeout(()=> {
           this.manageSlideClasses();
         }, 500);
-      }
+      },
+      deep: true
     }
   }
 }
@@ -164,13 +184,13 @@ export default {
   flex-flow: column;
   justify-content: center;
 
-  > .title {
+  > .content-favorites-title {
     margin:0 0 5px 2em;
     text-transform: uppercase;
     filter: grayscale(1);
     h1 {
       font-size: 24px;
-      font-weight: lighter;
+      font-weight: normal;
       margin: 10px 0 5px 10px;
       color: white;
       //mix-blend-mode: difference
@@ -227,7 +247,7 @@ export default {
   }
 
   &.small {
-    > .title h1 {
+    > .content-favorites-title h1 {
       font-size: initial;
       font-weight: bold;
     }
