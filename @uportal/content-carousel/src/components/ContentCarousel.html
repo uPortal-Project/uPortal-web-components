@@ -17,7 +17,7 @@
                 <img v-if="item.imageUrl" :src="item.imageUrl" :alt="item.altText">
                 <template v-if="!item.imageUrl">{{ item.title }}</template>
                 <div v-if="item.altText" class="slick-hero-text">
-                  <p style="margin: 0; padding: 10px;" v-bind:style="alignText">{{ item.altText }}</p>
+                  <p v-bind:style="alignText">{{ item.altText }}</p>
                 </div>
               </a>
             </div>
