@@ -8,19 +8,32 @@
     </slot>
   </template>
   <template v-else>
-    <slick ref="slick" :options="computedSlickOptions">
-      <template v-for="item in computedItems">
-        <slot name="slide" :item="item">
-          <div class="slick-item">
-            <p v-if="!item.imageUrl" v-html="item.description" class="slick-item-description"></p>
-            <a :href="item.destinationUrl" class="slick-title">
-              <img v-if="item.imageUrl" :src="item.imageUrl" :alt="item.altText" class="slick-image">
-              {{ item.title }}
-            </a>
-          </div>
-        </slot>
-      </template>
-      <slot v-if="type === 'passthrough'" />
-    </slick>
+    <div class="slick-inner">
+      <slick ref="slick" :options="computedSlickOptions">
+        <template v-for="item in computedItems">
+          <slot name="slide" :item="item">
+            <div v-if="computedSlickOptions.slidesToShow === 1" class="slick-hero-container">
+              <a :href="item.destinationUrl">
+                <img v-if="item.imageUrl" :src="item.imageUrl" :alt="item.altText">
+                <template v-if="!item.imageUrl">{{ item.title }}</template>
+                <div v-if="item.altText" class="slick-hero-text">
+                  <p v-bind:style="alignText">{{ item.altText }}</p>
+                </div>
+              </a>
+            </div>
+            <div v-if="computedSlickOptions.slidesToShow > 1">
+              <div class="slick-item">
+                <p v-if="!item.imageUrl" v-html="item.description" class="slick-item-description"></p>
+                <a :href="item.destinationUrl" :class="{ 'slick-title': !item.imageUrl }">
+                  <span v-if="item.imageUrl" v-bind:style="{background: 'url(' + item.imageUrl + ') top center no-repeat', backgroundSize: 'auto 100%', backgroundPosition: 'center'}" class="slick-image"></span>
+                  <span :class="{ 'slick-title': item.imageUrl }">{{ item.title }}</span>
+                </a>
+              </div>
+            </div>
+          </slot>
+        </template>
+        <slot v-if="type === 'passthrough'" />
+      </slick>
+    </div>
   </template>
 </div>
