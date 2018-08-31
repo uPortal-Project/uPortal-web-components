@@ -42,6 +42,18 @@
   padding: 10px;
 }
 
+.slick-hero-container {
+  position: relative;
+}
+
+.slick-hero-text {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  background: rgba(0,0,0,0.5);
+  color: white;
+}
+
 .slick-item {
   .slick-item-description {
     min-height: 9rem;

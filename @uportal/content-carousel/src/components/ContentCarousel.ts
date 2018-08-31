@@ -26,6 +26,9 @@ export default class ContentCarousel extends Vue {
   @Prop([Boolean])
   public fitToContainer?: boolean;
 
+  @Prop({ type: [String], default: 'left' })
+  public textAlign?: string;
+
   @Watch('computedItems')
   public onComputedItemsChange() {
     const slick: any = this.$refs.slick || {
@@ -75,6 +78,12 @@ export default class ContentCarousel extends Vue {
 
   get height(): string {
     return this.carouselHeight;
+  }
+
+  get alignText(): Object {
+    return {
+      textAlign: this.textAlign
+    }
   }
 
   get isResponsiveToContainer(): boolean {
