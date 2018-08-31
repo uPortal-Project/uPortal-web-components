@@ -8,7 +8,7 @@
         <swiper-slide v-for="portlet in favorited" :key="portlet.id">
           <a class="no-style" v-bind:href="portlet.renderUrl" v-bind:target="portlet.layoutObject.altMaxUrl ? '_blank' : '_self'">
             <portlet-card :portlet-desc="portlet" :is-favorite="true" :is-small="showSmall" :call-after-action="callAfterFavAction" :back-ground-is-dark="true"
-                          :favorites-api-url="favoriteApiUrl"></portlet-card>
+                          :favorite-api-url="favoriteApiUrl"></portlet-card>
           </a>
         </swiper-slide>
         <!--<div class="swiper-pagination" slot="pagination"></div>-->

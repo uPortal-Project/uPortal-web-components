@@ -19,7 +19,7 @@
                 <div class="flex-item ma-3 text-xs-center" v-for="portlet in filteredPortlets" :key="portlet.id">
                     <a class="no-style" v-bind:href="portlet.renderUrl" v-bind:target="portlet.layoutObject.altMaxUrl ? '_blank' : '_self'">
                         <portlet-card :portlet-desc="portlet" :is-favorite="isFavorite(portlet.fname)" :is-small="isSmall" :call-after-action="callAfterAction"
-                                      :favorites-api-url="favoriteApiUrl"></portlet-card>
+                                      :favorite-api-url="favoriteApiUrl"></portlet-card>
                     </a>
                 </div>
             </div>

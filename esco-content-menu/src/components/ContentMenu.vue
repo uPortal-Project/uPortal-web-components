@@ -6,11 +6,11 @@
         <content-user :org-infos="currentOrg" :user-infos="userInfos" :other-orgs="orgsInfos" :is-small="isSmall" :default-org-logo="defaultOrgLogo"
                       :user-info-portlet-url="userInfoPortletUrl" :api-url-org-infos="apiUrlOrgInfos"></content-user>
         <content-favorites :portlets="portlets" :favorites="favorites" :call-after-action="actionToggleFav" :is-small="isSmall"
-                           :favorites-api-url="favoriteApiUrl" :is-hidden="isHidden"></content-favorites>
+                           :favorite-api-url="favoriteApiUrl" :is-hidden="isHidden"></content-favorites>
       </div>
       <div class="background" :style="(backgroundImg != null && !isSmall) ? 'background-image: linear-gradient(0deg, rgba(0,0,0,.2),rgba(0,0,0,.2)), url(' + backgroundImg + ');' : ''"></div>
     </header>
-    <content-grid :portlets="portlets" :favorites="favorites" :call-after-action="actionToggleFav" :is-small="isSmall" :favorites-api-url="favoriteApiUrl"></content-grid>
+    <content-grid :portlets="portlets" :favorites="favorites" :call-after-action="actionToggleFav" :is-small="isSmall" :favorite-api-url="favoriteApiUrl"></content-grid>
   </div>
 </template>
 

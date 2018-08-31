@@ -8,7 +8,7 @@
     </div>
     <div class="portlet-card-action">
       <action-favorites v-if="canFavorite" :fname="fname" :chan-id="channelId" :is-favorite="isFavorite" :call-on-toggle-fav="callAfterAction"
-                        :favorites-api-url="favoriteApiUrl"></action-favorites>
+                        :favorite-api-url="favoriteApiUrl"></action-favorites>
     </div>
   </div>
 </template>
