@@ -7,6 +7,23 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased][]
 
+### Feature
+
+- **content-carousel**: add fallback color for if image is missing (#84).
+- **content-carousel**: add hero style slides template (#84).
+
+### Fix
+
+- **content-carousel**: fix background image display (#84).
+
+### Refactor
+
+- **content-carousel**: move inline styles to sass (#84).
+
+### Chore
+
+- update babel eslint to version 9 (#85).
+
 ## [1.10.1][] - 2018-08-29
 
 ### Style
