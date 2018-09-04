@@ -208,8 +208,14 @@ class WaffleMenu extends Component {
   wafflePress = (registry) => {
     const {defaultIcon} = this.props;
     const menuItems = portletRegistryToArray(registry).map(
-      ({alternativeMaximizedLink, fname, parameters, title}) => {
-        let imgUrl = get(parameters, 'iconUrl.value') || defaultIcon;
+      ({fname, parameters, title}) => {
+        const imgUrl = get(parameters, 'iconUrl.value') || defaultIcon;
+
+        const alternativeMaximizedLink = get(
+          parameters,
+          'alternativeMaximized.value'
+        );
+
         return {
           link: alternativeMaximizedLink || '/uPortal/p/' + fname,
           image: imgUrl
