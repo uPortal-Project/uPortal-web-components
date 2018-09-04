@@ -40,6 +40,10 @@ export class PortletStrategy implements DataStrategy {
       }) => {
         let imageUrl = '';
         let altText = '';
+        const alternativeMaximized =
+          parameters &&
+          parameters.alternativeMaximizedLink &&
+          parameters.alternativeMaximizedLink.value;
 
         if (parameters && parameters.iconUrl) {
           imageUrl = parameters.iconUrl.value;
@@ -49,7 +53,7 @@ export class PortletStrategy implements DataStrategy {
         return {
           id: fname,
           altText,
-          destinationUrl: '/uPortal/p/' + fname,
+          destinationUrl: alternativeMaximized || '/uPortal/p/' + fname,
           imageUrl,
           title: name,
           description,
