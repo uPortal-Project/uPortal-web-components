@@ -19,7 +19,7 @@
                 <div class="flex-item ma-3 text-xs-center" v-for="portlet in filteredPortlets" :key="portlet.id">
                     <a class="no-style" v-bind:href="portlet.renderUrl" v-bind:target="portlet.layoutObject.altMaxUrl ? '_blank' : '_self'">
                         <portlet-card :portlet-desc="portlet" :is-favorite="isFavorite(portlet.fname)" :is-small="isSmall" :call-after-action="callAfterAction"
-                                      :favorite-api-url="favoriteApiUrl"></portlet-card>
+                                      :favorite-api-url="favoriteApiUrl" :user-info-api-url="userInfoApiUrl"></portlet-card>
                     </a>
                 </div>
             </div>
@@ -36,7 +36,8 @@
     props: {
       backgroundColor: String,
       callAfterAction: Function,
-      favoriteApiUrl: { type: String, default: process.env.VUE_APP_PORTAL_CONTEXT + "/api/layout" },
+      favoriteApiUrl: { type: String, default: process.env.VUE_APP_PORTAL_CONTEXT + process.env.VUE_APP_FAVORITES_PORTLETS_URI },
+      userInfoApiUrl: { type: String, default: process.env.VUE_APP_PORTAL_CONTEXT + process.env.VUE_APP_USER_INFOS_URI },
       favorites: { type: Array, required: true, default: () => [] },
       isSmall: { type: Boolean, default: false },
       portlets: { type: Array, required: true, default: () => [] }

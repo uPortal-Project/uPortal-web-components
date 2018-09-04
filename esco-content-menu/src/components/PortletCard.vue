@@ -8,7 +8,7 @@
     </div>
     <div class="portlet-card-action">
       <action-favorites v-if="canFavorite" :fname="fname" :chan-id="channelId" :is-favorite="isFavorite" :call-on-toggle-fav="callAfterAction"
-                        :favorite-api-url="favoriteApiUrl"></action-favorites>
+                        :favorite-api-url="favoriteApiUrl" :user-info-api-url="userInfoApiUrl"></action-favorites>
     </div>
   </div>
 </template>
@@ -25,7 +25,8 @@
       // Background is needed if your icons doesn't have it integrated
       iconBackgroundColor: { type: String, default: "Transparent" },
       isFavorite: { type: Boolean, default: false },
-      favoriteApiUrl: { type: String, default: process.env.VUE_APP_PORTAL_CONTEXT + "/api/layout" },
+      favoriteApiUrl: { type: String, default: process.env.VUE_APP_PORTAL_CONTEXT + process.env.VUE_APP_FAVORITES_PORTLETS_URI },
+      userInfoApiUrl: { type: String, default: process.env.VUE_APP_PORTAL_CONTEXT + process.env.VUE_APP_USER_INFOS_URI },
       isSmall: { type: Boolean, default: false },
       portletDesc: { type: Object, required: true },
       backGroundIsDark: { type: Boolean, default: false }

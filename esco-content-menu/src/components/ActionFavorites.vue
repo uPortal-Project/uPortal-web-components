@@ -32,6 +32,7 @@ export default {
     callOnToggleFav: Function,
     chanId: { type: String, required: true },
     favoriteApiUrl: { type: String, default: process.env.VUE_APP_PORTAL_CONTEXT + process.env.VUE_APP_FAVORITES_PORTLETS_URI },
+    userInfoApiUrl: { type: String, default: process.env.VUE_APP_PORTAL_CONTEXT + process.env.VUE_APP_USER_INFOS_URI },
     fname: String,
     isFavorite: { type: Boolean, default: false }
   },
@@ -68,7 +69,8 @@ export default {
       }
     },
     addToFavorite: function() {
-      oidc().then(token => {
+      oidc({userInfoApiUrl: this.userInfoApiUrl})
+        .then(token => {
         const options = {
           method: "POST",
           credentials: "same-origin",
@@ -88,7 +90,8 @@ export default {
       .catch(err => console.error("Error, with message:", err.statusText));
     },
     removeFromFavorite: function() {
-      oidc().then(token => {
+      oidc({userInfoApiUrl: this.userInfoApiUrl})
+        .then(token => {
         const options = {
           method: "POST",
           credentials: "same-origin",
