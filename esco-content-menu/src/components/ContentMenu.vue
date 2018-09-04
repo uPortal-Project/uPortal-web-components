@@ -3,14 +3,14 @@
     <header>
       <header-buttons :call-on-close="close" :sign-out-url="signOutUrl"></header-buttons>
       <div class="wrapper">
-        <content-user :org-infos="currentOrg" :user-infos="userInfos" :other-orgs="orgsInfos" :is-small="isSmall" :default-org-logo="defaultOrgLogo"
+        <content-user :org-infos="infos.userOrg" :user-infos="infos.user" :other-orgs="infos.organizations" :is-small="isSmall" :default-org-logo="defaultOrgLogo"
                       :user-info-portlet-url="userInfoPortletUrl" :api-url-org-infos="apiUrlOrgInfos"></content-user>
-        <content-favorites :portlets="portlets" :favorites="favorites" :call-after-action="actionToggleFav" :is-small="isSmall"
+        <content-favorites :portlets="infos.portlets" :favorites="infos.favorites" :call-after-action="actionToggleFav" :is-small="isSmall"
                            :favorite-api-url="favoriteApiUrl" :is-hidden="isHidden"></content-favorites>
       </div>
       <div class="background" :style="(backgroundImg != null && !isSmall) ? 'background-image: linear-gradient(0deg, rgba(0,0,0,.2),rgba(0,0,0,.2)), url(' + backgroundImg + ');' : ''"></div>
     </header>
-    <content-grid :portlets="portlets" :favorites="favorites" :call-after-action="actionToggleFav" :is-small="isSmall" :favorite-api-url="favoriteApiUrl"></content-grid>
+    <content-grid :portlets="infos.portlets" :favorites="infos.favorites" :call-after-action="actionToggleFav" :is-small="isSmall" :favorite-api-url="favoriteApiUrl"></content-grid>
   </div>
 </template>
 
@@ -66,15 +66,16 @@
         portlets: [],
         userInfos: {},
         visible: !this.isHidden,
-        minHeight: "100vh"
+        minHeight: "100vh",
+        infos: {portlets:[], favorites: [], organizations: [], user: {}}
       };
     },
     mounted() {
       this.$nextTick(function() {
         window.addEventListener("resize", this.isXs);
-        // this.fetchPortlets();
-        // this.fetchFavorites();
-        // this.fetchUserInfos();
+        this.fetchPortlets();
+        this.fetchFavorites();
+        this.fetchUserInfos();
         // this.isXs();
       });
     },
@@ -106,6 +107,14 @@
           && this.currentOrg.otherAttributes.ESCOStructureLogo.length > 0) {
           this.backgroundImg = process.env.VUE_APP_PORTAL_BASE_URL + this.currentOrg.otherAttributes.ESCOStructureLogo[0];
         }
+      },
+      processElements() {
+        console.log("processElements", this.portlets);
+        this.infos.portlets.push(...this.portlets);
+        this.infos.favorites.push(...this.favorites);
+        this.infos.organizations.push(...this.orgsInfos);
+        this.infos.user = Object.assign({}, this.infos.user, this.userInfos);
+        console.log("processElements", this.infos);
       },
       fetchUserInfos() {
         if (process.env.NODE_ENV === "development") {
@@ -271,11 +280,10 @@
         handler: function () {
           this.visible = !this.isHidden;
           if (this.visible) {
-            this.fetchPortlets();
-            this.fetchFavorites();
-            this.fetchUserInfos();
-            this.isXs();
             this.minHeight=document.body.getBoundingClientRect().height + 'px';
+            this.processElements();
+            this.isXs();
+
           }
         },
         deep: true
