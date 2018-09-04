@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased][]
 
+### Fix
+
+- **waffle-menu**: support alternative maximized links (#89).
+- **content-carousel**: support alternative maximized links (#89).
+
 ## [1.11.0][] - 2018-09-04
 
 ### Feature
