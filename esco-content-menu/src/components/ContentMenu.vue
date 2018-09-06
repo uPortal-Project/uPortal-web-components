@@ -110,11 +110,13 @@
           let userInfos = require("../assets/userinfos");
           this.infos.user =  Object.assign({}, this.infos.user, userInfos);
           let orgsInfos = require("../assets/orginfos");
-          this.emptyArray(this.infos.organizations);
-          for(let prop in orgsInfos) {
-            this.infos.organizations.push(orgsInfos[prop]);
-          }
-          this.computeCurrentOrg();
+          setTimeout(()=> {
+            this.emptyArray(this.infos.organizations);
+            for(let prop in orgsInfos) {
+              this.infos.organizations.push(orgsInfos[prop]);
+            }
+            this.computeCurrentOrg();
+          }, 2000);
         } else {
           oidc({userInfoApiUrl: this.contextApiUrl + process.env.VUE_APP_USER_INFOS_URI})
             .then(token => {
@@ -153,8 +155,10 @@
         if (process.env.NODE_ENV === "development") {
           let data = require("../assets/browseable.json");
           this.emptyArray(this.infos.portlets);
-          this.infos.portlets.push(...data.portlets);
-          this.infos.portlets.sort(this.sortPortlets);
+          setTimeout(()=> {
+            this.infos.portlets.push(...data.portlets);
+            this.infos.portlets.sort(this.sortPortlets);
+          }, 1000);
         } else {
           oidc({userInfoApiUrl: this.contextApiUrl + process.env.VUE_APP_USER_INFOS_URI})
             .then(token => {
@@ -191,6 +195,9 @@
           this.infos.favorites.push(
             "search",
             "CourrielAcademique",
+            "portal-activity",
+            "calendar",
+            "Helpinfo",
             "MILycees"
           );
         } else {
