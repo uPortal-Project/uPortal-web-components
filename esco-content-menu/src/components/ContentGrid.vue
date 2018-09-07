@@ -9,7 +9,7 @@
                     </span>
                     <datalist id='list'>
                         <select>
-                            <option v-for="category in getAllCategories" :value="category" :label="category" :key="category"></option>
+                            <option v-for="category in getAllCategories" :value="category" :label="category" :key="category">{{category}}</option>
                         </select>
                     </datalist>
                     <div @click="visible = !visible"><i class="fa fa-search" aria-hidden="true"></i></div>
