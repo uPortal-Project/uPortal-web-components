@@ -78,6 +78,7 @@ export default {
 .content-user {
   min-width: 350px;
   height: auto;
+  font-size: 14px;
 
   &.small{
     min-width: initial;
