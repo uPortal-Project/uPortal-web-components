@@ -31,15 +31,11 @@ export default class App extends Vue {
     dots: true,
   };
 
-  @Provide()
-  public heroHeight = '30rem';
+  @Provide() public heroHeight = '30rem';
 
-  @Provide()
-  public contentHeight = 'auto';
-
+  @Provide() public contentHeight = 'auto';
 
   @Provide() public portletHeight = 'auto';
 
   @Provide() public alignText = 'right';
-
 }

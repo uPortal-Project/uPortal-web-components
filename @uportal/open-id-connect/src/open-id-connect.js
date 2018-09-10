@@ -33,12 +33,12 @@ let token = null;
  *                           token in an Object
  */
 export default async function openIdConnect(
-  {
-    userInfoApiUrl = '/uPortal/api/v5-1/userinfo',
-    timeout = 50000,
-    propertyTransforms = {},
-  } = {},
-  callback
+    {
+      userInfoApiUrl = '/uPortal/api/v5-1/userinfo',
+      timeout = 50000,
+      propertyTransforms = {},
+    } = {},
+    callback
 ) {
   // If there already is a valid token, resolve it
   if (token !== null) {

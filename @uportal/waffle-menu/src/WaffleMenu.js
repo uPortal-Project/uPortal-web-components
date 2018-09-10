@@ -208,25 +208,25 @@ class WaffleMenu extends Component {
   wafflePress = (registry) => {
     const {defaultIcon} = this.props;
     const menuItems = portletRegistryToArray(registry).map(
-      ({fname, parameters, title}) => {
-        const imgUrl = get(parameters, 'iconUrl.value') || defaultIcon;
+        ({fname, parameters, title}) => {
+          const imgUrl = get(parameters, 'iconUrl.value') || defaultIcon;
 
-        const alternativeMaximizedLink = get(
-          parameters,
-          'alternativeMaximized.value'
-        );
+          const alternativeMaximizedLink = get(
+              parameters,
+              'alternativeMaximized.value'
+          );
 
-        return {
-          link: alternativeMaximizedLink || '/uPortal/p/' + fname,
-          image: imgUrl
+          return {
+            link: alternativeMaximizedLink || '/uPortal/p/' + fname,
+            image: imgUrl
             ? process.env.NODE_ENV === 'development'
               ? 'proxy/' + imgUrl
               : imgUrl
             : undefined,
-          label: this.truncateTitle(title),
-          type: 'box',
-        };
-      }
+            label: this.truncateTitle(title),
+            type: 'box',
+          };
+        }
     );
     this.setState({
       data: menuItems,
@@ -305,17 +305,17 @@ class WaffleMenu extends Component {
             }}
           >
             {data.map(
-              (datum, index) =>
-                datum.type === 'box' && <MenuItem key={index} {...datum} />
+                (datum, index) =>
+                  datum.type === 'box' && <MenuItem key={index} {...datum} />
             )}
 
             {data.map(
-              (datum, index) =>
-                datum.type === 'footer' && (
-                  <WaffleDropdownFooter key={index}>
-                    <a href={datum.link}>{datum.label}</a>
-                  </WaffleDropdownFooter>
-                )
+                (datum, index) =>
+                  datum.type === 'footer' && (
+                    <WaffleDropdownFooter key={index}>
+                      <a href={datum.link}>{datum.label}</a>
+                    </WaffleDropdownFooter>
+                  )
             )}
           </WaffleDropdown>
         </WaffleMenuContainer>
