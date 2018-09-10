@@ -4,7 +4,7 @@
       <h1>{{ translate("message.favorites.title") }}</h1>
     </div>
     <div class="favorites" :style="favorited.length > 0 ? '' : 'display:none'" ref="favsSection">
-      <swiper :options="swiperOption" ref="favSwiper">
+      <swiper :options="swiperOption" ref="favSwiper" @transitionEnd="updateSlider">
         <swiper-slide v-for="portlet in favorited" :key="portlet.id">
           <a class="no-style" v-bind:href="portlet.renderUrl" v-bind:target="portlet.layoutObject.altMaxUrl ? '_blank' : '_self'">
             <portlet-card :portlet-desc="portlet" :is-favorite="true" :is-small="showSmall" :call-after-action="callAfterFavAction" :back-ground-is-dark="true"
@@ -49,8 +49,9 @@ export default {
     return {
       favorited: [],
       swiperOption: {
+        init: false,
         slidesPerView: "auto",
-        slidesPerGroup: 2,
+        slidesPerGroup: 1,
         spaceBetween: 0,
         speed: 800,
         freeMode: true,
@@ -77,10 +78,7 @@ export default {
   },
   mounted() {
     this.$nextTick(function() {
-      window.addEventListener("resize", this.isXs);
-      this.calcFavoritesPortlets();
-      this.isXs();
-      this.manageSlideClasses();
+      window.addEventListener("resize", this.updateSlider);
     });
   },
   methods: {
@@ -97,7 +95,7 @@ export default {
       this.showSmall = this.isSmall || this.getWindowWidth() < 660;
     },
     callAfterFavAction(favorite,fname){
-      this.manageSlideClasses();
+      this.updateSlider();
       if (typeof this.callAfterAction === "function") {
         this.callAfterAction(favorite,fname);
       }
@@ -109,18 +107,27 @@ export default {
     },
     slideNext(event) {
       event.preventDefault();
-      this.swiper.slideNext(800);
-      this.manageSlideClasses();
+      this.$refs.favSwiper.swiper.slideNext(800);
+      this.updateSlider();
     },
     slidePrev(event) {
       event.preventDefault();
-      this.swiper.slidePrev(800);
-      this.manageSlideClasses();
+      this.$refs.favSwiper.swiper.slidePrev(800);
+      this.updateSlider();
     },
-    manageSlideClasses() {
-      this.disableNext = this.swiper.isEnd;
-      this.disablePrev = this.swiper.isBeginning;
-      this.isXs();
+    updateSlider() {
+      setTimeout(()=> {
+        if (!this.isHidden) {
+          if (!this.$refs.favSwiper.swiper.initialized) {
+            this.$refs.favSwiper.swiper.init();
+          } else {
+            this.$refs.favSwiper.swiper.update();
+          }
+          this.disableNext = this.$refs.favSwiper.swiper.isEnd;
+          this.disablePrev = this.$refs.favSwiper.swiper.isBeginning;
+          this.isXs();
+        }
+      },300);
     },
     calcFavoritesPortlets() {
       this.emptyArray(this.favorited);
@@ -136,36 +143,31 @@ export default {
       while(array.length > 0) {array.pop();}
     }
   },
-  computed: {
-    swiper() {
-      return this.$refs.favSwiper.swiper;
-    }
-  },
   watch: {
     favorites: {
       handler: function () {
         this.calcFavoritesPortlets();
+        this.updateSlider();
+
       },
       deep: true
     },
     portlets: {
       handler: function () {
         this.calcFavoritesPortlets();
+        this.updateSlider();
       },
       deep: true
     },
     favorited: {
       handler: function () {
-        setTimeout(()=>{
-          this.manageSlideClasses();
-        },100);
-      }
+        this.updateSlider();
+      },
+      deep: true
     },
     isHidden: {
       handler: function() {
-        setTimeout(()=> {
-          this.manageSlideClasses();
-        }, 500);
+        this.updateSlider();
       },
       deep: true
     }
