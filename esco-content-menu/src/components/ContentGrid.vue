@@ -202,6 +202,9 @@
 
                         &.closed {
                             width: $searchSize;
+                            input {
+                                visibility: hidden;
+                            }
                         }
                         > span {
                             width: 100%;
