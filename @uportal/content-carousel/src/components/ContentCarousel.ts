@@ -82,8 +82,8 @@ export default class ContentCarousel extends Vue {
 
   get alignText(): Object {
     return {
-      textAlign: this.textAlign
-    }
+      textAlign: this.textAlign,
+    };
   }
 
   get isResponsiveToContainer(): boolean {
