@@ -1,2 +1,2 @@
-* [:gb: English](en)
-* [:fr: Français](fr)
+- [:gb: English](en)
+- [:fr: Français](fr)

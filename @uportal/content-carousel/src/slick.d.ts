@@ -1,1 +1,3 @@
-declare module 'vue-slick' {}
+declare module 'vue-slick' {
+
+}

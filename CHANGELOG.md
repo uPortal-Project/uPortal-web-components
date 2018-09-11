@@ -7,6 +7,260 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased][]
 
+## [1.11.1][] - 2018-09-04
+
+### Fix
+
+- **waffle-menu**: support alternative maximized links (#89).
+- **content-carousel**: support alternative maximized links (#89).
+
+## [1.11.0][] - 2018-09-04
+
+### Feature
+
+- **content-carousel**: add fallback color for if image is missing (#84).
+- **content-carousel**: add hero style slides template (#84).
+
+### Fix
+
+- **content-carousel**: fix background image display (#84).
+
+### Refactor
+
+- **content-carousel**: move inline styles to sass (#84).
+
+### Chore
+
+- update babel eslint to version 9 (#85).
+
+## [1.10.1][] - 2018-08-29
+
+### Style
+
+- **content-carousel**: variable width is now enabled by default (#82).
+- **content-carousel**: default border style has been improved to look more like Cal Poly Pomona and Contented UI mockups (#82).
+
+### Fix
+
+- **content-carousel**: links now have `slick-title` styles applied by default (#82).
+
+### Documentation
+
+- **content-carousel**: include a note on usage with variable width (#82).
+
+### Chore
+
+- update dependencies
+
+## [1.10.0][] - 2018-08-29
+
+### Feature
+
+- **content-carousel**: support `header`, `empty`, and `slide` slots (#81).
+- **content-carousel**: update default slide markup to be more flexible (#67).
+
+### Documentation
+
+- **content-carousel**: revamp documentation to more explicitly spell out what options and slots are available (#81).
+- **content-carousel**: ensure web component examples include closing tag (#77).
+
+### Refactor
+
+- **content-carousel**: move sass styles into their own file (#81).
+
+## [1.9.3][] - 2018-08-28
+
+### Fix
+
+- **content-carousel**: add a graceful fallback when slick carousel is slow to init (#76).
+- **content-carousel**: correct destination link in portlet strategy (#75).
+- **content-carousel**: render `description` as html (#74).
+
+### Style
+
+- include typescript files in prettier pre commit hook (#76).
+
+## [1.9.2][] - 2018-08-28
+
+### Refactor
+
+- **content-carousel**: make empty results configurable via slot (#72).
+
+### Fix
+
+- **content-carousel**: ensure vue slick can reference itself in web component mode (#73).
+
+### Docs
+
+- use cannonical unpkg url generated starting with version 1.9.0
+- add link to waffle menu demo from README
+
+## [1.9.1][] - 2018-08-27
+
+### Build
+
+- re-release 1.9.0 because build scripts did not run as expected
+
+## [1.9.0][] - 2018-08-27
+
+### Feature
+
+- **content-carousel**: support configurable background color (#69).
+
+### Style
+
+- **waffle-menu** improve default styles and make dropdown more material UI like (#66).
+
+### Build
+
+- **content-carousel**: add default entry point set to the built code (#61).
+- **waffle-menu**: add default entry point set to the built code (#61).
+- **content-carousel**: start local dev server with `npm start` to match docs (#70).
+- show a warning if an outdated version of Node.js or npm is used to build code (#70).
+- automatically add prettier formatted files during precommit hook (#71).
+
+### Docs
+
+- **content-carousel**: update example usage for web components and vue.
+- **content-carousel**: add a live demo to documentation (#61).
+- **waffle-menu**: add a live demo to documentation (#62).
+- update required version of Node.js for overall build to Node.js 10.9.0 (#70).
+
+### Test
+
+- re-enable commitlint check without lerna scopes
+
+## [1.8.0][] - 2018-08-22
+
+### Feature
+
+- **waffle-menu**: support for a configurable default icon to display (#59).
+- **waffle-meu**: support configurable truncation of text (#59).
+
+### Fix
+
+- **portlet-registry-to-array**: ensure portlet array has unique `fname` (#57).
+- **content-carousel**: support `slick-options` in web component mode (#60).
+
+### Test
+
+- disable commitlint `commit-msg` hook until lerna 3 is supported (#58).
+
+### Docs
+
+- add uPortal committers, Chris P, Phil B, and Ryan M to committers list (#58).
+
+## [1.7.4][] - 2018-08-17
+
+### Build
+
+- force rebuild and republish all packages to ensure fixes for 1.7.1, 1.7.2, and 1.7.3 have been applied with new lerna options.
+
+## [1.7.3][] - 2018-08-17
+
+### Fix
+
+- **content-carousel**: resolve typescript errors in component.
+
+### Build
+
+- add `requireScripts` option to lerna to make sure build scripts run during release.
+
+## [1.7.2][] - 2018-08-17
+
+### Fix
+
+- **content-carousel**: ensure slick options are parsed to an object (#56).
+- **content-carousel**: ensure open id connect token is sent with portlet registry API request (#56).
+
+## [1.7.1][] - 2018-08-17
+
+### Test
+
+- remove work around for upstream jest bug
+
+## [1.7.0][] - 2018-08-17
+
+### Feature
+
+- **portlet-registry-to-array**: new utility to help flatten the registry tree into an array (#55).
+
+### Fix
+
+- **waffle-menu**: drop deprecated `category` attribute (#54).
+- **waffle-menu**: leverage portlet registry utility (#55).
+- **content-carousel**: leverage portlet registry utility (#55).
+
+### Build
+
+- **waffle-menu**: set produced filename to `waffle-menu` (#54).
+
+### Docs
+
+- **waffle-menu**: add badges to readme.
+- **content-carousel**: give example usage as a web component (#52).
+- **waffle-menu**: document uPortal proxy used for local testing (#54).
+
+## [1.6.0][] - 2018-08-02
+
+### Feature
+
+- **waffle-menu**: a new component, the waffle menu, this component offers an app launcher experience from a dropdown (#33).
+
+### Docs
+
+- Document how to create and use WebJars (#48).
+- Include new component documentation on the GitHub pages site (#46).
+
+### Style
+
+- Apply Google code style to content carousel and waffle menu (#33).
+
+## [1.5.0][] - 2018-07-29
+
+### Feature
+
+- **content-carousel**: `passthrough` mode which allows arbitrary content to be added as carousel slides (#41).
+
+### Fix
+
+- **open-id-connect**: include a scoped version of regenerator runtime to allow usage of `async` (#44).
+
+### Build
+
+- **content-carousel**: ensure that build is run before the package is published (#45).
+
+## [1.4.0][] - 2018-07-26
+
+### Feature
+
+- **content-carousel**: input strategy is now consistently managed with the `type` and `source` attributes (#39).
+
+### Fix
+
+- **content-carousel**: ensure carousel updates when its contents update (#38).
+
+## [1.3.1][] - 2018-07-16
+
+### Build
+
+- **open-id-connect**: do not include babel polyfill by default, including polyfill causes conflicts when multiple components using oidc helper are loaded on the page at the same time (#36).
+- Use [`npm ci`](https://docs.npmjs.com/cli/ci) to install dependencies, this is both faster and structure will exactly match the lockfile (#35)
+
+## [1.3.0][] - 2018-06-28
+
+### Feature
+
+- **content-carousel**: Add text title support for carousel items (#28).
+
+### Build
+
+- **open-id-connect**: generate [CJS](https://nodejs.org/docs/latest/api/modules.html), [ESM](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import), and [UMD](https://github.com/umdjs/umd), as well as providing an ES2018 source version (#30).
+
+### Test
+
+- ESlint upgraded to version 5 (#29)
+
 ## [1.2.0][] - 2018-06-19
 
 ### Feature
@@ -155,7 +409,26 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - **open-id-connect**: Initial version of an OpenID Connect helper script to use in web components and JavaScript modules.
 - **content-carousel**: Initial version of content carousel, a carousel based portlet metadata display system.
 
-[unreleased]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.2.0...HEAD
+[unreleased]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.11.1...HEAD
+[1.11.1]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.11.0...v1.11.1
+[1.11.0]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.10.1...v1.11.0
+[1.10.1]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.10.0...v1.10.1
+[1.10.0]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.9.3...v1.10.0
+[1.9.3]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.9.2...v1.9.3
+[1.9.2]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.9.1...v1.9.2
+[1.9.1]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.9.0...v1.9.1
+[1.9.0]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.8.0...v1.9.0
+[1.8.0]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.7.4...v1.8.0
+[1.7.4]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.7.3...v1.7.4
+[1.7.3]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.7.2...v1.7.3
+[1.7.2]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.7.1...v1.7.2
+[1.7.1]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.7.0...v1.7.1
+[1.7.0]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.6.0...v1.7.0
+[1.6.0]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.5.0...v1.6.0
+[1.5.0]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.4.0...v1.5.0
+[1.4.0]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.3.1...v1.4.0
+[1.3.1]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.3.0...v1.3.1
+[1.3.0]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.2.0...v1.3.0
 [1.2.0]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.1.0...v1.2.0
 [1.1.0]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.0.2...v1.1.0
 [1.0.2]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.0.1...v1.0.2

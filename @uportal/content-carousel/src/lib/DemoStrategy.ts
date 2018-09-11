@@ -1,4 +1,4 @@
-import { DataStrategy } from './Strategy';
+import { DataStrategy } from './DataStrategy';
 
 export function getDemoStrategy(size: string = '1920x500'): DataStrategy {
   return {
@@ -32,5 +32,3 @@ export function getDemoStrategy(size: string = '1920x500'): DataStrategy {
     ],
   };
 }
-
-

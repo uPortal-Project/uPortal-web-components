@@ -1,4 +1,4 @@
-import { DataStrategy } from '@/lib/Strategy';
+import { DataStrategy } from '@/lib/DataStrategy';
 import { CarouselItem } from '@/lib/CarouselItem';
 import { parseXml } from '@/lib/parse';
 
@@ -12,7 +12,7 @@ export class RssStrategy implements DataStrategy {
   }
 
   private async load(path: string): Promise<any> {
-    const response = await fetch(`${path}`);
+    const response = await fetch(path);
     if (!response.ok) {
       throw new Error(response.statusText);
     }
@@ -34,18 +34,18 @@ export class RssStrategy implements DataStrategy {
           media: any;
           enclosures: any;
         },
-        index: number,
+        index: number
       ) => {
-          const image = media ? media.content : enclosures ? enclosures[0] : null;
-          return {
-              id: `${index}-${new Date().getTime()}`,
-              altText: `${title} - ${description}`,
-              destinationUrl: link,
-              imageUrl: image,
-              title: image ? null : title,
-              description: image ? null : description,
-          };
-      },
+        const image = media ? media.content : enclosures ? enclosures[0] : null;
+        return {
+          id: `${index}-${new Date().getTime()}`,
+          altText: `${title} - ${description}`,
+          destinationUrl: link,
+          imageUrl: image,
+          title: image ? null : title,
+          description: image ? null : description,
+        };
+      }
     );
   }
 }

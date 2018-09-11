@@ -1,6 +1,8 @@
 import {get} from 'axios';
 import decode from 'jwt-decode';
-import 'babel-polyfill'; // needed to apply async/await polyfills
+// needed as a polyfill for browsers not yet supporting async
+// eslint-disable-next-line no-unused-vars
+import regeneratorRuntime from 'regenerator-runtime';
 
 let token = null;
 
@@ -31,12 +33,12 @@ let token = null;
  *                           token in an Object
  */
 export default async function openIdConnect(
-  {
-    userInfoApiUrl = '/uPortal/api/v5-1/userinfo',
-    timeout = 50000,
-    propertyTransforms = {},
-  } = {},
-  callback
+    {
+      userInfoApiUrl = '/uPortal/api/v5-1/userinfo',
+      timeout = 50000,
+      propertyTransforms = {},
+    } = {},
+    callback
 ) {
   // If there already is a valid token, resolve it
   if (token !== null) {
