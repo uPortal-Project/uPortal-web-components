@@ -98,7 +98,9 @@ export default {
           }
         };
         fetch(
-          this.favoriteApiUrl + "?action=removeFavorite&channelId=" + this.chanId,
+          this.favoriteApiUrl +
+            "?action=removeFavorite&channelId=" +
+            this.chanId,
           options
         )
           .then(checkStatus)
@@ -139,5 +141,4 @@ export default {
     max-height: 100%;
   }
 }
-
 </style>

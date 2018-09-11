@@ -37,7 +37,10 @@ export default {
         this.portletDesc.layoutObject.iconUrl !== null
           ? this.computeIconUrl(this.portletDesc.layoutObject.iconUrl)
           : null,
-      iconBackColor: (process.env.NODE_ENV === "development") ? '#007aff' : this.iconBackgroundColor
+      iconBackColor:
+        process.env.NODE_ENV === "development"
+          ? "#007aff"
+          : this.iconBackgroundColor
     };
   },
   components: {

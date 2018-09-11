@@ -20,12 +20,12 @@
 <script>
 import PortletCard from "./PortletCard.vue";
 import i18n from "../i18n.js";
-import 'swiper/dist/css/swiper.css'
+import "swiper/dist/css/swiper.css";
 import Icon from "vue-awesome/components/Icon";
 import "vue-awesome/icons/chevron-right";
 import "vue-awesome/icons/chevron-left";
 
-import { swiper, swiperSlide } from 'vue-awesome-swiper'
+import { swiper, swiperSlide } from "vue-awesome-swiper";
 
 export default {
   name: "ContentFavorites",
@@ -39,16 +39,16 @@ export default {
   data() {
     return {
       swiperOption: {
-        slidesPerView: 'auto',
+        slidesPerView: "auto",
         spaceBetween: 0,
         freeMode: true,
         pagination: {
-          el: '.swiper-pagination',
+          el: ".swiper-pagination",
           clickable: true
         },
         navigation: {
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev'
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev"
         }
       }
     };
@@ -78,7 +78,7 @@ export default {
       let favs = [];
       for (const portlet of this.portlets) {
         if (this.favorites.indexOf(portlet.fname) > -1) {
-          favs.push(portlet)
+          favs.push(portlet);
         }
       }
       return favs;
@@ -91,69 +91,70 @@ export default {
 </script>
 
 <style lang="scss">
-  @import '../../node_modules/slick-carousel/slick/slick.css';
-  @import '../../node_modules/slick-carousel/slick/slick-theme.css';
+@import "../../node_modules/slick-carousel/slick/slick.css";
+@import "../../node_modules/slick-carousel/slick/slick-theme.css";
 
-  .content-favorites {
-    width: inherit;
-    display: inline-block;
-    color: #ffffff;
+.content-favorites {
+  width: inherit;
+  display: inline-block;
+  color: #ffffff;
 
-    > .title {
-      margin: 5px 20px;
-      text-transform: uppercase;
+  > .title {
+    margin: 5px 20px;
+    text-transform: uppercase;
+  }
+  > .favorites {
+    position: relative;
+    .swiper-container {
+      margin: 0 45px;
     }
-    > .favorites {
-      position: relative;
-      .swiper-container {
-        margin: 0 45px;
-      }
-      .swiper-slide {
-        width: 255px;
-        height: 175px;
-        margin: 30px;
-        &:first-child {
-          margin-left: 0;
-        }
-      }
-
-      .swiper-button-prev, .swiper-button-next {
-        background-image: none;
-        color: white;
-        margin-top: 0;
-        width: auto;
-        height: auto;
-      }
-
-      a.no-style {
-        text-decoration: none;
-        color: inherit;
+    .swiper-slide {
+      width: 255px;
+      height: 175px;
+      margin: 30px;
+      &:first-child {
+        margin-left: 0;
       }
     }
 
-    &.small{
-      > .favorites {
-        .swiper-container {
-          margin: 0;
-        }
-        .swiper-slide {
-          width: 120px;
-          height: auto;
-          margin: 0;
-        }
-        .swiper-button-prev, .swiper-button-next {
-          display: none;
-        }
-      }
-    }
-    .fa-icon {
+    .swiper-button-prev,
+    .swiper-button-next {
+      background-image: none;
+      color: white;
+      margin-top: 0;
       width: auto;
-      height: 2em; /* or any other relative font sizes */
+      height: auto;
+    }
 
-      /* You would have to include the following two lines to make this work in Safari */
-      max-width: 100%;
-      max-height: 100%;
+    a.no-style {
+      text-decoration: none;
+      color: inherit;
     }
   }
 
+  &.small {
+    > .favorites {
+      .swiper-container {
+        margin: 0;
+      }
+      .swiper-slide {
+        width: 120px;
+        height: auto;
+        margin: 0;
+      }
+      .swiper-button-prev,
+      .swiper-button-next {
+        display: none;
+      }
+    }
+  }
+  .fa-icon {
+    width: auto;
+    height: 2em; /* or any other relative font sizes */
+
+    /* You would have to include the following two lines to make this work in Safari */
+    max-width: 100%;
+    max-height: 100%;
+  }
+}
 </style>

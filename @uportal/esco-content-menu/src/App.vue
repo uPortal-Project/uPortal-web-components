@@ -5,12 +5,12 @@
 </template>
 
 <script>
-import EscoContentMenu from './components/EscoContentMenu.vue'
+import EscoContentMenu from "./components/EscoContentMenu.vue";
 
 export default {
-  name: 'app',
+  name: "app",
   components: {
     EscoContentMenu
   }
-}
+};
 </script>
