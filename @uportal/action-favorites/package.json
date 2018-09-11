@@ -1,0 +1,70 @@
+{
+  "name": "action-favorites",
+  "version": "0.1.4",
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "buildold": "vue-cli-service build --target wc --name action-favorites './src/components/ActionFavorites.vue'",
+    "build": "vue-cli-service build --target wc --name action-favorites './src/mainwc.js'",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "@uportal/open-id-connect": "^1.1.0",
+    "@vue/web-component-wrapper": "^1.2.0",
+    "vue": "^2.5.16",
+    "vue-awesome": "^2.3.7",
+    "vue-i18n": "^7.8.1"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^3.0.0-rc.3",
+    "@vue/cli-plugin-eslint": "^3.0.0-rc.3",
+    "@vue/cli-service": "^3.0.0-rc.3",
+    "vue-template-compiler": "^2.5.16"
+  },
+  "babel": {
+    "presets": [
+      "@vue/app"
+    ]
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended"
+    ],
+    "rules": {},
+    "parserOptions": {
+      "parser": "babel-eslint"
+    }
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  },
+  "description": "Display an icon button that permit to add or remove from favorites items into uPortal",
+  "license": "Apache-2.0",
+  "author": "Julien Gribonvald <julien.gribonvald@gmail.com>",
+  "keywords": [
+    "apereo",
+    "uportal",
+    "action",
+    "favorite"
+  ],
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ],
+  "main": "dist/action-favorites.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jgribonvald/uPortal-web-components.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jgribonvald/uPortal-web-components/issues"
+  },
+  "homepage": "https://github.com/jgribonvald/uPortal-web-components#readme"
+}

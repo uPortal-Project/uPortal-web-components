@@ -65,11 +65,11 @@
       "prettier-eslint --write",
       "git add"
     ],
-    "*.{css,scss}": [
+    "*.{css}": [
       "prettier-stylelint --write",
       "git add"
     ],
-    "*.{md,json}": [
+    "*.{md,json,scss}": [
       "prettier --write",
       "git add"
     ]

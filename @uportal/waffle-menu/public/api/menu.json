@@ -12,22 +12,19 @@
     "type": "box"
   },
   {
-    "link":
-      "https://idp.cpp.edu/idp/profile/cas/login?service=https://cmsweb.cpp.edu/psp/HPOMPRDF/EMPLOYEE/HRMS/c/SA_LEARNER_SERVICES.SSS_MY_PLANNER.GBL?gsmobile=0&amp;Page=SSS_MY_PLANNER&amp;Action=A",
+    "link": "https://idp.cpp.edu/idp/profile/cas/login?service=https://cmsweb.cpp.edu/psp/HPOMPRDF/EMPLOYEE/HRMS/c/SA_LEARNER_SERVICES.SSS_MY_PLANNER.GBL?gsmobile=0&amp;Page=SSS_MY_PLANNER&amp;Action=A",
     "image": "https://www.cpp.edu/img/icons/sq-MyPlanner.png",
     "label": "My Planner",
     "type": "box"
   },
   {
-    "link":
-      "https://idp.cpp.edu/idp/profile/cas/login?service=https://cmsweb.cpp.edu/psp/HPOMPRDF/EMPLOYEE/HRMS/s/WEBLIB_PTPP_SC.HOMEPAGE.FieldFormula.IScript_AppHP?pt_fname=POM_BD_SS&amp;FolderPath=PORTAL_ROOT_OBJECT.POM_BD_SS&amp;IsFolder=true?cmd=start&amp;languageCd=ENG&amp;userid=PS&amp;pwd=z&amp;calstateEduPersonEmplID",
+    "link": "https://idp.cpp.edu/idp/profile/cas/login?service=https://cmsweb.cpp.edu/psp/HPOMPRDF/EMPLOYEE/HRMS/s/WEBLIB_PTPP_SC.HOMEPAGE.FieldFormula.IScript_AppHP?pt_fname=POM_BD_SS&amp;FolderPath=PORTAL_ROOT_OBJECT.POM_BD_SS&amp;IsFolder=true?cmd=start&amp;languageCd=ENG&amp;userid=PS&amp;pwd=z&amp;calstateEduPersonEmplID",
     "image": "https://www.cpp.edu/img/icons/sq-BroncoDirect.png",
     "label": "BroncoDirect",
     "type": "box"
   },
   {
-    "link":
-      "https://cmsweb.cpp.edu/psp/HPOMPRD/EMPLOYEE/HRMS/c/SA_LEARNER_SERVICES.SSS_STUDENT_CENTER.GBL?pslnkid=POM_BD_STDNT_SC&amp;PORTALPARAM_PTCNAV=POM_BD_STDNT_SC&amp;EOPP.SCNode=HRMS&amp;EOPP.SCPortal=EMPLOYEE&amp;EOPP.SCName=POM_BD_SS&amp;EOPP.SCLabel=Student%20Self%20Services&amp;EOPP.SCFName=POM_BD_STDNT&amp;EOPP.SCSecondary=true&amp;EOPP.SCPTfname=POM_BD_STDNT&amp;FolderPath=PORTAL_ROOT_OBJECT.POM_BD_SS.POM_BD_STDNT.POM_BD_STDNT_SC&amp;IsFolder=false",
+    "link": "https://cmsweb.cpp.edu/psp/HPOMPRD/EMPLOYEE/HRMS/c/SA_LEARNER_SERVICES.SSS_STUDENT_CENTER.GBL?pslnkid=POM_BD_STDNT_SC&amp;PORTALPARAM_PTCNAV=POM_BD_STDNT_SC&amp;EOPP.SCNode=HRMS&amp;EOPP.SCPortal=EMPLOYEE&amp;EOPP.SCName=POM_BD_SS&amp;EOPP.SCLabel=Student%20Self%20Services&amp;EOPP.SCFName=POM_BD_STDNT&amp;EOPP.SCSecondary=true&amp;EOPP.SCPTfname=POM_BD_STDNT&amp;FolderPath=PORTAL_ROOT_OBJECT.POM_BD_SS.POM_BD_STDNT.POM_BD_STDNT_SC&amp;IsFolder=false",
     "image": "https://www.cpp.edu/img/icons/sq-Lynda.png",
     "label": "Lynda.com",
     "type": "box"
@@ -39,8 +36,7 @@
     "type": "box"
   },
   {
-    "link":
-      "http://www.cpp.edu/~test-group/portal/online-services.shtml?index=1",
+    "link": "http://www.cpp.edu/~test-group/portal/online-services.shtml?index=1",
     "label": "View all online services",
     "type": "footer"
   },
