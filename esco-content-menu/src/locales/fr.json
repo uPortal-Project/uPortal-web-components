@@ -1,0 +1,24 @@
+{
+  "message": {
+    "services": {
+      "title": "Tous les services",
+      "filter": "Rechercher un service..."
+    },
+    "favorites": {
+      "add": "Ajouter aux favoris",
+      "remove": "Supprimer des favoris",
+      "title": "Mes favoris",
+      "empty": "Aucun favori défini"
+    },
+    "userInfoPortletUrl": {
+      "title": "Voir les informations de mon compte"
+    },
+    "userChangeEtabUrl": {
+      "title": "Changer d'établissement"
+    },
+    "buttons": {
+      "logout": "Déconnexion",
+      "menuClose": "Fermer le menu"
+    }
+  }
+}
