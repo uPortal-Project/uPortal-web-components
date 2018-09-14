@@ -12,6 +12,7 @@ With the addition of the following committers:
 
 - Chris Beach (@cbeach47)
 - Chris Paraiso (@cparaiso)
+- Julien Gribonvald (@gribonvald)
 - Phillip Ball (@illiphilli)
 - Ryan Mathis (@rmathis)
 
