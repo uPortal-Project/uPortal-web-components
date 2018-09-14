@@ -1,5 +1,5 @@
 {
-  "name": "@gip-recia/esco-content-menu",
+  "name": "@uportal/esco-content-menu",
   "version": "0.3.4",
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -62,10 +62,10 @@
   "main": "dist/esco-content-menu.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/GIP-RECIA/uPortal-web-components.git"
+    "url": "git+https://github.com/uPortal-contrib/uPortal-web-components.git"
   },
   "bugs": {
-    "url": "https://github.com/GIP-RECIA/uPortal-web-components/issues"
+    "url": "https://github.com/uPortal-contrib/uPortal-web-components/issues"
   },
-  "homepage": "https://github.com/GIP-RECIA/uPortal-web-components#readme"
+  "homepage": "https://github.com/uPortal-contrib/uPortal-web-components#readme"
 }
