@@ -202,7 +202,12 @@ $RECYCLE.BIN/
 # End of https://www.gitignore.io/api/node,code,macos,linux,windows,intellij+all
 
 yarn.lock
+.env.*
 !tsconfig.json
+@uportal/content-carousel/dist
+!@uportal/esco-content-menu/.env
+@uportal/esco-content-menu/dist
+@uportal/eyebrow-user-info/dist
 @uportal/open-id-connect/cjs
 @uportal/open-id-connect/esm
 @uportal/open-id-connect/umd
@@ -210,4 +215,3 @@ yarn.lock
 @uportal/portlet-registry-to-array/esm
 @uportal/portlet-registry-to-array/umd
 @uportal/waffle-menu/build
-@uportal/content-carousel/dist
