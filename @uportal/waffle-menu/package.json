@@ -26,9 +26,7 @@
   "scripts": {
     "prepublishOnly": "npm run build",
     "start": "react-scripts start",
-    "build": "react-scripts build && shx mv build/static/js/*.js build/static/js/waffle-menu.js",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "build": "react-scripts build && shx mv build/static/js/*.js build/static/js/waffle-menu.js"
   },
   "eslintConfig": {
     "extends": [
