@@ -2,7 +2,7 @@
 
 ## Usage into html
 
-```
+```html
 <eyebrow-user-info
   display-name="John Doe"
   picture="https://edu.univ.org/images/noPictureUser.svg"
@@ -22,10 +22,12 @@
 
 ## Example of use into uPortal
 
-###1. Deploy into uPortal the builded script
+### 1. Deploy into uPortal the builded script
+
 You should use webjar, but to test you can run `npm run build` and move `dist/eyebrow-user-info.js` into `$TOMCAT_WEBAPPS/uPortal/scripts/`
 
-###2. Creating a jsp invoker
+### 2. Creating a jsp invoker
+
 file should be deployed into uportal jsp invoker directory `src/main/webapp/WEB-INF/jsp/Invoker/eyebrow-user-info.jsp`
 
 You should use the cdn link, or use a deployed version localy for test only !
@@ -67,7 +69,7 @@ You should use the cdn link, or use a deployed version localy for test only !
  </div>
 ```
 
-###3. Importing the portlet definition
+### 3. Importing the portlet definition
 
 create the file `eyebrow-user-info.portlet-definition.xml` and import it
 
@@ -132,7 +134,8 @@ create the file `eyebrow-user-info.portlet-definition.xml` and import it
  </portlet-definition>
 ```
 
-###4. Adding it to the layout
+### 4. Adding it to the layout
+
 modify the file `authenticated-lo.fragment-layout.xml`
 
 ```xml
