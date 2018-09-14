@@ -3,7 +3,7 @@
   "version": "0.3.4",
   "scripts": {
     "start": "vue-cli-service serve",
-    "build": "vue-cli-service build --name esco-content-menu --target wc 'src/components/*.vue'",
+    "build": "vue-cli-service build --name esco --target wc 'src/components/*.vue'",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
