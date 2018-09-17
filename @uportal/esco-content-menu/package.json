@@ -1,13 +1,13 @@
 {
   "name": "@uportal/esco-content-menu",
-  "version": "0.3.4",
+  "version": "1.12.0",
   "scripts": {
     "start": "vue-cli-service serve",
     "build": "vue-cli-service build --name esco --target wc 'src/components/*.vue'",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "@uportal/open-id-connect": "^1.11.0",
+    "@uportal/open-id-connect": "^1.12.0",
     "datalist-polyfill": "^1.22.1",
     "vue": "^2.5.17",
     "vue-awesome": "^3.1.2",
