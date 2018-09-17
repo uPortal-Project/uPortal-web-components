@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased][]
 
+## [1.12.0][] - 2018-09-17
+
 ### Feature
 
 - **esco-content-menu**: Display a menu for a new kind of navigation: from favorites and browsable portlet list (#92).
@@ -422,7 +424,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - **open-id-connect**: Initial version of an OpenID Connect helper script to use in web components and JavaScript modules.
 - **content-carousel**: Initial version of content carousel, a carousel based portlet metadata display system.
 
-[unreleased]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.11.1...HEAD
+[unreleased]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.12.0...HEAD
+[1.12.0]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.11.1...v1.12.0
 [1.11.1]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.11.0...v1.11.1
 [1.11.0]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.10.1...v1.11.0
 [1.10.1]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.10.0...v1.10.1
