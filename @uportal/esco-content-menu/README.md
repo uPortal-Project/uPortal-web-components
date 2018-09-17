@@ -28,11 +28,31 @@ compile 'org.webjars.npm:uportal__esco-content-menu:{version number goes here}'
 
 ## Usage
 
+To use the all the components including the side menu:
+
 ```html
 <script src="https://unpkg.com/vue"></script>
 <script src="https://unpkg.com/@uportal/esco-content-menu"></script>
 
 <hamburger-menu default-org-logo="https://lycees.netocentre.fr/annuaire_images/default_banner_v1.jpg"></hamburger-menu>
+```
+
+To use the all the components including the side menu:
+
+```html
+<script src="https://unpkg.com/vue"></script>
+<script src="https://unpkg.com/@uportal/esco-content-menu"></script>
+
+<hamburger-menu default-org-logo="https://lycees.netocentre.fr/annuaire_images/default_banner_v1.jpg"></hamburger-menu>
+```
+
+To use all of the on page components without the side navigation:
+
+```html
+<script src="https://unpkg.com/vue"></script>
+<script src="https://unpkg.com/@uportal/esco-content-menu"></script>
+
+<content-menu default-org-logo="https://lycees.netocentre.fr/annuaire_images/default_banner_v1.jpg" api-url-org-info="/p/test"></content-menu>
 ```
 
 ## FAQ

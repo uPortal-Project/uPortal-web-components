@@ -3,22 +3,22 @@
            :style="isSmall ? 'background-image: linear-gradient(0deg, rgba(0,0,0,.2),rgba(0,0,0,.2)), url(' + getOrgImgUrl() + ');' : ''">
     <div>
       <div class="org-img" >
-        <img :src="getOrgImgUrl()" :title="orgInfos.displayName" :alt="orgInfos.displayName" />
+        <img :src="getOrgImgUrl()" :title="orgInfo.displayName" :alt="orgInfo.displayName" />
       </div>
 
-      <div class="user-infos">
+      <div class="user-info">
         <div>
           <div v-if="getUserAvatar() != null" class="user-avatar">
             <a v-if="userInfoPortletUrl !== ''" :href="userInfoPortletUrl" :title="translate('message.userInfoPortletUrl.title')"><img :src="getUserAvatar()" :alt="'avatar'"/></a>
             <img v-else :src="getUserAvatar()" :alt="'avatar'"/>
           </div>
           <div v-else class="user-avatar"><icon :name="'user'"></icon></div>
-          <div class="wrapper-infos">
-            <div class="user-name"><span :title="userInfos.name">{{userInfos.name}}</span></div>
-            <div class="user-org"><span :title="orgInfos.displayName">{{orgInfos.displayName}}</span></div>
+          <div class="wrapper-info">
+            <div class="user-name"><span :title="userInfo.name">{{userInfo.name}}</span></div>
+            <div class="user-org"><span :title="orgInfo.displayName">{{orgInfo.displayName}}</span></div>
           </div>
           <div v-if="otherOrgs.length > 1" class="other-orgs">
-            <a :href="apiUrlOrgInfos" :title="translate('message.userChangeEtabUrl.title')"><icon :name="'exchange-alt'" ></icon></a>
+            <a :href="apiUrlOrgInfo" :title="translate('message.userChangeEtabUrl.title')"><icon :name="'exchange-alt'" ></icon></a>
           </div>
         </div>
       </div>
@@ -37,12 +37,12 @@ export default {
   name: "ContentUser",
   props: {
     isSmall: { type: Boolean, default: false },
-    orgInfos: { type: Object, default: () => ({}) },
+    orgInfo: { type: Object, default: () => ({}) },
     otherOrgs: { type: Array, default: () => [] },
-    userInfos: { type: Object, required: true, default: () => undefined },
-    apiUrlOrgInfos: {
+    userInfo: { type: Object, required: true, default: () => undefined },
+    apiUrlOrgInfo: {
       type: String,
-      default: process.env.VUE_APP_ORG_INFOS_URI
+      default: process.env.VUE_APP_ORG_INFO_URI
     },
     defaultOrgLogo: { type: String, required: true },
     userInfoPortletUrl: { type: String, default: "" }
@@ -56,19 +56,19 @@ export default {
     },
     hasOrgImage() {
       return (
-        this.orgInfos !== {} &&
-        this.orgInfos.otherAttributes &&
-        this.orgInfos.otherAttributes.ESCOStructureLogo &&
-        this.orgInfos.otherAttributes.ESCOStructureLogo.length > 0
+        this.orgInfo !== {} &&
+        this.orgInfo.otherAttributes &&
+        this.orgInfo.otherAttributes.ESCOStructureLogo &&
+        this.orgInfo.otherAttributes.ESCOStructureLogo.length > 0
       );
     },
     getOrgImgUrl() {
       return this.hasOrgImage()
-        ? this.computeImgUrl(this.orgInfos.otherAttributes.ESCOStructureLogo[0])
+        ? this.computeImgUrl(this.orgInfo.otherAttributes.ESCOStructureLogo[0])
         : this.defaultOrgLogo;
     },
     getUserAvatar() {
-      let avatar = this.userInfos.picture || null;
+      let avatar = this.userInfo.picture || null;
       return this.computeImgUrl(avatar);
     },
     computeImgUrl(url) {
@@ -100,7 +100,7 @@ export default {
         display: none;
       }
 
-      > .user-infos {
+      > .user-info {
         padding: 15px 0;
         > div {
           border-top-right-radius: 0;
@@ -130,7 +130,7 @@ export default {
         border-radius: 10px;
       }
     }
-    > .user-infos {
+    > .user-info {
       padding: 25px 0;
 
       > div {
@@ -164,7 +164,7 @@ export default {
             background-color: #b7b7b7;
           }
         }
-        .wrapper-infos {
+        .wrapper-info {
           :only-child {
             display: block;
           }
@@ -186,7 +186,7 @@ export default {
         }
       }
     }
-    > .org-img + .user-infos {
+    > .org-img + .user-info {
       margin-top: auto;
     }
   }

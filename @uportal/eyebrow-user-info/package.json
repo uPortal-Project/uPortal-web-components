@@ -42,7 +42,7 @@
       "autoprefixer": {}
     }
   },
-  "description": "Web component to display into eybrow menu a user-info menu with his picture and a more info",
+  "description": "Web component to display into eybrow menu a user information menu with profile picture and more",
   "license": "Apache-2.0",
   "author": "Julien Gribonvald <julien.gribonvald@gmail.com>",
   "keywords": [
@@ -50,7 +50,7 @@
     "uportal",
     "content",
     "menu",
-    "user-infos"
+    "user-info"
   ],
   "browserslist": [
     "> 1%",
