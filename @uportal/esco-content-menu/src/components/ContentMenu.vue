@@ -3,14 +3,14 @@
     <header>
       <header-buttons :call-on-close="close" :sign-out-url="signOutUrl"></header-buttons>
       <div class="wrapper">
-        <content-user :org-infos="infos.userOrganization" :user-infos="infos.user" :other-orgs="infos.organizations" :is-small="isSmall" :default-org-logo="defaultOrgLogo"
-                      :user-info-portlet-url="userInfoPortletUrl" :api-url-org-infos="apiUrlOrgInfos"></content-user>
-        <content-favorites :portlets="infos.portlets" :favorites="infos.favorites" :call-after-action="actionToggleFav" :is-small="isSmall"
+        <content-user :org-info="info.userOrganization" :user-info="info.user" :other-orgs="info.organizations" :is-small="isSmall" :default-org-logo="defaultOrgLogo"
+                      :user-info-portlet-url="userInfoPortletUrl" :api-url-org-info="apiUrlOrgInfo"></content-user>
+        <content-favorites :portlets="info.portlets" :favorites="info.favorites" :call-after-action="actionToggleFav" :is-small="isSmall"
                            :favorite-api-url="favoriteApiUrl" :is-hidden="isHidden" :user-info-api-url="userInfoApiUrl"></content-favorites>
       </div>
       <div class="background" :style="(backgroundImg != null && !isSmall) ? 'background-image: linear-gradient(0deg, rgba(0,0,0,.2),rgba(0,0,0,.2)), url(' + backgroundImg + ');' : ''"></div>
     </header>
-    <content-grid :portlets="infos.portlets" :favorites="infos.favorites" :call-after-action="actionToggleFav" :is-small="isSmall"
+    <content-grid :portlets="info.portlets" :favorites="info.favorites" :call-after-action="actionToggleFav" :is-small="isSmall"
                   :favorite-api-url="favoriteApiUrl" :user-info-api-url="userInfoApiUrl" ></content-grid>
   </div>
 </template>
@@ -57,18 +57,18 @@ export default {
     signOutUrl: { type: String, default: process.env.VUE_APP_LOGOUT_URL },
     defaultOrgLogo: { type: String, required: true },
     userInfoPortletUrl: { type: String, default: "" },
-    apiUrlOrgInfos: { type: String, default: "" }
+    apiUrlOrgInfo: { type: String, default: "" }
   },
   data() {
     return {
       backgroundImg: this.defaultOrgLogo,
       favoriteApiUrl:
         this.contextApiUrl + process.env.VUE_APP_FAVORITES_PORTLETS_URI,
-      userInfoApiUrl: this.contextApiUrl + process.env.VUE_APP_USER_INFOS_URI,
+      userInfoApiUrl: this.contextApiUrl + process.env.VUE_APP_USER_INFO_URI,
       isSmall: false,
       visible: !this.isHidden,
       minHeight: "100vh",
-      infos: {
+      info: {
         portlets: [],
         favorites: [],
         organizations: [],
@@ -82,7 +82,7 @@ export default {
       window.addEventListener("resize", this.isXs);
       this.fetchPortlets();
       this.fetchFavorites();
-      this.fetchUserInfos();
+      this.fetchUserInfo();
     });
   },
   methods: {
@@ -105,55 +105,54 @@ export default {
     },
     computeCurrentOrg: function() {
       if (
-        this.infos.organizations &&
-        this.infos.user &&
-        this.infos.user.ESCOSIRENCourant &&
-        this.infos.organizations.length > 0
+        this.info.organizations &&
+        this.info.user &&
+        this.info.user.ESCOSIRENCourant &&
+        this.info.organizations.length > 0
       ) {
-        this.infos.userOrganization = Object.assign(
+        this.info.userOrganization = Object.assign(
           {},
-          this.infos.userOrganization,
-          this.infos.organizations.find(
-            entry => entry.id === this.infos.user.ESCOSIRENCourant[0]
+          this.info.userOrganization,
+          this.info.organizations.find(
+            entry => entry.id === this.info.user.ESCOSIRENCourant[0]
           )
         );
-      } else if (this.infos.organizations) {
-        this.infos.userOrganization = Object.assign(
+      } else if (this.info.organizations) {
+        this.info.userOrganization = Object.assign(
           {},
-          this.infos.userOrganization,
-          this.infos.organizations[0]
+          this.info.userOrganization,
+          this.info.organizations[0]
         );
       }
       if (
-        this.infos.userOrganization &&
-        this.infos.userOrganization.otherAttributes &&
-        this.infos.userOrganization.otherAttributes.ESCOStructureLogo &&
-        this.infos.userOrganization.otherAttributes.ESCOStructureLogo.length > 0
+        this.info.userOrganization &&
+        this.info.userOrganization.otherAttributes &&
+        this.info.userOrganization.otherAttributes.ESCOStructureLogo &&
+        this.info.userOrganization.otherAttributes.ESCOStructureLogo.length > 0
       ) {
         this.backgroundImg =
           process.env.VUE_APP_PORTAL_BASE_URL +
-          this.infos.userOrganization.otherAttributes.ESCOStructureLogo[0];
+          this.info.userOrganization.otherAttributes.ESCOStructureLogo[0];
       }
     },
-    fetchUserInfos() {
+    fetchUserInfo() {
       if (process.env.NODE_ENV === "development") {
-        let userInfos = require("../assets/userinfos");
-        this.infos.user = Object.assign({}, this.infos.user, userInfos);
-        let orgsInfos = require("../assets/orginfos");
+        let userInfo = require("../assets/userinfo");
+        this.info.user = Object.assign({}, this.info.user, userInfo);
+        let orgsInfo = require("../assets/orginfo");
         setTimeout(() => {
-          this.emptyArray(this.infos.organizations);
-          for (let prop in orgsInfos) {
-            this.infos.organizations.push(orgsInfos[prop]);
+          this.emptyArray(this.info.organizations);
+          for (let prop in orgsInfo) {
+            this.info.organizations.push(orgsInfo[prop]);
           }
           this.computeCurrentOrg();
         }, 2000);
       } else {
         oidc({
-          userInfoApiUrl:
-            this.contextApiUrl + process.env.VUE_APP_USER_INFOS_URI
+          userInfoApiUrl: this.contextApiUrl + process.env.VUE_APP_USER_INFO_URI
         })
           .then(token => {
-            this.infos.user = Object.assign({}, this.infos.user, token.decoded);
+            this.info.user = Object.assign({}, this.info.user, token.decoded);
             if (token.decoded.ESCOSIREN) {
               const options = {
                 method: "GET",
@@ -165,7 +164,7 @@ export default {
               };
               fetch(
                 process.env.VUE_APP_PORTAL_BASE_URL +
-                  process.env.VUE_APP_ORG_INFOS_URI +
+                  process.env.VUE_APP_ORG_INFO_URI +
                   "?ids=" +
                   token.decoded.ESCOSIREN,
                 options
@@ -173,9 +172,9 @@ export default {
                 .then(checkStatus)
                 .then(parseJSON)
                 .then(data => {
-                  this.emptyArray(this.infos.organizations);
+                  this.emptyArray(this.info.organizations);
                   for (let prop in data) {
-                    this.infos.organizations.push(data[prop]);
+                    this.info.organizations.push(data[prop]);
                   }
                   this.computeCurrentOrg();
                 });
@@ -189,15 +188,14 @@ export default {
     fetchPortlets() {
       if (process.env.NODE_ENV === "development") {
         let data = require("../assets/browseable.json");
-        this.emptyArray(this.infos.portlets);
+        this.emptyArray(this.info.portlets);
         setTimeout(() => {
-          this.infos.portlets.push(...data.portlets);
-          this.infos.portlets.sort(this.sortPortlets);
+          this.info.portlets.push(...data.portlets);
+          this.info.portlets.sort(this.sortPortlets);
         }, 1000);
       } else {
         oidc({
-          userInfoApiUrl:
-            this.contextApiUrl + process.env.VUE_APP_USER_INFOS_URI
+          userInfoApiUrl: this.contextApiUrl + process.env.VUE_APP_USER_INFO_URI
         })
           .then(token => {
             const options = {
@@ -215,9 +213,9 @@ export default {
               .then(checkStatus)
               .then(parseJSON)
               .then(data => {
-                this.emptyArray(this.infos.portlets);
-                this.infos.portlets.push(...data.portlets);
-                this.infos.portlets.sort(this.sortPortlets);
+                this.emptyArray(this.info.portlets);
+                this.info.portlets.push(...data.portlets);
+                this.info.portlets.sort(this.sortPortlets);
               });
           })
 
@@ -228,8 +226,8 @@ export default {
     },
     fetchFavorites() {
       if (process.env.NODE_ENV === "development") {
-        this.emptyArray(this.infos.favorites);
-        this.infos.favorites.push(
+        this.emptyArray(this.info.favorites);
+        this.info.favorites.push(
           "search",
           "CourrielAcademique",
           "portal-activity",
@@ -239,8 +237,7 @@ export default {
         );
       } else {
         oidc({
-          userInfoApiUrl:
-            this.contextApiUrl + process.env.VUE_APP_USER_INFOS_URI
+          userInfoApiUrl: this.contextApiUrl + process.env.VUE_APP_USER_INFO_URI
         })
           .then(token => {
             const options = {
@@ -266,7 +263,7 @@ export default {
                   data.layout.globals.hasFavorites
                 ) {
                   if (data.layout.favorites) {
-                    this.emptyArray(this.infos.favorites);
+                    this.emptyArray(this.info.favorites);
                     this.computeFavoritesContent(data.layout.favorites);
                   }
                 }
@@ -288,7 +285,7 @@ export default {
           if (content === undefined || !content) {
             let fname = elem.fname;
             if (fname !== undefined && fname) {
-              this.infos.favorites.push(fname);
+              this.info.favorites.push(fname);
             }
           } else {
             this.computeFavoritesContent(content);
@@ -298,9 +295,9 @@ export default {
     },
     actionToggleFav: function(isAddFavorite, fname) {
       if (isAddFavorite) {
-        this.infos.favorites.push(fname);
+        this.info.favorites.push(fname);
       } else {
-        this.infos.favorites = this.infos.favorites.filter(
+        this.info.favorites = this.info.favorites.filter(
           value => value !== fname
         );
       }

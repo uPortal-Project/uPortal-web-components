@@ -1,3 +1,5 @@
+# Eyebrow User Info
+
 ![Example of rendering](/eyebrow-user-info/doc/example.gif?raw=true)
 
 ## Usage into html
