@@ -7,6 +7,19 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased][]
 
+### Feature
+
+- **esco-content-menu**: Display a menu for a new kind of navigation: from favorites and browsable portlet list (#92).
+- **eyebrow-user-info**: Web component to display into eyebrow menu a user information menu with profile picture and more (#92).
+
+### Docs
+
+- Julien Gribonvald (@gribonvald) has been added as a committer (#93).
+
+### Chore
+
+- Updated project dependencies (#90).
+
 ## [1.11.1][] - 2018-09-04
 
 ### Fix

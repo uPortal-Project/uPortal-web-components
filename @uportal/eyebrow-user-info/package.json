@@ -42,7 +42,7 @@
       "autoprefixer": {}
     }
   },
-  "description": "Web component to display into eybrow menu a user information menu with profile picture and more",
+  "description": "Web component to display into eyebrow menu a user information menu with profile picture and more",
   "license": "Apache-2.0",
   "author": "Julien Gribonvald <julien.gribonvald@gmail.com>",
   "keywords": [
