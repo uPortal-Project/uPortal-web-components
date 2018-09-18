@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <header>
-      <eyebrow-user-info display-name="John Doe" picture="https://lycees.netocentre.fr/portail/media/skins/respondr/common/images/noPictureUser.svg" email="john.doe@edu.univ.org"
+      <eyebrow-user-info display-name="John Doe" picture="https://lycees.netocentre.fr/images/icones//noPictureUser.svg" email="john.doe@edu.univ.org"
                   logout-link="/uPortal/Logout" avatarSize="48px" :menu-is-dark="false"></eyebrow-user-info>
     </header>
     <div class="content">
