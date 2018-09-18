@@ -170,6 +170,7 @@ $grey: #d0d0d0;
         padding: 25px 10px;
         display: flex;
         flex-flow: row nowrap;
+        font-size: 14px;
 
         > * {
           margin: 0 0 0 15px;
