@@ -1,6 +1,6 @@
 {
   "name": "@uportal/eyebrow-user-info",
-  "version": "1.12.0",
+  "version": "1.12.1",
   "scripts": {
     "prepublishOnly": "npm run build",
     "start": "vue-cli-service serve",

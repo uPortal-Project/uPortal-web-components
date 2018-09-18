@@ -1,6 +1,6 @@
 {
   "lerna": "3.3.0",
   "packages": ["@uportal/*"],
-  "version": "1.12.0",
+  "version": "1.12.1",
   "requireScripts": true
 }
