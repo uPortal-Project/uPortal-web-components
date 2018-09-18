@@ -59,7 +59,7 @@
     "last 2 versions",
     "not ie <= 8"
   ],
-  "main": "dist/esco-content-menu.js",
+  "main": "dist/esco.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/uPortal-contrib/uPortal-web-components.git"

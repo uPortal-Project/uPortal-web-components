@@ -38,7 +38,7 @@ To use the all the components including the side menu:
 <script src="https://unpkg.com/vue"></script>
 <script src="https://unpkg.com/@uportal/esco-content-menu"></script>
 
-<hamburger-menu default-org-logo="https://lycees.netocentre.fr/annuaire_images/default_banner_v1.jpg"></hamburger-menu>
+<esco-hamburger-menu default-org-logo="https://lycees.netocentre.fr/annuaire_images/default_banner_v1.jpg"></esco-hamburger-menu>
 ```
 
 To use all of the on page components without the side navigation:
@@ -47,7 +47,7 @@ To use all of the on page components without the side navigation:
 <script src="https://unpkg.com/vue"></script>
 <script src="https://unpkg.com/@uportal/esco-content-menu"></script>
 
-<content-menu default-org-logo="https://lycees.netocentre.fr/annuaire_images/default_banner_v1.jpg" api-url-org-info="/p/test"></content-menu>
+<esco-content-menu default-org-logo="https://lycees.netocentre.fr/annuaire_images/default_banner_v1.jpg" api-url-org-info="/p/test"></esco-content-menu>
 ```
 
 ## FAQ
