@@ -93,17 +93,19 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" module>
 $grey: #d0d0d0;
+
 .user-info {
-  /*used fonts and content : we need to add them for the build to be able to use it into shadow DOM and from parent html*/
+  /* used fonts and content : we need to add them for the build to be able to use it into shadow DOM and from parent html */
   .fa {
     display: inline-block;
-    font: normal normal normal 14px/1 FontAwesome;
+    font: normal normal normal 14px/1 FontAwesome, sans-serif;
     font-size: inherit;
     text-rendering: auto;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
-  .fa-sign-out:before {
+
+  .fa-sign-out::before {
     content: "\f08b";
   }
 
@@ -124,15 +126,19 @@ $grey: #d0d0d0;
       &.lighter {
         color: white;
       }
+
       :not(:first-child) {
         margin-left: 5px;
       }
+
       > .user-name {
         display: block;
       }
+
       > .user-avatar {
         display: flex;
         align-items: center;
+
         > img {
           background-color: $grey;
           border-radius: 50%;
@@ -140,22 +146,16 @@ $grey: #d0d0d0;
         }
       }
     }
+
     > .dropdown-content {
       position: absolute;
       min-width: 280px;
       background-color: #fff;
       color: #000;
-      /*border: solid 1px $grey;*/
       box-shadow: 0 5px 5px -3px #888, 5px 5px 5px -4px #888;
       z-index: 15;
       right: 0;
-      /*border-bottom-right-radius: 2px;
-        border-bottom-left-radius: 2px;
-        border-bottom: solid 1px $grey;
-        border-left: solid 1px $grey;
-        border-right: solid 1px $grey;*/
       text-align: initial;
-
       visibility: visible;
       opacity: 1;
       transition: opacity 800ms, visibility 800ms;
@@ -170,9 +170,11 @@ $grey: #d0d0d0;
         padding: 25px 10px;
         display: flex;
         flex-flow: row nowrap;
+
         > * {
           margin: 0 0 0 15px;
         }
+
         > :last-child {
           margin-right: 15px;
         }
@@ -181,6 +183,7 @@ $grey: #d0d0d0;
           height: 100%;
           display: flex;
           align-items: center;
+
           img {
             background-color: $grey;
             border-radius: 50%;
@@ -195,6 +198,7 @@ $grey: #d0d0d0;
           align-self: center;
         }
       }
+
       > .sign-out {
         display: flex;
         background-color: $grey;
@@ -204,15 +208,18 @@ $grey: #d0d0d0;
         &:hover {
           background-color: darken($grey, 10%);
         }
+
         > a {
           padding-right: 15px;
           text-decoration: none;
           color: inherit;
           width: 100%;
+
           > * {
             line-height: 32px;
             vertical-align: top;
           }
+
           > span {
             text-transform: uppercase;
             margin-right: 5px;
