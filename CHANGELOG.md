@@ -7,6 +7,30 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased][]
 
+## [1.12.1][] - 2018-09-18
+
+### Fix
+
+- **eyebrow-user-info**: provide working image link for local development (#100).
+
+### Build
+
+- **esco-content-menu**: correct main file definition in package (#98).
+- **esco-content-menu**: run build as part of publish process (#99).
+- **eyebrow-user-info**: run build as part of publish process (#99).
+
+### Docs
+
+- **esco-content-menu**: correct usage examples with `esco` prefix (#98).
+
+### Style
+
+- **eyebrow-user-info**: apply stylelint standard to stylesheets (#100).
+
+### Chore
+
+- update dependencies (#94).
+
 ## [1.12.0][] - 2018-09-17
 
 ### Feature
@@ -424,7 +448,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - **open-id-connect**: Initial version of an OpenID Connect helper script to use in web components and JavaScript modules.
 - **content-carousel**: Initial version of content carousel, a carousel based portlet metadata display system.
 
-[unreleased]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.12.0...HEAD
+[unreleased]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.12.1...HEAD
+[1.12.1]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.12.0...v1.12.1
 [1.12.0]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.11.1...v1.12.0
 [1.11.1]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.11.0...v1.11.1
 [1.11.0]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.10.1...v1.11.0
