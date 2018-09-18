@@ -5,6 +5,7 @@
     "prepublishOnly": "npm run build",
     "start": "vue-cli-service serve",
     "build": "vue-cli-service build --name eyebrow-user-info --target wc './src/components/EyebrowUserInfo.vue'",
+    "prebuild": "babel node_modules/@vue/web-component-wrapper/dist/vue-wc-wrapper.js -o node_modules/@vue/web-component-wrapper/dist/vue-wc-wrapper.js",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
@@ -12,10 +13,14 @@
     "vue-i18n": "^8.0.0"
   },
   "devDependencies": {
+    "@babel/cli": "^7.1.0",
+    "@babel/core": "^7.1.0",
+    "@babel/preset-env": "^7.1.0",
     "@kazupon/vue-i18n-loader": "^0.3.0",
     "@vue/cli-plugin-babel": "^3.0.1",
     "@vue/cli-plugin-eslint": "^3.0.1",
     "@vue/cli-service": "^3.0.1",
+    "babel-plugin-transform-custom-element-classes": "^0.1.0",
     "node-sass": "^4.9.3",
     "sass-loader": "^7.1.0",
     "vue-cli-plugin-i18n": "^0.5.0",
@@ -54,9 +59,8 @@
     "user-info"
   ],
   "browserslist": [
-    "> 1%",
     "last 2 versions",
-    "not ie <= 8"
+    "not ie < 11"
   ],
   "main": "dist/eyebrow-user-info.js",
   "repository": {
