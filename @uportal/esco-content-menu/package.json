@@ -2,6 +2,7 @@
   "name": "@uportal/esco-content-menu",
   "version": "1.12.0",
   "scripts": {
+    "prepublishOnly": "npm run build",
     "start": "vue-cli-service serve",
     "build": "vue-cli-service build --name esco --target wc 'src/components/*.vue'",
     "lint": "vue-cli-service lint"

@@ -2,6 +2,7 @@
   "name": "@uportal/eyebrow-user-info",
   "version": "1.12.0",
   "scripts": {
+    "prepublishOnly": "npm run build",
     "start": "vue-cli-service serve",
     "build": "vue-cli-service build --name eyebrow-user-info --target wc './src/components/EyebrowUserInfo.vue'",
     "lint": "vue-cli-service lint"
