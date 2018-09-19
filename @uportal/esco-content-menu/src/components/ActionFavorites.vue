@@ -1,7 +1,9 @@
 <template>
   <div :class="'action-favorites ' + fname" @click="toggleFavorite($event)"
        :title="isFavorite ? translate('message.favorites.remove') : translate('message.favorites.add')">
-    <button class="favorite-button"><icon :name="isFavorite ? 'star' : 'regular/star'" ></icon></button>
+    <button class="favorite-button">
+      <icon :name="isFavorite ? 'star' : 'regular/star'" ></icon>
+    </button>
   </div>
 </template>
 

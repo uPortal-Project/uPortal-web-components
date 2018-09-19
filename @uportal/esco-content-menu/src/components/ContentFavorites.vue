@@ -1,7 +1,9 @@
 <template>
   <section class="content-favorites" :class="showSmall ? 'small' : ''" :style="'background-color:' + backgroundColor">
     <div class="content-favorites-title">
-      <h1>{{ translate("message.favorites.title") }}</h1>
+      <h1>
+        {{ translate("message.favorites.title") }}
+      </h1>
     </div>
     <div class="favorites" :style="favorited.length > 0 ? '' : 'display:none'" ref="favsSection">
       <swiper :options="swiperOption" ref="favSwiper" @transitionEnd="updateSlider">
@@ -11,15 +13,18 @@
                           :favorite-api-url="favoriteApiUrl" :user-info-api-url="userInfoApiUrl"></portlet-card>
           </a>
         </swiper-slide>
-        <!--<div class="swiper-pagination" slot="pagination"></div>-->
       </swiper>
-      <!--<div class="swiper-button-prev" slot="button-prev" ><icon :name="'chevron-left'"></icon></div>-->
-      <!--<div class="swiper-button-next" slot="button-next" ><icon :name="'chevron-right'"></icon></div>-->
-      <div class="swiper-button-prev" :class="disablePrev ? 'fav-swiper-button-disabled' : ''" slot="button-prev" @click="slidePrev($event)"><icon :name="'chevron-left'"></icon></div>
-      <div class="swiper-button-next" :class="disableNext ? 'fav-swiper-button-disabled' : ''" slot="button-next" @click="slideNext($event)"><icon :name="'chevron-right'"></icon></div>
+      <div class="swiper-button-prev" :class="disablePrev ? 'fav-swiper-button-disabled' : ''" slot="button-prev" @click="slidePrev($event)">
+        <icon :name="'chevron-left'"></icon>
+      </div>
+      <div class="swiper-button-next" :class="disableNext ? 'fav-swiper-button-disabled' : ''" slot="button-next" @click="slideNext($event)">
+        <icon :name="'chevron-right'"></icon>
+      </div>
     </div>
     <div class="empty-favorites" :style="favorited.length > 0 ? 'display:none' : ''">
-      <div>{{ translate("message.favorites.empty" )}}</div>
+      <div>
+        {{ translate("message.favorites.empty" )}}
+      </div>
     </div>
   </section>
 </template>

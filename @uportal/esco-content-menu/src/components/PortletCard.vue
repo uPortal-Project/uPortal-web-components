@@ -1,9 +1,15 @@
 <template>
   <div :class="mainClass" >
-    <div class="portlet-card-icon"><div v-if="iconUrl !== null" class="img-wrapper" :style="'background-color:' + iconBackgroundColor"><img :src="iconUrl" :alt="title"></div>
-      <div v-else class="img-wrapper" :style="'background-color:' + iconBackgroundColor"></div></div>
-    <div class="portlet-card-title">{{title}}</div>
-      <div class="portlet-card-description">
+    <div class="portlet-card-icon">
+      <div v-if="iconUrl !== null" class="img-wrapper" :style="'background-color:' + iconBackgroundColor">
+        <img :src="iconUrl" :alt="title">
+      </div>
+      <div v-else class="img-wrapper" :style="'background-color:' + iconBackgroundColor"></div>
+    </div>
+    <div class="portlet-card-title">
+      {{title}}
+    </div>
+    <div class="portlet-card-description">
       <ellipsis :message="description" :line-clamp="2" :line-height="'20px'" :end-char="'...'"></ellipsis>
     </div>
     <div class="portlet-card-action">
@@ -91,15 +97,6 @@ export default {
       return entry.trim();
     }
   }
-  //,
-  // watch: {
-  //   isSmall: {
-  //     handler: function() {
-  //       this.description = "";
-  //       this.description = this.truncate(this.portletDesc.description);
-  //     }
-  //   }
-  // }
 };
 </script>
 
@@ -117,7 +114,7 @@ export default {
   position: relative;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
     0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
-  transition: box-shadow 0.25s, -webkit-box-shadow 0.25s;
+  transition: box-shadow 0.25s;
 
   &:hover {
     cursor: pointer;
