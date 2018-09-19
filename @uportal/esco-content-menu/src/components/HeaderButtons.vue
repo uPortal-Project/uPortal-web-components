@@ -1,8 +1,12 @@
 <template>
-    <section class="content-menu-header-buttons">
-        <button type="button" class="content-menu-close" aria-label="Close" :title="translate('message.buttons.menuClose')" @click="callOnClose($event)"><icon :name="'times'"></icon></button>
-        <a class="signout" :href="signOutUrl" :title="translate('message.buttons.logout')"><icon :name="'sign-out-alt'"></icon></a>
-    </section>
+  <section class="content-menu-header-buttons">
+    <button type="button" class="content-menu-close" aria-label="Close" :title="translate('message.buttons.menuClose')" @click="callOnClose($event)">
+      <icon :name="'times'"></icon>
+    </button>
+    <a class="signout" :href="signOutUrl" :title="translate('message.buttons.logout')">
+      <icon :name="'sign-out-alt'"></icon>
+    </a>
+  </section>
 </template>
 
 

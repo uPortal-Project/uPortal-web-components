@@ -9,16 +9,26 @@
       <div class="user-info">
         <div>
           <div v-if="getUserAvatar() != null" class="user-avatar">
-            <a v-if="userInfoPortletUrl !== ''" :href="userInfoPortletUrl" :title="translate('message.userInfoPortletUrl.title')"><img :src="getUserAvatar()" :alt="'avatar'"/></a>
+            <a v-if="userInfoPortletUrl !== ''" :href="userInfoPortletUrl" :title="translate('message.userInfoPortletUrl.title')">
+              <img :src="getUserAvatar()" :alt="'avatar'"/>
+            </a>
             <img v-else :src="getUserAvatar()" :alt="'avatar'"/>
           </div>
-          <div v-else class="user-avatar"><icon :name="'user'"></icon></div>
+          <div v-else class="user-avatar">
+            <icon :name="'user'"></icon>
+          </div>
           <div class="wrapper-info">
-            <div class="user-name"><span :title="userInfo.name">{{userInfo.name}}</span></div>
+            <div class="user-name">
+              <span :title="userInfo.name">
+                {{userInfo.name}}
+              </span>
+            </div>
             <div class="user-org"><span :title="orgInfo.displayName">{{orgInfo.displayName}}</span></div>
           </div>
           <div v-if="otherOrgs.length > 1" class="other-orgs">
-            <a :href="apiUrlOrgInfo" :title="translate('message.userChangeEtabUrl.title')"><icon :name="'exchange-alt'" ></icon></a>
+            <a :href="apiUrlOrgInfo" :title="translate('message.userChangeEtabUrl.title')">
+              <icon :name="'exchange-alt'" ></icon>
+            </a>
           </div>
         </div>
       </div>

@@ -2,7 +2,11 @@
   <div class="hamburger-menu">
     <div class="content-menu-toggle" @click="toggleMenu($event)"
        aria-label="Menu" role="button" title="Menu" data-toggle="content-menu" aria-expanded="false" aria-haspopup="true" aria-controls="content-menu">
-      <div class="menu-wrapper"><div></div><div></div><div></div></div>
+      <div class="menu-wrapper">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
     </div>
 
     <content-menu default-class="toggler-menu" visible-class="active-menu" :is-hidden="!visible" :default-org-logo="defaultOrgLogo"

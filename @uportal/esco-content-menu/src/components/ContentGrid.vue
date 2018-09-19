@@ -1,30 +1,35 @@
 <template>
-    <section class="content-grid" v-bind:class="{'small' : isSmall}" :style="'background-color:' + backgroundColor">
-        <div>
-            <div class="title">
-                <h1>{{ translate("message.services.title") }}</h1>
-                <div class="filter" :class="visible ? 'opened' : 'closed'">
-                    <span class="content-grid-caret"> <input :title="translate('message.services.filter')" type="text" v-on:input="sourceChanged" list="list"
-                                                :placeholder="translate('message.services.filter')"/>
-                    </span>
-                    <datalist id='list'>
-                        <select>
-                            <option v-for="category in getAllCategories" :value="category" :label="category" :key="category">{{category}}</option>
-                        </select>
-                    </datalist>
-                    <div @click="visible = !visible"><i class="fa fa-search" aria-hidden="true"></i></div>
-                </div>
-            </div>
-            <div class="flex-grid">
-                <div class="flex-item ma-3 text-xs-center" v-for="portlet in filteredPortlets" :key="portlet.id">
-                    <a class="no-style" v-bind:href="portlet.renderUrl" v-bind:target="portlet.layoutObject.altMaxUrl ? '_blank' : '_self'">
-                        <portlet-card :portlet-desc="portlet" :is-favorite="isFavorite(portlet.fname)" :is-small="isSmall" :call-after-action="callAfterAction"
-                                      :favorite-api-url="favoriteApiUrl" :user-info-api-url="userInfoApiUrl"></portlet-card>
-                    </a>
-                </div>
-            </div>
+  <section class="content-grid" v-bind:class="{'small' : isSmall}" :style="'background-color:' + backgroundColor">
+    <div>
+      <div class="title">
+        <h1>{{ translate("message.services.title") }}</h1>
+        <div class="filter" :class="visible ? 'opened' : 'closed'">
+          <span class="content-grid-caret">
+            <input :title="translate('message.services.filter')" type="text" v-on:input="sourceChanged" list="list"
+                                      :placeholder="translate('message.services.filter')"/>
+          </span>
+          <datalist id='list'>
+            <select>
+              <option v-for="category in getAllCategories" :value="category" :label="category" :key="category">
+                {{category}}
+              </option>
+            </select>
+          </datalist>
+          <div @click="visible = !visible">
+            <i class="fa fa-search" aria-hidden="true"></i>
+          </div>
         </div>
-    </section>
+      </div>
+      <div class="flex-grid">
+        <div class="flex-item ma-3 text-xs-center" v-for="portlet in filteredPortlets" :key="portlet.id">
+          <a class="no-style" v-bind:href="portlet.renderUrl" v-bind:target="portlet.layoutObject.altMaxUrl ? '_blank' : '_self'">
+            <portlet-card :portlet-desc="portlet" :is-favorite="isFavorite(portlet.fname)" :is-small="isSmall" :call-after-action="callAfterAction"
+                          :favorite-api-url="favoriteApiUrl" :user-info-api-url="userInfoApiUrl"></portlet-card>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
 </template>
 
 <script>
