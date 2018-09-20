@@ -5,12 +5,12 @@
       <div class="wrapper">
         <content-user :org-info="info.userOrganization" :user-info="info.user" :other-orgs="info.organizations" :is-small="isSmall" :default-org-logo="defaultOrgLogo"
                       :user-info-portlet-url="userInfoPortletUrl" :api-url-org-info="apiUrlOrgInfo"></content-user>
-        <content-favorites :portlets="portlets" :favorites="info.favorites" :call-after-action="actionToggleFav" :is-small="isSmall"
+        <content-favorites :portlets="_portlets" :favorites="info.favorites" :call-after-action="actionToggleFav" :is-small="isSmall"
                            :favorite-api-url="favoriteApiUrl" :is-hidden="isHidden" :user-info-api-url="userInfoApiUrl"></content-favorites>
       </div>
       <div class="background" :style="(backgroundImg != null && !isSmall) ? 'background-image: linear-gradient(0deg, rgba(0,0,0,.2),rgba(0,0,0,.2)), url(' + backgroundImg + ');' : ''"></div>
     </header>
-    <content-grid :portlets="portlets" :favorites="info.favorites" :call-after-action="actionToggleFav" :is-small="isSmall"
+    <content-grid :portlets="_portlets" :favorites="info.favorites" :call-after-action="actionToggleFav" :is-small="isSmall"
                   :favorite-api-url="favoriteApiUrl" :user-info-api-url="userInfoApiUrl" ></content-grid>
   </div>
 </template>
@@ -74,7 +74,8 @@ export default {
         organizations: [],
         user: {},
         userOrganization: {}
-      }
+      },
+      portletsAPI: []
     };
   },
   mounted() {
@@ -269,6 +270,11 @@ export default {
       while (array.length > 0) {
         array.pop();
       }
+    }
+  },
+  computed: {
+    _portlets: function() {
+      return this.portletsAPI;
     }
   },
   watch: {

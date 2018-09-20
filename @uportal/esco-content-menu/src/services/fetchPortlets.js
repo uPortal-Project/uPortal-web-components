@@ -3,7 +3,7 @@ import oidc from "@uportal/open-id-connect";
 export default async function() {
   if (process.env.NODE_ENV === "development") {
     const { portlets } = require("../assets/browseable.json");
-    this.portletsFallback = portlets;
+    this.portletsAPI = portlets;
   } else {
     try {
       const { encoded } = await oidc({
@@ -30,7 +30,7 @@ export default async function() {
 
       const { portlets } = await response.json();
 
-      this.portletsFallback = portlets;
+      this.portletsAPI = portlets;
     } catch (err) {
       // eslint-disable-next-line no-console
       console.error(err);

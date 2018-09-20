@@ -66,7 +66,7 @@ export default {
     return {
       filterValue: "",
       visible: false,
-      portletsFallback: []
+      portletsAPI: []
     };
   },
   mounted() {
@@ -87,7 +87,7 @@ export default {
     _portlets: function() {
       // if portlets are passed as a prop, use the prop
       // otherwise use a local fallback copy of portlets
-      return this.portlets || this.portletsFallback;
+      return this.portlets || this.portletsAPI;
     },
     allCategories: function() {
       const allCategories = this._portlets.flatMap(
