@@ -12,7 +12,7 @@
           </span>
           <datalist id='list'>
             <select>
-              <option v-for="category in getAllCategories" :value="category" :label="category" :key="category">
+              <option v-for="category in allCategories" :value="category" :label="category" :key="category">
                 {{category}}
               </option>
             </select>
@@ -76,7 +76,7 @@ export default {
     }
   },
   computed: {
-    getAllCategories: function() {
+    allCategories: function() {
       const allCategories = this.portlets.flatMap(
         ({ categories }) => categories
       );
