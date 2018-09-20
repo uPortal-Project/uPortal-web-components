@@ -105,10 +105,9 @@ export default {
     },
     computeCurrentOrg: function() {
       if (
-        this.info.organizations &&
         this.info.user &&
         this.info.user.ESCOSIRENCourant &&
-        this.info.organizations.length > 0
+        this.info.organizations?.length > 0
       ) {
         this.info.userOrganization = Object.assign(
           {},
@@ -125,10 +124,8 @@ export default {
         );
       }
       if (
-        this.info.userOrganization &&
-        this.info.userOrganization.otherAttributes &&
-        this.info.userOrganization.otherAttributes.ESCOStructureLogo &&
-        this.info.userOrganization.otherAttributes.ESCOStructureLogo.length > 0
+        this.info.userOrganization?.otherAttributes?.ESCOStructureLogo?.length >
+        0
       ) {
         this.backgroundImg =
           process.env.VUE_APP_PORTAL_BASE_URL +
@@ -137,9 +134,9 @@ export default {
     },
     fetchUserInfo() {
       if (process.env.NODE_ENV === "development") {
-        let userInfo = require("../assets/userinfo");
-        this.info.user = Object.assign({}, this.info.user, userInfo);
-        let orgsInfo = require("../assets/orginfo");
+        const userInfo = require("../assets/userinfo");
+        this.info.user = { ...this.info.user, ...userInfo };
+        const orgsInfo = require("../assets/orginfo");
         setTimeout(() => {
           this.emptyArray(this.info.organizations);
           for (let prop in orgsInfo) {
@@ -256,16 +253,12 @@ export default {
               .then(parseJSON)
               .then(data => {
                 if (
-                  data &&
-                  data.authenticated &&
-                  data.layout &&
-                  data.layout.globals &&
-                  data.layout.globals.hasFavorites
+                  data?.authenticated &&
+                  data?.layout?.globals?.hasFavorites &&
+                  data?.layout?.favorites
                 ) {
-                  if (data.layout.favorites) {
-                    this.emptyArray(this.info.favorites);
-                    this.computeFavoritesContent(data.layout.favorites);
-                  }
+                  this.emptyArray(this.info.favorites);
+                  this.computeFavoritesContent(data.layout.favorites);
                 }
               });
           })

@@ -76,8 +76,8 @@ export default {
     },
     sourceChanged: function(event) {
       this.emptyArray(this.filteredPortlets);
-      let filterValue = event && event.target ? event.target.value : null;
-      if (filterValue !== null) {
+      const filterValue = event?.target?.value;
+      if (filterValue !== undefined) {
         let tmp = this.portlets.filter(function(portlet) {
           let cats = portlet.categories.filter(
             cat => cat.toLowerCase().indexOf(filterValue.toLowerCase()) !== -1

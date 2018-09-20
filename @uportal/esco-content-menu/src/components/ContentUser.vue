@@ -65,12 +65,7 @@ export default {
       return i18n.t(text, lang);
     },
     hasOrgImage() {
-      return (
-        this.orgInfo !== {} &&
-        this.orgInfo.otherAttributes &&
-        this.orgInfo.otherAttributes.ESCOStructureLogo &&
-        this.orgInfo.otherAttributes.ESCOStructureLogo.length > 0
-      );
+      return this?.orgInfo?.otherAttributes?.ESCOStructureLogo?.length > 0;
     },
     getOrgImgUrl() {
       return this.hasOrgImage()
