@@ -50,6 +50,10 @@ export default {
         process.env.VUE_APP_PORTAL_CONTEXT +
         process.env.VUE_APP_FAVORITES_PORTLETS_URI
     },
+    contextApiUrl: {
+      type: String,
+      default: process.env.VUE_APP_PORTAL_CONTEXT
+    },
     userInfoApiUrl: {
       type: String,
       default:
