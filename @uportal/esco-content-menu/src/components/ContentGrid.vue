@@ -2,11 +2,13 @@
   <section class="content-grid" v-bind:class="{'small' : isSmall}" :style="'background-color:' + backgroundColor">
     <div>
       <div class="title">
-        <h1>{{ translate("message.services.title") }}</h1>
+        <h1>
+          {{ translate("message.services.title") }}
+        </h1>
         <div class="filter" :class="visible ? 'opened' : 'closed'">
           <span class="content-grid-caret">
             <input :title="translate('message.services.filter')" type="text" v-on:input="sourceChanged" list="list"
-                                      :placeholder="translate('message.services.filter')"/>
+                                      :placeholder="translate('message.services.filter')" />
           </span>
           <datalist id='list'>
             <select>
@@ -135,24 +137,30 @@ export default {
 
 <style lang="scss" scoped>
 $searchSize: 32px;
+
 .content-grid {
   min-width: 250px;
 
   ::placeholder {
     font-style: italic;
   }
+
   ::-webkit-input-placeholder {
     font-style: italic;
   }
+
   :-moz-placeholder {
     font-style: italic;
   }
+
   ::-moz-placeholder {
     font-style: italic;
   }
+
   :-ms-input-placeholder {
     font-style: italic;
   }
+
   ::-ms-input-placeholder {
     font-style: italic;
   }
@@ -161,6 +169,7 @@ $searchSize: 32px;
     position: relative;
     cursor: pointer;
   }
+
   .content-grid-caret:after {
     content: "";
     position: absolute;
@@ -185,6 +194,7 @@ $searchSize: 32px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+
   .fa-search:before {
     content: "\f002";
   }
@@ -193,9 +203,11 @@ $searchSize: 32px;
     .content-grid-caret:after {
       border: none;
     }
+
     > div {
       background-color: #f3f3f3;
       border-radius: 5px;
+
       > .title {
         position: relative;
         background-color: white;
@@ -204,6 +216,7 @@ $searchSize: 32px;
         > h1 {
           margin-right: $searchSize;
         }
+
         > .filter {
           margin: auto 0;
           position: absolute;
@@ -216,25 +229,30 @@ $searchSize: 32px;
 
           &.closed {
             width: $searchSize;
+
             input {
               visibility: hidden;
             }
           }
+
           > span {
             width: 100%;
           }
+
           > div {
             display: -webkit-box;
             display: -ms-flexbox;
             display: flex;
             align-items: center;
             text-align: center;
+
             > .fa {
               margin-left: 5px;
               font-size: $searchSize;
               opacity: 0.4;
             }
           }
+
           &.opened {
             transition: width 1s;
             backface-visibility: hidden;
@@ -288,6 +306,7 @@ $searchSize: 32px;
             display: none; /* remove default arrow */
           }
         }
+
         > div {
           display: none;
         }
@@ -297,10 +316,12 @@ $searchSize: 32px;
       display: flex;
       flex-flow: row wrap;
       justify-content: center;
+
       .flex-item {
         margin: 20px 5px;
       }
     }
+
     a.no-style {
       text-decoration: none;
       color: inherit;
