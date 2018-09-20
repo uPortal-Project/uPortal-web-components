@@ -37,6 +37,7 @@
 <script>
 import i18n from "../i18n.js";
 import PortletCard from "./PortletCard";
+import oidc from "@uportal/open-id-connect";
 
 export default {
   name: "ContentGrid",
@@ -56,7 +57,7 @@ export default {
     },
     favorites: { type: Array, required: true, default: () => [] },
     isSmall: { type: Boolean, default: false },
-    portlets: { type: Array, required: true, default: () => [] }
+    portlets: Array
   },
   components: {
     PortletCard
@@ -64,20 +65,69 @@ export default {
   data() {
     return {
       filterValue: "",
-      visible: false
+      visible: false,
+      portletsFallback: []
     };
+  },
+  mounted() {
+    if (!this.portlets) {
+      this.fetchPortlets();
+    }
   },
   methods: {
     translate: function(text, lang) {
       return i18n.t(text, lang);
     },
     isFavorite: function(fname) {
-      return this.favorites.indexOf(fname) > -1;
+      return this.favorites.includes(fname);
+    },
+    async fetchPortlets() {
+      if (process.env.NODE_ENV === "development") {
+        const { portlets } = require("../assets/browseable.json");
+        this.portletsFallback = portlets;
+      } else {
+        try {
+          const { encoded } = await oidc({
+            userInfoApiUrl:
+              this.contextApiUrl + process.env.VUE_APP_USER_INFO_URI
+          });
+
+          const options = {
+            method: "GET",
+            credentials: "same-origin",
+            headers: {
+              Authorization: "Bearer " + encoded,
+              "Content-Type": "application/json"
+            }
+          };
+
+          const response = await fetch(
+            this.contextApiUrl + process.env.VUE_APP_BROWSABLE_PORTLETS_URI,
+            options
+          );
+
+          if (!response.ok) {
+            throw new Error(response.statusText);
+          }
+
+          const { portlets } = await response.json();
+
+          this.portletsFallback = portlets;
+        } catch (err) {
+          // eslint-disable-next-line no-console
+          console.error(err);
+        }
+      }
     }
   },
   computed: {
+    _portlets: function() {
+      // if portlets are passed as a prop, use the prop
+      // otherwise use a local fallback copy of portlets
+      return this.portlets || this.portletsFallback;
+    },
     allCategories: function() {
-      const allCategories = this.portlets.flatMap(
+      const allCategories = this._portlets.flatMap(
         ({ categories }) => categories
       );
       const uniqueCategories = [...new Set(allCategories)];
@@ -85,11 +135,12 @@ export default {
     },
     filteredPortlets: function() {
       const filterValue = this.filterValue.toLowerCase();
+
       if (filterValue === "") {
-        return this.portlets;
+        return this._portlets;
       }
 
-      return this.portlets.filter(
+      return this._portlets.filter(
         ({ categories, title, name, description }) =>
           categories.some(cat => cat.toLowerCase().includes(filterValue)) ||
           title.toLowerCase().includes(filterValue) ||
