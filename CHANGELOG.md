@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased][]
 
+### Feature
+
+- **esco-content-menu**: `esco-content-grid` can now be run as a stand alone component (#103).
+
+### Style
+
+- **esco-content-menu**: format code so tags each appear on a new line (#102).
+- **esco-content-menu**: leverage optional chaining syntax (#103).
+- **esco-content-menu**: align stylesheets more with stylelint standard (#103).
+
 ## [1.12.1][] - 2018-09-18
 
 ### Fix
