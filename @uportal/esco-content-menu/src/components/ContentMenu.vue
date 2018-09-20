@@ -5,12 +5,12 @@
       <div class="wrapper">
         <content-user :org-info="info.userOrganization" :user-info="info.user" :other-orgs="info.organizations" :is-small="isSmall" :default-org-logo="defaultOrgLogo"
                       :user-info-portlet-url="userInfoPortletUrl" :api-url-org-info="apiUrlOrgInfo"></content-user>
-        <content-favorites :portlets="info.portlets" :favorites="info.favorites" :call-after-action="actionToggleFav" :is-small="isSmall"
+        <content-favorites :portlets="portlets" :favorites="info.favorites" :call-after-action="actionToggleFav" :is-small="isSmall"
                            :favorite-api-url="favoriteApiUrl" :is-hidden="isHidden" :user-info-api-url="userInfoApiUrl"></content-favorites>
       </div>
       <div class="background" :style="(backgroundImg != null && !isSmall) ? 'background-image: linear-gradient(0deg, rgba(0,0,0,.2),rgba(0,0,0,.2)), url(' + backgroundImg + ');' : ''"></div>
     </header>
-    <content-grid :portlets="info.portlets" :favorites="info.favorites" :call-after-action="actionToggleFav" :is-small="isSmall"
+    <content-grid :portlets="portlets" :favorites="info.favorites" :call-after-action="actionToggleFav" :is-small="isSmall"
                   :favorite-api-url="favoriteApiUrl" :user-info-api-url="userInfoApiUrl" ></content-grid>
   </div>
 </template>
@@ -21,6 +21,7 @@ import ContentGrid from "./ContentGrid";
 import ContentUser from "./ContentUser";
 import HeaderButtons from "./HeaderButtons";
 import oidc from "@uportal/open-id-connect";
+import fetchPortlets from "../services/fetchPortlets";
 
 const checkStatus = function(response) {
   //console.log("check response ", response);
@@ -69,7 +70,6 @@ export default {
       visible: !this.isHidden,
       minHeight: "100vh",
       info: {
-        portlets: [],
         favorites: [],
         organizations: [],
         user: {},
@@ -182,45 +182,7 @@ export default {
           });
       }
     },
-    fetchPortlets() {
-      if (process.env.NODE_ENV === "development") {
-        let data = require("../assets/browseable.json");
-        this.emptyArray(this.info.portlets);
-        setTimeout(() => {
-          this.info.portlets.push(...data.portlets);
-          this.info.portlets.sort(this.sortPortlets);
-        }, 1000);
-      } else {
-        oidc({
-          userInfoApiUrl: this.contextApiUrl + process.env.VUE_APP_USER_INFO_URI
-        })
-          .then(token => {
-            const options = {
-              method: "GET",
-              credentials: "same-origin",
-              headers: {
-                Authorization: "Bearer " + token.encoded,
-                "Content-Type": "application/json"
-              }
-            };
-            fetch(
-              this.contextApiUrl + process.env.VUE_APP_BROWSABLE_PORTLETS_URI,
-              options
-            )
-              .then(checkStatus)
-              .then(parseJSON)
-              .then(data => {
-                this.emptyArray(this.info.portlets);
-                this.info.portlets.push(...data.portlets);
-                this.info.portlets.sort(this.sortPortlets);
-              });
-          })
-
-          .catch(function(err) {
-            console.error(err);
-          });
-      }
-    },
+    fetchPortlets,
     fetchFavorites() {
       if (process.env.NODE_ENV === "development") {
         this.emptyArray(this.info.favorites);

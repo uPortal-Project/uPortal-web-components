@@ -37,7 +37,7 @@
 <script>
 import i18n from "../i18n.js";
 import PortletCard from "./PortletCard";
-import oidc from "@uportal/open-id-connect";
+import fetchPortlets from "../services/fetchPortlets";
 
 export default {
   name: "ContentGrid",
@@ -81,44 +81,7 @@ export default {
     isFavorite: function(fname) {
       return this.favorites.includes(fname);
     },
-    async fetchPortlets() {
-      if (process.env.NODE_ENV === "development") {
-        const { portlets } = require("../assets/browseable.json");
-        this.portletsFallback = portlets;
-      } else {
-        try {
-          const { encoded } = await oidc({
-            userInfoApiUrl:
-              this.contextApiUrl + process.env.VUE_APP_USER_INFO_URI
-          });
-
-          const options = {
-            method: "GET",
-            credentials: "same-origin",
-            headers: {
-              Authorization: "Bearer " + encoded,
-              "Content-Type": "application/json"
-            }
-          };
-
-          const response = await fetch(
-            this.contextApiUrl + process.env.VUE_APP_BROWSABLE_PORTLETS_URI,
-            options
-          );
-
-          if (!response.ok) {
-            throw new Error(response.statusText);
-          }
-
-          const { portlets } = await response.json();
-
-          this.portletsFallback = portlets;
-        } catch (err) {
-          // eslint-disable-next-line no-console
-          console.error(err);
-        }
-      }
-    }
+    fetchPortlets
   },
   computed: {
     _portlets: function() {
