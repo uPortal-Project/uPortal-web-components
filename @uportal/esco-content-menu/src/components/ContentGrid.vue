@@ -108,19 +108,11 @@ export default {
   },
   computed: {
     getAllCategories: function() {
-      let cats = [];
-      for (let i = 0, size = this.portlets.length; i < size; i++) {
-        for (
-          let j = 0, categories = this.portlets[i].categories;
-          j < categories.length;
-          j++
-        ) {
-          if (cats.indexOf(categories[j]) === -1) {
-            cats.push(categories[j]);
-          }
-        }
-      }
-      return cats.sort();
+      const allCategories = this.portlets.flatMap(
+        ({ categories }) => categories
+      );
+      const uniqueCategories = [...new Set(allCategories)];
+      return uniqueCategories.sort();
     }
   },
   watch: {
