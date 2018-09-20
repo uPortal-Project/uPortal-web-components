@@ -50,6 +50,15 @@ To use all of the on page components without the side navigation:
 <esco-content-menu default-org-logo="https://lycees.netocentre.fr/annuaire_images/default_banner_v1.jpg" api-url-org-info="/p/test"></esco-content-menu>
 ```
 
+To use just the content grid:
+
+```html
+<script src="https://unpkg.com/vue"></script>
+<script src="https://unpkg.com/@uportal/esco-content-menu"></script>
+
+<esco-content-grid></esco-content-grid>
+```
+
 ## FAQ
 
 - Q: What does "ESCO" mean?

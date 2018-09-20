@@ -55,7 +55,7 @@ export default {
       default:
         process.env.VUE_APP_PORTAL_CONTEXT + process.env.VUE_APP_USER_INFO_URI
     },
-    favorites: { type: Array, required: true, default: () => [] },
+    favorites: { type: Array, default: () => [] },
     isSmall: { type: Boolean, default: false },
     portlets: Array
   },
