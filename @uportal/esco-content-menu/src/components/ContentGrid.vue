@@ -2,15 +2,17 @@
   <section class="content-grid" v-bind:class="{'small' : isSmall}" :style="'background-color:' + backgroundColor">
     <div>
       <div class="title">
-        <h1>{{ translate("message.services.title") }}</h1>
+        <h1>
+          {{ translate("message.services.title") }}
+        </h1>
         <div class="filter" :class="visible ? 'opened' : 'closed'">
           <span class="content-grid-caret">
-            <input :title="translate('message.services.filter')" type="text" v-on:input="sourceChanged" list="list"
-                                      :placeholder="translate('message.services.filter')"/>
+            <input :title="translate('message.services.filter')" type="text" list="list" v-model.trim="filterValue"
+                                      :placeholder="translate('message.services.filter')" />
           </span>
           <datalist id='list'>
             <select>
-              <option v-for="category in getAllCategories" :value="category" :label="category" :key="category">
+              <option v-for="category in allCategories" :value="category" :label="category" :key="category">
                 {{category}}
               </option>
             </select>
@@ -35,6 +37,7 @@
 <script>
 import i18n from "../i18n.js";
 import PortletCard from "./PortletCard";
+import fetchPortlets from "../services/fetchPortlets";
 
 export default {
   name: "ContentGrid",
@@ -54,80 +57,59 @@ export default {
     },
     favorites: { type: Array, required: true, default: () => [] },
     isSmall: { type: Boolean, default: false },
-    portlets: { type: Array, required: true, default: () => [] }
+    portlets: Array
   },
   components: {
     PortletCard
   },
   data() {
     return {
-      filteredPortlets: [],
-      visible: false
+      filterValue: "",
+      visible: false,
+      portletsAPI: []
     };
+  },
+  mounted() {
+    if (!this.portlets) {
+      this.fetchPortlets();
+    }
   },
   methods: {
     translate: function(text, lang) {
       return i18n.t(text, lang);
     },
     isFavorite: function(fname) {
-      return this.favorites.indexOf(fname) > -1;
+      return this.favorites.includes(fname);
     },
-    sourceChanged: function(event) {
-      this.emptyArray(this.filteredPortlets);
-      let filterValue = event && event.target ? event.target.value : null;
-      if (filterValue !== null) {
-        let tmp = this.portlets.filter(function(portlet) {
-          let cats = portlet.categories.filter(
-            cat => cat.toLowerCase().indexOf(filterValue.toLowerCase()) !== -1
-          );
-          return (
-            cats.length > 0 ||
-            portlet.title.toLowerCase().indexOf(filterValue.toLowerCase()) !==
-              -1 ||
-            portlet.name.toLowerCase().indexOf(filterValue.toLowerCase()) !==
-              -1 ||
-            portlet.description
-              .toLowerCase()
-              .indexOf(filterValue.toLowerCase()) !== -1
-          );
-        });
-        this.filteredPortlets.push(...tmp);
-      } else {
-        //this.filteredPortlets = this.portlets.sort(this.sortPortlets);
-        this.filteredPortlets.push(...this.portlets);
-      }
-      //this.filteredPortlets.sort(this.sortPortlets);
-    },
-    emptyArray: function(array) {
-      while (array.length > 0) {
-        array.pop();
-      }
-    }
+    fetchPortlets
   },
   computed: {
-    getAllCategories: function() {
-      let cats = [];
-      for (let i = 0, size = this.portlets.length; i < size; i++) {
-        for (
-          let j = 0, categories = this.portlets[i].categories;
-          j < categories.length;
-          j++
-        ) {
-          if (cats.indexOf(categories[j]) === -1) {
-            cats.push(categories[j]);
-          }
-        }
+    _portlets: function() {
+      // if portlets are passed as a prop, use the prop
+      // otherwise use a local fallback copy of portlets
+      return this.portlets || this.portletsAPI;
+    },
+    allCategories: function() {
+      const allCategories = this._portlets.flatMap(
+        ({ categories }) => categories
+      );
+      const uniqueCategories = [...new Set(allCategories)];
+      return uniqueCategories.sort();
+    },
+    filteredPortlets: function() {
+      const filterValue = this.filterValue.toLowerCase();
+
+      if (filterValue === "") {
+        return this._portlets;
       }
-      return cats.sort();
-    }
-  },
-  watch: {
-    portlets: {
-      handler: function(oldVal, newVal) {
-        if (newVal.length > 0) {
-          this.sourceChanged();
-        }
-      }
+
+      return this._portlets.filter(
+        ({ categories, title, name, description }) =>
+          categories.some(cat => cat.toLowerCase().includes(filterValue)) ||
+          title.toLowerCase().includes(filterValue) ||
+          name.toLowerCase().includes(filterValue) ||
+          description.toLowerCase().includes(filterValue)
+      );
     }
   }
 };
@@ -135,24 +117,30 @@ export default {
 
 <style lang="scss" scoped>
 $searchSize: 32px;
+
 .content-grid {
   min-width: 250px;
 
   ::placeholder {
     font-style: italic;
   }
+
   ::-webkit-input-placeholder {
     font-style: italic;
   }
+
   :-moz-placeholder {
     font-style: italic;
   }
+
   ::-moz-placeholder {
     font-style: italic;
   }
+
   :-ms-input-placeholder {
     font-style: italic;
   }
+
   ::-ms-input-placeholder {
     font-style: italic;
   }
@@ -161,6 +149,7 @@ $searchSize: 32px;
     position: relative;
     cursor: pointer;
   }
+
   .content-grid-caret:after {
     content: "";
     position: absolute;
@@ -185,6 +174,7 @@ $searchSize: 32px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+
   .fa-search:before {
     content: "\f002";
   }
@@ -193,9 +183,11 @@ $searchSize: 32px;
     .content-grid-caret:after {
       border: none;
     }
+
     > div {
       background-color: #f3f3f3;
       border-radius: 5px;
+
       > .title {
         position: relative;
         background-color: white;
@@ -204,6 +196,7 @@ $searchSize: 32px;
         > h1 {
           margin-right: $searchSize;
         }
+
         > .filter {
           margin: auto 0;
           position: absolute;
@@ -216,25 +209,30 @@ $searchSize: 32px;
 
           &.closed {
             width: $searchSize;
+
             input {
               visibility: hidden;
             }
           }
+
           > span {
             width: 100%;
           }
+
           > div {
             display: -webkit-box;
             display: -ms-flexbox;
             display: flex;
             align-items: center;
             text-align: center;
+
             > .fa {
               margin-left: 5px;
               font-size: $searchSize;
               opacity: 0.4;
             }
           }
+
           &.opened {
             transition: width 1s;
             backface-visibility: hidden;
@@ -288,6 +286,7 @@ $searchSize: 32px;
             display: none; /* remove default arrow */
           }
         }
+
         > div {
           display: none;
         }
@@ -297,10 +296,12 @@ $searchSize: 32px;
       display: flex;
       flex-flow: row wrap;
       justify-content: center;
+
       .flex-item {
         margin: 20px 5px;
       }
     }
+
     a.no-style {
       text-decoration: none;
       color: inherit;

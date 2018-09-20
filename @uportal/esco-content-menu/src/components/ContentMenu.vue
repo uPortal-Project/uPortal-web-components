@@ -5,12 +5,12 @@
       <div class="wrapper">
         <content-user :org-info="info.userOrganization" :user-info="info.user" :other-orgs="info.organizations" :is-small="isSmall" :default-org-logo="defaultOrgLogo"
                       :user-info-portlet-url="userInfoPortletUrl" :api-url-org-info="apiUrlOrgInfo"></content-user>
-        <content-favorites :portlets="info.portlets" :favorites="info.favorites" :call-after-action="actionToggleFav" :is-small="isSmall"
+        <content-favorites :portlets="_portlets" :favorites="info.favorites" :call-after-action="actionToggleFav" :is-small="isSmall"
                            :favorite-api-url="favoriteApiUrl" :is-hidden="isHidden" :user-info-api-url="userInfoApiUrl"></content-favorites>
       </div>
       <div class="background" :style="(backgroundImg != null && !isSmall) ? 'background-image: linear-gradient(0deg, rgba(0,0,0,.2),rgba(0,0,0,.2)), url(' + backgroundImg + ');' : ''"></div>
     </header>
-    <content-grid :portlets="info.portlets" :favorites="info.favorites" :call-after-action="actionToggleFav" :is-small="isSmall"
+    <content-grid :portlets="_portlets" :favorites="info.favorites" :call-after-action="actionToggleFav" :is-small="isSmall"
                   :favorite-api-url="favoriteApiUrl" :user-info-api-url="userInfoApiUrl" ></content-grid>
   </div>
 </template>
@@ -21,6 +21,7 @@ import ContentGrid from "./ContentGrid";
 import ContentUser from "./ContentUser";
 import HeaderButtons from "./HeaderButtons";
 import oidc from "@uportal/open-id-connect";
+import fetchPortlets from "../services/fetchPortlets";
 
 const checkStatus = function(response) {
   //console.log("check response ", response);
@@ -69,12 +70,12 @@ export default {
       visible: !this.isHidden,
       minHeight: "100vh",
       info: {
-        portlets: [],
         favorites: [],
         organizations: [],
         user: {},
         userOrganization: {}
-      }
+      },
+      portletsAPI: []
     };
   },
   mounted() {
@@ -105,10 +106,9 @@ export default {
     },
     computeCurrentOrg: function() {
       if (
-        this.info.organizations &&
         this.info.user &&
         this.info.user.ESCOSIRENCourant &&
-        this.info.organizations.length > 0
+        this.info.organizations?.length > 0
       ) {
         this.info.userOrganization = Object.assign(
           {},
@@ -125,10 +125,8 @@ export default {
         );
       }
       if (
-        this.info.userOrganization &&
-        this.info.userOrganization.otherAttributes &&
-        this.info.userOrganization.otherAttributes.ESCOStructureLogo &&
-        this.info.userOrganization.otherAttributes.ESCOStructureLogo.length > 0
+        this.info.userOrganization?.otherAttributes?.ESCOStructureLogo?.length >
+        0
       ) {
         this.backgroundImg =
           process.env.VUE_APP_PORTAL_BASE_URL +
@@ -137,9 +135,9 @@ export default {
     },
     fetchUserInfo() {
       if (process.env.NODE_ENV === "development") {
-        let userInfo = require("../assets/userinfo");
-        this.info.user = Object.assign({}, this.info.user, userInfo);
-        let orgsInfo = require("../assets/orginfo");
+        const userInfo = require("../assets/userinfo");
+        this.info.user = { ...this.info.user, ...userInfo };
+        const orgsInfo = require("../assets/orginfo");
         setTimeout(() => {
           this.emptyArray(this.info.organizations);
           for (let prop in orgsInfo) {
@@ -185,45 +183,7 @@ export default {
           });
       }
     },
-    fetchPortlets() {
-      if (process.env.NODE_ENV === "development") {
-        let data = require("../assets/browseable.json");
-        this.emptyArray(this.info.portlets);
-        setTimeout(() => {
-          this.info.portlets.push(...data.portlets);
-          this.info.portlets.sort(this.sortPortlets);
-        }, 1000);
-      } else {
-        oidc({
-          userInfoApiUrl: this.contextApiUrl + process.env.VUE_APP_USER_INFO_URI
-        })
-          .then(token => {
-            const options = {
-              method: "GET",
-              credentials: "same-origin",
-              headers: {
-                Authorization: "Bearer " + token.encoded,
-                "Content-Type": "application/json"
-              }
-            };
-            fetch(
-              this.contextApiUrl + process.env.VUE_APP_BROWSABLE_PORTLETS_URI,
-              options
-            )
-              .then(checkStatus)
-              .then(parseJSON)
-              .then(data => {
-                this.emptyArray(this.info.portlets);
-                this.info.portlets.push(...data.portlets);
-                this.info.portlets.sort(this.sortPortlets);
-              });
-          })
-
-          .catch(function(err) {
-            console.error(err);
-          });
-      }
-    },
+    fetchPortlets,
     fetchFavorites() {
       if (process.env.NODE_ENV === "development") {
         this.emptyArray(this.info.favorites);
@@ -256,16 +216,12 @@ export default {
               .then(parseJSON)
               .then(data => {
                 if (
-                  data &&
-                  data.authenticated &&
-                  data.layout &&
-                  data.layout.globals &&
-                  data.layout.globals.hasFavorites
+                  data?.authenticated &&
+                  data?.layout?.globals?.hasFavorites &&
+                  data?.layout?.favorites
                 ) {
-                  if (data.layout.favorites) {
-                    this.emptyArray(this.info.favorites);
-                    this.computeFavoritesContent(data.layout.favorites);
-                  }
+                  this.emptyArray(this.info.favorites);
+                  this.computeFavoritesContent(data.layout.favorites);
                 }
               });
           })
@@ -314,6 +270,11 @@ export default {
       while (array.length > 0) {
         array.pop();
       }
+    }
+  },
+  computed: {
+    _portlets: function() {
+      return this.portletsAPI;
     }
   },
   watch: {
