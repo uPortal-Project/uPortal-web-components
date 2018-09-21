@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased][]
 
+## [1.13.1][] - 2018-09-20
+
+### Fix
+
+- **esco-content-grid**: setup `contextApiUrl` inside the content grid (#104).
+
 ## [1.13.0][] - 2018-09-20
 
 ### Feature
@@ -460,7 +466,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - **open-id-connect**: Initial version of an OpenID Connect helper script to use in web components and JavaScript modules.
 - **content-carousel**: Initial version of content carousel, a carousel based portlet metadata display system.
 
-[unreleased]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.13.0...HEAD
+[unreleased]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.13.1...HEAD
+[1.13.1]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.13.0...v1.13.1
 [1.13.0]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.12.1...v1.13.0
 [1.12.1]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.12.0...v1.12.1
 [1.12.0]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.11.1...v1.12.0
