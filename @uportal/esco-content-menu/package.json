@@ -1,6 +1,6 @@
 {
   "name": "@uportal/esco-content-menu",
-  "version": "1.13.0",
+  "version": "1.13.1",
   "scripts": {
     "prepublishOnly": "npm run build",
     "start": "vue-cli-service serve",
