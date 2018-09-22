@@ -1,6 +1,6 @@
 {
   "name": "@uportal/esco-content-menu",
-  "version": "1.13.1",
+  "version": "1.13.2",
   "scripts": {
     "prepublishOnly": "npm run build",
     "start": "vue-cli-service serve",
@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "@babel/plugin-proposal-optional-chaining": "^7.0.0",
-    "@uportal/open-id-connect": "^1.12.1",
+    "@uportal/open-id-connect": "^1.13.2",
     "datalist-polyfill": "^1.22.1",
     "vue": "^2.5.17",
     "vue-awesome": "^3.1.3",
