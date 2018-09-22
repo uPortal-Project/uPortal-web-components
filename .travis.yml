@@ -4,9 +4,10 @@ install:
   - npm ci
   - npm run bootstrap
 script:
-  - npm test
   - npm run lint
+  - npm test
   - npm run ci:commitlint
+  - npx lerna run build
 cache:
   directories:
     - ~/.npm

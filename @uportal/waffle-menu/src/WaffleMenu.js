@@ -166,7 +166,7 @@ class WaffleMenu extends Component {
     // prettier-ignore
     // eslint-disable-next-line max-len
     defaultIcon: '/ResourceServingWebapp/rs/tango/0.8.90/32x32/categories/applications-other.png',
-    truncateLength: 50,
+    truncateLength: '50',
   };
 
   // Default component state
@@ -287,7 +287,7 @@ class WaffleMenu extends Component {
       dataLoaded && (
         <WaffleMenuContainer>
           <WaffleTrigger
-            innerRef={(node) => (this.buttonRef = node)}
+            ref={(node) => (this.buttonRef = node)}
             onClick={() => this.toggleMenu()}
           >
             <FontAwesomeIcon icon={faTh} color={buttonColor} size="2x" />
@@ -299,7 +299,7 @@ class WaffleMenu extends Component {
             )}
           </WaffleTrigger>
           <WaffleDropdown
-            innerRef={(node) => (this.menuRef = node)}
+            ref={(node) => (this.menuRef = node)}
             style={{
               display: menuOpen ? 'flex' : 'none',
             }}

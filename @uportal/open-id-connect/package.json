@@ -47,12 +47,12 @@
     "regenerator-runtime": "^0.12.1"
   },
   "devDependencies": {
-    "@babel/cli": "^7.0.0",
-    "@babel/core": "^7.0.0",
-    "@babel/preset-env": "^7.0.0",
+    "@babel/cli": "^7.1.0",
+    "@babel/core": "^7.1.0",
+    "@babel/preset-env": "^7.1.0",
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^23.0.0",
-    "eslint-plugin-jest": "^21.22.0",
+    "eslint-plugin-jest": "^21.22.1",
     "jest": "^23.5.0",
     "npm-run-all": "^4.1.3"
   },
