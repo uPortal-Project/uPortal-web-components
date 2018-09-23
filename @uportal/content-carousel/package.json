@@ -10,8 +10,7 @@
     "prepublishOnly": "npm run build",
     "start": "vue-cli-service serve",
     "prebuild": "babel node_modules/@vue/web-component-wrapper/dist/vue-wc-wrapper.js -o node_modules/@vue/web-component-wrapper/dist/vue-wc-wrapper.js",
-    "build": "vue-cli-service build --name content-carousel --target wc 'src/components/*.vue'",
-    "lint": "vue-cli-service lint"
+    "build": "vue-cli-service build --name content-carousel --target wc 'src/components/*.vue'"
   },
   "dependencies": {
     "@types/xml2js": "^0.4.3",

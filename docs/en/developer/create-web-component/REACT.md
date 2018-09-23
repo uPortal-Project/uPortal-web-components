@@ -6,17 +6,17 @@
 
 ## Advantages
 
-* React has a large developer community
+- React has a large developer community
 
 ## Trade offs
 
-* React does not officially support web components, and does not intend to
-* React DOM adds ~100kb to each component
+- React does not officially support web components, and does not intend to
+- React DOM adds ~100kb to each component
 
 ## Prerequisites
 
-* [Git][]
-* [Node.js][] 10.3+ (using [NVM][] is recommended)
+- [Git][]
+- [Node.js][] 10.3+ (using [NVM][] is recommended)
 
 ## Setup
 

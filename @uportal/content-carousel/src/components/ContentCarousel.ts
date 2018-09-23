@@ -1,15 +1,15 @@
-import { Component, Prop, Vue, Watch } from 'vue-property-decorator';
+import {PortletStrategy} from '@/lib/PortletStrategy';
+import {RssStrategy} from '@/lib/RssStrategy';
+import {Component, Prop, Vue, Watch} from 'vue-property-decorator';
 import Slick from 'vue-slick';
-import { DataStrategy } from '../lib/DataStrategy';
-import { CarouselItem } from '../lib/CarouselItem';
-import { RssStrategy } from '@/lib/RssStrategy';
-import { PortletStrategy } from '@/lib/PortletStrategy';
+import {CarouselItem} from '../lib/CarouselItem';
+import {DataStrategy} from '../lib/DataStrategy';
 
 @Component({
   components: {
-    Slick,
+  Slick,
   },
-})
+  })
 export default class ContentCarousel extends Vue {
   get height(): string {
     return this.carouselHeight;
@@ -38,7 +38,7 @@ export default class ContentCarousel extends Vue {
     // NOTE: in web component mode, jquery `$('')` goes haywire
     // this ensures vue slick will get a consistent reference to itself
     // NOTE: changing the swipe to slide default gives a better touch experience
-    return { slick: this.$el || '', swipeToSlide: true, ...options };
+    return {slick: this.$el || '', swipeToSlide: true, ...options};
   }
   @Prop([String])
   public type!: string;
@@ -46,16 +46,16 @@ export default class ContentCarousel extends Vue {
   @Prop([String])
   public source!: string;
 
-  @Prop({ type: [String, Object], default: () => ({}) })
+  @Prop({type: [String, Object], default: () => ({})})
   public slickOptions!: string | Object;
 
-  @Prop({ type: [String], default: 'auto' })
+  @Prop({type: [String], default: 'auto'})
   public carouselHeight!: string;
 
   @Prop([Boolean])
   public fitToContainer?: boolean;
 
-  @Prop({ type: [String], default: 'left' })
+  @Prop({type: [String], default: 'left'})
   public textAlign?: string;
 
   public strategy: DataStrategy = {

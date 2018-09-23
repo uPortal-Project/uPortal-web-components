@@ -12,8 +12,8 @@ Web components can be created without the need for any framework.
 
 ## Guides
 
-- https://developers.google.com/web/fundamentals/web-components/customelements
-- https://www.webcomponents.org/introduction#custom-elements
+- <https://developers.google.com/web/fundamentals/web-components/customelements>
+- <https://www.webcomponents.org/introduction#custom-elements>
 
 ## Example
 

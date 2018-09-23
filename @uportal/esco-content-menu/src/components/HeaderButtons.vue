@@ -30,7 +30,7 @@ export default {
     Icon,
   },
   props: {
-    callOnClose: Function,
+    callOnClose: {type: Function, default: () => {}},
     signOutUrl: {type: String, default: process.env.VUE_APP_LOGOUT_URL},
   },
   methods: {

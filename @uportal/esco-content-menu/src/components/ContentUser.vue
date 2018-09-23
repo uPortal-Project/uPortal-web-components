@@ -1,8 +1,8 @@
 <template>
   <section
-    class="content-user"
     :class="isSmall ? 'small' : ''"
-    :style="isSmall ? 'background-image: linear-gradient(0deg, rgba(0,0,0,.2),rgba(0,0,0,.2)), url(' + getOrgImgUrl() + ');' : ''">
+    :style="isSmall ? 'background-image: linear-gradient(0deg, rgba(0,0,0,.2),rgba(0,0,0,.2)), url(' + getOrgImgUrl() + ');' : ''"
+    class="content-user">
     <div>
       <div class="org-img">
         <img
@@ -66,6 +66,9 @@ import 'vue-awesome/icons/exchange-alt';
 /* eslint no-console: ["error", { allow: ["warn", "error"] }] */
 export default {
   name: 'ContentUser',
+  components: {
+    Icon,
+  },
   props: {
     isSmall: {type: Boolean, default: false},
     orgInfo: {type: Object, default: () => ({})},
@@ -77,9 +80,6 @@ export default {
     },
     defaultOrgLogo: {type: String, required: true},
     userInfoPortletUrl: {type: String, default: ''},
-  },
-  components: {
-    Icon,
   },
   methods: {
     translate(text, lang) {

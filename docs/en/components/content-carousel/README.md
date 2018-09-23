@@ -59,7 +59,7 @@ The component requires a type. It also allows for a `carousel-height` (in rem un
 - `carousel-height` (optional, string): css height to apply on slides.
 - `fit-to-container` (optional, boolean): by default carousel will fit content, `true` will make carousel match width of surrounding container.
 
-For custom width slides, set `variableWidth` to `true` in `slick-options` and target `.slick-side` in your CSS. 
+For custom width slides, set `variableWidth` to `true` in `slick-options` and target `.slick-side` in your CSS.
 
 ```
 // slick-options
@@ -188,5 +188,5 @@ interface CarouselItem {
 The component source can also be imported and used directly within other Vue projects.
 
 ```js
-import contentCarousel from "@uportal/content-carousel/src/components/ContentCarousel.vue";
+import contentCarousel from '@uportal/content-carousel/src/components/ContentCarousel.vue';
 ```

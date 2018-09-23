@@ -24,20 +24,22 @@
     "remark-validate-links": "^7.1.0",
     "stylelint": "^9.5.0",
     "stylelint-config-standard": "^18.2.0",
-    "typescript-eslint-parser": "^18.0.0",
+    "tslint": "^5.11.0",
     "yorkie": "^2.0.0"
   },
   "scripts": {
     "bootstrap": "lerna bootstrap --ci",
     "ci:commitlint": "commitlint-travis",
     "format": "npm-run-all format:*",
-    "format:js": "prettier-eslint --write **/*.{ts,js,vue}",
-    "format:md": "prettier --write **/*.md",
-    "format:css": "prettier-stylelint --write **/*.{css,scss}",
+    "format:js": "prettier-eslint --write '**/*.{js,vue}'",
+    "format:ts": "tslint -c tslint.json --fix '**/*.ts'",
+    "format:md": "prettier --write '**/*.md'",
+    "format:css": "prettier-stylelint --write '**/*.{css,scss}'",
     "lint": "npm-run-all lint:*",
     "lint:js": "eslint --ext vue .",
+    "lint:ts": "tslint -c tslint.json '**/*.ts'",
     "lint:css": "stylelint **.{css,scss,vue}",
-    "lint:md": "remark --frail *.md docs/**/*.md @uportal/*/*.md",
+    "lint:md": "remark --frail '*.md' 'docs/**/*.md' '@uportal/*/*.md'",
     "start": "lerna run start",
     "test": "npm-run-all test:* lint:*",
     "test:packages": "lerna run test"
@@ -52,12 +54,14 @@
   },
   "eslintConfig": {
     "root": true,
+    "parserOptions": {
+      "parser": "babel-eslint"
+    },
     "extends": [
+      "react-app",
+      "plugin:vue/strongly-recommended",
       "eslint:recommended",
       "google"
-    ],
-    "plugins": [
-      "vue"
     ],
     "env": {
       "node": true,
@@ -67,80 +71,10 @@
     "rules": {
       "no-invalid-this": "off",
       "require-jsdoc": "off",
-      "no-console": "warn"
-    },
-    "overrides": [
-      {
-        "files": "**/*.ts",
-        "parser": "typescript-eslint-parser"
-      },
-      {
-        "files": "**/*.vue",
-        "parser": "vue-eslint-parser",
-        "parserOptions": {
-          "parser": "babel-eslint",
-          "ecmaVersion": 2018,
-          "sourceType": "module"
-        },
-        "rules": {
-          "vue/comment-directive": "error",
-          "vue/jsx-uses-vars": "error",
-          "vue/no-async-in-computed-properties": "error",
-          "vue/no-dupe-keys": "error",
-          "vue/no-duplicate-attributes": "error",
-          "vue/no-parsing-error": "error",
-          "vue/no-reserved-keys": "error",
-          "vue/no-shared-component-data": "error",
-          "vue/no-side-effects-in-computed-properties": "error",
-          "vue/no-template-key": "error",
-          "vue/no-textarea-mustache": "error",
-          "vue/no-unused-components": "error",
-          "vue/no-unused-vars": "error",
-          "vue/no-use-v-if-with-v-for": "error",
-          "vue/require-component-is": "error",
-          "vue/require-prop-type-constructor": "error",
-          "vue/require-render-return": "error",
-          "vue/require-v-for-key": "error",
-          "vue/require-valid-default-prop": "error",
-          "vue/return-in-computed-property": "error",
-          "vue/valid-template-root": "error",
-          "vue/valid-v-bind": "error",
-          "vue/valid-v-cloak": "error",
-          "vue/valid-v-else-if": "error",
-          "vue/valid-v-else": "error",
-          "vue/valid-v-for": "error",
-          "vue/valid-v-html": "error",
-          "vue/valid-v-if": "error",
-          "vue/valid-v-model": "error",
-          "vue/valid-v-on": "error",
-          "vue/valid-v-once": "error",
-          "vue/valid-v-pre": "error",
-          "vue/valid-v-show": "error",
-          "vue/valid-v-text": "error",
-          "vue/attribute-hyphenation": "error",
-          "vue/html-closing-bracket-newline": "warn",
-          "vue/html-closing-bracket-spacing": "error",
-          "vue/html-end-tags": "error",
-          "vue/html-indent": "error",
-          "vue/html-self-closing": "error",
-          "vue/max-attributes-per-line": "error",
-          "vue/mustache-interpolation-spacing": "error",
-          "vue/name-property-casing": "error",
-          "vue/no-multi-spaces": "error",
-          "vue/no-template-shadow": "error",
-          "vue/prop-name-casing": "error",
-          "vue/require-default-prop": "error",
-          "vue/require-prop-types": "error",
-          "vue/v-bind-style": "error",
-          "vue/v-on-style": "error",
-          "max-len": "warn"
-        }
-      },
-      {
-        "files": "**/*.js",
-        "parser": "babel-eslint"
-      }
-    ]
+      "max-len": "off",
+      "no-console": "warn",
+      "vue/html-closing-bracket-newline": "warn"
+    }
   },
   "prettier": {
     "singleQuote": true
@@ -150,8 +84,12 @@
     "pre-commit": "lint-staged"
   },
   "lint-staged": {
-    "*.{ts,js,vue}": [
+    "*.{js,vue}": [
       "prettier-eslint --write",
+      "git add"
+    ],
+    "*.ts": [
+      "tslint -c tslint.json --fix",
       "git add"
     ],
     "*.{css,scss}": [
@@ -172,7 +110,7 @@
       "validate-links",
       [
         "remark-lint-list-item-indent",
-        "mixed"
+        false
       ]
     ]
   },

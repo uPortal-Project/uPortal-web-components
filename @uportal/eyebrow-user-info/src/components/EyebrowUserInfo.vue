@@ -52,10 +52,10 @@ export default {
   name: 'EyebrowUserInfo',
   props: {
     displayName: {type: String, required: true},
-    email: String,
+    email: {type: String, default: ''},
     picture: {type: String, required: true},
-    moreLink: String,
-    logoutLink: String,
+    moreLink: {type: String, default: null},
+    logoutLink: {type: String, default: null},
     menuIsDark: {type: Boolean, default: true},
     avatarSize: {type: String, default: '28px'},
   },

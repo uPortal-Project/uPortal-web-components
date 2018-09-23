@@ -1,8 +1,8 @@
 <template>
   <div
-    class="content-menu"
     :class="['toggler-menu', isSmall ? 'small ' : '', visible ? 'active-menu' : '']"
-    :style="'min-height: ' + minHeight">
+    :style="'min-height: ' + minHeight"
+    class="content-menu">
     <header>
       <header-buttons
         :call-on-close="close"
@@ -26,8 +26,8 @@
           :user-info-api-url="userInfoApiUrl" />
       </div>
       <div
-        class="background"
-        :style="(backgroundImg != null && !isSmall) ? 'background-image: linear-gradient(0deg, rgba(0,0,0,.2),rgba(0,0,0,.2)), url(' + backgroundImg + ');' : ''" />
+        :style="(backgroundImg != null && !isSmall) ? 'background-image: linear-gradient(0deg, rgba(0,0,0,.2),rgba(0,0,0,.2)), url(' + backgroundImg + ');' : ''"
+        class="background" />
     </header>
     <content-grid
       :portlets="_portlets"
@@ -72,8 +72,8 @@ export default {
     HeaderButtons,
   },
   props: {
-    id: String,
-    callOnClose: Function,
+    id: {type: String, default: null},
+    callOnClose: {type: Function, default: () => {}},
     isHidden: {type: Boolean, default: false},
     contextApiUrl: {
       type: String,
@@ -102,6 +102,23 @@ export default {
       portletsAPI: [],
     };
   },
+  computed: {
+    _portlets: function() {
+      return this.portletsAPI;
+    },
+  },
+  watch: {
+    isHidden: {
+      handler: function() {
+        this.visible = !this.isHidden;
+        if (this.visible) {
+          this.minHeight = document.body.getBoundingClientRect().height + 'px';
+          this.isXs();
+        }
+      },
+      deep: true,
+    },
+  },
   mounted() {
     this.$nextTick(function() {
       window.addEventListener('resize', this.isXs);
@@ -110,17 +127,17 @@ export default {
       this.fetchUserInfo();
     });
   },
+  beforeDestroy() {
+    window.removeEventListener('resize', this.getWindowWidth);
+  },
   methods: {
     close(event) {
       this.visible = false;
       let element = document.querySelector('#' + this.id);
       element.parentNode.style.display = 'none';
       element.setAttribute('is-hidden', true);
-      // var element = document.querySelector('#');
       this.isHidden = false;
-      if (typeof this.callOnClose === 'function') {
-        this.callOnClose(event);
-      }
+      this.callOnClose(event);
     },
     getWindowWidth: function() {
       return this.$el.clientWidth;
@@ -163,10 +180,7 @@ export default {
         this.info.user = {...this.info.user, ...userInfo};
         const orgsInfo = require('../assets/orginfo');
         setTimeout(() => {
-          this.emptyArray(this.info.organizations);
-          for (let prop in orgsInfo) {
-            this.info.organizations.push(orgsInfo[prop]);
-          }
+          this.info.organizations = Object.values(orgsInfo);
           this.computeCurrentOrg();
         }, 2000);
       } else {
@@ -195,10 +209,7 @@ export default {
                     .then(checkStatus)
                     .then(parseJSON)
                     .then((data) => {
-                      this.emptyArray(this.info.organizations);
-                      for (let prop in data) {
-                        this.info.organizations.push(data[prop]);
-                      }
+                      this.info.organizations = Object.values(data);
                       this.computeCurrentOrg();
                     });
               }
@@ -211,15 +222,14 @@ export default {
     fetchPortlets,
     fetchFavorites() {
       if (process.env.NODE_ENV === 'development') {
-        this.emptyArray(this.info.favorites);
-        this.info.favorites.push(
-            'search',
-            'CourrielAcademique',
-            'portal-activity',
-            'calendar',
-            'Helpinfo',
-            'MILycees'
-        );
+        this.info.favorites = [
+          'search',
+          'CourrielAcademique',
+          'portal-activity',
+          'calendar',
+          'Helpinfo',
+          'MILycees',
+        ];
       } else {
         oidc({
           userInfoApiUrl:
@@ -246,7 +256,7 @@ export default {
                   data?.layout?.globals?.hasFavorites &&
                   data?.layout?.favorites
                     ) {
-                      this.emptyArray(this.info.favorites);
+                      this.info.favorites = [];
                       this.computeFavoritesContent(data.layout.favorites);
                     }
                   });
@@ -292,31 +302,6 @@ export default {
             numberic: true,
           });
     },
-    emptyArray: function(array) {
-      while (array.length > 0) {
-        array.pop();
-      }
-    },
-  },
-  computed: {
-    _portlets: function() {
-      return this.portletsAPI;
-    },
-  },
-  watch: {
-    isHidden: {
-      handler: function() {
-        this.visible = !this.isHidden;
-        if (this.visible) {
-          this.minHeight = document.body.getBoundingClientRect().height + 'px';
-          this.isXs();
-        }
-      },
-      deep: true,
-    },
-  },
-  beforeDestroy() {
-    window.removeEventListener('resize', this.getWindowWidth);
   },
 };
 </script>
