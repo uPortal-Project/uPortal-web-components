@@ -159,7 +159,7 @@ $searchSize: 32px;
     font-style: italic;
   }
 
-  :-moz-placeholder {
+  ::-ms-input-placeholder {
     font-style: italic;
   }
 
@@ -167,11 +167,11 @@ $searchSize: 32px;
     font-style: italic;
   }
 
-  :-ms-input-placeholder {
+  :-moz-placeholder {
     font-style: italic;
   }
 
-  ::-ms-input-placeholder {
+  :-ms-input-placeholder {
     font-style: italic;
   }
 
@@ -180,37 +180,97 @@ $searchSize: 32px;
     cursor: pointer;
   }
 
-  .content-grid-caret:after {
+  .content-grid-caret::after {
     content: '';
     position: absolute;
     width: 0;
     height: 0;
     display: inline-block;
-    /*vertical-align: middle;*/
     top: 25%;
     right: 10px;
     border-top: 10px solid #000;
     border-left: 10px solid transparent;
     border-right: 10px solid transparent;
-
     pointer-events: none;
   }
 
   .fa {
     display: inline-block;
-    font: normal normal normal 14px/1 FontAwesome;
+    font: normal normal normal 14px/1 FontAwesome, sans-serif;
     font-size: inherit;
     text-rendering: auto;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
-  .fa-search:before {
+  .fa-search::before {
     content: '\f002';
   }
 
+  > div {
+    display: block;
+
+    > .title {
+      padding: 5px 20px;
+      text-transform: uppercase;
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-between;
+
+      > h1 {
+        margin-bottom: 15px;
+        margin-top: 15px;
+        font-weight: normal;
+        font-size: 24px;
+      }
+
+      > .filter {
+        margin: 10px 0;
+        width: 100%;
+        max-width: 300px;
+
+        input {
+          line-height: 32px;
+          border-radius: 48px;
+          border: none;
+          width: 100%;
+          height: 100%;
+          text-indent: 10px;
+          font-size: 16px;
+          box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+            0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+          -webkit-appearance: none;
+          outline: none;
+
+          &::-webkit-calendar-picker-indicator {
+            display: none; /* remove default arrow */
+          }
+        }
+
+        > div {
+          display: none;
+        }
+      }
+    }
+
+    .flex-grid {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: center;
+
+      .flex-item {
+        margin: 20px 5px;
+      }
+    }
+
+    a.no-style {
+      text-decoration: none;
+      color: inherit;
+    }
+  }
+
   &.small {
-    .content-grid-caret:after {
+    .content-grid-caret::after {
       border: none;
     }
 
@@ -273,68 +333,6 @@ $searchSize: 32px;
           }
         }
       }
-    }
-  }
-
-  > div {
-    display: block;
-
-    > .title {
-      padding: 5px 20px;
-      text-transform: uppercase;
-      display: flex;
-      flex-flow: row wrap;
-      justify-content: space-between;
-
-      > h1 {
-        margin-bottom: 15px;
-        margin-top: 15px;
-        font-weight: normal;
-        font-size: 24px;
-      }
-
-      > .filter {
-        margin: 10px 0;
-        width: 100%;
-        max-width: 300px;
-
-        input {
-          line-height: 32px;
-          border-radius: 48px;
-          border: none;
-          width: 100%;
-          height: 100%;
-          text-indent: 10px;
-          font-size: 16px;
-          box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
-            0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
-
-          -webkit-appearance: none;
-          outline: none;
-
-          &::-webkit-calendar-picker-indicator {
-            display: none; /* remove default arrow */
-          }
-        }
-
-        > div {
-          display: none;
-        }
-      }
-    }
-    .flex-grid {
-      display: flex;
-      flex-flow: row wrap;
-      justify-content: center;
-
-      .flex-item {
-        margin: 20px 5px;
-      }
-    }
-
-    a.no-style {
-      text-decoration: none;
-      color: inherit;
     }
   }
 }

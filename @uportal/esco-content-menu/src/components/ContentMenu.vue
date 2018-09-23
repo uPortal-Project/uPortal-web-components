@@ -315,7 +315,7 @@ export default {
   &.toggler-menu {
     position: absolute;
     width: 100%;
-    min-heigth: 100vh;
+    min-height: 100vh;
     top: 0;
     left: 0;
     z-index: 1001;
@@ -324,6 +324,7 @@ export default {
     transition: opacity 600ms, visibility 600ms;
     animation: fade 600ms;
   }
+
   &.active-menu {
     visibility: visible;
     opacity: 1;
@@ -332,9 +333,11 @@ export default {
   * {
     font-family: Roboto, sans-serif;
   }
+
   > section {
     padding: 0.5em 1.5em;
   }
+
   header {
     position: relative;
     overflow: hidden;
@@ -343,9 +346,11 @@ export default {
       position: relative;
       z-index: 1;
     }
+
     > .wrapper {
       display: flex;
       flex-flow: row nowrap;
+
       .content-favorites {
         flex-grow: 1;
         filter: none;
@@ -366,20 +371,21 @@ export default {
       filter: blur(7px);
     }
   }
+
   &.small {
     background-color: #545454;
 
     header {
-      /*-webkit-backdrop-filter: initial;*/
-      /*backdrop-filter: none;*/
       div.background {
         background-image: none;
       }
+
       .header-buttons {
         position: absolute;
         width: 100%;
         z-index: 2;
       }
+
       > .wrapper {
         flex-flow: row wrap;
       }

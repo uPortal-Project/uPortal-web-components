@@ -128,6 +128,7 @@ export default {
 
       > .user-info {
         padding: 15px 0;
+
         > div {
           border-top-right-radius: 0;
           border-bottom-right-radius: 0;
@@ -139,8 +140,8 @@ export default {
   > div {
     display: flex;
     flex-direction: column;
-
     height: 100%;
+
     > .org-img {
       display: flex;
       align-items: center;
@@ -156,6 +157,7 @@ export default {
         border-radius: 10px;
       }
     }
+
     > .user-info {
       padding: 25px 0;
 
@@ -173,37 +175,46 @@ export default {
           white-space: nowrap;
           overflow: hidden;
         }
+
         span {
           color: white;
         }
+
         .user-avatar {
           float: left;
           margin: 0 15px;
+
           img,
           svg {
             width: 68px;
             height: 68px;
             border-radius: 50%;
           }
+
           svg {
             color: white;
             background-color: #b7b7b7;
           }
         }
+
         .wrapper-info {
           :only-child {
             display: block;
           }
+
           .user-name {
             font-weight: bold;
           }
         }
+
         .other-orgs {
           flex: 1;
+
           > a {
             float: right;
             color: white;
             margin-right: 15px;
+
             > svg {
               width: 24px;
               height: 24px;
@@ -212,6 +223,7 @@ export default {
         }
       }
     }
+
     > .org-img + .user-info {
       margin-top: auto;
     }

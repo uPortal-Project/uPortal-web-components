@@ -22,6 +22,7 @@ export default {
 #app {
   background-color: #000;
   height: 1800px;
+
   .hamburger-menu > div.content-menu-toggle {
     height: 35px;
   }

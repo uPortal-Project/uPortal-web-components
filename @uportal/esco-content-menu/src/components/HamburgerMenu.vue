@@ -62,16 +62,17 @@ export default {
 <style lang="scss" scoped>
 .hamburger-menu {
   > .content-menu-toggle {
-    color: #ffffff;
+    color: #fff;
     text-decoration: none;
     cursor: pointer;
 
     > .menu-wrapper {
       width: 25px;
       padding: 0 4px;
+
       > div {
         height: 2px;
-        background-color: #ffffff;
+        background-color: #fff;
         margin: 5px 0;
       }
     }
@@ -82,7 +83,7 @@ export default {
   .toggler-menu {
     position: absolute;
     width: 100%;
-    min-heigth: 100vh;
+    min-height: 100vh;
     top: 0;
     left: 0;
     visibility: hidden;
@@ -90,6 +91,7 @@ export default {
     transition: opacity 600ms, visibility 600ms;
     animation: fade 600ms;
   }
+
   .active-menu {
     visibility: visible;
     opacity: 1;

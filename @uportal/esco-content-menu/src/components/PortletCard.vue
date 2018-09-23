@@ -136,7 +136,6 @@ export default {
 
   &:hover {
     cursor: pointer;
-    /*transform: scale(1.1);*/
     box-shadow: 0 7px 8px -4px rgba(0, 0, 0, 0.2),
       0 12px 17px 2px rgba(0, 0, 0, 0.14), 0 5px 22px 4px rgba(0, 0, 0, 0.12);
   }
@@ -174,6 +173,7 @@ export default {
       }
     }
   }
+
   > .portlet-card-title {
     padding-top: 1em;
     font-size: 18px;
@@ -182,9 +182,9 @@ export default {
 
   > .portlet-card-description {
     padding-top: 0.3em;
-    // security to avoid to be outside of the portlet-card
+
+    /* security to avoid to be outside of the portlet-card */
     max-height: 40px;
-    /*overflow: hidden;*/
   }
 
   &.small-card {

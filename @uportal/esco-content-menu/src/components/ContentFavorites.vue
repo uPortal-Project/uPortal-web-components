@@ -224,9 +224,8 @@ export default {
 
 .content-favorites {
   width: inherit;
-  color: #ffffff;
+  color: #fff;
   padding-bottom: 1.5em;
-
   display: flex;
   flex-flow: column;
   justify-content: center;
@@ -235,32 +234,37 @@ export default {
     margin: 0 0 5px 2em;
     text-transform: uppercase;
     filter: grayscale(1);
+
     h1 {
       font-size: 24px;
       font-weight: normal;
       margin: 10px 0 5px 10px;
       color: white;
-      //mix-blend-mode: difference
     }
   }
+
   > .favorites {
     position: relative;
+
     > .swiper-container {
       margin: 0 45px;
-
       padding-bottom: 15px;
+
       > .swiper-wrapper {
         > .swiper-slide {
           width: 255px;
           height: 175px;
           margin: 30px;
+
           &:first-child {
             margin-left: 0;
           }
         }
       }
+
       .swiper-pagination {
         bottom: 0;
+
         > span.swiper-pagination-bullet {
           width: 16px;
           height: 16px;
@@ -269,6 +273,7 @@ export default {
         }
       }
     }
+
     .swiper-button-prev,
     .swiper-button-next {
       background-image: none;
@@ -277,6 +282,7 @@ export default {
       width: auto;
       height: auto;
     }
+
     .fav-swiper-button-disabled {
       opacity: 0.35;
       cursor: auto;
@@ -288,6 +294,7 @@ export default {
       color: inherit;
     }
   }
+
   > .empty-favorites {
     padding-left: 2em;
   }
@@ -297,6 +304,7 @@ export default {
       font-size: initial;
       font-weight: bold;
     }
+
     > .favorites {
       padding-left: 2em;
 
@@ -312,12 +320,14 @@ export default {
           }
         }
       }
+
       .swiper-button-prev,
       .swiper-button-next {
         display: none;
       }
     }
   }
+
   .fa-icon {
     width: auto;
     height: 2em; /* or any other relative font sizes */

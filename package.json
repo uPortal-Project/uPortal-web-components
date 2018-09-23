@@ -4,6 +4,7 @@
     "@commitlint/cli": "^7.0.0",
     "@commitlint/config-conventional": "^7.0.0",
     "@commitlint/travis-cli": "^7.0.0",
+    "@mapbox/stylelint-processor-arbitrary-tags": "^0.2.0",
     "@vue/eslint-config-prettier": "^3.0.3",
     "babel-eslint": "^9.0.0",
     "eslint": "^5.6.0",
@@ -25,6 +26,7 @@
     "stylelint": "^9.5.0",
     "stylelint-config-standard": "^18.2.0",
     "tslint": "^5.11.0",
+    "typescript": "^3.0.3",
     "yorkie": "^2.0.0"
   },
   "scripts": {
@@ -34,11 +36,11 @@
     "format:js": "prettier-eslint --write '**/*.{js,vue}'",
     "format:ts": "tslint -c tslint.json --fix '**/*.ts'",
     "format:md": "prettier --write '**/*.md'",
-    "format:css": "prettier-stylelint --write '**/*.{css,scss}'",
+    "format:css": "prettier-stylelint --write '**/*.css'",
     "lint": "npm-run-all lint:*",
     "lint:js": "eslint --ext vue .",
     "lint:ts": "tslint -c tslint.json '**/*.ts'",
-    "lint:css": "stylelint **.{css,scss,vue}",
+    "lint:css": "stylelint '**/*.{css,scss,vue}'",
     "lint:md": "remark --frail '*.md' 'docs/**/*.md' '@uportal/*/*.md'",
     "start": "lerna run start",
     "test": "npm-run-all test:* lint:*",
@@ -102,7 +104,14 @@
     ]
   },
   "stylelint": {
-    "extends": "stylelint-config-standard"
+    "processors": [
+      "@mapbox/stylelint-processor-arbitrary-tags"
+    ],
+    "extends": "stylelint-config-standard",
+    "rules": {
+      "no-empty-source": null,
+      "no-descending-specificity": null
+    }
   },
   "remarkConfig": {
     "plugins": [

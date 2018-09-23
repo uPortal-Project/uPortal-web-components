@@ -146,6 +146,7 @@ export default {
   &:hover {
     transform: scale(1.3, 1.3);
   }
+
   .fa-icon {
     width: auto;
     height: 2em; /* or any other relative font sizes */

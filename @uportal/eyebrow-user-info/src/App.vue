@@ -34,10 +34,12 @@ export default {
   position: fixed;
   background-color: #25b2f3;
 }
+
 #app > header > * {
   float: right;
   margin-right: 25px;
 }
+
 #app > div {
   padding-top: 150px;
   height: 200vh;

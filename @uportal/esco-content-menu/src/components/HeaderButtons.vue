@@ -54,15 +54,18 @@ export default {
   > :first-child {
     margin-left: 1em;
   }
+
   > :last-child {
     margin-right: 1em;
   }
+
   > button > svg,
   > a > svg {
     width: 32px;
     height: 32px;
     color: white;
   }
+
   button {
     text-decoration: none;
     border: none;
