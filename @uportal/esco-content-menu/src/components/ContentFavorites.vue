@@ -1,29 +1,59 @@
 <template>
-  <section class="content-favorites" :class="showSmall ? 'small' : ''" :style="'background-color:' + backgroundColor">
+  <section
+    :class="showSmall ? 'small' : ''"
+    :style="'background-color:' + backgroundColor"
+    class="content-favorites">
     <div class="content-favorites-title">
       <h1>
         {{ translate("message.favorites.title") }}
       </h1>
     </div>
-    <div class="favorites" :style="favorited.length > 0 ? '' : 'display:none'" ref="favsSection">
-      <swiper :options="swiperOption" ref="favSwiper" @transitionEnd="updateSlider">
-        <swiper-slide v-for="portlet in favorited" :key="portlet.id">
-          <a class="no-style" v-bind:href="portlet.renderUrl" v-bind:target="portlet.layoutObject.altMaxUrl ? '_blank' : '_self'">
-            <portlet-card :portlet-desc="portlet" :is-favorite="true" :is-small="showSmall" :call-after-action="callAfterFavAction" :back-ground-is-dark="true"
-                          :favorite-api-url="favoriteApiUrl" :user-info-api-url="userInfoApiUrl"></portlet-card>
+    <div
+      ref="favsSection"
+      :style="favorited.length > 0 ? '' : 'display:none'"
+      class="favorites">
+      <swiper
+        ref="favSwiper"
+        :options="swiperOption"
+        @transitionEnd="updateSlider">
+        <swiper-slide
+          v-for="portlet in favorited"
+          :key="portlet.id">
+          <a
+            :href="portlet.renderUrl"
+            :target="portlet.layoutObject.altMaxUrl ? '_blank' : '_self'"
+            class="no-style">
+            <portlet-card
+              :portlet-desc="portlet"
+              :is-favorite="true"
+              :is-small="showSmall"
+              :call-after-action="callAfterFavAction"
+              :back-ground-is-dark="true"
+              :favorite-api-url="favoriteApiUrl"
+              :user-info-api-url="userInfoApiUrl" />
           </a>
         </swiper-slide>
       </swiper>
-      <div class="swiper-button-prev" :class="disablePrev ? 'fav-swiper-button-disabled' : ''" slot="button-prev" @click="slidePrev($event)">
-        <icon :name="'chevron-left'"></icon>
+      <div
+        slot="button-prev"
+        :class="disablePrev ? 'fav-swiper-button-disabled' : ''"
+        class="swiper-button-prev"
+        @click="slidePrev($event)">
+        <icon :name="'chevron-left'" />
       </div>
-      <div class="swiper-button-next" :class="disableNext ? 'fav-swiper-button-disabled' : ''" slot="button-next" @click="slideNext($event)">
-        <icon :name="'chevron-right'"></icon>
+      <div
+        slot="button-next"
+        :class="disableNext ? 'fav-swiper-button-disabled' : ''"
+        class="swiper-button-next"
+        @click="slideNext($event)">
+        <icon :name="'chevron-right'" />
       </div>
     </div>
-    <div class="empty-favorites" :style="favorited.length > 0 ? 'display:none' : ''">
+    <div
+      :style="favorited.length > 0 ? 'display:none' : ''"
+      class="empty-favorites">
       <div>
-        {{ translate("message.favorites.empty" )}}
+        {{ translate("message.favorites.empty" ) }}
       </div>
     </div>
   </section>
@@ -40,6 +70,12 @@ import {swiper, swiperSlide} from 'vue-awesome-swiper';
 
 export default {
   name: 'ContentFavorites',
+  components: {
+    PortletCard,
+    swiper,
+    swiperSlide,
+    Icon,
+  },
   props: {
     backgroundColor: String,
     callAfterAction: Function,
@@ -84,11 +120,33 @@ export default {
       disablePrev: false,
     };
   },
-  components: {
-    PortletCard,
-    swiper,
-    swiperSlide,
-    Icon,
+  watch: {
+    favorites: {
+      handler: function() {
+        this.calcFavoritesPortlets();
+        this.updateSlider();
+      },
+      deep: true,
+    },
+    portlets: {
+      handler: function() {
+        this.calcFavoritesPortlets();
+        this.updateSlider();
+      },
+      deep: true,
+    },
+    favorited: {
+      handler: function() {
+        this.updateSlider();
+      },
+      deep: true,
+    },
+    isHidden: {
+      handler: function() {
+        this.updateSlider();
+      },
+      deep: true,
+    },
   },
   mounted() {
     this.$nextTick(function() {
@@ -156,34 +214,6 @@ export default {
       while (array.length > 0) {
         array.pop();
       }
-    },
-  },
-  watch: {
-    favorites: {
-      handler: function() {
-        this.calcFavoritesPortlets();
-        this.updateSlider();
-      },
-      deep: true,
-    },
-    portlets: {
-      handler: function() {
-        this.calcFavoritesPortlets();
-        this.updateSlider();
-      },
-      deep: true,
-    },
-    favorited: {
-      handler: function() {
-        this.updateSlider();
-      },
-      deep: true,
-    },
-    isHidden: {
-      handler: function() {
-        this.updateSlider();
-      },
-      deep: true,
     },
   },
 };

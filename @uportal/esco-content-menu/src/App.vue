@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <!--<content-menu default-org-logo="https://lycees.netocentre.fr/annuaire_images/default_banner_v1.jpg" api-url-org-info="/p/test"></content-menu>-->
-    <hamburger-menu default-org-logo="https://lycees.netocentre.fr/annuaire_images/default_banner_v1.jpg"></hamburger-menu>
+    <hamburger-menu default-org-logo="https://lycees.netocentre.fr/annuaire_images/default_banner_v1.jpg" />
   </div>
 </template>
 
@@ -10,7 +10,7 @@
 import HamburgerMenu from './components/HamburgerMenu';
 
 export default {
-  name: 'app',
+  name: 'App',
   components: {
     // ContentMenu
     HamburgerMenu,

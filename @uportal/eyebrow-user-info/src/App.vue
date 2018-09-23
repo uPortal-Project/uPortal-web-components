@@ -1,8 +1,13 @@
 <template>
   <div id="app">
     <header>
-      <eyebrow-user-info display-name="John Doe" picture="https://lycees.netocentre.fr/images/icones//noPictureUser.svg" email="john.doe@edu.univ.org"
-                  logout-link="/uPortal/Logout" avatarSize="48px" :menu-is-dark="false"></eyebrow-user-info>
+      <eyebrow-user-info
+        :menu-is-dark="false"
+        display-name="John Doe"
+        picture="https://lycees.netocentre.fr/images/icones//noPictureUser.svg"
+        email="john.doe@edu.univ.org"
+        logout-link="/uPortal/Logout"
+        avatar-size="48px" />
     </header>
     <div class="content">
       a content for test !
@@ -14,7 +19,7 @@
 import EyebrowUserInfo from './components/EyebrowUserInfo';
 
 export default {
-  name: 'app',
+  name: 'App',
   components: {
     EyebrowUserInfo,
   },

@@ -1,23 +1,44 @@
 <template>
   <div :class="$style.userInfo">
-    <div :class="$style.dropdown" ref="dropdownMenu">
-      <div :class="menuIsDark ? [$style.lighter, $style.dropdownMenu] : $style.dropdownMenu" @click="toggleDropdown($event)">
-        <div :class="$style.userName"><span :class="$style.label">{{displayName}}</span></div>
-        <div :class="$style.userAvatar"><img :src="picture" :alt="'avatar'" :style="'height: ' + avatarSize + '; width: ' + avatarSize + ';'"/></div>
+    <div
+      ref="dropdownMenu"
+      :class="$style.dropdown">
+      <div
+        :class="menuIsDark ? [$style.lighter, $style.dropdownMenu] : $style.dropdownMenu"
+        @click="toggleDropdown($event)">
+        <div :class="$style.userName"><span :class="$style.label">{{ displayName }}</span></div>
+        <div :class="$style.userAvatar"><img
+          :src="picture"
+          :alt="'avatar'"
+          :style="'height: ' + avatarSize + '; width: ' + avatarSize + ';'"></div>
       </div>
       <div :class="visible ? $style.dropdownContent : [ $style.dropdownContent, $style.closed ]">
         <div :class="$style.userDetails">
           <div :class="$style.userAvatar">
-            <a v-if="moreLink" :href="moreLink" :title="translate('userInfoPortletUrl.title')"><img :src="picture" :alt="'avatar'"/></a>
-            <img v-else :src="picture" :alt="'avatar'"/>
+            <a
+              v-if="moreLink"
+              :href="moreLink"
+              :title="translate('userInfoPortletUrl.title')"><img
+                :src="picture"
+                :alt="'avatar'"></a>
+            <img
+              v-else
+              :src="picture"
+              :alt="'avatar'">
           </div>
           <div :class="$style.wrapperInfo">
-            <div :class="$style.userName"><span :class="$style.label">{{displayName}}</span></div>
-            <div :class="$style.userMail"><span :class="$style.label">{{email}}</span></div>
+            <div :class="$style.userName"><span :class="$style.label">{{ displayName }}</span></div>
+            <div :class="$style.userMail"><span :class="$style.label">{{ email }}</span></div>
           </div>
         </div>
-        <div v-if="logoutLink" :class="$style.signOut">
-          <a :href="logoutLink" :title="translate('buttons.logout')"><span>{{translate('buttons.logout')}}</span><i :class="[$style.fa, $style.faSignOut]" aria-hidden="true"></i></a>
+        <div
+          v-if="logoutLink"
+          :class="$style.signOut">
+          <a
+            :href="logoutLink"
+            :title="translate('buttons.logout')"><span>{{ translate('buttons.logout') }}</span><i
+              :class="[$style.fa, $style.faSignOut]"
+              aria-hidden="true" /></a>
         </div>
       </div>
     </div>
@@ -42,6 +63,13 @@ export default {
     return {
       visible: false,
     };
+  },
+  created() {
+    document.addEventListener('click', this.documentClick);
+  },
+  destroyed() {
+    // important to clean up!!
+    document.removeEventListener('click', this.documentClick);
   },
   methods: {
     translate(text, lang) {
@@ -79,13 +107,6 @@ export default {
         this.visible = false;
       }
     },
-  },
-  created() {
-    document.addEventListener('click', this.documentClick);
-  },
-  destroyed() {
-    // important to clean up!!
-    document.removeEventListener('click', this.documentClick);
   },
 };
 </script>

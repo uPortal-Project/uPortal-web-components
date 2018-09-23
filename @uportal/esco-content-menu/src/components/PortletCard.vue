@@ -1,20 +1,38 @@
 <template>
-  <div :class="mainClass" >
+  <div :class="mainClass">
     <div class="portlet-card-icon">
-      <div v-if="iconUrl !== null" class="img-wrapper" :style="'background-color:' + iconBackgroundColor">
-        <img :src="iconUrl" :alt="title">
+      <div
+        v-if="iconUrl !== null"
+        :style="'background-color:' + iconBackgroundColor"
+        class="img-wrapper">
+        <img
+          :src="iconUrl"
+          :alt="title">
       </div>
-      <div v-else class="img-wrapper" :style="'background-color:' + iconBackgroundColor"></div>
+      <div
+        v-else
+        :style="'background-color:' + iconBackgroundColor"
+        class="img-wrapper" />
     </div>
     <div class="portlet-card-title">
-      {{title}}
+      {{ title }}
     </div>
     <div class="portlet-card-description">
-      <ellipsis :message="description" :line-clamp="2" :line-height="'20px'" :end-char="'...'"></ellipsis>
+      <ellipsis
+        :message="description"
+        :line-clamp="2"
+        :line-height="'20px'"
+        :end-char="'...'" />
     </div>
     <div class="portlet-card-action">
-      <action-favorites v-if="canFavorite" :fname="fname" :chan-id="channelId" :is-favorite="isFavorite" :call-on-toggle-fav="callAfterAction"
-                        :favorite-api-url="favoriteApiUrl" :user-info-api-url="userInfoApiUrl"></action-favorites>
+      <action-favorites
+        v-if="canFavorite"
+        :fname="fname"
+        :chan-id="channelId"
+        :is-favorite="isFavorite"
+        :call-on-toggle-fav="callAfterAction"
+        :favorite-api-url="favoriteApiUrl"
+        :user-info-api-url="userInfoApiUrl" />
     </div>
   </div>
 </template>
@@ -25,6 +43,10 @@ import ActionFavorites from './ActionFavorites';
 
 export default {
   name: 'PortletCard',
+  components: {
+    ActionFavorites,
+    Ellipsis,
+  },
   props: {
     callAfterAction: Function,
     cssClass: {type: String, default: 'portlet-card'},
@@ -58,10 +80,6 @@ export default {
           ? this.computeIconUrl(this.portletDesc.layoutObject.iconUrl)
           : null,
     };
-  },
-  components: {
-    ActionFavorites,
-    Ellipsis,
   },
   computed: {
     mainClass: function() {

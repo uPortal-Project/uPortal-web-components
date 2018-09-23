@@ -1,8 +1,10 @@
 <template>
-  <div :class="'action-favorites ' + fname" @click="toggleFavorite($event)"
-       :title="isFavorite ? translate('message.favorites.remove') : translate('message.favorites.add')">
+  <div
+    :class="'action-favorites ' + fname"
+    :title="isFavorite ? translate('message.favorites.remove') : translate('message.favorites.add')"
+    @click="toggleFavorite($event)">
     <button class="favorite-button">
-      <icon :name="isFavorite ? 'star' : 'regular/star'" ></icon>
+      <icon :name="isFavorite ? 'star' : 'regular/star'" />
     </button>
   </div>
 </template>
@@ -29,6 +31,9 @@ const parseJSON = function(response) {
 };
 export default {
   name: 'ActionFavorites',
+  components: {
+    Icon,
+  },
   props: {
     callOnToggleFav: Function,
     chanId: {type: String, required: true},
@@ -45,9 +50,6 @@ export default {
     },
     fname: String,
     isFavorite: {type: Boolean, default: false},
-  },
-  components: {
-    Icon,
   },
   data() {
     return {

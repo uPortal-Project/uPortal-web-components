@@ -1,32 +1,58 @@
 <template>
-  <section class="content-grid" v-bind:class="{'small' : isSmall}" :style="'background-color:' + backgroundColor">
+  <section
+    :class="{'small' : isSmall}"
+    :style="'background-color:' + backgroundColor"
+    class="content-grid">
     <div>
       <div class="title">
         <h1>
           {{ translate("message.services.title") }}
         </h1>
-        <div class="filter" :class="visible ? 'opened' : 'closed'">
+        <div
+          :class="visible ? 'opened' : 'closed'"
+          class="filter">
           <span class="content-grid-caret">
-            <input :title="translate('message.services.filter')" type="text" list="list" v-model.trim="filterValue"
-                                      :placeholder="translate('message.services.filter')" />
+            <input
+              :title="translate('message.services.filter')"
+              v-model.trim="filterValue"
+              :placeholder="translate('message.services.filter')"
+              type="text"
+              list="list">
           </span>
-          <datalist id='list'>
+          <datalist id="list">
             <select>
-              <option v-for="category in allCategories" :value="category" :label="category" :key="category">
-                {{category}}
+              <option
+                v-for="category in allCategories"
+                :value="category"
+                :label="category"
+                :key="category">
+                {{ category }}
               </option>
             </select>
           </datalist>
           <div @click="visible = !visible">
-            <i class="fa fa-search" aria-hidden="true"></i>
+            <i
+              class="fa fa-search"
+              aria-hidden="true" />
           </div>
         </div>
       </div>
       <div class="flex-grid">
-        <div class="flex-item ma-3 text-xs-center" v-for="portlet in filteredPortlets" :key="portlet.id">
-          <a class="no-style" v-bind:href="portlet.renderUrl" v-bind:target="portlet.layoutObject.altMaxUrl ? '_blank' : '_self'">
-            <portlet-card :portlet-desc="portlet" :is-favorite="isFavorite(portlet.fname)" :is-small="isSmall" :call-after-action="callAfterAction"
-                          :favorite-api-url="favoriteApiUrl" :user-info-api-url="userInfoApiUrl"></portlet-card>
+        <div
+          v-for="portlet in filteredPortlets"
+          :key="portlet.id"
+          class="flex-item ma-3 text-xs-center">
+          <a
+            :href="portlet.renderUrl"
+            :target="portlet.layoutObject.altMaxUrl ? '_blank' : '_self'"
+            class="no-style">
+            <portlet-card
+              :portlet-desc="portlet"
+              :is-favorite="isFavorite(portlet.fname)"
+              :is-small="isSmall"
+              :call-after-action="callAfterAction"
+              :favorite-api-url="favoriteApiUrl"
+              :user-info-api-url="userInfoApiUrl" />
           </a>
         </div>
       </div>
@@ -41,6 +67,9 @@ import fetchPortlets from '../services/fetchPortlets';
 
 export default {
   name: 'ContentGrid',
+  components: {
+    PortletCard,
+  },
   props: {
     backgroundColor: String,
     callAfterAction: Function,
@@ -63,29 +92,12 @@ export default {
     isSmall: {type: Boolean, default: false},
     portlets: Array,
   },
-  components: {
-    PortletCard,
-  },
   data() {
     return {
       filterValue: '',
       visible: false,
       portletsAPI: [],
     };
-  },
-  mounted() {
-    if (!this.portlets) {
-      this.fetchPortlets();
-    }
-  },
-  methods: {
-    translate: function(text, lang) {
-      return i18n.t(text, lang);
-    },
-    isFavorite: function(fname) {
-      return this.favorites.includes(fname);
-    },
-    fetchPortlets,
   },
   computed: {
     _portlets: function() {
@@ -115,6 +127,20 @@ export default {
           description.toLowerCase().includes(filterValue)
       );
     },
+  },
+  mounted() {
+    if (!this.portlets) {
+      this.fetchPortlets();
+    }
+  },
+  methods: {
+    translate: function(text, lang) {
+      return i18n.t(text, lang);
+    },
+    isFavorite: function(fname) {
+      return this.favorites.includes(fname);
+    },
+    fetchPortlets,
   },
 };
 </script>

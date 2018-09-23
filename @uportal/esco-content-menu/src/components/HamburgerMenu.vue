@@ -1,16 +1,28 @@
 <template>
   <div class="hamburger-menu">
-    <div class="content-menu-toggle" @click="toggleMenu($event)"
-       aria-label="Menu" role="button" title="Menu" data-toggle="content-menu" aria-expanded="false" aria-haspopup="true" aria-controls="content-menu">
+    <div
+      class="content-menu-toggle"
+      aria-label="Menu"
+      role="button"
+      title="Menu"
+      data-toggle="content-menu"
+      aria-expanded="false"
+      aria-haspopup="true"
+      aria-controls="content-menu"
+      @click="toggleMenu($event)">
       <div class="menu-wrapper">
-        <div></div>
-        <div></div>
-        <div></div>
+        <div />
+        <div />
+        <div />
       </div>
     </div>
 
-    <content-menu default-class="toggler-menu" visible-class="active-menu" :is-hidden="!visible" :default-org-logo="defaultOrgLogo"
-                  :user-info-portlet-url="userInfoPortletUrl"></content-menu>
+    <content-menu
+      :is-hidden="!visible"
+      :default-org-logo="defaultOrgLogo"
+      :user-info-portlet-url="userInfoPortletUrl"
+      default-class="toggler-menu"
+      visible-class="active-menu" />
 
   </div>
 </template>
@@ -21,6 +33,9 @@ import ContentMenu from './ContentMenu';
 /* eslint no-console: ["error", { allow: ["warn", "error"] }] */
 export default {
   name: 'HamburgerMenu',
+  components: {
+    ContentMenu,
+  },
   props: {
     contextApiUrl: {
       type: String,
@@ -40,9 +55,6 @@ export default {
       event.preventDefault();
       this.visible = !this.visible;
     },
-  },
-  components: {
-    ContentMenu,
   },
 };
 </script>

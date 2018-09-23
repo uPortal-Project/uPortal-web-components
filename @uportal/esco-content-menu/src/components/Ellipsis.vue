@@ -1,5 +1,5 @@
 <template>
-    <div ref="sentence"></div>
+  <div ref="sentence" />
 </template>
 
 <script>
@@ -14,6 +14,13 @@ export default {
     lineHeight: {type: String, default: '22px'},
     endChar: {type: String, default: '...'},
     endHtml: {type: String, default: ''},
+  },
+  watch: {
+    message: {
+      handler: function() {
+        this.calcFavoritesPortlets();
+      },
+    },
   },
   mounted() {
     this.$nextTick(function() {
@@ -83,13 +90,6 @@ export default {
           this.endHtml;
         stNode.innerHTML = newHtml;
       }
-    },
-  },
-  watch: {
-    message: {
-      handler: function() {
-        this.calcFavoritesPortlets();
-      },
     },
   },
 };

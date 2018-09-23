@@ -1,10 +1,18 @@
 <template>
   <section class="content-menu-header-buttons">
-    <button type="button" class="content-menu-close" aria-label="Close" :title="translate('message.buttons.menuClose')" @click="callOnClose($event)">
-      <icon :name="'times'"></icon>
+    <button
+      :title="translate('message.buttons.menuClose')"
+      type="button"
+      class="content-menu-close"
+      aria-label="Close"
+      @click="callOnClose($event)">
+      <icon :name="'times'" />
     </button>
-    <a class="signout" :href="signOutUrl" :title="translate('message.buttons.logout')">
-      <icon :name="'sign-out-alt'"></icon>
+    <a
+      :href="signOutUrl"
+      :title="translate('message.buttons.logout')"
+      class="signout">
+      <icon :name="'sign-out-alt'" />
     </a>
   </section>
 </template>
@@ -18,12 +26,12 @@ import 'vue-awesome/icons/times';
 
 export default {
   name: 'HeaderButtons',
+  components: {
+    Icon,
+  },
   props: {
     callOnClose: Function,
     signOutUrl: {type: String, default: process.env.VUE_APP_LOGOUT_URL},
-  },
-  components: {
-    Icon,
   },
   methods: {
     translate(text, lang) {
