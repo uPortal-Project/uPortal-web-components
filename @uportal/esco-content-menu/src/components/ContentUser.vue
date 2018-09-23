@@ -1,33 +1,54 @@
 <template>
-  <section class="content-user" :class="isSmall ? 'small' : ''"
-           :style="isSmall ? 'background-image: linear-gradient(0deg, rgba(0,0,0,.2),rgba(0,0,0,.2)), url(' + getOrgImgUrl() + ');' : ''">
+  <section
+    class="content-user"
+    :class="isSmall ? 'small' : ''"
+    :style="isSmall ? 'background-image: linear-gradient(0deg, rgba(0,0,0,.2),rgba(0,0,0,.2)), url(' + getOrgImgUrl() + ');' : ''">
     <div>
-      <div class="org-img" >
-        <img :src="getOrgImgUrl()" :title="orgInfo.displayName" :alt="orgInfo.displayName" />
+      <div class="org-img">
+        <img
+          :src="getOrgImgUrl()"
+          :title="orgInfo.displayName"
+          :alt="orgInfo.displayName">
       </div>
 
       <div class="user-info">
         <div>
-          <div v-if="getUserAvatar() != null" class="user-avatar">
-            <a v-if="userInfoPortletUrl !== ''" :href="userInfoPortletUrl" :title="translate('message.userInfoPortletUrl.title')">
-              <img :src="getUserAvatar()" :alt="'avatar'"/>
+          <div
+            v-if="getUserAvatar() != null"
+            class="user-avatar">
+            <a
+              v-if="userInfoPortletUrl !== ''"
+              :href="userInfoPortletUrl"
+              :title="translate('message.userInfoPortletUrl.title')">
+              <img
+                :src="getUserAvatar()"
+                :alt="'avatar'">
             </a>
-            <img v-else :src="getUserAvatar()" :alt="'avatar'"/>
+            <img
+              v-else
+              :src="getUserAvatar()"
+              :alt="'avatar'">
           </div>
-          <div v-else class="user-avatar">
-            <icon :name="'user'"></icon>
+          <div
+            v-else
+            class="user-avatar">
+            <icon :name="'user'" />
           </div>
           <div class="wrapper-info">
             <div class="user-name">
               <span :title="userInfo.name">
-                {{userInfo.name}}
+                {{ userInfo.name }}
               </span>
             </div>
-            <div class="user-org"><span :title="orgInfo.displayName">{{orgInfo.displayName}}</span></div>
+            <div class="user-org"><span :title="orgInfo.displayName">{{ orgInfo.displayName }}</span></div>
           </div>
-          <div v-if="otherOrgs.length > 1" class="other-orgs">
-            <a :href="apiUrlOrgInfo" :title="translate('message.userChangeEtabUrl.title')">
-              <icon :name="'exchange-alt'" ></icon>
+          <div
+            v-if="otherOrgs.length > 1"
+            class="other-orgs">
+            <a
+              :href="apiUrlOrgInfo"
+              :title="translate('message.userChangeEtabUrl.title')">
+              <icon :name="'exchange-alt'" />
             </a>
           </div>
         </div>
@@ -42,20 +63,20 @@ import Icon from 'vue-awesome/components/Icon';
 import 'vue-awesome/icons/user';
 import 'vue-awesome/icons/exchange-alt';
 
-/*eslint no-console: ["error", { allow: ["warn", "error"] }] */
+/* eslint no-console: ["error", { allow: ["warn", "error"] }] */
 export default {
   name: 'ContentUser',
   props: {
-    isSmall: { type: Boolean, default: false },
-    orgInfo: { type: Object, default: () => ({}) },
-    otherOrgs: { type: Array, default: () => [] },
-    userInfo: { type: Object, required: true, default: () => undefined },
+    isSmall: {type: Boolean, default: false},
+    orgInfo: {type: Object, default: () => ({})},
+    otherOrgs: {type: Array, default: () => []},
+    userInfo: {type: Object, required: true, default: () => undefined},
     apiUrlOrgInfo: {
       type: String,
       default: process.env.VUE_APP_ORG_INFO_URI,
     },
-    defaultOrgLogo: { type: String, required: true },
-    userInfoPortletUrl: { type: String, default: '' },
+    defaultOrgLogo: {type: String, required: true},
+    userInfoPortletUrl: {type: String, default: ''},
   },
   components: {
     Icon,

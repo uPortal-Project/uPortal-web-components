@@ -35,7 +35,7 @@ export default {
     Icon,
   },
   props: {
-    callOnToggleFav: Function,
+    callOnToggleFav: {type: Function, default: () => {}},
     chanId: {type: String, required: true},
     favoriteApiUrl: {
       type: String,
@@ -48,7 +48,7 @@ export default {
       default:
         process.env.VUE_APP_PORTAL_CONTEXT + process.env.VUE_APP_USER_INFO_URI,
     },
-    fname: String,
+    fname: {type: String, required: true},
     isFavorite: {type: Boolean, default: false},
   },
   data() {
@@ -76,9 +76,7 @@ export default {
     changeFavoriteValue: function() {
       this.favorite = !this.favorite;
       this.$emit('is-favorite', this.favorite);
-      if (typeof this.callOnToggleFav === 'function') {
-        this.callOnToggleFav(this.favorite, this.fname);
-      }
+      this.callOnToggleFav(this.favorite, this.fname);
     },
     addToFavorite: function() {
       oidc({userInfoApiUrl: this.userInfoApiUrl})

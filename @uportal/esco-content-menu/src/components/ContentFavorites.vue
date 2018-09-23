@@ -73,12 +73,14 @@ export default {
   components: {
     PortletCard,
     swiper,
+    // false positive
+    // eslint-disable-next-line vue/no-unused-components
     swiperSlide,
     Icon,
   },
   props: {
-    backgroundColor: String,
-    callAfterAction: Function,
+    backgroundColor: {type: String, default: 'rgba(0, 0, 0, 0)'},
+    callAfterAction: {type: Function, default: () => {}},
     isHidden: Boolean,
     favoriteApiUrl: {
       type: String,
@@ -168,9 +170,7 @@ export default {
     },
     callAfterFavAction(favorite, fname) {
       this.updateSlider();
-      if (typeof this.callAfterAction === 'function') {
-        this.callAfterAction(favorite, fname);
-      }
+      this.callAfterAction(favorite, fname);
     },
     getWindowWidth: function() {
       if (this.$refs.favsSection) return this.$refs.favsSection.clientWidth;

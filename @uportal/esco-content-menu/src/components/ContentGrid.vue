@@ -71,8 +71,8 @@ export default {
     PortletCard,
   },
   props: {
-    backgroundColor: String,
-    callAfterAction: Function,
+    backgroundColor: {type: String, default: 'rgba(0, 0, 0, 0)'},
+    callAfterAction: {type: Function, default: () => {}},
     favoriteApiUrl: {
       type: String,
       default:
@@ -90,7 +90,7 @@ export default {
     },
     favorites: {type: Array, default: () => []},
     isSmall: {type: Boolean, default: false},
-    portlets: Array,
+    portlets: {type: Array, default: null},
   },
   data() {
     return {

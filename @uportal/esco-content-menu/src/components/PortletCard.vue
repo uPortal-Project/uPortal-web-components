@@ -48,7 +48,7 @@ export default {
     Ellipsis,
   },
   props: {
-    callAfterAction: Function,
+    callAfterAction: {type: Function, default: () => {}},
     cssClass: {type: String, default: 'portlet-card'},
     // Background is needed if your icons doesn't have it integrated
     iconBackgroundColor: {type: String, default: 'Transparent'},

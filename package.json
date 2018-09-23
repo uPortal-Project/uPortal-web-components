@@ -61,7 +61,8 @@
     ],
     "env": {
       "node": true,
-      "browser": true
+      "browser": true,
+      "es6": true
     },
     "rules": {
       "no-invalid-this": "off",
@@ -77,6 +78,7 @@
         "files": "**/*.vue",
         "parser": "vue-eslint-parser",
         "parserOptions": {
+          "parser": "babel-eslint",
           "ecmaVersion": 2018,
           "sourceType": "module"
         },
@@ -116,7 +118,7 @@
           "vue/valid-v-show": "error",
           "vue/valid-v-text": "error",
           "vue/attribute-hyphenation": "error",
-          "vue/html-closing-bracket-newline": "error",
+          "vue/html-closing-bracket-newline": "warn",
           "vue/html-closing-bracket-spacing": "error",
           "vue/html-end-tags": "error",
           "vue/html-indent": "error",
@@ -130,7 +132,8 @@
           "vue/require-default-prop": "error",
           "vue/require-prop-types": "error",
           "vue/v-bind-style": "error",
-          "vue/v-on-style": "error"
+          "vue/v-on-style": "error",
+          "max-len": "warn"
         }
       },
       {
