@@ -35,7 +35,7 @@
     "format:md": "prettier --write **/*.md",
     "format:css": "prettier-stylelint --write **/*.{css,scss}",
     "lint": "npm-run-all lint:*",
-    "lint:js": "eslint .",
+    "lint:js": "eslint --ext vue .",
     "lint:css": "stylelint **.{css,scss,vue}",
     "lint:md": "remark --frail *.md docs/**/*.md @uportal/*/*.md",
     "start": "lerna run start",
@@ -57,7 +57,8 @@
       "google"
     ],
     "env": {
-      "node": true
+      "node": true,
+      "browser": true
     },
     "rules": {
       "no-invalid-this": "off",
@@ -71,7 +72,11 @@
       },
       {
         "files": "**/*.vue",
-        "parser": "vue-eslint-parser"
+        "parser": "vue-eslint-parser",
+        "parserOptions": {
+          "ecmaVersion": 2018,
+          "sourceType": "module"
+        }
       },
       {
         "files": "**/*.js",
@@ -127,5 +132,6 @@
   "engines": {
     "node": "^10.9.0",
     "npm": "^6.3.0"
-  }
+  },
+  "dependencies": {}
 }

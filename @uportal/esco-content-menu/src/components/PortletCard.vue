@@ -27,10 +27,10 @@ export default {
   name: 'PortletCard',
   props: {
     callAfterAction: Function,
-    cssClass: { type: String, default: 'portlet-card' },
+    cssClass: {type: String, default: 'portlet-card'},
     // Background is needed if your icons doesn't have it integrated
-    iconBackgroundColor: { type: String, default: 'Transparent' },
-    isFavorite: { type: Boolean, default: false },
+    iconBackgroundColor: {type: String, default: 'Transparent'},
+    isFavorite: {type: Boolean, default: false},
     favoriteApiUrl: {
       type: String,
       default:
@@ -42,9 +42,9 @@ export default {
       default:
         process.env.VUE_APP_PORTAL_CONTEXT + process.env.VUE_APP_USER_INFO_URI,
     },
-    isSmall: { type: Boolean, default: false },
-    portletDesc: { type: Object, required: true },
-    backGroundIsDark: { type: Boolean, default: false },
+    isSmall: {type: Boolean, default: false},
+    portletDesc: {type: Object, required: true},
+    backGroundIsDark: {type: Boolean, default: false},
   },
   data() {
     return {

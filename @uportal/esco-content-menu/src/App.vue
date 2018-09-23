@@ -6,13 +6,13 @@
 </template>
 
 <script>
-//import ContentMenu from "./components/ContentMenu.vue"
+// import ContentMenu from "./components/ContentMenu.vue"
 import HamburgerMenu from './components/HamburgerMenu';
 
 export default {
   name: 'app',
   components: {
-    //ContentMenu
+    // ContentMenu
     HamburgerMenu,
   },
 };

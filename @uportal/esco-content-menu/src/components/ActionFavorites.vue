@@ -27,12 +27,11 @@ const checkStatus = function(response) {
 const parseJSON = function(response) {
   return response.json();
 };
-/*eslint no-console: ["error", { allow: ["warn", "error"] }] */
 export default {
   name: 'ActionFavorites',
   props: {
     callOnToggleFav: Function,
-    chanId: { type: String, required: true },
+    chanId: {type: String, required: true},
     favoriteApiUrl: {
       type: String,
       default:
@@ -45,7 +44,7 @@ export default {
         process.env.VUE_APP_PORTAL_CONTEXT + process.env.VUE_APP_USER_INFO_URI,
     },
     fname: String,
-    isFavorite: { type: Boolean, default: false },
+    isFavorite: {type: Boolean, default: false},
   },
   components: {
     Icon,
@@ -80,50 +79,50 @@ export default {
       }
     },
     addToFavorite: function() {
-      oidc({ userInfoApiUrl: this.userInfoApiUrl })
-        .then((token) => {
-          const options = {
-            method: 'POST',
-            credentials: 'same-origin',
-            headers: {
-              Authorization: 'Bearer ' + token.encoded,
-              'Content-Type': 'application/json',
-            },
-          };
-          fetch(
-            this.favoriteApiUrl +
+      oidc({userInfoApiUrl: this.userInfoApiUrl})
+          .then((token) => {
+            const options = {
+              method: 'POST',
+              credentials: 'same-origin',
+              headers: {
+                'Authorization': 'Bearer ' + token.encoded,
+                'Content-Type': 'application/json',
+              },
+            };
+            fetch(
+                this.favoriteApiUrl +
               '?action=addFavorite&channelId=' +
               this.chanId,
-            options
-          )
-            .then(checkStatus)
-            .then(parseJSON)
-            .then(this.changeFavoriteValue());
-        })
-        .catch((err) => console.error('Error, with message:', err.statusText));
+                options
+            )
+                .then(checkStatus)
+                .then(parseJSON)
+                .then(this.changeFavoriteValue());
+          })
+          .catch((err) => console.error('Error, with message:', err.statusText));
     },
     removeFromFavorite: function() {
-      oidc({ userInfoApiUrl: this.userInfoApiUrl })
-        .then((token) => {
-          const options = {
-            method: 'POST',
-            credentials: 'same-origin',
-            headers: {
-              Authorization: 'Bearer ' + token.encoded,
-              'Content-Type': 'application/json',
-            },
-          };
-          fetch(
-            this.favoriteApiUrl +
+      oidc({userInfoApiUrl: this.userInfoApiUrl})
+          .then((token) => {
+            const options = {
+              method: 'POST',
+              credentials: 'same-origin',
+              headers: {
+                'Authorization': 'Bearer ' + token.encoded,
+                'Content-Type': 'application/json',
+              },
+            };
+            fetch(
+                this.favoriteApiUrl +
               '?action=removeFavorite&channelId=' +
               this.chanId,
-            options
-          )
-            .then(checkStatus)
-            .then(parseJSON)
-            .then(this.changeFavoriteValue());
-        })
-        .catch((err) => console.error('Error, with message:', err.statusText));
+                options
+            )
+                .then(checkStatus)
+                .then(parseJSON)
+                .then(this.changeFavoriteValue());
+          })
+          .catch((err) => console.error('Error, with message:', err.statusText));
     },
   },
 };

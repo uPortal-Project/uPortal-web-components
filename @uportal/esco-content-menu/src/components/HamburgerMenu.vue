@@ -18,7 +18,7 @@
 <script>
 import ContentMenu from './ContentMenu';
 
-/*eslint no-console: ["error", { allow: ["warn", "error"] }] */
+/* eslint no-console: ["error", { allow: ["warn", "error"] }] */
 export default {
   name: 'HamburgerMenu',
   props: {
@@ -26,9 +26,9 @@ export default {
       type: String,
       default: process.env.VUE_APP_PORTAL_CONTEXT,
     },
-    signOutUrl: { type: String, default: process.env.VUE_APP_LOGOUT_URL },
-    defaultOrgLogo: { type: String, required: true },
-    userInfoPortletUrl: { type: String, default: '' },
+    signOutUrl: {type: String, default: process.env.VUE_APP_LOGOUT_URL},
+    defaultOrgLogo: {type: String, required: true},
+    userInfoPortletUrl: {type: String, default: ''},
   },
   data() {
     return {

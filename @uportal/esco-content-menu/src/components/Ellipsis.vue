@@ -9,11 +9,11 @@
 export default {
   name: 'Ellipsis',
   props: {
-    message: { type: String, default: '' },
-    lineClamp: { type: Number, default: 1 },
-    lineHeight: { type: String, default: '22px' },
-    endChar: { type: String, default: '...' },
-    endHtml: { type: String, default: '' },
+    message: {type: String, default: ''},
+    lineClamp: {type: Number, default: 1},
+    lineHeight: {type: String, default: '22px'},
+    endChar: {type: String, default: '...'},
+    endHtml: {type: String, default: ''},
   },
   mounted() {
     this.$nextTick(function() {
@@ -27,7 +27,7 @@ export default {
       const stNode = this.$refs.sentence;
       const html = this.message;
       if (html.length === 0) {
-        //throw new Error('the String is empty');
+        // throw new Error('the String is empty');
         return false;
       }
       stNode.innerHTML = html;
@@ -58,8 +58,8 @@ export default {
 
         while (stNodeHeight > maxHeight) {
           const newHtml = stNode.innerHTML.substring(
-            0,
-            stNode.innerHTML.trimRight().length - 1
+              0,
+              stNode.innerHTML.trimRight().length - 1
           );
           stNode.innerHTML = newHtml.trim();
           stNodeHeight =
@@ -73,8 +73,8 @@ export default {
 
         const stNodeLen = stNode.innerHTML.trimRight().length;
         const stNodeDelStr = stNode.innerHTML
-          .substring(stNodeLen - endLen, stNodeLen)
-          .trim();
+            .substring(stNodeLen - endLen, stNodeLen)
+            .trim();
         const match = stNodeDelStr.match(/\s+/g);
         const extraLen = match && match.length ? match.length : 0;
         const newHtml =

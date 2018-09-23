@@ -30,13 +30,13 @@ import i18n from '../i18n.js';
 export default {
   name: 'EyebrowUserInfo',
   props: {
-    displayName: { type: String, required: true },
+    displayName: {type: String, required: true},
     email: String,
-    picture: { type: String, required: true },
+    picture: {type: String, required: true},
     moreLink: String,
     logoutLink: String,
-    menuIsDark: { type: Boolean, default: true },
-    avatarSize: { type: String, default: '28px' },
+    menuIsDark: {type: Boolean, default: true},
+    avatarSize: {type: String, default: '28px'},
   },
   data() {
     return {

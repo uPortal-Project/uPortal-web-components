@@ -32,7 +32,6 @@ export default async function() {
 
       this.portletsAPI = portlets;
     } catch (err) {
-      // eslint-disable-next-line no-console
       console.error(err);
     }
   }

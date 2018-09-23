@@ -59,8 +59,8 @@ export default {
       default:
         process.env.VUE_APP_PORTAL_CONTEXT + process.env.VUE_APP_USER_INFO_URI,
     },
-    favorites: { type: Array, default: () => [] },
-    isSmall: { type: Boolean, default: false },
+    favorites: {type: Array, default: () => []},
+    isSmall: {type: Boolean, default: false},
     portlets: Array,
   },
   components: {
@@ -95,7 +95,7 @@ export default {
     },
     allCategories: function() {
       const allCategories = this._portlets.flatMap(
-        ({ categories }) => categories
+          ({categories}) => categories
       );
       const uniqueCategories = [...new Set(allCategories)];
       return uniqueCategories.sort();
@@ -108,8 +108,8 @@ export default {
       }
 
       return this._portlets.filter(
-        ({ categories, title, name, description }) =>
-          categories.some((cat) => cat.toLowerCase().includes(filterValue)) ||
+          ({categories, title, name, description}) =>
+            categories.some((cat) => cat.toLowerCase().includes(filterValue)) ||
           title.toLowerCase().includes(filterValue) ||
           name.toLowerCase().includes(filterValue) ||
           description.toLowerCase().includes(filterValue)

@@ -36,7 +36,7 @@ import Icon from 'vue-awesome/components/Icon';
 import 'vue-awesome/icons/chevron-right';
 import 'vue-awesome/icons/chevron-left';
 
-import { swiper, swiperSlide } from 'vue-awesome-swiper';
+import {swiper, swiperSlide} from 'vue-awesome-swiper';
 
 export default {
   name: 'ContentFavorites',
@@ -55,9 +55,9 @@ export default {
       default:
         process.env.VUE_APP_PORTAL_CONTEXT + process.env.VUE_APP_USER_INFO_URI,
     },
-    favorites: { type: Array, required: true, default: () => [] },
-    isSmall: { type: Boolean, default: false },
-    portlets: { type: Array, required: true, default: () => [] },
+    favorites: {type: Array, required: true, default: () => []},
+    isSmall: {type: Boolean, default: false},
+    portlets: {type: Array, required: true, default: () => []},
   },
   data() {
     return {

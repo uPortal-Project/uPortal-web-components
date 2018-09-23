@@ -20,7 +20,7 @@ export default {
   name: 'HeaderButtons',
   props: {
     callOnClose: Function,
-    signOutUrl: { type: String, default: process.env.VUE_APP_LOGOUT_URL },
+    signOutUrl: {type: String, default: process.env.VUE_APP_LOGOUT_URL},
   },
   components: {
     Icon,
