@@ -11,25 +11,25 @@
 
 
 <script>
-import i18n from "../i18n.js";
-import Icon from "vue-awesome/components/Icon";
-import "vue-awesome/icons/sign-out-alt";
-import "vue-awesome/icons/times";
+import i18n from '../i18n.js';
+import Icon from 'vue-awesome/components/Icon';
+import 'vue-awesome/icons/sign-out-alt';
+import 'vue-awesome/icons/times';
 
 export default {
-  name: "HeaderButtons",
+  name: 'HeaderButtons',
   props: {
     callOnClose: Function,
-    signOutUrl: { type: String, default: process.env.VUE_APP_LOGOUT_URL }
+    signOutUrl: { type: String, default: process.env.VUE_APP_LOGOUT_URL },
   },
   components: {
-    Icon
+    Icon,
   },
   methods: {
     translate(text, lang) {
       return i18n.t(text, lang);
-    }
-  }
+    },
+  },
 };
 </script>
 

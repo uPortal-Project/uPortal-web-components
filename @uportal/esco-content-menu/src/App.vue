@@ -7,14 +7,14 @@
 
 <script>
 //import ContentMenu from "./components/ContentMenu.vue"
-import HamburgerMenu from "./components/HamburgerMenu";
+import HamburgerMenu from './components/HamburgerMenu';
 
 export default {
-  name: "app",
+  name: 'app',
   components: {
     //ContentMenu
-    HamburgerMenu
-  }
+    HamburgerMenu,
+  },
 };
 </script>
 

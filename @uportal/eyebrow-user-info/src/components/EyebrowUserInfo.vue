@@ -25,10 +25,10 @@
 </template>
 
 <script>
-import i18n from "../i18n.js";
+import i18n from '../i18n.js';
 
 export default {
-  name: "EyebrowUserInfo",
+  name: 'EyebrowUserInfo',
   props: {
     displayName: { type: String, required: true },
     email: String,
@@ -36,11 +36,11 @@ export default {
     moreLink: String,
     logoutLink: String,
     menuIsDark: { type: Boolean, default: true },
-    avatarSize: { type: String, default: "28px" }
+    avatarSize: { type: String, default: '28px' },
   },
   data() {
     return {
-      visible: false
+      visible: false,
     };
   },
   methods: {
@@ -57,7 +57,7 @@ export default {
       // If composed / inside open shadow-dom use first item of composed path #9242
       if (
         nativeEvent.composed &&
-        typeof nativeEvent.composedPath === "function"
+        typeof nativeEvent.composedPath === 'function'
       ) {
         const path = nativeEvent.composedPath();
         target = path[0];
@@ -78,15 +78,15 @@ export default {
       if (el !== target && !el.contains(target)) {
         this.visible = false;
       }
-    }
+    },
   },
   created() {
-    document.addEventListener("click", this.documentClick);
+    document.addEventListener('click', this.documentClick);
   },
   destroyed() {
     // important to clean up!!
-    document.removeEventListener("click", this.documentClick);
-  }
+    document.removeEventListener('click', this.documentClick);
+  },
 };
 </script>
 
@@ -106,7 +106,7 @@ $grey: #d0d0d0;
   }
 
   .fa-sign-out::before {
-    content: "\f08b";
+    content: '\f08b';
   }
 
   > .dropdown {

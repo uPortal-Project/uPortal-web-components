@@ -7,13 +7,13 @@
 // intregration due to a problem : https://github.com/jypblue/vue-ellipsis/issues/2
 
 export default {
-  name: "Ellipsis",
+  name: 'Ellipsis',
   props: {
-    message: { type: String, default: "" },
+    message: { type: String, default: '' },
     lineClamp: { type: Number, default: 1 },
-    lineHeight: { type: String, default: "22px" },
-    endChar: { type: String, default: "..." },
-    endHtml: { type: String, default: "" }
+    lineHeight: { type: String, default: '22px' },
+    endChar: { type: String, default: '...' },
+    endHtml: { type: String, default: '' },
   },
   mounted() {
     this.$nextTick(function() {
@@ -67,9 +67,9 @@ export default {
         }
 
         const endStr =
-          this.endHtml !== "" ? this.endHtml.replace(/<[^>]+>/g, "") : "";
+          this.endHtml !== '' ? this.endHtml.replace(/<[^>]+>/g, '') : '';
         const endLen =
-          this.endChar === "..." ? 3 : endStr.length + this.endChar.length;
+          this.endChar === '...' ? 3 : endStr.length + this.endChar.length;
 
         const stNodeLen = stNode.innerHTML.trimRight().length;
         const stNodeDelStr = stNode.innerHTML
@@ -83,15 +83,15 @@ export default {
           this.endHtml;
         stNode.innerHTML = newHtml;
       }
-    }
+    },
   },
   watch: {
     message: {
       handler: function() {
         this.calcFavoritesPortlets();
-      }
-    }
-  }
+      },
+    },
+  },
 };
 </script>
 

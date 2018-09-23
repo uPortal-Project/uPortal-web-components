@@ -8,11 +8,11 @@
 </template>
 
 <script>
-import oidc from "@uportal/open-id-connect";
-import i18n from "../i18n.js";
-import Icon from "vue-awesome/components/Icon";
-import "vue-awesome/icons/star";
-import "vue-awesome/icons/regular/star";
+import oidc from '@uportal/open-id-connect';
+import i18n from '../i18n.js';
+import Icon from 'vue-awesome/components/Icon';
+import 'vue-awesome/icons/star';
+import 'vue-awesome/icons/regular/star';
 
 const checkStatus = function(response) {
   if (response.ok) {
@@ -29,7 +29,7 @@ const parseJSON = function(response) {
 };
 /*eslint no-console: ["error", { allow: ["warn", "error"] }] */
 export default {
-  name: "ActionFavorites",
+  name: 'ActionFavorites',
   props: {
     callOnToggleFav: Function,
     chanId: { type: String, required: true },
@@ -37,22 +37,22 @@ export default {
       type: String,
       default:
         process.env.VUE_APP_PORTAL_CONTEXT +
-        process.env.VUE_APP_FAVORITES_PORTLETS_URI
+        process.env.VUE_APP_FAVORITES_PORTLETS_URI,
     },
     userInfoApiUrl: {
       type: String,
       default:
-        process.env.VUE_APP_PORTAL_CONTEXT + process.env.VUE_APP_USER_INFO_URI
+        process.env.VUE_APP_PORTAL_CONTEXT + process.env.VUE_APP_USER_INFO_URI,
     },
     fname: String,
-    isFavorite: { type: Boolean, default: false }
+    isFavorite: { type: Boolean, default: false },
   },
   components: {
-    Icon
+    Icon,
   },
   data() {
     return {
-      favorite: this.isFavorite
+      favorite: this.isFavorite,
     };
   },
   methods: {
@@ -61,7 +61,7 @@ export default {
     },
     toggleFavorite: function(event) {
       event.preventDefault();
-      if (process.env.NODE_ENV !== "development") {
+      if (process.env.NODE_ENV !== 'development') {
         if (this.favorite) {
           this.removeFromFavorite();
         } else {
@@ -74,25 +74,25 @@ export default {
     },
     changeFavoriteValue: function() {
       this.favorite = !this.favorite;
-      this.$emit("is-favorite", this.favorite);
-      if (typeof this.callOnToggleFav === "function") {
+      this.$emit('is-favorite', this.favorite);
+      if (typeof this.callOnToggleFav === 'function') {
         this.callOnToggleFav(this.favorite, this.fname);
       }
     },
     addToFavorite: function() {
       oidc({ userInfoApiUrl: this.userInfoApiUrl })
-        .then(token => {
+        .then((token) => {
           const options = {
-            method: "POST",
-            credentials: "same-origin",
+            method: 'POST',
+            credentials: 'same-origin',
             headers: {
-              Authorization: "Bearer " + token.encoded,
-              "Content-Type": "application/json"
-            }
+              Authorization: 'Bearer ' + token.encoded,
+              'Content-Type': 'application/json',
+            },
           };
           fetch(
             this.favoriteApiUrl +
-              "?action=addFavorite&channelId=" +
+              '?action=addFavorite&channelId=' +
               this.chanId,
             options
           )
@@ -100,22 +100,22 @@ export default {
             .then(parseJSON)
             .then(this.changeFavoriteValue());
         })
-        .catch(err => console.error("Error, with message:", err.statusText));
+        .catch((err) => console.error('Error, with message:', err.statusText));
     },
     removeFromFavorite: function() {
       oidc({ userInfoApiUrl: this.userInfoApiUrl })
-        .then(token => {
+        .then((token) => {
           const options = {
-            method: "POST",
-            credentials: "same-origin",
+            method: 'POST',
+            credentials: 'same-origin',
             headers: {
-              Authorization: "Bearer " + token.encoded,
-              "Content-Type": "application/json"
-            }
+              Authorization: 'Bearer ' + token.encoded,
+              'Content-Type': 'application/json',
+            },
           };
           fetch(
             this.favoriteApiUrl +
-              "?action=removeFavorite&channelId=" +
+              '?action=removeFavorite&channelId=' +
               this.chanId,
             options
           )
@@ -123,9 +123,9 @@ export default {
             .then(parseJSON)
             .then(this.changeFavoriteValue());
         })
-        .catch(err => console.error("Error, with message:", err.statusText));
-    }
-  }
+        .catch((err) => console.error('Error, with message:', err.statusText));
+    },
+  },
 };
 </script>
 

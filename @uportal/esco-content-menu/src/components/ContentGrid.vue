@@ -35,12 +35,12 @@
 </template>
 
 <script>
-import i18n from "../i18n.js";
-import PortletCard from "./PortletCard";
-import fetchPortlets from "../services/fetchPortlets";
+import i18n from '../i18n.js';
+import PortletCard from './PortletCard';
+import fetchPortlets from '../services/fetchPortlets';
 
 export default {
-  name: "ContentGrid",
+  name: 'ContentGrid',
   props: {
     backgroundColor: String,
     callAfterAction: Function,
@@ -48,29 +48,29 @@ export default {
       type: String,
       default:
         process.env.VUE_APP_PORTAL_CONTEXT +
-        process.env.VUE_APP_FAVORITES_PORTLETS_URI
+        process.env.VUE_APP_FAVORITES_PORTLETS_URI,
     },
     contextApiUrl: {
       type: String,
-      default: process.env.VUE_APP_PORTAL_CONTEXT
+      default: process.env.VUE_APP_PORTAL_CONTEXT,
     },
     userInfoApiUrl: {
       type: String,
       default:
-        process.env.VUE_APP_PORTAL_CONTEXT + process.env.VUE_APP_USER_INFO_URI
+        process.env.VUE_APP_PORTAL_CONTEXT + process.env.VUE_APP_USER_INFO_URI,
     },
     favorites: { type: Array, default: () => [] },
     isSmall: { type: Boolean, default: false },
-    portlets: Array
+    portlets: Array,
   },
   components: {
-    PortletCard
+    PortletCard,
   },
   data() {
     return {
-      filterValue: "",
+      filterValue: '',
       visible: false,
-      portletsAPI: []
+      portletsAPI: [],
     };
   },
   mounted() {
@@ -85,7 +85,7 @@ export default {
     isFavorite: function(fname) {
       return this.favorites.includes(fname);
     },
-    fetchPortlets
+    fetchPortlets,
   },
   computed: {
     _portlets: function() {
@@ -103,19 +103,19 @@ export default {
     filteredPortlets: function() {
       const filterValue = this.filterValue.toLowerCase();
 
-      if (filterValue === "") {
+      if (filterValue === '') {
         return this._portlets;
       }
 
       return this._portlets.filter(
         ({ categories, title, name, description }) =>
-          categories.some(cat => cat.toLowerCase().includes(filterValue)) ||
+          categories.some((cat) => cat.toLowerCase().includes(filterValue)) ||
           title.toLowerCase().includes(filterValue) ||
           name.toLowerCase().includes(filterValue) ||
           description.toLowerCase().includes(filterValue)
       );
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -155,7 +155,7 @@ $searchSize: 32px;
   }
 
   .content-grid-caret:after {
-    content: "";
+    content: '';
     position: absolute;
     width: 0;
     height: 0;
@@ -180,7 +180,7 @@ $searchSize: 32px;
   }
 
   .fa-search:before {
-    content: "\f002";
+    content: '\f002';
   }
 
   &.small {

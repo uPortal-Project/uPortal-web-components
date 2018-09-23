@@ -11,13 +11,13 @@
 </template>
 
 <script>
-import EyebrowUserInfo from "./components/EyebrowUserInfo";
+import EyebrowUserInfo from './components/EyebrowUserInfo';
 
 export default {
-  name: "app",
+  name: 'app',
   components: {
-    EyebrowUserInfo
-  }
+    EyebrowUserInfo,
+  },
 };
 </script>
 

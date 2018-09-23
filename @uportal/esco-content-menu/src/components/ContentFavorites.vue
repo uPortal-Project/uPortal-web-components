@@ -30,16 +30,16 @@
 </template>
 
 <script>
-import i18n from "../i18n.js";
-import PortletCard from "./PortletCard";
-import Icon from "vue-awesome/components/Icon";
-import "vue-awesome/icons/chevron-right";
-import "vue-awesome/icons/chevron-left";
+import i18n from '../i18n.js';
+import PortletCard from './PortletCard';
+import Icon from 'vue-awesome/components/Icon';
+import 'vue-awesome/icons/chevron-right';
+import 'vue-awesome/icons/chevron-left';
 
-import { swiper, swiperSlide } from "vue-awesome-swiper";
+import { swiper, swiperSlide } from 'vue-awesome-swiper';
 
 export default {
-  name: "ContentFavorites",
+  name: 'ContentFavorites',
   props: {
     backgroundColor: String,
     callAfterAction: Function,
@@ -48,23 +48,23 @@ export default {
       type: String,
       default:
         process.env.VUE_APP_PORTAL_CONTEXT +
-        process.env.VUE_APP_FAVORITES_PORTLETS_URI
+        process.env.VUE_APP_FAVORITES_PORTLETS_URI,
     },
     userInfoApiUrl: {
       type: String,
       default:
-        process.env.VUE_APP_PORTAL_CONTEXT + process.env.VUE_APP_USER_INFO_URI
+        process.env.VUE_APP_PORTAL_CONTEXT + process.env.VUE_APP_USER_INFO_URI,
     },
     favorites: { type: Array, required: true, default: () => [] },
     isSmall: { type: Boolean, default: false },
-    portlets: { type: Array, required: true, default: () => [] }
+    portlets: { type: Array, required: true, default: () => [] },
   },
   data() {
     return {
       favorited: [],
       swiperOption: {
         init: false,
-        slidesPerView: "auto",
+        slidesPerView: 'auto',
         slidesPerGroup: 1,
         spaceBetween: 0,
         speed: 800,
@@ -75,24 +75,24 @@ export default {
         //   clickable: true
         // },
         navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev"
-        }
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
       },
       showSmall: this.isSmall,
       disableNext: false,
-      disablePrev: false
+      disablePrev: false,
     };
   },
   components: {
     PortletCard,
     swiper,
     swiperSlide,
-    Icon
+    Icon,
   },
   mounted() {
     this.$nextTick(function() {
-      window.addEventListener("resize", this.updateSlider);
+      window.addEventListener('resize', this.updateSlider);
     });
   },
   methods: {
@@ -100,7 +100,7 @@ export default {
       return i18n.t(text, lang);
     },
     computeImgUrl(url) {
-      if (url != null && !url.startsWith("http")) {
+      if (url != null && !url.startsWith('http')) {
         return process.env.VUE_APP_PORTAL_BASE_URL + url;
       }
       return url;
@@ -110,7 +110,7 @@ export default {
     },
     callAfterFavAction(favorite, fname) {
       this.updateSlider();
-      if (typeof this.callAfterAction === "function") {
+      if (typeof this.callAfterAction === 'function') {
         this.callAfterAction(favorite, fname);
       }
     },
@@ -156,7 +156,7 @@ export default {
       while (array.length > 0) {
         array.pop();
       }
-    }
+    },
   },
   watch: {
     favorites: {
@@ -164,33 +164,33 @@ export default {
         this.calcFavoritesPortlets();
         this.updateSlider();
       },
-      deep: true
+      deep: true,
     },
     portlets: {
       handler: function() {
         this.calcFavoritesPortlets();
         this.updateSlider();
       },
-      deep: true
+      deep: true,
     },
     favorited: {
       handler: function() {
         this.updateSlider();
       },
-      deep: true
+      deep: true,
     },
     isHidden: {
       handler: function() {
         this.updateSlider();
       },
-      deep: true
-    }
-  }
+      deep: true,
+    },
+  },
 };
 </script>
 
 <style lang="scss" scoped>
-@import "../../node_modules/swiper/dist/css/swiper.css";
+@import '../../node_modules/swiper/dist/css/swiper.css';
 
 .content-favorites {
   width: inherit;

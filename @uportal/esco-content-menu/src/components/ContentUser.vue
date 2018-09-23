@@ -37,14 +37,14 @@
 </template>
 
 <script>
-import i18n from "../i18n.js";
-import Icon from "vue-awesome/components/Icon";
-import "vue-awesome/icons/user";
-import "vue-awesome/icons/exchange-alt";
+import i18n from '../i18n.js';
+import Icon from 'vue-awesome/components/Icon';
+import 'vue-awesome/icons/user';
+import 'vue-awesome/icons/exchange-alt';
 
 /*eslint no-console: ["error", { allow: ["warn", "error"] }] */
 export default {
-  name: "ContentUser",
+  name: 'ContentUser',
   props: {
     isSmall: { type: Boolean, default: false },
     orgInfo: { type: Object, default: () => ({}) },
@@ -52,13 +52,13 @@ export default {
     userInfo: { type: Object, required: true, default: () => undefined },
     apiUrlOrgInfo: {
       type: String,
-      default: process.env.VUE_APP_ORG_INFO_URI
+      default: process.env.VUE_APP_ORG_INFO_URI,
     },
     defaultOrgLogo: { type: String, required: true },
-    userInfoPortletUrl: { type: String, default: "" }
+    userInfoPortletUrl: { type: String, default: '' },
   },
   components: {
-    Icon
+    Icon,
   },
   methods: {
     translate(text, lang) {
@@ -77,12 +77,12 @@ export default {
       return this.computeImgUrl(avatar);
     },
     computeImgUrl(url) {
-      if (url != null && !url.startsWith("http")) {
+      if (url != null && !url.startsWith('http')) {
         return process.env.VUE_APP_PORTAL_BASE_URL + url;
       }
       return url;
-    }
-  }
+    },
+  },
 };
 </script>
 

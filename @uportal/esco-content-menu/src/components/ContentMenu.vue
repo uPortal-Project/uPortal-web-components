@@ -16,12 +16,12 @@
 </template>
 
 <script>
-import ContentFavorites from "./ContentFavorites";
-import ContentGrid from "./ContentGrid";
-import ContentUser from "./ContentUser";
-import HeaderButtons from "./HeaderButtons";
-import oidc from "@uportal/open-id-connect";
-import fetchPortlets from "../services/fetchPortlets";
+import ContentFavorites from './ContentFavorites';
+import ContentGrid from './ContentGrid';
+import ContentUser from './ContentUser';
+import HeaderButtons from './HeaderButtons';
+import oidc from '@uportal/open-id-connect';
+import fetchPortlets from '../services/fetchPortlets';
 
 const checkStatus = function(response) {
   //console.log("check response ", response);
@@ -40,12 +40,12 @@ const parseJSON = function(response) {
 };
 /*eslint no-console: ["error", { allow: ["warn", "error"] }] */
 export default {
-  name: "ContentMenu",
+  name: 'ContentMenu',
   components: {
     ContentFavorites,
     ContentGrid,
     ContentUser,
-    HeaderButtons
+    HeaderButtons,
   },
   props: {
     id: String,
@@ -53,12 +53,12 @@ export default {
     isHidden: { type: Boolean, default: false },
     contextApiUrl: {
       type: String,
-      default: process.env.VUE_APP_PORTAL_CONTEXT
+      default: process.env.VUE_APP_PORTAL_CONTEXT,
     },
     signOutUrl: { type: String, default: process.env.VUE_APP_LOGOUT_URL },
     defaultOrgLogo: { type: String, required: true },
-    userInfoPortletUrl: { type: String, default: "" },
-    apiUrlOrgInfo: { type: String, default: "" }
+    userInfoPortletUrl: { type: String, default: '' },
+    apiUrlOrgInfo: { type: String, default: '' },
   },
   data() {
     return {
@@ -68,19 +68,19 @@ export default {
       userInfoApiUrl: this.contextApiUrl + process.env.VUE_APP_USER_INFO_URI,
       isSmall: false,
       visible: !this.isHidden,
-      minHeight: "100vh",
+      minHeight: '100vh',
       info: {
         favorites: [],
         organizations: [],
         user: {},
-        userOrganization: {}
+        userOrganization: {},
       },
-      portletsAPI: []
+      portletsAPI: [],
     };
   },
   mounted() {
     this.$nextTick(function() {
-      window.addEventListener("resize", this.isXs);
+      window.addEventListener('resize', this.isXs);
       this.fetchPortlets();
       this.fetchFavorites();
       this.fetchUserInfo();
@@ -89,12 +89,12 @@ export default {
   methods: {
     close(event) {
       this.visible = false;
-      var element = document.querySelector("#" + this.id);
-      element.parentNode.style.display = "none";
-      element.setAttribute("is-hidden", true);
+      var element = document.querySelector('#' + this.id);
+      element.parentNode.style.display = 'none';
+      element.setAttribute('is-hidden', true);
       //var element = document.querySelector('#');
       this.isHidden = false;
-      if (typeof this.callOnClose === "function") {
+      if (typeof this.callOnClose === 'function') {
         this.callOnClose(event);
       }
     },
@@ -114,7 +114,7 @@ export default {
           {},
           this.info.userOrganization,
           this.info.organizations.find(
-            entry => entry.id === this.info.user.ESCOSIRENCourant[0]
+            (entry) => entry.id === this.info.user.ESCOSIRENCourant[0]
           )
         );
       } else if (this.info.organizations) {
@@ -134,10 +134,10 @@ export default {
       }
     },
     fetchUserInfo() {
-      if (process.env.NODE_ENV === "development") {
-        const userInfo = require("../assets/userinfo");
+      if (process.env.NODE_ENV === 'development') {
+        const userInfo = require('../assets/userinfo');
         this.info.user = { ...this.info.user, ...userInfo };
-        const orgsInfo = require("../assets/orginfo");
+        const orgsInfo = require('../assets/orginfo');
         setTimeout(() => {
           this.emptyArray(this.info.organizations);
           for (let prop in orgsInfo) {
@@ -147,29 +147,30 @@ export default {
         }, 2000);
       } else {
         oidc({
-          userInfoApiUrl: this.contextApiUrl + process.env.VUE_APP_USER_INFO_URI
+          userInfoApiUrl:
+            this.contextApiUrl + process.env.VUE_APP_USER_INFO_URI,
         })
-          .then(token => {
+          .then((token) => {
             this.info.user = Object.assign({}, this.info.user, token.decoded);
             if (token.decoded.ESCOSIREN) {
               const options = {
-                method: "GET",
-                credentials: "same-origin",
+                method: 'GET',
+                credentials: 'same-origin',
                 headers: {
-                  Authorization: "Bearer " + token.encoded,
-                  "Content-Type": "application/json"
-                }
+                  Authorization: 'Bearer ' + token.encoded,
+                  'Content-Type': 'application/json',
+                },
               };
               fetch(
                 process.env.VUE_APP_PORTAL_BASE_URL +
                   process.env.VUE_APP_ORG_INFO_URI +
-                  "?ids=" +
+                  '?ids=' +
                   token.decoded.ESCOSIREN,
                 options
               )
                 .then(checkStatus)
                 .then(parseJSON)
-                .then(data => {
+                .then((data) => {
                   this.emptyArray(this.info.organizations);
                   for (let prop in data) {
                     this.info.organizations.push(data[prop]);
@@ -185,28 +186,29 @@ export default {
     },
     fetchPortlets,
     fetchFavorites() {
-      if (process.env.NODE_ENV === "development") {
+      if (process.env.NODE_ENV === 'development') {
         this.emptyArray(this.info.favorites);
         this.info.favorites.push(
-          "search",
-          "CourrielAcademique",
-          "portal-activity",
-          "calendar",
-          "Helpinfo",
-          "MILycees"
+          'search',
+          'CourrielAcademique',
+          'portal-activity',
+          'calendar',
+          'Helpinfo',
+          'MILycees'
         );
       } else {
         oidc({
-          userInfoApiUrl: this.contextApiUrl + process.env.VUE_APP_USER_INFO_URI
+          userInfoApiUrl:
+            this.contextApiUrl + process.env.VUE_APP_USER_INFO_URI,
         })
-          .then(token => {
+          .then((token) => {
             const options = {
-              method: "GET",
-              credentials: "same-origin",
+              method: 'GET',
+              credentials: 'same-origin',
               headers: {
-                Authorization: "Bearer " + token.encoded,
-                "Content-Type": "application/json"
-              }
+                Authorization: 'Bearer ' + token.encoded,
+                'Content-Type': 'application/json',
+              },
             };
             fetch(
               this.contextApiUrl + process.env.VUE_APP_FAVORITES_URI,
@@ -214,7 +216,7 @@ export default {
             )
               .then(checkStatus)
               .then(parseJSON)
-              .then(data => {
+              .then((data) => {
                 if (
                   data?.authenticated &&
                   data?.layout?.globals?.hasFavorites &&
@@ -254,7 +256,7 @@ export default {
         this.info.favorites.push(fname);
       } else {
         this.info.favorites = this.info.favorites.filter(
-          value => value !== fname
+          (value) => value !== fname
         );
       }
     },
@@ -263,35 +265,35 @@ export default {
         .trim()
         .toLowerCase()
         .localeCompare(b.title.trim().toLowerCase(), undefined, {
-          numberic: true
+          numberic: true,
         });
     },
     emptyArray: function(array) {
       while (array.length > 0) {
         array.pop();
       }
-    }
+    },
   },
   computed: {
     _portlets: function() {
       return this.portletsAPI;
-    }
+    },
   },
   watch: {
     isHidden: {
       handler: function() {
         this.visible = !this.isHidden;
         if (this.visible) {
-          this.minHeight = document.body.getBoundingClientRect().height + "px";
+          this.minHeight = document.body.getBoundingClientRect().height + 'px';
           this.isXs();
         }
       },
-      deep: true
-    }
+      deep: true,
+    },
   },
   beforeDestroy() {
-    window.removeEventListener("resize", this.getWindowWidth);
-  }
+    window.removeEventListener('resize', this.getWindowWidth);
+  },
 };
 </script>
 

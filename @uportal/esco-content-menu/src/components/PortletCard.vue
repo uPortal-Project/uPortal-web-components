@@ -20,31 +20,31 @@
 </template>
 
 <script>
-import Ellipsis from "./Ellipsis";
-import ActionFavorites from "./ActionFavorites";
+import Ellipsis from './Ellipsis';
+import ActionFavorites from './ActionFavorites';
 
 export default {
-  name: "PortletCard",
+  name: 'PortletCard',
   props: {
     callAfterAction: Function,
-    cssClass: { type: String, default: "portlet-card" },
+    cssClass: { type: String, default: 'portlet-card' },
     // Background is needed if your icons doesn't have it integrated
-    iconBackgroundColor: { type: String, default: "Transparent" },
+    iconBackgroundColor: { type: String, default: 'Transparent' },
     isFavorite: { type: Boolean, default: false },
     favoriteApiUrl: {
       type: String,
       default:
         process.env.VUE_APP_PORTAL_CONTEXT +
-        process.env.VUE_APP_FAVORITES_PORTLETS_URI
+        process.env.VUE_APP_FAVORITES_PORTLETS_URI,
     },
     userInfoApiUrl: {
       type: String,
       default:
-        process.env.VUE_APP_PORTAL_CONTEXT + process.env.VUE_APP_USER_INFO_URI
+        process.env.VUE_APP_PORTAL_CONTEXT + process.env.VUE_APP_USER_INFO_URI,
     },
     isSmall: { type: Boolean, default: false },
     portletDesc: { type: Object, required: true },
-    backGroundIsDark: { type: Boolean, default: false }
+    backGroundIsDark: { type: Boolean, default: false },
   },
   data() {
     return {
@@ -56,47 +56,47 @@ export default {
       iconUrl:
         this.portletDesc.layoutObject.iconUrl !== null
           ? this.computeIconUrl(this.portletDesc.layoutObject.iconUrl)
-          : null
+          : null,
     };
   },
   components: {
     ActionFavorites,
-    Ellipsis
+    Ellipsis,
   },
   computed: {
     mainClass: function() {
       let appClass =
         this.cssClass +
-        " " +
+        ' ' +
         this.fname.toLowerCase() +
-        " " +
+        ' ' +
         (this.portletDesc && this.portletDesc.categories
-          ? this.portletDesc.categories.join(" ").toLowerCase()
-          : "");
+          ? this.portletDesc.categories.join(' ').toLowerCase()
+          : '');
       if (this.isSmall) {
-        appClass += " small-card";
+        appClass += ' small-card';
       }
       if (this.backGroundIsDark) {
-        appClass += " background-dark";
+        appClass += ' background-dark';
       }
       return appClass;
-    }
+    },
   },
   methods: {
     computeIconUrl: function(url) {
-      if (url != null && !url.startsWith("http")) {
+      if (url != null && !url.startsWith('http')) {
         return process.env.VUE_APP_PORTAL_BASE_URL + url;
       }
       return url;
     },
     truncate: function(entry) {
       if (entry) {
-        let text = entry.split("   ");
+        let text = entry.split('   ');
         return text[0].trim();
       }
       return entry.trim();
-    }
-  }
+    },
+  },
 };
 </script>
 

@@ -24,17 +24,18 @@
     "remark-validate-links": "^7.1.0",
     "stylelint": "^9.5.0",
     "stylelint-config-standard": "^18.2.0",
+    "typescript-eslint-parser": "^18.0.0",
     "yorkie": "^2.0.0"
   },
   "scripts": {
     "bootstrap": "lerna bootstrap --ci",
     "ci:commitlint": "commitlint-travis",
     "format": "npm-run-all format:*",
-    "format:js": "prettier-eslint --write **/*.{ts,tsx,js,jsx,vue}",
+    "format:js": "prettier-eslint --write **/*.{ts,js,vue}",
     "format:md": "prettier --write **/*.md",
     "format:css": "prettier-stylelint --write **/*.{css,scss}",
     "lint": "npm-run-all lint:*",
-    "lint:js": "eslint . --ignore-path=.gitignore",
+    "lint:js": "eslint .",
     "lint:css": "stylelint **.{css,scss,vue}",
     "lint:md": "remark --frail *.md docs/**/*.md @uportal/*/*.md",
     "start": "lerna run start",
@@ -54,14 +55,39 @@
     "extends": [
       "eslint:recommended",
       "google"
+    ],
+    "env": {
+      "node": true
+    },
+    "rules": {
+      "no-invalid-this": "off",
+      "require-jsdoc": "off",
+      "no-console": "warn"
+    },
+    "overrides": [
+      {
+        "files": "**/*.ts",
+        "parser": "typescript-eslint-parser"
+      },
+      {
+        "files": "**/*.vue",
+        "parser": "vue-eslint-parser"
+      },
+      {
+        "files": "**/*.js",
+        "parser": "babel-eslint"
+      }
     ]
+  },
+  "prettier": {
+    "singleQuote": true
   },
   "gitHooks": {
     "commit-msg": "commitlint -e",
     "pre-commit": "lint-staged"
   },
   "lint-staged": {
-    "*.{ts,tsx,js,jsx,vue}": [
+    "*.{ts,js,vue}": [
       "prettier-eslint --write",
       "git add"
     ],

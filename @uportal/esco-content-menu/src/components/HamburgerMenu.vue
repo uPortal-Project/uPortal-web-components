@@ -16,34 +16,34 @@
 </template>
 
 <script>
-import ContentMenu from "./ContentMenu";
+import ContentMenu from './ContentMenu';
 
 /*eslint no-console: ["error", { allow: ["warn", "error"] }] */
 export default {
-  name: "HamburgerMenu",
+  name: 'HamburgerMenu',
   props: {
     contextApiUrl: {
       type: String,
-      default: process.env.VUE_APP_PORTAL_CONTEXT
+      default: process.env.VUE_APP_PORTAL_CONTEXT,
     },
     signOutUrl: { type: String, default: process.env.VUE_APP_LOGOUT_URL },
     defaultOrgLogo: { type: String, required: true },
-    userInfoPortletUrl: { type: String, default: "" }
+    userInfoPortletUrl: { type: String, default: '' },
   },
   data() {
     return {
-      visible: false
+      visible: false,
     };
   },
   methods: {
     toggleMenu(event) {
       event.preventDefault();
       this.visible = !this.visible;
-    }
+    },
   },
   components: {
-    ContentMenu
-  }
+    ContentMenu,
+  },
 };
 </script>
 
