@@ -1,6 +1,6 @@
 module.exports = {
   pluginOptions: {
-    enableInSFC: true
+    enableInSFC: true,
     // },
     // css: {
     //   loaderOptions: {
@@ -10,5 +10,5 @@ module.exports = {
     //       camelCase: 'only'
     //     }
     //   }
-  }
+  },
 };
