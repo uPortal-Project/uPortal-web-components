@@ -62,7 +62,7 @@ const parseJSON = function(response) {
   // console.log("Parse response for json ", response);
   return response.json();
 };
-/* eslint no-console: ["error", { allow: ["warn", "error"] }] */
+
 export default {
   name: 'ContentMenu',
   components: {

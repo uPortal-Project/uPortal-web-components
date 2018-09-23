@@ -30,7 +30,6 @@
 <script>
 import ContentMenu from './ContentMenu';
 
-/* eslint no-console: ["error", { allow: ["warn", "error"] }] */
 export default {
   name: 'HamburgerMenu',
   components: {

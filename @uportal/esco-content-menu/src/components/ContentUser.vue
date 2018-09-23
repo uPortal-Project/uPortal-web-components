@@ -63,7 +63,6 @@ import Icon from 'vue-awesome/components/Icon';
 import 'vue-awesome/icons/user';
 import 'vue-awesome/icons/exchange-alt';
 
-/* eslint no-console: ["error", { allow: ["warn", "error"] }] */
 export default {
   name: 'ContentUser',
   components: {
