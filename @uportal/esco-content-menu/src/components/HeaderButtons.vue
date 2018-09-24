@@ -1,35 +1,43 @@
 <template>
   <section class="content-menu-header-buttons">
-    <button type="button" class="content-menu-close" aria-label="Close" :title="translate('message.buttons.menuClose')" @click="callOnClose($event)">
-      <icon :name="'times'"></icon>
+    <button
+      :title="translate('message.buttons.menuClose')"
+      type="button"
+      class="content-menu-close"
+      aria-label="Close"
+      @click="callOnClose($event)">
+      <icon :name="'times'" />
     </button>
-    <a class="signout" :href="signOutUrl" :title="translate('message.buttons.logout')">
-      <icon :name="'sign-out-alt'"></icon>
+    <a
+      :href="signOutUrl"
+      :title="translate('message.buttons.logout')"
+      class="signout">
+      <icon :name="'sign-out-alt'" />
     </a>
   </section>
 </template>
 
 
 <script>
-import i18n from "../i18n.js";
-import Icon from "vue-awesome/components/Icon";
-import "vue-awesome/icons/sign-out-alt";
-import "vue-awesome/icons/times";
+import i18n from '../i18n.js';
+import Icon from 'vue-awesome/components/Icon';
+import 'vue-awesome/icons/sign-out-alt';
+import 'vue-awesome/icons/times';
 
 export default {
-  name: "HeaderButtons",
-  props: {
-    callOnClose: Function,
-    signOutUrl: { type: String, default: process.env.VUE_APP_LOGOUT_URL }
-  },
+  name: 'HeaderButtons',
   components: {
-    Icon
+    Icon,
+  },
+  props: {
+    callOnClose: {type: Function, default: () => {}},
+    signOutUrl: {type: String, default: process.env.VUE_APP_LOGOUT_URL},
   },
   methods: {
     translate(text, lang) {
       return i18n.t(text, lang);
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -46,15 +54,18 @@ export default {
   > :first-child {
     margin-left: 1em;
   }
+
   > :last-child {
     margin-right: 1em;
   }
+
   > button > svg,
   > a > svg {
     width: 32px;
     height: 32px;
     color: white;
   }
+
   button {
     text-decoration: none;
     border: none;

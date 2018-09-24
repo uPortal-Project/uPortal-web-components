@@ -1,65 +1,77 @@
 <template>
   <div class="hamburger-menu">
-    <div class="content-menu-toggle" @click="toggleMenu($event)"
-       aria-label="Menu" role="button" title="Menu" data-toggle="content-menu" aria-expanded="false" aria-haspopup="true" aria-controls="content-menu">
+    <div
+      class="content-menu-toggle"
+      aria-label="Menu"
+      role="button"
+      title="Menu"
+      data-toggle="content-menu"
+      aria-expanded="false"
+      aria-haspopup="true"
+      aria-controls="content-menu"
+      @click="toggleMenu($event)">
       <div class="menu-wrapper">
-        <div></div>
-        <div></div>
-        <div></div>
+        <div />
+        <div />
+        <div />
       </div>
     </div>
 
-    <content-menu default-class="toggler-menu" visible-class="active-menu" :is-hidden="!visible" :default-org-logo="defaultOrgLogo"
-                  :user-info-portlet-url="userInfoPortletUrl"></content-menu>
+    <content-menu
+      :is-hidden="!visible"
+      :default-org-logo="defaultOrgLogo"
+      :user-info-portlet-url="userInfoPortletUrl"
+      default-class="toggler-menu"
+      visible-class="active-menu" />
 
   </div>
 </template>
 
 <script>
-import ContentMenu from "./ContentMenu";
+import ContentMenu from './ContentMenu';
 
-/*eslint no-console: ["error", { allow: ["warn", "error"] }] */
 export default {
-  name: "HamburgerMenu",
+  name: 'HamburgerMenu',
+  components: {
+    ContentMenu,
+  },
   props: {
     contextApiUrl: {
       type: String,
-      default: process.env.VUE_APP_PORTAL_CONTEXT
+      default: process.env.VUE_APP_PORTAL_CONTEXT,
     },
-    signOutUrl: { type: String, default: process.env.VUE_APP_LOGOUT_URL },
-    defaultOrgLogo: { type: String, required: true },
-    userInfoPortletUrl: { type: String, default: "" }
+    signOutUrl: {type: String, default: process.env.VUE_APP_LOGOUT_URL},
+    defaultOrgLogo: {type: String, required: true},
+    userInfoPortletUrl: {type: String, default: ''},
   },
   data() {
     return {
-      visible: false
+      visible: false,
     };
   },
   methods: {
     toggleMenu(event) {
       event.preventDefault();
       this.visible = !this.visible;
-    }
+    },
   },
-  components: {
-    ContentMenu
-  }
 };
 </script>
 
 <style lang="scss" scoped>
 .hamburger-menu {
   > .content-menu-toggle {
-    color: #ffffff;
+    color: #fff;
     text-decoration: none;
     cursor: pointer;
 
     > .menu-wrapper {
       width: 25px;
       padding: 0 4px;
+
       > div {
         height: 2px;
-        background-color: #ffffff;
+        background-color: #fff;
         margin: 5px 0;
       }
     }
@@ -70,7 +82,7 @@ export default {
   .toggler-menu {
     position: absolute;
     width: 100%;
-    min-heigth: 100vh;
+    min-height: 100vh;
     top: 0;
     left: 0;
     visibility: hidden;
@@ -78,6 +90,7 @@ export default {
     transition: opacity 600ms, visibility 600ms;
     animation: fade 600ms;
   }
+
   .active-menu {
     visibility: visible;
     opacity: 1;

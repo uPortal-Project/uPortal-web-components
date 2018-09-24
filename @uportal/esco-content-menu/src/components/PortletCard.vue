@@ -1,50 +1,72 @@
 <template>
-  <div :class="mainClass" >
+  <div :class="mainClass">
     <div class="portlet-card-icon">
-      <div v-if="iconUrl !== null" class="img-wrapper" :style="'background-color:' + iconBackgroundColor">
-        <img :src="iconUrl" :alt="title">
+      <div
+        v-if="iconUrl !== null"
+        :style="'background-color:' + iconBackgroundColor"
+        class="img-wrapper">
+        <img
+          :src="iconUrl"
+          :alt="title">
       </div>
-      <div v-else class="img-wrapper" :style="'background-color:' + iconBackgroundColor"></div>
+      <div
+        v-else
+        :style="'background-color:' + iconBackgroundColor"
+        class="img-wrapper" />
     </div>
     <div class="portlet-card-title">
-      {{title}}
+      {{ title }}
     </div>
     <div class="portlet-card-description">
-      <ellipsis :message="description" :line-clamp="2" :line-height="'20px'" :end-char="'...'"></ellipsis>
+      <ellipsis
+        :message="description"
+        :line-clamp="2"
+        :line-height="'20px'"
+        :end-char="'...'" />
     </div>
     <div class="portlet-card-action">
-      <action-favorites v-if="canFavorite" :fname="fname" :chan-id="channelId" :is-favorite="isFavorite" :call-on-toggle-fav="callAfterAction"
-                        :favorite-api-url="favoriteApiUrl" :user-info-api-url="userInfoApiUrl"></action-favorites>
+      <action-favorites
+        v-if="canFavorite"
+        :fname="fname"
+        :chan-id="channelId"
+        :is-favorite="isFavorite"
+        :call-on-toggle-fav="callAfterAction"
+        :favorite-api-url="favoriteApiUrl"
+        :user-info-api-url="userInfoApiUrl" />
     </div>
   </div>
 </template>
 
 <script>
-import Ellipsis from "./Ellipsis";
-import ActionFavorites from "./ActionFavorites";
+import Ellipsis from './Ellipsis';
+import ActionFavorites from './ActionFavorites';
 
 export default {
-  name: "PortletCard",
+  name: 'PortletCard',
+  components: {
+    ActionFavorites,
+    Ellipsis,
+  },
   props: {
-    callAfterAction: Function,
-    cssClass: { type: String, default: "portlet-card" },
+    callAfterAction: {type: Function, default: () => {}},
+    cssClass: {type: String, default: 'portlet-card'},
     // Background is needed if your icons doesn't have it integrated
-    iconBackgroundColor: { type: String, default: "Transparent" },
-    isFavorite: { type: Boolean, default: false },
+    iconBackgroundColor: {type: String, default: 'Transparent'},
+    isFavorite: {type: Boolean, default: false},
     favoriteApiUrl: {
       type: String,
       default:
         process.env.VUE_APP_PORTAL_CONTEXT +
-        process.env.VUE_APP_FAVORITES_PORTLETS_URI
+        process.env.VUE_APP_FAVORITES_PORTLETS_URI,
     },
     userInfoApiUrl: {
       type: String,
       default:
-        process.env.VUE_APP_PORTAL_CONTEXT + process.env.VUE_APP_USER_INFO_URI
+        process.env.VUE_APP_PORTAL_CONTEXT + process.env.VUE_APP_USER_INFO_URI,
     },
-    isSmall: { type: Boolean, default: false },
-    portletDesc: { type: Object, required: true },
-    backGroundIsDark: { type: Boolean, default: false }
+    isSmall: {type: Boolean, default: false},
+    portletDesc: {type: Object, required: true},
+    backGroundIsDark: {type: Boolean, default: false},
   },
   data() {
     return {
@@ -56,47 +78,43 @@ export default {
       iconUrl:
         this.portletDesc.layoutObject.iconUrl !== null
           ? this.computeIconUrl(this.portletDesc.layoutObject.iconUrl)
-          : null
+          : null,
     };
-  },
-  components: {
-    ActionFavorites,
-    Ellipsis
   },
   computed: {
     mainClass: function() {
       let appClass =
         this.cssClass +
-        " " +
+        ' ' +
         this.fname.toLowerCase() +
-        " " +
+        ' ' +
         (this.portletDesc && this.portletDesc.categories
-          ? this.portletDesc.categories.join(" ").toLowerCase()
-          : "");
+          ? this.portletDesc.categories.join(' ').toLowerCase()
+          : '');
       if (this.isSmall) {
-        appClass += " small-card";
+        appClass += ' small-card';
       }
       if (this.backGroundIsDark) {
-        appClass += " background-dark";
+        appClass += ' background-dark';
       }
       return appClass;
-    }
+    },
   },
   methods: {
     computeIconUrl: function(url) {
-      if (url != null && !url.startsWith("http")) {
+      if (url != null && !url.startsWith('http')) {
         return process.env.VUE_APP_PORTAL_BASE_URL + url;
       }
       return url;
     },
     truncate: function(entry) {
       if (entry) {
-        let text = entry.split("   ");
+        let text = entry.split('   ');
         return text[0].trim();
       }
       return entry.trim();
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -112,15 +130,22 @@ export default {
   text-align: center;
   border-radius: 5px;
   position: relative;
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
-    0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+
+  /* prettier-ignore */
+  box-shadow:
+    0 2px 2px 0 rgba(0, 0, 0, 0.14),
+    0 3px 1px -2px rgba(0, 0, 0, 0.12),
+    0 1px 5px 0 rgba(0, 0, 0, 0.2);
   transition: box-shadow 0.25s;
 
   &:hover {
     cursor: pointer;
-    /*transform: scale(1.1);*/
-    box-shadow: 0 7px 8px -4px rgba(0, 0, 0, 0.2),
-      0 12px 17px 2px rgba(0, 0, 0, 0.14), 0 5px 22px 4px rgba(0, 0, 0, 0.12);
+
+    /* prettier-ignore */
+    box-shadow:
+      0 7px 8px -4px rgba(0, 0, 0, 0.2),
+      0 12px 17px 2px rgba(0, 0, 0, 0.14),
+      0 5px 22px 4px rgba(0, 0, 0, 0.12);
   }
 
   > .portlet-card-icon,
@@ -156,6 +181,7 @@ export default {
       }
     }
   }
+
   > .portlet-card-title {
     padding-top: 1em;
     font-size: 18px;
@@ -164,9 +190,9 @@ export default {
 
   > .portlet-card-description {
     padding-top: 0.3em;
-    // security to avoid to be outside of the portlet-card
+
+    /* security to avoid to be outside of the portlet-card */
     max-height: 40px;
-    /*overflow: hidden;*/
   }
 
   &.small-card {

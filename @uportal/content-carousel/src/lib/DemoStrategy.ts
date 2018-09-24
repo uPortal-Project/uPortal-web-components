@@ -1,4 +1,4 @@
-import { DataStrategy } from './DataStrategy';
+import {DataStrategy} from './DataStrategy';
 
 export function getDemoStrategy(size: string = '1920x500'): DataStrategy {
   return {

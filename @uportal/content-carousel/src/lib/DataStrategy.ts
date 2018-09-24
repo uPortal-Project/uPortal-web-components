@@ -1,4 +1,4 @@
-import { CarouselItem } from './CarouselItem';
+import {CarouselItem} from './CarouselItem';
 
 export interface DataStrategy {
   type: string;

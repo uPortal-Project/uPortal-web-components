@@ -37,7 +37,7 @@ compile 'org.webjars.npm:uportal__open-id-connect:{version number goes here}'
 _use with ES5_
 
 ```js
-var oidc = require("@uportal/open-id-connect");
+var oidc = require('@uportal/open-id-connect');
 
 // with a promise
 oidc
@@ -65,7 +65,7 @@ oidc.default({}, function(err, token) {
 _use with ES6+_
 
 ```js
-import oicd from "@uportal/open-id-connect";
+import oicd from '@uportal/open-id-connect';
 
 // with default values
 try {
@@ -79,7 +79,7 @@ try {
 // with options
 try {
   const { encoded, decoded } = await oidc({
-    userInfoApiUrl: "/uPortal/api/v5-1/userinfo",
+    userInfoApiUrl: '/uPortal/api/v5-1/userinfo',
     timeout: 5000,
     propertyTransforms: {
       example: JSON.parse

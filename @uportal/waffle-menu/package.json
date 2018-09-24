@@ -28,16 +28,6 @@
     "start": "react-scripts start",
     "build": "react-scripts build && shx mv build/static/js/*.js build/static/js/waffle-menu.js"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "google"
-    ],
-    "rules": {
-      "no-invalid-this": "off",
-      "require-jsdoc": "off"
-    }
-  },
   "bugs": {
     "url": "https://github.com/uPortal-contrib/uPortal-web-components/issues"
   },

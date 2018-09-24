@@ -1,8 +1,13 @@
 <template>
   <div id="app">
     <header>
-      <eyebrow-user-info display-name="John Doe" picture="https://lycees.netocentre.fr/images/icones//noPictureUser.svg" email="john.doe@edu.univ.org"
-                  logout-link="/uPortal/Logout" avatarSize="48px" :menu-is-dark="false"></eyebrow-user-info>
+      <eyebrow-user-info
+        :menu-is-dark="false"
+        display-name="John Doe"
+        picture="https://lycees.netocentre.fr/images/icones//noPictureUser.svg"
+        email="john.doe@edu.univ.org"
+        logout-link="/uPortal/Logout"
+        avatar-size="48px" />
     </header>
     <div class="content">
       a content for test !
@@ -11,13 +16,13 @@
 </template>
 
 <script>
-import EyebrowUserInfo from "./components/EyebrowUserInfo";
+import EyebrowUserInfo from './components/EyebrowUserInfo';
 
 export default {
-  name: "app",
+  name: 'App',
   components: {
-    EyebrowUserInfo
-  }
+    EyebrowUserInfo,
+  },
 };
 </script>
 
@@ -29,10 +34,12 @@ export default {
   position: fixed;
   background-color: #25b2f3;
 }
+
 #app > header > * {
   float: right;
   margin-right: 25px;
 }
+
 #app > div {
   padding-top: 150px;
   height: 200vh;

@@ -1,9 +1,9 @@
-import { parseString } from 'xml2js';
 import * as util from 'util';
+import {parseString} from 'xml2js';
 
 function convert(json: any): any {
   let channel = json.rss.channel;
-  const rss: { items: any[]; [propName: string]: any } = { items: [] };
+  const rss: { items: any[]; [propName: string]: any } = {items: []};
   if (Array.isArray(json.rss.channel)) {
     channel = json.rss.channel[0];
   }
@@ -53,13 +53,13 @@ function convert(json: any): any {
           let enc: any;
           let x: any;
           for (x of Object.keys(enclosure)) {
-            enc = { ...enclosure[x] };
+            enc = {...enclosure[x]};
           }
           enclosures.push(enc);
         });
         obj.enclosures = enclosures
-          .filter((enc: any) => regexp.test(enc.type))
-          .map((enc: any) => enc.url);
+            .filter((enc: any) => regexp.test(enc.type))
+            .map((enc: any) => enc.url);
       }
       rss.items.push(obj);
     });

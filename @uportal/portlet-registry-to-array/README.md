@@ -35,44 +35,44 @@ compile 'org.webjars.npm:uportal__portlet-registry-to-array:{version number goes
 ## Usage
 
 ```js
-import { portletRegistryToArray } from "@uportal/portlet-registry-to-array";
+import { portletRegistryToArray } from '@uportal/portlet-registry-to-array';
 
 // In production this would come over the network
 const exampleRegistry = {
   registry: {
     categories: [
       {
-        name: "All categories",
-        description: "All channel categories",
-        id: "local.1",
+        name: 'All categories',
+        description: 'All channel categories',
+        id: 'local.1',
         portlets: [
           {
-            fname: "courses",
+            fname: 'courses',
             keywords: [],
             averageRating: 0,
-            name: "Courses",
-            description: "Course links and announcements.",
+            name: 'Courses',
+            description: 'Course links and announcements.',
             ratingsCount: 0,
             typeId: 8,
             id: 52,
-            state: "PUBLISHED",
-            title: "Courses",
+            state: 'PUBLISHED',
+            title: 'Courses',
             parameters: {
               mobileIconUrl: {
-                name: "mobileIconUrl",
-                description: "",
-                value: "/uPortal/media/skins/icons/mobile/courses_alt.png"
+                name: 'mobileIconUrl',
+                description: '',
+                value: '/uPortal/media/skins/icons/mobile/courses_alt.png'
               },
               iconUrl: {
-                name: "iconUrl",
-                description: "",
+                name: 'iconUrl',
+                description: '',
                 value:
-                  "/ResourceServingWebapp/rs/tango/0.8.90/32x32/apps/accessories-text-editor.png"
+                  '/ResourceServingWebapp/rs/tango/0.8.90/32x32/apps/accessories-text-editor.png'
               },
               configurable: {
-                name: "configurable",
-                description: "",
-                value: "true"
+                name: 'configurable',
+                description: '',
+                value: 'true'
               }
             }
           }

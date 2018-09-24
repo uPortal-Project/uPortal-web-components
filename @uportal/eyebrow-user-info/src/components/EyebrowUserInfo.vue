@@ -1,23 +1,44 @@
 <template>
   <div :class="$style.userInfo">
-    <div :class="$style.dropdown" ref="dropdownMenu">
-      <div :class="menuIsDark ? [$style.lighter, $style.dropdownMenu] : $style.dropdownMenu" @click="toggleDropdown($event)">
-        <div :class="$style.userName"><span :class="$style.label">{{displayName}}</span></div>
-        <div :class="$style.userAvatar"><img :src="picture" :alt="'avatar'" :style="'height: ' + avatarSize + '; width: ' + avatarSize + ';'"/></div>
+    <div
+      ref="dropdownMenu"
+      :class="$style.dropdown">
+      <div
+        :class="menuIsDark ? [$style.lighter, $style.dropdownMenu] : $style.dropdownMenu"
+        @click="toggleDropdown($event)">
+        <div :class="$style.userName"><span :class="$style.label">{{ displayName }}</span></div>
+        <div :class="$style.userAvatar"><img
+          :src="picture"
+          :alt="'avatar'"
+          :style="'height: ' + avatarSize + '; width: ' + avatarSize + ';'"></div>
       </div>
       <div :class="visible ? $style.dropdownContent : [ $style.dropdownContent, $style.closed ]">
         <div :class="$style.userDetails">
           <div :class="$style.userAvatar">
-            <a v-if="moreLink" :href="moreLink" :title="translate('userInfoPortletUrl.title')"><img :src="picture" :alt="'avatar'"/></a>
-            <img v-else :src="picture" :alt="'avatar'"/>
+            <a
+              v-if="moreLink"
+              :href="moreLink"
+              :title="translate('userInfoPortletUrl.title')"><img
+                :src="picture"
+                :alt="'avatar'"></a>
+            <img
+              v-else
+              :src="picture"
+              :alt="'avatar'">
           </div>
           <div :class="$style.wrapperInfo">
-            <div :class="$style.userName"><span :class="$style.label">{{displayName}}</span></div>
-            <div :class="$style.userMail"><span :class="$style.label">{{email}}</span></div>
+            <div :class="$style.userName"><span :class="$style.label">{{ displayName }}</span></div>
+            <div :class="$style.userMail"><span :class="$style.label">{{ email }}</span></div>
           </div>
         </div>
-        <div v-if="logoutLink" :class="$style.signOut">
-          <a :href="logoutLink" :title="translate('buttons.logout')"><span>{{translate('buttons.logout')}}</span><i :class="[$style.fa, $style.faSignOut]" aria-hidden="true"></i></a>
+        <div
+          v-if="logoutLink"
+          :class="$style.signOut">
+          <a
+            :href="logoutLink"
+            :title="translate('buttons.logout')"><span>{{ translate('buttons.logout') }}</span><i
+              :class="[$style.fa, $style.faSignOut]"
+              aria-hidden="true" /></a>
         </div>
       </div>
     </div>
@@ -25,23 +46,30 @@
 </template>
 
 <script>
-import i18n from "../i18n.js";
+import i18n from '../i18n.js';
 
 export default {
-  name: "EyebrowUserInfo",
+  name: 'EyebrowUserInfo',
   props: {
-    displayName: { type: String, required: true },
-    email: String,
-    picture: { type: String, required: true },
-    moreLink: String,
-    logoutLink: String,
-    menuIsDark: { type: Boolean, default: true },
-    avatarSize: { type: String, default: "28px" }
+    displayName: {type: String, required: true},
+    email: {type: String, default: ''},
+    picture: {type: String, required: true},
+    moreLink: {type: String, default: null},
+    logoutLink: {type: String, default: null},
+    menuIsDark: {type: Boolean, default: true},
+    avatarSize: {type: String, default: '28px'},
   },
   data() {
     return {
-      visible: false
+      visible: false,
     };
+  },
+  created() {
+    document.addEventListener('click', this.documentClick);
+  },
+  destroyed() {
+    // important to clean up!!
+    document.removeEventListener('click', this.documentClick);
   },
   methods: {
     translate(text, lang) {
@@ -57,7 +85,7 @@ export default {
       // If composed / inside open shadow-dom use first item of composed path #9242
       if (
         nativeEvent.composed &&
-        typeof nativeEvent.composedPath === "function"
+        typeof nativeEvent.composedPath === 'function'
       ) {
         const path = nativeEvent.composedPath();
         target = path[0];
@@ -78,15 +106,8 @@ export default {
       if (el !== target && !el.contains(target)) {
         this.visible = false;
       }
-    }
+    },
   },
-  created() {
-    document.addEventListener("click", this.documentClick);
-  },
-  destroyed() {
-    // important to clean up!!
-    document.removeEventListener("click", this.documentClick);
-  }
 };
 </script>
 
@@ -106,7 +127,7 @@ $grey: #d0d0d0;
   }
 
   .fa-sign-out::before {
-    content: "\f08b";
+    content: '\f08b';
   }
 
   > .dropdown {

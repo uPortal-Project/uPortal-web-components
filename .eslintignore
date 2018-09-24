@@ -1,0 +1,6 @@
+**/node_modules
+@uportal/*/dist
+@uportal/*/cjs
+@uportal/*/esm
+@uportal/*/umd
+@uportal/*/build

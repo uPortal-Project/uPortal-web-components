@@ -179,5 +179,5 @@ interface CarouselItem {
 The component source can also be imported and used directly within other Vue projects.
 
 ```js
-import contentCarousel from "@uportal/content-carousel/src/components/ContentCarousel.vue";
+import contentCarousel from '@uportal/content-carousel/src/components/ContentCarousel.vue';
 ```

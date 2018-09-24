@@ -1,70 +1,108 @@
 <template>
-  <section class="content-favorites" :class="showSmall ? 'small' : ''" :style="'background-color:' + backgroundColor">
+  <section
+    :class="showSmall ? 'small' : ''"
+    :style="'background-color:' + backgroundColor"
+    class="content-favorites">
     <div class="content-favorites-title">
       <h1>
         {{ translate("message.favorites.title") }}
       </h1>
     </div>
-    <div class="favorites" :style="favorited.length > 0 ? '' : 'display:none'" ref="favsSection">
-      <swiper :options="swiperOption" ref="favSwiper" @transitionEnd="updateSlider">
-        <swiper-slide v-for="portlet in favorited" :key="portlet.id">
-          <a class="no-style" v-bind:href="portlet.renderUrl" v-bind:target="portlet.layoutObject.altMaxUrl ? '_blank' : '_self'">
-            <portlet-card :portlet-desc="portlet" :is-favorite="true" :is-small="showSmall" :call-after-action="callAfterFavAction" :back-ground-is-dark="true"
-                          :favorite-api-url="favoriteApiUrl" :user-info-api-url="userInfoApiUrl"></portlet-card>
+    <div
+      ref="favsSection"
+      :style="favorited.length > 0 ? '' : 'display:none'"
+      class="favorites">
+      <swiper
+        ref="favSwiper"
+        :options="swiperOption"
+        @transitionEnd="updateSlider">
+        <swiper-slide
+          v-for="portlet in favorited"
+          :key="portlet.id">
+          <a
+            :href="portlet.renderUrl"
+            :target="portlet.layoutObject.altMaxUrl ? '_blank' : '_self'"
+            class="no-style">
+            <portlet-card
+              :portlet-desc="portlet"
+              :is-favorite="true"
+              :is-small="showSmall"
+              :call-after-action="callAfterFavAction"
+              :back-ground-is-dark="true"
+              :favorite-api-url="favoriteApiUrl"
+              :user-info-api-url="userInfoApiUrl" />
           </a>
         </swiper-slide>
       </swiper>
-      <div class="swiper-button-prev" :class="disablePrev ? 'fav-swiper-button-disabled' : ''" slot="button-prev" @click="slidePrev($event)">
-        <icon :name="'chevron-left'"></icon>
+      <div
+        slot="button-prev"
+        :class="disablePrev ? 'fav-swiper-button-disabled' : ''"
+        class="swiper-button-prev"
+        @click="slidePrev($event)">
+        <icon :name="'chevron-left'" />
       </div>
-      <div class="swiper-button-next" :class="disableNext ? 'fav-swiper-button-disabled' : ''" slot="button-next" @click="slideNext($event)">
-        <icon :name="'chevron-right'"></icon>
+      <div
+        slot="button-next"
+        :class="disableNext ? 'fav-swiper-button-disabled' : ''"
+        class="swiper-button-next"
+        @click="slideNext($event)">
+        <icon :name="'chevron-right'" />
       </div>
     </div>
-    <div class="empty-favorites" :style="favorited.length > 0 ? 'display:none' : ''">
+    <div
+      :style="favorited.length > 0 ? 'display:none' : ''"
+      class="empty-favorites">
       <div>
-        {{ translate("message.favorites.empty" )}}
+        {{ translate("message.favorites.empty" ) }}
       </div>
     </div>
   </section>
 </template>
 
 <script>
-import i18n from "../i18n.js";
-import PortletCard from "./PortletCard";
-import Icon from "vue-awesome/components/Icon";
-import "vue-awesome/icons/chevron-right";
-import "vue-awesome/icons/chevron-left";
+import i18n from '../i18n.js';
+import PortletCard from './PortletCard';
+import Icon from 'vue-awesome/components/Icon';
+import 'vue-awesome/icons/chevron-right';
+import 'vue-awesome/icons/chevron-left';
 
-import { swiper, swiperSlide } from "vue-awesome-swiper";
+import {swiper, swiperSlide} from 'vue-awesome-swiper';
 
 export default {
-  name: "ContentFavorites",
+  name: 'ContentFavorites',
+  components: {
+    PortletCard,
+    swiper,
+    // false positive
+    // eslint-disable-next-line vue/no-unused-components
+    swiperSlide,
+    Icon,
+  },
   props: {
-    backgroundColor: String,
-    callAfterAction: Function,
+    backgroundColor: {type: String, default: 'rgba(0, 0, 0, 0)'},
+    callAfterAction: {type: Function, default: () => {}},
     isHidden: Boolean,
     favoriteApiUrl: {
       type: String,
       default:
         process.env.VUE_APP_PORTAL_CONTEXT +
-        process.env.VUE_APP_FAVORITES_PORTLETS_URI
+        process.env.VUE_APP_FAVORITES_PORTLETS_URI,
     },
     userInfoApiUrl: {
       type: String,
       default:
-        process.env.VUE_APP_PORTAL_CONTEXT + process.env.VUE_APP_USER_INFO_URI
+        process.env.VUE_APP_PORTAL_CONTEXT + process.env.VUE_APP_USER_INFO_URI,
     },
-    favorites: { type: Array, required: true, default: () => [] },
-    isSmall: { type: Boolean, default: false },
-    portlets: { type: Array, required: true, default: () => [] }
+    favorites: {type: Array, required: true, default: () => []},
+    isSmall: {type: Boolean, default: false},
+    portlets: {type: Array, required: true, default: () => []},
   },
   data() {
     return {
       favorited: [],
       swiperOption: {
         init: false,
-        slidesPerView: "auto",
+        slidesPerView: 'auto',
         slidesPerGroup: 1,
         spaceBetween: 0,
         speed: 800,
@@ -75,24 +113,46 @@ export default {
         //   clickable: true
         // },
         navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev"
-        }
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
       },
       showSmall: this.isSmall,
       disableNext: false,
-      disablePrev: false
+      disablePrev: false,
     };
   },
-  components: {
-    PortletCard,
-    swiper,
-    swiperSlide,
-    Icon
+  watch: {
+    favorites: {
+      handler: function() {
+        this.calcFavoritesPortlets();
+        this.updateSlider();
+      },
+      deep: true,
+    },
+    portlets: {
+      handler: function() {
+        this.calcFavoritesPortlets();
+        this.updateSlider();
+      },
+      deep: true,
+    },
+    favorited: {
+      handler: function() {
+        this.updateSlider();
+      },
+      deep: true,
+    },
+    isHidden: {
+      handler: function() {
+        this.updateSlider();
+      },
+      deep: true,
+    },
   },
   mounted() {
     this.$nextTick(function() {
-      window.addEventListener("resize", this.updateSlider);
+      window.addEventListener('resize', this.updateSlider);
     });
   },
   methods: {
@@ -100,7 +160,7 @@ export default {
       return i18n.t(text, lang);
     },
     computeImgUrl(url) {
-      if (url != null && !url.startsWith("http")) {
+      if (url != null && !url.startsWith('http')) {
         return process.env.VUE_APP_PORTAL_BASE_URL + url;
       }
       return url;
@@ -110,9 +170,7 @@ export default {
     },
     callAfterFavAction(favorite, fname) {
       this.updateSlider();
-      if (typeof this.callAfterAction === "function") {
-        this.callAfterAction(favorite, fname);
-      }
+      this.callAfterAction(favorite, fname);
     },
     getWindowWidth: function() {
       if (this.$refs.favsSection) return this.$refs.favsSection.clientWidth;
@@ -156,47 +214,18 @@ export default {
       while (array.length > 0) {
         array.pop();
       }
-    }
+    },
   },
-  watch: {
-    favorites: {
-      handler: function() {
-        this.calcFavoritesPortlets();
-        this.updateSlider();
-      },
-      deep: true
-    },
-    portlets: {
-      handler: function() {
-        this.calcFavoritesPortlets();
-        this.updateSlider();
-      },
-      deep: true
-    },
-    favorited: {
-      handler: function() {
-        this.updateSlider();
-      },
-      deep: true
-    },
-    isHidden: {
-      handler: function() {
-        this.updateSlider();
-      },
-      deep: true
-    }
-  }
 };
 </script>
 
 <style lang="scss" scoped>
-@import "../../node_modules/swiper/dist/css/swiper.css";
+@import '../../node_modules/swiper/dist/css/swiper.css';
 
 .content-favorites {
   width: inherit;
-  color: #ffffff;
+  color: #fff;
   padding-bottom: 1.5em;
-
   display: flex;
   flex-flow: column;
   justify-content: center;
@@ -205,32 +234,37 @@ export default {
     margin: 0 0 5px 2em;
     text-transform: uppercase;
     filter: grayscale(1);
+
     h1 {
       font-size: 24px;
       font-weight: normal;
       margin: 10px 0 5px 10px;
       color: white;
-      //mix-blend-mode: difference
     }
   }
+
   > .favorites {
     position: relative;
+
     > .swiper-container {
       margin: 0 45px;
-
       padding-bottom: 15px;
+
       > .swiper-wrapper {
         > .swiper-slide {
           width: 255px;
           height: 175px;
           margin: 30px;
+
           &:first-child {
             margin-left: 0;
           }
         }
       }
+
       .swiper-pagination {
         bottom: 0;
+
         > span.swiper-pagination-bullet {
           width: 16px;
           height: 16px;
@@ -239,6 +273,7 @@ export default {
         }
       }
     }
+
     .swiper-button-prev,
     .swiper-button-next {
       background-image: none;
@@ -247,6 +282,7 @@ export default {
       width: auto;
       height: auto;
     }
+
     .fav-swiper-button-disabled {
       opacity: 0.35;
       cursor: auto;
@@ -258,6 +294,7 @@ export default {
       color: inherit;
     }
   }
+
   > .empty-favorites {
     padding-left: 2em;
   }
@@ -267,6 +304,7 @@ export default {
       font-size: initial;
       font-weight: bold;
     }
+
     > .favorites {
       padding-left: 2em;
 
@@ -282,12 +320,14 @@ export default {
           }
         }
       }
+
       .swiper-button-prev,
       .swiper-button-next {
         display: none;
       }
     }
   }
+
   .fa-icon {
     width: auto;
     height: 2em; /* or any other relative font sizes */

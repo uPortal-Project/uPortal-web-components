@@ -4,37 +4,42 @@
       <ContentCarousel
         :type="'rss'"
         :source="'/hero.rss'"
-        :slickOptions="heroOptions"
-        :carouselHeight="heroHeight"
-        :fitToContainer="true"
-        :textAlign="alignText" />
+        :slick-options="heroOptions"
+        :carousel-height="heroHeight"
+        :fit-to-container="true"
+        :text-align="alignText"
+      />
     </section>
     <section class="content">
       <ContentCarousel
         :type="'rss'"
         :source="'/content.rss'"
-        :slickOptions="contentOptions"
-        :carouselHeight="contentHeight" />
+        :slick-options="contentOptions"
+        :carousel-height="contentHeight"
+      />
     </section>
     <section class="content">
       <ContentCarousel
         :type="'rss'"
         :source="'/empty.rss'"
-        :slickOptions="contentOptions"
-        :carouselHeight="contentHeight" />
+        :slick-options="contentOptions"
+        :carousel-height="contentHeight"
+      />
     </section>
     <section class="content">
       <ContentCarousel
         :type="'portlet'"
         :source="'/portletRegistry.json'"
-        :slickOptions="portletOptions"
-        :carouselHeight="portletHeight" />
+        :slick-options="portletOptions"
+        :carousel-height="portletHeight"
+      />
     </section>
     <section class="content">
       <ContentCarousel
         :type="'passthrough'"
-        :slickOptions="contentOptions"
-        :carouselHeight="portletHeight">
+        :slick-options="contentOptions"
+        :carousel-height="portletHeight"
+      >
         <div class="slick-item">
           arbitrary
         </div>
