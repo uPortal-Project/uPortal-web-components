@@ -7,6 +7,18 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased][]
 
+### Fix
+
+- Transform `@vue/web-component-wrapper` so it is compatible with IE11 (#109).
+- Allow Vue to include polyfills for `@uportal/open-id-connect` (#111).
+
+### Style
+
+- Apply check style to inline scss in Vue templates (#109).
+- Apply Vue strongly recommended lint rules (#109).
+- Use tslint for styling Typescript files (#109).
+- Improve ignores for linters so formatting is faster and more stable (#109).
+
 ## [1.13.2][] - 2018-09-22
 
 ### Chore
