@@ -34,7 +34,6 @@
     "access": "public"
   },
   "scripts": {
-    "prepublishOnly": "npm run build",
     "build": "rollup -c",
     "test": "jest"
   },

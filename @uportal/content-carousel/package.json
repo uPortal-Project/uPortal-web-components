@@ -7,7 +7,6 @@
   "main": "dist/content-carousel.js",
   "source": "src/components/content-carousel.vue",
   "scripts": {
-    "prepublishOnly": "npm run build",
     "start": "vue-cli-service serve",
     "prebuild": "babel node_modules/@vue/web-component-wrapper/dist/vue-wc-wrapper.js -o node_modules/@vue/web-component-wrapper/dist/vue-wc-wrapper.js",
     "build": "vue-cli-service build --name content-carousel --target wc 'src/components/*.vue'"
