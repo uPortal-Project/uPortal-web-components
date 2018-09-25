@@ -2,5 +2,7 @@
   "lerna": "3.4.0",
   "packages": ["@uportal/*"],
   "version": "1.13.2",
-  "requireScripts": true
+  "command": {
+    "version": { "forcePublish": true }
+  }
 }
