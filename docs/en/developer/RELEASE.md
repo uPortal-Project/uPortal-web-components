@@ -3,6 +3,9 @@
 1. `git pull upstream master`
    - synchronizes with latest official version
 2. Update the "unreleased" section of _CHANGELOG.md_ with an overview of changes
+   - each commit type goes into a sub section with the type as a header
+   - after writing change log `git add . && git commit -m "docs: update changelog"`
+   - `git push upstream master`
 3. `npm run build`
    - build needs to happen before `publish` because it takes longer than the 30s otp timeout
 4. `lerna version {patch or minor or major}`
