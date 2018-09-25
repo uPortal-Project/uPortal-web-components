@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased][]
 
+### Build
+
+- remove `prepublishOnly` scripts, they make the release process run longer than
+  two factor authentication stays active, causing release failures (#114).
+
+### Docs
+
+- document release process (#114).
+
 ### Fix
 
 - Transform `@vue/web-component-wrapper` so it is compatible with IE11 (#109).
