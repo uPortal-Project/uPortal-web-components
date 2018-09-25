@@ -1,3 +1,5 @@
+import 'core-js/fn/array/flat-map';
+
 import Vue from 'vue';
 import VueI18n from 'vue-i18n';
 
