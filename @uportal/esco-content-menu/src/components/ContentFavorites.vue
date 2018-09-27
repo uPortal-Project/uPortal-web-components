@@ -39,14 +39,14 @@
         :class="disablePrev ? 'fav-swiper-button-disabled' : ''"
         class="swiper-button-prev"
         @click="slidePrev($event)">
-        <icon :name="'chevron-left'" />
+        <font-awesome-icon icon="chevron-left" />
       </div>
       <div
         slot="button-next"
         :class="disableNext ? 'fav-swiper-button-disabled' : ''"
         class="swiper-button-next"
         @click="slideNext($event)">
-        <icon :name="'chevron-right'" />
+        <font-awesome-icon icon="chevron-right" />
       </div>
     </div>
     <div
@@ -62,9 +62,7 @@
 <script>
 import i18n from '../i18n.js';
 import PortletCard from './PortletCard';
-import Icon from 'vue-awesome/components/Icon';
-import 'vue-awesome/icons/chevron-right';
-import 'vue-awesome/icons/chevron-left';
+import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome';
 
 import {swiper, swiperSlide} from 'vue-awesome-swiper';
 
@@ -76,7 +74,7 @@ export default {
     // false positive
     // eslint-disable-next-line vue/no-unused-components
     swiperSlide,
-    Icon,
+    FontAwesomeIcon,
   },
   props: {
     backgroundColor: {type: String, default: 'rgba(0, 0, 0, 0)'},

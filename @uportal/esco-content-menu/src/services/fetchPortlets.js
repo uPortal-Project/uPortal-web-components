@@ -2,7 +2,8 @@ import oidc from '@uportal/open-id-connect';
 
 export default async function() {
   if (process.env.NODE_ENV === 'development') {
-    const {portlets} = require('../assets/browseable.json');
+    const response = await fetch('browseable.json');
+    const {portlets} = await response.json();
     this.portletsAPI = portlets;
   } else {
     try {

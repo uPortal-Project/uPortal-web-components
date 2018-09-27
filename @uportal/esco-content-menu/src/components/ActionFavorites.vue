@@ -4,7 +4,7 @@
     :title="isFavorite ? translate('message.favorites.remove') : translate('message.favorites.add')"
     @click="toggleFavorite($event)">
     <button class="favorite-button">
-      <icon :name="isFavorite ? 'star' : 'regular/star'" />
+      <font-awesome-icon :icon="[isFavorite ? 'fas' : 'far', 'star']" />
     </button>
   </div>
 </template>
@@ -12,9 +12,7 @@
 <script>
 import oidc from '@uportal/open-id-connect';
 import i18n from '../i18n.js';
-import Icon from 'vue-awesome/components/Icon';
-import 'vue-awesome/icons/star';
-import 'vue-awesome/icons/regular/star';
+import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome';
 
 const checkStatus = function(response) {
   if (response.ok) {
@@ -32,7 +30,7 @@ const parseJSON = function(response) {
 export default {
   name: 'ActionFavorites',
   components: {
-    Icon,
+    FontAwesomeIcon,
   },
   props: {
     callOnToggleFav: {type: Function, default: () => {}},

@@ -174,49 +174,48 @@ export default {
           this.info.userOrganization.otherAttributes.ESCOStructureLogo[0];
       }
     },
-    fetchUserInfo() {
+    async fetchUserInfo() {
       if (process.env.NODE_ENV === 'development') {
-        const userInfo = require('../assets/userinfo');
+        const userInfoRequest = await fetch('userinfo.json');
+        const userInfo = await userInfoRequest.json();
         this.info.user = {...this.info.user, ...userInfo};
-        const orgsInfo = require('../assets/orginfo');
+        const orgsInfoRequest = await fetch('orginfo.json');
+        const orgsInfo = await orgsInfoRequest.json();
         setTimeout(() => {
           this.info.organizations = Object.values(orgsInfo);
           this.computeCurrentOrg();
         }, 2000);
       } else {
-        oidc({
-          userInfoApiUrl:
-            this.contextApiUrl + process.env.VUE_APP_USER_INFO_URI,
-        })
-            .then((token) => {
-              this.info.user = Object.assign({}, this.info.user, token.decoded);
-              if (token.decoded.ESCOSIREN) {
-                const options = {
-                  method: 'GET',
-                  credentials: 'same-origin',
-                  headers: {
-                    'Authorization': 'Bearer ' + token.encoded,
-                    'Content-Type': 'application/json',
-                  },
-                };
-                fetch(
-                    process.env.VUE_APP_PORTAL_BASE_URL +
-                  process.env.VUE_APP_ORG_INFO_URI +
-                  '?ids=' +
-                  token.decoded.ESCOSIREN,
-                    options
-                )
-                    .then(checkStatus)
-                    .then(parseJSON)
-                    .then((data) => {
-                      this.info.organizations = Object.values(data);
-                      this.computeCurrentOrg();
-                    });
-              }
-            })
-            .catch(function(err) {
-              console.error(err);
-            });
+        try {
+          const {encoded, decoded} = await oidc({
+            userInfoApiUrl:
+              this.contextApiUrl + process.env.VUE_APP_USER_INFO_URI,
+          });
+          this.info.user = Object.assign({}, this.info.user, decoded);
+          if (decoded.ESCOSIREN) {
+            const options = {
+              method: 'GET',
+              credentials: 'same-origin',
+              headers: {
+                'Authorization': 'Bearer ' + encoded,
+                'Content-Type': 'application/json',
+              },
+            };
+            const data = await fetch(
+                process.env.VUE_APP_PORTAL_BASE_URL +
+                process.env.VUE_APP_ORG_INFO_URI +
+                '?ids=' +
+                decoded.ESCOSIREN,
+                options
+            )
+                .then(checkStatus)
+                .then(parseJSON);
+            this.info.organizations = Object.values(data);
+            this.computeCurrentOrg();
+          }
+        } catch (err) {
+          console.error(err);
+        }
       }
     },
     fetchPortlets,

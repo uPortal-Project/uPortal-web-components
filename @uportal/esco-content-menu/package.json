@@ -11,11 +11,14 @@
     "@uportal/open-id-connect": "^1.13.3",
     "datalist-polyfill": "^1.22.1",
     "vue": "^2.5.17",
-    "vue-awesome": "^3.1.3",
     "vue-awesome-swiper": "^3.1.3",
     "vue-i18n": "^8.1.0"
   },
   "devDependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.4",
+    "@fortawesome/free-regular-svg-icons": "^5.3.1",
+    "@fortawesome/free-solid-svg-icons": "^5.3.1",
+    "@fortawesome/vue-fontawesome": "^0.1.1",
     "@vue/cli-plugin-babel": "^3.0.1",
     "@vue/cli-plugin-eslint": "^3.0.1",
     "@vue/cli-service": "^3.0.1",
