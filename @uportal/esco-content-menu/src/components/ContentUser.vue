@@ -32,7 +32,7 @@
           <div
             v-else
             class="user-avatar">
-            <icon :name="'user'" />
+            <font-awesome-icon icon="user" />
           </div>
           <div class="wrapper-info">
             <div class="user-name">
@@ -48,7 +48,7 @@
             <a
               :href="apiUrlOrgInfo"
               :title="translate('message.userChangeEtabUrl.title')">
-              <icon :name="'exchange-alt'" />
+              <font-awesome-icon icon="exchange-alt" />
             </a>
           </div>
         </div>
@@ -59,14 +59,12 @@
 
 <script>
 import i18n from '../i18n.js';
-import Icon from 'vue-awesome/components/Icon';
-import 'vue-awesome/icons/user';
-import 'vue-awesome/icons/exchange-alt';
+import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome';
 
 export default {
   name: 'ContentUser',
   components: {
-    Icon,
+    FontAwesomeIcon,
   },
   props: {
     isSmall: {type: Boolean, default: false},

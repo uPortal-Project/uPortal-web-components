@@ -6,13 +6,13 @@
       class="content-menu-close"
       aria-label="Close"
       @click="callOnClose($event)">
-      <icon :name="'times'" />
+      <font-awesome-icon icon="times" />
     </button>
     <a
       :href="signOutUrl"
       :title="translate('message.buttons.logout')"
       class="signout">
-      <icon :name="'sign-out-alt'" />
+      <font-awesome-icon icon="sign-out-alt" />
     </a>
   </section>
 </template>
@@ -20,14 +20,12 @@
 
 <script>
 import i18n from '../i18n.js';
-import Icon from 'vue-awesome/components/Icon';
-import 'vue-awesome/icons/sign-out-alt';
-import 'vue-awesome/icons/times';
+import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome';
 
 export default {
   name: 'HeaderButtons',
   components: {
-    Icon,
+    FontAwesomeIcon,
   },
   props: {
     callOnClose: {type: Function, default: () => {}},
