@@ -205,7 +205,7 @@ export default {
                 process.env.VUE_APP_PORTAL_BASE_URL +
                 process.env.VUE_APP_ORG_INFO_URI +
                 '?ids=' +
-                token.decoded.ESCOSIREN,
+                decoded.ESCOSIREN,
                 options
             )
                 .then(checkStatus)
