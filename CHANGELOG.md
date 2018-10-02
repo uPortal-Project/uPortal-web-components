@@ -7,6 +7,23 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased][]
 
+## [1.13.4][] - 2018-10-02
+
+### Fix
+
+- correctly access value from token (#119).
+
+### Docs
+
+- Include webjars as part of release process.
+
+### Refactor
+
+- **esco-content-menu**: get sample data from API to avoid including in bundle (#119).
+- **esco-content-menu** use vue font awesome to reduce impact of fonts on bundle size (#119).
+
+## [1.13.3][] - 2018-09-24
+
 ### Build
 
 - remove `prepublishOnly` scripts, they make the release process run longer than
@@ -497,7 +514,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - **open-id-connect**: Initial version of an OpenID Connect helper script to use in web components and JavaScript modules.
 - **content-carousel**: Initial version of content carousel, a carousel based portlet metadata display system.
 
-[unreleased]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.13.2...HEAD
+[unreleased]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.13.4...HEAD
+[1.13.4]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.13.3...v1.13.4
+[1.13.3]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.13.2...v1.13.3
 [1.13.2]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.13.1...v1.13.2
 [1.13.1]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.13.0...v1.13.1
 [1.13.0]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.12.1...v1.13.0
