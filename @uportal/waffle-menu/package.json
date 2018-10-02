@@ -8,6 +8,7 @@
   "main": "build/static/js/waffle-menu.js",
   "source": "src/WaffleMenu.js",
   "dependencies": {
+    "@christianmurphy/reactive-elements": "^1.0.3",
     "@uportal/open-id-connect": "^1.13.4",
     "@uportal/portlet-registry-to-array": "^1.13.4",
     "lodash.get": "^4.4.2",

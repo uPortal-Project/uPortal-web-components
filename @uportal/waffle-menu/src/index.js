@@ -1,5 +1,5 @@
 import WaffleMenu from './WaffleMenu';
 import 'document-register-element';
-import RegisterReact from 'reactive-elements';
+import registerReact from '@christianmurphy/reactive-elements';
 
-RegisterReact.registerReact('waffle-menu', WaffleMenu);
+registerReact('waffle-menu', WaffleMenu);
