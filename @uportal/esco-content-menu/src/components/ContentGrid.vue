@@ -45,6 +45,7 @@
           <a
             :href="portlet.renderUrl"
             :target="portlet.layoutObject.altMaxUrl ? '_blank' : '_self'"
+            :rel="portlet.layoutObject.altMaxUrl ? 'noopener noreferrer' : ''"
             class="no-style">
             <portlet-card
               :portlet-desc="portlet"
@@ -107,7 +108,7 @@ export default {
     },
     allCategories: function() {
       const allCategories = this._portlets.flatMap(
-          ({categories}) => categories
+        ({categories}) => categories
       );
       const uniqueCategories = [...new Set(allCategories)];
       return uniqueCategories.sort();
@@ -120,8 +121,8 @@ export default {
       }
 
       return this._portlets.filter(
-          ({categories, title, name, description}) =>
-            categories.some((cat) => cat.toLowerCase().includes(filterValue)) ||
+        ({categories, title, name, description}) =>
+          categories.some((cat) => cat.toLowerCase().includes(filterValue)) ||
           title.toLowerCase().includes(filterValue) ||
           name.toLowerCase().includes(filterValue) ||
           description.toLowerCase().includes(filterValue)
