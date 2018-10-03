@@ -45,6 +45,7 @@
           <a
             :href="portlet.renderUrl"
             :target="portlet.layoutObject.altMaxUrl ? '_blank' : '_self'"
+            :rel="portlet.layoutObject.altMaxUrl ? 'noopener noreferrer' : ''"
             class="no-style">
             <portlet-card
               :portlet-desc="portlet"
