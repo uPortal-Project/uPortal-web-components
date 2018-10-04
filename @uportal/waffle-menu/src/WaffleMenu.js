@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import oidc from '@uportal/open-id-connect';
 import {portletRegistryToArray} from '@uportal/portlet-registry-to-array';
 import get from 'lodash/get';
-import PropTypes from 'prop-types';
+import * as PropTypes from 'prop-types';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faTh} from '@fortawesome/free-solid-svg-icons';
 
