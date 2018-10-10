@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased][]
 
+### Fix
+
+- **esco-content-menu**: Add `noopener noreferrer` to external links (#124).
+- **waffle-menu**: Support web component standard version 1 (#118, #128).
+
 ## [1.13.4][] - 2018-10-02
 
 ### Fix
