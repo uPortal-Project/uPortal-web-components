@@ -1,7 +1,7 @@
 {
   "name": "@uportal/portlet-registry-to-array",
   "description": "A utility that flattens the portlet registry tree into an array",
-  "version": "1.13.4",
+  "version": "1.13.5",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/uPortal-contrib/uPortal-web-components.git"
