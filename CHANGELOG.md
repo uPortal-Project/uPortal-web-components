@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased][]
 
+## [1.13.5][] - 2018-10-10
+
 ### Fix
 
 - **esco-content-menu**: Add `noopener noreferrer` to external links (#124).
@@ -519,7 +521,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - **open-id-connect**: Initial version of an OpenID Connect helper script to use in web components and JavaScript modules.
 - **content-carousel**: Initial version of content carousel, a carousel based portlet metadata display system.
 
-[unreleased]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.13.4...HEAD
+[unreleased]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.13.5...HEAD
+[1.13.5]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.13.4...v1.13.5
 [1.13.4]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.13.3...v1.13.4
 [1.13.3]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.13.2...v1.13.3
 [1.13.2]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.13.1...v1.13.2
