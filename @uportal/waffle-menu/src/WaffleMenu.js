@@ -263,7 +263,7 @@ class WaffleMenu extends Component {
 
   // toggle the menu
   toggleMenu = () => {
-    this.setState({menuOpen: !this.state.menuOpen});
+    this.setState(({menuOpen}) => ({menuOpen: !menuOpen}));
   };
 
   // close the menu if we're clicking outside the menu or trigger
@@ -274,7 +274,7 @@ class WaffleMenu extends Component {
       this.buttonRef &&
       !this.buttonRef.contains(event.target)
     ) {
-      this.setState({menuOpen: false});
+      this.setState(() => ({menuOpen: false}));
     }
   };
 
@@ -328,7 +328,8 @@ class WaffleMenu extends Component {
     this.fetchMenuData();
 
     // listen for outside clicks to close the dropdown
-    window.addEventListener('click', this.handleOutsideClick);
+    // TODO find a way to listen to outside events
+    // window.addEventListener('click', this.handleOutsideClick);
   }
 }
 
