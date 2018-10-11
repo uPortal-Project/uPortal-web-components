@@ -1,4 +1,4 @@
-<div class="slick-container" :class="{ 'responsive': isResponsiveToContainer }">
+<div class="slick-container" :class="{ 'responsive': isResponsiveToContainer, 'content-carousel-hero': computedSlickOptions.slidesToShow === 1 }">
   <slot name="header"></slot>
   <template v-if="computedItems.length < 1 && type !== 'passthrough'">
     <slot name="empty">

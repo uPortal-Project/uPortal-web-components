@@ -42,20 +42,30 @@
   padding: 10px;
 }
 
-.slick-hero-container {
-  position: relative;
-}
+.content-carousel-hero {
+  .slick-inner {
+    width: 100%;
+  }
 
-.slick-hero-text {
-  width: 100%;
-  position: absolute;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
-  color: white;
-
-  p {
-    padding: 10px;
+  .slick-slide {
     margin: 0;
+  }
+
+  .slick-hero-container {
+    position: relative;
+  }
+
+  .slick-hero-text {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+
+    p {
+      padding: 10px;
+      margin: 0;
+    }
   }
 }
 
