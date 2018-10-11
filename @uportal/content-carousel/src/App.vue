@@ -1,7 +1,7 @@
 <template>
   <main>
     <section>
-      <ContentCarousel
+      <content-carousel
         :type="'rss'"
         :source="'/hero.rss'"
         :slick-options="heroOptions"
@@ -11,7 +11,7 @@
       />
     </section>
     <section class="content">
-      <ContentCarousel
+      <content-carousel
         :type="'rss'"
         :source="'/content.rss'"
         :slick-options="contentOptions"
@@ -19,7 +19,7 @@
       />
     </section>
     <section class="content">
-      <ContentCarousel
+      <content-carousel
         :type="'rss'"
         :source="'/empty.rss'"
         :slick-options="contentOptions"
@@ -27,7 +27,7 @@
       />
     </section>
     <section class="content">
-      <ContentCarousel
+      <content-carousel
         :type="'portlet'"
         :source="'/portletRegistry.json'"
         :slick-options="portletOptions"
@@ -35,7 +35,7 @@
       />
     </section>
     <section class="content">
-      <ContentCarousel
+      <content-carousel
         :type="'passthrough'"
         :slick-options="contentOptions"
         :carousel-height="portletHeight"
@@ -55,7 +55,7 @@
         <div class="slick-item">
           slides
         </div>
-      </ContentCarousel>
+      </content-carousel>
     </section>
   </main>
 </template>

@@ -2,6 +2,10 @@
 @import '../../node_modules/slick-carousel/slick/slick-theme.css';
 
 .slick-container.responsive {
+  .slick-inner {
+    width: 100%;
+  }
+
   .slick-list {
     width: 100%;
 
@@ -42,20 +46,26 @@
   padding: 10px;
 }
 
-.slick-hero-container {
-  position: relative;
-}
-
-.slick-hero-text {
-  width: 100%;
-  position: absolute;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
-  color: white;
-
-  p {
-    padding: 10px;
+.slick-container.hero {
+  .slick-slide {
     margin: 0;
+  }
+
+  .slick-hero-container {
+    position: relative;
+  }
+
+  .slick-hero-text {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+
+    p {
+      padding: 10px;
+      margin: 0;
+    }
   }
 }
 
