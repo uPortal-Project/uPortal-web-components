@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased][]
 
+### Fix
+
+- **content-carousel**: Ensure `fit-to-container` matches parent container width (#129).
+- **esco-content-menu**: Allow multiple components with translations be added to a page (#131).
+
+### Refactor
+
+- Extract polyfills from components, polyfills must be applied by the page (#130).
+
 ## [1.13.5][] - 2018-10-10
 
 ### Fix
