@@ -101,8 +101,8 @@ export default {
       return target.nodeType === 3 ? target.parentNode : target;
     },
     documentClick(e) {
-      let el = this.$refs.dropdownMenu;
-      let target = this.getEventTarget(e);
+      const el = this.$refs.dropdownMenu;
+      const target = this.getEventTarget(e);
       if (el !== target && !el.contains(target)) {
         this.visible = false;
       }

@@ -91,7 +91,7 @@ export default {
         : this.defaultOrgLogo;
     },
     getUserAvatar() {
-      let avatar = this.userInfo.picture || null;
+      const avatar = this.userInfo.picture || null;
       return this.computeImgUrl(avatar);
     },
     computeImgUrl(url) {
