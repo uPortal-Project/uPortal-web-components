@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased][]
 
+## [1.13.6][] - 2018-10-15
+
 ### Fix
 
 - **content-carousel**: Ensure `fit-to-container` matches parent container width (#129).
@@ -530,7 +532,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - **open-id-connect**: Initial version of an OpenID Connect helper script to use in web components and JavaScript modules.
 - **content-carousel**: Initial version of content carousel, a carousel based portlet metadata display system.
 
-[unreleased]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.13.5...HEAD
+[unreleased]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.13.6...HEAD
+[1.13.6]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.13.5...v1.13.6
 [1.13.5]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.13.4...v1.13.5
 [1.13.4]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.13.3...v1.13.4
 [1.13.3]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.13.2...v1.13.3
