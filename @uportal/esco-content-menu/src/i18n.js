@@ -11,7 +11,7 @@ function checkLang(availableLanguages) {
   // 3. browserLanguage -> UI Language of IE
   // 4. userLanguage    -> Language of Windows Regional Options
   // 5. systemLanguage  -> UI Language of Windows
-  let browserLanguagePropertyKeys = [
+  const browserLanguagePropertyKeys = [
     'languages',
     'language',
     'browserLanguage',
@@ -30,7 +30,7 @@ function checkLang(availableLanguages) {
       .filter((v, i, a) => a.indexOf(v) === i);
 
   // Returns first language matched in available languages
-  let detectedLocale = allLangs.find((x) => availableLanguages.includes(x));
+  const detectedLocale = allLangs.find((x) => availableLanguages.includes(x));
 
   // If no locale is detected, fallback to 'en'
   return detectedLocale || 'en';

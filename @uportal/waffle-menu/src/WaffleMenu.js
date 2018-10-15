@@ -138,7 +138,7 @@ const WaffleTriangle = styled.div`
 
 // menu item stateless component
 const MenuItem = (props) => {
-  let {link, image, label} = props;
+  const {link, image, label} = props;
   return (
     <MIListItem>
       <a href={link} background={image}>

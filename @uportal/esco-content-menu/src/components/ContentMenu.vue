@@ -52,7 +52,7 @@ const checkStatus = function(response) {
   if (response.ok) {
     return response;
   } else {
-    let error = new Error(response.statusText);
+    const error = new Error(response.statusText);
     error.response = response;
     throw error;
   }
@@ -133,7 +133,7 @@ export default {
   methods: {
     close(event) {
       this.visible = false;
-      let element = document.querySelector('#' + this.id);
+      const element = document.querySelector('#' + this.id);
       element.parentNode.style.display = 'none';
       element.setAttribute('is-hidden', true);
       this.isHidden = false;
@@ -272,9 +272,9 @@ export default {
             this.computeFavoritesContent(folder);
           }
         } else {
-          let content = elem.content;
+          const content = elem.content;
           if (content === undefined || !content) {
-            let fname = elem.fname;
+            const fname = elem.fname;
             if (fname !== undefined && fname) {
               this.info.favorites.push(fname);
             }

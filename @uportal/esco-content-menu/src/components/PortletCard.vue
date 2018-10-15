@@ -109,7 +109,7 @@ export default {
     },
     truncate: function(entry) {
       if (entry) {
-        let text = entry.split('   ');
+        const text = entry.split('   ');
         return text[0].trim();
       }
       return entry.trim();
