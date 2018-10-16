@@ -36,6 +36,9 @@ compile 'org.webjars.npm:uportal__open-id-connect:{version number goes here}'
 
 _use with ES5_
 
+:notebook: When using `open-id-connect` helper with ES5 environements, [fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) and [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) need to be [polyfilled](https://developer.mozilla.org/en-US/docs/Glossary/Polyfill).
+[Fetch](https://github.com/github/fetch), [Regenerator Runtime](https://github.com/facebook/regenerator/tree/master/packages/regenerator-runtime), and [Core JS](https://github.com/zloirock/core-js) are recommended, but can be swapped out for other polyfills if wanted.
+
 ```js
 var oidc = require('@uportal/open-id-connect');
 
