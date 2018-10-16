@@ -7,6 +7,18 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased][]
 
+### Docs
+
+- **open-id-connect**: note polyfills required for ES5 support (#134).
+
+### Refactor
+
+- **open-id-connect**: replace `axios` library with whatwg `fetch` (#133).
+
+### Style
+
+- Update to latest Google Code style for JavaScript (#132).
+
 ## [1.13.6][] - 2018-10-15
 
 ### Fix
