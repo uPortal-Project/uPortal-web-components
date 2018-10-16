@@ -1,7 +1,4 @@
-import {get} from 'axios';
 import decode from 'jwt-decode';
-
-let token = null;
 
 /**
  * Options for getting tokens
@@ -37,30 +34,26 @@ export default async function openIdConnect(
     } = {},
     callback
 ) {
-  // If there already is a valid token, resolve it
-  if (token !== null) {
-    return token;
-  }
-
   try {
     // get a new token
-    const {data} = await get(userInfoApiUrl, {
-      responseType: 'text',
-      withCredentials: true,
+    const response = await fetch(userInfoApiUrl, {
+      method: 'GET',
+      credentials: 'include',
     });
 
+    if (!response.ok) {
+      throw new Error(response.statusText);
+    }
+
+    const data = await response.text();
+
     // store the encoded and decoded versions
-    token = tokenize(data);
+    const token = tokenize(data);
 
     // Allow for additional transforms to be applied to decoded properties
     Object.entries(propertyTransforms).forEach(([property, transform]) => {
       token.decoded[property] = transform(token.decoded[property]);
     });
-
-    // automatically clear token after expiration
-    setTimeout(() => {
-      token = null;
-    }, timeout);
 
     // pass value to optional call back
     if (callback) {
