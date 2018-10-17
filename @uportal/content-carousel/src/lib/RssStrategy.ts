@@ -42,7 +42,7 @@ export class RssStrategy implements DataStrategy {
             altText: `${title} - ${description}`,
             destinationUrl: link,
             imageUrl: image,
-            title: image ? null : title,
+            title,
             description: image ? null : description,
           };
         },
