@@ -64,7 +64,12 @@ export default {
       default:
         process.env.VUE_APP_PORTAL_CONTEXT + process.env.VUE_APP_USER_INFO_URI,
     },
+    // @deprecated use size property
     isSmall: {type: Boolean, default: false},
+    size: {
+      validator: (value) => ['medium', 'small', 'smaller'].includes(value),
+      default: 'medium',
+    },
     portletDesc: {type: Object, required: true},
     backGroundIsDark: {type: Boolean, default: false},
   },
@@ -83,21 +88,30 @@ export default {
   },
   computed: {
     mainClass: function() {
-      let appClass =
-        this.cssClass +
-        ' ' +
-        this.fname.toLowerCase() +
-        ' ' +
-        (this.portletDesc && this.portletDesc.categories
-          ? this.portletDesc.categories.join(' ').toLowerCase()
-          : '');
+      let appClasses = [];
+      appClasses.push(this.cssClass);
+      appClasses.push(this.fname);
+
+      if (this.portletDesc && this.portletDesc.categories) {
+        appClasses = appClasses.concat(this.portletDesc.categories);
+      }
+
+      // @deprecated use size instead
       if (this.isSmall) {
-        appClass += ' small-card';
+        appClasses.push('small-card');
+      } else {
+        if (this.size === 'small') {
+          appClasses.push('small-card');
+        } else if (this.size === 'smaller') {
+          appClasses.push('smaller-card');
+        }
       }
+
       if (this.backGroundIsDark) {
-        appClass += ' background-dark';
+        appClasses.push('background-dark');
       }
-      return appClass;
+
+      return appClasses.map((v) => v.toLowerCase()).join(' ');
     },
   },
   methods: {
@@ -195,8 +209,8 @@ export default {
     max-height: 40px;
   }
 
-  &.small-card {
-    width: 120px;
+  &.small-card,
+  &.smaller-card {
     height: auto;
     background-color: transparent;
     border: none;
@@ -228,6 +242,14 @@ export default {
     > .portlet-card-action {
       display: none !important;
     }
+  }
+
+  &.small-card {
+    width: 120px;
+  }
+
+  &.smaller-card {
+    width: 100px;
   }
 }
 </style>
