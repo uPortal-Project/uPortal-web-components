@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased][]
 
+## [1.14.1][] - 2018-10-17
+
+### Fix
+
+- **content-carousel**: ensure title is always passed through.
+- **content-carousel**: open links in a new tab by default (#137).
+
 ## [1.14.0][] - 2018-10-17
 
 ### Feature
