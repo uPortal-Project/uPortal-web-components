@@ -1,6 +1,6 @@
 <template>
   <section
-    :class="{'small' : isSmall}"
+    :class="{'small' : isSmall || size === 'small' || size === 'smaller'}"
     :style="'background-color:' + backgroundColor"
     class="content-grid">
     <div>
@@ -51,6 +51,7 @@
               :portlet-desc="portlet"
               :is-favorite="isFavorite(portlet.fname)"
               :is-small="isSmall"
+              :size="size"
               :call-after-action="callAfterAction"
               :favorite-api-url="favoriteApiUrl"
               :user-info-api-url="userInfoApiUrl" />
@@ -90,7 +91,12 @@ export default {
         process.env.VUE_APP_PORTAL_CONTEXT + process.env.VUE_APP_USER_INFO_URI,
     },
     favorites: {type: Array, default: () => []},
+    // @deprecated use size property
     isSmall: {type: Boolean, default: false},
+    size: {
+      validator: (value) => ['medium', 'small', 'smaller'].includes(value),
+      default: 'medium',
+    },
     portlets: {type: Array, default: null},
   },
   data() {
