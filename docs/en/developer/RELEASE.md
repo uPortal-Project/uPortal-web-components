@@ -22,6 +22,7 @@
    - push release tag
 8. Add a new release header to _CHANGELOG.md_
    - also update the links at the bottom of the page
-9. Goto <https://www.webjars.org/> and start a release for each module
+9. `npm run publish-webjar`
+   - copies npm packages into webjars
 
 [two factor authentication]: https://docs.npmjs.com/getting-started/using-two-factor-authentication
