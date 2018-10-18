@@ -16,6 +16,7 @@
     "eslint-plugin-react": "^7.11.1",
     "eslint-plugin-vue": "^5.0.0-beta.3",
     "lerna": "^3.4.0",
+    "lerna-webjar": "^1.0.0",
     "lint-staged": "^7.3.0",
     "npm-run-all": "^4.1.2",
     "prettier-eslint-cli": "^4.7.1",
@@ -45,7 +46,8 @@
     "lint:md": "remark --frail '*.md' 'docs/**/*.md' '@uportal/*/*.md'",
     "start": "lerna run start",
     "test": "npm-run-all test:* lint:*",
-    "test:packages": "lerna run test"
+    "test:packages": "lerna run test",
+    "publish-webjar": "lerna-webjar"
   },
   "workspaces": [
     "@uportal/*"
