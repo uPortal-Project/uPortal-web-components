@@ -12,6 +12,7 @@
 <script>
 import oidc from '@uportal/open-id-connect';
 import i18n from '../i18n.js';
+import '../icons.js';
 import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome';
 
 const checkStatus = function(response) {
@@ -145,7 +146,7 @@ export default {
     transform: scale(1.3, 1.3);
   }
 
-  .fa-icon {
+  .svg-inline--fa {
     width: auto;
     height: 2em; /* or any other relative font sizes */
     color: #b7b7b7;
