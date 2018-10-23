@@ -62,6 +62,7 @@
 <script>
 import i18n from '../i18n.js';
 import PortletCard from './PortletCard';
+import '../icons.js';
 import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome';
 
 import {swiper, swiperSlide} from 'vue-awesome-swiper';
@@ -326,7 +327,7 @@ export default {
     }
   }
 
-  .fa-icon {
+  .svg-inline--fa {
     width: auto;
     height: 2em; /* or any other relative font sizes */
 

@@ -10,16 +10,18 @@ import {
   faUser,
 } from '@fortawesome/free-solid-svg-icons';
 
-console.log(
-    faChevronLeft,
-    faChevronRight,
-    faExchangeAlt,
-    faSignOutAlt,
-    faStarRegular,
-    faStarSolid,
-    faTimes,
-    faUser
-);
+if (process.env.NODE_ENV === 'development') {
+  console.log(
+      faChevronLeft,
+      faChevronRight,
+      faExchangeAlt,
+      faSignOutAlt,
+      faStarRegular,
+      faStarSolid,
+      faTimes,
+      faUser
+  );
+}
 
 library.add(
     faChevronLeft,

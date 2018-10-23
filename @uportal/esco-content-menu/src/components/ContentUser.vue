@@ -59,6 +59,7 @@
 
 <script>
 import i18n from '../i18n.js';
+import '../icons.js';
 import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome';
 
 export default {
