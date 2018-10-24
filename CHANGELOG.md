@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased][]
 
+## [1.14.2][] - 2018-10-24
+
 ### Fix
 
 - **esco-content-menu**: fix icons not shown (#140).
@@ -572,7 +574,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - **open-id-connect**: Initial version of an OpenID Connect helper script to use in web components and JavaScript modules.
 - **content-carousel**: Initial version of content carousel, a carousel based portlet metadata display system.
 
-[unreleased]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.14.1...HEAD
+[unreleased]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.14.2...HEAD
+[1.14.2]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.14.1...v1.14.2
 [1.14.1]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.14.0...v1.14.1
 [1.14.0]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.13.7...v1.14.0
 [1.13.7]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.13.6...v1.13.7
