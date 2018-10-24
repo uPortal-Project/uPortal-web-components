@@ -200,6 +200,8 @@ export default {
     padding-top: 1em;
     font-size: 18px;
     font-weight: bold;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   > .portlet-card-description {
