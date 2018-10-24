@@ -177,6 +177,7 @@ export default {
           max-width: 200px;
           white-space: nowrap;
           overflow: hidden;
+          text-overflow: ellipsis;
         }
 
         span {
