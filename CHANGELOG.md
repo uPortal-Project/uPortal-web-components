@@ -7,6 +7,19 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased][]
 
+### Fix
+
+- **esco-content-menu**: fix icons not shown (#140).
+
+### Build
+
+- Webjar releases are now automated through `npm run npm run publish-webjar` (#138).
+- **eyebrow-user-info**: ensure extra polyfills component requires are included (#139).
+
+### Chore
+
+- **esco-content-menu**: update font awesome (#140).
+
 ## [1.14.1][] - 2018-10-17
 
 ### Fix
