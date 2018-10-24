@@ -5,37 +5,41 @@
     class="content-grid">
     <div>
       <div class="title">
-        <h1>
-          {{ translate("message.services.title") }}
-        </h1>
-        <div
-          :class="visible ? 'opened' : 'closed'"
-          class="filter">
-          <span class="content-grid-caret">
-            <input
-              :title="translate('message.services.filter')"
-              v-model.trim="filterValue"
-              :placeholder="translate('message.services.filter')"
-              type="text"
-              list="list">
-          </span>
-          <datalist id="list">
-            <select>
-              <option
-                v-for="category in allCategories"
-                :value="category"
-                :label="category"
-                :key="category">
-                {{ category }}
-              </option>
-            </select>
-          </datalist>
-          <div @click="visible = !visible">
-            <i
-              class="fa fa-search"
-              aria-hidden="true" />
+        <slot name="header-left">
+          <h1>
+            {{ translate("message.services.title") }}
+          </h1>
+        </slot>
+        <slot name="header-right">
+          <div
+            :class="visible ? 'opened' : 'closed'"
+            class="filter">
+            <span class="content-grid-caret">
+              <input
+                :title="translate('message.services.filter')"
+                v-model.trim="filterValue"
+                :placeholder="translate('message.services.filter')"
+                type="text"
+                list="list">
+            </span>
+            <datalist id="list">
+              <select>
+                <option
+                  v-for="category in allCategories"
+                  :value="category"
+                  :label="category"
+                  :key="category">
+                  {{ category }}
+                </option>
+              </select>
+            </datalist>
+            <div @click="visible = !visible">
+              <i
+                class="fa fa-search"
+                aria-hidden="true" />
+            </div>
           </div>
-        </div>
+        </slot>
       </div>
       <div class="flex-grid">
         <div
