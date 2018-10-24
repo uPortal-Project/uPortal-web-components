@@ -220,6 +220,9 @@ export default {
 
 <style lang="scss" scoped>
 @import '../../node_modules/swiper/dist/css/swiper.css';
+@import './../styles/vars.scss';
+
+$buttonWidth: 32px;
 
 .content-favorites {
   width: inherit;
@@ -251,9 +254,9 @@ export default {
 
       > .swiper-wrapper {
         > .swiper-slide {
-          width: 255px;
-          height: 175px;
-          margin: 30px;
+          width: $PortletCardSizeLarge;
+          height: 170px;
+          margin: $buttonWidth;
 
           &:first-child {
             margin-left: 0;
@@ -278,8 +281,9 @@ export default {
       background-image: none;
       color: white;
       margin-top: 0;
-      width: auto;
-      height: auto;
+      width: $buttonWidth;
+      height: $buttonWidth;
+      text-align: center;
     }
 
     .fav-swiper-button-disabled {

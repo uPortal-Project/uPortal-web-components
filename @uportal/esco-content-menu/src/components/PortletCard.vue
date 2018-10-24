@@ -67,7 +67,8 @@ export default {
     // @deprecated use size property
     isSmall: {type: Boolean, default: false},
     size: {
-      validator: (value) => ['medium', 'small', 'smaller'].includes(value),
+      validator: (value) =>
+        ['large', 'medium', 'small', 'smaller'].includes(value),
       default: 'medium',
     },
     portletDesc: {type: Object, required: true},
@@ -135,8 +136,10 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
+@import './../styles/vars.scss';
+
 .portlet-card {
-  width: 255px;
+  width: $PortletCardSizeLarge;
   height: 170px;
   padding: 12px;
   line-height: 20px;
@@ -247,11 +250,11 @@ export default {
   }
 
   &.small-card {
-    width: 120px;
+    width: $PortletCardSizeSmall;
   }
 
   &.smaller-card {
-    width: 100px;
+    width: $PortletCardSizeSmaller;
   }
 }
 </style>
