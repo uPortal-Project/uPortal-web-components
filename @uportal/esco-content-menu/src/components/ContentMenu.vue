@@ -1,6 +1,6 @@
 <template>
   <div
-    :class="['toggler-menu', isSmall ? 'small ' : '', visible ? 'active-menu' : '']"
+    :class="['toggler-menu', size, visible ? 'active-menu' : '']"
     :style="'min-height: ' + minHeight"
     class="content-menu">
     <header>
@@ -12,7 +12,7 @@
           :org-info="info.userOrganization"
           :user-info="info.user"
           :other-orgs="info.organizations"
-          :is-small="isSmall"
+          :size="size"
           :default-org-logo="defaultOrgLogo"
           :user-info-portlet-url="userInfoPortletUrl"
           :api-url-org-info="apiUrlOrgInfo" />
@@ -20,20 +20,20 @@
           :portlets="_portlets"
           :favorites="info.favorites"
           :call-after-action="actionToggleFav"
-          :is-small="isSmall"
+          :size="size"
           :favorite-api-url="favoriteApiUrl"
           :is-hidden="isHidden"
           :user-info-api-url="userInfoApiUrl" />
       </div>
       <div
-        :style="(backgroundImg != null && !isSmall) ? 'background-image: linear-gradient(0deg, rgba(0,0,0,.2),rgba(0,0,0,.2)), url(' + backgroundImg + ');' : ''"
+        :style="(backgroundImg != null && (size === 'large' || size === 'medium')) ? 'background-image: linear-gradient(0deg, rgba(0,0,0,.2),rgba(0,0,0,.2)), url(' + backgroundImg + ');' : ''"
         class="background" />
     </header>
     <content-grid
       :portlets="_portlets"
       :favorites="info.favorites"
       :call-after-action="actionToggleFav"
-      :is-small="isSmall"
+      :size="gridContentSize"
       :favorite-api-url="favoriteApiUrl"
       :user-info-api-url="userInfoApiUrl" />
   </div>
@@ -90,7 +90,8 @@ export default {
       favoriteApiUrl:
         this.contextApiUrl + process.env.VUE_APP_FAVORITES_PORTLETS_URI,
       userInfoApiUrl: this.contextApiUrl + process.env.VUE_APP_USER_INFO_URI,
-      isSmall: false,
+      size: 'medium',
+      gridContentSize: 'medium',
       visible: !this.isHidden,
       minHeight: '100vh',
       info: {
@@ -143,7 +144,20 @@ export default {
       return this.$el.clientWidth;
     },
     isXs: function() {
-      this.isSmall = this.getWindowWidth() < 768;
+      const _size = this.getWindowWidth();
+      if (_size < 480) {
+        this.size = 'smaller';
+        this.gridContentSize = 'smaller';
+      } else if (_size < 768) {
+        this.size = 'small';
+        this.gridContentSize = 'small';
+      } else if (_size < 1680) {
+        this.size = 'medium';
+        this.gridContentSize = 'medium';
+      } else {
+        this.size = 'large';
+        this.gridContentSize = 'large';
+      }
     },
     computeCurrentOrg: function() {
       if (
@@ -371,7 +385,8 @@ export default {
     }
   }
 
-  &.small {
+  &.small,
+  &.smaller {
     background-color: #545454;
 
     header {

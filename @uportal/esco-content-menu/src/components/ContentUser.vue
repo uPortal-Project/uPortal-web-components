@@ -1,7 +1,7 @@
 <template>
   <section
-    :class="isSmall ? 'small' : ''"
-    :style="isSmall ? 'background-image: linear-gradient(0deg, rgba(0,0,0,.2),rgba(0,0,0,.2)), url(' + getOrgImgUrl() + ');' : ''"
+    :class="size"
+    :style="(size === 'small' || size === 'smaller') ? 'background-image: linear-gradient(0deg, rgba(0,0,0,.2),rgba(0,0,0,.2)), url(' + getOrgImgUrl() + ');' : ''"
     class="content-user">
     <div>
       <div class="org-img">
@@ -68,7 +68,11 @@ export default {
     FontAwesomeIcon,
   },
   props: {
-    isSmall: {type: Boolean, default: false},
+    size: {
+      validator: (value) =>
+        ['large', 'medium', 'small', 'smaller'].includes(value),
+      default: 'medium',
+    },
     orgInfo: {type: Object, default: () => ({})},
     otherOrgs: {type: Array, default: () => []},
     userInfo: {type: Object, required: true, default: () => undefined},
@@ -111,7 +115,8 @@ export default {
   height: auto;
   font-size: 14px;
 
-  &.small {
+  &.small,
+  &.smaller {
     min-width: initial;
     width: 100%;
     min-height: 150px;

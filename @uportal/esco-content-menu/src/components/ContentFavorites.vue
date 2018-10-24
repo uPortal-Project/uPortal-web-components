@@ -1,6 +1,6 @@
 <template>
   <section
-    :class="showSmall ? 'small' : ''"
+    :class="calculatedSize"
     :style="'background-color:' + backgroundColor"
     class="content-favorites">
     <div class="content-favorites-title">
@@ -26,7 +26,7 @@
             <portlet-card
               :portlet-desc="portlet"
               :is-favorite="true"
-              :is-small="showSmall"
+              :size="calculatedSize"
               :call-after-action="callAfterFavAction"
               :back-ground-is-dark="true"
               :favorite-api-url="favoriteApiUrl"
@@ -93,7 +93,11 @@ export default {
         process.env.VUE_APP_PORTAL_CONTEXT + process.env.VUE_APP_USER_INFO_URI,
     },
     favorites: {type: Array, required: true, default: () => []},
-    isSmall: {type: Boolean, default: false},
+    size: {
+      validator: (value) =>
+        ['large', 'medium', 'small', 'smaller'].includes(value),
+      default: 'medium',
+    },
     portlets: {type: Array, required: true, default: () => []},
   },
   data() {
@@ -116,7 +120,7 @@ export default {
           prevEl: '.swiper-button-prev',
         },
       },
-      showSmall: this.isSmall,
+      calculatedSize: this.size,
       disableNext: false,
       disablePrev: false,
     };
@@ -165,7 +169,16 @@ export default {
       return url;
     },
     isXs() {
-      this.showSmall = this.isSmall || this.getWindowWidth() < 660;
+      const _size = this.getWindowWidth();
+      if (this.size === 'smaller' || _size < 660) {
+        this.calculatedSize = 'smaller';
+      } else if (this.size === 'small' || _size < 1280) {
+        this.calculatedSize = 'small';
+      } else if (this.size === 'medium' || _size < 1680) {
+        this.calculatedSize = 'medium';
+      } else {
+        this.calculatedSize = 'large';
+      }
     },
     callAfterFavAction(favorite, fname) {
       this.updateSlider();
@@ -286,6 +299,14 @@ $buttonWidth: 32px;
       text-align: center;
     }
 
+    .swiper-button-prev {
+      left: 0;
+    }
+
+    .swiper-button-next {
+      right: 0;
+    }
+
     .fav-swiper-button-disabled {
       opacity: 0.35;
       cursor: auto;
@@ -302,7 +323,8 @@ $buttonWidth: 32px;
     padding-left: 2em;
   }
 
-  &.small {
+  &.small,
+  &.smaller {
     > .content-favorites-title h1 {
       font-size: initial;
       font-weight: bold;
@@ -315,19 +337,31 @@ $buttonWidth: 32px;
         margin: 0;
         padding-bottom: 30px;
 
-        > .swiper-wrapper {
-          > .swiper-slide {
-            width: 120px;
-            height: auto;
-            margin: 0;
-          }
+        > .swiper-wrapper > .swiper-slide {
+          height: auto;
+          margin: 0;
         }
       }
+    }
+  }
 
-      .swiper-button-prev,
-      .swiper-button-next {
-        display: none;
-      }
+  &.medium > .favorites > .swiper-container > .swiper-wrapper > .swiper-slide {
+    width: $PortletCardSizeMedium;
+    height: 160px;
+  }
+
+  &.small > .favorites > .swiper-container > .swiper-wrapper > .swiper-slide {
+    width: $PortletCardSizeSmall;
+  }
+
+  &.smaller > .favorites > .swiper-container > .swiper-wrapper > .swiper-slide {
+    width: $PortletCardSizeSmaller;
+  }
+
+  @media (hover: none) {
+    .swiper-button-prev,
+    .swiper-button-next {
+      display: none;
     }
   }
 

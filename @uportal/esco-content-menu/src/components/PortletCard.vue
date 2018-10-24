@@ -64,8 +64,6 @@ export default {
       default:
         process.env.VUE_APP_PORTAL_CONTEXT + process.env.VUE_APP_USER_INFO_URI,
     },
-    // @deprecated use size property
-    isSmall: {type: Boolean, default: false},
     size: {
       validator: (value) =>
         ['large', 'medium', 'small', 'smaller'].includes(value),
@@ -97,16 +95,7 @@ export default {
         appClasses = appClasses.concat(this.portletDesc.categories);
       }
 
-      // @deprecated use size instead
-      if (this.isSmall) {
-        appClasses.push('small-card');
-      } else {
-        if (this.size === 'small') {
-          appClasses.push('small-card');
-        } else if (this.size === 'smaller') {
-          appClasses.push('smaller-card');
-        }
-      }
+      appClasses.push(this.size + '-card');
 
       if (this.backGroundIsDark) {
         appClasses.push('background-dark');
@@ -214,6 +203,19 @@ export default {
     max-height: 40px;
   }
 
+  &.medium-card,
+  &.small-card,
+  &.smaller-card {
+    height: 160px;
+
+    > .portlet-card-icon {
+      > div {
+        height: 75px;
+        width: 75px;
+      }
+    }
+  }
+
   &.small-card,
   &.smaller-card {
     height: auto;
@@ -247,6 +249,10 @@ export default {
     > .portlet-card-action {
       display: none !important;
     }
+  }
+
+  &.medium-card {
+    width: $PortletCardSizeMedium;
   }
 
   &.small-card {
