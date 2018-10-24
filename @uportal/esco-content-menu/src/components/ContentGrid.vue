@@ -55,6 +55,7 @@
               :portlet-desc="portlet"
               :is-favorite="isFavorite(portlet.fname)"
               :size="size"
+              :hide-action="hideAction"
               :call-after-action="callAfterAction"
               :favorite-api-url="favoriteApiUrl"
               :user-info-api-url="userInfoApiUrl" />
@@ -99,6 +100,7 @@ export default {
         ['large', 'medium', 'small', 'smaller'].includes(value),
       default: 'medium',
     },
+    hideAction: {type: Boolean, default: false},
     portlets: {type: Array, default: null},
   },
   data() {

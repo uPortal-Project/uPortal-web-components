@@ -27,6 +27,7 @@
               :portlet-desc="portlet"
               :is-favorite="true"
               :size="calculatedSize"
+              :hide-action="hideAction"
               :call-after-action="callAfterFavAction"
               :back-ground-is-dark="true"
               :favorite-api-url="favoriteApiUrl"
@@ -98,6 +99,7 @@ export default {
         ['large', 'medium', 'small', 'smaller'].includes(value),
       default: 'medium',
     },
+    hideAction: {type: Boolean, default: false},
     portlets: {type: Array, required: true, default: () => []},
   },
   data() {

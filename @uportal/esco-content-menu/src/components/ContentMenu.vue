@@ -21,6 +21,7 @@
           :favorites="info.favorites"
           :call-after-action="actionToggleFav"
           :size="size"
+          :hide-action="hideAction"
           :favorite-api-url="favoriteApiUrl"
           :is-hidden="isHidden"
           :user-info-api-url="userInfoApiUrl" />
@@ -34,6 +35,7 @@
       :favorites="info.favorites"
       :call-after-action="actionToggleFav"
       :size="gridContentSize"
+      :hide-action="hideAction"
       :favorite-api-url="favoriteApiUrl"
       :user-info-api-url="userInfoApiUrl" />
   </div>
@@ -83,6 +85,10 @@ export default {
     defaultOrgLogo: {type: String, required: true},
     userInfoPortletUrl: {type: String, default: ''},
     apiUrlOrgInfo: {type: String, default: ''},
+    hideActionMode: {
+      validator: (value) => ['auto', 'always', 'never'].includes(value),
+      default: 'auto',
+    },
   },
   data() {
     return {
@@ -91,6 +97,7 @@ export default {
         this.contextApiUrl + process.env.VUE_APP_FAVORITES_PORTLETS_URI,
       userInfoApiUrl: this.contextApiUrl + process.env.VUE_APP_USER_INFO_URI,
       size: 'medium',
+      hideAction: false,
       gridContentSize: 'medium',
       visible: !this.isHidden,
       minHeight: '100vh',
@@ -114,7 +121,7 @@ export default {
         this.visible = !this.isHidden;
         if (this.visible) {
           this.minHeight = document.body.getBoundingClientRect().height + 'px';
-          this.isXs();
+          this._size();
         }
       },
       deep: true,
@@ -122,7 +129,7 @@ export default {
   },
   mounted() {
     this.$nextTick(function() {
-      window.addEventListener('resize', this.isXs);
+      window.addEventListener('resize', this._size);
       this.fetchPortlets();
       this.fetchFavorites();
       this.fetchUserInfo();
@@ -143,7 +150,7 @@ export default {
     getWindowWidth: function() {
       return this.$el.clientWidth;
     },
-    isXs: function() {
+    _size: function() {
       const _size = this.getWindowWidth();
       if (_size < 480) {
         this.size = 'smaller';
@@ -157,6 +164,17 @@ export default {
       } else {
         this.size = 'large';
         this.gridContentSize = 'large';
+      }
+      switch (this.hideActionMode) {
+        case 'auto':
+          this.hideAction = this.size === 'small' || this.size === 'smaller';
+          break;
+        case 'never':
+          this.hideAction = false;
+          break;
+        default:
+          // case of 'always' hidden
+          this.hideAction = true;
       }
     },
     computeCurrentOrg: function() {

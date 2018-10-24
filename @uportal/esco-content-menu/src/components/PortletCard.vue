@@ -24,7 +24,9 @@
         :line-height="'20px'"
         :end-char="'...'" />
     </div>
-    <div class="portlet-card-action">
+    <div
+      v-if="!hideAction"
+      class="portlet-card-action">
       <action-favorites
         v-if="canFavorite"
         :fname="fname"
@@ -69,6 +71,7 @@ export default {
         ['large', 'medium', 'small', 'smaller'].includes(value),
       default: 'medium',
     },
+    hideAction: {type: Boolean, default: false},
     portletDesc: {type: Object, required: true},
     backGroundIsDark: {type: Boolean, default: false},
   },
@@ -247,7 +250,7 @@ export default {
     }
 
     > .portlet-card-action {
-      display: none !important;
+      margin: 0;
     }
   }
 
