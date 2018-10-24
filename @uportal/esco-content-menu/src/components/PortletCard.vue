@@ -220,8 +220,8 @@ export default {
     padding: 0;
 
     &.background-dark {
-      > .title,
-      > .description {
+      > .portlet-card-title,
+      > .portlet-card-description {
         color: white;
       }
     }
