@@ -80,7 +80,7 @@ export default {
   props: {
     backgroundColor: {type: String, default: 'rgba(0, 0, 0, 0)'},
     callAfterAction: {type: Function, default: () => {}},
-    isHidden: Boolean,
+    isHidden: {type: Boolean, default: false},
     favoriteApiUrl: {
       type: String,
       default:
