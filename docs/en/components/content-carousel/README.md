@@ -39,6 +39,7 @@ compile 'org.webjars.npm:uportal__content-carousel:{version number goes here}'
 The component requires a type. It also allows for a `carousel-height` (in rem units), a `fit-to-container` property which causes it to size to its container (horizontally), and `slick-options`.
 
 ```html
+<link href="https://unpkg.com/@uportal/content-carousel/slick-theme.css" rel="stylesheet">
 <script src="https://unpkg.com/vue"></script>
 <script src="https://unpkg.com/@uportal/content-carousel"></script>
 
@@ -58,15 +59,6 @@ The component requires a type. It also allows for a `carousel-height` (in rem un
 - `slick-options` (optional, [slick settings](https://kenwheeler.github.io/slick/#settings)): configuration for slick carousel.
 - `carousel-height` (optional, string): css height to apply on slides.
 - `fit-to-container` (optional, boolean): by default carousel will fit content, `true` will make carousel match width of surrounding container.
-
-For custom width slides, set `variableWidth` to `true` in `slick-options` and target `.slick-side` in your CSS.
-
-```
-// slick-options
-{ "slidesToShow": 2, "infinite": true, "arrows": true, "variableWidth": true }
-```
-
-By default, non-hero content slide width is set to `300px`.
 
 ### Types
 
