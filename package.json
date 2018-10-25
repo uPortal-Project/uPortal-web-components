@@ -97,8 +97,13 @@
       "tslint -c tslint.json --fix",
       "git add"
     ],
-    "*.{css,scss}": [
+    "*.css": [
       "prettier-stylelint --write",
+      "git add"
+    ],
+    "*.scss": [
+      "prettier --write --parser scss",
+      "stylelint",
       "git add"
     ],
     "*.{md,json}": [
