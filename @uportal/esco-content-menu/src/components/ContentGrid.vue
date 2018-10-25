@@ -1,6 +1,6 @@
 <template>
   <section
-    :class="size"
+    :class="parentScreenSize"
     :style="'background-color:' + backgroundColor"
     class="content-grid">
     <div>
@@ -54,7 +54,7 @@
             <portlet-card
               :portlet-desc="portlet"
               :is-favorite="isFavorite(portlet.fname)"
-              :size="size"
+              :size="_portletCardSize"
               :hide-action="hideAction"
               :call-after-action="callAfterAction"
               :favorite-api-url="favoriteApiUrl"
@@ -95,10 +95,15 @@ export default {
         process.env.VUE_APP_PORTAL_CONTEXT + process.env.VUE_APP_USER_INFO_URI,
     },
     favorites: {type: Array, default: () => []},
-    size: {
+    parentScreenSize: {
       validator: (value) =>
         ['large', 'medium', 'small', 'smaller'].includes(value),
       default: 'medium',
+    },
+    portletCardSize: {
+      validator: (value) =>
+        ['auto', 'large', 'medium', 'small', 'smaller'].includes(value),
+      default: 'auto',
     },
     hideAction: {type: Boolean, default: false},
     portlets: {type: Array, default: null},
@@ -115,6 +120,11 @@ export default {
       // if portlets are passed as a prop, use the prop
       // otherwise use a local fallback copy of portlets
       return this.portlets || this.portletsAPI;
+    },
+    _portletCardSize: function() {
+      if (this.portletCardSize === 'auto') {
+        return this.parentScreenSize;
+      } else return this.portletCardSize;
     },
     allCategories: function() {
       const allCategories = this._portlets.flatMap(

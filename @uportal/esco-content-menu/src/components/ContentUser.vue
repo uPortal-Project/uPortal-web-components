@@ -1,7 +1,7 @@
 <template>
   <section
-    :class="size"
-    :style="(size === 'small' || size === 'smaller') ? 'background-image: linear-gradient(0deg, rgba(0,0,0,.2),rgba(0,0,0,.2)), url(' + getOrgImgUrl() + ');' : ''"
+    :class="parentScreenSize"
+    :style="(parentScreenSize === 'small' || parentScreenSize === 'smaller') ? 'background-image: linear-gradient(0deg, rgba(0,0,0,.2),rgba(0,0,0,.2)), url(' + getOrgImgUrl() + ');' : ''"
     class="content-user">
     <div>
       <div class="org-img">
@@ -68,7 +68,7 @@ export default {
     FontAwesomeIcon,
   },
   props: {
-    size: {
+    parentScreenSize: {
       validator: (value) =>
         ['large', 'medium', 'small', 'smaller'].includes(value),
       default: 'medium',

@@ -1,6 +1,6 @@
 <template>
   <div
-    :class="['toggler-menu', size, visible ? 'active-menu' : '']"
+    :class="['toggler-menu', screenSize, visible ? 'active-menu' : '']"
     :style="'min-height: ' + minHeight"
     class="content-menu">
     <header>
@@ -12,7 +12,7 @@
           :org-info="info.userOrganization"
           :user-info="info.user"
           :other-orgs="info.organizations"
-          :size="size"
+          :parent-screen-size="screenSize"
           :default-org-logo="defaultOrgLogo"
           :user-info-portlet-url="userInfoPortletUrl"
           :api-url-org-info="apiUrlOrgInfo" />
@@ -20,21 +20,23 @@
           :portlets="_portlets"
           :favorites="info.favorites"
           :call-after-action="actionToggleFav"
-          :size="size"
+          :parent-screen-size="screenSize"
+          :portlet-card-size="favoritesPortletCardSize"
           :hide-action="hideAction"
           :favorite-api-url="favoriteApiUrl"
           :is-hidden="isHidden"
           :user-info-api-url="userInfoApiUrl" />
       </div>
       <div
-        :style="(backgroundImg != null && (size === 'large' || size === 'medium')) ? 'background-image: linear-gradient(0deg, rgba(0,0,0,.2),rgba(0,0,0,.2)), url(' + backgroundImg + ');' : ''"
+        :style="(backgroundImg != null && (screenSize === 'large' || screenSize === 'medium')) ? 'background-image: linear-gradient(0deg, rgba(0,0,0,.2),rgba(0,0,0,.2)), url(' + backgroundImg + ');' : ''"
         class="background" />
     </header>
     <content-grid
       :portlets="_portlets"
       :favorites="info.favorites"
       :call-after-action="actionToggleFav"
-      :size="gridContentSize"
+      :parent-screen-size="screenSize"
+      :portlet-card-size="gridPortletCardSize"
       :hide-action="hideAction"
       :favorite-api-url="favoriteApiUrl"
       :user-info-api-url="userInfoApiUrl" />
@@ -85,6 +87,16 @@ export default {
     defaultOrgLogo: {type: String, required: true},
     userInfoPortletUrl: {type: String, default: ''},
     apiUrlOrgInfo: {type: String, default: ''},
+    favoritesPortletCardSize: {
+      validator: (value) =>
+        ['auto', 'large', 'medium', 'small', 'smaller'].includes(value),
+      default: 'auto',
+    },
+    gridPortletCardSize: {
+      validator: (value) =>
+        ['auto', 'large', 'medium', 'small', 'smaller'].includes(value),
+      default: 'auto',
+    },
     hideActionMode: {
       validator: (value) => ['auto', 'always', 'never'].includes(value),
       default: 'auto',
@@ -96,9 +108,8 @@ export default {
       favoriteApiUrl:
         this.contextApiUrl + process.env.VUE_APP_FAVORITES_PORTLETS_URI,
       userInfoApiUrl: this.contextApiUrl + process.env.VUE_APP_USER_INFO_URI,
-      size: 'medium',
+      screenSize: 'medium',
       hideAction: false,
-      gridContentSize: 'medium',
       visible: !this.isHidden,
       minHeight: '100vh',
       info: {
@@ -153,21 +164,18 @@ export default {
     _size: function() {
       const _size = this.getWindowWidth();
       if (_size < 480) {
-        this.size = 'smaller';
-        this.gridContentSize = 'smaller';
+        this.screenSize = 'smaller';
       } else if (_size < 768) {
-        this.size = 'small';
-        this.gridContentSize = 'small';
+        this.screenSize = 'small';
       } else if (_size < 1680) {
-        this.size = 'medium';
-        this.gridContentSize = 'medium';
+        this.screenSize = 'medium';
       } else {
-        this.size = 'large';
-        this.gridContentSize = 'large';
+        this.screenSize = 'large';
       }
       switch (this.hideActionMode) {
         case 'auto':
-          this.hideAction = this.size === 'small' || this.size === 'smaller';
+          this.hideAction =
+            this.screenSize === 'small' || this.screenSize === 'smaller';
           break;
         case 'never':
           this.hideAction = false;

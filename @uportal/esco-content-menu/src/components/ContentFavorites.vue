@@ -1,6 +1,6 @@
 <template>
   <section
-    :class="calculatedSize"
+    :class="['parent-' + parentScreenSize, calculatedSize]"
     :style="'background-color:' + backgroundColor"
     class="content-favorites">
     <div class="content-favorites-title">
@@ -26,7 +26,7 @@
             <portlet-card
               :portlet-desc="portlet"
               :is-favorite="true"
-              :size="calculatedSize"
+              :size="_portletCardSize"
               :hide-action="hideAction"
               :call-after-action="callAfterFavAction"
               :back-ground-is-dark="true"
@@ -94,10 +94,15 @@ export default {
         process.env.VUE_APP_PORTAL_CONTEXT + process.env.VUE_APP_USER_INFO_URI,
     },
     favorites: {type: Array, required: true, default: () => []},
-    size: {
+    parentScreenSize: {
       validator: (value) =>
         ['large', 'medium', 'small', 'smaller'].includes(value),
       default: 'medium',
+    },
+    portletCardSize: {
+      validator: (value) =>
+        ['auto', 'large', 'medium', 'small', 'smaller'].includes(value),
+      default: 'auto',
     },
     hideAction: {type: Boolean, default: false},
     portlets: {type: Array, required: true, default: () => []},
@@ -122,7 +127,7 @@ export default {
           prevEl: '.swiper-button-prev',
         },
       },
-      calculatedSize: this.size,
+      calculatedSize: this.parentScreenSize,
       disableNext: false,
       disablePrev: false,
     };
@@ -160,6 +165,13 @@ export default {
       window.addEventListener('resize', this.updateSlider);
     });
   },
+  computed: {
+    _portletCardSize: function() {
+      if (this.portletCardSize === 'auto') {
+        return this.calculatedSize;
+      } else return this.portletCardSize;
+    },
+  },
   methods: {
     translate: function(text, lang) {
       return i18n.t(text, lang);
@@ -171,15 +183,19 @@ export default {
       return url;
     },
     isXs() {
-      const _size = this.getWindowWidth();
-      if (this.size === 'smaller' || _size < 660) {
-        this.calculatedSize = 'smaller';
-      } else if (this.size === 'small' || _size < 1280) {
-        this.calculatedSize = 'small';
-      } else if (this.size === 'medium' || _size < 1680) {
-        this.calculatedSize = 'medium';
+      if (this.portletCardSize === 'auto') {
+        const _size = this.getWindowWidth();
+        if (this.parentScreenSize === 'smaller' || _size < 660) {
+          this.calculatedSize = 'smaller';
+        } else if (this.parentScreenSize === 'small' || _size < 1280) {
+          this.calculatedSize = 'small';
+        } else if (this.parentScreenSize === 'medium' || _size < 1680) {
+          this.calculatedSize = 'medium';
+        } else {
+          this.calculatedSize = 'large';
+        }
       } else {
-        this.calculatedSize = 'large';
+        this.calculatedSize = this.portletCardSize;
       }
     },
     callAfterFavAction(favorite, fname) {
@@ -325,13 +341,16 @@ $buttonWidth: 32px;
     padding-left: 2em;
   }
 
-  &.small,
-  &.smaller {
+  &.parent-small,
+  &.parent-smaller {
     > .content-favorites-title h1 {
       font-size: initial;
       font-weight: bold;
     }
+  }
 
+  &.small,
+  &.smaller {
     > .favorites {
       padding-left: 2em;
 
