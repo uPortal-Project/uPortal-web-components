@@ -50,6 +50,7 @@ import ContentUser from './ContentUser';
 import HeaderButtons from './HeaderButtons';
 import oidc from '@uportal/open-id-connect';
 import fetchPortlets from '../services/fetchPortlets';
+import sizeTools from '../services/sizeTools';
 
 const checkStatus = function(response) {
   // console.log("check response ", response);
@@ -132,7 +133,7 @@ export default {
         this.visible = !this.isHidden;
         if (this.visible) {
           this.minHeight = document.body.getBoundingClientRect().height + 'px';
-          this._size();
+          this.calculateSize();
         }
       },
       deep: true,
@@ -140,14 +141,14 @@ export default {
   },
   mounted() {
     this.$nextTick(function() {
-      window.addEventListener('resize', this._size);
+      window.addEventListener('resize', this.calculateSize);
       this.fetchPortlets();
       this.fetchFavorites();
       this.fetchUserInfo();
     });
   },
   beforeDestroy() {
-    window.removeEventListener('resize', this.getWindowWidth);
+    window.removeEventListener('resize', this.calculateSize);
   },
   methods: {
     close(event) {
@@ -158,20 +159,11 @@ export default {
       this.isHidden = false;
       this.callOnClose(event);
     },
-    getWindowWidth: function() {
-      return this.$el.clientWidth;
-    },
-    _size: function() {
-      const _size = this.getWindowWidth();
-      if (_size < 480) {
-        this.screenSize = 'smaller';
-      } else if (_size < 768) {
-        this.screenSize = 'small';
-      } else if (_size < 1680) {
-        this.screenSize = 'medium';
-      } else {
-        this.screenSize = 'large';
-      }
+    calculateSize: function() {
+      this.screenSize = sizeTools.breakPointName(
+          sizeTools.elementWidth(this.$el)
+      );
+
       switch (this.hideActionMode) {
         case 'auto':
           this.hideAction =

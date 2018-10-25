@@ -1,6 +1,6 @@
 <template>
   <section
-    :class="parentScreenSize"
+    :class="['parent-' + parentScreenSize, elementSize]"
     :style="'background-color:' + backgroundColor"
     class="content-grid">
     <div>
@@ -70,6 +70,7 @@
 import i18n from '../i18n.js';
 import PortletCard from './PortletCard';
 import fetchPortlets from '../services/fetchPortlets';
+import sizeTools from '../services/sizeTools';
 
 export default {
   name: 'ContentGrid',
@@ -113,6 +114,7 @@ export default {
       filterValue: '',
       visible: false,
       portletsAPI: [],
+      elementSize: this.parentScreenSize,
     };
   },
   computed: {
@@ -122,9 +124,11 @@ export default {
       return this.portlets || this.portletsAPI;
     },
     _portletCardSize: function() {
+      this.calculateSize();
       if (this.portletCardSize === 'auto') {
-        return this.parentScreenSize;
-      } else return this.portletCardSize;
+        return this.elementSize;
+      }
+      return this.portletCardSize;
     },
     allCategories: function() {
       const allCategories = this._portlets.flatMap(
@@ -153,6 +157,13 @@ export default {
     if (!this.portlets) {
       this.fetchPortlets();
     }
+    this.$nextTick(function() {
+      window.addEventListener('resize', this.calculateSize);
+      this.calculateSize();
+    });
+  },
+  beforeDestroy() {
+    window.removeEventListener('resize', this.calculateSize);
   },
   methods: {
     translate: function(text, lang) {
@@ -162,6 +173,11 @@ export default {
       return this.favorites.includes(fname);
     },
     fetchPortlets,
+    calculateSize: function() {
+      this.elementSize = sizeTools.breakPointName(
+          sizeTools.elementWidth(this.$el)
+      );
+    },
   },
 };
 </script>

@@ -65,8 +65,8 @@ import i18n from '../i18n.js';
 import PortletCard from './PortletCard';
 import '../icons.js';
 import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome';
-
 import {swiper, swiperSlide} from 'vue-awesome-swiper';
+import sizeTools from '../services/sizeTools';
 
 export default {
   name: 'ContentFavorites',
@@ -182,9 +182,9 @@ export default {
       }
       return url;
     },
-    isXs() {
+    calculateSize() {
       if (this.portletCardSize === 'auto') {
-        const _size = this.getWindowWidth();
+        const _size = sizeTools.elementWidth(this.$refs.favsSection);
         if (this.parentScreenSize === 'smaller' || _size < 660) {
           this.calculatedSize = 'smaller';
         } else if (this.parentScreenSize === 'small' || _size < 1280) {
@@ -201,10 +201,6 @@ export default {
     callAfterFavAction(favorite, fname) {
       this.updateSlider();
       this.callAfterAction(favorite, fname);
-    },
-    getWindowWidth: function() {
-      if (this.$refs.favsSection) return this.$refs.favsSection.clientWidth;
-      return 0;
     },
     slideNext(event) {
       event.preventDefault();
@@ -226,7 +222,7 @@ export default {
           }
           this.disableNext = this.$refs.favSwiper.swiper.isEnd;
           this.disablePrev = this.$refs.favSwiper.swiper.isBeginning;
-          this.isXs();
+          this.calculateSize();
         }
       }, 300);
     },
