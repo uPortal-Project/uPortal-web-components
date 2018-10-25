@@ -39,6 +39,7 @@ compile 'org.webjars.npm:uportal__content-carousel:{version number goes here}'
 The component requires a type. It also allows for a `carousel-height` (in rem units), a `fit-to-container` property which causes it to size to its container (horizontally), and `slick-options`.
 
 ```html
+<link href="https://unpkg.com/@uportal/content-carousel/slick-theme.css" rel="stylesheet">
 <script src="https://unpkg.com/vue"></script>
 <script src="https://unpkg.com/@uportal/content-carousel"></script>
 
