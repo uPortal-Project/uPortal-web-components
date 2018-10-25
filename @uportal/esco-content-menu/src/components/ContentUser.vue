@@ -149,10 +149,7 @@ export default {
       display: flex;
       align-items: center;
       justify-content: center;
-
-      @media screen and (min-width: 1024px) {
-        margin-top: 15%;
-      }
+      margin-top: auto;
 
       img {
         width: 270px;

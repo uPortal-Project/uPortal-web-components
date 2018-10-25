@@ -278,10 +278,11 @@ $buttonWidth: 32px;
 
   > .favorites {
     position: relative;
+    padding: 0 2em;
 
     > .swiper-container {
-      margin: 0 45px;
-      padding-bottom: 15px;
+      margin: 0 15px;
+      padding-bottom: 30px;
 
       > .swiper-wrapper {
         > .swiper-slide {
@@ -352,11 +353,8 @@ $buttonWidth: 32px;
   &.small,
   &.smaller {
     > .favorites {
-      padding-left: 2em;
-
       > .swiper-container {
         margin: 0;
-        padding-bottom: 30px;
 
         > .swiper-wrapper > .swiper-slide {
           height: auto;
