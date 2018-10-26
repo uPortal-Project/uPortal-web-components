@@ -193,7 +193,7 @@ export default {
 
   > .portlet-card-title {
     padding-top: 1em;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: bold;
     overflow: hidden;
     text-overflow: ellipsis;
