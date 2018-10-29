@@ -34,7 +34,8 @@
         :is-favorite="isFavorite"
         :call-on-toggle-fav="callAfterAction"
         :favorite-api-url="favoriteApiUrl"
-        :user-info-api-url="userInfoApiUrl" />
+        :user-info-api-url="userInfoApiUrl"
+        :back-ground-is-dark="backGroundIsDark" />
     </div>
   </div>
 </template>
