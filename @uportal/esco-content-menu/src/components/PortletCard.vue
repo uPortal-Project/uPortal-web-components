@@ -105,6 +105,10 @@ export default {
         appClasses.push('background-dark');
       }
 
+      if (this.hideAction) {
+        appClasses.push('hide-action');
+      }
+
       return appClasses.map((v) => v.toLowerCase()).join(' ');
     },
   },
@@ -252,6 +256,14 @@ export default {
 
     > .portlet-card-action {
       margin: 0;
+    }
+
+    &:not(.hide-action) {
+      margin-top: $PortletCardButtonSize / 2;
+
+      > .portlet-card-action {
+        top: $PortletCardButtonSize - (($PortletCardButtonSize / 2) * 3);
+      }
     }
   }
 
