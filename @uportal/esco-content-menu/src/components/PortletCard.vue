@@ -138,7 +138,7 @@ export default {
 .portlet-card {
   width: $PortletCardSizeLarge;
   height: 170px;
-  padding: 12px;
+  padding: 5px;
   line-height: 20px;
   background-color: white;
   text-align: center;

@@ -300,7 +300,8 @@ $searchSize: 32px;
       justify-content: center;
 
       .flex-item {
-        margin: 20px 5px;
+        margin: 20px auto;
+        padding: 0 2.5px;
       }
     }
 

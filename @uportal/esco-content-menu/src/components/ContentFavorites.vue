@@ -350,9 +350,15 @@ $buttonWidth: 32px;
       > .swiper-container {
         margin: 0;
 
-        > .swiper-wrapper > .swiper-slide {
-          height: auto;
-          margin: 0;
+        > .swiper-wrapper {
+          > .swiper-slide {
+            height: auto;
+            margin: 0;
+          }
+
+          .swiper-slide ~ .swiper-slide {
+            margin-left: 5px;
+          }
         }
       }
     }
