@@ -240,7 +240,8 @@ $searchSize: 32px;
     display: block;
 
     > .title {
-      padding: 5px 20px;
+      padding: 0 20px;
+      margin-bottom: 15px;
       text-transform: uppercase;
       display: flex;
       flex-flow: row wrap;
@@ -283,8 +284,7 @@ $searchSize: 32px;
           select {
             -webkit-appearance: none;
             -moz-appearance: none;
-            appearance: none;
-            padding: 5px;
+            padding: 5px 24px 5px 5px;
 
             &::-ms-expand {
               display: none;
@@ -371,21 +371,21 @@ $searchSize: 32px;
           display: flex;
           flex-flow: row nowrap;
           width: calc(100% - 30px);
-          height: calc(100% - 15px);
+          height: calc(100% - 10px);
+          padding: 5px 0;
           max-width: unset;
           right: 15px;
 
           &.closed {
             width: $searchSize;
 
-            input,
-            select {
+            > input,
+            > select,
+            &::after {
               visibility: hidden;
+              padding: 0;
+              display: none;
             }
-          }
-
-          > span {
-            width: 100%;
           }
 
           > div {
@@ -405,6 +405,31 @@ $searchSize: 32px;
           &.opened {
             transition: width 1s;
             backface-visibility: hidden;
+
+            &::after {
+              right: 40px;
+            }
+
+            @media screen and (max-width: 400px) {
+              flex-flow: column wrap;
+              height: 100%;
+
+              > input,
+              > select {
+                width: calc(100% - 42px);
+                height: 50%;
+                border-radius: unset;
+              }
+
+              &::after {
+                right: 50px;
+                top: 75%;
+              }
+
+              > div {
+                flex: 1 1 100%;
+              }
+            }
 
             > div > .fa {
               opacity: 1;
