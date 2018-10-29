@@ -240,7 +240,7 @@ export default {
     }
 
     > .portlet-card-description {
-      display: none !important;
+      display: none;
     }
 
     > .portlet-card-icon {
