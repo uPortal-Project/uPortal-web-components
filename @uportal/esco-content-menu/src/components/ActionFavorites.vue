@@ -129,6 +129,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import './../styles/vars.scss';
+
 .action-favorites {
   &.background-dark {
     .favorite-button > .svg-inline--fa {
@@ -147,18 +149,18 @@ export default {
     box-shadow: none;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
-    width: 44px;
-    height: 44px;
+    width: $PortletCardButtonSize;
+    height: $PortletCardButtonSize;
 
     &:hover {
       > .svg-inline--fa {
-        transform: scale(1.3, 1.3);
+        transform: scale(1.4, 1.4);
       }
     }
 
     > .svg-inline--fa {
-      width: auto;
-      height: 2em; /* or any other relative font sizes */
+      width: $PortletCardButtonSize * 0.6;
+      height: $PortletCardButtonSize * 0.6; /* or any other relative font sizes */
       color: #b7b7b7;
 
       /* You would have to include the following two lines to make this work in Safari */
