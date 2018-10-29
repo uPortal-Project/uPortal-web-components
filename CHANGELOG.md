@@ -7,6 +7,26 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased][]
 
+### Feature
+
+- **esco-content-menu**: allow portlets to be added to favorites in small mode (#143)
+
+### Fix
+
+- **content-carousel**: document the need to include the theme stylesheet outside the shadow dom (#147).
+
+### Style
+
+- **esco-content-menu**: reduce font size in small mode (#143)
+
+### Build
+
+- **content-carousel**: include stylesheet inside the component bundle(#147).
+
+### Chore
+
+- update `remark-cli` to version 6 (#141).
+
 ## [1.14.2][] - 2018-10-24
 
 ### Fix
