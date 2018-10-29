@@ -1,7 +1,7 @@
 <template>
   <section
-    :class="isSmall ? 'small' : ''"
-    :style="isSmall ? 'background-image: linear-gradient(0deg, rgba(0,0,0,.2),rgba(0,0,0,.2)), url(' + getOrgImgUrl() + ');' : ''"
+    :class="parentScreenSize"
+    :style="(parentScreenSize === 'small' || parentScreenSize === 'smaller') ? 'background-image: linear-gradient(0deg, rgba(0,0,0,.2),rgba(0,0,0,.2)), url(' + getOrgImgUrl() + ');' : ''"
     class="content-user">
     <div>
       <div class="org-img">
@@ -61,6 +61,7 @@
 import i18n from '../i18n.js';
 import '../icons.js';
 import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome';
+import {sizeValidator} from '../services/sizeTools';
 
 export default {
   name: 'ContentUser',
@@ -68,7 +69,10 @@ export default {
     FontAwesomeIcon,
   },
   props: {
-    isSmall: {type: Boolean, default: false},
+    parentScreenSize: {
+      validator: sizeValidator,
+      default: 'medium',
+    },
     orgInfo: {type: Object, default: () => ({})},
     otherOrgs: {type: Array, default: () => []},
     userInfo: {type: Object, required: true, default: () => undefined},
@@ -111,7 +115,8 @@ export default {
   height: auto;
   font-size: 14px;
 
-  &.small {
+  &.small,
+  &.smaller {
     min-width: initial;
     width: 100%;
     min-height: 150px;
@@ -144,10 +149,7 @@ export default {
       display: flex;
       align-items: center;
       justify-content: center;
-
-      @media screen and (min-width: 1024px) {
-        margin-top: 15%;
-      }
+      margin-top: auto;
 
       img {
         width: 270px;
@@ -172,6 +174,7 @@ export default {
           max-width: 200px;
           white-space: nowrap;
           overflow: hidden;
+          text-overflow: ellipsis;
         }
 
         span {

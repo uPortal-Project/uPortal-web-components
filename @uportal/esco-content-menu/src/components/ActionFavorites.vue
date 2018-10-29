@@ -1,6 +1,6 @@
 <template>
   <div
-    :class="'action-favorites ' + fname"
+    :class="['action-favorites ' + fname, backGroundIsDark ? 'background-dark' : '']"
     :title="isFavorite ? translate('message.favorites.remove') : translate('message.favorites.add')"
     @click="toggleFavorite($event)">
     <button class="favorite-button">
@@ -49,6 +49,7 @@ export default {
     },
     fname: {type: String, required: true},
     isFavorite: {type: Boolean, default: false},
+    backGroundIsDark: {type: Boolean, default: false},
   },
   data() {
     return {
@@ -128,32 +129,44 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.favorite-button {
-  padding: 0;
-  text-align: center;
-  text-transform: uppercase;
-  text-decoration: none;
-  border: none;
-  outline: none;
-  background-color: transparent;
-  box-shadow: none;
-  cursor: pointer;
-  transition: all 0.2s ease-in-out;
-  width: 44px;
-  height: 44px;
+@import './../styles/vars.scss';
 
-  &:hover {
-    transform: scale(1.3, 1.3);
+.action-favorites {
+  &.background-dark {
+    .favorite-button > .svg-inline--fa {
+      color: #f2f2f2;
+    }
   }
 
-  .svg-inline--fa {
-    width: auto;
-    height: 2em; /* or any other relative font sizes */
-    color: #b7b7b7;
+  .favorite-button {
+    padding: 0;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    box-shadow: none;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    width: $PortletCardButtonSize;
+    height: $PortletCardButtonSize;
 
-    /* You would have to include the following two lines to make this work in Safari */
-    max-width: 100%;
-    max-height: 100%;
+    &:hover {
+      > .svg-inline--fa {
+        transform: scale(1.4, 1.4);
+      }
+    }
+
+    > .svg-inline--fa {
+      width: $PortletCardButtonSize * 0.6;
+      height: $PortletCardButtonSize * 0.6; /* or any other relative font sizes */
+      color: #b7b7b7;
+
+      /* You would have to include the following two lines to make this work in Safari */
+      max-width: 100%;
+      max-height: 100%;
+    }
   }
 }
 </style>

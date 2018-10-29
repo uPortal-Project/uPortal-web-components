@@ -1,6 +1,6 @@
 <template>
   <section
-    :class="showSmall ? 'small' : ''"
+    :class="['parent-' + parentScreenSize, calculatedSize]"
     :style="'background-color:' + backgroundColor"
     class="content-favorites">
     <div class="content-favorites-title">
@@ -26,7 +26,8 @@
             <portlet-card
               :portlet-desc="portlet"
               :is-favorite="true"
-              :is-small="showSmall"
+              :size="_portletCardSize"
+              :hide-action="hideAction"
               :call-after-action="callAfterFavAction"
               :back-ground-is-dark="true"
               :favorite-api-url="favoriteApiUrl"
@@ -64,8 +65,8 @@ import i18n from '../i18n.js';
 import PortletCard from './PortletCard';
 import '../icons.js';
 import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome';
-
 import {swiper, swiperSlide} from 'vue-awesome-swiper';
+import {elementWidth, sizeValidator} from '../services/sizeTools';
 
 export default {
   name: 'ContentFavorites',
@@ -80,7 +81,7 @@ export default {
   props: {
     backgroundColor: {type: String, default: 'rgba(0, 0, 0, 0)'},
     callAfterAction: {type: Function, default: () => {}},
-    isHidden: Boolean,
+    isHidden: {type: Boolean, default: false},
     favoriteApiUrl: {
       type: String,
       default:
@@ -93,7 +94,15 @@ export default {
         process.env.VUE_APP_PORTAL_CONTEXT + process.env.VUE_APP_USER_INFO_URI,
     },
     favorites: {type: Array, required: true, default: () => []},
-    isSmall: {type: Boolean, default: false},
+    parentScreenSize: {
+      validator: sizeValidator(),
+      default: 'medium',
+    },
+    portletCardSize: {
+      validator: (value) => sizeValidator(value, true),
+      default: 'auto',
+    },
+    hideAction: {type: Boolean, default: false},
     portlets: {type: Array, required: true, default: () => []},
   },
   data() {
@@ -116,7 +125,7 @@ export default {
           prevEl: '.swiper-button-prev',
         },
       },
-      showSmall: this.isSmall,
+      calculatedSize: this.parentScreenSize,
       disableNext: false,
       disablePrev: false,
     };
@@ -154,6 +163,13 @@ export default {
       window.addEventListener('resize', this.updateSlider);
     });
   },
+  computed: {
+    _portletCardSize: function() {
+      if (this.portletCardSize === 'auto') {
+        return this.calculatedSize;
+      } else return this.portletCardSize;
+    },
+  },
   methods: {
     translate: function(text, lang) {
       return i18n.t(text, lang);
@@ -164,16 +180,25 @@ export default {
       }
       return url;
     },
-    isXs() {
-      this.showSmall = this.isSmall || this.getWindowWidth() < 660;
+    calculateSize() {
+      if (this.portletCardSize === 'auto') {
+        const _size = elementWidth(this.$refs.favsSection);
+        if (this.parentScreenSize === 'smaller' || _size < 660) {
+          this.calculatedSize = 'smaller';
+        } else if (this.parentScreenSize === 'small' || _size < 1280) {
+          this.calculatedSize = 'small';
+        } else if (this.parentScreenSize === 'medium' || _size < 1680) {
+          this.calculatedSize = 'medium';
+        } else {
+          this.calculatedSize = 'large';
+        }
+      } else {
+        this.calculatedSize = this.portletCardSize;
+      }
     },
     callAfterFavAction(favorite, fname) {
       this.updateSlider();
       this.callAfterAction(favorite, fname);
-    },
-    getWindowWidth: function() {
-      if (this.$refs.favsSection) return this.$refs.favsSection.clientWidth;
-      return 0;
     },
     slideNext(event) {
       event.preventDefault();
@@ -195,7 +220,7 @@ export default {
           }
           this.disableNext = this.$refs.favSwiper.swiper.isEnd;
           this.disablePrev = this.$refs.favSwiper.swiper.isBeginning;
-          this.isXs();
+          this.calculateSize();
         }
       }, 300);
     },
@@ -220,6 +245,9 @@ export default {
 
 <style lang="scss" scoped>
 @import '../../node_modules/swiper/dist/css/swiper.css';
+@import './../styles/vars.scss';
+
+$buttonWidth: 32px;
 
 .content-favorites {
   width: inherit;
@@ -244,16 +272,17 @@ export default {
 
   > .favorites {
     position: relative;
+    padding: 0 2em;
 
     > .swiper-container {
-      margin: 0 45px;
-      padding-bottom: 15px;
+      margin: 0 15px;
+      padding-bottom: 30px;
 
       > .swiper-wrapper {
         > .swiper-slide {
-          width: 255px;
-          height: 175px;
-          margin: 30px;
+          width: $PortletCardSizeLarge;
+          height: 170px;
+          margin: $buttonWidth;
 
           &:first-child {
             margin-left: 0;
@@ -278,8 +307,17 @@ export default {
       background-image: none;
       color: white;
       margin-top: 0;
-      width: auto;
-      height: auto;
+      width: $buttonWidth;
+      height: $buttonWidth;
+      text-align: center;
+    }
+
+    .swiper-button-prev {
+      left: 0;
+    }
+
+    .swiper-button-next {
+      right: 0;
     }
 
     .fav-swiper-button-disabled {
@@ -298,32 +336,51 @@ export default {
     padding-left: 2em;
   }
 
-  &.small {
+  &.parent-small,
+  &.parent-smaller {
     > .content-favorites-title h1 {
       font-size: initial;
       font-weight: bold;
     }
+  }
 
+  &.small,
+  &.smaller {
     > .favorites {
-      padding-left: 2em;
-
       > .swiper-container {
         margin: 0;
-        padding-bottom: 30px;
 
         > .swiper-wrapper {
           > .swiper-slide {
-            width: 120px;
             height: auto;
             margin: 0;
           }
+
+          .swiper-slide ~ .swiper-slide {
+            margin-left: 5px;
+          }
         }
       }
+    }
+  }
 
-      .swiper-button-prev,
-      .swiper-button-next {
-        display: none;
-      }
+  &.medium > .favorites > .swiper-container > .swiper-wrapper > .swiper-slide {
+    width: $PortletCardSizeMedium;
+    height: 160px;
+  }
+
+  &.small > .favorites > .swiper-container > .swiper-wrapper > .swiper-slide {
+    width: $PortletCardSizeSmall;
+  }
+
+  &.smaller > .favorites > .swiper-container > .swiper-wrapper > .swiper-slide {
+    width: $PortletCardSizeSmaller;
+  }
+
+  @media (hover: none) {
+    .swiper-button-prev,
+    .swiper-button-next {
+      display: none;
     }
   }
 

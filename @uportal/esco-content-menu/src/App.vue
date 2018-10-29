@@ -1,19 +1,30 @@
 <template>
   <div id="app">
-    <!--<content-menu default-org-logo="https://lycees.netocentre.fr/annuaire_images/default_banner_v1.jpg" api-url-org-info="/p/test"></content-menu>-->
-    <hamburger-menu default-org-logo="https://lycees.netocentre.fr/annuaire_images/default_banner_v1.jpg" />
+    <content-menu
+      default-org-logo="https://lycees.netocentre.fr/annuaire_images/default_banner_v1.jpg"
+      api-url-org-info="/p/test"
+      favorites-portlet-card-size="small"
+      grid-portlet-card-size="auto"
+      hide-action-mode="never" />
+      <!--<hamburger-menu-->
+      <!--default-org-logo="https://lycees.netocentre.fr/annuaire_images/default_banner_v1.jpg" />-->
+      <!--<content-grid-->
+      <!--background-color="grey"-->
+      <!--portlet-card-size="medium" />-->
   </div>
 </template>
 
 <script>
-// import ContentMenu from "./components/ContentMenu.vue"
-import HamburgerMenu from './components/HamburgerMenu';
+import ContentMenu from './components/ContentMenu.vue';
+// import ContentGrid from './components/ContentGrid.vue';
+// import HamburgerMenu from './components/HamburgerMenu';
 
 export default {
   name: 'App',
   components: {
-    // ContentMenu
-    HamburgerMenu,
+    ContentMenu,
+    // ContentGrid,
+    // HamburgerMenu,
   },
 };
 </script>

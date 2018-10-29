@@ -24,7 +24,9 @@
         :line-height="'20px'"
         :end-char="'...'" />
     </div>
-    <div class="portlet-card-action">
+    <div
+      v-if="!hideAction"
+      class="portlet-card-action">
       <action-favorites
         v-if="canFavorite"
         :fname="fname"
@@ -32,7 +34,8 @@
         :is-favorite="isFavorite"
         :call-on-toggle-fav="callAfterAction"
         :favorite-api-url="favoriteApiUrl"
-        :user-info-api-url="userInfoApiUrl" />
+        :user-info-api-url="userInfoApiUrl"
+        :back-ground-is-dark="backGroundIsDark" />
     </div>
   </div>
 </template>
@@ -40,6 +43,7 @@
 <script>
 import Ellipsis from './Ellipsis';
 import ActionFavorites from './ActionFavorites';
+import {sizeValidator} from '../services/sizeTools';
 
 export default {
   name: 'PortletCard',
@@ -64,12 +68,11 @@ export default {
       default:
         process.env.VUE_APP_PORTAL_CONTEXT + process.env.VUE_APP_USER_INFO_URI,
     },
-    // @deprecated use size property
-    isSmall: {type: Boolean, default: false},
     size: {
-      validator: (value) => ['medium', 'small', 'smaller'].includes(value),
+      validator: sizeValidator(),
       default: 'medium',
     },
+    hideAction: {type: Boolean, default: false},
     portletDesc: {type: Object, required: true},
     backGroundIsDark: {type: Boolean, default: false},
   },
@@ -96,19 +99,14 @@ export default {
         appClasses = appClasses.concat(this.portletDesc.categories);
       }
 
-      // @deprecated use size instead
-      if (this.isSmall) {
-        appClasses.push('small-card');
-      } else {
-        if (this.size === 'small') {
-          appClasses.push('small-card');
-        } else if (this.size === 'smaller') {
-          appClasses.push('smaller-card');
-        }
-      }
+      appClasses.push(this.size + '-card');
 
       if (this.backGroundIsDark) {
         appClasses.push('background-dark');
+      }
+
+      if (this.hideAction) {
+        appClasses.push('hide-action');
       }
 
       return appClasses.map((v) => v.toLowerCase()).join(' ');
@@ -135,10 +133,12 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
+@import './../styles/vars.scss';
+
 .portlet-card {
-  width: 255px;
+  width: $PortletCardSizeLarge;
   height: 170px;
-  padding: 12px;
+  padding: 5px;
   line-height: 20px;
   background-color: white;
   text-align: center;
@@ -198,8 +198,10 @@ export default {
 
   > .portlet-card-title {
     padding-top: 1em;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: bold;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   > .portlet-card-description {
@@ -207,6 +209,19 @@ export default {
 
     /* security to avoid to be outside of the portlet-card */
     max-height: 40px;
+  }
+
+  &.medium-card,
+  &.small-card,
+  &.smaller-card {
+    height: 160px;
+
+    > .portlet-card-icon {
+      > div {
+        height: 75px;
+        width: 75px;
+      }
+    }
   }
 
   &.small-card,
@@ -218,14 +233,14 @@ export default {
     padding: 0;
 
     &.background-dark {
-      > .title,
-      > .description {
+      > .portlet-card-title,
+      > .portlet-card-description {
         color: white;
       }
     }
 
     > .portlet-card-description {
-      display: none !important;
+      display: none;
     }
 
     > .portlet-card-icon {
@@ -240,16 +255,28 @@ export default {
     }
 
     > .portlet-card-action {
-      display: none !important;
+      margin: 0;
+    }
+
+    &:not(.hide-action) {
+      margin-top: $PortletCardButtonSize / 2;
+
+      > .portlet-card-action {
+        top: $PortletCardButtonSize - (($PortletCardButtonSize / 2) * 3);
+      }
     }
   }
 
+  &.medium-card {
+    width: $PortletCardSizeMedium;
+  }
+
   &.small-card {
-    width: 120px;
+    width: $PortletCardSizeSmall;
   }
 
   &.smaller-card {
-    width: 100px;
+    width: $PortletCardSizeSmaller;
   }
 }
 </style>

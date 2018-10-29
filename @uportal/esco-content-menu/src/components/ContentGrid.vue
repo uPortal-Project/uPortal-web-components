@@ -1,6 +1,6 @@
 <template>
   <section
-    :class="{'small' : isSmall || size === 'small' || size === 'smaller'}"
+    :class="['parent-' + parentScreenSize, elementSize]"
     :style="'background-color:' + backgroundColor"
     class="content-grid">
     <div>
@@ -54,8 +54,8 @@
             <portlet-card
               :portlet-desc="portlet"
               :is-favorite="isFavorite(portlet.fname)"
-              :is-small="isSmall"
-              :size="size"
+              :size="_portletCardSize"
+              :hide-action="hideAction"
               :call-after-action="callAfterAction"
               :favorite-api-url="favoriteApiUrl"
               :user-info-api-url="userInfoApiUrl" />
@@ -70,6 +70,11 @@
 import i18n from '../i18n.js';
 import PortletCard from './PortletCard';
 import fetchPortlets from '../services/fetchPortlets';
+import {
+  elementWidth,
+  breakPointName,
+  sizeValidator,
+} from '../services/sizeTools';
 
 export default {
   name: 'ContentGrid',
@@ -95,12 +100,15 @@ export default {
         process.env.VUE_APP_PORTAL_CONTEXT + process.env.VUE_APP_USER_INFO_URI,
     },
     favorites: {type: Array, default: () => []},
-    // @deprecated use size property
-    isSmall: {type: Boolean, default: false},
-    size: {
-      validator: (value) => ['medium', 'small', 'smaller'].includes(value),
+    parentScreenSize: {
+      validator: sizeValidator,
       default: 'medium',
     },
+    portletCardSize: {
+      validator: (value) => sizeValidator(value, true),
+      default: 'auto',
+    },
+    hideAction: {type: Boolean, default: false},
     portlets: {type: Array, default: null},
   },
   data() {
@@ -108,6 +116,7 @@ export default {
       filterValue: '',
       visible: false,
       portletsAPI: [],
+      elementSize: this.parentScreenSize,
     };
   },
   computed: {
@@ -115,6 +124,13 @@ export default {
       // if portlets are passed as a prop, use the prop
       // otherwise use a local fallback copy of portlets
       return this.portlets || this.portletsAPI;
+    },
+    _portletCardSize: function() {
+      this.calculateSize();
+      if (this.portletCardSize === 'auto') {
+        return this.elementSize;
+      }
+      return this.portletCardSize;
     },
     allCategories: function() {
       const allCategories = this._portlets.flatMap(
@@ -143,6 +159,13 @@ export default {
     if (!this.portlets) {
       this.fetchPortlets();
     }
+    this.$nextTick(function() {
+      window.addEventListener('resize', this.calculateSize);
+      this.calculateSize();
+    });
+  },
+  beforeDestroy() {
+    window.removeEventListener('resize', this.calculateSize);
   },
   methods: {
     translate: function(text, lang) {
@@ -152,6 +175,9 @@ export default {
       return this.favorites.includes(fname);
     },
     fetchPortlets,
+    calculateSize: function() {
+      this.elementSize = breakPointName(elementWidth(this.$el));
+    },
   },
 };
 </script>
@@ -274,7 +300,8 @@ $searchSize: 32px;
       justify-content: center;
 
       .flex-item {
-        margin: 20px 5px;
+        margin: 20px auto;
+        padding: 0 2.5px;
       }
     }
 
@@ -284,7 +311,8 @@ $searchSize: 32px;
     }
   }
 
-  &.small {
+  &.small,
+  &.smaller {
     .content-grid-caret::after {
       border: none;
     }

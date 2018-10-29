@@ -1,6 +1,6 @@
 <template>
   <div
-    :class="['toggler-menu', isSmall ? 'small ' : '', visible ? 'active-menu' : '']"
+    :class="['toggler-menu', screenSize, visible ? 'active-menu' : '']"
     :style="'min-height: ' + minHeight"
     class="content-menu">
     <header>
@@ -12,7 +12,7 @@
           :org-info="info.userOrganization"
           :user-info="info.user"
           :other-orgs="info.organizations"
-          :is-small="isSmall"
+          :parent-screen-size="screenSize"
           :default-org-logo="defaultOrgLogo"
           :user-info-portlet-url="userInfoPortletUrl"
           :api-url-org-info="apiUrlOrgInfo" />
@@ -20,20 +20,24 @@
           :portlets="_portlets"
           :favorites="info.favorites"
           :call-after-action="actionToggleFav"
-          :is-small="isSmall"
+          :parent-screen-size="screenSize"
+          :portlet-card-size="favoritesPortletCardSize"
+          :hide-action="hideAction"
           :favorite-api-url="favoriteApiUrl"
           :is-hidden="isHidden"
           :user-info-api-url="userInfoApiUrl" />
       </div>
       <div
-        :style="(backgroundImg != null && !isSmall) ? 'background-image: linear-gradient(0deg, rgba(0,0,0,.2),rgba(0,0,0,.2)), url(' + backgroundImg + ');' : ''"
+        :style="(backgroundImg != null && (screenSize === 'large' || screenSize === 'medium')) ? 'background-image: linear-gradient(0deg, rgba(0,0,0,.2),rgba(0,0,0,.2)), url(' + backgroundImg + ');' : ''"
         class="background" />
     </header>
     <content-grid
       :portlets="_portlets"
       :favorites="info.favorites"
       :call-after-action="actionToggleFav"
-      :is-small="isSmall"
+      :parent-screen-size="screenSize"
+      :portlet-card-size="gridPortletCardSize"
+      :hide-action="hideAction"
       :favorite-api-url="favoriteApiUrl"
       :user-info-api-url="userInfoApiUrl" />
   </div>
@@ -46,6 +50,11 @@ import ContentUser from './ContentUser';
 import HeaderButtons from './HeaderButtons';
 import oidc from '@uportal/open-id-connect';
 import fetchPortlets from '../services/fetchPortlets';
+import {
+  elementWidth,
+  breakPointName,
+  sizeValidator,
+} from '../services/sizeTools';
 
 const checkStatus = function(response) {
   // console.log("check response ", response);
@@ -83,6 +92,18 @@ export default {
     defaultOrgLogo: {type: String, required: true},
     userInfoPortletUrl: {type: String, default: ''},
     apiUrlOrgInfo: {type: String, default: ''},
+    favoritesPortletCardSize: {
+      validator: (value) => sizeValidator(value, true),
+      default: 'auto',
+    },
+    gridPortletCardSize: {
+      validator: (value) => sizeValidator(value, true),
+      default: 'auto',
+    },
+    hideActionMode: {
+      validator: (value) => ['auto', 'always', 'never'].includes(value),
+      default: 'auto',
+    },
   },
   data() {
     return {
@@ -90,7 +111,8 @@ export default {
       favoriteApiUrl:
         this.contextApiUrl + process.env.VUE_APP_FAVORITES_PORTLETS_URI,
       userInfoApiUrl: this.contextApiUrl + process.env.VUE_APP_USER_INFO_URI,
-      isSmall: false,
+      screenSize: 'medium',
+      hideAction: false,
       visible: !this.isHidden,
       minHeight: '100vh',
       info: {
@@ -113,7 +135,7 @@ export default {
         this.visible = !this.isHidden;
         if (this.visible) {
           this.minHeight = document.body.getBoundingClientRect().height + 'px';
-          this.isXs();
+          this.calculateSize();
         }
       },
       deep: true,
@@ -121,14 +143,14 @@ export default {
   },
   mounted() {
     this.$nextTick(function() {
-      window.addEventListener('resize', this.isXs);
+      window.addEventListener('resize', this.calculateSize);
       this.fetchPortlets();
       this.fetchFavorites();
       this.fetchUserInfo();
     });
   },
   beforeDestroy() {
-    window.removeEventListener('resize', this.getWindowWidth);
+    window.removeEventListener('resize', this.calculateSize);
   },
   methods: {
     close(event) {
@@ -139,11 +161,21 @@ export default {
       this.isHidden = false;
       this.callOnClose(event);
     },
-    getWindowWidth: function() {
-      return this.$el.clientWidth;
-    },
-    isXs: function() {
-      this.isSmall = this.getWindowWidth() < 768;
+    calculateSize: function() {
+      this.screenSize = breakPointName(elementWidth(this.$el));
+
+      switch (this.hideActionMode) {
+        case 'auto':
+          this.hideAction =
+            this.screenSize === 'small' || this.screenSize === 'smaller';
+          break;
+        case 'never':
+          this.hideAction = false;
+          break;
+        default:
+          // case of 'always' hidden
+          this.hideAction = true;
+      }
     },
     computeCurrentOrg: function() {
       if (
@@ -371,8 +403,13 @@ export default {
     }
   }
 
-  &.small {
+  &.small,
+  &.smaller {
     background-color: #545454;
+
+    > section {
+      padding: 0.5em;
+    }
 
     header {
       div.background {
