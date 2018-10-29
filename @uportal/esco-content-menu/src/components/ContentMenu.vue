@@ -50,7 +50,7 @@ import ContentUser from './ContentUser';
 import HeaderButtons from './HeaderButtons';
 import oidc from '@uportal/open-id-connect';
 import fetchPortlets from '../services/fetchPortlets';
-import sizeTools from '../services/sizeTools';
+import {elementWidth, breakPointName} from '../services/sizeTools';
 
 const checkStatus = function(response) {
   // console.log("check response ", response);
@@ -160,9 +160,7 @@ export default {
       this.callOnClose(event);
     },
     calculateSize: function() {
-      this.screenSize = sizeTools.breakPointName(
-          sizeTools.elementWidth(this.$el)
-      );
+      this.screenSize = breakPointName(elementWidth(this.$el));
 
       switch (this.hideActionMode) {
         case 'auto':

@@ -70,7 +70,7 @@
 import i18n from '../i18n.js';
 import PortletCard from './PortletCard';
 import fetchPortlets from '../services/fetchPortlets';
-import sizeTools from '../services/sizeTools';
+import {elementWidth, breakPointName} from '../services/sizeTools';
 
 export default {
   name: 'ContentGrid',
@@ -174,9 +174,7 @@ export default {
     },
     fetchPortlets,
     calculateSize: function() {
-      this.elementSize = sizeTools.breakPointName(
-          sizeTools.elementWidth(this.$el)
-      );
+      this.elementSize = breakPointName(elementWidth(this.$el));
     },
   },
 };

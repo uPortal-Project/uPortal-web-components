@@ -66,7 +66,7 @@ import PortletCard from './PortletCard';
 import '../icons.js';
 import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome';
 import {swiper, swiperSlide} from 'vue-awesome-swiper';
-import sizeTools from '../services/sizeTools';
+import {elementWidth} from '../services/sizeTools';
 
 export default {
   name: 'ContentFavorites',
@@ -184,7 +184,7 @@ export default {
     },
     calculateSize() {
       if (this.portletCardSize === 'auto') {
-        const _size = sizeTools.elementWidth(this.$refs.favsSection);
+        const _size = elementWidth(this.$refs.favsSection);
         if (this.parentScreenSize === 'smaller' || _size < 660) {
           this.calculatedSize = 'smaller';
         } else if (this.parentScreenSize === 'small' || _size < 1280) {
