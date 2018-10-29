@@ -66,7 +66,7 @@ import PortletCard from './PortletCard';
 import '../icons.js';
 import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome';
 import {swiper, swiperSlide} from 'vue-awesome-swiper';
-import {elementWidth} from '../services/sizeTools';
+import {elementWidth, sizeValidator} from '../services/sizeTools';
 
 export default {
   name: 'ContentFavorites',
@@ -95,13 +95,11 @@ export default {
     },
     favorites: {type: Array, required: true, default: () => []},
     parentScreenSize: {
-      validator: (value) =>
-        ['large', 'medium', 'small', 'smaller'].includes(value),
+      validator: sizeValidator(),
       default: 'medium',
     },
     portletCardSize: {
-      validator: (value) =>
-        ['auto', 'large', 'medium', 'small', 'smaller'].includes(value),
+      validator: (value) => sizeValidator(value, true),
       default: 'auto',
     },
     hideAction: {type: Boolean, default: false},

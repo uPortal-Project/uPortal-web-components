@@ -14,3 +14,10 @@ export function breakPointName(size) {
   }
   return 'large';
 }
+
+export function sizeValidator(value, withAuto = false) {
+  if (withAuto) {
+    return ['auto', 'large', 'medium', 'small', 'smaller'].includes(value);
+  }
+  return ['large', 'medium', 'small', 'smaller'].includes(value);
+}

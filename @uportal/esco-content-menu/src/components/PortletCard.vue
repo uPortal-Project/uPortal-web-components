@@ -43,6 +43,7 @@
 <script>
 import Ellipsis from './Ellipsis';
 import ActionFavorites from './ActionFavorites';
+import {sizeValidator} from '../services/sizeTools';
 
 export default {
   name: 'PortletCard',
@@ -68,8 +69,7 @@ export default {
         process.env.VUE_APP_PORTAL_CONTEXT + process.env.VUE_APP_USER_INFO_URI,
     },
     size: {
-      validator: (value) =>
-        ['large', 'medium', 'small', 'smaller'].includes(value),
+      validator: sizeValidator(),
       default: 'medium',
     },
     hideAction: {type: Boolean, default: false},

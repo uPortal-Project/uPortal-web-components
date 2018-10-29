@@ -50,7 +50,11 @@ import ContentUser from './ContentUser';
 import HeaderButtons from './HeaderButtons';
 import oidc from '@uportal/open-id-connect';
 import fetchPortlets from '../services/fetchPortlets';
-import {elementWidth, breakPointName} from '../services/sizeTools';
+import {
+  elementWidth,
+  breakPointName,
+  sizeValidator,
+} from '../services/sizeTools';
 
 const checkStatus = function(response) {
   // console.log("check response ", response);
@@ -89,13 +93,11 @@ export default {
     userInfoPortletUrl: {type: String, default: ''},
     apiUrlOrgInfo: {type: String, default: ''},
     favoritesPortletCardSize: {
-      validator: (value) =>
-        ['auto', 'large', 'medium', 'small', 'smaller'].includes(value),
+      validator: (value) => sizeValidator(value, true),
       default: 'auto',
     },
     gridPortletCardSize: {
-      validator: (value) =>
-        ['auto', 'large', 'medium', 'small', 'smaller'].includes(value),
+      validator: (value) => sizeValidator(value, true),
       default: 'auto',
     },
     hideActionMode: {

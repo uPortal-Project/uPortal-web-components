@@ -70,7 +70,11 @@
 import i18n from '../i18n.js';
 import PortletCard from './PortletCard';
 import fetchPortlets from '../services/fetchPortlets';
-import {elementWidth, breakPointName} from '../services/sizeTools';
+import {
+  elementWidth,
+  breakPointName,
+  sizeValidator,
+} from '../services/sizeTools';
 
 export default {
   name: 'ContentGrid',
@@ -97,13 +101,11 @@ export default {
     },
     favorites: {type: Array, default: () => []},
     parentScreenSize: {
-      validator: (value) =>
-        ['large', 'medium', 'small', 'smaller'].includes(value),
+      validator: sizeValidator,
       default: 'medium',
     },
     portletCardSize: {
-      validator: (value) =>
-        ['auto', 'large', 'medium', 'small', 'smaller'].includes(value),
+      validator: (value) => sizeValidator(value, true),
       default: 'auto',
     },
     hideAction: {type: Boolean, default: false},

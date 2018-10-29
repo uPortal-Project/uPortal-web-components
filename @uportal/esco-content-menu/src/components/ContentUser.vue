@@ -61,6 +61,7 @@
 import i18n from '../i18n.js';
 import '../icons.js';
 import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome';
+import {sizeValidator} from '../services/sizeTools';
 
 export default {
   name: 'ContentUser',
@@ -69,8 +70,7 @@ export default {
   },
   props: {
     parentScreenSize: {
-      validator: (value) =>
-        ['large', 'medium', 'small', 'smaller'].includes(value),
+      validator: sizeValidator,
       default: 'medium',
     },
     orgInfo: {type: Object, default: () => ({})},
