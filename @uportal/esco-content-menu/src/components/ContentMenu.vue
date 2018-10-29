@@ -407,6 +407,10 @@ export default {
   &.smaller {
     background-color: #545454;
 
+    > section {
+      padding: 0.5em;
+    }
+
     header {
       div.background {
         background-image: none;
