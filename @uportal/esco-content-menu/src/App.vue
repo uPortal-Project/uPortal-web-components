@@ -3,9 +3,9 @@
     <content-menu
       default-org-logo="https://lycees.netocentre.fr/annuaire_images/default_banner_v1.jpg"
       api-url-org-info="/p/test"
-      favorites-portlet-card-size="auto"
-      grid-portlet-card-size="small"
-      hide-action-mode="auto" />
+      favorites-portlet-card-size="small"
+      grid-portlet-card-size="auto"
+      hide-action-mode="never" />
       <!--<hamburger-menu-->
       <!--default-org-logo="https://lycees.netocentre.fr/annuaire_images/default_banner_v1.jpg" />-->
       <!--<content-grid-->
