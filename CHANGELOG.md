@@ -7,6 +7,18 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased][]
 
+### Feature
+
+- **esco-content-menu**: enhance search with category functionality (#149).
+
+### Build
+
+- **esco-content-menu**: tree shake font awesome icons to prevent bundle bloat (#148).
+
+### Chore
+
+- update lint staged to version 8 (#150).
+
 ## [1.15.0][] - 2018-10-29
 
 ### Feature
