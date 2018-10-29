@@ -11,6 +11,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - **esco-content-menu**: enhance search with category functionality (#149).
 
+### Style
+
+- **esco-content-menu**: improved styling on mobile search (#151).
+
 ### Build
 
 - **esco-content-menu**: tree shake font awesome icons to prevent bundle bloat (#148).
