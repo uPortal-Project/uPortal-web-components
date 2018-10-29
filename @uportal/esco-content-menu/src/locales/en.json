@@ -10,6 +10,9 @@
       "title": "My Favorites",
       "empty": "No favorite defined"
     },
+    "filter": {
+      "selectOption": "All categories"
+    },
     "userInfoPortletUrl": {
       "title": "See my account informations"
     },

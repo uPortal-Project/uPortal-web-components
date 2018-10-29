@@ -13,26 +13,28 @@
         <slot name="header-right">
           <div
             :class="visible ? 'opened' : 'closed'"
-            class="filter">
-            <span class="content-grid-caret">
-              <input
-                :title="translate('message.services.filter')"
-                v-model.trim="filterValue"
-                :placeholder="translate('message.services.filter')"
-                type="text"
-                list="list">
-            </span>
-            <datalist id="list">
-              <select>
-                <option
-                  v-for="category in allCategories"
-                  :value="category"
-                  :label="category"
-                  :key="category">
-                  {{ category }}
-                </option>
-              </select>
-            </datalist>
+            class="filter custom-caret">
+            <input
+              :title="translate('message.services.filter')"
+              v-model.trim="filterValue"
+              :placeholder="translate('message.services.filter')"
+              type="text"
+              @focus="filterValue = ''">
+            <select v-model="filterCategory">
+              <option
+                class="default"
+                selected
+                value="">
+                {{ translate('message.filter.selectOption') }}
+              </option>
+              <option
+                v-for="category in allCategories"
+                :value="category"
+                :label="category"
+                :key="category">
+                {{ category }}
+              </option>
+            </select>
             <div @click="visible = !visible">
               <i
                 class="fa fa-search"
@@ -114,6 +116,7 @@ export default {
   data() {
     return {
       filterValue: '',
+      filterCategory: '',
       visible: false,
       portletsAPI: [],
       elementSize: this.parentScreenSize,
@@ -141,17 +144,25 @@ export default {
     },
     filteredPortlets: function() {
       const filterValue = this.filterValue.toLowerCase();
+      const filterCategory = this.filterCategory.toLowerCase();
 
-      if (filterValue === '') {
+      if (filterValue === '' && filterCategory === '') {
         return this._portlets;
       }
 
       return this._portlets.filter(
           ({categories, title, name, description}) =>
-            categories.some((cat) => cat.toLowerCase().includes(filterValue)) ||
-          title.toLowerCase().includes(filterValue) ||
-          name.toLowerCase().includes(filterValue) ||
-          description.toLowerCase().includes(filterValue)
+            (filterCategory === '' ||
+            categories.some((cat) =>
+              cat.toLowerCase().includes(filterCategory)
+            )) &&
+          (filterValue === '' ||
+            (categories.some((cat) =>
+              cat.toLowerCase().includes(filterValue)
+            ) ||
+              title.toLowerCase().includes(filterValue) ||
+              name.toLowerCase().includes(filterValue) ||
+              description.toLowerCase().includes(filterValue)))
       );
     },
   },
@@ -212,25 +223,6 @@ $searchSize: 32px;
     font-style: italic;
   }
 
-  .content-grid-caret {
-    position: relative;
-    cursor: pointer;
-  }
-
-  .content-grid-caret::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 0;
-    display: inline-block;
-    top: 25%;
-    right: 10px;
-    border-top: 10px solid #000;
-    border-left: 10px solid transparent;
-    border-right: 10px solid transparent;
-    pointer-events: none;
-  }
-
   .fa {
     display: inline-block;
     font: normal normal normal 14px/1 FontAwesome, sans-serif;
@@ -262,29 +254,76 @@ $searchSize: 32px;
       }
 
       > .filter {
-        margin: 10px 0;
+        margin: auto 0;
         width: 100%;
-        max-width: 300px;
+        height: 32px;
+        max-width: 400px;
+        display: flex;
+        flex-flow: row nowrap;
 
-        input {
-          line-height: 32px;
-          border-radius: 48px;
+        /* custom caret to override bad firefox one */
+        &.custom-caret {
+          position: relative;
+          cursor: pointer;
+
+          &::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 0;
+            display: inline-block;
+            top: 48%;
+            right: 10px;
+            border-top: 6px solid #000;
+            border-left: 6px solid transparent;
+            border-right: 6px solid transparent;
+            pointer-events: none;
+          }
+
+          select {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            padding: 5px;
+
+            &::-ms-expand {
+              display: none;
+            }
+          }
+        }
+
+        input,
+        select {
           border: none;
-          width: 100%;
           height: 100%;
-          text-indent: 10px;
-          font-size: 16px;
 
           /* prettier-ignore */
           box-shadow:
             0 2px 2px 0 rgba(0, 0, 0, 0.14),
             0 3px 1px -2px rgba(0, 0, 0, 0.12),
             0 1px 5px 0 rgba(0, 0, 0, 0.2);
-          -webkit-appearance: none;
           outline: none;
+          padding: 0;
+          margin: 0;
+        }
 
-          &::-webkit-calendar-picker-indicator {
-            display: none; /* remove default arrow */
+        input {
+          line-height: 32px;
+          border-top-left-radius: 48px;
+          border-bottom-left-radius: 48px;
+          width: 60%;
+          text-indent: 10px;
+          font-size: 16px;
+        }
+
+        select {
+          border-top-right-radius: 48px;
+          border-bottom-right-radius: 48px;
+          width: 40%;
+
+          option.default {
+            font-style: italic;
+            color: grey;
           }
         }
 
@@ -313,10 +352,6 @@ $searchSize: 32px;
 
   &.small,
   &.smaller {
-    .content-grid-caret::after {
-      border: none;
-    }
-
     > div {
       background-color: #f3f3f3;
       border-radius: 5px;
@@ -343,7 +378,8 @@ $searchSize: 32px;
           &.closed {
             width: $searchSize;
 
-            input {
+            input,
+            select {
               visibility: hidden;
             }
           }
