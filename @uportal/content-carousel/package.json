@@ -31,7 +31,6 @@
     "@vue/cli-plugin-babel": "^3.0.3",
     "@vue/cli-plugin-typescript": "^3.0.3",
     "@vue/cli-service": "^3.0.3",
-    "babel-plugin-transform-custom-element-classes": "^0.1.0",
     "node-sass": "^4.9.3",
     "sass-loader": "^7.0.3",
     "vue-template-compiler": "^2.5.16"
