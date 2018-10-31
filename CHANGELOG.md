@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased][]
 
+### Build
+
+- **esco-content-menu**: remove unneeded `babel-plugin-transform-custom-element-classes`, babel 7 supports extending built ins by default (#155).
+- **content-carousel**: remove unneeded `babel-plugin-transform-custom-element-classes`, babel 7 supports extending built ins by default (#155).
+- **eyebrow-user-info**: remove unneeded `babel-plugin-transform-custom-element-classes`, babel 7 supports extending built ins by default (#155).
+
+### Chore
+
+- Update renovate configuration, to give each major version dependency bump its own PR (#153).
+- Update vue prettier formatting preset dependency (#152).
+
 ## [1.16.0][] - 2018-10-29
 
 ### Feature
