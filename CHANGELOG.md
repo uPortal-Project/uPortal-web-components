@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased][]
 
+## [1.16.2][] - 2018-11-6
+
 ### Fix
 
 - **content-carousel**: include font in package (#157).
@@ -635,7 +637,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - **open-id-connect**: Initial version of an OpenID Connect helper script to use in web components and JavaScript modules.
 - **content-carousel**: Initial version of content carousel, a carousel based portlet metadata display system.
 
-[unreleased]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.16.1...HEAD
+[unreleased]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.16.2...HEAD
+[1.16.2]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.16.1...v1.16.2
 [1.16.1]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.16.0...v1.16.1
 [1.16.0]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.15.0...v1.16.0
 [1.15.0]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.14.2...v1.15.0
