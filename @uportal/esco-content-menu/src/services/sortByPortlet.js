@@ -1,4 +1,5 @@
 export default function(a, b) {
+  // if parameter is missing or an invalid integer, Not a Number (NaN) will be set
   const aCustomOrder = parseInt(a?.layoutObject?.parameters?.escoMenuOrder, 10);
   const bCustomOrder = parseInt(b?.layoutObject?.parameters?.escoMenuOrder, 10);
 
@@ -12,7 +13,7 @@ export default function(a, b) {
         });
   }
 
-  // sort the items with custom order, in front of items without
+  // sort the items with custom order in front of items without
   if (isNaN(aCustomOrder)) {
     return 1;
   }
