@@ -7,6 +7,19 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased][]
 
+### Feature
+
+- **esco-content-grid**: support custom sort order using `escoMenuOrder` portlet parameter (#161).
+
+### Refactor
+
+- **esco-content-menu**: leverage `async await` in more places (#161).
+- **esco-content-menu**: update `fetchPortlet` utility to use parameters and return instead of `this` (#159).
+
+### Chore
+
+- update eslint plugin jest (#158).
+
 ## [1.16.2][] - 2018-11-6
 
 ### Fix
