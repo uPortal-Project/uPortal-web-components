@@ -250,7 +250,9 @@ export default {
         }
       }
     },
-    fetchPortlets,
+    async fetchPortlets() {
+      this.portletsAPI = await fetchPortlets(this.contextApiUrl);
+    },
     fetchFavorites() {
       if (process.env.NODE_ENV === 'development') {
         this.info.favorites = [

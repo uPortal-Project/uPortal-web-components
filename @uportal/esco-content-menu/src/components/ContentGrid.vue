@@ -179,14 +179,16 @@ export default {
     window.removeEventListener('resize', this.calculateSize);
   },
   methods: {
-    translate: function(text, lang) {
+    translate(text, lang) {
       return i18n.t(text, lang);
     },
-    isFavorite: function(fname) {
+    isFavorite(fname) {
       return this.favorites.includes(fname);
     },
-    fetchPortlets,
-    calculateSize: function() {
+    async fetchPortlets() {
+      this.portletsAPI = await fetchPortlets(this.contextApiUrl);
+    },
+    calculateSize() {
       this.elementSize = breakPointName(elementWidth(this.$el));
     },
   },

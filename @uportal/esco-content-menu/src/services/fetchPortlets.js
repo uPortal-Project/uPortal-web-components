@@ -1,14 +1,14 @@
 import oidc from '@uportal/open-id-connect';
 
-export default async function() {
+export default async function(contextApiUrl) {
   if (process.env.NODE_ENV === 'development') {
     const response = await fetch('browseable.json');
     const {portlets} = await response.json();
-    this.portletsAPI = portlets;
+    return portlets;
   } else {
     try {
       const {encoded} = await oidc({
-        userInfoApiUrl: this.contextApiUrl + process.env.VUE_APP_USER_INFO_URI,
+        userInfoApiUrl: contextApiUrl + process.env.VUE_APP_USER_INFO_URI,
       });
 
       const options = {
@@ -21,7 +21,7 @@ export default async function() {
       };
 
       const response = await fetch(
-          this.contextApiUrl + process.env.VUE_APP_BROWSABLE_PORTLETS_URI,
+          contextApiUrl + process.env.VUE_APP_BROWSABLE_PORTLETS_URI,
           options
       );
 
@@ -31,7 +31,7 @@ export default async function() {
 
       const {portlets} = await response.json();
 
-      this.portletsAPI = portlets;
+      return portlets;
     } catch (err) {
       console.error(err);
     }
