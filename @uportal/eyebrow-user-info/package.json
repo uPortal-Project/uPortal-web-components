@@ -1,6 +1,6 @@
 {
   "name": "@uportal/eyebrow-user-info",
-  "version": "1.16.2",
+  "version": "1.17.0",
   "scripts": {
     "start": "vue-cli-service serve",
     "prebuild": "babel node_modules/@vue/web-component-wrapper/dist/vue-wc-wrapper.js -o node_modules/@vue/web-component-wrapper/dist/vue-wc-wrapper.js",
