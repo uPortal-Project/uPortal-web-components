@@ -72,6 +72,7 @@
 import i18n from '../i18n.js';
 import PortletCard from './PortletCard';
 import fetchPortlets from '../services/fetchPortlets';
+import byPortlet from '../services/sortByPortlet';
 import {
   elementWidth,
   breakPointName,
@@ -186,7 +187,8 @@ export default {
       return this.favorites.includes(fname);
     },
     async fetchPortlets() {
-      this.portletsAPI = await fetchPortlets(this.contextApiUrl);
+      const portlets = await fetchPortlets(this.contextApiUrl);
+      this.portletsAPI = portlets.sort(byPortlet);
     },
     calculateSize() {
       this.elementSize = breakPointName(elementWidth(this.$el));

@@ -50,6 +50,7 @@ import ContentUser from './ContentUser';
 import HeaderButtons from './HeaderButtons';
 import oidc from '@uportal/open-id-connect';
 import fetchPortlets from '../services/fetchPortlets';
+import byPortlet from '../services/sortByPortlet';
 import {
   elementWidth,
   breakPointName,
@@ -65,11 +66,6 @@ const checkStatus = function(response) {
     error.response = response;
     throw error;
   }
-};
-
-const parseJSON = function(response) {
-  // console.log("Parse response for json ", response);
-  return response.json();
 };
 
 export default {
@@ -233,15 +229,15 @@ export default {
                 'Content-Type': 'application/json',
               },
             };
-            const data = await fetch(
+            const response = await fetch(
                 process.env.VUE_APP_PORTAL_BASE_URL +
                 process.env.VUE_APP_ORG_INFO_URI +
                 '?ids=' +
                 decoded.ESCOSIREN,
                 options
-            )
-                .then(checkStatus)
-                .then(parseJSON);
+            );
+            checkStatus(response);
+            const data = await response.json();
             this.info.organizations = Object.values(data);
             this.computeCurrentOrg();
           }
@@ -251,9 +247,10 @@ export default {
       }
     },
     async fetchPortlets() {
-      this.portletsAPI = await fetchPortlets(this.contextApiUrl);
+      const portlets = await fetchPortlets(this.contextApiUrl);
+      this.portletsAPI = portlets.sort(byPortlet);
     },
-    fetchFavorites() {
+    async fetchFavorites() {
       if (process.env.NODE_ENV === 'development') {
         this.info.favorites = [
           'search',
@@ -263,40 +260,38 @@ export default {
           'Helpinfo',
           'MILycees',
         ];
-      } else {
-        oidc({
+        return;
+      }
+      try {
+        const {encoded} = await oidc({
           userInfoApiUrl:
             this.contextApiUrl + process.env.VUE_APP_USER_INFO_URI,
-        })
-            .then((token) => {
-              const options = {
-                method: 'GET',
-                credentials: 'same-origin',
-                headers: {
-                  'Authorization': 'Bearer ' + token.encoded,
-                  'Content-Type': 'application/json',
-                },
-              };
-              fetch(
-                  this.contextApiUrl + process.env.VUE_APP_FAVORITES_URI,
-                  options
-              )
-                  .then(checkStatus)
-                  .then(parseJSON)
-                  .then((data) => {
-                    if (
-                  data?.authenticated &&
-                  data?.layout?.globals?.hasFavorites &&
-                  data?.layout?.favorites
-                    ) {
-                      this.info.favorites = [];
-                      this.computeFavoritesContent(data.layout.favorites);
-                    }
-                  });
-            })
-            .catch(function(err) {
-              console.error(err);
-            });
+        });
+        const options = {
+          method: 'GET',
+          credentials: 'same-origin',
+          headers: {
+            'Authorization': 'Bearer ' + encoded,
+            'Content-Type': 'application/json',
+          },
+        };
+        const response = await fetch(
+            this.contextApiUrl + process.env.VUE_APP_FAVORITES_URI,
+            options
+        );
+        checkStatus(response);
+        const data = await response.json();
+
+        if (
+          data?.authenticated &&
+          data?.layout?.globals?.hasFavorites &&
+          data?.layout?.favorites
+        ) {
+          this.info.favorites = [];
+          this.computeFavoritesContent(data.layout.favorites);
+        }
+      } catch (err) {
+        console.error(err);
       }
     },
     computeFavoritesContent(elem) {
@@ -318,7 +313,7 @@ export default {
         }
       }
     },
-    actionToggleFav: function(isAddFavorite, fname) {
+    actionToggleFav(isAddFavorite, fname) {
       if (isAddFavorite) {
         this.info.favorites.push(fname);
       } else {
@@ -326,14 +321,6 @@ export default {
             (value) => value !== fname
         );
       }
-    },
-    sortPortlets: function(a, b) {
-      return a.title
-          .trim()
-          .toLowerCase()
-          .localeCompare(b.title.trim().toLowerCase(), undefined, {
-            numberic: true,
-          });
     },
   },
 };
