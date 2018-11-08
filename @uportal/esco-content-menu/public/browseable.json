@@ -16,7 +16,8 @@
         "iconUrl": null,
         "nodeId": "-1",
         "parameters": {
-          "disableDynamicTitle": "true"
+          "disableDynamicTitle": "true",
+          "escoMenuOrder": "2"
         },
         "pithyStaticContent": null,
         "renderOnWeb": false,
@@ -63,7 +64,8 @@
         "iconUrl": "/ResourceServingWebapp/rs/tango/0.8.90/32x32/categories/preferences-system.png",
         "nodeId": "-1",
         "parameters": {
-          "iconUrl": "/ResourceServingWebapp/rs/tango/0.8.90/32x32/categories/preferences-system.png"
+          "iconUrl": "/ResourceServingWebapp/rs/tango/0.8.90/32x32/categories/preferences-system.png",
+          "escoMenuOrder": "1"
         },
         "pithyStaticContent": null,
         "renderOnWeb": false,
