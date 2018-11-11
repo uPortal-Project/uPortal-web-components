@@ -90,7 +90,7 @@ export default {
     };
   },
   computed: {
-    mainClass: function() {
+    mainClass() {
       let appClasses = [];
       appClasses.push(this.cssClass);
       appClasses.push(this.fname);
@@ -113,18 +113,18 @@ export default {
     },
   },
   methods: {
-    computeIconUrl: function(url) {
+    computeIconUrl(url) {
       if (url != null && !url.startsWith('http')) {
         return process.env.VUE_APP_PORTAL_BASE_URL + url;
       }
       return url;
     },
-    truncate: function(entry) {
+    truncate(entry) {
       if (entry) {
         const text = entry.split('   ');
         return text[0].trim();
       }
-      return entry.trim();
+      return entry;
     },
   },
 };
