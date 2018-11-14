@@ -34,10 +34,11 @@
     "bootstrap": "lerna bootstrap --ci",
     "build": "lerna run build",
     "ci:commitlint": "commitlint-travis",
-    "format": "npm-run-all format:*",
+    "format": "npm-run-all -p format:*",
     "format:js": "prettier-eslint --write '**/*.{js,vue}'",
     "format:ts": "tslint -c tslint.json --fix '**/*.ts'",
     "format:md": "prettier --write '**/*.md'",
+    "format:html": "prettier --write '**/*.html'",
     "format:css": "prettier-stylelint --write '**/*.css'",
     "lint": "npm-run-all lint:*",
     "lint:js": "eslint --ext vue .",
@@ -106,7 +107,7 @@
       "stylelint",
       "git add"
     ],
-    "*.{md,json}": [
+    "*.{html,md,json}": [
       "prettier --write",
       "git add"
     ]

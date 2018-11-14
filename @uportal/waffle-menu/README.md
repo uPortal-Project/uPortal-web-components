@@ -44,7 +44,11 @@ In `index.html`, you'll see that `<waffle-menu />` is hard coded in place. There
 Here's the guts of that html file:
 
 ```html
-<waffle-menu debug="true" button-color="red" url="/proxy/uPortal/api/v4-3/dlm/portletRegistry.json?categoryId=local.21" />
+<waffle-menu
+  debug="true"
+  button-color="red"
+  url="/proxy/uPortal/api/v4-3/dlm/portletRegistry.json?categoryId=local.21"
+></waffle-menu>
 ```
 
 ##### Notice
@@ -70,7 +74,9 @@ We have a `/proxy/` leading the `url` attribute. This is a developer convenience
 ### `oidc-url`
 
 ```html
-<waffle-menu oidc-url="https://example.com/uPortal/api/v5-1/userinfo" />
+<waffle-menu
+  oidc-url="https://example.com/uPortal/api/v5-1/userinfo"
+></waffle-menu>
 ```
 
 ### `button-color`
@@ -98,7 +104,9 @@ Fully qualified url pointing to the API where `<waffle-menu>` can find data in p
 Example:
 
 ```html
-<waffle-menu url="/uPortal/api/v4-3/dlm/portletRegistry.json?categoryId=local.21" />
+<waffle-menu
+  url="/uPortal/api/v4-3/dlm/portletRegistry.json?categoryId=local.21"
+></waffle-menu>
 ```
 
 ### `debug`
@@ -110,7 +118,7 @@ Disable open id connect for testing.
 Example:
 
 ```html
-<waffle-menu debug="true">
+<waffle-menu debug="true"></waffle-menu>
 ```
 
 ## Internal JSON structure
