@@ -39,16 +39,20 @@ compile 'org.webjars.npm:uportal__content-carousel:{version number goes here}'
 The component requires a type. It also allows for a `carousel-height` (in rem units), a `fit-to-container` property which causes it to size to its container (horizontally), and `slick-options`.
 
 ```html
-<link href="https://unpkg.com/@uportal/content-carousel/dist/slick-theme.css" rel="stylesheet">
+<link
+  href="https://unpkg.com/@uportal/content-carousel/dist/slick-theme.css"
+  rel="stylesheet"
+/>
 <script src="https://unpkg.com/vue"></script>
 <script src="https://unpkg.com/@uportal/content-carousel"></script>
 
 <content-carousel
   type="rss"
   source="/hero.rss"
-  slick-options='{ "slidesToShow": 1, "infinite": true, "arrows": true }'
+  slick-options="{ &quot;slidesToShow&quot;: 1, &quot;infinite&quot;: true, &quot;arrows&quot;: true }"
   carousel-height="30rem"
-  fit-to-container="true">
+  fit-to-container="true"
+>
 </content-carousel>
 ```
 
@@ -70,10 +74,7 @@ RSS can read any RSS feed that does not require authentication.
 The URL of the feed must be passed as the `source` attribute to the component.
 
 ```html
-<content-carousel
-  type="rss"
-  source="/content.rss">
-</content-carousel>
+<content-carousel type="rss" source="/content.rss"> </content-carousel>
 ```
 
 #### Portlet
@@ -85,9 +86,7 @@ Specific portlet categories can be displayed by the component by changing the UR
 For example `/portletRegistry.json?category=Academics` will display only portlets within that category.
 
 ```html
-<content-carousel
-  type="portlet"
-  source="/portletRegistry.json">
+<content-carousel type="portlet" source="/portletRegistry.json">
 </content-carousel>
 ```
 
@@ -99,21 +98,11 @@ each slide be be rendered.
 
 ```html
 <content-carousel type="passthrough">
-  <div class="slick-item">
-    arbitrary
-  </div>
-  <div class="slick-item">
-    content
-  </div>
-  <div class="slick-item">
-    displayed
-  </div>
-  <div class="slick-item">
-    as
-  </div>
-  <div class="slick-item">
-    slides
-  </div>
+  <div class="slick-item">arbitrary</div>
+  <div class="slick-item">content</div>
+  <div class="slick-item">displayed</div>
+  <div class="slick-item">as</div>
+  <div class="slick-item">slides</div>
 </content-carousel>
 ```
 
@@ -127,9 +116,7 @@ The `header` slot goes about the slides, and is outside the slide deck.
 
 ```html
 <content-carousel type="rss" source="/content.rss">
-  <h1 slot="header">
-    Example Header
-  </h1>
+  <h1 slot="header">Example Header</h1>
 </content-carousel>
 ```
 
@@ -139,9 +126,7 @@ The `empty` slot replaces the carousel when no content was found.
 
 ```html
 <content-carousel type="rss" source="/content.rss">
-  <p slot="empty">
-    Uh Oh, that couldn't be found.
-  </p>
+  <p slot="empty">Uh Oh, that couldn't be found.</p>
 </content-carousel>
 ```
 
@@ -164,13 +149,9 @@ interface CarouselItem {
 ```
 
 ```html
-<content-carousel
-  type="rss"
-  source="example.rss">
+<content-carousel type="rss" source="example.rss">
   <template slot="slide" slot-scope="props">
-    <h1 class="slick-item">
-      {{ props.item.title }}
-    </h1>
+    <h1 class="slick-item">{{ props.item.title }}</h1>
   </template>
 </content-carousel>
 ```

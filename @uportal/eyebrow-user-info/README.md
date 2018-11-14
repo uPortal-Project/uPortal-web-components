@@ -15,7 +15,8 @@
   email="john.doe@edu.univ.org"
   logout-link="/uPortal/Logout"
   avatar-size="48px"
-  menu-is-dark="true"></eyebrow-user-info>
+  menu-is-dark="true"
+></eyebrow-user-info>
 ```
 
 - displayName: required
