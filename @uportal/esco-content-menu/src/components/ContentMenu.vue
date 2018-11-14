@@ -50,6 +50,8 @@ import ContentUser from './ContentUser';
 import HeaderButtons from './HeaderButtons';
 import oidc from '@uportal/open-id-connect';
 import fetchPortlets from '../services/fetchPortlets';
+import fetchFavorites from '../services/fetchFavorites';
+import flattenFavorites from '../services/flattenFavorites';
 import byPortlet from '../services/sortByPortlet';
 import {
   elementWidth,
@@ -251,67 +253,8 @@ export default {
       this.portletsAPI = portlets.sort(byPortlet);
     },
     async fetchFavorites() {
-      if (process.env.NODE_ENV === 'development') {
-        this.info.favorites = [
-          'search',
-          'CourrielAcademique',
-          'portal-activity',
-          'calendar',
-          'Helpinfo',
-          'MILycees',
-        ];
-        return;
-      }
-      try {
-        const {encoded} = await oidc({
-          userInfoApiUrl:
-            this.contextApiUrl + process.env.VUE_APP_USER_INFO_URI,
-        });
-        const options = {
-          method: 'GET',
-          credentials: 'same-origin',
-          headers: {
-            'Authorization': 'Bearer ' + encoded,
-            'Content-Type': 'application/json',
-          },
-        };
-        const response = await fetch(
-            this.contextApiUrl + process.env.VUE_APP_FAVORITES_URI,
-            options
-        );
-        checkStatus(response);
-        const data = await response.json();
-
-        if (
-          data?.authenticated &&
-          data?.layout?.globals?.hasFavorites &&
-          data?.layout?.favorites
-        ) {
-          this.info.favorites = [];
-          this.computeFavoritesContent(data.layout.favorites);
-        }
-      } catch (err) {
-        console.error(err);
-      }
-    },
-    computeFavoritesContent(elem) {
-      if (elem !== undefined) {
-        if (Array.isArray(elem)) {
-          for (const folder of elem) {
-            this.computeFavoritesContent(folder);
-          }
-        } else {
-          const content = elem.content;
-          if (content === undefined || !content) {
-            const fname = elem.fname;
-            if (fname !== undefined && fname) {
-              this.info.favorites.push(fname);
-            }
-          } else {
-            this.computeFavoritesContent(content);
-          }
-        }
-      }
+      const favoritesTree = await fetchFavorites(this.contextApiUrl);
+      this.info.favorites = flattenFavorites(favoritesTree);
     },
     actionToggleFav(isAddFavorite, fname) {
       if (isAddFavorite) {
