@@ -73,6 +73,8 @@ import i18n from '../i18n.js';
 import PortletCard from './PortletCard';
 import fetchPortlets from '../services/fetchPortlets';
 import byPortlet from '../services/sortByPortlet';
+import fetchFavorites from '../services/fetchFavorites';
+import flattenFavorites from '../services/flattenFavorites';
 import {
   elementWidth,
   breakPointName,
@@ -112,46 +114,40 @@ export default {
       default: 'auto',
     },
     hideAction: {type: Boolean, default: false},
-    portlets: {type: Array, default: null},
+    portlets: {type: Array, default: () => []},
   },
   data() {
     return {
       filterValue: '',
       filterCategory: '',
       visible: false,
-      portletsAPI: [],
       elementSize: this.parentScreenSize,
     };
   },
   computed: {
-    _portlets: function() {
-      // if portlets are passed as a prop, use the prop
-      // otherwise use a local fallback copy of portlets
-      return this.portlets || this.portletsAPI;
-    },
-    _portletCardSize: function() {
+    _portletCardSize() {
       this.calculateSize();
       if (this.portletCardSize === 'auto') {
         return this.elementSize;
       }
       return this.portletCardSize;
     },
-    allCategories: function() {
-      const allCategories = this._portlets.flatMap(
+    allCategories() {
+      const allCategories = this.portlets.flatMap(
           ({categories}) => categories
       );
       const uniqueCategories = [...new Set(allCategories)];
       return uniqueCategories.sort();
     },
-    filteredPortlets: function() {
+    filteredPortlets() {
       const filterValue = this.filterValue.toLowerCase();
       const filterCategory = this.filterCategory.toLowerCase();
 
       if (filterValue === '' && filterCategory === '') {
-        return this._portlets;
+        return this.portlets;
       }
 
-      return this._portlets.filter(
+      return this.portlets.filter(
           ({categories, title, name, description}) =>
             (filterCategory === '' ||
             categories.some((cat) =>
@@ -168,8 +164,11 @@ export default {
     },
   },
   mounted() {
-    if (!this.portlets) {
+    if (this.portlets.length === 0) {
       this.fetchPortlets();
+    }
+    if (this.favorites.length === 0) {
+      this.fetchFavorites();
     }
     this.$nextTick(function() {
       window.addEventListener('resize', this.calculateSize);
@@ -188,7 +187,11 @@ export default {
     },
     async fetchPortlets() {
       const portlets = await fetchPortlets(this.contextApiUrl);
-      this.portletsAPI = portlets.sort(byPortlet);
+      this.portlets = portlets.sort(byPortlet);
+    },
+    async fetchFavorites() {
+      const favoritesTree = await fetchFavorites(this.contextApiUrl);
+      this.favorites = flattenFavorites(favoritesTree);
     },
     calculateSize() {
       this.elementSize = breakPointName(elementWidth(this.$el));
