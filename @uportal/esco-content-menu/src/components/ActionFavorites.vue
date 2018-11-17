@@ -57,10 +57,10 @@ export default {
     };
   },
   methods: {
-    translate: function(text, lang) {
+    translate(text, lang) {
       return i18n.t(text, lang);
     },
-    toggleFavorite: function(event) {
+    toggleFavorite(event) {
       event.preventDefault();
       if (process.env.NODE_ENV !== 'development') {
         if (this.favorite) {
@@ -73,12 +73,12 @@ export default {
       }
       return false;
     },
-    changeFavoriteValue: function() {
+    changeFavoriteValue() {
       this.favorite = !this.favorite;
       this.$emit('is-favorite', this.favorite);
-      this.callOnToggleFav(this.favorite, this.fname);
+      this.callOnToggleFav(this.fname);
     },
-    addToFavorite: function() {
+    addToFavorite() {
       oidc({userInfoApiUrl: this.userInfoApiUrl})
           .then((token) => {
             const options = {
@@ -101,7 +101,7 @@ export default {
           })
           .catch((err) => console.error('Error, with message:', err.statusText));
     },
-    removeFromFavorite: function() {
+    removeFromFavorite() {
       oidc({userInfoApiUrl: this.userInfoApiUrl})
           .then((token) => {
             const options = {

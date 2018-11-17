@@ -132,27 +132,27 @@ export default {
   },
   watch: {
     favorites: {
-      handler: function() {
+      handler() {
         this.calcFavoritesPortlets();
         this.updateSlider();
       },
       deep: true,
     },
     portlets: {
-      handler: function() {
+      handler() {
         this.calcFavoritesPortlets();
         this.updateSlider();
       },
       deep: true,
     },
     favorited: {
-      handler: function() {
+      handler() {
         this.updateSlider();
       },
       deep: true,
     },
     isHidden: {
-      handler: function() {
+      handler() {
         this.updateSlider();
       },
       deep: true,
@@ -164,14 +164,14 @@ export default {
     });
   },
   computed: {
-    _portletCardSize: function() {
+    _portletCardSize() {
       if (this.portletCardSize === 'auto') {
         return this.calculatedSize;
       } else return this.portletCardSize;
     },
   },
   methods: {
-    translate: function(text, lang) {
+    translate(text, lang) {
       return i18n.t(text, lang);
     },
     computeImgUrl(url) {
@@ -234,7 +234,7 @@ export default {
         }
       }
     },
-    emptyArray: function(array) {
+    emptyArray(array) {
       while (array.length > 0) {
         array.pop();
       }

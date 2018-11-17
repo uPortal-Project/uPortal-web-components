@@ -8,7 +8,7 @@
       hide-action-mode="never" />
       <!--<hamburger-menu-->
       <!--default-org-logo="https://lycees.netocentre.fr/annuaire_images/default_banner_v1.jpg" />-->
-      <!--<content-grid-->
+      <!-- <content-grid/> -->
       <!--background-color="grey"-->
       <!--portlet-card-size="medium" />-->
   </div>

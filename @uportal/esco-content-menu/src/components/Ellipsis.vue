@@ -17,7 +17,7 @@ export default {
   },
   watch: {
     message: {
-      handler: function() {
+      handler() {
         this.calcFavoritesPortlets();
       },
     },
