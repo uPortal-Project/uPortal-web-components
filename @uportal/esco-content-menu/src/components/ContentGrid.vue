@@ -89,7 +89,7 @@ export default {
   },
   props: {
     backgroundColor: {type: String, default: 'rgba(0, 0, 0, 0)'},
-    callAfterAction: {type: Function},
+    callAfterAction: {type: Function, default: undefined},
     favoriteApiUrl: {
       type: String,
       default:
