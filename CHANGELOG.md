@@ -7,6 +7,18 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased][]
 
+### Feature
+
+- **esco-content-menu**: allow esco content grid, running independent of menu to display and update favorites (#165, #166).
+
+### Fix
+
+- **esco-content-menu**: avoid calling trim on undefined value (#162).
+
+### Style
+
+- Allow prettier to format html files (#164)
+
 ## [1.17.0][] - 2018-11-08
 
 ### Feature
