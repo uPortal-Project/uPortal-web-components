@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased][]
 
+## [1.18.0][] - 2018-11-18
+
 ### Feature
 
 - **esco-content-menu**: allow esco content grid, running independent of menu to display and update favorites (#165, #166).
@@ -664,7 +666,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - **open-id-connect**: Initial version of an OpenID Connect helper script to use in web components and JavaScript modules.
 - **content-carousel**: Initial version of content carousel, a carousel based portlet metadata display system.
 
-[unreleased]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.17.0...HEAD
+[unreleased]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.18.0...HEAD
+[1.18.0]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.17.0...v1.18.0
 [1.17.0]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.16.2...v1.17.0
 [1.16.2]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.16.1...v1.16.2
 [1.16.1]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.16.0...v1.16.1
