@@ -58,7 +58,7 @@
               :is-favorite="isFavorite(portlet.fname)"
               :size="_portletCardSize"
               :hide-action="hideAction"
-              :call-after-action="callAfterAction"
+              :call-after-action="actionToggleFav"
               :favorite-api-url="favoriteApiUrl"
               :user-info-api-url="userInfoApiUrl" />
           </a>
@@ -75,6 +75,7 @@ import fetchPortlets from '../services/fetchPortlets';
 import byPortlet from '../services/sortByPortlet';
 import fetchFavorites from '../services/fetchFavorites';
 import flattenFavorites from '../services/flattenFavorites';
+import toggleArray from '../services/toggleArray';
 import {
   elementWidth,
   breakPointName,
@@ -88,7 +89,7 @@ export default {
   },
   props: {
     backgroundColor: {type: String, default: 'rgba(0, 0, 0, 0)'},
-    callAfterAction: {type: Function, default: () => {}},
+    callAfterAction: {type: Function, default: undefined},
     favoriteApiUrl: {
       type: String,
       default:
@@ -195,6 +196,12 @@ export default {
     },
     calculateSize() {
       this.elementSize = breakPointName(elementWidth(this.$el));
+    },
+    actionToggleFav(fname) {
+      if (this.callAfterAction) {
+        return this.callAfterAction(fname);
+      }
+      this.favorites = toggleArray(this.favorites, fname);
     },
   },
 };

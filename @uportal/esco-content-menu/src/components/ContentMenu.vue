@@ -53,6 +53,7 @@ import fetchPortlets from '../services/fetchPortlets';
 import fetchFavorites from '../services/fetchFavorites';
 import flattenFavorites from '../services/flattenFavorites';
 import byPortlet from '../services/sortByPortlet';
+import toggleArray from '../services/toggleArray';
 import {
   elementWidth,
   breakPointName,
@@ -123,13 +124,13 @@ export default {
     };
   },
   computed: {
-    _portlets: function() {
+    _portlets() {
       return this.portletsAPI;
     },
   },
   watch: {
     isHidden: {
-      handler: function() {
+      handler() {
         this.visible = !this.isHidden;
         if (this.visible) {
           this.minHeight = document.body.getBoundingClientRect().height + 'px';
@@ -159,7 +160,7 @@ export default {
       this.isHidden = false;
       this.callOnClose(event);
     },
-    calculateSize: function() {
+    calculateSize() {
       this.screenSize = breakPointName(elementWidth(this.$el));
 
       switch (this.hideActionMode) {
@@ -175,7 +176,7 @@ export default {
           this.hideAction = true;
       }
     },
-    computeCurrentOrg: function() {
+    computeCurrentOrg() {
       if (
         this.info.user &&
         this.info.user.ESCOSIRENCourant &&
@@ -256,14 +257,8 @@ export default {
       const favoritesTree = await fetchFavorites(this.contextApiUrl);
       this.info.favorites = flattenFavorites(favoritesTree);
     },
-    actionToggleFav(isAddFavorite, fname) {
-      if (isAddFavorite) {
-        this.info.favorites.push(fname);
-      } else {
-        this.info.favorites = this.info.favorites.filter(
-            (value) => value !== fname
-        );
-      }
+    actionToggleFav(fname) {
+      this.info.favorites = toggleArray(this.info.favorites, fname);
     },
   },
 };
