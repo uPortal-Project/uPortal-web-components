@@ -11,6 +11,7 @@ export default async function(contextApiUrl) {
       {fname: 'MILycees'},
     ];
   }
+
   try {
     const {encoded} = await oidc({
       userInfoApiUrl: contextApiUrl + process.env.VUE_APP_USER_INFO_URI,
@@ -27,7 +28,7 @@ export default async function(contextApiUrl) {
         contextApiUrl + process.env.VUE_APP_FAVORITES_URI,
         options
     );
-    if (response.ok) {
+    if (!response.ok) {
       throw new Error(response.statusText);
     }
     const data = await response.json();
