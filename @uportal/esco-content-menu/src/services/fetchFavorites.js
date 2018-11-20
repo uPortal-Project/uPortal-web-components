@@ -40,7 +40,9 @@ export default async function(contextApiUrl) {
     ) {
       return data.layout.favorites;
     }
+    return [];
   } catch (err) {
     console.error(err);
+    return [];
   }
 }
