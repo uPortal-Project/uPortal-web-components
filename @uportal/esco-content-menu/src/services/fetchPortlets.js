@@ -35,5 +35,6 @@ export default async function(contextApiUrl) {
     return portlets;
   } catch (err) {
     console.error(err);
+    return [];
   }
 }
