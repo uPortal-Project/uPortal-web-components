@@ -1,6 +1,7 @@
 <template>
   <div
-    :class="['toggler-menu', screenSize, visible ? 'active-menu' : '']"
+    v-show="!_isHidden"
+    :class="['toggler-menu', screenSize, !_isHidden ? 'active-menu' : '']"
     :style="'min-height: ' + minHeight"
     class="content-menu">
     <header>
@@ -24,7 +25,7 @@
           :portlet-card-size="favoritesPortletCardSize"
           :hide-action="hideAction"
           :favorite-api-url="favoriteApiUrl"
-          :is-hidden="isHidden"
+          :is-hidden="_isHidden"
           :user-info-api-url="userInfoApiUrl" />
       </div>
       <div
@@ -32,6 +33,7 @@
         class="background" />
     </header>
     <content-grid
+      v-if="!_isHidden"
       :portlets="_portlets"
       :favorites="info.favorites"
       :call-after-action="actionToggleFav"
@@ -112,7 +114,6 @@ export default {
       userInfoApiUrl: this.contextApiUrl + process.env.VUE_APP_USER_INFO_URI,
       screenSize: 'medium',
       hideAction: false,
-      visible: !this.isHidden,
       minHeight: '100vh',
       info: {
         favorites: [],
@@ -127,12 +128,14 @@ export default {
     _portlets() {
       return this.portletsAPI;
     },
+    _isHidden() {
+      return this.isHidden;
+    },
   },
   watch: {
     isHidden: {
       handler() {
-        this.visible = !this.isHidden;
-        if (this.visible) {
+        if (!this.isHidden) {
           this.minHeight = document.body.getBoundingClientRect().height + 'px';
           this.calculateSize();
         }
@@ -153,7 +156,6 @@ export default {
   },
   methods: {
     close(event) {
-      this.visible = false;
       const element = document.querySelector('#' + this.id);
       element.parentNode.style.display = 'none';
       element.setAttribute('is-hidden', true);
