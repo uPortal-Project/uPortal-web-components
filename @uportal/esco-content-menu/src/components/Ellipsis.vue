@@ -15,13 +15,6 @@ export default {
     endChar: {type: String, default: '...'},
     endHtml: {type: String, default: ''},
   },
-  watch: {
-    message: {
-      handler() {
-        this.calcFavoritesPortlets();
-      },
-    },
-  },
   mounted() {
     this.$nextTick(function() {
       setTimeout(() => {
