@@ -24,6 +24,7 @@
             :target="portlet.layoutObject.altMaxUrl ? '_blank' : '_self'"
             class="no-style">
             <portlet-card
+              v-if="!isHidden"
               :portlet-desc="portlet"
               :is-favorite="true"
               :size="_portletCardSize"
@@ -67,6 +68,7 @@ import '../icons.js';
 import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome';
 import {swiper, swiperSlide} from 'vue-awesome-swiper';
 import {elementWidth, sizeValidator} from '../services/sizeTools';
+import byFavoriteOrder from '../services/sortByFavoriteOrder';
 
 export default {
   name: 'ContentFavorites',
@@ -107,7 +109,6 @@ export default {
   },
   data() {
     return {
-      favorited: [],
       swiperOption: {
         init: false,
         slidesPerView: 'auto',
@@ -133,19 +134,11 @@ export default {
   watch: {
     favorites: {
       handler() {
-        this.calcFavoritesPortlets();
         this.updateSlider();
       },
       deep: true,
     },
     portlets: {
-      handler() {
-        this.calcFavoritesPortlets();
-        this.updateSlider();
-      },
-      deep: true,
-    },
-    favorited: {
       handler() {
         this.updateSlider();
       },
@@ -168,6 +161,11 @@ export default {
       if (this.portletCardSize === 'auto') {
         return this.calculatedSize;
       } else return this.portletCardSize;
+    },
+    favorited() {
+      return this.portlets
+          .filter((portlet) => this.favorites.includes(portlet.fname))
+          .sort(byFavoriteOrder(this.favorites));
     },
   },
   methods: {
@@ -223,21 +221,6 @@ export default {
           this.calculateSize();
         }
       }, 300);
-    },
-    calcFavoritesPortlets() {
-      this.emptyArray(this.favorited);
-      for (const fname of this.favorites) {
-        for (const portlet of this.portlets) {
-          if (portlet.fname === fname) {
-            this.favorited.push(portlet);
-          }
-        }
-      }
-    },
-    emptyArray(array) {
-      while (array.length > 0) {
-        array.pop();
-      }
     },
   },
 };
