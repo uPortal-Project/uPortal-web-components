@@ -17,12 +17,16 @@ export default {
   },
   mounted() {
     this.$nextTick(function() {
-      setTimeout(() => {
-        this.handleSubstrSentence();
-      }, 200);
+      window.addEventListener('resize', this.timedRun);
+      this.timedRun();
     });
   },
   methods: {
+    timedRun() {
+      setTimeout(() => {
+        this.handleSubstrSentence();
+      }, 200);
+    },
     handleSubstrSentence() {
       const stNode = this.$refs.sentence;
       const html = this.message;
@@ -31,6 +35,7 @@ export default {
       }
       const stNodeLineHeight = parseInt(this.lineHeight, 10);
       // firstly we need to obtain the real space available
+      stNode.innerHTML = '';
       stNode.style.height = '100%';
       const availableNodeHeight =
         stNode.getBoundingClientRect().height || stNodeLineHeight;
