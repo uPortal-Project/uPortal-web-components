@@ -19,8 +19,7 @@
     </div>
     <div class="portlet-card-description">
       <ellipsis
-        :message="description"
-        :line-clamp="2"
+        :message="truncate(description)"
         :line-height="'20px'"
         :end-char="'...'" />
     </div>
@@ -80,7 +79,7 @@ export default {
     return {
       fname: this.portletDesc.fname,
       channelId: this.portletDesc.id,
-      description: this.truncate(this.portletDesc.description),
+      description: this.portletDesc.description,
       title: this.portletDesc.title,
       canFavorite: this.portletDesc.canAdd,
       iconUrl:
@@ -144,6 +143,8 @@ export default {
   text-align: center;
   border-radius: 5px;
   position: relative;
+  display: flex;
+  flex-flow: column nowrap;
 
   /* prettier-ignore */
   box-shadow:
@@ -206,9 +207,7 @@ export default {
 
   > .portlet-card-description {
     padding-top: 0.3em;
-
-    /* security to avoid to be outside of the portlet-card */
-    max-height: 40px;
+    flex: 1;
   }
 
   &.medium-card,
