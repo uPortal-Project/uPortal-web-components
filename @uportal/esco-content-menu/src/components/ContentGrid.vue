@@ -105,7 +105,10 @@ export default {
       default:
         process.env.VUE_APP_PORTAL_CONTEXT + process.env.VUE_APP_USER_INFO_URI,
     },
-    favorites: {type: Array, default: () => []},
+    /**
+     * Warning the default value as undefined permit to distinct if the component should manage favorites locally.
+     */
+    favorites: {type: Array, default: undefined},
     parentScreenSize: {
       validator: sizeValidator,
       default: 'medium',
@@ -115,7 +118,10 @@ export default {
       default: 'auto',
     },
     hideAction: {type: Boolean, default: false},
-    portlets: {type: Array, default: () => []},
+    /**
+     * Warning the default value as undefined permit to distinct if the component should manage portlets locally.
+     */
+    portlets: {type: Array, default: undefined},
   },
   data() {
     return {
@@ -123,6 +129,8 @@ export default {
       filterCategory: '',
       visible: false,
       elementSize: this.parentScreenSize,
+      localPortlets: [],
+      localFavorites: [],
     };
   },
   computed: {
@@ -134,21 +142,21 @@ export default {
       return this.portletCardSize;
     },
     allCategories() {
-      const allCategories = this.portlets.flatMap(
-          ({categories}) => categories
-      );
+      const portlets = this.portlets || this.localPortlets;
+      const allCategories = portlets.flatMap(({categories}) => categories);
       const uniqueCategories = [...new Set(allCategories)];
       return uniqueCategories.sort();
     },
     filteredPortlets() {
+      const portlets = this.portlets || this.localPortlets;
       const filterValue = this.filterValue.toLowerCase();
       const filterCategory = this.filterCategory.toLowerCase();
 
       if (filterValue === '' && filterCategory === '') {
-        return this.portlets;
+        return portlets;
       }
 
-      return this.portlets.filter(
+      return portlets.filter(
           ({categories, title, name, description}) =>
             (filterCategory === '' ||
             categories.some((cat) =>
@@ -165,10 +173,10 @@ export default {
     },
   },
   mounted() {
-    if (this.portlets.length === 0) {
+    if (!this.portlets) {
       this.fetchPortlets();
     }
-    if (this.favorites.length === 0) {
+    if (!this.favorites) {
       this.fetchFavorites();
     }
     this.$nextTick(function() {
@@ -184,24 +192,32 @@ export default {
       return i18n.t(text, lang);
     },
     isFavorite(fname) {
-      return this.favorites.includes(fname);
+      const favorites = this.favorites || this.localFavorites;
+      return favorites.includes(fname);
     },
     async fetchPortlets() {
       const portlets = await fetchPortlets(this.contextApiUrl);
-      this.portlets = portlets.sort(byPortlet);
+      this.localPortlets = portlets.sort(byPortlet);
     },
     async fetchFavorites() {
       const favoritesTree = await fetchFavorites(this.contextApiUrl);
-      this.favorites = flattenFavorites(favoritesTree);
+      this.localFavorites = flattenFavorites(favoritesTree);
     },
     calculateSize() {
       this.elementSize = breakPointName(elementWidth(this.$el));
     },
     actionToggleFav(fname) {
+      /**
+       * use case:
+       * if used independently or without external component need on favorites we should manage locally favorited
+       * the callAfterAction function is needed to manage favorites from parent element.
+       */
       if (this.callAfterAction) {
         return this.callAfterAction(fname);
       }
-      this.favorites = toggleArray(this.favorites, fname);
+      if (!this.favorites) {
+        this.localFavorites = toggleArray(this.localFavorites, fname);
+      }
     },
   },
 };
