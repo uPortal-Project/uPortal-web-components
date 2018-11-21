@@ -7,6 +7,18 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased][]
 
+## [1.18.2][] - 2018-11-21
+
+### Fix
+
+- **esco-content-menu**: return empty list on exception from favorites and portlets API (#168).
+- **esco-content-menu**: avoid mutating props (#169).
+
+### Refactor
+
+- **esco-content-menu**: remove unused datalist polyfill (#168)
+- **esco-content-menu**: remove unused watcher (#168)
+
 ## [1.18.1][] - 2018-11-19
 
 ### Fix
@@ -672,7 +684,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - **open-id-connect**: Initial version of an OpenID Connect helper script to use in web components and JavaScript modules.
 - **content-carousel**: Initial version of content carousel, a carousel based portlet metadata display system.
 
-[unreleased]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.18.1...HEAD
+[unreleased]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.18.2...HEAD
+[1.18.2]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.18.1...v1.18.2
 [1.18.1]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.18.0...v1.18.1
 [1.18.0]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.17.0...v1.18.0
 [1.17.0]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.16.2...v1.17.0
