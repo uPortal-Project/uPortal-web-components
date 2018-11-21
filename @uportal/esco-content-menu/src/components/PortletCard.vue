@@ -34,7 +34,7 @@
         :call-on-toggle-fav="callAfterAction"
         :favorite-api-url="favoriteApiUrl"
         :user-info-api-url="userInfoApiUrl"
-        :back-ground-is-dark="backGroundIsDark" />
+        :back-ground-is-dark="favBgIsDark" />
     </div>
   </div>
 </template>
@@ -109,6 +109,12 @@ export default {
       }
 
       return appClasses.map((v) => v.toLowerCase()).join(' ');
+    },
+    favBgIsDark() {
+      return (
+        this.backGroundIsDark &&
+        (this.size == 'small' || this.size == 'smaller')
+      );
     },
   },
   methods: {
