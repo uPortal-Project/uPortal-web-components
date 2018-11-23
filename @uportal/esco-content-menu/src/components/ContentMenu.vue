@@ -1,7 +1,7 @@
 <template>
   <div
     v-show="!_isHidden"
-    :class="['toggler-menu', screenSize, !_isHidden ? 'active-menu' : '']"
+    :class="['toggler-menu', _screenSize, !_isHidden ? 'active-menu' : '']"
     :style="'min-height: ' + minHeight"
     class="content-menu">
     <header>
@@ -13,7 +13,7 @@
           :org-info="info.userOrganization"
           :user-info="info.user"
           :other-orgs="info.organizations"
-          :parent-screen-size="screenSize"
+          :parent-screen-size="_screenSize"
           :default-org-logo="defaultOrgLogo"
           :user-info-portlet-url="userInfoPortletUrl"
           :api-url-org-info="apiUrlOrgInfo" />
@@ -21,7 +21,7 @@
           :portlets="_portlets"
           :favorites="info.favorites"
           :call-after-action="actionToggleFav"
-          :parent-screen-size="screenSize"
+          :parent-screen-size="_screenSize"
           :portlet-card-size="favoritesPortletCardSize"
           :hide-action="hideAction"
           :favorite-api-url="favoriteApiUrl"
@@ -29,7 +29,7 @@
           :user-info-api-url="userInfoApiUrl" />
       </div>
       <div
-        :style="(backgroundImg != null && (screenSize === 'large' || screenSize === 'medium')) ? 'background-image: linear-gradient(0deg, rgba(0,0,0,.2),rgba(0,0,0,.2)), url(' + backgroundImg + ');' : ''"
+        :style="(backgroundImg != null && (_screenSize === 'large' || _screenSize === 'medium')) ? 'background-image: linear-gradient(0deg, rgba(0,0,0,.2),rgba(0,0,0,.2)), url(' + backgroundImg + ');' : ''"
         class="background" />
     </header>
     <content-grid
@@ -37,7 +37,7 @@
       :portlets="_portlets"
       :favorites="info.favorites"
       :call-after-action="actionToggleFav"
-      :parent-screen-size="screenSize"
+      :parent-screen-size="_screenSize"
       :portlet-card-size="gridPortletCardSize"
       :hide-action="hideAction"
       :favorite-api-url="favoriteApiUrl"
@@ -130,16 +130,19 @@ export default {
     _isHidden() {
       return this.isHidden;
     },
+    _screenSize() {
+      return this.screenSize;
+    },
   },
   watch: {
     isHidden: {
       handler() {
         if (!this.isHidden) {
-          this.minHeight = document.body.getBoundingClientRect().height + 'px';
-          this.calculateSize();
+          this.$nextTick(function() {
+            this.calculateSize();
+          });
         }
       },
-      deep: true,
     },
   },
   mounted() {
@@ -148,6 +151,7 @@ export default {
       this.fetchPortlets();
       this.fetchFavorites();
       this.fetchUserInfo();
+      this.calculateSize();
     });
   },
   beforeDestroy() {
@@ -163,6 +167,7 @@ export default {
     },
     calculateSize() {
       this.screenSize = breakPointName(elementWidth(this.$el));
+      this.minHeight = document.body.getBoundingClientRect().height + 'px';
 
       switch (this.hideActionMode) {
         case 'auto':
