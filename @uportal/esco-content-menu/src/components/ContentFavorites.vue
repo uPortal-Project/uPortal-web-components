@@ -363,7 +363,7 @@ $buttonWidth: 32px;
     width: $PortletCardSizeSmaller;
   }
 
-  @media (hover: none) {
+  @media (hover: none) and (pointer: coarse) {
     .swiper-button-prev,
     .swiper-button-next {
       display: none;
