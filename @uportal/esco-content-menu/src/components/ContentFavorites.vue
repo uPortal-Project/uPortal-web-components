@@ -154,6 +154,7 @@ export default {
   mounted() {
     this.$nextTick(function() {
       window.addEventListener('resize', this.updateSlider);
+      this.updateSlider();
     });
   },
   beforeDestroy() {
