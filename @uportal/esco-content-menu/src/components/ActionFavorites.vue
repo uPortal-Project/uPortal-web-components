@@ -99,7 +99,8 @@ export default {
                 .then(parseJSON)
                 .then(this.changeFavoriteValue());
           })
-          .catch((err) => console.error('Error, with message:', err.statusText));
+      // eslint-disable-next-line
+        .catch((err) => console.error('Error, with message:', err.statusText));
     },
     removeFromFavorite() {
       oidc({userInfoApiUrl: this.userInfoApiUrl})
@@ -122,7 +123,8 @@ export default {
                 .then(parseJSON)
                 .then(this.changeFavoriteValue());
           })
-          .catch((err) => console.error('Error, with message:', err.statusText));
+      // eslint-disable-next-line
+        .catch((err) => console.error('Error, with message:', err.statusText));
     },
   },
 };

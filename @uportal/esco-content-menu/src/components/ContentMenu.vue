@@ -63,7 +63,6 @@ import {
 } from '../services/sizeTools';
 
 const checkStatus = function(response) {
-  // console.log("check response ", response);
   if (response.ok) {
     return response;
   } else {
@@ -247,6 +246,7 @@ export default {
             this.computeCurrentOrg();
           }
         } catch (err) {
+          // eslint-disable-next-line
           console.error(err);
         }
       }
