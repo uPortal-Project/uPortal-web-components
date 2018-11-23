@@ -21,6 +21,9 @@ export default {
       this.timedRun();
     });
   },
+  beforeDestroy() {
+    window.removeEventListener('resize', this.timedRun);
+  },
   methods: {
     timedRun() {
       setTimeout(() => {

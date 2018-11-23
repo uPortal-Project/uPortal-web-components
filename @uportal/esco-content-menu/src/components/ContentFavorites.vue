@@ -156,6 +156,9 @@ export default {
       window.addEventListener('resize', this.updateSlider);
     });
   },
+  beforeDestroy() {
+    window.removeEventListener('resize', this.updateSlider);
+  },
   computed: {
     _portletCardSize() {
       if (this.portletCardSize === 'auto') {
