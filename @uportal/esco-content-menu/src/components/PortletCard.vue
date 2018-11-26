@@ -214,6 +214,7 @@ export default {
   > .portlet-card-description {
     padding-top: 0.3em;
     flex: 1;
+    font-size: 14px;
   }
 
   &.medium-card,
