@@ -21,6 +21,7 @@
       :is-hidden="!visible"
       :default-org-logo="defaultOrgLogo"
       :user-info-portlet-url="userInfoPortletUrl"
+      :call-on-close="toggleMenu"
       default-class="toggler-menu"
       visible-class="active-menu" />
 
