@@ -5,7 +5,6 @@
       aria-label="Menu"
       role="button"
       title="Menu"
-      data-toggle="content-menu"
       aria-expanded="false"
       aria-haspopup="true"
       aria-controls="content-menu"
@@ -18,10 +17,11 @@
     </div>
 
     <content-menu
-      :is-hidden="!visible"
-      :default-org-logo="defaultOrgLogo"
-      :user-info-portlet-url="userInfoPortletUrl"
+      v-if="append"
       :call-on-close="toggleMenu"
+      :default-org-logo="defaultOrgLogo"
+      :is-hidden="!visible"
+      :user-info-portlet-url="userInfoPortletUrl"
       default-class="toggler-menu"
       visible-class="active-menu" />
 
@@ -48,12 +48,22 @@ export default {
   data() {
     return {
       visible: false,
+      append: false,
     };
+  },
+  mounted() {
+    this.$nextTick(function() {
+      this.append = true;
+    });
   },
   methods: {
     toggleMenu(event) {
       event.preventDefault();
       this.visible = !this.visible;
+      const html = document.querySelector('html');
+      if (html) {
+        html.style.overflowY = this.visible ? 'hidden' : 'auto';
+      }
     },
   },
 };
@@ -65,6 +75,10 @@ export default {
     color: #fff;
     text-decoration: none;
     cursor: pointer;
+
+    &:hover > .menu-wrapper > div {
+      opacity: 0.7;
+    }
 
     > .menu-wrapper {
       width: 25px;
@@ -78,14 +92,13 @@ export default {
     }
   }
 
-  position: relative;
-
   .toggler-menu {
-    position: absolute;
+    position: fixed;
     width: 100%;
-    min-height: 100vh;
+    height: 100%;
     top: 0;
     left: 0;
+    overflow-y: scroll;
     visibility: hidden;
     opacity: 0;
     transition: opacity 600ms, visibility 600ms;

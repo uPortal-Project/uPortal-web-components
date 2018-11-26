@@ -2,7 +2,6 @@
   <div
     v-show="!_isHidden"
     :class="['toggler-menu', _screenSize, !_isHidden ? 'active-menu' : '']"
-    :style="'min-height: ' + minHeight"
     class="content-menu">
     <header>
       <header-buttons
@@ -113,7 +112,6 @@ export default {
       userInfoApiUrl: this.contextApiUrl + process.env.VUE_APP_USER_INFO_URI,
       screenSize: 'medium',
       hideAction: false,
-      minHeight: '100vh',
       info: {
         favorites: [],
         organizations: [],
@@ -164,12 +162,10 @@ export default {
         element.parentNode.style.display = 'none';
         element.setAttribute('is-hidden', true);
       }
-      this.isHidden = false;
       this.callOnClose(event);
     },
     calculateSize() {
       this.screenSize = breakPointName(elementWidth(this.$el));
-      this.minHeight = document.body.getBoundingClientRect().height + 'px';
 
       switch (this.hideActionMode) {
         case 'auto':
@@ -278,24 +274,7 @@ export default {
 .content-menu {
   min-width: 280px;
   background-color: #d0d0d0;
-
-  &.toggler-menu {
-    position: absolute;
-    width: 100%;
-    min-height: 100vh;
-    top: 0;
-    left: 0;
-    z-index: 1001;
-    visibility: hidden;
-    opacity: 0;
-    transition: opacity 600ms, visibility 600ms;
-    animation: fade 600ms;
-  }
-
-  &.active-menu {
-    visibility: visible;
-    opacity: 1;
-  }
+  z-index: 1;
 
   * {
     font-family: Roboto, sans-serif;
