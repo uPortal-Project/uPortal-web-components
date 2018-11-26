@@ -152,12 +152,12 @@ export default {
   },
   mounted() {
     this.$nextTick(function() {
-      window.addEventListener('resize', this.updateSlider);
+      window.addEventListener('resize', this.timedUpdate);
       this.updateSlider();
     });
   },
   beforeDestroy() {
-    window.removeEventListener('resize', this.updateSlider);
+    window.removeEventListener('resize', this.timedUpdate);
   },
   computed: {
     _portletCardSize() {
@@ -211,19 +211,22 @@ export default {
       this.$refs.favSwiper.swiper.slidePrev(800);
       this.updateSlider();
     },
-    updateSlider() {
+    timedUpdate() {
       setTimeout(() => {
-        if (!this.isHidden) {
-          if (!this.$refs.favSwiper.swiper.initialized) {
-            this.$refs.favSwiper.swiper.init();
-          } else {
-            this.$refs.favSwiper.swiper.update();
-          }
-          this.disableNext = this.$refs.favSwiper.swiper.isEnd;
-          this.disablePrev = this.$refs.favSwiper.swiper.isBeginning;
-          this.calculateSize();
-        }
+        this.updateSlider();
       }, 300);
+    },
+    updateSlider() {
+      if (!this.isHidden) {
+        if (!this.$refs.favSwiper.swiper.initialized) {
+          this.$refs.favSwiper.swiper.init();
+        } else {
+          this.$refs.favSwiper.swiper.update();
+        }
+        this.disableNext = this.$refs.favSwiper.swiper.isEnd;
+        this.disablePrev = this.$refs.favSwiper.swiper.isBeginning;
+        this.calculateSize();
+      }
     },
   },
 };

@@ -19,6 +19,7 @@
     </div>
     <div class="portlet-card-description">
       <ellipsis
+        ng-if="append"
         :message="truncate(description)"
         :line-height="'20px'"
         :end-char="'...'" />
@@ -86,7 +87,13 @@ export default {
         this.portletDesc.layoutObject.iconUrl !== null
           ? this.computeIconUrl(this.portletDesc.layoutObject.iconUrl)
           : null,
+      append: false,
     };
+  },
+  mounted() {
+    this.$nextTick(function() {
+      this.append = true;
+    });
   },
   computed: {
     mainClass() {

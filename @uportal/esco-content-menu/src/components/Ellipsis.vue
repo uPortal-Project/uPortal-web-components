@@ -18,7 +18,7 @@ export default {
   mounted() {
     this.$nextTick(function() {
       window.addEventListener('resize', this.timedRun);
-      this.timedRun();
+      this.handleSubstrSentence();
     });
   },
   beforeDestroy() {
@@ -28,7 +28,7 @@ export default {
     timedRun() {
       setTimeout(() => {
         this.handleSubstrSentence();
-      }, 200);
+      }, 300);
     },
     handleSubstrSentence() {
       const stNode = this.$refs.sentence;
