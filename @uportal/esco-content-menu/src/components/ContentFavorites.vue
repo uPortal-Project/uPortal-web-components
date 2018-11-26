@@ -24,7 +24,6 @@
             :target="portlet.layoutObject.altMaxUrl ? '_blank' : '_self'"
             class="no-style">
             <portlet-card
-              v-if="!isHidden"
               :portlet-desc="portlet"
               :is-favorite="true"
               :size="_portletCardSize"

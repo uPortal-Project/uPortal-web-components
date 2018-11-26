@@ -1,6 +1,5 @@
 <template>
   <div
-    v-show="!_isHidden"
     :class="['toggler-menu', _screenSize, !_isHidden ? 'active-menu' : '']"
     class="content-menu">
     <header>
@@ -32,7 +31,6 @@
         class="background" />
     </header>
     <content-grid
-      v-if="!_isHidden"
       :portlets="_portlets"
       :favorites="info.favorites"
       :call-after-action="actionToggleFav"
