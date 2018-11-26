@@ -19,7 +19,8 @@
               v-model.trim="filterValue"
               :placeholder="translate('message.services.filter')"
               type="text"
-              @focus="filterValue = ''">
+              @focus="filterValue = ''"
+              autofocus>
             <select v-model="filterCategory">
               <option
                 class="default"
