@@ -269,6 +269,7 @@ $searchSize: 32px;
 
   > div {
     display: block;
+    color: #000;
 
     > .title {
       padding: 0 20px;
