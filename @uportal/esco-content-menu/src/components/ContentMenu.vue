@@ -160,8 +160,10 @@ export default {
   methods: {
     close(event) {
       const element = document.querySelector('#' + this.id);
-      element.parentNode.style.display = 'none';
-      element.setAttribute('is-hidden', true);
+      if (element?.parentNode) {
+        element.parentNode.style.display = 'none';
+        element.setAttribute('is-hidden', true);
+      }
       this.isHidden = false;
       this.callOnClose(event);
     },
