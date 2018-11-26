@@ -146,11 +146,11 @@ export default {
     },
   },
   mounted() {
+    this.fetchPortlets();
+    this.fetchFavorites();
+    this.fetchUserInfo();
     this.$nextTick(function() {
       window.addEventListener('resize', this.calculateSize);
-      this.fetchPortlets();
-      this.fetchFavorites();
-      this.fetchUserInfo();
       this.calculateSize();
     });
   },
