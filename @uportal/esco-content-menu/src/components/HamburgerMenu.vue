@@ -18,10 +18,16 @@
 
     <content-menu
       v-if="append"
+      :api-url-org-info="apiUrlOrgInfo"
       :call-on-close="toggleMenu"
+      :context-api-url="contextApiUrl"
       :default-org-logo="defaultOrgLogo"
+      :favorites-portlet-card-size="favoritesPortletCardSize"
+      :grid-portlet-card-size="gridPortletCardSize"
+      :hide-action-mode="hideActionMode"
       :is-hidden="!visible"
       :user-info-portlet-url="userInfoPortletUrl"
+      :sign-out-url="signOutUrl"
       default-class="toggler-menu"
       visible-class="active-menu" />
 
@@ -30,6 +36,7 @@
 
 <script>
 import ContentMenu from './ContentMenu';
+import {sizeValidator} from '../services/sizeTools';
 
 export default {
   name: 'HamburgerMenu',
@@ -44,6 +51,19 @@ export default {
     signOutUrl: {type: String, default: process.env.VUE_APP_LOGOUT_URL},
     defaultOrgLogo: {type: String, required: true},
     userInfoPortletUrl: {type: String, default: ''},
+    apiUrlOrgInfo: {type: String, default: ''},
+    favoritesPortletCardSize: {
+      validator: (value) => sizeValidator(value, true),
+      default: 'auto',
+    },
+    gridPortletCardSize: {
+      validator: (value) => sizeValidator(value, true),
+      default: 'auto',
+    },
+    hideActionMode: {
+      validator: (value) => ['auto', 'always', 'never'].includes(value),
+      default: 'auto',
+    },
   },
   data() {
     return {
