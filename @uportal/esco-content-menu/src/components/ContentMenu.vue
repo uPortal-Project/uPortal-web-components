@@ -272,7 +272,7 @@ export default {
 .content-menu {
   min-width: 280px;
   background-color: #d0d0d0;
-  z-index: 1;
+  z-index: 3;
 
   * {
     font-family: Roboto, sans-serif;
