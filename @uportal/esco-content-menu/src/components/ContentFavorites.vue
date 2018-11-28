@@ -245,6 +245,7 @@ $buttonWidth: 32px;
   display: flex;
   flex-flow: column;
   justify-content: center;
+  text-align: left;
 
   > .content-favorites-title {
     margin: 0 0 5px 2em;
