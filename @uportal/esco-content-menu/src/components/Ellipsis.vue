@@ -1,5 +1,7 @@
 <template>
-  <div ref="sentence" />
+  <div
+    class="autofit-ellipsis"
+    ref="sentence" />
 </template>
 
 <script>
@@ -18,7 +20,7 @@ export default {
   mounted() {
     this.$nextTick(function() {
       window.addEventListener('resize', this.timedRun);
-      this.handleSubstrSentence();
+      this.timedRun();
     });
   },
   beforeDestroy() {
@@ -42,6 +44,9 @@ export default {
       stNode.style.height = '100%';
       const availableNodeHeight =
         stNode.getBoundingClientRect().height || stNodeLineHeight;
+      // security when height is < stNodeLineHeight.
+      // it seems that Firefox has problems, the element height isn't not applied due to flexbox if this is called too earlier
+      if (availableNodeHeight < stNodeLineHeight) return false;
 
       // now we need to get the space that take the complete description before clamping
       stNode.innerHTML = html;
@@ -107,4 +112,7 @@ export default {
 </script>
 
 <style scoped>
+.autofit-ellipsis {
+  height: 100%;
+}
 </style>
