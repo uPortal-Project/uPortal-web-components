@@ -272,7 +272,9 @@ export default {
 .content-menu {
   min-width: 280px;
   background-color: #d0d0d0;
-  z-index: 3;
+
+  /* same value as @zindex-navbar-fixed from bootstrap. */
+  z-index: 1030;
 
   * {
     font-family: Roboto, sans-serif;
