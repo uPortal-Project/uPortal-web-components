@@ -68,7 +68,10 @@ For some integration you could need a bit more, like into uPortal you will need 
 - `switch-org-portlet-url`: type: `String`, default: `''`, an optional url/url of a rest api to obtain institutional organization information,
 - `favorites-portlet-card-size`: type: possible value `auto|large|medium|small|smaller`, default: `auto`, define the size of portlet-cards component into `favorite-content` component part,
 - `grid-portlet-card-size`: type: possible value `auto|large|medium|small|smaller`, default: `auto`, define the size of `portlet-cards` component into `grid-content` component part,
-- `hide-action-mode: type`: possible value `auto|always|never`, default: `auto`, define if we should show the actions, `auto` don't show on `small` breakpoint
+- `hide-action-mode: type`: possible value `auto|always|never`, default: `auto`, define if we should show the actions, `auto` don't show on `small` breakpoint,
+- `user-org-id-attribute-name`: type: `String`, default: `'ESCOSIRENCourant'`, the attribute to use to obtain the id of the organization to retrieve from the organization's api
+- `user-all-orgs-id-attribute-name`: type: `String`, default: `'ESCOSIREN`, the attribute to use to obtain all ids of the organizations linked to the user and to retrieve from the organization's api
+- `org-logo-url-attribute-name`: type: `String`, default: `'ESCOStructureLogo'`, the attribute to use to obtain the organization Picture from organization details obtained from the organization's api.
 
 ### The content menu
 
@@ -106,6 +109,9 @@ This use the same properties from the `hamburger-menu` (see on `hamburger-menu` 
 - `favorites-portlet-card-size`
 - `grid-portlet-card-size`
 - `hide-action-mode`
+- `user-org-id-attribute-name`
+- `user-all-orgs-id-attribute-name`
+- `org-logo-url-attribute-name`
 
 and with additional properties to work with the `hamburger-menu`:
 

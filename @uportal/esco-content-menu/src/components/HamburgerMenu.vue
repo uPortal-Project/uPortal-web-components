@@ -28,6 +28,9 @@
       :is-hidden="!visible"
       :user-info-portlet-url="userInfoPortletUrl"
       :sign-out-url="signOutUrl"
+      :user-org-id-attribute-name="userOrgIdAttributeName"
+      :user-all-orgs-id-attribute-name="userAllOrgsIdAttributeName"
+      :org-logo-url-attribute-name="orgLogoUrlAttributeName"
       default-class="toggler-menu"
       visible-class="active-menu" />
 
@@ -64,6 +67,9 @@ export default {
       validator: (value) => ['auto', 'always', 'never'].includes(value),
       default: 'auto',
     },
+    userOrgIdAttributeName: {type: String, default: 'ESCOSIRENCourant'},
+    userAllOrgsIdAttributeName: {type: String, default: 'ESCOSIREN'},
+    orgLogoUrlAttributeName: {type: String, default: 'ESCOStructureLogo'},
   },
   data() {
     return {

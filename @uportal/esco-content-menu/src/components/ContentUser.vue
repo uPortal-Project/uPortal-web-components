@@ -62,6 +62,7 @@ import i18n from '../i18n.js';
 import '../icons.js';
 import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome';
 import {sizeValidator} from '../services/sizeTools';
+import {getOrganizationLogo} from '../services/organizationHelper';
 
 export default {
   name: 'ContentUser',
@@ -82,18 +83,17 @@ export default {
     },
     defaultOrgLogo: {type: String, required: true},
     userInfoPortletUrl: {type: String, default: ''},
+    orgLogoUrlAttributeName: {type: String, default: 'ESCOStructureLogo'},
   },
   methods: {
     translate(text, lang) {
       return i18n.t(text, lang);
     },
-    hasOrgImage() {
-      return this?.orgInfo?.otherAttributes?.ESCOStructureLogo?.length > 0;
-    },
     getOrgImgUrl() {
-      return this.hasOrgImage()
-        ? this.computeImgUrl(this.orgInfo.otherAttributes.ESCOStructureLogo[0])
-        : this.defaultOrgLogo;
+      const logo =
+        getOrganizationLogo(this.orgInfo, this.orgLogoUrlAttributeName) ||
+        this.defaultOrgLogo;
+      return this.computeImgUrl(logo);
     },
     getUserAvatar() {
       const avatar = this.userInfo.picture || null;
