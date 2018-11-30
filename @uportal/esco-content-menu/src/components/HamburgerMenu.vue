@@ -18,7 +18,7 @@
 
     <content-menu
       v-if="append"
-      :api-url-org-info="apiUrlOrgInfo"
+      :switch-org-portlet-url="switchOrgPortletUrl"
       :call-on-close="toggleMenu"
       :context-api-url="contextApiUrl"
       :default-org-logo="defaultOrgLogo"
@@ -51,7 +51,7 @@ export default {
     signOutUrl: {type: String, default: process.env.VUE_APP_LOGOUT_URL},
     defaultOrgLogo: {type: String, required: true},
     userInfoPortletUrl: {type: String, default: ''},
-    apiUrlOrgInfo: {type: String, default: ''},
+    switchOrgPortletUrl: {type: String, default: ''},
     favoritesPortletCardSize: {
       validator: (value) => sizeValidator(value, true),
       default: 'auto',

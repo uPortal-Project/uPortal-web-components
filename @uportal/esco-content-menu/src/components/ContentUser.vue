@@ -46,7 +46,7 @@
             v-if="otherOrgs.length > 1"
             class="other-orgs">
             <a
-              :href="apiUrlOrgInfo"
+              :href="switchOrgPortletUrl"
               :title="translate('message.userChangeEtabUrl.title')">
               <font-awesome-icon icon="exchange-alt" />
             </a>
@@ -76,9 +76,9 @@ export default {
     orgInfo: {type: Object, default: () => ({})},
     otherOrgs: {type: Array, default: () => []},
     userInfo: {type: Object, required: true, default: () => undefined},
-    apiUrlOrgInfo: {
+    switchOrgPortletUrl: {
       type: String,
-      default: process.env.VUE_APP_ORG_INFO_URI,
+      default: process.env.VUE_APP_ORG_SWITCH_URI,
     },
     defaultOrgLogo: {type: String, required: true},
     userInfoPortletUrl: {type: String, default: ''},
