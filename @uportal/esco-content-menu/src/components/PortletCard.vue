@@ -19,8 +19,8 @@
     </div>
     <div class="portlet-card-description">
       <ellipsis
-        :message="description"
-        :line-clamp="2"
+        ng-if="append"
+        :message="truncate(description)"
         :line-height="'20px'"
         :end-char="'...'" />
     </div>
@@ -35,7 +35,7 @@
         :call-on-toggle-fav="callAfterAction"
         :favorite-api-url="favoriteApiUrl"
         :user-info-api-url="userInfoApiUrl"
-        :back-ground-is-dark="backGroundIsDark" />
+        :back-ground-is-dark="favBgIsDark" />
     </div>
   </div>
 </template>
@@ -80,14 +80,20 @@ export default {
     return {
       fname: this.portletDesc.fname,
       channelId: this.portletDesc.id,
-      description: this.truncate(this.portletDesc.description),
+      description: this.portletDesc.description,
       title: this.portletDesc.title,
       canFavorite: this.portletDesc.canAdd,
       iconUrl:
         this.portletDesc.layoutObject.iconUrl !== null
           ? this.computeIconUrl(this.portletDesc.layoutObject.iconUrl)
           : null,
+      append: false,
     };
+  },
+  mounted() {
+    this.$nextTick(function() {
+      this.append = true;
+    });
   },
   computed: {
     mainClass() {
@@ -110,6 +116,12 @@ export default {
       }
 
       return appClasses.map((v) => v.toLowerCase()).join(' ');
+    },
+    favBgIsDark() {
+      return (
+        this.backGroundIsDark &&
+        (this.size == 'small' || this.size == 'smaller')
+      );
     },
   },
   methods: {
@@ -144,6 +156,8 @@ export default {
   text-align: center;
   border-radius: 5px;
   position: relative;
+  display: flex;
+  flex-flow: column nowrap;
 
   /* prettier-ignore */
   box-shadow:
@@ -206,9 +220,8 @@ export default {
 
   > .portlet-card-description {
     padding-top: 0.3em;
-
-    /* security to avoid to be outside of the portlet-card */
-    max-height: 40px;
+    flex: 1;
+    font-size: 14px;
   }
 
   &.medium-card,

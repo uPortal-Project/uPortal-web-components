@@ -99,7 +99,8 @@ export default {
                 .then(parseJSON)
                 .then(this.changeFavoriteValue());
           })
-          .catch((err) => console.error('Error, with message:', err.statusText));
+      // eslint-disable-next-line
+        .catch((err) => console.error('Error, with message:', err.statusText));
     },
     removeFromFavorite() {
       oidc({userInfoApiUrl: this.userInfoApiUrl})
@@ -122,7 +123,8 @@ export default {
                 .then(parseJSON)
                 .then(this.changeFavoriteValue());
           })
-          .catch((err) => console.error('Error, with message:', err.statusText));
+      // eslint-disable-next-line
+        .catch((err) => console.error('Error, with message:', err.statusText));
     },
   },
 };
@@ -159,13 +161,9 @@ export default {
     }
 
     > .svg-inline--fa {
-      width: $PortletCardButtonSize * 0.6;
-      height: $PortletCardButtonSize * 0.6; /* or any other relative font sizes */
+      width: 60%;
+      height: 60%; /* or any other relative font sizes */
       color: #b7b7b7;
-
-      /* You would have to include the following two lines to make this work in Safari */
-      max-width: 100%;
-      max-height: 100%;
     }
   }
 }

@@ -42,6 +42,7 @@ export default async function(contextApiUrl) {
     }
     return [];
   } catch (err) {
+    // eslint-disable-next-line
     console.error(err);
     return [];
   }

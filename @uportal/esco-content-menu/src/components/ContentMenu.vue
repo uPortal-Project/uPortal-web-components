@@ -1,7 +1,6 @@
 <template>
   <div
-    :class="['toggler-menu', screenSize, visible ? 'active-menu' : '']"
-    :style="'min-height: ' + minHeight"
+    :class="['toggler-menu', _screenSize, !_isHidden ? 'active-menu' : '']"
     class="content-menu">
     <header>
       <header-buttons
@@ -12,7 +11,7 @@
           :org-info="info.userOrganization"
           :user-info="info.user"
           :other-orgs="info.organizations"
-          :parent-screen-size="screenSize"
+          :parent-screen-size="_screenSize"
           :default-org-logo="defaultOrgLogo"
           :user-info-portlet-url="userInfoPortletUrl"
           :api-url-org-info="apiUrlOrgInfo" />
@@ -20,22 +19,22 @@
           :portlets="_portlets"
           :favorites="info.favorites"
           :call-after-action="actionToggleFav"
-          :parent-screen-size="screenSize"
+          :parent-screen-size="_screenSize"
           :portlet-card-size="favoritesPortletCardSize"
           :hide-action="hideAction"
           :favorite-api-url="favoriteApiUrl"
-          :is-hidden="isHidden"
+          :is-hidden="_isHidden"
           :user-info-api-url="userInfoApiUrl" />
       </div>
       <div
-        :style="(backgroundImg != null && (screenSize === 'large' || screenSize === 'medium')) ? 'background-image: linear-gradient(0deg, rgba(0,0,0,.2),rgba(0,0,0,.2)), url(' + backgroundImg + ');' : ''"
+        :style="(backgroundImg != null && (_screenSize === 'large' || _screenSize === 'medium')) ? 'background-image: linear-gradient(0deg, rgba(0,0,0,.2),rgba(0,0,0,.2)), url(' + backgroundImg + ');' : ''"
         class="background" />
     </header>
     <content-grid
       :portlets="_portlets"
       :favorites="info.favorites"
       :call-after-action="actionToggleFav"
-      :parent-screen-size="screenSize"
+      :parent-screen-size="_screenSize"
       :portlet-card-size="gridPortletCardSize"
       :hide-action="hideAction"
       :favorite-api-url="favoriteApiUrl"
@@ -61,7 +60,6 @@ import {
 } from '../services/sizeTools';
 
 const checkStatus = function(response) {
-  // console.log("check response ", response);
   if (response.ok) {
     return response;
   } else {
@@ -112,8 +110,6 @@ export default {
       userInfoApiUrl: this.contextApiUrl + process.env.VUE_APP_USER_INFO_URI,
       screenSize: 'medium',
       hideAction: false,
-      visible: !this.isHidden,
-      minHeight: '100vh',
       info: {
         favorites: [],
         organizations: [],
@@ -127,25 +123,31 @@ export default {
     _portlets() {
       return this.portletsAPI;
     },
+    _isHidden() {
+      return this.isHidden;
+    },
+    _screenSize() {
+      return this.screenSize;
+    },
   },
   watch: {
     isHidden: {
       handler() {
-        this.visible = !this.isHidden;
-        if (this.visible) {
-          this.minHeight = document.body.getBoundingClientRect().height + 'px';
-          this.calculateSize();
+        if (!this.isHidden) {
+          this.$nextTick(function() {
+            this.calculateSize();
+          });
         }
       },
-      deep: true,
     },
   },
   mounted() {
+    this.fetchPortlets();
+    this.fetchFavorites();
+    this.fetchUserInfo();
     this.$nextTick(function() {
       window.addEventListener('resize', this.calculateSize);
-      this.fetchPortlets();
-      this.fetchFavorites();
-      this.fetchUserInfo();
+      this.calculateSize();
     });
   },
   beforeDestroy() {
@@ -153,11 +155,11 @@ export default {
   },
   methods: {
     close(event) {
-      this.visible = false;
       const element = document.querySelector('#' + this.id);
-      element.parentNode.style.display = 'none';
-      element.setAttribute('is-hidden', true);
-      this.isHidden = false;
+      if (element?.parentNode) {
+        element.parentNode.style.display = 'none';
+        element.setAttribute('is-hidden', true);
+      }
       this.callOnClose(event);
     },
     calculateSize() {
@@ -245,6 +247,7 @@ export default {
             this.computeCurrentOrg();
           }
         } catch (err) {
+          // eslint-disable-next-line
           console.error(err);
         }
       }
@@ -270,23 +273,8 @@ export default {
   min-width: 280px;
   background-color: #d0d0d0;
 
-  &.toggler-menu {
-    position: absolute;
-    width: 100%;
-    min-height: 100vh;
-    top: 0;
-    left: 0;
-    z-index: 1001;
-    visibility: hidden;
-    opacity: 0;
-    transition: opacity 600ms, visibility 600ms;
-    animation: fade 600ms;
-  }
-
-  &.active-menu {
-    visibility: visible;
-    opacity: 1;
-  }
+  /* same value as @zindex-navbar-fixed from bootstrap. */
+  z-index: 1030;
 
   * {
     font-family: Roboto, sans-serif;

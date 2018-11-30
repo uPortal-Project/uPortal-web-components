@@ -9,6 +9,7 @@ import {faTimes} from '@fortawesome/free-solid-svg-icons/faTimes';
 import {faUser} from '@fortawesome/free-solid-svg-icons/faUser';
 
 if (process.env.NODE_ENV === 'development') {
+  // eslint-disable-next-line
   console.log(
       faChevronLeft,
       faChevronRight,

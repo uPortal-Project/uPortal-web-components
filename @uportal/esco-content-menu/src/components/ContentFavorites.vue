@@ -67,6 +67,7 @@ import '../icons.js';
 import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome';
 import {swiper, swiperSlide} from 'vue-awesome-swiper';
 import {elementWidth, sizeValidator} from '../services/sizeTools';
+import byFavoriteOrder from '../services/sortByFavoriteOrder';
 
 export default {
   name: 'ContentFavorites',
@@ -107,7 +108,6 @@ export default {
   },
   data() {
     return {
-      favorited: [],
       swiperOption: {
         init: false,
         slidesPerView: 'auto',
@@ -133,19 +133,11 @@ export default {
   watch: {
     favorites: {
       handler() {
-        this.calcFavoritesPortlets();
         this.updateSlider();
       },
       deep: true,
     },
     portlets: {
-      handler() {
-        this.calcFavoritesPortlets();
-        this.updateSlider();
-      },
-      deep: true,
-    },
-    favorited: {
       handler() {
         this.updateSlider();
       },
@@ -160,14 +152,23 @@ export default {
   },
   mounted() {
     this.$nextTick(function() {
-      window.addEventListener('resize', this.updateSlider);
+      window.addEventListener('resize', this.timedUpdate);
+      this.updateSlider();
     });
+  },
+  beforeDestroy() {
+    window.removeEventListener('resize', this.timedUpdate);
   },
   computed: {
     _portletCardSize() {
       if (this.portletCardSize === 'auto') {
         return this.calculatedSize;
       } else return this.portletCardSize;
+    },
+    favorited() {
+      return this.portlets
+          .filter((portlet) => this.favorites.includes(portlet.fname))
+          .sort(byFavoriteOrder(this.favorites));
     },
   },
   methods: {
@@ -210,33 +211,21 @@ export default {
       this.$refs.favSwiper.swiper.slidePrev(800);
       this.updateSlider();
     },
-    updateSlider() {
+    timedUpdate() {
       setTimeout(() => {
-        if (!this.isHidden) {
-          if (!this.$refs.favSwiper.swiper.initialized) {
-            this.$refs.favSwiper.swiper.init();
-          } else {
-            this.$refs.favSwiper.swiper.update();
-          }
-          this.disableNext = this.$refs.favSwiper.swiper.isEnd;
-          this.disablePrev = this.$refs.favSwiper.swiper.isBeginning;
-          this.calculateSize();
-        }
+        this.updateSlider();
       }, 300);
     },
-    calcFavoritesPortlets() {
-      this.emptyArray(this.favorited);
-      for (const fname of this.favorites) {
-        for (const portlet of this.portlets) {
-          if (portlet.fname === fname) {
-            this.favorited.push(portlet);
-          }
+    updateSlider() {
+      if (!this.isHidden) {
+        if (!this.$refs.favSwiper.swiper.initialized) {
+          this.$refs.favSwiper.swiper.init();
+        } else {
+          this.$refs.favSwiper.swiper.update();
         }
-      }
-    },
-    emptyArray(array) {
-      while (array.length > 0) {
-        array.pop();
+        this.disableNext = this.$refs.favSwiper.swiper.isEnd;
+        this.disablePrev = this.$refs.favSwiper.swiper.isBeginning;
+        this.calculateSize();
       }
     },
   },
@@ -256,6 +245,7 @@ $buttonWidth: 32px;
   display: flex;
   flex-flow: column;
   justify-content: center;
+  text-align: left;
 
   > .content-favorites-title {
     margin: 0 0 5px 2em;
@@ -377,7 +367,7 @@ $buttonWidth: 32px;
     width: $PortletCardSizeSmaller;
   }
 
-  @media (hover: none) {
+  @media (hover: none) and (pointer: coarse) {
     .swiper-button-prev,
     .swiper-button-next {
       display: none;

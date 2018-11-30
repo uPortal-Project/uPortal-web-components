@@ -5,7 +5,6 @@
       aria-label="Menu"
       role="button"
       title="Menu"
-      data-toggle="content-menu"
       aria-expanded="false"
       aria-haspopup="true"
       aria-controls="content-menu"
@@ -18,9 +17,17 @@
     </div>
 
     <content-menu
-      :is-hidden="!visible"
+      v-if="append"
+      :api-url-org-info="apiUrlOrgInfo"
+      :call-on-close="toggleMenu"
+      :context-api-url="contextApiUrl"
       :default-org-logo="defaultOrgLogo"
+      :favorites-portlet-card-size="favoritesPortletCardSize"
+      :grid-portlet-card-size="gridPortletCardSize"
+      :hide-action-mode="hideActionMode"
+      :is-hidden="!visible"
       :user-info-portlet-url="userInfoPortletUrl"
+      :sign-out-url="signOutUrl"
       default-class="toggler-menu"
       visible-class="active-menu" />
 
@@ -29,6 +36,7 @@
 
 <script>
 import ContentMenu from './ContentMenu';
+import {sizeValidator} from '../services/sizeTools';
 
 export default {
   name: 'HamburgerMenu',
@@ -43,16 +51,39 @@ export default {
     signOutUrl: {type: String, default: process.env.VUE_APP_LOGOUT_URL},
     defaultOrgLogo: {type: String, required: true},
     userInfoPortletUrl: {type: String, default: ''},
+    apiUrlOrgInfo: {type: String, default: ''},
+    favoritesPortletCardSize: {
+      validator: (value) => sizeValidator(value, true),
+      default: 'auto',
+    },
+    gridPortletCardSize: {
+      validator: (value) => sizeValidator(value, true),
+      default: 'auto',
+    },
+    hideActionMode: {
+      validator: (value) => ['auto', 'always', 'never'].includes(value),
+      default: 'auto',
+    },
   },
   data() {
     return {
       visible: false,
+      append: false,
     };
+  },
+  mounted() {
+    this.$nextTick(function() {
+      this.append = true;
+    });
   },
   methods: {
     toggleMenu(event) {
       event.preventDefault();
       this.visible = !this.visible;
+      const html = document.querySelector('html');
+      if (html) {
+        html.style.overflowY = this.visible ? 'hidden' : 'auto';
+      }
     },
   },
 };
@@ -64,6 +95,10 @@ export default {
     color: #fff;
     text-decoration: none;
     cursor: pointer;
+
+    &:hover > .menu-wrapper > div {
+      opacity: 0.7;
+    }
 
     > .menu-wrapper {
       width: 25px;
@@ -77,14 +112,13 @@ export default {
     }
   }
 
-  position: relative;
-
   .toggler-menu {
-    position: absolute;
+    position: fixed;
     width: 100%;
-    min-height: 100vh;
+    height: 100%;
     top: 0;
     left: 0;
+    overflow-y: scroll;
     visibility: hidden;
     opacity: 0;
     transition: opacity 600ms, visibility 600ms;

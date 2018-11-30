@@ -19,7 +19,8 @@
               v-model.trim="filterValue"
               :placeholder="translate('message.services.filter')"
               type="text"
-              @focus="filterValue = ''">
+              @focus="filterValue = ''"
+              autofocus>
             <select v-model="filterCategory">
               <option
                 class="default"
@@ -268,6 +269,7 @@ $searchSize: 32px;
 
   > div {
     display: block;
+    color: #000;
 
     > .title {
       padding: 0 20px;

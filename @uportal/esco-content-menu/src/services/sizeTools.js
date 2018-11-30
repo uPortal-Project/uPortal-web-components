@@ -3,7 +3,7 @@ export function elementWidth(ref) {
 }
 
 export function breakPointName(size) {
-  if (size && typeof size === 'number') {
+  if (typeof size === 'number' && isFinite(size)) {
     if (size < 480) {
       return 'smaller';
     } else if (size < 768) {

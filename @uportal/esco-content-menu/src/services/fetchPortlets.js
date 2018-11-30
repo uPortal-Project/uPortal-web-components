@@ -34,6 +34,7 @@ export default async function(contextApiUrl) {
 
     return portlets;
   } catch (err) {
+    // eslint-disable-next-line
     console.error(err);
     return [];
   }
