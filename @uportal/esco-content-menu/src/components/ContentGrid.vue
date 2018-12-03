@@ -304,7 +304,6 @@ $searchSize: 32px;
     background-size: 8px 10px;
     border: 1px solid #ced4da;
     border-radius: 0.25rem;
-
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
