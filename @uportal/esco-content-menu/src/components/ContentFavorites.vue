@@ -175,12 +175,6 @@ export default {
     translate(text, lang) {
       return i18n.t(text, lang);
     },
-    computeImgUrl(url) {
-      if (url != null && !url.startsWith('http')) {
-        return process.env.VUE_APP_PORTAL_BASE_URL + url;
-      }
-      return url;
-    },
     calculateSize() {
       if (this.portletCardSize === 'auto') {
         const _size = elementWidth(this.$refs.favsSection);

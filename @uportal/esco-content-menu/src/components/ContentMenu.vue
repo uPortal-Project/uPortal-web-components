@@ -63,6 +63,7 @@ import {
   getCurrentOrganization,
   getOrganizationLogo,
 } from '../services/organizationHelper';
+import computeUrl from '../services/computeUrl';
 
 export default {
   name: 'ContentMenu',
@@ -206,13 +207,12 @@ export default {
             this.info.userOrganization,
             currentOrganization
         );
-        const logo = getOrganizationLogo(
-            currentOrganization,
-            this.orgLogoUrlAttributeName
-        );
-        if (logo !== null) {
-          this.backgroundImg = this.computeIconUrl(logo);
-        }
+        const logo =
+          getOrganizationLogo(
+              currentOrganization,
+              this.orgLogoUrlAttributeName
+          ) || this.defaultOrgLogo;
+        this.backgroundImg = computeUrl(logo);
       }
     },
     async fetchUserInfo() {
@@ -233,12 +233,6 @@ export default {
     },
     actionToggleFav(fname) {
       this.info.favorites = toggleArray(this.info.favorites, fname);
-    },
-    computeIconUrl(url) {
-      if (url != null && !url.startsWith('http')) {
-        return process.env.VUE_APP_PORTAL_BASE_URL + url;
-      }
-      return url;
     },
   },
 };

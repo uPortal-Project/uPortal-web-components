@@ -63,6 +63,7 @@ import '../icons.js';
 import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome';
 import {sizeValidator} from '../services/sizeTools';
 import {getOrganizationLogo} from '../services/organizationHelper';
+import computeUrl from '../services/computeUrl';
 
 export default {
   name: 'ContentUser',
@@ -93,17 +94,11 @@ export default {
       const logo =
         getOrganizationLogo(this.orgInfo, this.orgLogoUrlAttributeName) ||
         this.defaultOrgLogo;
-      return this.computeImgUrl(logo);
+      return computeUrl(logo);
     },
     getUserAvatar() {
       const avatar = this.userInfo.picture || null;
-      return this.computeImgUrl(avatar);
-    },
-    computeImgUrl(url) {
-      if (url != null && !url.startsWith('http')) {
-        return process.env.VUE_APP_PORTAL_BASE_URL + url;
-      }
-      return url;
+      return computeUrl(avatar);
     },
   },
 };
