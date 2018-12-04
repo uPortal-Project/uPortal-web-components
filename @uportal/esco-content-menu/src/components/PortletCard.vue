@@ -44,6 +44,7 @@
 import Ellipsis from './Ellipsis';
 import ActionFavorites from './ActionFavorites';
 import {sizeValidator} from '../services/sizeTools';
+import computeUrl from '../services/computeUrl';
 
 export default {
   name: 'PortletCard',
@@ -83,10 +84,7 @@ export default {
       description: this.portletDesc.description,
       title: this.portletDesc.title,
       canFavorite: this.portletDesc.canAdd,
-      iconUrl:
-        this.portletDesc.layoutObject.iconUrl !== null
-          ? this.computeIconUrl(this.portletDesc.layoutObject.iconUrl)
-          : null,
+      iconUrl: computeUrl(this.portletDesc.layoutObject.iconUrl),
       append: false,
     };
   },
@@ -125,12 +123,6 @@ export default {
     },
   },
   methods: {
-    computeIconUrl(url) {
-      if (url != null && !url.startsWith('http')) {
-        return process.env.VUE_APP_PORTAL_BASE_URL + url;
-      }
-      return url;
-    },
     truncate(entry) {
       if (entry) {
         const text = entry.split('   ');

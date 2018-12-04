@@ -18,7 +18,7 @@
 
     <content-menu
       v-if="append"
-      :api-url-org-info="apiUrlOrgInfo"
+      :switch-org-portlet-url="switchOrgPortletUrl"
       :call-on-close="toggleMenu"
       :context-api-url="contextApiUrl"
       :default-org-logo="defaultOrgLogo"
@@ -28,6 +28,9 @@
       :is-hidden="!visible"
       :user-info-portlet-url="userInfoPortletUrl"
       :sign-out-url="signOutUrl"
+      :user-org-id-attribute-name="userOrgIdAttributeName"
+      :user-all-orgs-id-attribute-name="userAllOrgsIdAttributeName"
+      :org-logo-url-attribute-name="orgLogoUrlAttributeName"
       default-class="toggler-menu"
       visible-class="active-menu" />
 
@@ -51,7 +54,7 @@ export default {
     signOutUrl: {type: String, default: process.env.VUE_APP_LOGOUT_URL},
     defaultOrgLogo: {type: String, required: true},
     userInfoPortletUrl: {type: String, default: ''},
-    apiUrlOrgInfo: {type: String, default: ''},
+    switchOrgPortletUrl: {type: String, default: ''},
     favoritesPortletCardSize: {
       validator: (value) => sizeValidator(value, true),
       default: 'auto',
@@ -64,6 +67,9 @@ export default {
       validator: (value) => ['auto', 'always', 'never'].includes(value),
       default: 'auto',
     },
+    userOrgIdAttributeName: {type: String, default: 'ESCOSIRENCourant'},
+    userAllOrgsIdAttributeName: {type: String, default: 'ESCOSIREN'},
+    orgLogoUrlAttributeName: {type: String, default: 'ESCOStructureLogo'},
   },
   data() {
     return {

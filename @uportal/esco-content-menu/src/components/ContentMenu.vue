@@ -8,16 +8,17 @@
         :sign-out-url="signOutUrl" />
       <div class="wrapper">
         <content-user
-          :org-info="info.userOrganization"
-          :user-info="info.user"
-          :other-orgs="info.organizations"
+          :org-info="_userOrganization"
+          :user-info="_user"
+          :other-orgs="_organizations"
           :parent-screen-size="_screenSize"
           :default-org-logo="defaultOrgLogo"
           :user-info-portlet-url="userInfoPortletUrl"
-          :api-url-org-info="apiUrlOrgInfo" />
+          :switch-org-portlet-url="switchOrgPortletUrl"
+          :org-logo-url-attribute-name="orgLogoUrlAttributeName" />
         <content-favorites
           :portlets="_portlets"
-          :favorites="info.favorites"
+          :favorites="_favorites"
           :call-after-action="actionToggleFav"
           :parent-screen-size="_screenSize"
           :portlet-card-size="favoritesPortletCardSize"
@@ -32,7 +33,7 @@
     </header>
     <content-grid
       :portlets="_portlets"
-      :favorites="info.favorites"
+      :favorites="_favorites"
       :call-after-action="actionToggleFav"
       :parent-screen-size="_screenSize"
       :portlet-card-size="gridPortletCardSize"
@@ -47,7 +48,7 @@ import ContentFavorites from './ContentFavorites';
 import ContentGrid from './ContentGrid';
 import ContentUser from './ContentUser';
 import HeaderButtons from './HeaderButtons';
-import oidc from '@uportal/open-id-connect';
+import fetchUserInfoAndOrg from '../services/fetchUserInfoAndOrgs';
 import fetchPortlets from '../services/fetchPortlets';
 import fetchFavorites from '../services/fetchFavorites';
 import flattenFavorites from '../services/flattenFavorites';
@@ -58,16 +59,11 @@ import {
   breakPointName,
   sizeValidator,
 } from '../services/sizeTools';
-
-const checkStatus = function(response) {
-  if (response.ok) {
-    return response;
-  } else {
-    const error = new Error(response.statusText);
-    error.response = response;
-    throw error;
-  }
-};
+import {
+  getCurrentOrganization,
+  getOrganizationLogo,
+} from '../services/organizationHelper';
+import computeUrl from '../services/computeUrl';
 
 export default {
   name: 'ContentMenu',
@@ -88,7 +84,7 @@ export default {
     signOutUrl: {type: String, default: process.env.VUE_APP_LOGOUT_URL},
     defaultOrgLogo: {type: String, required: true},
     userInfoPortletUrl: {type: String, default: ''},
-    apiUrlOrgInfo: {type: String, default: ''},
+    switchOrgPortletUrl: {type: String, default: ''},
     favoritesPortletCardSize: {
       validator: (value) => sizeValidator(value, true),
       default: 'auto',
@@ -101,6 +97,9 @@ export default {
       validator: (value) => ['auto', 'always', 'never'].includes(value),
       default: 'auto',
     },
+    userOrgIdAttributeName: {type: String, default: 'ESCOSIRENCourant'},
+    userAllOrgsIdAttributeName: {type: String, default: 'ESCOSIREN'},
+    orgLogoUrlAttributeName: {type: String, default: 'ESCOStructureLogo'},
   },
   data() {
     return {
@@ -128,6 +127,24 @@ export default {
     },
     _screenSize() {
       return this.screenSize;
+    },
+    _user() {
+      return this.info.user;
+    },
+    _organizations() {
+      return this.info.organizations;
+    },
+    _userOrganization() {
+      if (
+        Object.keys(this.info.userOrganization).length === 0 &&
+        this.info.userOrganization.constructor === Object
+      ) {
+        this.computeCurrentOrg();
+      }
+      return this.info.userOrganization;
+    },
+    _favorites() {
+      return this.info.favorites;
     },
   },
   watch: {
@@ -179,78 +196,32 @@ export default {
       }
     },
     computeCurrentOrg() {
-      if (
-        this.info.user &&
-        this.info.user.ESCOSIRENCourant &&
-        this.info.organizations?.length > 0
-      ) {
+      const currentOrganization = getCurrentOrganization(
+          this.info.user,
+          this.userOrgIdAttributeName,
+          this.info.organizations
+      );
+      if (currentOrganization !== null) {
         this.info.userOrganization = Object.assign(
             {},
             this.info.userOrganization,
-            this.info.organizations.find(
-                (entry) => entry.id === this.info.user.ESCOSIRENCourant[0]
-            )
+            currentOrganization
         );
-      } else if (this.info.organizations) {
-        this.info.userOrganization = Object.assign(
-            {},
-            this.info.userOrganization,
-            this.info.organizations[0]
-        );
-      }
-      if (
-        this.info.userOrganization?.otherAttributes?.ESCOStructureLogo?.length >
-        0
-      ) {
-        this.backgroundImg =
-          process.env.VUE_APP_PORTAL_BASE_URL +
-          this.info.userOrganization.otherAttributes.ESCOStructureLogo[0];
+        const logo =
+          getOrganizationLogo(
+              currentOrganization,
+              this.orgLogoUrlAttributeName
+          ) || this.defaultOrgLogo;
+        this.backgroundImg = computeUrl(logo);
       }
     },
     async fetchUserInfo() {
-      if (process.env.NODE_ENV === 'development') {
-        const userInfoRequest = await fetch('userinfo.json');
-        const userInfo = await userInfoRequest.json();
-        this.info.user = {...this.info.user, ...userInfo};
-        const orgsInfoRequest = await fetch('orginfo.json');
-        const orgsInfo = await orgsInfoRequest.json();
-        setTimeout(() => {
-          this.info.organizations = Object.values(orgsInfo);
-          this.computeCurrentOrg();
-        }, 2000);
-      } else {
-        try {
-          const {encoded, decoded} = await oidc({
-            userInfoApiUrl:
-              this.contextApiUrl + process.env.VUE_APP_USER_INFO_URI,
-          });
-          this.info.user = Object.assign({}, this.info.user, decoded);
-          if (decoded.ESCOSIREN) {
-            const options = {
-              method: 'GET',
-              credentials: 'same-origin',
-              headers: {
-                'Authorization': 'Bearer ' + encoded,
-                'Content-Type': 'application/json',
-              },
-            };
-            const response = await fetch(
-                process.env.VUE_APP_PORTAL_BASE_URL +
-                process.env.VUE_APP_ORG_INFO_URI +
-                '?ids=' +
-                decoded.ESCOSIREN,
-                options
-            );
-            checkStatus(response);
-            const data = await response.json();
-            this.info.organizations = Object.values(data);
-            this.computeCurrentOrg();
-          }
-        } catch (err) {
-          // eslint-disable-next-line
-          console.error(err);
-        }
-      }
+      const {user, organizations} = await fetchUserInfoAndOrg(
+          this.contextApiUrl,
+          this.userAllOrgsIdAttributeName
+      );
+      this.info.user = Object.assign({}, this.info.user, user);
+      this.info.organizations = organizations;
     },
     async fetchPortlets() {
       const portlets = await fetchPortlets(this.contextApiUrl);

@@ -46,7 +46,7 @@
             v-if="otherOrgs.length > 1"
             class="other-orgs">
             <a
-              :href="apiUrlOrgInfo"
+              :href="switchOrgPortletUrl"
               :title="translate('message.userChangeEtabUrl.title')">
               <font-awesome-icon icon="exchange-alt" />
             </a>
@@ -62,6 +62,8 @@ import i18n from '../i18n.js';
 import '../icons.js';
 import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome';
 import {sizeValidator} from '../services/sizeTools';
+import {getOrganizationLogo} from '../services/organizationHelper';
+import computeUrl from '../services/computeUrl';
 
 export default {
   name: 'ContentUser',
@@ -76,34 +78,27 @@ export default {
     orgInfo: {type: Object, default: () => ({})},
     otherOrgs: {type: Array, default: () => []},
     userInfo: {type: Object, required: true, default: () => undefined},
-    apiUrlOrgInfo: {
+    switchOrgPortletUrl: {
       type: String,
-      default: process.env.VUE_APP_ORG_INFO_URI,
+      default: process.env.VUE_APP_ORG_SWITCH_URI,
     },
     defaultOrgLogo: {type: String, required: true},
     userInfoPortletUrl: {type: String, default: ''},
+    orgLogoUrlAttributeName: {type: String, default: 'ESCOStructureLogo'},
   },
   methods: {
     translate(text, lang) {
       return i18n.t(text, lang);
     },
-    hasOrgImage() {
-      return this?.orgInfo?.otherAttributes?.ESCOStructureLogo?.length > 0;
-    },
     getOrgImgUrl() {
-      return this.hasOrgImage()
-        ? this.computeImgUrl(this.orgInfo.otherAttributes.ESCOStructureLogo[0])
-        : this.defaultOrgLogo;
+      const logo =
+        getOrganizationLogo(this.orgInfo, this.orgLogoUrlAttributeName) ||
+        this.defaultOrgLogo;
+      return computeUrl(logo);
     },
     getUserAvatar() {
       const avatar = this.userInfo.picture || null;
-      return this.computeImgUrl(avatar);
-    },
-    computeImgUrl(url) {
-      if (url != null && !url.startsWith('http')) {
-        return process.env.VUE_APP_PORTAL_BASE_URL + url;
-      }
-      return url;
+      return computeUrl(avatar);
     },
   },
 };
