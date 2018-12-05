@@ -69,9 +69,9 @@ For some integration you could need a bit more, like into uPortal you will need 
 - `favorites-portlet-card-size`: type: possible value `auto|large|medium|small|smaller`, default: `auto`, define the size of portlet-cards component into `favorite-content` component part,
 - `grid-portlet-card-size`: type: possible value `auto|large|medium|small|smaller`, default: `auto`, define the size of `portlet-cards` component into `grid-content` component part,
 - `hide-action-mode: type`: possible value `auto|always|never`, default: `auto`, define if we should show the actions, `auto` don't show on `small` breakpoint,
-- `user-org-id-attribute-name`: type: `String`, default: `'ESCOSIRENCourant'`, the attribute to use to obtain the id of the organization to retrieve from the organization's api
-- `user-all-orgs-id-attribute-name`: type: `String`, default: `'ESCOSIREN`, the attribute to use to obtain all ids of the organizations linked to the user and to retrieve from the organization's api
-- `org-logo-url-attribute-name`: type: `String`, default: `'ESCOStructureLogo'`, the attribute to use to obtain the organization Picture from organization details obtained from the organization's api.
+- `user-org-id-attribute-name`: type: `String`, default: `'ESCOSIRENCourant[0]'`, the attribute object path to obtain the id of the organization to retrieve from the organization's api
+- `user-all-orgs-id-attribute-name`: type: `String`, default: `'ESCOSIREN`, the attribute object path to obtain all ids of the organizations linked to the user and to retrieve from the organization's api
+- `org-logo-url-attribute-name`: type: `String`, default: `'otherAttributes.ESCOStructureLogo[0]'`, the attribute object path to obtain the organization Picture from organization details obtained from the organization's api.
 
 ### The content menu
 
@@ -207,6 +207,7 @@ Need some work for a standalone use.
 - `switch-org-portlet-url`: type: `String`, default: `'''`, an url/uri where the user can switch of organization when having several (tenant use part),
 - `default-org-logo`: type: `String`, required: `true`, an url/uri to provide an institutional picture when none is found from an optional api (not provided into uPortal),
 - `user-info-portlet-url`: type: `String`, default: `''`, an url/uri to the user information application,
+- `org-logo-url-attribute-name`: type: `String`, default: `'otherAttributes.ESCOStructureLogo[0]'`, the attribute object path to obtain the organization Picture from organization details obtained from the organization's api.
 
 and additional properties to work with the parent component `content-menu`:
 

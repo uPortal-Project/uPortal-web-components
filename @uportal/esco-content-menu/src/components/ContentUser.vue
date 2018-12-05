@@ -84,7 +84,10 @@ export default {
     },
     defaultOrgLogo: {type: String, required: true},
     userInfoPortletUrl: {type: String, default: ''},
-    orgLogoUrlAttributeName: {type: String, default: 'ESCOStructureLogo'},
+    orgLogoUrlAttributeName: {
+      type: String,
+      default: 'otherAttributes.ESCOStructureLogo[0]',
+    },
   },
   methods: {
     translate(text, lang) {

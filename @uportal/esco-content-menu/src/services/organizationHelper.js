@@ -1,12 +1,13 @@
+import _ from 'lodash';
+
 export function getCurrentOrganization(
     user,
     userOrgIdAttribute,
     organizations
 ) {
-  if (user && user[userOrgIdAttribute] && organizations?.length > 0) {
-    return organizations.find(
-        (entry) => entry.id === user[userOrgIdAttribute][0]
-    );
+  const currentUserOrgId = _.get(user, userOrgIdAttribute, null);
+  if (_.isString(currentUserOrgId) && organizations?.length > 0) {
+    return organizations.find((entry) => entry.id === currentUserOrgId);
   } else if (organizations?.length > 0) {
     return organizations[0];
   }
@@ -14,15 +15,7 @@ export function getCurrentOrganization(
 }
 
 export function getOrganizationLogo(organization, attributeName) {
-  let entry = null;
-  if (organization && organization[attributeName]?.length > 0) {
-    entry = organization[attributeName];
-  } else if (
-    organization?.hasOwnProperty('otherAttributes') &&
-    organization.otherAttributes[attributeName]?.length > 0
-  ) {
-    entry = organization.otherAttributes[attributeName];
-  }
+  const entry = _.get(organization, attributeName, null);
   if (Array.isArray(entry)) {
     return entry[0];
   }

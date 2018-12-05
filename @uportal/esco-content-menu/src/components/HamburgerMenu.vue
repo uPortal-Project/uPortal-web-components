@@ -67,9 +67,12 @@ export default {
       validator: (value) => ['auto', 'always', 'never'].includes(value),
       default: 'auto',
     },
-    userOrgIdAttributeName: {type: String, default: 'ESCOSIRENCourant'},
+    userOrgIdAttributeName: {type: String, default: 'ESCOSIRENCourant[0]'},
     userAllOrgsIdAttributeName: {type: String, default: 'ESCOSIREN'},
-    orgLogoUrlAttributeName: {type: String, default: 'ESCOStructureLogo'},
+    orgLogoUrlAttributeName: {
+      type: String,
+      default: 'otherAttributes.ESCOStructureLogo[0]',
+    },
   },
   data() {
     return {
