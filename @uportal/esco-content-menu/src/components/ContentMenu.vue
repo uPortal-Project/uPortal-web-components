@@ -40,6 +40,10 @@
       :hide-action="hideAction"
       :favorite-api-url="favoriteApiUrl"
       :user-info-api-url="userInfoApiUrl" />
+    <vue-simple-spinner
+      v-show="isLoading"
+      class="spinner"
+      line-fg-color="#545454" />
   </div>
 </template>
 
@@ -48,6 +52,7 @@ import ContentFavorites from './ContentFavorites';
 import ContentGrid from './ContentGrid';
 import ContentUser from './ContentUser';
 import HeaderButtons from './HeaderButtons';
+import vueSimpleSpinner from 'vue-simple-spinner';
 import fetchUserInfoAndOrg from '../services/fetchUserInfoAndOrgs';
 import fetchPortlets from '../services/fetchPortlets';
 import fetchFavorites from '../services/fetchFavorites';
@@ -72,6 +77,7 @@ export default {
     ContentGrid,
     ContentUser,
     HeaderButtons,
+    vueSimpleSpinner,
   },
   props: {
     id: {type: String, default: null},
@@ -116,6 +122,12 @@ export default {
         userOrganization: {},
       },
       portletsAPI: [],
+      loadingState: {
+        favorites: true,
+        portlets: true,
+        user: true,
+        organization: true,
+      },
     };
   },
   computed: {
@@ -145,6 +157,14 @@ export default {
     },
     _favorites() {
       return this.info.favorites;
+    },
+    isLoading() {
+      return (
+        !this.loadingState.favorites ||
+        !this.loadingState.portlets ||
+        !this.loadingState.user ||
+        !this.loadingState.organization
+      );
     },
   },
   watch: {
@@ -216,20 +236,28 @@ export default {
       }
     },
     async fetchUserInfo() {
+      this.loadingState.user = false;
+      this.loadingState.organization = false;
       const {user, organizations} = await fetchUserInfoAndOrg(
           this.contextApiUrl,
           this.userAllOrgsIdAttributeName
       );
       this.info.user = Object.assign({}, this.info.user, user);
+      this.loadingState.user = true;
       this.info.organizations = organizations;
+      this.loadingState.organization = true;
     },
     async fetchPortlets() {
+      this.loadingState.portlets = false;
       const portlets = await fetchPortlets(this.contextApiUrl);
       this.portletsAPI = portlets.sort(byPortlet);
+      this.loadingState.portlets = true;
     },
     async fetchFavorites() {
+      this.loadingState.favorites = false;
       const favoritesTree = await fetchFavorites(this.contextApiUrl);
       this.info.favorites = flattenFavorites(favoritesTree);
+      this.loadingState.favorites = true;
     },
     actionToggleFav(fname) {
       this.info.favorites = toggleArray(this.info.favorites, fname);
@@ -286,6 +314,23 @@ export default {
       top: 0;
       z-index: 0;
       filter: blur(7px);
+    }
+  }
+
+  .spinner {
+    position: fixed;
+    z-index: 1040;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #545454;
+    opacity: 0.7;
+    display: flex;
+    align-items: center;
+
+    > .vue-simple-spinner {
+      opacity: 1;
     }
   }
 
