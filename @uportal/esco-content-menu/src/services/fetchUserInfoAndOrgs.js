@@ -1,5 +1,5 @@
 import oidc from '@uportal/open-id-connect';
-import _ from 'lodash';
+import get from 'lodash/get';
 
 export default async function(contextApiUrl, userAllOrgIdAttribute) {
   if (process.env.NODE_ENV === 'development') {
@@ -19,7 +19,7 @@ export default async function(contextApiUrl, userAllOrgIdAttribute) {
       const {encoded, decoded} = await oidc({
         userInfoApiUrl: contextApiUrl + process.env.VUE_APP_USER_INFO_URI,
       });
-      const orgIds = _.get(decoded, userAllOrgIdAttribute, null);
+      const orgIds = get(decoded, userAllOrgIdAttribute, null);
       if (orgIds?.length > 0) {
         const options = {
           method: 'GET',
