@@ -1,6 +1,7 @@
 import oidc from '@uportal/open-id-connect';
+import get from 'lodash/get';
 
-export default async function(contextApiUrl, userOrgIdAttribute) {
+export default async function(contextApiUrl, userAllOrgIdAttribute) {
   if (process.env.NODE_ENV === 'development') {
     const userInfoRequest = await fetch('userinfo.json');
     const orgsInfoRequest = await fetch('orginfo.json');
@@ -18,7 +19,8 @@ export default async function(contextApiUrl, userOrgIdAttribute) {
       const {encoded, decoded} = await oidc({
         userInfoApiUrl: contextApiUrl + process.env.VUE_APP_USER_INFO_URI,
       });
-      if (decoded && decoded[userOrgIdAttribute]?.length > 0) {
+      const orgIds = get(decoded, userAllOrgIdAttribute, null);
+      if (orgIds?.length > 0) {
         const options = {
           method: 'GET',
           credentials: 'same-origin',
@@ -31,7 +33,7 @@ export default async function(contextApiUrl, userOrgIdAttribute) {
             process.env.VUE_APP_PORTAL_BASE_URL +
             process.env.VUE_APP_ORG_INFO_URI +
             '?ids=' +
-            decoded[userOrgIdAttribute],
+            orgIds,
             options
         );
         if (!response.ok) {
