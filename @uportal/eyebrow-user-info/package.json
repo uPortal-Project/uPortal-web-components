@@ -15,7 +15,7 @@
     "@babel/cli": "^7.1.2",
     "@babel/core": "^7.1.2",
     "@kazupon/vue-i18n-loader": "^0.3.0",
-    "@vue/cli-plugin-babel": "^3.0.5",
+    "@vue/cli-plugin-babel": "^3.2.0",
     "@vue/cli-plugin-eslint": "^3.0.5",
     "@vue/cli-service": "^3.0.5",
     "node-sass": "^4.9.4",
