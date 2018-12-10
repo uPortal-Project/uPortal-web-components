@@ -1,6 +1,4 @@
-module.exports = function(api) {
-  api.cache.never();
-  return {
-    presets: ['@vue/app'],
-  };
+module.exports = {
+  presets: ['@babel/preset-env'],
+  plugins: [['@babel/plugin-transform-runtime', {useESModules: true}]],
 };
