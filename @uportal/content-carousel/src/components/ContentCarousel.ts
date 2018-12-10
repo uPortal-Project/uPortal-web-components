@@ -5,7 +5,11 @@ import Slick from 'vue-slick';
 import {CarouselItem} from '../lib/CarouselItem';
 import {DataStrategy} from '../lib/DataStrategy';
 
-@Component
+@Component({
+components: {
+    Slick,
+    },
+    })
 export default class ContentCarousel extends Vue {
   get height(): string {
     return this.carouselHeight;
