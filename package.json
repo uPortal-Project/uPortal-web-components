@@ -32,6 +32,7 @@
   },
   "scripts": {
     "bootstrap": "lerna bootstrap --ci",
+    "prebuild": "rm -rf \"**/node_modules\" && npm ci && lerna bootstrap --ci",
     "build": "lerna run build",
     "ci:commitlint": "commitlint-travis",
     "format": "npm-run-all -p format:*",

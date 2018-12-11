@@ -2,10 +2,10 @@ import {Component, Provide, Vue} from 'vue-property-decorator';
 import ContentCarousel from './components/ContentCarousel';
 
 @Component({
-  components: {
-  ContentCarousel,
-  },
-  })
+components: {
+    ContentCarousel,
+    },
+    })
 export default class App extends Vue {
   @Provide()
   public heroOptions: any = {
