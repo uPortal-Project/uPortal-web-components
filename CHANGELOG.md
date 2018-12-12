@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased][]
 
+### Build
+
+- update babel configuration to build IE compatible code (#180).
+- add missing vue web component wrapper transpile step (#180).
+
 ## [1.19.0][] - 2018-12-06
 
 ### Feature
