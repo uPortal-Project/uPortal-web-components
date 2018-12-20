@@ -414,6 +414,13 @@ $searchSize: 32px;
         margin: 20px auto;
         padding: 0 2.5px;
       }
+
+      /** fix IE flexbox bug on margin auto https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/14593426/. */
+      @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+        .flex-item {
+          margin: 20px 5px;
+        }
+      }
     }
 
     a.no-style {
