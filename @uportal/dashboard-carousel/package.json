@@ -6,7 +6,7 @@
   },
   "scripts": {
     "start": "vue-cli-service serve",
-    "build": "vue-cli-service build"
+    "build": "vue-cli-service build --target wc --name dashboard-carousel"
   },
   "dependencies": {
     "@uportal/open-id-connect": "^1.19.1",

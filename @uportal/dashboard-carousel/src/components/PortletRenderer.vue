@@ -3,6 +3,8 @@
 </template>
 
 <script>
+import ky from 'ky';
+
 export default {
   name: 'PortletRenderer',
   props: {
@@ -11,7 +13,7 @@ export default {
   asyncComputed: {
     portletContent: {
       async get() {
-        const {layoutApiUrl, debug} = this;
+        const {portletHtmlUrl, debug} = this;
         try {
           const headers = true
             ? {}
@@ -19,7 +21,7 @@ export default {
               'Authorization': 'Bearer ' + (await oidc()).encoded,
               'content-type': 'application/jwt',
             };
-          return await ky.get(portletHtmlUrl, {headers}).json();
+          return await ky.get(portletHtmlUrl, {headers}).text();
         } catch (err) {
           // eslint-disable-next-line no-console
           console.error(err);
@@ -32,5 +34,5 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-/* TODO add bootstrap? */
+    /* TODO add bootstrap? */
 </style>

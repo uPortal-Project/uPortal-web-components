@@ -1,40 +1,49 @@
 <template>
   <div>
-    <Slick
-      ref="slick"
-      :options="slickOptions"
-    >
-      <div
-        class="slick-item"
-        v-for="region of dashboard.folders"
-        :key="region.name"
+    <template v-if="!dashboard">
+      <slot name="empty">
+        <p>no results found</p>
+      </slot>
+    </template>
+
+    <template v-else>
+      <Slick
+        ref="slick"
+        :options="slickOptions"
       >
         <div
-          v-for="card of region.content"
-          :key="card.name"
+          class="slick-item"
+          v-for="region of dashboard.folders"
+          :key="region.name"
         >
-          <h3>{{ card.name }}</h3>
+          <div
+            v-for="card of region.content"
+            :key="card.name"
+          >
+            <PortletRenderer :portlet-html-url="card.url" />
+          </div>
         </div>
-      </div>
-    </Slick>
-    <ul>
-      <li
-        v-for="(region, index) in dashboard.folders"
-        :key="region.name"
-      >
-        <button
-          class="btn"
-          @click="clickHandler(index)"
+      </Slick>
+      <ul>
+        <li
+          v-for="(region, index) in dashboard.folders"
+          :key="region.name"
         >
-          {{ region.name }}
-        </button>
-      </li>
-    </ul>
+          <button
+            class="btn"
+            @click="clickHandler(index)"
+          >
+            {{ region.name }}
+          </button>
+        </li>
+      </ul>
+    </template>
   </div>
 </template>
 
 <script>
 import Slick from 'vue-slick';
+import PortletRenderer from './PortletRenderer';
 import Vue from 'vue';
 import AsyncComputed from 'vue-async-computed';
 import ky from 'ky';
@@ -53,6 +62,7 @@ export default {
   },
   components: {
     Slick,
+    PortletRenderer,
   },
   methods: {
     clickHandler(slideIndex) {
@@ -62,7 +72,7 @@ export default {
   props: {
     layoutApiUrl: {
       type: String,
-      default: 'layout.json',
+      default: '/uPortal/api/v4-3/dlm/layout.json',
     },
   },
   asyncComputed: {
@@ -84,7 +94,9 @@ export default {
         }
       },
       default: {
-        regions: [],
+        layout: {
+          regions: [],
+        },
       },
     },
   },
@@ -103,9 +115,14 @@ export default {
         slick.create();
         slick.goTo(currentIndex, true);
       });
-      return (
-        this.layout.regions.find((region) => region.name === 'dashboard') || {}
+      const dashboard = this.layout.layout.regions.find(
+          (region) => region.name === 'dashboard'
       );
+
+      if (!dashboard) {
+        console.error('Dashboard data not loaded');
+      }
+      return dashboard;
     },
   },
 };
@@ -116,6 +133,14 @@ export default {
 @import '../../node_modules/slick-carousel/slick/slick.css';
 @import '../../node_modules/slick-carousel/slick/slick-theme.css';
 
+ul {
+  list-style: none;
+
+  li {
+    list-style-type: none;
+    display: inline;
+  }
+}
 .btn {
   background-color: aquamarine;
 }
