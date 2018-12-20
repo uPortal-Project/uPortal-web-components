@@ -19,7 +19,7 @@
     </div>
     <div class="portlet-card-description">
       <ellipsis
-        ng-if="append"
+        v-if="append"
         :message="truncate(description)"
         :line-height="'20px'"
         :end-char="'...'" />
