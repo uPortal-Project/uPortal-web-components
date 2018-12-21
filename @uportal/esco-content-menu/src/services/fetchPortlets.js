@@ -2,8 +2,8 @@ import oidc from '@uportal/open-id-connect';
 
 export default async function(contextApiUrl) {
   if (process.env.NODE_ENV === 'development') {
-    const response = await fetch('browseable.json');
-    const {portlets} = await response.json();
+    const response = await fetch('portletRegistry.json');
+    const portlets = await response.json();
     return portlets;
   }
 
@@ -30,7 +30,7 @@ export default async function(contextApiUrl) {
       throw new Error(response.statusText);
     }
 
-    const {portlets} = await response.json();
+    const portlets = await response.json();
 
     return portlets;
   } catch (err) {

@@ -83,8 +83,12 @@ export default {
       channelId: this.portletDesc.id,
       description: this.portletDesc.description,
       title: this.portletDesc.title,
-      canFavorite: this.portletDesc.canAdd,
-      iconUrl: computeUrl(this.portletDesc.layoutObject.iconUrl),
+      canFavorite: this.portletDesc?.canAdd ? this.portletDesc.canAdd : true,
+      iconUrl: computeUrl(
+        this.portletDesc.parameters?.iconUrl?.value
+          ? this.portletDesc.parameters?.iconUrl?.value
+          : null
+      ),
       append: false,
     };
   },
