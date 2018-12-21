@@ -25,7 +25,8 @@
           :hide-action="hideAction"
           :favorite-api-url="favoriteApiUrl"
           :is-hidden="_isHidden"
-          :user-info-api-url="userInfoApiUrl" />
+          :user-info-api-url="userInfoApiUrl"
+          :context-api-url="contextApiUrl" />
       </div>
       <div
         :style="(backgroundImg != null && (_screenSize === 'large' || _screenSize === 'medium')) ? 'background-image: linear-gradient(0deg, rgba(0,0,0,.2),rgba(0,0,0,.2)), url(' + backgroundImg + ');' : ''"
@@ -39,7 +40,8 @@
       :portlet-card-size="gridPortletCardSize"
       :hide-action="hideAction"
       :favorite-api-url="favoriteApiUrl"
-      :user-info-api-url="userInfoApiUrl" />
+      :user-info-api-url="userInfoApiUrl"
+      :context-api-url="contextApiUrl" />
     <vue-simple-spinner
       v-show="isLoading"
       class="spinner"
@@ -56,6 +58,7 @@ import vueSimpleSpinner from 'vue-simple-spinner';
 import fetchUserInfoAndOrg from '../services/fetchUserInfoAndOrgs';
 import fetchPortlets from '../services/fetchPortlets';
 import fetchFavorites from '../services/fetchFavorites';
+import {portletRegistryToArray} from '../services/portlet-registry-to-array';
 import flattenFavorites from '../services/flattenFavorites';
 import byPortlet from '../services/sortByPortlet';
 import toggleArray from '../services/toggleArray';
@@ -123,8 +126,8 @@ export default {
         organizations: [],
         user: {},
         userOrganization: {},
+        portlets: [],
       },
-      portletsAPI: [],
       loadingState: {
         favorites: true,
         portlets: true,
@@ -135,7 +138,7 @@ export default {
   },
   computed: {
     _portlets() {
-      return this.portletsAPI;
+      return this.info.portlets;
     },
     _isHidden() {
       return this.isHidden;
@@ -253,7 +256,7 @@ export default {
     async fetchPortlets() {
       this.loadingState.portlets = false;
       const portlets = await fetchPortlets(this.contextApiUrl);
-      this.portletsAPI = portlets.sort(byPortlet);
+      this.info.portlets = portletRegistryToArray(portlets).sort(byPortlet);
       this.loadingState.portlets = true;
     },
     async fetchFavorites() {

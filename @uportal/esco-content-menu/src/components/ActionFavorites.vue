@@ -35,7 +35,7 @@ export default {
   },
   props: {
     callOnToggleFav: {type: Function, default: () => {}},
-    chanId: {type: String, required: true},
+    chanId: {type: Number, required: true},
     favoriteApiUrl: {
       type: String,
       default:

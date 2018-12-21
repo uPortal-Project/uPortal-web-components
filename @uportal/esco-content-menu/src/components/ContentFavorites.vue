@@ -20,8 +20,9 @@
           v-for="portlet in favorited"
           :key="portlet.id">
           <a
-            :href="portlet.renderUrl"
-            :target="portlet.layoutObject.altMaxUrl ? '_blank' : '_self'"
+            :href="getRenderPortletUrl(portlet)"
+            :target="hasAlternativeMaximizedUrl(portlet) ? '_blank' : '_self'"
+            :rel="hasAlternativeMaximizedUrl(portlet) ? 'noopener noreferrer' : ''"
             class="no-style">
             <portlet-card
               :portlet-desc="portlet"
@@ -68,6 +69,10 @@ import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome';
 import {swiper, swiperSlide} from 'vue-awesome-swiper';
 import {elementWidth, sizeValidator} from '../services/sizeTools';
 import byFavoriteOrder from '../services/sortByFavoriteOrder';
+import {
+  hasAlternativeMaximizedUrl,
+  getRenderUrl,
+} from '../services/managePortletUrl';
 
 export default {
   name: 'ContentFavorites',
@@ -105,6 +110,10 @@ export default {
     },
     hideAction: {type: Boolean, default: false},
     portlets: {type: Array, required: true, default: () => []},
+    contextApiUrl: {
+      type: String,
+      default: process.env.VUE_APP_PORTAL_CONTEXT,
+    },
   },
   data() {
     return {
@@ -174,6 +183,12 @@ export default {
   methods: {
     translate(text, lang) {
       return i18n.t(text, lang);
+    },
+    hasAlternativeMaximizedUrl(portletDesc) {
+      return hasAlternativeMaximizedUrl(portletDesc);
+    },
+    getRenderPortletUrl(portletDesc) {
+      return getRenderUrl(portletDesc, this.contextApiUrl);
     },
     calculateSize() {
       if (this.portletCardSize === 'auto') {

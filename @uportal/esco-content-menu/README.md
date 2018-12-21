@@ -203,6 +203,7 @@ Need some work for a standalone use.
 
 #### Properties
 
+- `context-api-url`: type: `String`, default: `/uPortal`, usefull to provide a different uPortal context on which to do request
 - `org-info`: type: `Object`, default: `{}`, the current user organization detail object,
 - `other-orgs`: type: `Array`, default: `[]`, all other organizations details object when the user have several,
 - `user-info`: type: `Object`, required: `true`, the user information object,
