@@ -4,7 +4,9 @@
     :style="'background-color:' + backgroundColor"
     class="content-grid">
     <div>
-      <div class="title">
+      <div
+        class="title"
+        v-if="!hideTitle">
         <slot name="header-left">
           <h1>
             {{ translate("message.services.title") }}
@@ -109,6 +111,7 @@ export default {
     PortletCard,
   },
   props: {
+    hideTitle: {type: Boolean, default: false},
     backgroundColor: {type: String, default: 'rgba(0, 0, 0, 0)'},
     callAfterAction: {type: Function, default: undefined},
     favoriteApiUrl: {
