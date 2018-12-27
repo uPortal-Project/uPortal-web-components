@@ -432,12 +432,10 @@ $searchSize: 32px;
   &.small,
   &.smaller {
     > div {
-      background-color: #f3f3f3;
       border-radius: 5px;
 
       > .title {
         position: relative;
-        background-color: white;
         border-radius: 5px;
 
         > h1 {
