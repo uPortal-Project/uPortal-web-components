@@ -10,26 +10,29 @@
       <Slick
         ref="slick"
         :options="slickOptions"
+        @afterChange="handleAfterChange"
       >
         <div
           class="slick-item"
           v-for="region of dashboard.folders"
           :key="region.name"
         >
-          <div
+          <span
             v-for="card of region.content"
             :key="card.name"
           >
             <PortletRenderer :portlet-html-url="card.url" />
-          </div>
+          </span>
         </div>
       </Slick>
-      <ul>
+      <ul ref="buttons">
         <li
           v-for="(region, index) in dashboard.folders"
           :key="region.name"
+          :id="'dashboardCarousel-' + index"
         >
           <button
+            :class="{ 'active': activeIndex === index }"
             class="btn"
             @click="clickHandler(index)"
           >
@@ -57,7 +60,9 @@ export default {
     return {
       slickOptions: {
         dots: false,
+        arrows: true,
       },
+      activeIndex: 0,
     };
   },
   components: {
@@ -66,7 +71,11 @@ export default {
   },
   methods: {
     clickHandler(slideIndex) {
+      this.activeIndex = slideIndex;
       this.$refs.slick.goTo(slideIndex);
+    },
+    handleAfterChange(event, slick, currentSlide) {
+      this.activeIndex = currentSlide;
     },
   },
   props: {
@@ -133,15 +142,87 @@ export default {
 @import '../../node_modules/slick-carousel/slick/slick.css';
 @import '../../node_modules/slick-carousel/slick/slick-theme.css';
 
+.slick-item {
+  display: flex !important;
+  justify-content: space-evenly;
+
+  > span {
+    flex: 1 0 auto;
+    background-color: #fff;
+    margin: 0 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+  }
+}
+
+.slick-dots {
+  li {
+    button::before {
+      font-size: 16px;
+    }
+  }
+}
+
+.slick-slider {
+  margin: 0 40px;
+}
+
+.slick-slider /deep/ .slick-prev,
+.slick-slider /deep/ .slick-next {
+  height: 30px;
+  width: 30px;
+  background-color: black;
+  border-radius: 50%;
+}
+
+.slick-slider /deep/ .slick-prev {
+  left: -35px;
+}
+
+.slick-slider /deep/ .slick-next {
+  right: -35px;
+}
+
+.slick-slider /deep/ .slick-prev::before,
+.slick-slider /deep/ .slick-next::before {
+  color: white;
+  font-family: inherit;
+}
+
 ul {
   list-style: none;
+  display: flex;
+  justify-content: center;
 
   li {
     list-style-type: none;
-    display: inline;
+    margin: 0 10px;
+    min-width: 125px;
   }
 }
+
 .btn {
-  background-color: aquamarine;
+  color: #fff;
+  background-color: #007bff;
+  display: block;
+  font-weight: 400;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border: 1px solid #007bff;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: 0.25rem;
+  width: 100%;
+
+  &.active {
+    background-color: #fff;
+    color: #000;
+  }
 }
 </style>
