@@ -1,0 +1,26 @@
+/*
+ * This Gradle build script enables each Web Component to prepare a -SNAPSHOT webjar distribution
+ * and install it in your local Maven repository.
+ *
+ * Use '$ ./gradlew :@uportal:<project.name>:install' to build & install a single project, or simply
+ * '$ ./gradlew install' to build & install all projects at once.
+ */
+
+subprojects {
+
+    apply plugin: 'java'
+    apply plugin: 'maven'
+
+    def jsonFile = file("${projectDir}/package.json")
+    def parsedJson = new groovy.json.JsonSlurper().parseText(jsonFile.text)
+    project.version = parsedJson.version + '-SNAPSHOT'
+
+    jar {
+        baseName "uportal__${project.name}"
+        from '.'
+        exclude 'build'
+        exclude 'node_modules'
+        into "META-INF/resources/webjars/uportal__${project.name}/${project.version}"
+    }
+
+}

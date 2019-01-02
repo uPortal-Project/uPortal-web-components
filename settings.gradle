@@ -1,0 +1,9 @@
+/*
+ * Each of the following subprojects can be built & deployed to the local Maven repository using
+ * Gradle.
+ */
+
+include '@uportal:content-carousel'
+include '@uportal:esco-content-menu'
+include '@uportal:eyebrow-user-info'
+include '@uportal:waffle-menu'
