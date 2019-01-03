@@ -46,7 +46,7 @@ export default {
     fireCategoriesRequest() {
       this.$nextTick(() => {
         // await for data to resolve
-        if (this.allCategories && this.allCategories.length > 0) {
+        if (this?.allCategories?.length > 0) {
           return;
         }
         setTimeout(() => {
@@ -58,14 +58,14 @@ export default {
       });
     },
     fireFilterCategoryEvent() {
-      const event = new CustomEvent('gridCatFilter', {
+      const event = new CustomEvent('gridcategoryFilter', {
         bubbles: true,
         detail: this.filterCategory,
       });
       //
       // should check for fallback on older browsers
       // event = document.createEvent('Event');
-      // event.initCustomEvent('gridCatFilter',true, true, {detail: this.filterCategory});
+      // event.initCustomEvent('gridcategoryFilter',true, true, {detail: this.filterCategory});
       //
       this.$el.dispatchEvent(event);
     },
