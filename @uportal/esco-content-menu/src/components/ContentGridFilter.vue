@@ -1,24 +1,22 @@
 <template>
-  <div class="grid-categories">
-    <select
-      @change="fireFilterCategoryEvent()"
-      class="footer-categories"
-      v-model="filterCategory">
-      <option
-        class="default"
-        selected
-        value="">
-        {{ translate('message.filter.selectOption') }}
-      </option>
-      <option
-        v-for="category in allCategories"
-        :value="category"
-        :label="category"
-        :key="category">
-        {{ category }}
-      </option>
-    </select>
-  </div>
+  <select
+    @change="fireFilterCategoryEvent()"
+    class="grid-categories"
+    v-model="filterCategory">
+    <option
+      class="default"
+      selected
+      value="">
+      {{ translate('message.filter.selectOption') }}
+    </option>
+    <option
+      v-for="category in allCategories"
+      :value="category"
+      :label="category"
+      :key="category">
+      {{ category }}
+    </option>
+  </select>
 </template>
 
 <script>
@@ -83,7 +81,7 @@ export default {
   display: inline-block;
   width: 100%;
   max-width: 50rem;
-  height: calc(2.25rem + 2px);
+  height: calc(2rem + 2px);
   padding: 0.375rem 1.75rem 0.375rem 0.75rem;
   line-height: 1.5;
   color: #495057;
