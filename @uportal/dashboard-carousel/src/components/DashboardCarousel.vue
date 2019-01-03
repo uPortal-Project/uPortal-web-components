@@ -32,12 +32,11 @@
           :id="'dashboardCarousel-' + index"
         >
           <button
-            :class="{ 'active': activeIndex === index }"
+            :class="{ active: activeIndex === index }"
             class="btn"
             @click="clickHandler(index)"
-          >
-            {{ region.name }}
-          </button>
+            v-html="region.name"
+          />
         </li>
       </ul>
     </template>
@@ -146,14 +145,41 @@ export default {
 @import '../../node_modules/slick-carousel/slick/slick.css';
 @import '../../node_modules/slick-carousel/slick/slick-theme.css';
 
+.slick-track {
+  background-color: aquamarine;
+}
+
+.slick-initialized {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .slick-slide {
+    display: none !important;
+
+    .slick-current {
+      display: block !important;
+    }
+  }
+
+  .slick-list {
+    flex: 1 1 auto;
+  }
+
+  .slick-arrow {
+    flex: 0 0 auto;
+    width: 50px;
+  }
+}
+
 .slick-item {
   display: flex !important;
   justify-content: space-evenly;
 
   > span {
-    flex: 1 0 auto;
+    flex: 1 1 auto;
     background-color: #fff;
-    margin: 0 20px;
+    margin: 0 10px;
     padding: 10px;
     border: 1px solid #ccc;
   }
@@ -167,36 +193,38 @@ export default {
   }
 }
 
-.slick-slider {
-  margin: 0 40px;
-}
-
 .slick-slider /deep/ .slick-prev,
 .slick-slider /deep/ .slick-next {
-  height: 30px;
-  width: 30px;
-  background-color: black;
-  border-radius: 50%;
+  position: relative;
+  height: inherit;
+  width: inherit;
+  top: inherit;
+
+  &::before {
+    color: #666;
+    font-family: inherit;
+    font-size: 5rem;
+    font-weight: 700;
+  }
 }
 
 .slick-slider /deep/ .slick-prev {
-  left: -35px;
+  &::before {
+    content: '\3008';
+  }
 }
 
 .slick-slider /deep/ .slick-next {
-  right: -35px;
-}
-
-.slick-slider /deep/ .slick-prev::before,
-.slick-slider /deep/ .slick-next::before {
-  color: white;
-  font-family: inherit;
+  &::before {
+    content: '\3009';
+  }
 }
 
 ul {
   list-style: none;
   display: flex;
   justify-content: center;
+  padding: 0;
 
   li {
     list-style-type: none;
@@ -224,6 +252,21 @@ ul {
   &.active {
     background-color: #fff;
     color: #000;
+  }
+}
+
+/* Small devices (landscape phones, less than 768px) */
+@media (max-width: 767.98px) {
+  .slick-item {
+    flex-direction: column;
+  }
+
+  ul {
+    flex-direction: column;
+
+    li {
+      margin-top: 10px;
+    }
   }
 }
 </style>
