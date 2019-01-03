@@ -150,6 +150,8 @@ Standalone properties:
 - `userInfo-api-url`: type: `String`, default: `/uPortal/api/v5-1/userinfo`, url/uri on which the api request is done to obtain user information and the jwt tocken
 - `portlet-card-size`: type: possible value `auto|large|medium|small|smaller`, default: `auto`, define the size of `portlet-cards` component.
 - `hide-action: type`: `Boolean`, default: `false`, define to hide or not the `action-favorite` button defined into `portlet-card`
+- `show-footer-categories`: `Boolean`, default: `false`, define to display category dropdown filter near bottom of grid
+- `hide-title`: `Boolean`, default: `false`, define to remove the title area from the grid, useful when a basic grid is desired
 
 and additional properties to work with the parent component `content-menu`:
 

@@ -111,7 +111,7 @@ export default {
 
     > .menu-wrapper {
       width: 25px;
-      padding: 0 4px;
+      margin: 0 10px;
 
       > div {
         height: 2px;

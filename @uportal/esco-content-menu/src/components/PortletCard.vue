@@ -19,7 +19,7 @@
     </div>
     <div class="portlet-card-description">
       <ellipsis
-        ng-if="append"
+        v-if="append"
         :message="truncate(description)"
         :line-height="'20px'"
         :end-char="'...'" />
@@ -116,10 +116,7 @@ export default {
       return appClasses.map((v) => v.toLowerCase()).join(' ');
     },
     favBgIsDark() {
-      return (
-        this.backGroundIsDark &&
-        (this.size == 'small' || this.size == 'smaller')
-      );
+      return this.backGroundIsDark && this.size.includes('small');
     },
   },
   methods: {

@@ -4,7 +4,9 @@
     :style="'background-color:' + backgroundColor"
     class="content-grid">
     <div>
-      <div class="title">
+      <div
+        class="title"
+        v-if="!hideTitle">
         <slot name="header-left">
           <h1>
             {{ translate("message.services.title") }}
@@ -109,6 +111,7 @@ export default {
     PortletCard,
   },
   props: {
+    hideTitle: {type: Boolean, default: false},
     backgroundColor: {type: String, default: 'rgba(0, 0, 0, 0)'},
     callAfterAction: {type: Function, default: undefined},
     favoriteApiUrl: {
@@ -414,6 +417,13 @@ $searchSize: 32px;
         margin: 20px auto;
         padding: 0 2.5px;
       }
+
+      /** fix IE flexbox bug on margin auto https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/14593426/. */
+      @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+        .flex-item {
+          margin: 20px 5px;
+        }
+      }
     }
 
     a.no-style {
@@ -425,12 +435,10 @@ $searchSize: 32px;
   &.small,
   &.smaller {
     > div {
-      background-color: #f3f3f3;
       border-radius: 5px;
 
       > .title {
         position: relative;
-        background-color: white;
         border-radius: 5px;
 
         > h1 {
