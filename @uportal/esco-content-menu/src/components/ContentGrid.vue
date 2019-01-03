@@ -194,6 +194,10 @@ export default {
       );
     },
   },
+  beforeMount() {
+    window.addEventListener('gridNeedCategories', this.emitAllCategories);
+    window.addEventListener('gridCatFilter', this.setFilterCategory);
+  },
   mounted() {
     if (!this.portlets) {
       this.fetchPortlets();
@@ -207,6 +211,8 @@ export default {
     });
   },
   beforeDestroy() {
+    window.removeEventListener('gridCatFilter', this.setFitlerCategory);
+    window.removeEventListener('gridNeedCategories', this.emitAllCategories);
     window.removeEventListener('resize', this.calculateSize);
   },
   methods: {
@@ -240,6 +246,20 @@ export default {
       if (!this.favorites) {
         this.localFavorites = toggleArray(this.localFavorites, fname);
       }
+    },
+    setFilterCategory(e) {
+      this.filterCategory = e.detail || '';
+    },
+    emitAllCategories(e) {
+      this.$nextTick(function() {
+        // nextTick() waits for data to be resolved
+        if (this.allCategories.length > 0) {
+          const event = new CustomEvent('gridCategories', {
+            detail: this.allCategories,
+          });
+          window.dispatchEvent(event);
+        }
+      });
     },
   },
 };
