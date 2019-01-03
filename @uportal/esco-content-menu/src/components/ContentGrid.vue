@@ -199,7 +199,7 @@ export default {
   },
   beforeMount() {
     window.addEventListener('gridNeedCategories', this.emitAllCategories);
-    window.addEventListener('gridCatFilter', this.setFilterCategory);
+    window.addEventListener('gridCategoryFilter', this.setFilterCategory);
   },
   mounted() {
     if (!this.portlets) {
@@ -214,7 +214,7 @@ export default {
     });
   },
   beforeDestroy() {
-    window.removeEventListener('gridCatFilter', this.setFitlerCategory);
+    window.removeEventListener('gridCategoryFilter', this.setFitlerCategory);
     window.removeEventListener('gridNeedCategories', this.emitAllCategories);
     window.removeEventListener('resize', this.calculateSize);
   },
@@ -254,7 +254,7 @@ export default {
       this.filterCategory = e.detail || '';
     },
     emitAllCategories(e) {
-      this.$nextTick(function() {
+      this.$nextTick(() => {
         // nextTick() waits for data to be resolved
         if (this.allCategories.length > 0) {
           const event = new CustomEvent('gridCategories', {
