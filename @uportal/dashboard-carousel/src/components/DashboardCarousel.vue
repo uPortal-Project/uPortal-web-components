@@ -83,13 +83,17 @@ export default {
       type: String,
       default: '/uPortal/api/v4-3/dlm/layout.json',
     },
+    debug: {
+      type: Boolean,
+      default: true,
+    },
   },
   asyncComputed: {
     layout: {
       async get() {
         const {layoutApiUrl, debug} = this;
         try {
-          const headers = true
+          const headers = debug
             ? {}
             : {
               'Authorization': 'Bearer ' + (await oidc()).encoded,
@@ -209,9 +213,6 @@ ul {
   text-align: center;
   white-space: nowrap;
   vertical-align: middle;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
   user-select: none;
   border: 1px solid #007bff;
   padding: 0.375rem 0.75rem;
