@@ -39,14 +39,27 @@ vue create {component-name} --default
 
 # navigate into newly created component folder
 cd {component-name}
+
+# add additional dependencies for legacy browser support
+npm install @babel/{cli,plugin-transform-runtime,preset-env}
 ```
 
 open _package.json_ in an editor
-edit the build step to automatically generate a web component
+edit the scripts section to automatically generate a web component
 
 ```diff
 - "build": "vue-cli-service build",
++ "prebuild": "babel node_modules/@vue/web-component-wrapper/dist/vue-wc-wrapper.js -o node_modules/@vue/web-component-wrapper/dist/vue-wc-wrapper.js",
 + "build": "vue-cli-service build --name {component-name} --target wc",
+```
+
+create or open _babel.config.js_ in an editor.
+
+```js
+module.exports = {
+  presets: ['@babel/preset-env'],
+  plugins: [['@babel/plugin-transform-runtime', { useESModules: true }]]
+};
 ```
 
 Done!
