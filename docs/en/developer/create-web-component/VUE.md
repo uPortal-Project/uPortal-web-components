@@ -41,7 +41,7 @@ vue create {component-name} --default
 cd {component-name}
 
 # add additional dependencies for legacy browser support
-npm install @babel/{cli,plugin-transform-runtime,preset-env}
+npm install --save-dev @babel/{cli,plugin-transform-runtime,preset-env}
 ```
 
 open _package.json_ in an editor
