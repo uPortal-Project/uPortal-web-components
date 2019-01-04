@@ -4,18 +4,23 @@
 
 <script>
 import ky from 'ky';
+import oidc from '@uportal/open-id-connect';
 
 export default {
   name: 'PortletRenderer',
   props: {
     portletHtmlUrl: String,
+    debug: {
+      type: Boolean,
+      default: false,
+    },
   },
   asyncComputed: {
     portletContent: {
       async get() {
         const {portletHtmlUrl, debug} = this;
         try {
-          const headers = true
+          const headers = debug
             ? {}
             : {
               'Authorization': 'Bearer ' + (await oidc()).encoded,
@@ -34,5 +39,5 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-    /* TODO add bootstrap? */
+/* TODO add bootstrap? */
 </style>

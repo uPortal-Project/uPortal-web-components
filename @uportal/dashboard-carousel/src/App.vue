@@ -1,6 +1,9 @@
 <template>
   <div id="app">
-    <DashboardCarousel debug />
+    <DashboardCarousel
+      debug
+      layout-api-url="layout.json"
+    />
   </div>
 </template>
 
