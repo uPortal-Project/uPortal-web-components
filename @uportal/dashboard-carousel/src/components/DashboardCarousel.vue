@@ -84,7 +84,7 @@ export default {
     },
     debug: {
       type: Boolean,
-      default: true,
+      default: false,
     },
   },
   asyncComputed: {
