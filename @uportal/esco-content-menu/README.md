@@ -244,6 +244,32 @@ This component render informations about a portlet as a card.
 - `favorite-api-url`: type: `String`, default: `/uPortal/api/layout`, the uri/url of the favorites api (passed to the `action-favorite` component),
 - `user-info-api-url`: type: `String`, default: `/uPortal/api/v5-1/userinfo`, url/uri on which the api request is done to obtain user information and the jwt tocken, (passed to the `action-favorite` component),
 
+### The content grid category filter
+
+This component is an external version of the filter built into Content Grid that allows for arbitrary placement on the page.
+
+#### Html
+
+```html
+<script src="/resource-server/webjars/vue/dist/vue.min.js"></script>
+<script
+  src="/resource-server/webjars/uportal__esco-content-menu/dist/esco.min.js"
+  defer
+></script>
+
+<esco-content-grid
+  portlet-card-size="gridPortletCardSize"
+  hide-action="hideAction"
+>
+</esco-content-grid>
+
+<esco-content-grid-filter></esco-content-grid-filter>
+```
+
+#### Properties
+
+- none
+
 ### The ellipsis
 
 This component permit to apply an auto-fit/trunc or a line-clamping to a text when the div size should be limited. It avoids to apply an overflow: hidden and permit to manage an ellipsis on several line.
