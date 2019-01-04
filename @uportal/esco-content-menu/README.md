@@ -263,7 +263,7 @@ This component is an external version of the filter built into Content Grid that
 >
 </esco-content-grid>
 
-<esco-content-grid-filter />
+<esco-content-grid-filter></esco-content-grid-filter>
 ```
 
 #### Properties
