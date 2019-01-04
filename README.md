@@ -67,6 +67,7 @@ Want to chat with the community and contributors? Join us in [Slack][] and the [
 ## Additional Topics
 
 - [Local Project Setup](docs/en/developer/SETUP.md)
+- [Using -SNAPSHOT Builds in uPortal-start](docs/en/developer/SNAPSHOT.md)
 - [Project Automation Tools](docs/en/developer/AUTOMATION.md)
 - [Project Conventions and Practices](docs/en/developer/CONVENTIONS.md)
 
