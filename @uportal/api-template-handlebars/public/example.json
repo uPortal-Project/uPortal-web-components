@@ -1,0 +1,8 @@
+{
+  "telephoneNumber": ["(555) 555-5555"],
+  "sn": ["Student"],
+  "mail": ["steven.student@example.org"],
+  "displayName": ["Steven Student"],
+  "givenName": ["Steven"],
+  "username": ["student"]
+}
