@@ -6,7 +6,8 @@
   },
   "scripts": {
     "start": "vue-cli-service serve",
-    "build": "vue-cli-service build --target wc --name dashboard-carousel"
+    "prebuild": "babel node_modules/@vue/web-component-wrapper/dist/vue-wc-wrapper.js -o node_modules/@vue/web-component-wrapper/dist/vue-wc-wrapper.js",
+    "build": "vue-cli-service build --target wc --name dashboard-carousel src/components/DashboardCarousel.vue"
   },
   "dependencies": {
     "@uportal/open-id-connect": "^1.21.0",
