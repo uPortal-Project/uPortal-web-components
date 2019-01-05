@@ -44,8 +44,16 @@ cd {component-name}
 npm install --save-dev @babel/{cli,plugin-transform-runtime,preset-env}
 ```
 
-open _package.json_ in an editor
-edit the scripts section to automatically generate a web component
+### Edit _package.json_
+
+Update the `name` of the component to include the `@uportal/` prefix.
+
+```diff
+- "name": "{component-name}",
++ "name": "@uportal/dashboard-carousel",
+```
+
+Update the `scripts` section to generate a web component automatically.
 
 ```diff
 - "build": "vue-cli-service build",
@@ -53,7 +61,9 @@ edit the scripts section to automatically generate a web component
 + "build": "vue-cli-service build --name {component-name} --target wc",
 ```
 
-create or open _babel.config.js_ in an editor.
+### Edit _babel.config.js_
+
+Create or open _babel.config.js_ in an editor.
 
 ```js
 module.exports = {
