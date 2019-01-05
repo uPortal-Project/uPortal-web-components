@@ -1,5 +1,7 @@
 <template>
-  <api-template-handlebars />
+  <api-template-handlebars
+    debug
+    data-api-url="example.json" />
 </template>
 
 <script>
