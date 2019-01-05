@@ -1,5 +1,5 @@
 {
-  "name": "api-template-handlebars",
+  "name": "@uportal/api-template-handlebars",
   "version": "0.1.0",
   "private": true,
   "scripts": {
