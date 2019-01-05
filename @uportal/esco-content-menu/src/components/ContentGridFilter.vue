@@ -58,7 +58,7 @@ export default {
       });
     },
     fireFilterCategoryEvent() {
-      const event = new CustomEvent('gridcategoryFilter', {
+      const event = new CustomEvent('gridCategoryFilter', {
         bubbles: true,
         detail: this.filterCategory,
       });
@@ -81,7 +81,7 @@ export default {
   display: inline-block;
   width: 100%;
   max-width: 50rem;
-  height: calc(2rem + 2px);
+  height: calc(2.5rem + 2px);
   padding: 0.375rem 1.75rem 0.375rem 0.75rem;
   line-height: 1.5;
   color: #495057;
