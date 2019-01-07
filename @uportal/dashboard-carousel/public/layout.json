@@ -20,7 +20,7 @@
             "content": [
               {
                 "_objectType": "portlet",
-                "url": "/uPortal/api/v4-3/portlet/weather.html",
+                "url": "example-portlet.html",
                 "iconUrl": "/uPortal/media/skins/icons/mobile/weather.png",
                 "ID": "u30l1n111",
                 "chanID": "61",
@@ -47,7 +47,7 @@
               },
               {
                 "_objectType": "portlet",
-                "url": "/uPortal/api/v4-3/portlet/admin-feature.html",
+                "url": "example-portlet.html",
                 "iconUrl": "/uPortal/media/skins/icons/mobile/settings.png",
                 "ID": "u30l1n112",
                 "chanID": "43",
@@ -73,7 +73,7 @@
               },
               {
                 "_objectType": "portlet",
-                "url": "/uPortal/api/v4-3/portlet/e-online.html",
+                "url": "example-portlet.html",
                 "iconUrl": "/uPortal/media/skins/icons/mobile/news.png",
                 "ID": "u30l1n113",
                 "chanID": "56",
@@ -114,7 +114,7 @@
             "content": [
               {
                 "_objectType": "portlet",
-                "url": "/uPortal/api/v4-3/portlet/daily-business-cartoon.html",
+                "url": "example-portlet.html",
                 "iconUrl": "/uPortal/media/skins/icons/mobile/feed.png",
                 "ID": "u30l1n121",
                 "chanID": "90",
@@ -142,7 +142,7 @@
               },
               {
                 "_objectType": "portlet",
-                "url": "/uPortal/api/v4-3/portlet/student-feature.html",
+                "url": "example-portlet.html",
                 "iconUrl": "/uPortal/media/skins/icons/mobile/academics.png",
                 "ID": "u30l1n122",
                 "chanID": "55",
@@ -168,7 +168,7 @@
               },
               {
                 "_objectType": "portlet",
-                "url": "/uPortal/api/v4-3/portlet/courses.html",
+                "url": "example-portlet.html",
                 "iconUrl": "/uPortal/media/skins/icons/mobile/courses_alt.png",
                 "ID": "u30l1n123",
                 "chanID": "91",
@@ -209,7 +209,7 @@
             "content": [
               {
                 "_objectType": "portlet",
-                "url": "/uPortal/api/v4-3/portlet/forgot-password.html",
+                "url": "example-portlet.html",
                 "iconUrl": "/uPortal/media/skins/icons/mobile/default.png",
                 "ID": "u30l1n131",
                 "chanID": "39",
@@ -231,7 +231,7 @@
               },
               {
                 "_objectType": "portlet",
-                "url": "/uPortal/api/v4-3/portlet/staff-feature.html",
+                "url": "example-portlet.html",
                 "iconUrl": "/uPortal/media/skins/icons/mobile/directory.png",
                 "ID": "u30l1n132",
                 "chanID": "59",
@@ -257,7 +257,7 @@
               },
               {
                 "_objectType": "portlet",
-                "url": "/uPortal/api/v4-3/portlet/feedback.html",
+                "url": "example-portlet.html",
                 "iconUrl": "/uPortal/media/skins/icons/mobile/default.png",
                 "ID": "u30l1n133",
                 "chanID": "114",
