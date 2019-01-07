@@ -50,7 +50,7 @@ Update the `name` of the component to include the `@uportal/` prefix.
 
 ```diff
 - "name": "{component-name}",
-+ "name": "@uportal/dashboard-carousel",
++ "name": "@uportal/{component-name}",
 ```
 
 Update the `scripts` section to generate a web component automatically.
