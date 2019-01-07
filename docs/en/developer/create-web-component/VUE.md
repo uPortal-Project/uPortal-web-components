@@ -21,7 +21,9 @@
 - [Node.js][] (using [NVM][] is recommended)
 - [Vue CLI][]
 
-## Setup
+## Step-by-Step Guide
+
+Start by using the following commands to setup a new Web Component project in Vue.
 
 ```sh
 # clone the repository if you haven't already
@@ -44,16 +46,28 @@ cd {component-name}
 npm install --save-dev @babel/{cli,plugin-transform-runtime,preset-env}
 ```
 
-open _package.json_ in an editor
-edit the scripts section to automatically generate a web component
+### Edit _package.json_
+
+Update the `scripts` section to generate a web component automatically.
 
 ```diff
 - "build": "vue-cli-service build",
 + "prebuild": "babel node_modules/@vue/web-component-wrapper/dist/vue-wc-wrapper.js -o node_modules/@vue/web-component-wrapper/dist/vue-wc-wrapper.js",
-+ "build": "vue-cli-service build --name {component-name} --target wc",
++ "build": "vue-cli-service build --name {component-name} --target wc src/components/{component-name}.vue",
 ```
 
-create or open _babel.config.js_ in an editor.
+> **NOTE:** The `prebuild` script transpiles an internal Vue library for Internet Explorer support.
+
+Add top-level `main` and `source` attributes.
+
+```diff
++ "main": "dist/{component-name}.js",
++ "source": "src/components/{component-name}.vue",
+```
+
+### Edit _babel.config.js_
+
+Create or open _babel.config.js_ in an editor.
 
 ```js
 module.exports = {
@@ -66,6 +80,49 @@ Done!
 There is now a new component added to the project.
 
 Use `npm install` and `npm run serve` to start a demo web server and follow the [Vue guide][] to see how to build a component
+
+## Additional Steps for Web Components in `uPortal-web-components` (This Project)
+
+If you're creating a Web Component with the intention of contributing it to this project, you should
+also perform the following steps.
+
+### Edit _package.json_
+
+Update the `name` of the component to include the `@uportal/` prefix.
+
+```diff
+- "name": "{component-name}",
++ "name": "@uportal/{component-name}",
+```
+
+Remove `private` (if present), and add top-level `version`, `publishConfig`, `repository`, `bugs`,
+and `homepage` attributes.
+
+```diff
+- "private": true,
++ "version": "{current-version}",
++ "publishConfig": {
++   "access": "public"
++ },
++ "repository": {
++   "type": "git",
++   "url": "git+https://github.com/uPortal-contrib/uPortal-web-components.git"
++ },
++ "bugs": {
++   "url": "https://github.com/uPortal-contrib/uPortal-web-components/issues"
++ },
++ "homepage": "https://github.com/uPortal-contrib/uPortal-web-components#readme"
+```
+
+### Edit _README.md_ (Component-Level)
+
+Add badges for _NPM Version_, _Maven Central_, and _Build Status_.
+
+```diff
++[![NPM Version](https://img.shields.io/npm/v/@uportal/{component-name}.svg)](https://www.npmjs.com/package/@uportal/{component-name})
++[![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.webjars.npm/uportal__{component-name}/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.webjars.npm/uportal__{component-name})
++[![Build Status](https://travis-ci.org/uPortal-contrib/uPortal-web-components.svg?branch=master)](https://travis-ci.org/uPortal-contrib/uPortal-web-components)
+```
 
 [git]: https://git-scm.com/download
 [node.js]: https://nodejs.org/en/download/
