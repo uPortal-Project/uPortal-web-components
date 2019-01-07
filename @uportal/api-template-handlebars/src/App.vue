@@ -1,7 +1,9 @@
 <template>
   <api-template-handlebars
-    debug
-    data-api-url="example.json" />
+      debug
+      data-api-url="example.json">
+    <h3 slot="content">Hello World!</h3>
+  </api-template-handlebars>
 </template>
 
 <script>

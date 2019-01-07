@@ -1,5 +1,10 @@
 <template>
-  <h2>Hello World!</h2>
+  <div class="api-template-handlebars">
+    <slot name="content">
+      <h3>No Content Specified</h3>
+      <p>Please specify content for this component using the <code>content</code> slot.</p>
+    </slot>
+  </div>
 </template>
 
 <script>
