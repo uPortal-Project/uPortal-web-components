@@ -49,6 +49,7 @@ For example an `example-component` would be loaded by adding
 ## Components
 
 - [Content Carousel](components/content-carousel/README.md)
+- [Dashboard Carousel](components/dashboard-carousel/README.md)
 - [Waffle Menu](components/waffle-menu/README.md)
 
 ## Utilities
