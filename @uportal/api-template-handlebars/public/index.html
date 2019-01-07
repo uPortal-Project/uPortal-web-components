@@ -14,7 +14,24 @@
         JavaScript enabled. Please enable it to continue.</strong
       >
     </noscript>
-    <div id="app"></div>
-    <!-- built files will be auto injected -->
+    <api-template-handlebars debug data-api-url="example.json">
+      <div slot="content">
+        <h3>{{ data.displayName }}</h3>
+        <table>
+          <tr>
+            <td>username:</td>
+            <td>{{ data.username }}</td>
+          </tr>
+          <tr>
+            <td>email:</td>
+            <td>{{ data.mail }}</td>
+          </tr>
+          <tr>
+            <td>Phone:</td>
+            <td>{{ data.telephoneNumber }}</td>
+          </tr>
+        </table>
+      </div>
+    </api-template-handlebars>
   </body>
 </html>
