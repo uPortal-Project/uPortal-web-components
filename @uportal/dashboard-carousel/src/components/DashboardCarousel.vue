@@ -101,7 +101,7 @@ export default {
               'Authorization': 'Bearer ' + (await oidc()).encoded,
               'content-type': 'application/jwt',
             };
-          return await ky.get(layoutApiUrl, {headers}).json();
+          return (await ky.get(layoutApiUrl, {headers}).json()).layout;
         } catch (err) {
           // eslint-disable-next-line no-console
           console.error(err);
@@ -109,9 +109,7 @@ export default {
         }
       },
       default: {
-        layout: {
-          regions: [],
-        },
+        regions: [],
       },
     },
   },
@@ -130,7 +128,7 @@ export default {
         slick.create();
         slick.goTo(currentIndex, true);
       });
-      const dashboard = this.layout.layout.regions.find(
+      const dashboard = this.layout.regions.find(
           (region) => region.name === 'dashboard'
       );
 
