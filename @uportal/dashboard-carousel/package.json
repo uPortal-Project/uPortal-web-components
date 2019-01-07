@@ -4,6 +4,8 @@
   "publishConfig": {
     "access": "public"
   },
+  "main": "dist/dashboard-carousel.js",
+  "source": "src/components/dashboard-carousel.vue",
   "scripts": {
     "start": "vue-cli-service serve",
     "prebuild": "babel node_modules/@vue/web-component-wrapper/dist/vue-wc-wrapper.js -o node_modules/@vue/web-component-wrapper/dist/vue-wc-wrapper.js",
