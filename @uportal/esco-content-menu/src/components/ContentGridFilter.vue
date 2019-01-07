@@ -67,7 +67,7 @@ export default {
       // event = document.createEvent('Event');
       // event.initCustomEvent('gridcategoryFilter',true, true, {detail: this.filterCategory});
       //
-      this.$el.dispatchEvent(event);
+      window.dispatchEvent(event);
     },
     setAllCategories(e) {
       this.allCategories = e.detail || [];

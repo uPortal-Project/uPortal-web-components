@@ -214,7 +214,7 @@ export default {
     });
   },
   beforeDestroy() {
-    window.removeEventListener('gridCategoryFilter', this.setFitlerCategory);
+    window.removeEventListener('gridCategoryFilter', this.setFilterCategory);
     window.removeEventListener('gridNeedCategories', this.emitAllCategories);
     window.removeEventListener('resize', this.calculateSize);
   },
