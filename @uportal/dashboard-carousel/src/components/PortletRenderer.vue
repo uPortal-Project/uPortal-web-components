@@ -37,7 +37,3 @@ export default {
   },
 };
 </script>
-
-<style lang="sass" scoped>
-/* TODO add bootstrap? */
-</style>
