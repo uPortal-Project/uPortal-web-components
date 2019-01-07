@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased][]
 
+## [1.21.2][] - 2019-01-07
+
+### Fix
+
+- **dashboard-carousel**: tie debug mode of portlet renderer to dashboard carousel, so component can be demoed without uPortal (#212).
+
+### Build
+
 ## [1.21.1][] - 2019-01-06
 
 ### Fix
@@ -764,8 +772,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - **open-id-connect**: Initial version of an OpenID Connect helper script to use in web components and JavaScript modules.
 - **content-carousel**: Initial version of content carousel, a carousel based portlet metadata display system.
 
-[unreleased]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.21.1...HEAD
-[1.21.1]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.21.1...v1.21.1
+[unreleased]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.21.2...HEAD
+[1.21.2]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.21.1...v1.21.2
+[1.21.1]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.21.0...v1.21.1
 [1.21.0]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.20.0...v1.21.0
 [1.20.0]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.19.1...v1.20.0
 [1.19.1]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.19.0...v1.19.1
