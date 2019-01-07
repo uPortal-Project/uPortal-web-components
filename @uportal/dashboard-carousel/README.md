@@ -4,36 +4,43 @@
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.webjars.npm/uportal__dashboard-carousel/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.webjars.npm/uportal__dashboard-carousel)
 [![Build Status](https://travis-ci.org/uPortal-contrib/uPortal-web-components.svg?branch=master)](https://travis-ci.org/uPortal-contrib/uPortal-web-components)
 
-## Project setup
+## Installation
 
-```
-npm install
-```
+```bash
+# install with npm
+npm install @uportal/dashboard-carousel
 
-### Compiles and hot-reloads for development
-
-```
-npm run serve
+# install with yarn
+yarn add @uportal/dashboard-carousel
 ```
 
-### Compiles and minifies for production
+_install with maven_
 
-```
-npm run build
-```
-
-### Run your tests
-
-```
-npm run test
+```xml
+<dependency>
+    <groupId>org.webjars.npm</groupId>
+    <artifactId>uportal__dashboard-carousel</artifactId>
+    <version>{version number goes here}</version>
+</dependency>
 ```
 
-### Lints and fixes files
+_install with gradle_
 
+```gradle
+compile 'org.webjars.npm:uportal__dashboard-carousel:{version number goes here}'
 ```
-npm run lint
+
+## Usage
+
+```html
+<!-- this uses the unpkg cdn, this could alternatively use resource server as a cdn -->
+<script src="https://unpkg.com/vue"></script>
+<script src="https://unpkg.com/@uportal/dashboard-carousel"></script>
+
+<dashboard-carousel></dashboard-carousel>
 ```
 
-### Customize configuration
+### Options
 
-See [Configuration Reference](https://cli.vuejs.org/config/).
+- `debug` (optional, boolean, default false): when enabled debug mode skips oauth authentication.
+- `layout-api-url` (optional, string, default: "/uPortal/api/v4-3/dlm/layout.json"): url to layout for carousel to use.
