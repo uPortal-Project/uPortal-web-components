@@ -42,5 +42,6 @@ compile 'org.webjars.npm:uportal__dashboard-carousel:{version number goes here}'
 
 ### Options
 
-- `debug` (optional, boolean, default false): when enabled debug mode skips oauth authentication.
+- `debug` (optional, boolean, default: false): when enabled debug mode skips oauth authentication.
 - `layout-api-url` (optional, string, default: "/uPortal/api/v4-3/dlm/layout.json"): url to layout for carousel to use.
+- `region` (optional, string, default: "dashboard"): name of the region in the layout that should be displayed.
