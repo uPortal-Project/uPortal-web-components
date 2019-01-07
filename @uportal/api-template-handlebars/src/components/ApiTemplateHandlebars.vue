@@ -53,18 +53,21 @@ export default {
             'content-type': 'application/jwt'
           }
         });
-        // store notifications to state... necessary?
-        // this.json = json;
+        // store notifications to state
+        this.json = json;
       } catch (err) {
         // eslint-disable-next-line no-console
         console.error(err);
       }
+    },
+    async processTemplate() {
+      await this.fetchJson();
     }
   },
 
   // entrypoint
   created() {
-    return this.fetchJson();
+    return this.processTemplate();
   }
 };
 </script>
