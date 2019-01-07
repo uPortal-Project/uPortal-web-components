@@ -15,6 +15,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Build
 
+- **dashboard-carousel**: set `source` and `main` so npm and maven can simplify path lookup (#211).
+
 ## [1.21.1][] - 2019-01-06
 
 ### Fix
