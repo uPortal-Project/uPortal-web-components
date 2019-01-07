@@ -1,5 +1,8 @@
 # api-template-handlebars
 
++[![NPM Version](https://img.shields.io/npm/v/@uportal/ api-template-handlebars.svg)](https://www.npmjs.com/package/@uportal/ api-template-handlebars)
++[![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.webjars.npm/uportal__ api-template-handlebars/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.webjars.npm/uportal__ api-template-handlebars) +[![Build Status](https://travis-ci.org/uPortal-contrib/uPortal-web-components.svg?branch=master)](https://travis-ci.org/uPortal-contrib/uPortal-web-components)
+
 ## Project setup
 
 ```
