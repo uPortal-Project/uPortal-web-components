@@ -89,6 +89,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    region: {
+      type: String,
+      default: 'dashboard',
+    },
   },
   asyncComputed: {
     layout: {
@@ -101,7 +105,7 @@ export default {
               'Authorization': 'Bearer ' + (await oidc()).encoded,
               'content-type': 'application/jwt',
             };
-          return (await ky.get(layoutApiUrl, {headers}).json()).layout;
+          return await ky.get(layoutApiUrl, {headers}).json();
         } catch (err) {
           // eslint-disable-next-line no-console
           console.error(err);
@@ -109,7 +113,9 @@ export default {
         }
       },
       default: {
-        regions: [],
+        layout: {
+          regions: [],
+        },
       },
     },
   },
@@ -128,8 +134,8 @@ export default {
         slick.create();
         slick.goTo(currentIndex, true);
       });
-      const dashboard = this.layout.regions.find(
-          (region) => region.name === 'dashboard'
+      const dashboard = this.layout.layout.regions.find(
+          (region) => region.name === this.region
       );
 
       if (!dashboard) {
