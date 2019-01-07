@@ -89,7 +89,7 @@ export default {
       type: Boolean,
       default: false,
     },
-    region: {
+    regionName: {
       type: String,
       default: 'dashboard',
     },
@@ -135,7 +135,7 @@ export default {
         slick.goTo(currentIndex, true);
       });
       const dashboard = this.layout.layout.regions.find(
-          (region) => region.name === this.region
+          (region) => region.name === this.regionName
       );
 
       if (!dashboard) {
