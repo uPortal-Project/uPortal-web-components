@@ -21,7 +21,10 @@
             v-for="card of region.content"
             :key="card.name"
           >
-            <PortletRenderer :portlet-html-url="card.url" />
+            <PortletRenderer
+              :portlet-html-url="card.url"
+              :debug="debug"
+            />
           </span>
         </div>
       </Slick>
