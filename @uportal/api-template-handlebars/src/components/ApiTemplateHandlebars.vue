@@ -1,8 +1,8 @@
 <template>
-  <div class="api-template-handlebars">
-    <slot name="content">
+  <div id="ath-container">
+    <slot>
       <h3>No Content Specified</h3>
-      <p>Please specify content for this component using the <code>content</code> slot.</p>
+      <p>Please specify content for this component using the default slot.</p>
     </slot>
   </div>
 </template>
@@ -10,6 +10,7 @@
 <script>
 import oidc from '@uportal/open-id-connect';
 import { get } from 'axios';
+import Vue from 'vue';
 
 export default {
   name: 'ApiTemplateHandlebars',
@@ -61,7 +62,13 @@ export default {
       }
     },
     async processTemplate() {
+      // Load data from the server
       await this.fetchJson();
+      // Render the slot content as a new Vue instance
+      new Vue({
+        el: '#ath-container',
+        data: this.json
+      });
     }
   },
 
