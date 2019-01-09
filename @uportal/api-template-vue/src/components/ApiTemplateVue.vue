@@ -13,7 +13,7 @@ import { get } from 'axios';
 import Vue from 'vue';
 
 export default {
-  name: 'ApiTemplateHandlebars',
+  name: 'ApiTemplateVue',
 
   props: {
     debug: {

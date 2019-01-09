@@ -1,15 +1,15 @@
 {
-  "name": "@uportal/api-template-handlebars",
+  "name": "@uportal/api-template-vue",
   "version": "1.21.2",
   "publishConfig": {
     "access": "public"
   },
-  "main": "dist/api-template-handlebars.js",
-  "source": "src/components/ApiTemplateHandlebars.vue",
+  "main": "dist/api-template-vue.js",
+  "source": "src/components/ApiTemplateVue.vue",
   "scripts": {
     "serve": "vue-cli-service serve",
     "prebuild": "babel node_modules/@vue/web-component-wrapper/dist/vue-wc-wrapper.js -o node_modules/@vue/web-component-wrapper/dist/vue-wc-wrapper.js",
-    "build": "vue-cli-service build --name api-template-handlebars --target wc 'src/components/*.vue'",
+    "build": "vue-cli-service build --name api-template-vue --target wc 'src/components/*.vue'",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {

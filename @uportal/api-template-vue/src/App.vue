@@ -1,5 +1,5 @@
 <template>
-  <api-template-handlebars
+  <api-template-vue
       debug
       data-api-url="example.json">
     <div v-pre><!-- Directive v-pre required b/c Vue will attempt to process anything in App.vue -->
@@ -19,16 +19,16 @@
         </tr>
       </table>
     </div>
-  </api-template-handlebars>
+  </api-template-vue>
 </template>
 
 <script>
-import ApiTemplateHandlebars from './components/ApiTemplateHandlebars.vue';
+import ApiTemplateVue from './components/ApiTemplateVue.vue';
 
 export default {
   name: 'app',
   components: {
-    ApiTemplateHandlebars
+    ApiTemplateVue
   }
 };
 </script>
