@@ -66,14 +66,14 @@ export default {
       await this.fetchJson();
       // Render the slot content as a new Vue instance
       new Vue({
-        el: '#ath-container',
+        el: this.$el,
         data: this.json
       });
     }
   },
 
   // entrypoint
-  created() {
+  mounted() {
     return this.processTemplate();
   }
 };
