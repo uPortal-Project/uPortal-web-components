@@ -3,7 +3,7 @@
  * Gradle.
  */
 
-include '@uportal:api-template-handlebars'
+include '@uportal:api-template-vue'
 include '@uportal:content-carousel'
 include '@uportal:esco-content-menu'
 include '@uportal:eyebrow-user-info'
