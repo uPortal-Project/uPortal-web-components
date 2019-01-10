@@ -21,6 +21,10 @@
       :switch-org-portlet-url="switchOrgPortletUrl"
       :call-on-close="toggleMenu"
       :context-api-url="contextApiUrl"
+      :favorite-api-url="favoriteApiUrl"
+      :portlet-api-url="portletApiUrl"
+      :user-info-api-url="userInfoApiUrl"
+      :debug="debug"
       :default-org-logo="defaultOrgLogo"
       :favorites-portlet-card-size="favoritesPortletCardSize"
       :grid-portlet-card-size="gridPortletCardSize"
@@ -51,6 +55,24 @@ export default {
       type: String,
       default: process.env.VUE_APP_PORTAL_CONTEXT,
     },
+    favoriteApiUrl: {
+      type: String,
+      default:
+        process.env.VUE_APP_PORTAL_CONTEXT +
+        process.env.VUE_APP_FAVORITES_PORTLETS_URI,
+    },
+    portletApiUrl: {
+      type: String,
+      default:
+        process.env.VUE_APP_PORTAL_CONTEXT +
+        process.env.VUE_APP_BROWSABLE_PORTLETS_URI,
+    },
+    userInfoApiUrl: {
+      type: String,
+      default:
+        process.env.VUE_APP_PORTAL_CONTEXT + process.env.VUE_APP_USER_INFO_URI,
+    },
+    debug: {type: Boolean, default: false},
     signOutUrl: {type: String, default: process.env.VUE_APP_LOGOUT_URL},
     defaultOrgLogo: {type: String, required: true},
     userInfoPortletUrl: {type: String, default: ''},

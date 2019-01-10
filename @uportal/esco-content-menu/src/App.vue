@@ -5,7 +5,9 @@
       api-url-org-info="/p/test"
       favorites-portlet-card-size="auto"
       grid-portlet-card-size="auto"
-      hide-action-mode="never" />
+      hide-action-mode="never"
+      portlet-api-url="portletRegistry.json"
+      debug />
   <!-- <content-grid
       background-color="grey"
       portlet-card-size="medium" /> -->

@@ -32,7 +32,8 @@
               :call-after-action="callAfterFavAction"
               :back-ground-is-dark="true"
               :favorite-api-url="favoriteApiUrl"
-              :user-info-api-url="userInfoApiUrl" />
+              :user-info-api-url="userInfoApiUrl"
+              :debug="debug" />
           </a>
         </swiper-slide>
       </swiper>
@@ -99,6 +100,7 @@ export default {
       default:
         process.env.VUE_APP_PORTAL_CONTEXT + process.env.VUE_APP_USER_INFO_URI,
     },
+    debug: {type: Boolean, default: false},
     favorites: {type: Array, required: true, default: () => []},
     parentScreenSize: {
       validator: sizeValidator(),

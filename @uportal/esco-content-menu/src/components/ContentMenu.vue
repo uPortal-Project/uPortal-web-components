@@ -26,7 +26,8 @@
           :favorite-api-url="favoriteApiUrl"
           :is-hidden="_isHidden"
           :user-info-api-url="userInfoApiUrl"
-          :context-api-url="contextApiUrl" />
+          :context-api-url="contextApiUrl"
+          :debug="debug"/>
       </div>
       <div
         :style="(backgroundImg != null && (_screenSize === 'large' || _screenSize === 'medium')) ? 'background-image: linear-gradient(0deg, rgba(0,0,0,.2),rgba(0,0,0,.2)), url(' + backgroundImg + ');' : ''"
@@ -41,7 +42,9 @@
       :hide-action="hideAction"
       :favorite-api-url="favoriteApiUrl"
       :user-info-api-url="userInfoApiUrl"
-      :context-api-url="contextApiUrl" />
+      :context-api-url="contextApiUrl"
+      :portlet-api-url="portletApiUrl"
+      :debug="debug"/>
     <vue-simple-spinner
       v-show="isLoading"
       class="spinner"
@@ -90,6 +93,24 @@ export default {
       type: String,
       default: process.env.VUE_APP_PORTAL_CONTEXT,
     },
+    favoriteApiUrl: {
+      type: String,
+      default:
+        process.env.VUE_APP_PORTAL_CONTEXT +
+        process.env.VUE_APP_FAVORITES_PORTLETS_URI,
+    },
+    portletApiUrl: {
+      type: String,
+      default:
+        process.env.VUE_APP_PORTAL_CONTEXT +
+        process.env.VUE_APP_BROWSABLE_PORTLETS_URI,
+    },
+    userInfoApiUrl: {
+      type: String,
+      default:
+        process.env.VUE_APP_PORTAL_CONTEXT + process.env.VUE_APP_USER_INFO_URI,
+    },
+    debug: {type: Boolean, default: false},
     signOutUrl: {type: String, default: process.env.VUE_APP_LOGOUT_URL},
     defaultOrgLogo: {type: String, required: true},
     userInfoPortletUrl: {type: String, default: ''},
@@ -116,9 +137,6 @@ export default {
   data() {
     return {
       backgroundImg: this.defaultOrgLogo,
-      favoriteApiUrl:
-        this.contextApiUrl + process.env.VUE_APP_FAVORITES_PORTLETS_URI,
-      userInfoApiUrl: this.contextApiUrl + process.env.VUE_APP_USER_INFO_URI,
       screenSize: 'medium',
       hideAction: false,
       info: {
@@ -255,7 +273,11 @@ export default {
     },
     async fetchPortlets() {
       this.loadingState.portlets = false;
-      const portlets = await fetchPortlets(this.contextApiUrl);
+      const portlets = await fetchPortlets(
+          this.userInfoApiUrl,
+          this.portletApiUrl,
+          this.debug
+      );
       this.info.portlets = portletRegistryToArray(portlets).sort(byPortlet);
       this.loadingState.portlets = true;
     },

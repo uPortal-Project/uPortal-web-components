@@ -63,7 +63,8 @@
               :hide-action="hideAction"
               :call-after-action="actionToggleFav"
               :favorite-api-url="favoriteApiUrl"
-              :user-info-api-url="userInfoApiUrl" />
+              :user-info-api-url="userInfoApiUrl"
+              :debug="debug" />
           </a>
         </div>
       </div>
@@ -119,21 +120,28 @@ export default {
     hideTitle: {type: Boolean, default: false},
     backgroundColor: {type: String, default: 'rgba(0, 0, 0, 0)'},
     callAfterAction: {type: Function, default: undefined},
+    contextApiUrl: {
+      type: String,
+      default: process.env.VUE_APP_PORTAL_CONTEXT,
+    },
     favoriteApiUrl: {
       type: String,
       default:
         process.env.VUE_APP_PORTAL_CONTEXT +
         process.env.VUE_APP_FAVORITES_PORTLETS_URI,
     },
-    contextApiUrl: {
+    portletApiUrl: {
       type: String,
-      default: process.env.VUE_APP_PORTAL_CONTEXT,
+      default:
+        process.env.VUE_APP_PORTAL_CONTEXT +
+        process.env.VUE_APP_BROWSABLE_PORTLETS_URI,
     },
     userInfoApiUrl: {
       type: String,
       default:
         process.env.VUE_APP_PORTAL_CONTEXT + process.env.VUE_APP_USER_INFO_URI,
     },
+    debug: {type: Boolean, default: false},
     /**
      * Warning the default value as undefined permit to distinct if the component should manage favorites locally.
      */
@@ -238,7 +246,11 @@ export default {
       return favorites.includes(fname);
     },
     async fetchPortlets() {
-      const portlets = await fetchPortlets(this.contextApiUrl);
+      const portlets = await fetchPortlets(
+          this.userInfoApiUrl,
+          this.portletApiUrl,
+          this.debug
+      );
       this.localPortlets = portletRegistryToArray(portlets).sort(byPortlet);
     },
     async fetchFavorites() {
