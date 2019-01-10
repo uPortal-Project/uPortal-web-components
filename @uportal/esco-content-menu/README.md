@@ -66,6 +66,7 @@ For some integration you could need a bit more, like into uPortal you will need 
 - `layout-api-url`: type: `String`, default: `/uPortal/api/v4-3/dlm/layout.json`, the uri/url of the layout api to request the favorite list in the oser defined order (only needed to get favorite's order defined by the user)
 - `portlet-api-url`: type: `String`, default: `/uPortal/api/v4-3/dlm/portletRegistry.json`, the uri/url of the portletRegistry api to obtains user authorized portlet list
 - `userInfo-api-url`: type: `String`, default: `/uPortal/api/v5-1/userinfo`, url/uri on which the api request is done to obtain user information and the jwt token
+- `organization-api-url`: type: `String`, optional, an uri/url of an api to retrieve organization informations, any json format is accepted, but configure `user-org-id-attribute-name`, `user-all-orgs-id-attribute-name`, `org-logo-url-attribute-name` to work with.
 - `sign-out-url`: type: `String`, default: `/uPortal/Logout`, an uri/url to call when user logout (for a logout button),
 - `default-org-logo`: type: `String`, required: true, an url/uri to provide an institutional picture when none is found from an optional api (not provided into uPortal),
 - `user-info-portlet-url`: type: `String`, default: `''`, an url/uri to the user information application,
@@ -109,6 +110,7 @@ This use the same properties from the `hamburger-menu` (see on `hamburger-menu` 
 - `context-api-url`
 - `favorite-api-url`
 - `layout-api-url`
+- `organization-api-url`
 - `user-info-api-url`
 - `portlet-api-url`
 - `sign-out-url`
