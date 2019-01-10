@@ -80,5 +80,9 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style lang="scss" scoped>
+// HACK: needed to scope styles for browsers that do not have shadow dom support
+#ath-container /deep/ {
+  @import '../../node_modules/bootstrap/scss/bootstrap';
+}
 </style>
