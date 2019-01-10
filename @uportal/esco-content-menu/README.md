@@ -64,7 +64,7 @@ For some integration you could need a bit more, like into uPortal you will need 
 - `context-api-url`: type: `String`, default: `/uPortal`, usefull to provide a different uPortal context on which to do request
 - `favorite-api-url`: type: `String`, default: `/uPortal/api/layout`, the uri/url of the favorites api
 - `portlet-api-url`: type: `String`, default: `/uPortal/api/v4-3/dlm/portletRegistry.json`, the uri/url of the portletRegistry api to obtains user authorized portlet list
-- `userInfo-api-url`: type: `String`, default: `/uPortal/api/v5-1/userinfo`, url/uri on which the api request is done to obtain user information and the jwt tocken
+- `userInfo-api-url`: type: `String`, default: `/uPortal/api/v5-1/userinfo`, url/uri on which the api request is done to obtain user information and the jwt token
 - `sign-out-url`: type: `String`, default: `/uPortal/Logout`, an uri/url to call when user logout (for a logout button),
 - `default-org-logo`: type: `String`, required: true, an url/uri to provide an institutional picture when none is found from an optional api (not provided into uPortal),
 - `user-info-portlet-url`: type: `String`, default: `''`, an url/uri to the user information application,
@@ -156,7 +156,7 @@ Standalone properties:
 - `context-api-url`: type: `String`, default: `/uPortal`, usefull to provide a different uPortal context on which to do request,
 - `favorite-api-url`: type: `String`, default: `/uPortal/api/layout`, the uri/url of the favorites api
 - `portlet-api-url`: type: `String`, default: `/uPortal/api/v4-3/dlm/portletRegistry.json`, the uri/url of the portletRegistry api to obtains user authorized portlet list
-- `userInfo-api-url`: type: `String`, default: `/uPortal/api/v5-1/userinfo`, url/uri on which the api request is done to obtain user information and the jwt tocken
+- `userInfo-api-url`: type: `String`, default: `/uPortal/api/v5-1/userinfo`, url/uri on which the api request is done to obtain user information and the jwt token
 - `portlet-card-size`: type: possible value `auto|large|medium|small|smaller`, default: `auto`, define the size of `portlet-cards` component.
 - `hide-action: type`: `Boolean`, default: `false`, define to hide or not the `action-favorite` button defined into `portlet-card`
 - `show-footer-categories`: `Boolean`, default: `false`, define to display category dropdown filter near bottom of grid
@@ -191,7 +191,7 @@ The component `action-favorite` is really simple, it show a start button that pe
 - `call-on-toggle-fav`: type: `Function`, default: `{}`, a callback function called after the click event on the button,
 - `chan-id`: type: `String`, required: `true`, the portlet id to add or remove from user favorites,
 - `favorite-api-url`: type: `String`, default: `/uPortal/api/layout`, the uri/url of the favorites api,
-- `user-info-api-url`: type: `String`, default: `/uPortal/api/v5-1/userinfo`, url/uri on which the api request is done to obtain user information and the jwt tocken,
+- `user-info-api-url`: type: `String`, default: `/uPortal/api/v5-1/userinfo`, url/uri on which the api request is done to obtain user information and the jwt token,
 - `fname`: type: `String`, required: `true`, the portlet fname that permit to identify the portlet into favorite's list, usefull for the callback function and apply a css class,
 - `is-favorite`: type: `Boolean`, default: `false`, provide the favorite state,
 - `back-ground-is-dark`: type: `Boolean`, default: `false`, permit to apply a style depending on background color, as the component is used as embeded,
@@ -254,7 +254,7 @@ This component render informations about a portlet as a card.
 - `call-after-action`: type: `Function`, default: `{}`, callback function to call after click on `action-favorite` button (passed to the `action-favorite` component),
 - `icon-background-color`: type: `String`, default: `Transparent`, could be used to apply a background-color behind a portlet icon - usecase if there isn't background on icon.
 - `favorite-api-url`: type: `String`, default: `/uPortal/api/layout`, the uri/url of the favorites api (passed to the `action-favorite` component),
-- `user-info-api-url`: type: `String`, default: `/uPortal/api/v5-1/userinfo`, url/uri on which the api request is done to obtain user information and the jwt tocken, (passed to the `action-favorite` component),
+- `user-info-api-url`: type: `String`, default: `/uPortal/api/v5-1/userinfo`, url/uri on which the api request is done to obtain user information and the jwt token, (passed to the `action-favorite` component),
 - `debug`: type: `Boolean`, default: `false`, for the demo/debug mode to be able to run in a standalone way (disable api call).
 
 ### The content grid category filter
