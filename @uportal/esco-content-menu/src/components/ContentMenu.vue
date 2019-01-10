@@ -41,6 +41,7 @@
       :portlet-card-size="gridPortletCardSize"
       :hide-action="hideAction"
       :favorite-api-url="favoriteApiUrl"
+      :layout-api-url="layoutApiUrl"
       :user-info-api-url="userInfoApiUrl"
       :context-api-url="contextApiUrl"
       :portlet-api-url="portletApiUrl"
@@ -98,6 +99,11 @@ export default {
       default:
         process.env.VUE_APP_PORTAL_CONTEXT +
         process.env.VUE_APP_FAVORITES_PORTLETS_URI,
+    },
+    layoutApiUrl: {
+      type: String,
+      default:
+        process.env.VUE_APP_PORTAL_CONTEXT + process.env.VUE_APP_FAVORITES_URI,
     },
     portletApiUrl: {
       type: String,
@@ -283,7 +289,11 @@ export default {
     },
     async fetchFavorites() {
       this.loadingState.favorites = false;
-      const favoritesTree = await fetchFavorites(this.contextApiUrl);
+      const favoritesTree = await fetchFavorites(
+          this.userInfoApiUrl,
+          this.layoutApiUrl,
+          this.debug
+      );
       this.info.favorites = flattenFavorites(favoritesTree);
       this.loadingState.favorites = true;
     },

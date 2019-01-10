@@ -22,6 +22,7 @@
       :call-on-close="toggleMenu"
       :context-api-url="contextApiUrl"
       :favorite-api-url="favoriteApiUrl"
+      :layout-api-url="layoutApiUrl"
       :portlet-api-url="portletApiUrl"
       :user-info-api-url="userInfoApiUrl"
       :debug="debug"
@@ -60,6 +61,11 @@ export default {
       default:
         process.env.VUE_APP_PORTAL_CONTEXT +
         process.env.VUE_APP_FAVORITES_PORTLETS_URI,
+    },
+    layoutApiUrl: {
+      type: String,
+      default:
+        process.env.VUE_APP_PORTAL_CONTEXT + process.env.VUE_APP_FAVORITES_URI,
     },
     portletApiUrl: {
       type: String,
