@@ -130,6 +130,11 @@ export default {
         process.env.VUE_APP_PORTAL_CONTEXT +
         process.env.VUE_APP_FAVORITES_PORTLETS_URI,
     },
+    layoutApiUrl: {
+      type: String,
+      default:
+        process.env.VUE_APP_PORTAL_CONTEXT + process.env.VUE_APP_FAVORITES_URI,
+    },
     portletApiUrl: {
       type: String,
       default:
@@ -254,7 +259,11 @@ export default {
       this.localPortlets = portletRegistryToArray(portlets).sort(byPortlet);
     },
     async fetchFavorites() {
-      const favoritesTree = await fetchFavorites(this.contextApiUrl);
+      const favoritesTree = await fetchFavorites(
+          this.userInfoApiUrl,
+          this.layoutApiUrl,
+          this.debug
+      );
       this.localFavorites = flattenFavorites(favoritesTree);
     },
     calculateSize() {

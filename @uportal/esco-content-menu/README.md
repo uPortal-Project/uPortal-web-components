@@ -63,6 +63,7 @@ For some integration you could need a bit more, like into uPortal you will need 
 
 - `context-api-url`: type: `String`, default: `/uPortal`, usefull to provide a different uPortal context on which to do request
 - `favorite-api-url`: type: `String`, default: `/uPortal/api/layout`, the uri/url of the favorites api
+- `layout-api-url`: type: `String`, default: `/uPortal/api/v4-3/dlm/layout.json`, the uri/url of the layout api to request the favorite list in the oser defined order (only needed to get favorite's order defined by the user)
 - `portlet-api-url`: type: `String`, default: `/uPortal/api/v4-3/dlm/portletRegistry.json`, the uri/url of the portletRegistry api to obtains user authorized portlet list
 - `userInfo-api-url`: type: `String`, default: `/uPortal/api/v5-1/userinfo`, url/uri on which the api request is done to obtain user information and the jwt token
 - `sign-out-url`: type: `String`, default: `/uPortal/Logout`, an uri/url to call when user logout (for a logout button),
@@ -107,6 +108,7 @@ This use the same properties from the `hamburger-menu` (see on `hamburger-menu` 
 
 - `context-api-url`
 - `favorite-api-url`
+- `layout-api-url`
 - `user-info-api-url`
 - `portlet-api-url`
 - `sign-out-url`
@@ -155,6 +157,7 @@ Standalone properties:
 - `call-after-action`: type: `Function`, default: `undefined`, a callback function to call into `portlet-card` embeding `action-favorite` after adding portlet to favorites,
 - `context-api-url`: type: `String`, default: `/uPortal`, usefull to provide a different uPortal context on which to do request,
 - `favorite-api-url`: type: `String`, default: `/uPortal/api/layout`, the uri/url of the favorites api
+- `layout-api-url`: type: `String`, default: `/uPortal/api/v4-3/dlm/layout.json`, the uri/url of the layout api to request the favorite list in the oser defined order (only needed to get favorite's order defined by the user)
 - `portlet-api-url`: type: `String`, default: `/uPortal/api/v4-3/dlm/portletRegistry.json`, the uri/url of the portletRegistry api to obtains user authorized portlet list
 - `userInfo-api-url`: type: `String`, default: `/uPortal/api/v5-1/userinfo`, url/uri on which the api request is done to obtain user information and the jwt token
 - `portlet-card-size`: type: possible value `auto|large|medium|small|smaller`, default: `auto`, define the size of `portlet-cards` component.

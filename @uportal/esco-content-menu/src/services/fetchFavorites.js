@@ -1,36 +1,28 @@
 import oidc from '@uportal/open-id-connect';
 
-export default async function(contextApiUrl) {
-  if (process.env.NODE_ENV === 'development') {
-    return [
-      {fname: 'search'},
-      {fname: 'CourrielAcademique'},
-      {fname: 'portal-activity'},
-      {fname: 'calendar'},
-      {fname: 'Helpinfo'},
-      {fname: 'MILycees'},
-    ];
-  }
-
+export default async function(userInfoApiUrl, layoutApiUrl, debug) {
   try {
-    const {encoded} = await oidc({
-      userInfoApiUrl: contextApiUrl + process.env.VUE_APP_USER_INFO_URI,
-    });
+    const headers = debug
+      ? {}
+      : {
+        'Authorization':
+            'Bearer ' +
+            (await oidc({userInfoApiUrl: userInfoApiUrl})).encoded,
+        'content-type': 'application/jwt',
+      };
+
     const options = {
       method: 'GET',
       credentials: 'same-origin',
-      headers: {
-        'Authorization': 'Bearer ' + encoded,
-        'Content-Type': 'application/json',
-      },
+      headers: headers,
     };
-    const response = await fetch(
-        contextApiUrl + process.env.VUE_APP_FAVORITES_URI,
-        options
-    );
+
+    const response = await fetch(layoutApiUrl, options);
+
     if (!response.ok) {
       throw new Error(response.statusText);
     }
+
     const data = await response.json();
 
     if (
