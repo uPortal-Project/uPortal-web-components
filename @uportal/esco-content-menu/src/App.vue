@@ -8,6 +8,8 @@
       hide-action-mode="never"
       portlet-api-url="portletRegistry.json"
       layout-api-url="layout.json"
+      organization-api-url="orginfo.json"
+      user-info-api-url="userinfo.json"
       debug />
   <!-- <content-grid
       background-color="grey"

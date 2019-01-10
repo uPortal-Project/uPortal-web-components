@@ -105,6 +105,10 @@ export default {
       default:
         process.env.VUE_APP_PORTAL_CONTEXT + process.env.VUE_APP_FAVORITES_URI,
     },
+    organizationApiUrl: {
+      type: String,
+      default: null,
+    },
     portletApiUrl: {
       type: String,
       default:
@@ -269,8 +273,10 @@ export default {
       this.loadingState.user = false;
       this.loadingState.organization = false;
       const {user, organizations} = await fetchUserInfoAndOrg(
-          this.contextApiUrl,
-          this.userAllOrgsIdAttributeName
+          this.userInfoApiUrl,
+          this.organizationApiUrl,
+          this.userAllOrgsIdAttributeName,
+          this.debug
       );
       this.info.user = Object.assign({}, this.info.user, user);
       this.loadingState.user = true;

@@ -23,6 +23,7 @@
       :context-api-url="contextApiUrl"
       :favorite-api-url="favoriteApiUrl"
       :layout-api-url="layoutApiUrl"
+      :organization-api-url="organizationApiUrl"
       :portlet-api-url="portletApiUrl"
       :user-info-api-url="userInfoApiUrl"
       :debug="debug"
@@ -66,6 +67,10 @@ export default {
       type: String,
       default:
         process.env.VUE_APP_PORTAL_CONTEXT + process.env.VUE_APP_FAVORITES_URI,
+    },
+    organizationApiUrl: {
+      type: String,
+      default: null,
     },
     portletApiUrl: {
       type: String,
