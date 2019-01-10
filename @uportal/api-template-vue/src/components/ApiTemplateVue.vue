@@ -1,9 +1,12 @@
 <template>
-  <div id="ath-container">
-    <slot>
-      <h3>No Content Specified</h3>
-      <p>Please specify content for this component using the default slot.</p>
-    </slot>
+  <div class="ath-outer">
+    <scale-loader class="ath-spinner" :loading="loading" :height="32" :width="8" :sizeUnit="px"></scale-loader>
+    <div class="ath-inner" style="display: none;">
+      <slot>
+        <h3>No Content Specified</h3>
+        <p>Please specify content for this component using the default slot.</p>
+      </slot>
+    </div>
   </div>
 </template>
 
@@ -11,6 +14,9 @@
 import oidc from '@uportal/open-id-connect';
 import { get } from 'axios';
 import Vue from 'vue';
+import { VueSpinners } from '@saeris/vue-spinners';
+
+Vue.use(VueSpinners);
 
 export default {
   name: 'ApiTemplateVue',
@@ -66,9 +72,12 @@ export default {
       await this.fetchJson();
       // Render the slot content as a new Vue instance
       new Vue({
-        el: this.$el,
+        el: this.$el.querySelector('.ath-inner'),
         data: this.json
       });
+
+      this.$el.querySelector('.ath-inner').style.display = 'block';
+      this.$el.querySelector('.ath-spinner').style.display = 'none';
     }
   },
 
@@ -82,7 +91,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
 // HACK: needed to scope styles for browsers that do not have shadow dom support
-#ath-container /deep/ {
+.ath-inner /deep/ {
   @import '../../node_modules/bootstrap/scss/bootstrap';
 }
 </style>
