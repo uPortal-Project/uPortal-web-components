@@ -62,6 +62,9 @@ For some integration you could need a bit more, like into uPortal you will need 
 #### Properties
 
 - `context-api-url`: type: `String`, default: `/uPortal`, usefull to provide a different uPortal context on which to do request
+- `favorite-api-url`: type: `String`, default: `/uPortal/api/layout`, the uri/url of the favorites api
+- `portlet-api-url`: type: `String`, default: `/uPortal/api/v4-3/dlm/portletRegistry.json`, the uri/url of the portletRegistry api to obtains user authorized portlet list
+- `userInfo-api-url`: type: `String`, default: `/uPortal/api/v5-1/userinfo`, url/uri on which the api request is done to obtain user information and the jwt tocken
 - `sign-out-url`: type: `String`, default: `/uPortal/Logout`, an uri/url to call when user logout (for a logout button),
 - `default-org-logo`: type: `String`, required: true, an url/uri to provide an institutional picture when none is found from an optional api (not provided into uPortal),
 - `user-info-portlet-url`: type: `String`, default: `''`, an url/uri to the user information application,
@@ -71,7 +74,8 @@ For some integration you could need a bit more, like into uPortal you will need 
 - `hide-action-mode: type`: possible value `auto|always|never`, default: `auto`, define if we should show the actions, `auto` don't show on `small` breakpoint,
 - `user-org-id-attribute-name`: type: `String`, default: `'ESCOSIRENCourant[0]'`, the attribute object path to obtain the id of the organization to retrieve from the organization's api
 - `user-all-orgs-id-attribute-name`: type: `String`, default: `'ESCOSIREN`, the attribute object path to obtain all ids of the organizations linked to the user and to retrieve from the organization's api
-- `org-logo-url-attribute-name`: type: `String`, default: `'otherAttributes.ESCOStructureLogo[0]'`, the attribute object path to obtain the organization Picture from organization details obtained from the organization's api.
+- `org-logo-url-attribute-name`: type: `String`, default: `'otherAttributes.ESCOStructureLogo[0]'`, the attribute object path to obtain the organization Picture from organization details obtained from the organization's api
+- `debug`: type: `Boolean`, default: `false`, for the demo/debug mode to be able to run in a standalone way (disable api call).
 
 ### The content menu
 
@@ -102,6 +106,9 @@ This component is a main one as it will load into one page all main elements (th
 This use the same properties from the `hamburger-menu` (see on `hamburger-menu` details):
 
 - `context-api-url`
+- `favorite-api-url`
+- `user-info-api-url`
+- `portlet-api-url`
 - `sign-out-url`
 - `default-org-logo`
 - `user-info-portlet-url`
@@ -112,6 +119,7 @@ This use the same properties from the `hamburger-menu` (see on `hamburger-menu` 
 - `user-org-id-attribute-name`
 - `user-all-orgs-id-attribute-name`
 - `org-logo-url-attribute-name`
+- `debug`
 
 and with additional properties to work with the `hamburger-menu`:
 
@@ -145,13 +153,15 @@ Standalone properties:
 
 - `background-color`: type: `String`, default: `rgba(0, 0, 0, 0)`, to apply a different background-color
 - `call-after-action`: type: `Function`, default: `undefined`, a callback function to call into `portlet-card` embeding `action-favorite` after adding portlet to favorites,
-- `favorite-api-url`: type: `String`, default: `/uPortal/api/layout`, the uri/url of the favorites api
 - `context-api-url`: type: `String`, default: `/uPortal`, usefull to provide a different uPortal context on which to do request,
+- `favorite-api-url`: type: `String`, default: `/uPortal/api/layout`, the uri/url of the favorites api
+- `portlet-api-url`: type: `String`, default: `/uPortal/api/v4-3/dlm/portletRegistry.json`, the uri/url of the portletRegistry api to obtains user authorized portlet list
 - `userInfo-api-url`: type: `String`, default: `/uPortal/api/v5-1/userinfo`, url/uri on which the api request is done to obtain user information and the jwt tocken
 - `portlet-card-size`: type: possible value `auto|large|medium|small|smaller`, default: `auto`, define the size of `portlet-cards` component.
 - `hide-action: type`: `Boolean`, default: `false`, define to hide or not the `action-favorite` button defined into `portlet-card`
 - `show-footer-categories`: `Boolean`, default: `false`, define to display category dropdown filter near bottom of grid
 - `hide-title`: `Boolean`, default: `false`, define to remove the title area from the grid, useful when a basic grid is desired
+- `debug`: type: `Boolean`, default: `false`, for the demo/debug mode to be able to run in a standalone way (disable api call)
 
 and additional properties to work with the parent component `content-menu`:
 
@@ -185,6 +195,7 @@ The component `action-favorite` is really simple, it show a start button that pe
 - `fname`: type: `String`, required: `true`, the portlet fname that permit to identify the portlet into favorite's list, usefull for the callback function and apply a css class,
 - `is-favorite`: type: `Boolean`, default: `false`, provide the favorite state,
 - `back-ground-is-dark`: type: `Boolean`, default: `false`, permit to apply a style depending on background color, as the component is used as embeded,
+- `debug`: type: `Boolean`, default: `false`, for the demo/debug mode to be able to run in a standalone way (disable favorites api call)
 
 ### The content favorites
 
@@ -244,6 +255,7 @@ This component render informations about a portlet as a card.
 - `icon-background-color`: type: `String`, default: `Transparent`, could be used to apply a background-color behind a portlet icon - usecase if there isn't background on icon.
 - `favorite-api-url`: type: `String`, default: `/uPortal/api/layout`, the uri/url of the favorites api (passed to the `action-favorite` component),
 - `user-info-api-url`: type: `String`, default: `/uPortal/api/v5-1/userinfo`, url/uri on which the api request is done to obtain user information and the jwt tocken, (passed to the `action-favorite` component),
+- `debug`: type: `Boolean`, default: `false`, for the demo/debug mode to be able to run in a standalone way (disable api call).
 
 ### The content grid category filter
 
