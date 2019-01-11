@@ -50,6 +50,12 @@ This is the main component that show a hamburger menu and that open an entire pa
 ></script>
 
 <esco-hamburger-menu
+  default-org-logo="..."
+  api-url-org-info="..."
+  portlet-api-url="..."
+  layout-api-url="..."
+  organization-api-url="..."
+  user-info-api-url="..."
   context-api-url="/uPortal"
   sign-out-url="/uPortal/Logout"
   default-org-logo="https://www.toureiffel.paris/sites/default/files/styles/1440x810/public/2017-10/monument-landing-header-bg_0.jpg?itok=_dSLLBlZ"
@@ -82,6 +88,47 @@ For some integration you could need a bit more, like into uPortal you will need 
 - `user-all-orgs-id-attribute-name`: type: `String`, default: `'ESCOSIREN`, the attribute object path to obtain all ids of the organizations linked to the user and to retrieve from the organization's api
 - `org-logo-url-attribute-name`: type: `String`, default: `'otherAttributes.ESCOStructureLogo[0]'`, the attribute object path to obtain the organization Picture from organization details obtained from the organization's api
 - `debug`: type: `Boolean`, default: `false`, for the demo/debug mode to be able to run in a standalone way (disable api call).
+
+#### Slots
+
+The HTML content of the component can also be modified using [slots](https://vuejs.org/v2/guide/components-slots.html).
+
+##### Menu Icon
+
+The `menu-icon` slot permit to apply a custom icon replacing the default Hamburger one. As example:
+
+```html
+<esco-hamburger-menu
+  default-org-logo="..."
+  api-url-org-info="..."
+  portlet-api-url="..."
+  layout-api-url="..."
+  organization-api-url="..."
+  user-info-api-url="..."
+  favorites-portlet-card-size="small"
+  grid-portlet-card-size="auto"
+  hide-action-mode="never"
+>
+  <div
+    slot="menu-icon"
+    style="background-image:url('https://mdbootstrap.com/img/svg/hamburger3.svg?color=FFF');height:20px;width:20px;"
+  ></div>
+</esco-hamburger-menu>
+```
+
+##### Menu Content
+
+The `menu-content` slot permit to apply an other content than the esco-content-menu sub-component.
+
+```html
+<esco-hamburger-menu
+  favorites-portlet-card-size="small"
+  grid-portlet-card-size="auto"
+  hide-action-mode="never"
+>
+  <div slot="menu-content">whatever...</div>
+</esco-hamburger-menu>
+```
 
 ### The content menu
 
