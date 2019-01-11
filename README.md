@@ -48,6 +48,7 @@ For example an `example-component` would be loaded by adding
 
 ## Components
 
+- [API Template Vue](@uportal/api-template-vue/README.md)
 - [Content Carousel](@uportal/content-carousel/README.md)
 - [Dashboard Carousel](@uportal/dashboard-carousel/README.md)
 - [ESCO Content Menu](@uportal/esco-content-menu/README.md)
