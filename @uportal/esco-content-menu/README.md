@@ -225,6 +225,55 @@ and additional properties to work with the parent component `content-menu`:
 - `portlets`: type: `Array`, default: `undefined`, used if the list of portlets is loaded and provided from a parent component,
 - `favorites`: type: `Array`, default: `undefined`, used if the list of favorites portlets loaded and provided from a parent component,
 
+#### Slots
+
+The HTML content of the component can also be modified using [slots](https://vuejs.org/v2/guide/components-slots.html).
+
+##### Header Left
+
+The `header-left` slot permit to apply a custom title replacing the default "All services" one. As example:
+
+```html
+<content-grid
+  background-color="grey"
+  portlet-card-size="medium"
+  portlet-api-url="/uPortal/api/v4-3/dlm/portletRegistry.json?category=administration"
+  layout-api-url="..."
+>
+  <h1 slot="header-left">Administration</h1>
+</content-grid>
+```
+
+##### Header Right
+
+The `header-right` slot permit to apply a custom title replacing the default filter on right. As example:
+
+```html
+<content-grid
+  background-color="grey"
+  portlet-card-size="medium"
+  portlet-api-url="/uPortal/api/v4-3/dlm/portletRegistry.json?category=administration"
+  layout-api-url="..."
+>
+  <div slot="header-rigth"></div>
+</content-grid>
+```
+
+##### Footer
+
+The `footer` slot permit to apply a custom title replacing the default filter on footer. As example:
+
+```html
+<content-grid
+  background-color="grey"
+  portlet-card-size="medium"
+  portlet-api-url="/uPortal/api/v4-3/dlm/portletRegistry.json"
+  layout-api-url="..."
+>
+  <div slot="footer"></div>
+</content-grid>
+```
+
 ### The action favorite
 
 The component `action-favorite` is really simple, it show a start button that permit to add or remove from favorites a portlet.
