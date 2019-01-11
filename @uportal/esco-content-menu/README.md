@@ -4,6 +4,10 @@
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.webjars.npm/uportal__esco-content-menu/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.webjars.npm/uportal__esco-content-menu)
 [![Build Status](https://travis-ci.org/uPortal-contrib/uPortal-web-components.svg?branch=master)](https://travis-ci.org/uPortal-contrib/uPortal-web-components)
 
+## Demo
+
+<https://uportal-contrib.github.io/uPortal-web-components/en/components/esco-content-menu/demo>
+
 ## Installation
 
 ```bash
@@ -159,7 +163,7 @@ Standalone properties:
 - `call-after-action`: type: `Function`, default: `undefined`, a callback function to call into `portlet-card` embeding `action-favorite` after adding portlet to favorites,
 - `context-api-url`: type: `String`, default: `/uPortal`, usefull to provide a different uPortal context on which to do request,
 - `favorite-api-url`: type: `String`, default: `/uPortal/api/layout`, the uri/url of the favorites api
-- `layout-api-url`: type: `String`, default: `/uPortal/api/v4-3/dlm/layout.json`, the uri/url of the layout api to request the favorite list in the oser defined order (only needed to get favorite's order defined by the user)
+- `layout-api-url`: type: `String`, default: `/uPortal/api/v4-3/dlm/layout.json`, the uri/url of the layout api to request the favorite list in the other defined order (only needed to get favorite's order defined by the user)
 - `portlet-api-url`: type: `String`, default: `/uPortal/api/v4-3/dlm/portletRegistry.json`, the uri/url of the portletRegistry api to obtains user authorized portlet list
 - `userInfo-api-url`: type: `String`, default: `/uPortal/api/v5-1/userinfo`, url/uri on which the api request is done to obtain user information and the jwt token
 - `portlet-card-size`: type: possible value `auto|large|medium|small|smaller`, default: `auto`, define the size of `portlet-cards` component.

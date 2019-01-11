@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>esco-content-menu hamburger-menu demo</title>
+    <link
+      href="https://unpkg.com/font-awesome@4.7.0/css/font-awesome.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      header {
+        background: #000;
+        height: 44px;
+        width: 100%;
+      }
+
+      nav {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 8px 15px;
+        justify-content: space-between;
+      }
+
+      section {
+        background-color: darkgrey;
+        height: 100vh;
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <esco-hamburger-menu
+          default-org-logo="https://ent.recia.fr/annuaire_images/default_banner_v1.jpg"
+          api-url-org-info="/p/test"
+          favorites-portlet-card-size="small"
+          grid-portlet-card-size="auto"
+          hide-action-mode="never"
+          portlet-api-url="portletRegistry.json"
+          layout-api-url="layout.json"
+          organization-api-url="orginfo.json"
+          user-info-api-url="userinfo.json"
+          debug
+        >
+        </esco-hamburger-menu>
+
+        <eyebrow-user-info
+          display-name="John Doe"
+          picture="https://ent.recia.fr//images/icones/noPictureUser.svg"
+          email="john.doe@my.edu"
+          more-link="/uPortal/p/userInfo"
+          logout-link="uPortal/Logout"
+          avatar-size="28px"
+          menu-is-dark="true"
+        ></eyebrow-user-info>
+      </nav>
+    </header>
+    <section class="body">
+      <esco-content-grid
+        layout-api-url="layout.json"
+        portlet-api-url="adminPortlets.json"
+        portlet-card-size="auto"
+        hide-action="false"
+        debug
+      >
+        <h1 slot="header-left">Administration</h1>
+        <div slot="header-right"></div>
+      </esco-content-grid>
+    </section>
+    <footer></footer>
+    <script src="https://unpkg.com/vue"></script>
+    <script src="https://unpkg.com/core-js-bundle@3.0.0-beta.3"></script>
+    <script src="https://unpkg.com/regenerator-runtime/runtime.js"></script>
+    <script src="https://unpkg.com/whatwg-fetch"></script>
+    <script src="https://unpkg.com/@webcomponents/webcomponentsjs"></script>
+    <script src="https://unpkg.com/@uportal/esco-content-menu"></script>
+    <script src="https://unpkg.com/@uportal/eyebrow-user-info"></script>
+  </body>
+</html>
