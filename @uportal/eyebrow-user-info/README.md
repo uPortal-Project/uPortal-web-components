@@ -6,6 +6,11 @@
 
 ![Example of rendering](/eyebrow-user-info/doc/example.gif?raw=true)
 
+## Demo
+
+Within the esco-content-menu demo page:
+<https://uportal-contrib.github.io/uPortal-web-components/en/components/esco-content-menu/demo>
+
 ## Usage into html
 
 ```html

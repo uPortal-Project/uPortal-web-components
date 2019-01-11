@@ -50,6 +50,8 @@ For example an `example-component` would be loaded by adding
 
 - [Content Carousel](components/content-carousel/README.md)
 - [Dashboard Carousel](components/dashboard-carousel/README.md)
+- [ESCO Content Menu](components/esco-content-menu/README.md)
+- [Eyebrow User Info](components/eyebrow-user-info/README.md)
 - [Waffle Menu](components/waffle-menu/README.md)
 
 ## Utilities
