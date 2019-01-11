@@ -8,38 +8,41 @@
       aria-expanded="false"
       aria-haspopup="true"
       aria-controls="content-menu"
-      @click="toggleMenu($event)">
-      <div class="menu-wrapper">
-        <div />
-        <div />
-        <div />
-      </div>
+      @click="toggleMenu($event)" >
+      <slot name="menu-icon">
+        <div class="menu-wrapper">
+          <div class="hm-line"/>
+          <div class="hm-line"/>
+          <div class="hm-line"/>
+        </div>
+      </slot>
     </div>
 
-    <content-menu
-      v-if="append"
-      :switch-org-portlet-url="switchOrgPortletUrl"
-      :call-on-close="toggleMenu"
-      :context-api-url="contextApiUrl"
-      :favorite-api-url="favoriteApiUrl"
-      :layout-api-url="layoutApiUrl"
-      :organization-api-url="organizationApiUrl"
-      :portlet-api-url="portletApiUrl"
-      :user-info-api-url="userInfoApiUrl"
-      :debug="debug"
-      :default-org-logo="defaultOrgLogo"
-      :favorites-portlet-card-size="favoritesPortletCardSize"
-      :grid-portlet-card-size="gridPortletCardSize"
-      :hide-action-mode="hideActionMode"
-      :is-hidden="!visible"
-      :user-info-portlet-url="userInfoPortletUrl"
-      :sign-out-url="signOutUrl"
-      :user-org-id-attribute-name="userOrgIdAttributeName"
-      :user-all-orgs-id-attribute-name="userAllOrgsIdAttributeName"
-      :org-logo-url-attribute-name="orgLogoUrlAttributeName"
-      default-class="toggler-menu"
-      visible-class="active-menu" />
-
+    <slot name="menu-content">
+      <content-menu
+        v-if="append"
+        :switch-org-portlet-url="switchOrgPortletUrl"
+        :call-on-close="toggleMenu"
+        :context-api-url="contextApiUrl"
+        :favorite-api-url="favoriteApiUrl"
+        :layout-api-url="layoutApiUrl"
+        :organization-api-url="organizationApiUrl"
+        :portlet-api-url="portletApiUrl"
+        :user-info-api-url="userInfoApiUrl"
+        :debug="debug"
+        :default-org-logo="defaultOrgLogo"
+        :favorites-portlet-card-size="favoritesPortletCardSize"
+        :grid-portlet-card-size="gridPortletCardSize"
+        :hide-action-mode="hideActionMode"
+        :is-hidden="!visible"
+        :user-info-portlet-url="userInfoPortletUrl"
+        :sign-out-url="signOutUrl"
+        :user-org-id-attribute-name="userOrgIdAttributeName"
+        :user-all-orgs-id-attribute-name="userAllOrgsIdAttributeName"
+        :org-logo-url-attribute-name="orgLogoUrlAttributeName"
+        default-class="toggler-menu"
+        visible-class="active-menu" />
+    </slot>
   </div>
 </template>
 
@@ -137,19 +140,20 @@ export default {
     color: #fff;
     text-decoration: none;
     cursor: pointer;
+    padding: 5px 0;
 
-    &:hover > .menu-wrapper > div {
+    &:hover > .menu-wrapper > .hm-line {
       opacity: 0.7;
     }
 
     > .menu-wrapper {
-      width: 25px;
       margin: 0 10px;
 
-      > div {
+      > .hm-line {
         height: 2px;
         background-color: #fff;
         margin: 5px 0;
+        width: 25px;
       }
     }
   }

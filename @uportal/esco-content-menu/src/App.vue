@@ -43,7 +43,6 @@ export default {
 
   .hamburger-menu > div.content-menu-toggle {
     padding: 0.5em;
-    height: 35px;
   }
 }
 </style>
