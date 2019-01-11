@@ -1,6 +1,16 @@
 <template>
   <div class="ath-outer">
-    <scale-loader class="ath-spinner" :loading="loading" :height="32" :width="8" :sizeUnit="px"></scale-loader>
+    <div class="ath-spinner p-3">
+      <div class="spinner-grow text-secondary" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+      <div class="spinner-grow text-secondary" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+      <div class="spinner-grow text-secondary" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
     <div class="ath-inner" style="display: none;">
       <slot>
         <h3>No Content Specified</h3>
@@ -11,17 +21,12 @@
 </template>
 
 <script>
-import { ScaleLoader } from '@saeris/vue-spinners';
 import oidc from '@uportal/open-id-connect';
 import { get } from 'axios';
 import Vue from 'vue';
 
 export default {
   name: 'ApiTemplateVue',
-
-  components: {
-    ScaleLoader
-  },
 
   props: {
     debug: {
@@ -93,7 +98,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
 // HACK: needed to scope styles for browsers that do not have shadow dom support
-.ath-inner /deep/ {
+.ath-outer /deep/ {
   @import '../../node_modules/bootstrap/scss/bootstrap';
 }
 </style>
