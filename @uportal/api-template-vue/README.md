@@ -4,36 +4,72 @@
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.webjars.npm/uportal__api-template-vue/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.webjars.npm/uportal__api-template-vue) 
 [![Build Status](https://travis-ci.org/uPortal-contrib/uPortal-web-components.svg?branch=master)](https://travis-ci.org/uPortal-contrib/uPortal-web-components)
 
-## Project setup
+## Installation
 
-```
-npm install
-```
+```bash
+# install with npm
+npm install @uportal/api-template-vue
 
-### Compiles and hot-reloads for development
-
-```
-npm run serve
+# install with yarn
+yarn add @uportal/api-template-vue
 ```
 
-### Compiles and minifies for production
+_install with maven_
 
-```
-npm run build
-```
-
-### Run your tests
-
-```
-npm run test
+```xml
+<dependency>
+    <groupId>org.webjars.npm</groupId>
+    <artifactId>uportal__api-template-vue</artifactId>
+    <version>{version number goes here}</version>
+</dependency>
 ```
 
-### Lints and fixes files
+_install with gradle_
 
+```gradle
+compile 'org.webjars.npm:uportal__api-template-vue:{version number goes here}'
 ```
-npm run lint
+
+## Usage as Web Component
+
+The component requires a `data-api-url` (URL to acquire a JSON payload).
+
+```html
+<script src="https://unpkg.com/vue"></script>
+<script src="https://unpkg.com/@uportal/api-template-vue"></script>
+
+<api-template-vue data-api-url="/uPortal/api/v5-0/people/me">
+  <div class="card">
+    <div class="card-body">
+      <h3 class="card-title">{{ displayName[0] }}</h3>
+      <table class="table">
+        <caption>
+          User attributes
+        </caption>
+        <tbody>
+          <tr>
+            <td>username:</td>
+            <td>{{ username[0] }}</td>
+          </tr>
+          <tr>
+            <td>email:</td>
+            <td>{{ mail[0] }}</td>
+          </tr>
+          <tr>
+            <td>Phone:</td>
+            <td>{{ telephoneNumber[0] }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</api-template-vue>
 ```
 
-### Customize configuration
+### Options
 
-See [Configuration Reference](https://cli.vuejs.org/config/).
+- `data-api-url` (required, string): URL of the REST API that provides JSON data to the template.
+
+### Slot Content
+
+The default slot defines the Vue-based template containing the markup that will appear on the page.
