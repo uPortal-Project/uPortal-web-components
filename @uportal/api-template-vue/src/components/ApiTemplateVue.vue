@@ -11,15 +11,17 @@
 </template>
 
 <script>
+import { ScaleLoader } from '@saeris/vue-spinners';
 import oidc from '@uportal/open-id-connect';
 import { get } from 'axios';
 import Vue from 'vue';
-import { VueSpinners } from '@saeris/vue-spinners';
-
-Vue.use(VueSpinners);
 
 export default {
   name: 'ApiTemplateVue',
+
+  components: {
+    ScaleLoader
+  },
 
   props: {
     debug: {
