@@ -7,7 +7,7 @@
   "main": "dist/api-template-vue.js",
   "source": "src/components/ApiTemplateVue.vue",
   "scripts": {
-    "serve": "vue-cli-service serve",
+    "start": "vue-cli-service serve",
     "prebuild": "babel node_modules/@vue/web-component-wrapper/dist/vue-wc-wrapper.js -o node_modules/@vue/web-component-wrapper/dist/vue-wc-wrapper.js",
     "build": "vue-cli-service build --name api-template-vue --target wc 'src/components/*.vue'",
     "lint": "vue-cli-service lint"
