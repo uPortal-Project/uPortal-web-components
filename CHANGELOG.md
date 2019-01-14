@@ -7,6 +7,30 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased][]
 
+## [1.22.0][] - 2019-01-14
+
+### Feature
+
+- **api-template-vue**: a new portal component that can render an arbitary vue template with arbitrary portal API data, the web component equivalent of simple JSP portlet (#225)
+- **esco-content-menu**: content menu can now be run in debug mode without a running portal (#244).
+- **dashboard-carousel**: region that dashboard will read from is now configurable (#214).
+
+### Docs
+
+- **esco-content-menu**: follow symlinks between documentation pages (#228, #229).
+- **dashboard-carousel**: component is now listed in top level readme (#215).
+- **dashboard-carousel**: component now has a demo provided in documentation (#216, #217).
+
+### Refactor
+
+- **esco-content-menu**: Menu as switched from marketplace API to portlet registry API (#224).
+- **dashboard-carousel**: clarify variable name (#213)
+
+### Chore
+
+- update gradle wrapper to version 5.1.1 (#220, #226).
+- update ky to version 0.6.0 (#218).
+
 ## [1.21.2][] - 2019-01-07
 
 ### Fix
@@ -774,7 +798,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - **open-id-connect**: Initial version of an OpenID Connect helper script to use in web components and JavaScript modules.
 - **content-carousel**: Initial version of content carousel, a carousel based portlet metadata display system.
 
-[unreleased]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.21.2...HEAD
+[unreleased]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.22.0...HEAD
+[1.22.0]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.21.2...v1.22.0
 [1.21.2]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.21.1...v1.21.2
 [1.21.1]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.21.0...v1.21.1
 [1.21.0]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.20.0...v1.21.0
