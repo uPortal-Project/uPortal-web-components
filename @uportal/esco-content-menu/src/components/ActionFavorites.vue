@@ -35,7 +35,7 @@ export default {
   },
   props: {
     callOnToggleFav: {type: Function, default: () => {}},
-    chanId: {type: String, required: true},
+    chanId: {type: Number, required: true},
     favoriteApiUrl: {
       type: String,
       default:
@@ -47,6 +47,7 @@ export default {
       default:
         process.env.VUE_APP_PORTAL_CONTEXT + process.env.VUE_APP_USER_INFO_URI,
     },
+    debug: {type: Boolean, default: false},
     fname: {type: String, required: true},
     isFavorite: {type: Boolean, default: false},
     backGroundIsDark: {type: Boolean, default: false},
@@ -62,7 +63,7 @@ export default {
     },
     toggleFavorite(event) {
       event.preventDefault();
-      if (process.env.NODE_ENV !== 'development') {
+      if (!this.debug) {
         if (this.favorite) {
           this.removeFromFavorite();
         } else {

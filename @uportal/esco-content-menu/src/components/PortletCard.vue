@@ -35,7 +35,8 @@
         :call-on-toggle-fav="callAfterAction"
         :favorite-api-url="favoriteApiUrl"
         :user-info-api-url="userInfoApiUrl"
-        :back-ground-is-dark="favBgIsDark" />
+        :back-ground-is-dark="favBgIsDark"
+        :debug="debug" />
     </div>
   </div>
 </template>
@@ -69,6 +70,7 @@ export default {
       default:
         process.env.VUE_APP_PORTAL_CONTEXT + process.env.VUE_APP_USER_INFO_URI,
     },
+    debug: {type: Boolean, default: false},
     size: {
       validator: sizeValidator(),
       default: 'medium',
@@ -83,8 +85,12 @@ export default {
       channelId: this.portletDesc.id,
       description: this.portletDesc.description,
       title: this.portletDesc.title,
-      canFavorite: this.portletDesc.canAdd,
-      iconUrl: computeUrl(this.portletDesc.layoutObject.iconUrl),
+      canFavorite: this.portletDesc?.canAdd ? this.portletDesc.canAdd : true,
+      iconUrl: computeUrl(
+        this.portletDesc.parameters?.iconUrl?.value
+          ? this.portletDesc.parameters?.iconUrl?.value
+          : null
+      ),
       append: false,
     };
   },

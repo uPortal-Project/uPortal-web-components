@@ -3,6 +3,8 @@
 ## Components
 
 - [Content Carousel](content-carousel/README.md)
+- [ESCO Content Menu](esco-content-menu/README.md)
+- [Eyebrow User Info](eyebrow-user-info/README.md)
 - [Waffle Menu](waffle-menu/README.md)
 
 ## Utilities

@@ -3,12 +3,20 @@
     <hamburger-menu
       default-org-logo="https://lycees.netocentre.fr/annuaire_images/default_banner_v1.jpg"
       api-url-org-info="/p/test"
-      favorites-portlet-card-size="auto"
+      favorites-portlet-card-size="small"
       grid-portlet-card-size="auto"
-      hide-action-mode="never" />
+      hide-action-mode="never"
+      portlet-api-url="portletRegistry.json"
+      layout-api-url="layout.json"
+      organization-api-url="orginfo.json"
+      user-info-api-url="userinfo.json"
+      debug />
   <!-- <content-grid
       background-color="grey"
-      portlet-card-size="medium" /> -->
+      portlet-card-size="medium"
+      portlet-api-url="portletRegistry.json"
+      layout-api-url="layout.json"
+      debug /> -->
   </div>
 </template>
 
@@ -35,7 +43,6 @@ export default {
 
   .hamburger-menu > div.content-menu-toggle {
     padding: 0.5em;
-    height: 35px;
   }
 }
 </style>

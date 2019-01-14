@@ -4,6 +4,10 @@
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.webjars.npm/uportal__esco-content-menu/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.webjars.npm/uportal__esco-content-menu)
 [![Build Status](https://travis-ci.org/uPortal-contrib/uPortal-web-components.svg?branch=master)](https://travis-ci.org/uPortal-contrib/uPortal-web-components)
 
+## Demo
+
+<https://uportal-contrib.github.io/uPortal-web-components/en/components/esco-content-menu/demo>
+
 ## Installation
 
 ```bash
@@ -46,6 +50,12 @@ This is the main component that show a hamburger menu and that open an entire pa
 ></script>
 
 <esco-hamburger-menu
+  default-org-logo="..."
+  api-url-org-info="..."
+  portlet-api-url="..."
+  layout-api-url="..."
+  organization-api-url="..."
+  user-info-api-url="..."
   context-api-url="/uPortal"
   sign-out-url="/uPortal/Logout"
   default-org-logo="https://www.toureiffel.paris/sites/default/files/styles/1440x810/public/2017-10/monument-landing-header-bg_0.jpg?itok=_dSLLBlZ"
@@ -62,6 +72,11 @@ For some integration you could need a bit more, like into uPortal you will need 
 #### Properties
 
 - `context-api-url`: type: `String`, default: `/uPortal`, usefull to provide a different uPortal context on which to do request
+- `favorite-api-url`: type: `String`, default: `/uPortal/api/layout`, the uri/url of the favorites api
+- `layout-api-url`: type: `String`, default: `/uPortal/api/v4-3/dlm/layout.json`, the uri/url of the layout api to request the favorite list in the oser defined order (only needed to get favorite's order defined by the user)
+- `portlet-api-url`: type: `String`, default: `/uPortal/api/v4-3/dlm/portletRegistry.json`, the uri/url of the portletRegistry api to obtains user authorized portlet list
+- `userInfo-api-url`: type: `String`, default: `/uPortal/api/v5-1/userinfo`, url/uri on which the api request is done to obtain user information and the jwt token
+- `organization-api-url`: type: `String`, optional, an uri/url of an api to retrieve organization informations, any json format is accepted, but configure `user-org-id-attribute-name`, `user-all-orgs-id-attribute-name`, `org-logo-url-attribute-name` to work with.
 - `sign-out-url`: type: `String`, default: `/uPortal/Logout`, an uri/url to call when user logout (for a logout button),
 - `default-org-logo`: type: `String`, required: true, an url/uri to provide an institutional picture when none is found from an optional api (not provided into uPortal),
 - `user-info-portlet-url`: type: `String`, default: `''`, an url/uri to the user information application,
@@ -71,7 +86,49 @@ For some integration you could need a bit more, like into uPortal you will need 
 - `hide-action-mode: type`: possible value `auto|always|never`, default: `auto`, define if we should show the actions, `auto` don't show on `small` breakpoint,
 - `user-org-id-attribute-name`: type: `String`, default: `'ESCOSIRENCourant[0]'`, the attribute object path to obtain the id of the organization to retrieve from the organization's api
 - `user-all-orgs-id-attribute-name`: type: `String`, default: `'ESCOSIREN`, the attribute object path to obtain all ids of the organizations linked to the user and to retrieve from the organization's api
-- `org-logo-url-attribute-name`: type: `String`, default: `'otherAttributes.ESCOStructureLogo[0]'`, the attribute object path to obtain the organization Picture from organization details obtained from the organization's api.
+- `org-logo-url-attribute-name`: type: `String`, default: `'otherAttributes.ESCOStructureLogo[0]'`, the attribute object path to obtain the organization Picture from organization details obtained from the organization's api
+- `debug`: type: `Boolean`, default: `false`, for the demo/debug mode to be able to run in a standalone way (disable api call).
+
+#### Slots
+
+The HTML content of the component can also be modified using [slots](https://vuejs.org/v2/guide/components-slots.html).
+
+##### Menu Icon
+
+The `menu-icon` slot permit to apply a custom icon replacing the default Hamburger one. As example:
+
+```html
+<esco-hamburger-menu
+  default-org-logo="..."
+  api-url-org-info="..."
+  portlet-api-url="..."
+  layout-api-url="..."
+  organization-api-url="..."
+  user-info-api-url="..."
+  favorites-portlet-card-size="small"
+  grid-portlet-card-size="auto"
+  hide-action-mode="never"
+>
+  <div
+    slot="menu-icon"
+    style="background-image:url('https://mdbootstrap.com/img/svg/hamburger3.svg?color=FFF');height:20px;width:20px;"
+  ></div>
+</esco-hamburger-menu>
+```
+
+##### Menu Content
+
+The `menu-content` slot permit to apply an other content than the esco-content-menu sub-component.
+
+```html
+<esco-hamburger-menu
+  favorites-portlet-card-size="small"
+  grid-portlet-card-size="auto"
+  hide-action-mode="never"
+>
+  <div slot="menu-content">whatever...</div>
+</esco-hamburger-menu>
+```
 
 ### The content menu
 
@@ -102,6 +159,11 @@ This component is a main one as it will load into one page all main elements (th
 This use the same properties from the `hamburger-menu` (see on `hamburger-menu` details):
 
 - `context-api-url`
+- `favorite-api-url`
+- `layout-api-url`
+- `organization-api-url`
+- `user-info-api-url`
+- `portlet-api-url`
 - `sign-out-url`
 - `default-org-logo`
 - `user-info-portlet-url`
@@ -112,6 +174,7 @@ This use the same properties from the `hamburger-menu` (see on `hamburger-menu` 
 - `user-org-id-attribute-name`
 - `user-all-orgs-id-attribute-name`
 - `org-logo-url-attribute-name`
+- `debug`
 
 and with additional properties to work with the `hamburger-menu`:
 
@@ -145,19 +208,71 @@ Standalone properties:
 
 - `background-color`: type: `String`, default: `rgba(0, 0, 0, 0)`, to apply a different background-color
 - `call-after-action`: type: `Function`, default: `undefined`, a callback function to call into `portlet-card` embeding `action-favorite` after adding portlet to favorites,
-- `favorite-api-url`: type: `String`, default: `/uPortal/api/layout`, the uri/url of the favorites api
 - `context-api-url`: type: `String`, default: `/uPortal`, usefull to provide a different uPortal context on which to do request,
-- `userInfo-api-url`: type: `String`, default: `/uPortal/api/v5-1/userinfo`, url/uri on which the api request is done to obtain user information and the jwt tocken
+- `favorite-api-url`: type: `String`, default: `/uPortal/api/layout`, the uri/url of the favorites api
+- `layout-api-url`: type: `String`, default: `/uPortal/api/v4-3/dlm/layout.json`, the uri/url of the layout api to request the favorite list in the other defined order (only needed to get favorite's order defined by the user)
+- `portlet-api-url`: type: `String`, default: `/uPortal/api/v4-3/dlm/portletRegistry.json`, the uri/url of the portletRegistry api to obtains user authorized portlet list
+- `userInfo-api-url`: type: `String`, default: `/uPortal/api/v5-1/userinfo`, url/uri on which the api request is done to obtain user information and the jwt token
 - `portlet-card-size`: type: possible value `auto|large|medium|small|smaller`, default: `auto`, define the size of `portlet-cards` component.
 - `hide-action: type`: `Boolean`, default: `false`, define to hide or not the `action-favorite` button defined into `portlet-card`
 - `show-footer-categories`: `Boolean`, default: `false`, define to display category dropdown filter near bottom of grid
 - `hide-title`: `Boolean`, default: `false`, define to remove the title area from the grid, useful when a basic grid is desired
+- `debug`: type: `Boolean`, default: `false`, for the demo/debug mode to be able to run in a standalone way (disable api call)
 
 and additional properties to work with the parent component `content-menu`:
 
 - `parent-screen-size`: type: possible value `large|medium|small|smaller`, default: `medium`, permit to indicate the breakpoint view of the parent.
 - `portlets`: type: `Array`, default: `undefined`, used if the list of portlets is loaded and provided from a parent component,
 - `favorites`: type: `Array`, default: `undefined`, used if the list of favorites portlets loaded and provided from a parent component,
+
+#### Slots
+
+The HTML content of the component can also be modified using [slots](https://vuejs.org/v2/guide/components-slots.html).
+
+##### Header Left
+
+The `header-left` slot permit to apply a custom title replacing the default "All services" one. As example:
+
+```html
+<content-grid
+  background-color="grey"
+  portlet-card-size="medium"
+  portlet-api-url="/uPortal/api/v4-3/dlm/portletRegistry.json?category=administration"
+  layout-api-url="..."
+>
+  <h1 slot="header-left">Administration</h1>
+</content-grid>
+```
+
+##### Header Right
+
+The `header-right` slot permit to apply a custom title replacing the default filter on right. As example:
+
+```html
+<content-grid
+  background-color="grey"
+  portlet-card-size="medium"
+  portlet-api-url="/uPortal/api/v4-3/dlm/portletRegistry.json?category=administration"
+  layout-api-url="..."
+>
+  <div slot="header-rigth"></div>
+</content-grid>
+```
+
+##### Footer
+
+The `footer` slot permit to apply a custom title replacing the default filter on footer. As example:
+
+```html
+<content-grid
+  background-color="grey"
+  portlet-card-size="medium"
+  portlet-api-url="/uPortal/api/v4-3/dlm/portletRegistry.json"
+  layout-api-url="..."
+>
+  <div slot="footer"></div>
+</content-grid>
+```
 
 ### The action favorite
 
@@ -181,10 +296,11 @@ The component `action-favorite` is really simple, it show a start button that pe
 - `call-on-toggle-fav`: type: `Function`, default: `{}`, a callback function called after the click event on the button,
 - `chan-id`: type: `String`, required: `true`, the portlet id to add or remove from user favorites,
 - `favorite-api-url`: type: `String`, default: `/uPortal/api/layout`, the uri/url of the favorites api,
-- `user-info-api-url`: type: `String`, default: `/uPortal/api/v5-1/userinfo`, url/uri on which the api request is done to obtain user information and the jwt tocken,
+- `user-info-api-url`: type: `String`, default: `/uPortal/api/v5-1/userinfo`, url/uri on which the api request is done to obtain user information and the jwt token,
 - `fname`: type: `String`, required: `true`, the portlet fname that permit to identify the portlet into favorite's list, usefull for the callback function and apply a css class,
 - `is-favorite`: type: `Boolean`, default: `false`, provide the favorite state,
 - `back-ground-is-dark`: type: `Boolean`, default: `false`, permit to apply a style depending on background color, as the component is used as embeded,
+- `debug`: type: `Boolean`, default: `false`, for the demo/debug mode to be able to run in a standalone way (disable favorites api call)
 
 ### The content favorites
 
@@ -203,6 +319,7 @@ Need some work for a standalone use.
 
 #### Properties
 
+- `context-api-url`: type: `String`, default: `/uPortal`, usefull to provide a different uPortal context on which to do request
 - `org-info`: type: `Object`, default: `{}`, the current user organization detail object,
 - `other-orgs`: type: `Array`, default: `[]`, all other organizations details object when the user have several,
 - `user-info`: type: `Object`, required: `true`, the user information object,
@@ -242,7 +359,8 @@ This component render informations about a portlet as a card.
 - `call-after-action`: type: `Function`, default: `{}`, callback function to call after click on `action-favorite` button (passed to the `action-favorite` component),
 - `icon-background-color`: type: `String`, default: `Transparent`, could be used to apply a background-color behind a portlet icon - usecase if there isn't background on icon.
 - `favorite-api-url`: type: `String`, default: `/uPortal/api/layout`, the uri/url of the favorites api (passed to the `action-favorite` component),
-- `user-info-api-url`: type: `String`, default: `/uPortal/api/v5-1/userinfo`, url/uri on which the api request is done to obtain user information and the jwt tocken, (passed to the `action-favorite` component),
+- `user-info-api-url`: type: `String`, default: `/uPortal/api/v5-1/userinfo`, url/uri on which the api request is done to obtain user information and the jwt token, (passed to the `action-favorite` component),
+- `debug`: type: `Boolean`, default: `false`, for the demo/debug mode to be able to run in a standalone way (disable api call).
 
 ### The content grid category filter
 

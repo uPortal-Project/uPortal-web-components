@@ -25,7 +25,9 @@
           :hide-action="hideAction"
           :favorite-api-url="favoriteApiUrl"
           :is-hidden="_isHidden"
-          :user-info-api-url="userInfoApiUrl" />
+          :user-info-api-url="userInfoApiUrl"
+          :context-api-url="contextApiUrl"
+          :debug="debug"/>
       </div>
       <div
         :style="(backgroundImg != null && (_screenSize === 'large' || _screenSize === 'medium')) ? 'background-image: linear-gradient(0deg, rgba(0,0,0,.2),rgba(0,0,0,.2)), url(' + backgroundImg + ');' : ''"
@@ -39,7 +41,11 @@
       :portlet-card-size="gridPortletCardSize"
       :hide-action="hideAction"
       :favorite-api-url="favoriteApiUrl"
-      :user-info-api-url="userInfoApiUrl" />
+      :layout-api-url="layoutApiUrl"
+      :user-info-api-url="userInfoApiUrl"
+      :context-api-url="contextApiUrl"
+      :portlet-api-url="portletApiUrl"
+      :debug="debug"/>
     <vue-simple-spinner
       v-show="isLoading"
       class="spinner"
@@ -56,6 +62,7 @@ import vueSimpleSpinner from 'vue-simple-spinner';
 import fetchUserInfoAndOrg from '../services/fetchUserInfoAndOrgs';
 import fetchPortlets from '../services/fetchPortlets';
 import fetchFavorites from '../services/fetchFavorites';
+import {portletRegistryToArray} from '../services/portlet-registry-to-array';
 import flattenFavorites from '../services/flattenFavorites';
 import byPortlet from '../services/sortByPortlet';
 import toggleArray from '../services/toggleArray';
@@ -87,6 +94,33 @@ export default {
       type: String,
       default: process.env.VUE_APP_PORTAL_CONTEXT,
     },
+    favoriteApiUrl: {
+      type: String,
+      default:
+        process.env.VUE_APP_PORTAL_CONTEXT +
+        process.env.VUE_APP_FAVORITES_PORTLETS_URI,
+    },
+    layoutApiUrl: {
+      type: String,
+      default:
+        process.env.VUE_APP_PORTAL_CONTEXT + process.env.VUE_APP_FAVORITES_URI,
+    },
+    organizationApiUrl: {
+      type: String,
+      default: null,
+    },
+    portletApiUrl: {
+      type: String,
+      default:
+        process.env.VUE_APP_PORTAL_CONTEXT +
+        process.env.VUE_APP_BROWSABLE_PORTLETS_URI,
+    },
+    userInfoApiUrl: {
+      type: String,
+      default:
+        process.env.VUE_APP_PORTAL_CONTEXT + process.env.VUE_APP_USER_INFO_URI,
+    },
+    debug: {type: Boolean, default: false},
     signOutUrl: {type: String, default: process.env.VUE_APP_LOGOUT_URL},
     defaultOrgLogo: {type: String, required: true},
     userInfoPortletUrl: {type: String, default: ''},
@@ -113,9 +147,6 @@ export default {
   data() {
     return {
       backgroundImg: this.defaultOrgLogo,
-      favoriteApiUrl:
-        this.contextApiUrl + process.env.VUE_APP_FAVORITES_PORTLETS_URI,
-      userInfoApiUrl: this.contextApiUrl + process.env.VUE_APP_USER_INFO_URI,
       screenSize: 'medium',
       hideAction: false,
       info: {
@@ -123,8 +154,8 @@ export default {
         organizations: [],
         user: {},
         userOrganization: {},
+        portlets: [],
       },
-      portletsAPI: [],
       loadingState: {
         favorites: true,
         portlets: true,
@@ -135,7 +166,7 @@ export default {
   },
   computed: {
     _portlets() {
-      return this.portletsAPI;
+      return this.info.portlets;
     },
     _isHidden() {
       return this.isHidden;
@@ -242,8 +273,10 @@ export default {
       this.loadingState.user = false;
       this.loadingState.organization = false;
       const {user, organizations} = await fetchUserInfoAndOrg(
-          this.contextApiUrl,
-          this.userAllOrgsIdAttributeName
+          this.userInfoApiUrl,
+          this.organizationApiUrl,
+          this.userAllOrgsIdAttributeName,
+          this.debug
       );
       this.info.user = Object.assign({}, this.info.user, user);
       this.loadingState.user = true;
@@ -252,13 +285,21 @@ export default {
     },
     async fetchPortlets() {
       this.loadingState.portlets = false;
-      const portlets = await fetchPortlets(this.contextApiUrl);
-      this.portletsAPI = portlets.sort(byPortlet);
+      const portlets = await fetchPortlets(
+          this.userInfoApiUrl,
+          this.portletApiUrl,
+          this.debug
+      );
+      this.info.portlets = portletRegistryToArray(portlets).sort(byPortlet);
       this.loadingState.portlets = true;
     },
     async fetchFavorites() {
       this.loadingState.favorites = false;
-      const favoritesTree = await fetchFavorites(this.contextApiUrl);
+      const favoritesTree = await fetchFavorites(
+          this.userInfoApiUrl,
+          this.layoutApiUrl,
+          this.debug
+      );
       this.info.favorites = flattenFavorites(favoritesTree);
       this.loadingState.favorites = true;
     },

@@ -52,9 +52,9 @@
           :key="portlet.id"
           class="flex-item ma-3 text-xs-center">
           <a
-            :href="portlet.renderUrl"
-            :target="portlet.layoutObject.altMaxUrl ? '_blank' : '_self'"
-            :rel="portlet.layoutObject.altMaxUrl ? 'noopener noreferrer' : ''"
+            :href="getRenderPortletUrl(portlet)"
+            :target="hasAlternativeMaximizedUrl(portlet) ? '_blank' : '_self'"
+            :rel="hasAlternativeMaximizedUrl(portlet) ? 'noopener noreferrer' : ''"
             class="no-style">
             <portlet-card
               :portlet-desc="portlet"
@@ -63,7 +63,8 @@
               :hide-action="hideAction"
               :call-after-action="actionToggleFav"
               :favorite-api-url="favoriteApiUrl"
-              :user-info-api-url="userInfoApiUrl" />
+              :user-info-api-url="userInfoApiUrl"
+              :debug="debug" />
           </a>
         </div>
       </div>
@@ -98,12 +99,17 @@ import fetchPortlets from '../services/fetchPortlets';
 import byPortlet from '../services/sortByPortlet';
 import fetchFavorites from '../services/fetchFavorites';
 import flattenFavorites from '../services/flattenFavorites';
+import {portletRegistryToArray} from '../services/portlet-registry-to-array';
 import toggleArray from '../services/toggleArray';
 import {
   elementWidth,
   breakPointName,
   sizeValidator,
 } from '../services/sizeTools';
+import {
+  hasAlternativeMaximizedUrl,
+  getRenderUrl,
+} from '../services/managePortletUrl';
 
 export default {
   name: 'ContentGrid',
@@ -114,21 +120,33 @@ export default {
     hideTitle: {type: Boolean, default: false},
     backgroundColor: {type: String, default: 'rgba(0, 0, 0, 0)'},
     callAfterAction: {type: Function, default: undefined},
+    contextApiUrl: {
+      type: String,
+      default: process.env.VUE_APP_PORTAL_CONTEXT,
+    },
     favoriteApiUrl: {
       type: String,
       default:
         process.env.VUE_APP_PORTAL_CONTEXT +
         process.env.VUE_APP_FAVORITES_PORTLETS_URI,
     },
-    contextApiUrl: {
+    layoutApiUrl: {
       type: String,
-      default: process.env.VUE_APP_PORTAL_CONTEXT,
+      default:
+        process.env.VUE_APP_PORTAL_CONTEXT + process.env.VUE_APP_FAVORITES_URI,
+    },
+    portletApiUrl: {
+      type: String,
+      default:
+        process.env.VUE_APP_PORTAL_CONTEXT +
+        process.env.VUE_APP_BROWSABLE_PORTLETS_URI,
     },
     userInfoApiUrl: {
       type: String,
       default:
         process.env.VUE_APP_PORTAL_CONTEXT + process.env.VUE_APP_USER_INFO_URI,
     },
+    debug: {type: Boolean, default: false},
     /**
      * Warning the default value as undefined permit to distinct if the component should manage favorites locally.
      */
@@ -222,16 +240,30 @@ export default {
     translate(text, lang) {
       return i18n.t(text, lang);
     },
+    hasAlternativeMaximizedUrl(portletDesc) {
+      return hasAlternativeMaximizedUrl(portletDesc);
+    },
+    getRenderPortletUrl(portletDesc) {
+      return getRenderUrl(portletDesc, this.contextApiUrl);
+    },
     isFavorite(fname) {
       const favorites = this.favorites || this.localFavorites;
       return favorites.includes(fname);
     },
     async fetchPortlets() {
-      const portlets = await fetchPortlets(this.contextApiUrl);
-      this.localPortlets = portlets.sort(byPortlet);
+      const portlets = await fetchPortlets(
+          this.userInfoApiUrl,
+          this.portletApiUrl,
+          this.debug
+      );
+      this.localPortlets = portletRegistryToArray(portlets).sort(byPortlet);
     },
     async fetchFavorites() {
-      const favoritesTree = await fetchFavorites(this.contextApiUrl);
+      const favoritesTree = await fetchFavorites(
+          this.userInfoApiUrl,
+          this.layoutApiUrl,
+          this.debug
+      );
       this.localFavorites = flattenFavorites(favoritesTree);
     },
     calculateSize() {
