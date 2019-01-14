@@ -3,6 +3,7 @@
  * Gradle.
  */
 
+include '@uportal:api-template-vue'
 include '@uportal:content-carousel'
 include '@uportal:dashboard-carousel'
 include '@uportal:esco-content-menu'

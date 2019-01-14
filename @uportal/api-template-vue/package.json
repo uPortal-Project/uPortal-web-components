@@ -1,0 +1,67 @@
+{
+  "name": "@uportal/api-template-vue",
+  "version": "1.21.2",
+  "publishConfig": {
+    "access": "public"
+  },
+  "main": "dist/api-template-vue.js",
+  "source": "src/components/ApiTemplateVue.vue",
+  "scripts": {
+    "start": "vue-cli-service serve",
+    "prebuild": "babel node_modules/@vue/web-component-wrapper/dist/vue-wc-wrapper.js -o node_modules/@vue/web-component-wrapper/dist/vue-wc-wrapper.js",
+    "build": "vue-cli-service build --name api-template-vue --target wc 'src/components/*.vue'",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "@uportal/open-id-connect": "^1.20.0",
+    "axios": "^0.18.0",
+    "vue": "^2.5.21"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/plugin-transform-runtime": "^7.2.0",
+    "@babel/preset-env": "^7.2.3",
+    "@vue/cli-plugin-babel": "^3.2.0",
+    "@vue/cli-plugin-eslint": "^3.2.0",
+    "@vue/cli-service": "^3.2.0",
+    "babel-eslint": "^10.0.1",
+    "bootstrap": "^4.2.1",
+    "eslint": "^5.8.0",
+    "eslint-plugin-vue": "^5.0.0",
+    "node-sass": "^4.11.0",
+    "sass-loader": "^7.1.0",
+    "vue-template-compiler": "^2.5.21"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended"
+    ],
+    "rules": {},
+    "parserOptions": {
+      "parser": "babel-eslint"
+    }
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uPortal-contrib/uPortal-web-components.git"
+  },
+  "bugs": {
+    "url": "https://github.com/uPortal-contrib/uPortal-web-components/issues"
+  },
+  "homepage": "https://github.com/uPortal-contrib/uPortal-web-components#readme"
+}
