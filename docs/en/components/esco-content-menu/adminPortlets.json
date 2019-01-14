@@ -1,1 +1,199 @@
-../../../../@uportal/esco-content-menu/public/adminPortlets.json
+{
+  "registry": {
+    "categories": [
+      {
+        "name": "uPortal",
+        "description": "Services natifs uPortal",
+        "id": "local.22",
+        "portlets": [
+          {
+            "fname": "portal-activity",
+            "keywords": [],
+            "description": "Afficher l'activité dans le portail",
+            "title": "Activité dans le portail",
+            "averageRating": 0,
+            "name": "Activité dans le portail",
+            "ratingsCount": 0,
+            "typeId": 7,
+            "id": 22,
+            "state": "PUBLISHED",
+            "favorite": false,
+            "parameters": {
+              "iconUrl": {
+                "name": "iconUrl",
+                "description": "",
+                "value": "https://ent.recia.fr/ResourceServingWebapp/rs/tango/0.8.90/32x32/categories/preferences-system.png"
+              }
+            }
+          },
+          {
+            "fname": "portlet-admin",
+            "keywords": [],
+            "description": "Portlets d'administration des portlets",
+            "title": "Administration des portlets",
+            "averageRating": 0,
+            "name": "Administration des portlets",
+            "ratingsCount": 0,
+            "typeId": 7,
+            "id": 26,
+            "state": "PUBLISHED",
+            "favorite": false,
+            "parameters": {
+              "iconUrl": {
+                "name": "iconUrl",
+                "description": "",
+                "value": "https://ent.recia.fr/ResourceServingWebapp/rs/tango/0.8.90/32x32/categories/preferences-system.png"
+              }
+            }
+          },
+          {
+            "fname": "portal-administration",
+            "keywords": [],
+            "description": "Menu des portlets d'administration du portail",
+            "title": "Administration du portail",
+            "averageRating": 0,
+            "name": "Administration du portail",
+            "ratingsCount": 0,
+            "typeId": 7,
+            "id": 23,
+            "state": "PUBLISHED",
+            "favorite": true,
+            "parameters": {
+              "iconUrl": {
+                "name": "iconUrl",
+                "description": "",
+                "value": "https://ent.recia.fr/ResourceServingWebapp/rs/tango/0.8.90/32x32/categories/preferences-system.png"
+              }
+            }
+          },
+          {
+            "fname": "popular-portlets",
+            "keywords": [],
+            "description": "Liste les portlets qui ont été ajoutées par les utilisateurs",
+            "title": "Applications les plus populaires",
+            "averageRating": 0,
+            "name": "Applications les plus populaires",
+            "ratingsCount": 0,
+            "typeId": 7,
+            "id": 21,
+            "state": "PUBLISHED",
+            "favorite": false,
+            "parameters": {
+              "iconUrl": {
+                "name": "iconUrl",
+                "description": "",
+                "value": "https://ent.recia.fr/ResourceServingWebapp/rs/tango/0.8.90/32x32/categories/preferences-system.png"
+              }
+            }
+          },
+          {
+            "fname": "groupsmanager",
+            "keywords": [],
+            "description": "Gestion des groupes du portail",
+            "title": "Gestion des groupes",
+            "averageRating": 0,
+            "name": "Gestion des groupes",
+            "ratingsCount": 0,
+            "typeId": 7,
+            "id": 12,
+            "state": "PUBLISHED",
+            "favorite": false,
+            "parameters": {
+              "iconUrl": {
+                "name": "iconUrl",
+                "description": "",
+                "value": "https://ent.recia.fr/ResourceServingWebapp/rs/tango/0.8.90/32x32/apps/system-users.png"
+              }
+            }
+          },
+          {
+            "fname": "passwordmgr",
+            "keywords": [],
+            "description": "Gestion des mots de passe",
+            "title": "Gestion des mots de passe",
+            "averageRating": 0,
+            "name": "Gestion des mots de passe",
+            "ratingsCount": 0,
+            "typeId": 7,
+            "id": 18,
+            "state": "PUBLISHED",
+            "favorite": false,
+            "parameters": {
+              "iconUrl": {
+                "name": "iconUrl",
+                "description": "",
+                "value": "https://ent.recia.fr/ResourceServingWebapp/rs/tango/0.8.90/32x32/categories/preferences-system.png"
+              }
+            }
+          },
+          {
+            "fname": "permissionsmanager",
+            "keywords": [],
+            "description": "Portlet de gestion des permissions",
+            "title": "Gestion des permissions",
+            "averageRating": 0,
+            "name": "Gestion des permissions",
+            "ratingsCount": 0,
+            "typeId": 7,
+            "id": 19,
+            "state": "PUBLISHED",
+            "favorite": false,
+            "parameters": {
+              "iconUrl": {
+                "name": "iconUrl",
+                "description": "",
+                "value": "https://ent.recia.fr/ResourceServingWebapp/rs/tango/0.8.90/32x32/categories/preferences-system.png"
+              }
+            }
+          },
+          {
+            "fname": "user-administration",
+            "keywords": [],
+            "description": "Menu des outils de gestion des utilisateurs",
+            "title": "Gestion des utilisateurs",
+            "averageRating": 0,
+            "name": "Gestion des utilisateurs",
+            "ratingsCount": 0,
+            "typeId": 7,
+            "id": 38,
+            "state": "PUBLISHED",
+            "favorite": false,
+            "parameters": {
+              "iconUrl": {
+                "name": "iconUrl",
+                "description": "",
+                "value": "https://ent.recia.fr/ResourceServingWebapp/rs/tango/0.8.90/32x32/apps/system-users.png"
+              }
+            }
+          },
+          {
+            "fname": "statistics",
+            "keywords": [],
+            "description": "Visualiser les statistiques du portail.",
+            "title": "Statistiques",
+            "averageRating": 0,
+            "name": "Statistiques",
+            "ratingsCount": 0,
+            "typeId": 7,
+            "id": 33,
+            "state": "PUBLISHED",
+            "favorite": false,
+            "parameters": {
+              "disableDynamicTitle": {
+                "name": "disableDynamicTitle",
+                "description": "",
+                "value": "true"
+              },
+              "iconUrl": {
+                "name": "iconUrl",
+                "description": "",
+                "value": "https://ent.recia.fr/ResourceServingWebapp/rs/tango/0.8.90/32x32/mimetypes/x-office-spreadsheet.png"
+              }
+            }
+          }
+        ],
+        "subcategories": []
+      }
+    ]
+  }
+}
