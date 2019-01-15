@@ -401,6 +401,16 @@ export default {
         flex-flow: row wrap;
       }
     }
+
+    > /deep/ section.content-grid {
+      > div {
+        background-color: #f3f3f3;
+
+        > .title {
+          background-color: #fff;
+        }
+      }
+    }
   }
 }
 </style>
