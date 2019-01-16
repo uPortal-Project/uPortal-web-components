@@ -1,23 +1,17 @@
 <template>
   <api-template-vue
-      debug
-      data-api-url="example.json">
+    debug
+    data-api-url="example.json">
     <div v-pre><!-- Directive v-pre required b/c Vue will attempt to process anything in App.vue -->
       <h3>{{ displayName[0] }}</h3>
-      <table class="table">
-        <tr>
-          <td>username:</td>
-          <td>{{ username[0] }}</td>
-        </tr>
-        <tr>
-          <td>email:</td>
-          <td>{{ mail[0] }}</td>
-        </tr>
-        <tr>
-          <td>Phone:</td>
-          <td>{{ telephoneNumber[0] }}</td>
-        </tr>
-      </table>
+      <dl>
+        <dt>username:</dt>
+        <dd>{{ username[0] }}</dd>
+        <dt>email:</dt>
+        <dd>{{ mail[0] }}</dd>
+        <dt>Phone:</dt>
+        <dd>{{ telephoneNumber[0] }}</dd>
+      </dl>
     </div>
   </api-template-vue>
 </template>
@@ -34,4 +28,25 @@ export default {
 </script>
 
 <style>
+@media screen and (min-width: 576px) {
+  dl {
+    display: flex;
+    flex-flow: row wrap;
+  }
+
+  dt {
+    flex-basis: 20%;
+    border-top: 1px solid #dee2e6;
+    height: 3em;
+    padding: 4px 4px;
+  }
+
+  dd {
+    flex-basis: 70%;
+    flex-grow: 1;
+    border-top: 1px solid #dee2e6;
+    height: 3em;
+    padding: 4px 4px;
+  }
+}
 </style>
