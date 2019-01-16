@@ -18,13 +18,14 @@
     "@babel/cli": "^7.2.3",
     "@babel/plugin-transform-runtime": "^7.2.0",
     "@babel/preset-env": "^7.3.1",
-    "@fortawesome/fontawesome-svg-core": "1.2.10",
-    "@fortawesome/free-solid-svg-icons": "5.6.1",
+    "@fortawesome/fontawesome-svg-core": "1.2.12",
+    "@fortawesome/free-solid-svg-icons": "5.6.3",
     "@fortawesome/vue-fontawesome": "^0.1.5",
     "@vue/cli-service": "^3.3.0",
     "node-sass": "^4.11.0",
     "sass-loader": "^7.1.0",
-    "vue-template-compiler": "^2.6.5"
+    "vue-template-compiler": "^2.6.5",
+    "react-scripts": "1.1.5"
   },
   "scripts": {
     "start": "vue-cli-service serve",
