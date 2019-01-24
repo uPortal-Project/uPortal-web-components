@@ -17,8 +17,7 @@ export class AuthenticatedRssStrategy implements DataStrategy {
     const response = await fetch(path, {
       credentials: 'same-origin',
       headers: {
-        'Authorization': 'Bearer ' + token,
-        'content-type': 'application/jwt',
+        Authorization: 'Bearer ' + token,
       },
     });
     if (!response.ok) {
