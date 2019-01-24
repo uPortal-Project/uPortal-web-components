@@ -102,6 +102,7 @@ export default class ContentCarousel extends Vue {
       }
       case 'authenticated-rss': {
         this.strategy = new AuthenticatedRssStrategy(this.source);
+        break;
       }
       default: {
         console.error(`type: "${this.type}" is not recognized`);
