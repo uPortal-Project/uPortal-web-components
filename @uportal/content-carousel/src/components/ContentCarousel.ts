@@ -1,3 +1,4 @@
+import {AuthenticatedRssStrategy} from '@/lib/AuthenticatedRssStrategy';
 import {PortletStrategy} from '@/lib/PortletStrategy';
 import {RssStrategy} from '@/lib/RssStrategy';
 import {Component, Prop, Vue, Watch} from 'vue-property-decorator';
@@ -97,6 +98,10 @@ export default class ContentCarousel extends Vue {
       case 'passthrough': {
         // ensure 'passthrough' is lowercase
         this.type = this.type.toLowerCase();
+        break;
+      }
+      case 'authenticated-rss': {
+        this.strategy = new AuthenticatedRssStrategy(this.source);
         break;
       }
       default: {
