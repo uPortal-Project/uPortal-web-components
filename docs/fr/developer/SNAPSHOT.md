@@ -34,7 +34,7 @@ uPortal-web-components est un projet basé sur[Node.js][]-, mais il utilise[Grad
 WebJars et installez-les dans le référentiel Maven Local.
 
 > REMARQUE : **NOTE:** Les composants individuels des composants uPortal-web-composants doivent être complètement assemblés (par
-> npm`) avant d'invoquer Gradle pour les empaqueter sous la forme d'un WebJar `-SNAPSHOT`.
+> npm) avant d'invoquer Gradle pour les empaqueter sous la forme d'un WebJar `-SNAPSHOT`.
 
 Utilisez les commandes suivantes pour construire tous les composants dans uPortal-web-components et les package/installer
 comme `-SNAPSHOT' WebJars dans Maven Local.
