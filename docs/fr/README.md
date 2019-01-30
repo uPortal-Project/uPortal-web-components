@@ -9,7 +9,7 @@
 Il existe deux options pour l'installation des composants :
 
 - via [node][] paquet à travers [npm][] ou [yarn][]
-- via[webjar][] à travers [gradle][] ou [maven][]
+- via [webjar][] à travers [gradle][] ou [maven][]
 
 ```bash
 # installation avec npm
@@ -80,7 +80,7 @@ Want to chat with the community and contributors? Join us in [Slack][] and the [
   - [in Svelte](developer/create-web-component/SVELTE.md)
   - [in Vue](developer/create-web-component/VUE.md) :star:
 
-:star: Recommended
+:star: Recommandé
 
 [contributing.md]: ../../CONTRIBUTING.md
 [gradle]: https://docs.gradle.org
