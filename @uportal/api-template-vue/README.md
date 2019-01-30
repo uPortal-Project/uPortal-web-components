@@ -1,7 +1,7 @@
 # api-template-vue
 
 [![NPM Version](https://img.shields.io/npm/v/@uportal/api-template-vue.svg)](https://www.npmjs.com/package/@uportal/api-template-vue)
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.webjars.npm/uportal__api-template-vue/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.webjars.npm/uportal__api-template-vue) 
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.webjars.npm/uportal__api-template-vue/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.webjars.npm/uportal__api-template-vue)
 [![Build Status](https://travis-ci.org/uPortal-contrib/uPortal-web-components.svg?branch=master)](https://travis-ci.org/uPortal-contrib/uPortal-web-components)
 
 ## Installation

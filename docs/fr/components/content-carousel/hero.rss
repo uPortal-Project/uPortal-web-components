@@ -1,0 +1,27 @@
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <channel>
+        <title>Campus Services</title>
+        <link>http://localhost:8080/Announcements/getRssFeed?topic=1</link>
+        <description>Notices to all students, faculty, and staff about campus services</description>
+        <item>
+            <title>New Cafeteria Option</title>
+            <link>http://localhost:8080/uPortal/p/announcements?pP_announcementId=3&amp;pP_action=displayFullAnnouncement</link>
+            <description>The Crazy Chicken is now open in Student Hall</description>
+            <pubDate>Mon, 01 Aug 2016 07:00:00 GMT</pubDate>
+            <guid>http://localhost:8080/uPortal/p/announcements?pP_announcementId=3&amp;pP_action=displayFullAnnouncement</guid>
+            <dc:creator>admin</dc:creator>
+            <dc:date>2016-08-01T07:00:00Z</dc:date>
+            <enclosure url="https://placehold.it/1920x500" length="5929" type="image/jpeg" />
+        </item>
+        <item>
+            <title>New Portal Update</title>
+            <link>https://wiki.jasig.org/display/PLT/Home</link>
+            <description>New features added in updated version of the portal</description>
+            <pubDate>Mon, 01 Aug 2016 07:00:00 GMT</pubDate>
+            <guid>https://wiki.jasig.org/display/PLT/Home</guid>
+            <dc:creator>admin</dc:creator>
+            <dc:date>2016-08-01T07:00:00Z</dc:date>
+            <enclosure url="https://placehold.it/1920x500" length="5929" type="image/jpeg" />
+        </item>
+    </channel>
+</rss>
