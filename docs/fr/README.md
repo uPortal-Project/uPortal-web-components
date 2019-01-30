@@ -62,7 +62,7 @@ Par exemple, un `example-component` serait chargé en ajoutant
 
 ## Contribuer
 Les composants du uPortal sont construits par des gens comme vous ! Consultez[CONTRIBUTING.md][] pour savoir comment commencer.
-Vous voulez discuter avec la communauté et les contributeurs ? Rejoignez-nous dans[Slack][]et la[Mailing List][][] !
+Vous voulez discuter avec la communauté et les contributeurs ? Rejoignez-nous dans [Slack][] et sur la [Mailing List][][] !
 
 ## Sujets supplémentaires
 
