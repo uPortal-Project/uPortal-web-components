@@ -26,5 +26,3 @@ une seule commande.
 [remarklint] : https://github.com/remarkjs/remark-lint
 [stylelint] : https://stylelint.io/
 
-
-Traduit avec www.DeepL.com/Translator
