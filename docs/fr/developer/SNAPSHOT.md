@@ -55,7 +55,7 @@ Par convention, une propriété `<webjar.name>Version' est définie pour chaque 
 `gradle.properties' à la racine de uPortal-start.
 
 "Gradle
-dépendances { {
+dependencies {
     runtime "org.jasig.jasig.resourceserver:resource-server-webapp:${resourceServer13Version}@war"
 
     // Webjars inclus avec le serveur de ressources
