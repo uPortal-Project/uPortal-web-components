@@ -12,7 +12,7 @@ Les WebJars sont des bibliothèques Web côté client regroupées dans des fichi
 
 ## Utiliser un WebJar avec Maven
 
-1. Visitez <https://www.webjars.org>>
+1. Visitez <https://www.webjars.org>
 2. Entrez le nom du paquet dans la recherche
 3. Sélectionnez " Maven ".
 4. Copier l'extrait de l'exemple
