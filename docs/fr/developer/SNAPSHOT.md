@@ -54,7 +54,7 @@ Dans uPortal-start, la superposition `resource-server` fournit le support pour _
 Par convention, une propriété `<webjar.name>Version' est définie pour chaque WebJar dans le répertoire
 `gradle.properties' à la racine de uPortal-start.
 
-"Gradle
+```gradle
 dependencies {
     runtime "org.jasig.jasig.resourceserver:resource-server-webapp:${resourceServer13Version}@war"
 
