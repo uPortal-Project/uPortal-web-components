@@ -75,6 +75,6 @@ dependencies {
 1.  De la racine du projet
 2.  "Test npm
 
-[git] : https://git-scm.com/download
+[git]: https://git-scm.com/download
 [node.js] : https://nodejs.org/en/download/
 [nvm] : https://github.com/creationix/nvm#readme
