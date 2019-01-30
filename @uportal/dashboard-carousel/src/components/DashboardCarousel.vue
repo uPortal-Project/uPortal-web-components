@@ -154,6 +154,10 @@ export default {
   background-color: aquamarine;
 }
 
+.slick-list {
+  width: 100%;
+}
+
 .slick-initialized {
   display: flex;
   justify-content: center;
