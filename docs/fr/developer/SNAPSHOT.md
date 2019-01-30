@@ -37,7 +37,7 @@ WebJars et installez-les dans le référentiel Maven Local.
 > npm) avant d'invoquer Gradle pour les empaqueter sous la forme d'un WebJar `-SNAPSHOT`.
 
 Utilisez les commandes suivantes pour construire tous les composants dans uPortal-web-components et les package/installer
-comme `-SNAPSHOT' WebJars dans Maven Local.
+comme `-SNAPSHOT` WebJars dans Maven Local.
 
 ```bash
 npm run build
