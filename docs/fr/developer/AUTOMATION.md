@@ -19,7 +19,7 @@ la libération de ces sous-projets[Lerna][][] est utilisée. [Lerna][] centralis
 à travers les paquets, ce qui permet de mettre à jour tous les sous-projets à l'aide de
 une seule commande.
 
-[eslint] : https://eslint.org/
+[eslint]: https://eslint.org/
 [style de code google] : https://google.github.io/styleguide/jsguide.html
 [lerna] : https://lernajs.io/
 [plus jolie] : https://prettier.io/
