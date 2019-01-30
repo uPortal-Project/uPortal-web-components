@@ -2,7 +2,8 @@
 
 [![Build Status](https://travis-ci.org/uPortal-contrib/uPortal-web-components.svg?branch=master)](https://travis-ci.org/uPortal-contrib/uPortal-web-components)
 
-> A collection of reusable, standardized, and accessible [web components][] for [uPortal][]
+> Une collection des [web components][] pour[uPortal][][]  réutilisables, normalisés et accessibles pour[uPortal][].
+
 
 ## Installation
 
@@ -19,7 +20,7 @@ npm install @uportal/{nom du paquet ici}
 yarn add @uportal/{nom du paquet ici}
 ```
 
-_install avec maven_
+_installation avec maven_
 
 ```xml
 <dependency>
@@ -29,13 +30,13 @@ _install avec maven_
 </dependency>
 ```
 
-_install avec gradle_
+_installation avec gradle_
 
 ```gradle
 compile 'org.webjars.npm:uportal__{package name goes here}:{version number goes here}'
 ```
 
-## Usage
+## Utilisation
 
 Pour installer n'importe quel composant, ajoutez une balise avec le nom du composant, et une balise script pointant vers le paquet JavaScript pour ce composant.
 
@@ -46,7 +47,7 @@ Par exemple, un `example-component` serait chargé en ajoutant
 <script src="node_modules/@uportal/example-component/dist/js/example-component.js"></script>
 ```
 
-## Components
+## Composants
 
 - [Content Carousel](components/content-carousel/README.md)
 - [Dashboard Carousel](components/dashboard-carousel/README.md)
@@ -54,24 +55,22 @@ Par exemple, un `example-component` serait chargé en ajoutant
 - [Eyebrow User Info](components/eyebrow-user-info/README.md)
 - [Waffle Menu](components/waffle-menu/README.md)
 
-## Utilities
+## Utilitaires
 
 - [Open ID Connect](components/open-id-connect/README.md)
 - [Portlet Registry to Array](components/portlet-registry-to-array/README.md)
 
-## Contribute
+## Contribuer
+Les composants du uPortal sont construits par des gens comme vous ! Consultez[CONTRIBUTING.md][] pour savoir comment commencer.
+Vous voulez discuter avec la communauté et les contributeurs ? Rejoignez-nous dans[Slack][]et la[Mailing List][][] !
 
-uPortal Components are built by people just like you! Check out [CONTRIBUTING.md][] for ways to get started.
-
-Want to chat with the community and contributors? Join us in [Slack][] and the [Mailing List][]!
-
-## Additional Topics
+## Sujets supplémentaires
 
 - [Local Project Setup](developer/SETUP.md)
 - [Project Automation Tools](developer/AUTOMATION.md)
 - [Project Conventions and Practices](developer/CONVENTIONS.md)
 - [Working with WebJars](developer/WEBJARS.md)
-- Create a Web Component:
+- Créer un Web Component:
   - [without a framework](developer/create-web-component/PLAIN.md)
   - [in Angular](developer/create-web-component/ANGULAR.md)
   - [in Polymer](developer/create-web-component/POLYMER.md) :star:
