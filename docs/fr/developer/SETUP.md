@@ -21,7 +21,7 @@
 ## Tests
 
 1.  De la racine du projet
-2.  "Test npm
+2.  `npm test`
 
 [git] : https://git-scm.com/download
 [node.js] : https://nodejs.org/en/download/
