@@ -24,5 +24,5 @@ une seule commande.
 [lerna] : https://lernajs.io/
 [plus jolie] : https://prettier.io/
 [remarklint] : https://github.com/remarkjs/remark-lint
-[stylelint] : https://stylelint.io/
+[stylelint]: https://stylelint.io/
 
