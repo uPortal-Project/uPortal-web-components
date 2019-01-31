@@ -36,7 +36,7 @@ Les WebJars sont des bibliothèques Web côté client regroupées dans des fichi
    - Sélectionner le type `NPM`.
    - Choisissez le nom du forfait
    - Choisissez la version à ajouter
-4. Cliquez sur `Déployer!` `.
+4. Cliquez sur `Déployer!`
 
 ## Créer un WebJar à partir d'un répertoire local
 
