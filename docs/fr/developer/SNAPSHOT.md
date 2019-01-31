@@ -77,4 +77,4 @@ dependencies {
 
 [git]: https://git-scm.com/download
 [node.js] : https://nodejs.org/en/download/
-[nvm] : https://github.com/creationix/nvm#readme
+[nvm]: https://github.com/creationix/nvm#readme
