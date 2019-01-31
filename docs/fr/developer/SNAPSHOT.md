@@ -67,7 +67,7 @@ dependencies {
 
 [uportal-start] : https://github.com/Jasig/uPortal-start
 [node.js] : https://nodejs.org/
-[gradle] : https://gradle.org/
+[gradle]: https://gradle.org/
 
 
 ## Tests
