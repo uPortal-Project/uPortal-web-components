@@ -65,9 +65,9 @@ Add top-level `main` and `source` attributes.
 + "source": "src/components/{component-name}.vue",
 ```
 
-### Edit _babel.config.js_
+### Update _babel.config.js_
 
-Create or open _babel.config.js_ in an editor.
+Update _babel.config.js_ such that it contains the following.
 
 ```js
 module.exports = {
@@ -76,10 +76,16 @@ module.exports = {
 };
 ```
 
+### Create _src/components/{component-name}.vue_
+Follow the [Vue guide][] to see how to build a component in _src/components/{component-name}.vue_
+
+### Update _src/App.vue_
+Update the `import` and `export` _src/App.vue_ to import _src/components/{component-name}.vue_ and use the component.
+
 Done!
 There is now a new component added to the project.
 
-Use `npm install` and `npm run serve` to start a demo web server and follow the [Vue guide][] to see how to build a component
+Use `npm install` and `npm run serve` to start a demo web server.
 
 ## Additional Steps for Web Components in `uPortal-web-components` (This Project)
 
