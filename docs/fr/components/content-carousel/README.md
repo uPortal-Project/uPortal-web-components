@@ -111,7 +111,7 @@ Le contenu HTML du composant peut également être modifié à l'aide de la comm
 
 #### En-tête
 
-L'attribue slot`header`  affiche le contenu en dessous des diapositives.
+L'attribut slot`header`  affiche le contenu en dessous des diapositives.
 
 ```html
 <content-carousel type="rss" source="/content.rss">
@@ -121,7 +121,7 @@ L'attribue slot`header`  affiche le contenu en dessous des diapositives.
 
 #### Empty
 
-L'attribue slot `empty` affiche le contenu lorsqu'aucune diapositive n'a été trouvée.
+L'attribut slot `empty` affiche le contenu lorsqu'aucune diapositive n'a été trouvée.
 
 ```html
 <content-carousel type="rss" source="/content.rss">
