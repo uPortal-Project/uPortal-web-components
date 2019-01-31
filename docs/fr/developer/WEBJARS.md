@@ -21,7 +21,7 @@ Les WebJars sont des bibliothèques Web côté client regroupées dans des fichi
 
 ## Utiliser un WebJar avec Gradle
 
-1. Visitez <https://www.webjars.org>>
+1. Visitez <https://www.webjars.org>
 2. Entrez le nom du paquet dans la recherche
 3. Sélectionnez " Gradle ".
 4. Copier l'extrait de l'exemple
