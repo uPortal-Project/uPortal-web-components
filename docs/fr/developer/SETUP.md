@@ -10,7 +10,7 @@
 1.  Depuis un terminal ou une ligne de commande
 2.  `git clone https://github.com/uPortal-contrib/uPortal-web-components`
 3.  cd uPortal-web-composants
-4.  "npm ci
+4.  `npm ci`
 5.  "Npm run bootstrap
 
 ## Exécution locale d'un composant
