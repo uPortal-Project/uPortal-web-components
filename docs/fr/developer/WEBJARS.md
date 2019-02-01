@@ -44,6 +44,6 @@ Les WebJars sont des bibliothèques Web côté client regroupées dans des fichi
 2. Construisez un bocal du projet `zip project.jar`.
 3. Obtenir le chemin absolu vers le dossier courant `pwd``.
 4. Aller au projet maven
-5. `mvn install:install-file \${chemin de l'étape 3}/project.jar``.
+5. `mvn install:install-file \${chemin de l'étape 3}/project.jar`.
 
 Traduit avec www.DeepL.com/Translator
