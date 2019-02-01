@@ -24,5 +24,5 @@ une seule commande.
 [style de code google] : https://google.github.io/styleguide/jsguide.html
 [lerna] : https://lernajs.io/
 [plus jolie] : https://prettier.io/
-[remarklint] : https://github.com/remarkjs/remark-lint
+[remarklint]: https://github.com/remarkjs/remark-lint
 [stylelint]: https://stylelint.io/
