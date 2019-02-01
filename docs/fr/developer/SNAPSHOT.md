@@ -51,7 +51,7 @@ Dans uPortal-start, la superposition `resource-server` fournit le support pour _
 
 ### Exemples de dépendances WebJar
 
-Par convention, une propriété `<webjar.name>Version' est définie pour chaque WebJar dans le répertoire`gradle.properties' à la racine de uPortal-start.
+Par convention, une propriété `<webjar.name>Version` est définie pour chaque WebJar dans le répertoire`gradle.properties' à la racine de uPortal-start.
 
 ```gradle
 dependencies {
