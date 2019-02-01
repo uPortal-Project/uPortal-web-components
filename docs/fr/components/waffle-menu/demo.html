@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,shrink-to-fit=no"
+    />
+    <meta name="theme-color" content="#000000" />
+    <link rel="manifest" href="/uPortal-web-components/manifest.json" />
+    <link rel="shortcut icon" href="/uPortal-web-components/favicon.ico" />
+    <title>Waffle Menu</title>
+    <style>
+      header {
+        background: #5a9c47;
+        margin-bottom: 50px;
+      }
+
+      header:last-of-type {
+        background: #1a1e58;
+      }
+
+      h1 {
+        color: #dedede;
+        float: left;
+        margin: 8px;
+        font-size: 22px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS',
+          sans-serif;
+      }
+
+      nav {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 0.5rem 1rem;
+      }
+
+      .buttons {
+        margin-left: 90%;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <h1>Collecting all portlets</h1>
+      <nav>
+        <div class="buttons">
+          <waffle-menu
+            debug="true"
+            button-color="#dedede"
+            menu-background-color="#99aa99"
+            url="sample-portlets.json"
+          ></waffle-menu>
+        </div>
+      </nav>
+    </header>
+
+    <header>
+      <h1>From a category</h1>
+      <nav>
+        <div class="buttons">
+          <waffle-menu
+            debug="true"
+            button-color="#9999ff"
+            menu-background-color="#6789ab"
+            url="sample-small-portlets.json"
+          ></waffle-menu>
+        </div>
+      </nav>
+    </header>
+
+    <script src="https://unpkg.com/core-js-bundle@3.0.0-beta.8"></script>
+    <script src="https://unpkg.com/regenerator-runtime/runtime.js"></script>
+    <script src="https://unpkg.com/whatwg-fetch"></script>
+    <script src="https://unpkg.com/@webcomponents/webcomponentsjs"></script>
+    <script src="https://unpkg.com/@uportal/waffle-menu"></script>
+  </body>
+</html>
