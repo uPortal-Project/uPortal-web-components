@@ -22,7 +22,7 @@ une seule commande.
 [eslint]: https://eslint.org/
 
 [style de code google] : https://google.github.io/styleguide/jsguide.html
-[lerna] : https://lernajs.io/
+[lerna]: https://lernajs.io/
 [plus jolie] : https://prettier.io/
 [remarklint]: https://github.com/remarkjs/remark-lint
 [stylelint]: https://stylelint.io/
