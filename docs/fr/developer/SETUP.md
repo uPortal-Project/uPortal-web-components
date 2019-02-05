@@ -3,7 +3,7 @@
 ## Prérequis
 
 1.  [Git][]
-2.  Node.js][] 10.9+ (l'utilisation de[NVM][] est recommandée)
+2.  [Node.js][] 10.9+ (l'utilisation de [NVM][] est recommandée)
 
 ## Installation
 
@@ -15,14 +15,14 @@
 
 ## Exécution locale d'un composant
 
-1.  cd" dans le dossier des composants
-2.  "Npm start
+1.  `cd` dans le dossier des composants
+2.  `npm start`
 
 ## Tests
 
 1.  De la racine du projet
 2.  `npm test`
 
-[git] : https://git-scm.com/download
-[node.js] : https://nodejs.org/en/download/
-[nvm] : https://github.com/creationix/nvm#readme
+[git]: https://git-scm.com/download
+[node.js]: https://nodejs.org/en/download/
+[nvm]: https://github.com/creationix/nvm#readme
