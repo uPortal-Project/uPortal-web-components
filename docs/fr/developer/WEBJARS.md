@@ -17,7 +17,7 @@ Les WebJars sont des bibliothèques Web côté client regroupées dans des fichi
 3. Sélectionnez " Maven ".
 4. Copier l'extrait de l'exemple
 
-[ Utiliser maven](.../assets/webjars-use-maven.png)
+![Utiliser maven](../assets/webjars-use-maven.png)
 
 ## Utiliser un WebJar avec Gradle
 
@@ -31,8 +31,8 @@ Les WebJars sont des bibliothèques Web côté client regroupées dans des fichi
 ## Créer un WebJar à partir de NPM
 
 1. Visitez <https://www.webjars.org>
-2. Cliquez ici pour ajouter un WebJar ![WebJars home](.../assets/webjars-home.png)
-3. Sélectionnez un package NPM à ajouter ![Selector](.../assets/webjars-add.png)
+2. Cliquez ici pour ajouter un WebJar ![WebJars home](../assets/webjars-home.png)
+3. Sélectionnez un package NPM à ajouter ![Selector](../assets/webjars-add.png)
    - Sélectionner le type `NPM`.
    - Choisissez le nom du forfait
    - Choisissez la version à ajouter
@@ -45,5 +45,3 @@ Les WebJars sont des bibliothèques Web côté client regroupées dans des fichi
 3. Obtenir le chemin absolu vers le dossier courant `pwd`.
 4. Aller au projet maven
 5. `mvn install:install-file \${chemin de l'étape 3}/project.jar`.
-
-Traduit avec www.DeepL.com/Translator

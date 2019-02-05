@@ -58,7 +58,7 @@ Le composant nécessite un type. Il y a également les propriétés `carousel-he
 
 ### Options
 
-- `type` (requis, enum[rss, portlet, passthrough]) : type de source de données à utiliser.
+- `type` (requis, enum\[rss, portlet, passthrough]) : type de source de données à utiliser.
 - `source` (optionnelle, string): la source du contenu à rendre dans les diapositives.
 - `slick-options` (optionnelle, [slick settings](https://kenwheeler.github.io/slick/#settings)): configuration pour carrousel.
 - `carousel-height` (optionnelle, string): css height (hauteur) à appliquer aux diapositives.
