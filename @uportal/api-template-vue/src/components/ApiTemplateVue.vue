@@ -1,6 +1,6 @@
 <template>
-  <div class="ath-outer">
-    <div class="ath-spinner p-3">
+  <div class="atv-outer">
+    <div class="atv-spinner p-3">
       <div class="spinner-grow text-secondary" role="status">
         <span class="sr-only">Loading...</span>
       </div>
@@ -11,7 +11,7 @@
         <span class="sr-only">Loading...</span>
       </div>
     </div>
-    <div class="ath-inner" style="display: none;">
+    <div class="atv-inner" style="display: none;">
       <slot>
         <h3>No Content Specified</h3>
         <p>Please specify content for this component using the default slot.</p>
@@ -79,12 +79,12 @@ export default {
       await this.fetchJson();
       // Render the slot content as a new Vue instance
       new Vue({
-        el: this.$el.querySelector('.ath-inner'),
-        data: this.json
+        el: this.$el.querySelector('.atv-inner'),
+        data: () => ({ data: this.json })
       });
 
-      this.$el.querySelector('.ath-inner').style.display = 'block';
-      this.$el.querySelector('.ath-spinner').style.display = 'none';
+      this.$el.querySelector('.atv-inner').style.display = 'block';
+      this.$el.querySelector('.atv-spinner').style.display = 'none';
     }
   },
 
@@ -98,7 +98,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
 /* HACK: needed to scope styles for browsers that do not have shadow dom support */
-.ath-outer /deep/ {
+.atv-outer /deep/ {
   @import '../../node_modules/bootstrap/scss/bootstrap';
 }
 </style>
