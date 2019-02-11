@@ -71,7 +71,7 @@ cd {component-name}
 npm install --save-dev @babel/{cli,plugin-transform-runtime,preset-env}
 ```
 
-## 3. Add gradle support for Maven WebJars
+## 3. Add gradle support for WebJars
 
 ### Create gradle.properties file
 
