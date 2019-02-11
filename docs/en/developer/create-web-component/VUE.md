@@ -367,7 +367,7 @@ sudo port list | grep node
 sudo port install nodejs10
 ```
 #### With Homebrew
-```
+```bash
 brew search node
 brew install node
 ```
