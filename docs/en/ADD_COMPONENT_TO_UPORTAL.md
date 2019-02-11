@@ -52,7 +52,7 @@ Replace the CDATA section of the portlet definition with this, replacing
 To find the name of the component min.js file that you will name in the
 script, examine the contents of the webjar that was created. For example:
 
-```
+```bash
 ls -al ~/.m2/repository/org/webjars/npm/uportal__weather-thingy/0.1.0-SNAPSHOT/*.jar
 ```
 
