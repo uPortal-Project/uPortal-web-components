@@ -231,7 +231,7 @@ module.exports = {
 
 To pack the component, run:
 
-```
+```bash
 npm run build
 ```
 
