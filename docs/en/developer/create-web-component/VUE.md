@@ -86,7 +86,7 @@ group=org.webjars.npm
 Copy **build.gradle** file from @uportal directory of **uPortal-web-components**
 project (or use one from [the appendix](#buildgradle-files)).
 
-https://github.com/uPortal-contrib/uPortal-web-components/blob/master/%40uportal/build.gradle
+<https://github.com/uPortal-contrib/uPortal-web-components/blob/master/%40uportal/build.gradle>
 
 If using the one from uPortal-web-components, remove the `subprojects` line and
 its enclosing brackets; for example:
