@@ -140,7 +140,7 @@ or this [build.gradle for Windows](#buildgradle-for-windows).
 
 Run this:
 
-```
+```bash
 gradle wrapper --gradle-version=5.1.1
 ```
 
