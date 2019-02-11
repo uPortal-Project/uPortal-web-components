@@ -362,7 +362,7 @@ For example:
 3. macOS installer (.pkg) from [Node.js website](https://nodejs.org/)
 
 #### With MacPorts
-```
+```bash
 sudo port list | grep node
 sudo port install nodejs10
 ```
