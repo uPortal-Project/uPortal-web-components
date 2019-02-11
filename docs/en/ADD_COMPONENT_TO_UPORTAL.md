@@ -108,6 +108,6 @@ project, add the following runtime dependency:
 
 For example:
 
-```
+```gradle
     runtime "org.webjars.npm:uportal__weather-thingy:0.1.0-SNAPSHOT@jar"
 ```
