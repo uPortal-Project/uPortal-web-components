@@ -220,7 +220,7 @@ For example:
 
 Replace the contents of **babel.config.js** with this:
 
-```
+```js
 module.exports = {
     presets: ['@babel/preset-env'],
     plugins: [['@babel/plugin-transform-runtime', { useESModules: true }]]
