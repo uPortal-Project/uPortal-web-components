@@ -7,23 +7,24 @@
     3. [Maven](#maven)
     4. [Gradle](#gradle)
 2. [Generate the Vue application](#2-generate-the-vue-application)
-3. [Edit the Vue application](#3-edit-the-vue-application)
+3. [Add gradle support for Maven WebJars](#3-edit-the-vue-application)
     1. [create gradle.properties](#create-gradleproperties)
     2. [create build.gradle](#create-buildgradle)
     3. [add Gradle wrapper (gradlew) to the project](#add-gradle-wrapper-to-project)
-    4. [rename HelloWorld.vue](#rename-helloworldvue)
-    5. [edit App.vue](#edit-appvue)
-    6. [edit package.json](#edit-packagejson)
-    7. [edit babel.config.js](#edit-babelconfigjs)
-4. [Assemble and deploy the Vue application](#4-assemble-and-deploy-the-vue-application)
-5. [Add the component into uPortal](#5-add-the-component-into-uportal)
+4. [Edit the Vue application](#3-edit-the-vue-application)
+    1. [rename HelloWorld.vue](#rename-helloworldvue)
+    2. [edit App.vue](#edit-appvue)
+    3. [edit package.json](#edit-packagejson)
+    4. [edit babel.config.js](#edit-babelconfigjs)
+5. [Assemble and deploy the Vue application](#4-assemble-and-deploy-the-vue-application)
+6. [Add the component into uPortal](#5-add-the-component-into-uportal)
     1. [create a portlet-definition.xml](#create-a-portlet-definitionxml)
     2. [edit portlet definition](#edit-portlet-definition)
     3. [replace CDATA in portlet definition](#replace-cdata-in-portlet-definition)
     4. [other options for portlet definition](#other-options-for-portlet-definition)
        (don't forget to add permissions)
     5. [add webjar to resource server](#add-webjar-to-resource-server)
-6. Select the component in uPortal (note that in the default uPortal-start
+7. Select the component in uPortal (note that in the default uPortal-start
 it appears that you can only add to other tabs, not the default home tab,
 which may be locked.)
 
@@ -70,7 +71,7 @@ cd {component-name}
 npm install --save-dev @babel/{cli,plugin-transform-runtime,preset-env}
 ```
 
-## 3. Edit the Vue application
+## 3. Add gradle support for Maven WebJars
 
 ### Create gradle.properties file
 
@@ -146,6 +147,8 @@ gradle wrapper --gradle-version=5.1.1
 Note: now that the project has a build.gradle file and a Gradle wrapper, an
 IDE like IntelliJ IDEA will recognize it as a Gradle project. You could do
 the rest of the required editing in the IDE.
+
+## 4. Edit the Vue application
 
 ### Rename HelloWorld.vue
 
@@ -224,7 +227,7 @@ module.exports = {
 };
 ```
 
-## 4. Assemble and deploy the Vue application
+## 5. Assemble and deploy the Vue application
 
 To pack the component, run:
 
@@ -239,7 +242,7 @@ To assemble the webjar and put in local maven repo, run:
 ```
 
 
-## 5. Add the component into uPortal
+## 6. Add the component into uPortal
 
 The following is done in the **uPortal-start** project.
 
