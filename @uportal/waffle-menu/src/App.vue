@@ -9,12 +9,12 @@
 
 <script>
 // Import the component
-import WaffleMenu from './components/WaffleMenu';
+import WaffleMenu from './components/WaffleMenu.vue';
 
 export default {
   name: 'App',
   components: {
-    'waffle-menu': WaffleMenu,
+    WaffleMenu,
   },
 };
 </script>

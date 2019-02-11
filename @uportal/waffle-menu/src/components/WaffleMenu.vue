@@ -62,11 +62,15 @@ import get from 'lodash/get';
 import PropTypes from 'prop-types';
 import {library} from '@fortawesome/fontawesome-svg-core';
 import {faTh} from '@fortawesome/free-solid-svg-icons';
+import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome';
 
 library.add(faTh);
 
 export default {
   name: 'WaffleMenu',
+  components: {
+    FontAwesomeIcon,
+  },
   props: {
     url: {
       type: String,
