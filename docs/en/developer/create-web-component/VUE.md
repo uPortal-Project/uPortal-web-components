@@ -237,7 +237,7 @@ npm run build
 
 To assemble the webjar and put in local maven repo, run:
 
-```
+```bash
 ./gradlew install
 ```
 
