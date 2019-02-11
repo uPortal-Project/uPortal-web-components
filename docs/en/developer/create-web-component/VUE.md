@@ -200,7 +200,7 @@ For example:
 
 ```
 {
-  "name": "weather-thingy",
+  "name": "@uportal/weather-thingy",
   "version": "0.1.0",
   "private": true,
   "main": "dist/weather-thingy.js",
