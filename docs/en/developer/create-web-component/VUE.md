@@ -8,7 +8,7 @@
     4. [Gradle](#gradle)
 2. [Generate the Vue application](#2-generate-the-vue-application)
 3. [Add gradle support for Maven WebJars](#3-add-gradle-support-for-webjars)
-    1. [create gradle.properties](#create-gradleproperties)
+    1. [create gradle.properties](#create-gradleproperties-file)
     2. [create build.gradle](#create-buildgradle)
     3. [add Gradle wrapper (gradlew) to the project](#add-gradle-wrapper-to-project)
 4. [Edit the Vue application](#4-edit-the-vue-application)
