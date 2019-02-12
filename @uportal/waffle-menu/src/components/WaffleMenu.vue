@@ -98,7 +98,7 @@ export default {
         '/ResourceServingWebapp/rs/tango/0.8.90/32x32/categories/applications-other.png',
     },
     truncateLength: {
-      type: String,
+      type: Number,
       default: '50',
     },
   },
