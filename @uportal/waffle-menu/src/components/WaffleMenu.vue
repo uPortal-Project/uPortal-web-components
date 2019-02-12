@@ -99,7 +99,7 @@ export default {
     },
     truncateLength: {
       type: Number,
-      default: '50',
+      default: 50,
     },
   },
 
