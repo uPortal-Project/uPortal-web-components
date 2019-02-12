@@ -28,7 +28,7 @@
     "vue-template-compiler": "^2.6.5"
   },
   "scripts": {
-    "start": "vue-cli-service serve --port 5000",
+    "start": "vue-cli-service serve",
     "prebuild": "babel node_modules/@vue/web-component-wrapper/dist/vue-wc-wrapper.js -o node_modules/@vue/web-component-wrapper/dist/vue-wc-wrapper.js",
     "build": "vue-cli-service build --name waffle-menu --target wc src/components/WaffleMenu.vue"
   },
