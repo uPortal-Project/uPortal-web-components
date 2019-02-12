@@ -105,10 +105,10 @@ export default {
 
   computed: {
     dataMenuItems: function() {
-      return this.data.filter(datum => datum.type === 'box');
+      return this.data.filter((datum) => datum.type === 'box');
     },
     dataMenuFooter: function() {
-      return this.data.filter(datum => datum.type === 'footer');
+      return this.data.filter((datum) => datum.type === 'footer');
     },
   },
   data() {
@@ -180,12 +180,9 @@ export default {
             'content-type': 'application/jwt',
           },
         });
-        if (!response.ok) {
-          if (response.status !== 404) {
-            throw new Error(response.statusText);
-          } else {
-            return;
-          }
+
+        if (!response.ok || response.status !== 200) {
+          throw new Error(response.statusText);
         }
 
         const payload = await response.json();
