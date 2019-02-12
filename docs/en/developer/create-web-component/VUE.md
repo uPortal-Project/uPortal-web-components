@@ -29,7 +29,9 @@ it appears that you can only add to other tabs, not the default home tab,
 which may be locked.)
 
 ## 1. Prerequisites
-#### Node.js
+
+### Node.js
+
 If you don't have node installed there are several ways to do it. One
 way is to use Node Version Manager ([nvm](https://github.com/creationix/nvm)).
 
@@ -43,17 +45,20 @@ Install the latest Long Term Support (LTS) version of node (currently 10.15.1).
 nvm install node
 ```
 
-#### Vue CLI
+### Vue CLI
+
 If you dont have Vue cli installed (Node must already be installed).
 ``` bash
 npm install --global @vue/cli
 ```
 
-#### Maven
+### Maven
+
 Use the appropriate package manager for your OS. These instructions were
 tested with maven version 3.6.
 
-#### Gradle
+### Gradle
+
 Use the appropriate package manager for your OS. These instructions were
 tested with gradle 5.2.
 
@@ -208,7 +213,7 @@ For example:
   "scripts": {
     "serve": "vue-cli-service serve",
     "prebuild": "babel node_modules/@vue/web-component-wrapper/dist/vue-wc-wrapper.js -o node_modules/@vue/web-component-wrapper/dist/vue-wc-wrapper.js",
-    "build": "vue-cli-service build --name speedy-vue --target wc src/components/speedyvue.vue",
+    "build": "vue-cli-service build --name weather-thingy --target wc src/components/weather-thingy.vue",
     "lint": "vue-cli-service lint"
   },
   ...
@@ -354,25 +359,29 @@ For example:
     runtime "org.webjars.npm:uportal__weather-thingy:0.1.0-SNAPSHOT@jar"
 ```
 
-# Appendix
-## Node.js installation
-### Mac OS X
+## Appendix
+
+### Node.js installation
+
+#### Mac OS X
 1. [MacPorts](https://www.macports.org/)
 2. [HomeBrew](https://brew.sh/)
 3. macOS installer (.pkg) from [Node.js website](https://nodejs.org/)
 
-#### With MacPorts
+##### With MacPorts
+
 ```bash
 sudo port list | grep node
 sudo port install nodejs10
 ```
-#### With Homebrew
+##### With Homebrew
+
 ```bash
 brew search node
 brew install node
 ```
 
-## build.gradle files
+### build.gradle files
 
 To produce really compact .jar files that the uPortal resource server will
 deliver to the user's browser, try these. All the extraneous files except
