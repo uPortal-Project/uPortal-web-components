@@ -205,7 +205,6 @@ export default {
       const target = event.target;
       const shadow = target.shadowRoot ? target.shadowRoot : false;
       if (menu !== target && !shadow && !menu.contains(target)) {
-        console.log('outside');
         this.menuOpen = false;
       }
     },
@@ -225,6 +224,7 @@ export default {
   line-height: 0;
   padding: 0;
 }
+
 .waffle-trigger {
   width: 25px;
   height: 25px;
@@ -233,15 +233,17 @@ export default {
   margin-left: auto;
   background: transparent;
   border: 0 none;
+
   svg {
     padding: 0;
     margin: 0;
   }
 }
+
 .waffle-dropdown {
   position: absolute;
   top: 150%;
-  right: 0px;
+  right: 0;
   z-index: 1000;
   display: flex;
   float: left;
@@ -259,6 +261,7 @@ export default {
   flex-flow: row wrap;
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.25);
 }
+
 .waffle-menu-item {
   display: block;
   flex: 0 0 46%;
@@ -292,6 +295,7 @@ export default {
     }
   }
 }
+
 .waffle-dropdown-footer {
   display: block;
   flex: 1 0 100%;
@@ -313,6 +317,7 @@ export default {
     }
   }
 }
+
 .waffle-triangle-black {
   border-color: transparent transparent #fff transparent;
   border-style: dashed dashed solid;
@@ -325,6 +330,7 @@ export default {
   right: 20px;
   z-index: 2000;
 }
+
 .waffle-triangle {
   border-color: transparent transparent #fff transparent;
   border-style: dashed dashed solid;
