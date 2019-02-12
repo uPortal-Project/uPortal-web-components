@@ -59,7 +59,7 @@
 import oidc from '@uportal/open-id-connect';
 import {portletRegistryToArray} from '@uportal/portlet-registry-to-array';
 import get from 'lodash/get';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import {library} from '@fortawesome/fontawesome-svg-core';
 import {faTh} from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome';
@@ -89,7 +89,7 @@ export default {
       default: '#fff',
     },
     debug: {
-      type: String,
+      type: Boolean,
       default: false,
     },
     defaultIcon: {
@@ -203,14 +203,16 @@ export default {
     handleOutsideClick(event) {
       const menu = this.$refs.waffleMenu;
       const target = event.target;
-      if (menu !== target && !menu.contains(target)) {
+      const shadow = target.shadowRoot ? target.shadowRoot : false;
+      if (menu !== target && !shadow && !menu.contains(target)) {
+        console.log('outside');
         this.menuOpen = false;
       }
     },
   },
   mounted() {
     // Initialize Menu Date when Mounted
-    document.addEventListener('click', this.handleOutsideClick);
+    document.addEventListener('click', this.handleOutsideClick, false);
     this.fetchMenuData();
   },
 };
@@ -228,7 +230,7 @@ export default {
   height: 25px;
   line-height: 0;
   padding: 0;
-  margin: 0;
+  margin-left: auto;
   background: transparent;
   border: 0 none;
   svg {

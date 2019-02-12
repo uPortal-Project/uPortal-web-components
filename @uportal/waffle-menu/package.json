@@ -6,27 +6,31 @@
     "access": "public"
   },
   "main": "dist/waffle-menu.js",
-  "source": "src/main.js",
+  "source": "src/waffle-menu.js",
   "dependencies": {
+    "@babel/runtime": "^7.3.1",
     "@uportal/open-id-connect": "^1.19.1",
     "@uportal/portlet-registry-to-array": "^1.19.1",
     "lodash.get": "^4.4.2",
-    "prop-types": "^15.7.1",
-    "vue": "^2.6.2",
-    "vue-template-compiler": "^2.6.5"
+    "vue": "^2.6.2"
   },
   "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/plugin-transform-runtime": "^7.2.0",
+    "@babel/preset-env": "^7.3.1",
     "@fortawesome/fontawesome-svg-core": "1.2.10",
     "@fortawesome/free-solid-svg-icons": "5.6.1",
     "@fortawesome/vue-fontawesome": "^0.1.5",
     "@vue/cli-service": "^3.3.0",
     "node-sass": "^4.11.0",
     "sass-loader": "^7.1.0",
-    "shx": "^0.3.1"
+    "shx": "^0.3.1",
+    "vue-template-compiler": "^2.6.5"
   },
   "scripts": {
-    "start": "vue-cli-service serve",
-    "build": "vue-cli-service build && shx mv build/static/js/*.js build/static/js/waffle-menu.js"
+    "start": "vue-cli-service serve --port 5000",
+    "prebuild": "babel node_modules/@vue/web-component-wrapper/dist/vue-wc-wrapper.js -o node_modules/@vue/web-component-wrapper/dist/vue-wc-wrapper.js",
+    "build": "vue-cli-service build --name waffle-menu --target wc src/components/WaffleMenu.vue"
   },
   "bugs": {
     "url": "https://github.com/uPortal-contrib/uPortal-web-components/issues"
@@ -50,6 +54,11 @@
       }
     }
   },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/uPortal-contrib/uPortal-web-components.git"
