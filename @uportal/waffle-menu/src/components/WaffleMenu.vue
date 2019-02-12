@@ -105,7 +105,7 @@ export default {
 
   computed: {
     dataMenuItems: function() {
-      return this.data.filter((datum, index) => datum.type === 'box');
+      return this.data.filter(datum => datum.type === 'box');
     },
     dataMenuFooter: function() {
       return this.data.filter((datum, index) => datum.type === 'footer');
