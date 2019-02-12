@@ -213,7 +213,7 @@ For example:
   "scripts": {
     "serve": "vue-cli-service serve",
     "prebuild": "babel node_modules/@vue/web-component-wrapper/dist/vue-wc-wrapper.js -o node_modules/@vue/web-component-wrapper/dist/vue-wc-wrapper.js",
-    "build": "vue-cli-service build --name speedy-vue --target wc src/components/speedyvue.vue",
+    "build": "vue-cli-service build --name weather-thingy --target wc src/components/weather-thingy.vue",
     "lint": "vue-cli-service lint"
   },
   ...
