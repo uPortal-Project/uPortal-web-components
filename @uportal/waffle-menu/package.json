@@ -1,32 +1,36 @@
 {
   "name": "@uportal/waffle-menu",
   "description": "An app launcher dropdown",
-  "version": "1.23.0",
+  "version": "1.24.0",
   "publishConfig": {
     "access": "public"
   },
-  "main": "build/static/js/waffle-menu.js",
-  "source": "src/WaffleMenu.js",
+  "main": "dist/waffle-menu.js",
+  "source": "src/waffle-menu.js",
   "dependencies": {
-    "@christianmurphy/reactive-elements": "^1.0.3",
     "@uportal/open-id-connect": "^1.23.0",
     "@uportal/portlet-registry-to-array": "^1.23.0",
     "lodash.get": "^4.4.2",
-    "react": "^16.5.2",
-    "react-dom": "^16.5.2",
-    "reactive-elements": "^0.10.0",
-    "styled-components": "^4.0.0-beta.8"
+    "vue": "^2.6.2"
   },
   "devDependencies": {
+    "@babel/runtime": "^7.3.1",
+    "@babel/cli": "^7.2.3",
+    "@babel/plugin-transform-runtime": "^7.2.0",
+    "@babel/preset-env": "^7.3.1",
     "@fortawesome/fontawesome-svg-core": "1.2.15",
     "@fortawesome/free-solid-svg-icons": "5.7.2",
-    "@fortawesome/react-fontawesome": "0.1.4",
-    "react-scripts": "1.1.5",
-    "shx": "^0.3.1"
+    "@fortawesome/vue-fontawesome": "^0.1.5",
+    "@vue/cli-plugin-babel": "^3.2.0",
+    "@vue/cli-service": "^3.3.0",
+    "node-sass": "^4.11.0",
+    "sass-loader": "^7.1.0",
+    "vue-template-compiler": "^2.6.5"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build && shx mv build/static/js/*.js build/static/js/waffle-menu.js"
+    "start": "vue-cli-service serve",
+    "prebuild": "babel node_modules/@vue/web-component-wrapper/dist/vue-wc-wrapper.js -o node_modules/@vue/web-component-wrapper/dist/vue-wc-wrapper.js",
+    "build": "vue-cli-service build --name waffle-menu --target wc src/components/WaffleMenu.vue"
   },
   "bugs": {
     "url": "https://github.com/uPortal-contrib/uPortal-web-components/issues"
@@ -50,6 +54,11 @@
       }
     }
   },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/uPortal-contrib/uPortal-web-components.git"

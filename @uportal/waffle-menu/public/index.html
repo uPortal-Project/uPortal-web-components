@@ -7,16 +7,14 @@
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
     <meta name="theme-color" content="#000000" />
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
+    <link rel="manifest" href="<%= BASE_URL %>manifest.json" />
+    <link rel="shortcut icon" href="<%= BASE_URL %>favicon.ico" />
     <script src="https://unpkg.com/core-js-bundle@3.0.0-beta.3"></script>
     <script src="https://unpkg.com/regenerator-runtime/runtime.js"></script>
     <script src="https://unpkg.com/whatwg-fetch"></script>
     <script src="https://unpkg.com/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
     <title>Waffle Menu</title>
     <style>
-      /* basic styles for showing waffle menu in the header of a site */
-
       header {
         background: #2a5c1c;
       }
@@ -26,25 +24,12 @@
         flex-wrap: wrap;
         padding: 0.5rem 1rem;
       }
-
-      .buttons {
-        margin-left: 90%;
-      }
     </style>
   </head>
 
   <body>
     <header>
-      <nav>
-        <div class="buttons">
-          <waffle-menu
-            debug="true"
-            button-color="#cdcdcd"
-            menu-background-color="#99aa99"
-            url="portletRegistry.json"
-          ></waffle-menu>
-        </div>
-      </nav>
+      <nav><div id="waffle-menu"></div></nav>
     </header>
   </body>
 </html>
