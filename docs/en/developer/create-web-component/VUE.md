@@ -1,32 +1,33 @@
 # Develop Vue Web Components for uPortal
 
 ## Step by Step guide for vue.js component
+
 1. [Prerequisites](#1-prerequisites)
-    1. [Node.js](#nodejs)
-    2. [Vue CLI](#vue-cli)
-    3. [Maven](#maven)
-    4. [Gradle](#gradle)
+   1. [Node.js](#nodejs)
+   2. [Vue CLI](#vue-cli)
+   3. [Maven](#maven)
+   4. [Gradle](#gradle)
 2. [Generate the Vue application](#2-generate-the-vue-application)
 3. [Add gradle support for Maven WebJars](#3-add-gradle-support-for-webjars)
-    1. [create gradle.properties](#create-gradleproperties-file)
-    2. [create build.gradle](#create-buildgradle)
-    3. [add Gradle wrapper (gradlew) to the project](#add-gradle-wrapper-to-project)
+   1. [create gradle.properties](#create-gradleproperties-file)
+   2. [create build.gradle](#create-buildgradle)
+   3. [add Gradle wrapper (gradlew) to the project](#add-gradle-wrapper-to-project)
 4. [Edit the Vue application](#4-edit-the-vue-application)
-    1. [rename HelloWorld.vue](#rename-helloworldvue)
-    2. [edit App.vue](#edit-appvue)
-    3. [edit package.json](#edit-packagejson)
-    4. [edit babel.config.js](#edit-babelconfigjs)
+   1. [rename HelloWorld.vue](#rename-helloworldvue)
+   2. [edit App.vue](#edit-appvue)
+   3. [edit package.json](#edit-packagejson)
+   4. [edit babel.config.js](#edit-babelconfigjs)
 5. [Assemble and deploy the Vue application](#5-assemble-and-deploy-the-vue-application)
 6. [Add the component into uPortal](#6-add-the-component-into-uportal)
-    1. [create a portlet-definition.xml](#create-a-portlet-definitionxml)
-    2. [edit portlet definition](#edit-portlet-definition)
-    3. [replace CDATA in portlet definition](#replace-cdata-in-portlet-definition)
-    4. [other options for portlet definition](#other-options-for-portlet-definition)
-       (don't forget to add permissions)
-    5. [add webjar to resource server](#add-webjar-to-resource-server)
+   1. [create a portlet-definition.xml](#create-a-portlet-definitionxml)
+   2. [edit portlet definition](#edit-portlet-definition)
+   3. [replace CDATA in portlet definition](#replace-cdata-in-portlet-definition)
+   4. [other options for portlet definition](#other-options-for-portlet-definition)
+      (don't forget to add permissions)
+   5. [add webjar to resource server](#add-webjar-to-resource-server)
 7. Select the component in uPortal (note that in the default uPortal-start
-it appears that you can only add to other tabs, not the default home tab,
-which may be locked.)
+   it appears that you can only add to other tabs, not the default home tab,
+   which may be locked.)
 
 ## 1. Prerequisites
 
@@ -35,20 +36,21 @@ which may be locked.)
 If you don't have node installed there are several ways to do it. One
 way is to use Node Version Manager ([nvm](https://github.com/creationix/nvm)).
 
-``` bash
+```bash
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash
 ```
 
 Install the latest Long Term Support (LTS) version of node (currently 10.15.1).
 
-``` bash
+```bash
 nvm install node
 ```
 
 ### Vue CLI
 
 If you dont have Vue cli installed (Node must already be installed).
-``` bash
+
+```bash
 npm install --global @vue/cli
 ```
 
@@ -63,14 +65,16 @@ Use the appropriate package manager for your OS. These instructions were
 tested with gradle 5.2.
 
 ## 2. Generate the Vue application
+
 Replace `{component-name}` with the desired name for the component.
 
-``` bash
+```bash
 vue create {component-name} --default
 ```
 
 Install dependencies for legacy browser support in the newly generated app.
-``` bash
+
+```bash
 cd {component-name}
 
 npm install --save-dev @babel/{cli,plugin-transform-runtime,preset-env}
@@ -82,6 +86,7 @@ npm install --save-dev @babel/{cli,plugin-transform-runtime,preset-env}
 
 In the root directory, create a **gradle.properties** file, with the
 following content:
+
 ```
 group=org.webjars.npm
 ```
@@ -96,7 +101,7 @@ project (or use one from [the appendix](#buildgradle-files)).
 If using the one from uPortal-web-components, remove the `subprojects` line and
 its enclosing brackets; for example:
 
-``` diff
+```diff
 - subprojects {
 
     apply plugin: 'java'
@@ -119,7 +124,7 @@ its enclosing brackets; for example:
 
 It should look something like this:
 
-``` gradle
+```gradle
     apply plugin: 'java'
     apply plugin: 'maven'
 
@@ -171,12 +176,12 @@ src/components/{component-name}.vue
 
 Rename the imports.generated HelloWorld.vue file, replace **{component-name}** with yours:
 
-``` javascript
+```javascript
 // FROM:
-import HelloWorld from './components/HelloWorld.vue'
+import HelloWorld from './components/HelloWorld.vue';
 
 // TO:
-import HelloWorld from './components/{component-name}.vue'
+import HelloWorld from './components/{component-name}.vue';
 ```
 
 ### Edit package.json
@@ -227,8 +232,8 @@ Replace the contents of **babel.config.js** with this:
 
 ```js
 module.exports = {
-    presets: ['@babel/preset-env'],
-    plugins: [['@babel/plugin-transform-runtime', { useESModules: true }]]
+  presets: ['@babel/preset-env'],
+  plugins: [['@babel/plugin-transform-runtime', { useESModules: true }]]
 };
 ```
 
@@ -245,7 +250,6 @@ To assemble the webjar and put in local maven repo, run:
 ```bash
 ./gradlew install
 ```
-
 
 ## 6. Add the component into uPortal
 
@@ -268,7 +272,7 @@ data/quickstart/portlet-definition/{component-name}.portlet-definition.xml
 
 In the newly-created portlet-definition.xml, modify the following fields:
 
-``` xml
+```xml
     <title>Component Title</title>
     <name>Component Name</name>
     <fname>component-name</fname>
@@ -280,7 +284,7 @@ In the newly-created portlet-definition.xml, modify the following fields:
 Replace the CDATA section of the portlet definition with this, replacing
 `{component-name}` with your component name:
 
-``` xml
+```xml
 <portlet-preference>
     <name>content</name>
     <readOnly>false</readOnly>
@@ -328,7 +332,7 @@ you put in the CDATA <script> tag.
 
 To add Chrome (the standard border around portlets):
 
-``` xml
+```xml
     <parameter>
         <name>chromeStyle</name>
         <value>default</value>
@@ -337,7 +341,7 @@ To add Chrome (the standard border around portlets):
 
 To remove Chrome:
 
-``` xml
+```xml
     <parameter>
         <name>chromeStyle</name>
         <value>no-chrome</value>
@@ -349,13 +353,13 @@ To remove Chrome:
 In the `overlays/resource-server/build.gradle` file in the uPortal-start
 project, add the following runtime dependency:
 
-```
+```gradle
     runtime "org.webjars.npm:uportal__{component-name}:{version}@jar"
 ```
 
 For example:
 
-```
+```gradle
     runtime "org.webjars.npm:uportal__weather-thingy:0.1.0-SNAPSHOT@jar"
 ```
 
@@ -364,6 +368,7 @@ For example:
 ### Node.js installation
 
 #### Mac OS X
+
 1. [MacPorts](https://www.macports.org/)
 2. [HomeBrew](https://brew.sh/)
 3. macOS installer (.pkg) from [Node.js website](https://nodejs.org/)
@@ -374,6 +379,7 @@ For example:
 sudo port list | grep node
 sudo port install nodejs10
 ```
+
 ##### With Homebrew
 
 ```bash
@@ -385,11 +391,11 @@ brew install node
 
 To produce really compact .jar files that the uPortal resource server will
 deliver to the user's browser, try these. All the extraneous files except
-for the *.min.js file are excluded from the .jar file that gets built.
+for the \*.min.js file are excluded from the .jar file that gets built.
 
 #### build.gradle for Linux and Mac OS
 
-```
+```gradle
 apply plugin: 'java'
 apply plugin: 'maven'
 
@@ -415,7 +421,7 @@ jar {
 Windows has a quirk that the copyFiles and cleanUp tasks in this build.gradle
 file works around. This will also work on Mac OS and Linux.
 
-```
+```gradle
 apply plugin: 'java'
 apply plugin: 'maven'
 
