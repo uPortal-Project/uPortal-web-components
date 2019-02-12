@@ -133,7 +133,7 @@ export default {
     },
     async getToken() {
       try {
-        return await oidc({userInfoApiUrl: this.oidcUrl, timeout: 18000});
+        return await oidc({userInfoApiUrl: this.oidcUrl});
       } catch (err) {
         console.error(err);
         this.handleOidcError(err);
