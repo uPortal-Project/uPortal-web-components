@@ -1,25 +1,25 @@
 # Développer des composants Web Vue pour uPortal
 
 ## Guide étape par étape pour le composant vue.js
-1. [Prérequis](#1-prerequis)
+1. [Prérequis](#1-prérequis)
     1. [Node.js](#nodejs)
     2. [Vue CLI](#vue-cli)
     3. [Maven](#maven)
     4. [Gradle](#gradle)
-2. [Générer une application Vue](#2-generer-une-application-vue)
+2. [Générer une application Vue](#2-générer-une-application-vue)
 3. [Ajouter un support de gradle pour les WebJars](#3-ajouter-un-support-de-gradle-pour-les-webjars)
-    1. [Créer un fichier gradle.properties](#creer-un-fichier-gradleproperties)
-    2. [Créer un fichier build.gradle](#creer-un-fichier-buildgradle)
+    1. [Créer un fichier gradle.properties](#créer-un-fichier-gradleproperties)
+    2. [Créer un fichier build.gradle](#créer-un-fichier-buildgradle)
     3. [Ajouter un wrapper Gradle (gradlew) au projet](#ajouter-un-wrapper-gradle-au-projet)
-4. [Éditer l’application Vue](#4-editer-l-application-vue)
+4. [Éditer l’application Vue](#4-Éditer-lapplication-vue)
     1. [Renommer HelloWorld.vue](#renommer-helloworldvue)
-    2. [Éditer App.vue](#editer-appvue)
-    3. [Éditer package.json](#editer-packagejson)
-    4. [Éditer babel.config.js](#editer-babelconfigjs)
-5. [Assembler et déployer l’application Vue](#5-assembler-et-deployer-lapplication-vue)
+    2. [Éditer App.vue](#Éditer-appvue)
+    3. [Éditer package.json](#Éditer-packagejson)
+    4. [Éditer babel.config.js](#Éditer-babelconfigjs)
+5. [Assembler et déployer l’application Vue](#5-assembler-et-déployer-lapplication-vue)
 6. [Ajouter le composant dans uPortal](#6-ajouter-le-composant-dans-uportal)
-    1. [Créer un fichier portlet-definition.xml](#creer-un-fichier-portlet-definitionxml)
-    2. [Éditer le fichier portlet-definition](#editer-le-fichier-portlet-definition)
+    1. [Créer un fichier portlet-definition.xml](#créer-un-fichier-portlet-definitionxml)
+    2. [Éditer le fichier portlet-definition](#Éditer-le-fichier-portlet-definition)
     3. [Remplacer les valeurs entre le CDATA dans votre portlet-definition](#remplacer-les-valeurs-entre-le-cdata-dans-votre-portlet-definition)
     4. [Autres options de la portlet-definition](#autres-options-de-la-portlet-definition)
        (ne pas oublier d’ajouter des permissions)
@@ -38,7 +38,7 @@ est d’utiliser Node Version Manager ([nvm](https://github.com/creationix/nvm))
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash
 ```
 
-Installer la dernière version de LTS (Long Term Support) de Node (actuellement 10.15.1).
+Installer la dernière version LTS (Long Term Support) de Node (actuellement 10.15.1).
 
 ``` bash
 nvm install node
@@ -57,15 +57,15 @@ Utiliser le gestionnaire de paquets approprié pour votre système d’exploitat
 Utiliser le gestionnaire de paquets approprié pour votre système d’exploitation. Ces instructions ont été testées avec le gradle 5.2.
 
 ## 2. Générer une application Vue
-Remplacer `{component-name}` avec le nom souhaité pour le composant.
+Remplacer `{nom-du-composant}` avec le nom souhaité pour le composant.
 
 ``` bash
-vue create {component-name} --default
+vue create {nom-du-composant} --default
 ```
 
 Installer les dépendances pour le support des anciens navigateurs dans l’application nouvellement générée.
 ``` bash
-cd {component-name}
+cd {nom-du-composant}
 
 npm install --save-dev @babel/{cli,plugin-transform-runtime,preset-env}
 ```
@@ -151,19 +151,19 @@ faire le reste de l’édition requise dans l’IDE.
 
 ### Renommer HelloWorld.vue
 
-Renommer le fichier HelloWorld.vue généré, remplacer **{component-name}** avec le vôtre :
+Renommer le fichier HelloWorld.vue généré, remplacer **{nom-du-composant}** avec le vôtre :
 
 ```
 DEPUIS :
 src/components/HelloWorld.vue
 
 VERS :
-src/components/{component-name}.vue
+src/components/{nom-du-composant}.vue
 ```
 
 ### Éditer App.vue
 
-Rename the imports.generated HelloWorld.vue file, replace **{component-name}** with yours:
+Rename the imports.generated HelloWorld.vue file, replace **{nom-du-composant}** with yours:
 Renommer le fichier d’imports généré HelloWorld.vue, remplacer **{nom-composant}** par les vôtres :
 
 ``` javascript
@@ -171,29 +171,29 @@ Renommer le fichier d’imports généré HelloWorld.vue, remplacer **{nom-compo
 import HelloWorld from './components/HelloWorld.vue'
 
 // À :
-import HelloWorld from './components/{component-name}.vue'
+import HelloWorld from './components/{nom-du-composant}.vue'
 ```
 
 ### Éditer package.json
 
-Le `{component-name}` après `--name` _**doit**_ avoir un 
+Le `{nom-du-composant}` après `--name` _**doit**_ avoir un 
 trait d’union, par exemple `--name machin-meteo`. Modifier comme ce qui suit :
 
 ```
 // DEPUIS :
     "build": "vue-cli-service build",
 
-// À (assurez-vous d’avoir bien renommé {component-name}):
+// À (assurez-vous d’avoir bien renommé {nom-du-composant}):
     "prebuild": "babel node_modules/@vue/web-component-wrapper/dist/vue-wc-wrapper.js -o node_modules/@vue/web-component-wrapper/dist/vue-wc-wrapper.js",
-    "build": "vue-cli-service build --name {component-name} --target wc src/components/{component-name}.vue",
+    "build": "vue-cli-service build --name {nom-du-composant} --target wc src/components/{nom-du-composant}.vue",
 
 ```
 
 Ajouter ces déclarations de niveau supérieur ::
 
 ```
-  "main": "dist/{component-name}.js",
-  "source": "src/components/{component-name}.vue",
+  "main": "dist/{nom-du-composant}.js",
+  "source": "src/components/{nom-du-composant}.vue",
 ```
 
 Par exemple :
@@ -255,7 +255,7 @@ COPIER :
 data/quickstart/portlet-definition/admin-dashboard.portlet-definition.xml
 
 EN :
-data/quickstart/portlet-definition/{component-name}.portlet-definition.xml
+data/quickstart/portlet-definition/{nom-du-composant}.portlet-definition.xml
 ```
 
 ### Éditer le fichier portlet-definition
@@ -264,15 +264,15 @@ Dans le fichier portlet-definition.xml nouvellement créé, modifier les valeurs
 
 ``` xml
     <title>Titre du composant</title>
-    <name>Nom composant</name>
-    <fname>nom-composant</fname>
+    <name>Nom du composant</name>
+    <fname>nom-du-composant</fname>
     <desc>Un excellent composant qui fait des choses</desc>
 ```
 
 ### Remplacer les valeurs entre le CDATA dans votre portlet-definition
 
 Modifier par ce qui suit dans la section CDATA de la portlet-définition, en changeant 
-`{nom-composant}` par le nom de votre composant et en conservant les lignes d’ouverture et de fermeture du CDATA:
+`{nom-du-composant}` par le nom de votre composant et en conservant les lignes d’ouverture et de fermeture du CDATA:
 
 ``` xml
 <portlet-preference>
@@ -281,9 +281,9 @@ Modifier par ce qui suit dans la section CDATA de la portlet-définition, en cha
     <value>
         <![CDATA[
            <script src="https://unpkg.com/vue"></script>
-           <script type="text/javascript" src="/resource-server/webjars/uportal__{component-name}/dist/{component-name}.min.js"></script>
+           <script type="text/javascript" src="/resource-server/webjars/uportal__{nom-du-composant}/dist/{nom-du-composant}.min.js"></script>
 
-           <{component-name}></{component-name}>
+           <{nom-du-composant}></{nom-du-composant}>
 
        ]]>
     </value>
@@ -291,7 +291,7 @@ Modifier par ce qui suit dans la section CDATA de la portlet-définition, en cha
 ```
 
 Pour retrouver le nom du fichier en min.js de votre composant que vous allez 
-appeler dans le script, examinez le contenu du webjar qui a été créé. Faire ainsi par exemple :
+appeler dans le script, examinez le contenu du webjar qui a été créé. Lancer cette commande bash par exemple :
 
 ```bash
 ls -al ~/.m2/repository/org/webjars/npm/uportal__machin-meteo/0.1.0-SNAPSHOT/*.jar
@@ -312,7 +312,7 @@ jar tvf uportal__machin-meteo-0.1.0-SNAPSHOT.jar | grep min.js
 Ceci vous montrera :
 
 ```
-META-INF/resources/webjars/uportal__speedy-vue/0.1.0-SNAPSHOT/dist/machin-meteo.min.js
+META-INF/resources/webjars/uportal__machin-meteo/0.1.0-SNAPSHOT/dist/machin-meteo.min.js
 ```
 
 Donc le nom du fichier min.js est donc **machin-meteo.min.js**, qui sera ce que vous devez 
@@ -320,7 +320,7 @@ mettre en valeur de la balise <script> du CDATA de la portlet-definition.
 
 ### Autres options de la portlet-definition
 
-Pour ajouter un encadrement (l’encadrement standard avec bordure des portlet):
+Pour ajouter un encadrement (l’encadrement standard avec bordure des portlets):
 
 ``` xml
     <parameter>
@@ -344,7 +344,7 @@ Dans le fichier `overlays/resource-server/build.gradle` de votre projet uPortal-
 ajouter la dépendance d’exécution suivante:
 
 ```
-    runtime "org.webjars.npm:uportal__{component-name}:{version}@jar"
+    runtime "org.webjars.npm:uportal__{nom-du-composant}:{version}@jar"
 ```
 
 Par exemple:
@@ -381,7 +381,7 @@ fournira au navigateur de vos utilisateurs, essayer ceci : (tous les fichiers é
 
 #### build.gradle pour Linux et Mac OS
 
-```
+```gradle
 apply plugin: 'java'
 apply plugin: 'maven'
 
@@ -407,7 +407,7 @@ jar {
 Windows a une bizarrerie, que les tâches copyFiles et cleanUp dans ce fichier build.gradle 
 permettent de contourner. Cela fonctionnera également sous Mac OS et Linux...
 
-```
+``` gradle
 apply plugin: 'java'
 apply plugin: 'maven'
 
