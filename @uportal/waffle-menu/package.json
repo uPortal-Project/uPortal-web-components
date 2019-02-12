@@ -8,9 +8,8 @@
   "main": "dist/waffle-menu.js",
   "source": "src/waffle-menu.js",
   "dependencies": {
-    "@christianmurphy/reactive-elements": "^1.0.3",
-    "@uportal/open-id-connect": "^1.23.0",
-    "@uportal/portlet-registry-to-array": "^1.23.0",
+  "@uportal/open-id-connect": "^1.23.0",
+  "@uportal/portlet-registry-to-array": "^1.23.0",
     "lodash.get": "^4.4.2",
     "vue": "^2.6.2"
   },
@@ -25,8 +24,7 @@
     "@vue/cli-service": "^3.3.0",
     "node-sass": "^4.11.0",
     "sass-loader": "^7.1.0",
-    "vue-template-compiler": "^2.6.5",
-    "react-scripts": "1.1.5"
+    "vue-template-compiler": "^2.6.5"
   },
   "scripts": {
     "start": "vue-cli-service serve",
