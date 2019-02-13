@@ -176,7 +176,7 @@ src/components/{component-name}.vue
 
 ### Edit App.vue
 
-In **App.vue**, rename the import for HelloWorld.vue and replace with your
+In **src/App.vue**, rename the import for HelloWorld.vue and replace with your
 `{component-name}` file:
 
 ``` javascript
