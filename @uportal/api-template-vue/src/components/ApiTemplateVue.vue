@@ -66,7 +66,7 @@ export default {
             Authorization: `Bearer ${token}`,
             'content-type': 'application/jwt'
           },
-          validateStatus: function(status) {
+          validateStatus: function() {
             // Always resolve the promise, even on non-200 status codes.
             return true;
           }
