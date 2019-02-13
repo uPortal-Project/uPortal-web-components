@@ -65,6 +65,10 @@ export default {
           headers: {
             Authorization: `Bearer ${token}`,
             'content-type': 'application/jwt'
+          },
+          validateStatus: function() {
+            // Always resolve the promise, even on non-200 status codes.
+            return true;
           }
         });
         // store notifications to state
