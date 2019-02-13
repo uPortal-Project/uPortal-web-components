@@ -140,7 +140,6 @@ export default {
       }
     },
     truncateTitle(title) {
-      const truncate = parseInt(this.truncateLength, 10);
       return title.substring(0, this.truncateLength + 1) + '...';
     },
     wafflePress(registry) {
