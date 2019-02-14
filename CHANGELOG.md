@@ -7,6 +7,30 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased][]
 
+## [1.24.0][] - 2019-02-06
+
+### Feature
+
+- **api-template-vue**: Wrap JSON returned by the specified REST API in a guaranteed object called `data` (#250).
+- **waffle-menu**: Refactor the component from React to Vue (#259)
+
+### Fix
+
+- **api-template-vue**: Make axios resove promises even for non-200 status (#259)
+
+### Test
+
+- CI test on lts and stable node, and on osx and windows (#260)
+
+### Docs
+
+- Updated the docs for creating web components with Vue (#251)
+- Provide the french translation of vue.js guide + fix in title hierarchy in the english doc (#255)
+
+### Chore
+
+- Update dependencies (#240, #252, #253, #256)
+
 ## [1.23.0][] - 2019-02-06
 
 ### Feature
@@ -831,7 +855,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - **open-id-connect**: Initial version of an OpenID Connect helper script to use in web components and JavaScript modules.
 - **content-carousel**: Initial version of content carousel, a carousel based portlet metadata display system.
 
-[unreleased]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.23.0...HEAD
+[unreleased]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.24.0...HEAD
+[1.24.0]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.23.0...v1.24.0
 [1.23.0]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.22.1...v1.23.0
 [1.22.1]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.22.0...v1.22.1
 [1.22.0]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.21.2...v1.22.0
