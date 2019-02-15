@@ -40,7 +40,7 @@
         - [With Homebrew](#with-homebrew)
 
 ## 1. Prerequisites
-#### Node.js
+### Node.js
 If you don't have node installed there are several ways to do it. One
 way is to use Node Version Manager ([nvm](https://github.com/creationix/nvm)).
 
@@ -54,17 +54,17 @@ Install the latest Long Term Support (LTS) version of node (currently 10.15.1).
 nvm install node
 ```
 
-#### Vue CLI
+### Vue CLI
 If you dont have Vue cli installed (Node must already be installed).
 ``` bash
 npm install --global @vue/cli
 ```
 
-#### Maven
+### Maven
 Use the appropriate package manager for your OS. These instructions were
 tested with maven version 3.6.
 
-#### Gradle
+### Gradle
 Use the appropriate package manager for your OS. These instructions were
 tested with gradle 5.2.
 
