@@ -244,23 +244,35 @@ ul {
 
 .btn {
   color: #fff;
+  color: var(--dash-carousel-btn-fg-color, #fff);
   background-color: #007bff;
+  background-color: var(--dash-carousel-btn-bg-color, #007bff);
   display: block;
   font-weight: 400;
   text-align: center;
   white-space: nowrap;
   vertical-align: middle;
   user-select: none;
-  border: 1px solid #007bff;
+  border: #007bff;
+  border: 1px solid var(--dash-carousel-btn-bg-color, #007bff);
   padding: 0.375rem 0.75rem;
   font-size: 1rem;
   line-height: 1.5;
   border-radius: 0.25rem;
   width: 100%;
 
+  &:hover {
+    background-color: #fff;
+    background-color: var(--dash-carousel-btn-bg-hover-color, var(--dash-carousel-btn-bg-active-color, #fff));
+    color: #000;
+    color: var(--dash-carousel-btn-fg-hover-color, var(--dash-carousel-btn-fg-active-color, #000));
+  }
+
   &.active {
     background-color: #fff;
+    background-color: var(--dash-carousel-btn-bg-active-color, #fff);
     color: #000;
+    color: var(--dash-carousel-btn-fg-active-color, #000);
   }
 }
 
