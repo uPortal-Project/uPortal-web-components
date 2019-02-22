@@ -263,7 +263,7 @@ It should look something like this when you've finished editing:
   "scripts": {
     "serve": "vue-cli-service serve",
     "prebuild": "babel node_modules/@vue/web-component-wrapper/dist/vue-wc-wrapper.js -o node_modules/@vue/web-component-wrapper/dist/vue-wc-wrapper.js",
-    "build": "vue-cli-service build --name speedy-vue --target wc src/components/speedyvue.vue",
+    "build": "vue-cli-service build --name weather-thingy --target wc src/components/weather-thingy.vue",
     "lint": "vue-cli-service lint"
   },
   ...
@@ -377,7 +377,7 @@ jar tvf uportal__weather-thingy-0.1.0-SNAPSHOT.jar | grep min.js
 This shows:
 
 ```
-META-INF/resources/webjars/uportal__speedy-vue/0.1.0-SNAPSHOT/dist/weather-thingy.min.js
+META-INF/resources/webjars/uportal__weather-thingy/0.1.0-SNAPSHOT/dist/weather-thingy.min.js
 ```
 
 So the name of the min.js file is **weather-thingy.min.js**, which is what
@@ -442,15 +442,15 @@ portlet definition and load the new webjar into the resource server.
 When you start uPortal, you should be able to find the new component when
 you select *Customize > Add Stuff*.
 
-# Appendix
+## Appendix
 
-## A. Quick rebuild and deploy
+### A. Quick rebuild and deploy
 
 Once you have built the web component and included it in uPortal, here is
 a way to speed up the rebuild and redeployment process so you can see your
 changes quickly in uPortal.
 
-### Rebuild web component
+#### Rebuild web component
 
 1\. Re-build the web component.
 
@@ -464,7 +464,7 @@ npm run build
 ./gradlew install
 ```
 
-### Redeploy to uPortal resource-server
+#### Redeploy to uPortal resource-server
 
 You can do this *while uPortal is still running* which is why it's much
 faster. You don't have to stop and restart uPortal which can take several
@@ -490,7 +490,7 @@ cp overlays/resource-server/build/libs/resource-server.war .gradle/tomcat/webapp
 
 5\. Refresh the browser and you should see the changes.
 
-## B. Sample build.gradle files
+### B. Sample build.gradle files
 
 To produce really compact .jar files that the uPortal resource server will
 deliver to the user's browser, try these. All the extraneous files except
@@ -565,22 +565,22 @@ task cleanUp(type: Delete) {
 jar.finalizedBy cleanUp
 ```
 
-## C. Node.js installation
+### C. Node.js installation
 
-### Mac OS X
+#### Mac OS X
 
 1. [MacPorts](https://www.macports.org/)
 2. [HomeBrew](https://brew.sh/)
 3. macOS installer (.pkg) from [Node.js website](https://nodejs.org/)
 
-#### With MacPorts
+##### With MacPorts
 
 ```
 sudo port list | grep node
 sudo port install nodejs10
 ```
 
-#### With Homebrew
+##### With Homebrew
 
 ```
 brew search node
