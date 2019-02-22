@@ -1,82 +1,91 @@
 # Develop Vue Web Components for uPortal
 
 ## Step by Step guide for Vue.js component
+
 1. [Prerequisites](#1-prerequisites)
-    1. [Node.js](#nodejs)
-    2. [Vue CLI](#vue-cli)
-    3. [Maven](#maven)
-    4. [Gradle](#gradle)
+   1. [Node.js](#nodejs)
+   2. [Vue CLI](#vue-cli)
+   3. [Maven](#maven)
+   4. [Gradle](#gradle)
 2. [Generate the Vue application](#2-generate-the-vue-application)
 3. [Edit the Vue application](#3-edit-the-vue-application)
-    1. [create gradle.properties](#create-gradleproperties)
-    2. [create build.gradle](#create-buildgradle)
-    3. [add Gradle wrapper (gradlew) to the project](#add-gradle-wrapper-to-project)
-    4. [rename HelloWorld.vue](#rename-helloworldvue)
-    5. [edit App.vue](#edit-appvue)
-        1. [optional edits in App.vue](#optional-edits-in-appvue)
-        2. [optional edits in {component-name}.vue](#optional-edits-in-component-namevue)
-    6. [edit package.json](#edit-packagejson)
-    7. [edit babel.config.js](#edit-babelconfigjs)
+   1. [create gradle.properties](#create-gradleproperties)
+   2. [create build.gradle](#create-buildgradle)
+   3. [add Gradle wrapper (gradlew) to the project](#add-gradle-wrapper-to-project)
+   4. [rename HelloWorld.vue](#rename-helloworldvue)
+   5. [edit App.vue](#edit-appvue)
+      1. [optional edits in App.vue](#optional-edits-in-appvue)
+      2. [optional edits in {component-name}.vue](#optional-edits-in-component-namevue)
+   6. [edit package.json](#edit-packagejson)
+   7. [edit babel.config.js](#edit-babelconfigjs)
 4. [Assemble and deploy the Vue application](#4-assemble-and-deploy-the-vue-application)
 5. [Add the component into uPortal](#5-add-the-component-into-uportal)
-    1. [create a portlet-definition.xml](#create-a-portlet-definitionxml)
-    2. [edit portlet definition](#edit-portlet-definition)
-    3. [replace CDATA in portlet definition](#replace-cdata-in-portlet-definition)
-    4. [other options for portlet definition](#other-options-for-portlet-definition)
-    5. [add webjar to resource server](#add-webjar-to-resource-server)
-    6. [rebuild uPortal-start](#rebuild-uportal-start)
-
+   1. [create a portlet-definition.xml](#create-a-portlet-definitionxml)
+   2. [edit portlet definition](#edit-portlet-definition)
+   3. [replace CDATA in portlet definition](#replace-cdata-in-portlet-definition)
+   4. [other options for portlet definition](#other-options-for-portlet-definition)
+   5. [add webjar to resource server](#add-webjar-to-resource-server)
+   6. [rebuild uPortal-start](#rebuild-uportal-start)
 
 [Appendix](#appendix)
+
 - [A. Quick rebuild and deploy](#a-quick-rebuild-and-deploy)
-    1. [Rebuild web component](#rebuild-web-component)
-    2. [Redeploy to uPortal resource-server](#redeploy-to-uportal-resource-server)
+  1. [Rebuild web component](#rebuild-web-component)
+  2. [Redeploy to uPortal resource-server](#redeploy-to-uportal-resource-server)
 - [B. Sample build.gradle files](#b-sample-buildgradle-files)
-    - [build.gradle for Linux and Mac OS](#buildgradle-for-linux-and-mac-os)
-    - [build.gradle for Windows](#buildgradle-for-windows)
+  - [build.gradle for Linux and Mac OS](#buildgradle-for-linux-and-mac-os)
+  - [build.gradle for Windows](#buildgradle-for-windows)
 - [C. Node.js installation](#c-nodejs-installation)
-    - [Mac OS X](#mac-os-x)
-        - [With MacPorts](#with-macports)
-        - [With Homebrew](#with-homebrew)
+  - [Mac OS X](#mac-os-x)
+    - [With MacPorts](#with-macports)
+    - [With Homebrew](#with-homebrew)
 
 ## 1. Prerequisites
+
 ### Node.js
+
 If you don't have node installed there are several ways to do it. One
 way is to use Node Version Manager ([nvm](https://github.com/creationix/nvm)).
 
-``` bash
+```bash
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash
 ```
 
 Install the latest Long Term Support (LTS) version of node (currently 10.15.1).
 
-``` bash
+```bash
 nvm install node
 ```
 
 ### Vue CLI
+
 If you dont have Vue cli installed (Node must already be installed).
-``` bash
+
+```bash
 npm install --global @vue/cli
 ```
 
 ### Maven
+
 Use the appropriate package manager for your OS. These instructions were
 tested with maven version 3.6.
 
 ### Gradle
+
 Use the appropriate package manager for your OS. These instructions were
 tested with gradle 5.2.
 
 ## 2. Generate the Vue application
+
 Replace `{component-name}` with the desired name for the component.
 
-``` bash
+```bash
 vue create {component-name} --default
 ```
 
 Install dependencies for legacy browser support in the newly generated app.
-``` bash
+
+```bash
 cd {component-name}
 
 npm install --save-dev @babel/{cli,plugin-transform-runtime,preset-env}
@@ -91,6 +100,7 @@ re-run the `npm install` command above.
 
 In the root directory, create a **gradle.properties** file, with the
 following content:
+
 ```
 group=org.webjars.npm
 ```
@@ -100,12 +110,12 @@ group=org.webjars.npm
 Copy **build.gradle** file from @uportal directory of **uPortal-web-components**
 project (or use one from [the appendix](#b-sample-buildgradle-files)).
 
-https://github.com/uPortal-contrib/uPortal-web-components/blob/master/%40uportal/build.gradle
+<https://github.com/uPortal-contrib/uPortal-web-components/blob/master/%40uportal/build.gradle>
 
 If using the one from uPortal-web-components, remove the subprojects line and
 its enclosing brackets; for example:
 
-``` diff
+```diff
 - subprojects {
 
     apply plugin: 'java'
@@ -128,7 +138,7 @@ its enclosing brackets; for example:
 
 It should look something like this:
 
-``` gradle
+```gradle
     apply plugin: 'java'
     apply plugin: 'maven'
 
@@ -179,35 +189,35 @@ src/components/{component-name}.vue
 In **src/App.vue**, rename the import for HelloWorld.vue and replace with your
 `{component-name}` file:
 
-``` javascript
+```javascript
 // FROM:
-import HelloWorld from './components/HelloWorld.vue'
+import HelloWorld from './components/HelloWorld.vue';
 
 // TO:
-import HelloWorld from './components/{component-name}.vue'
+import HelloWorld from './components/{component-name}.vue';
 ```
 
 #### Optional edits in App.vue
 
 In **App.vue** you can change every instance of `HelloWorld` to your `{ComponentName}`:
 
-``` vue
+```vue
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <img alt="Vue logo" src="./assets/logo.png" />
+    <HelloWorld msg="Welcome to Your Vue.js App" />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/{component-name}.vue'
+import HelloWorld from './components/{component-name}.vue';
 
 export default {
   name: 'app',
   components: {
     HelloWorld
   }
-}
+};
 </script>
 ```
 
@@ -216,14 +226,14 @@ export default {
 In **src/components/{component-name}.vue** you can change every instance
 of `HelloWorld` to your `{ComponentName}`:
 
-``` vue
+```vue
 <script>
 export default {
   name: 'HelloWorld',
   props: {
     msg: String
   }
-}
+};
 </script>
 ```
 
@@ -275,10 +285,10 @@ It should look something like this when you've finished editing:
 
 Replace the contents of **babel.config.js** with this:
 
-``` javascript
+```javascript
 module.exports = {
-    presets: ['@babel/preset-env'],
-    plugins: [['@babel/plugin-transform-runtime', { useESModules: true }]]
+  presets: ['@babel/preset-env'],
+  plugins: [['@babel/plugin-transform-runtime', { useESModules: true }]]
 };
 ```
 
@@ -296,7 +306,7 @@ You can optionally check that the component will run properly with:
 npm run serve
 ```
 
-Then go to the address specified in your browser (for example http://localhost:8080)
+Then go to the address specified in your browser (for example <http://localhost:8080>)
 to see if it displays.
 
 To assemble the webjar and put it in the local maven repo where the uPortal-start
@@ -327,7 +337,7 @@ data/quickstart/portlet-definition/{component-name}.portlet-definition.xml
 
 In the newly-created portlet-definition.xml, modify the following fields:
 
-``` xml
+```xml
     <title>Component Title</title>
     <name>Component Name</name>
     <fname>component-name</fname>
@@ -339,7 +349,7 @@ In the newly-created portlet-definition.xml, modify the following fields:
 Replace the CDATA section of the portlet definition with this, replacing
 `{component-name}` with your component name:
 
-``` xml
+```xml
 <portlet-preference>
     <name>content</name>
     <readOnly>false</readOnly>
@@ -387,7 +397,7 @@ you put in the CDATA `<script>` tag.
 
 To add Chrome (the standard border around portlets):
 
-``` xml
+```xml
     <parameter>
         <name>chromeStyle</name>
         <value>default</value>
@@ -396,7 +406,7 @@ To add Chrome (the standard border around portlets):
 
 To remove Chrome:
 
-``` xml
+```xml
     <parameter>
         <name>chromeStyle</name>
         <value>no-chrome</value>
@@ -405,7 +415,7 @@ To remove Chrome:
 
 To grant permission to everyone to browse for the web component and select it:
 
-``` xml
+```xml
     <group>Everyone</group>
     <permissions>
         <permission system="UP_PORTLET_SUBSCRIBE" activity="BROWSE">
@@ -440,7 +450,7 @@ portlet definition and load the new webjar into the resource server.
 ```
 
 When you start uPortal, you should be able to find the new component when
-you select *Customize > Add Stuff*.
+you select _Customize > Add Stuff_.
 
 ## Appendix
 
@@ -466,11 +476,11 @@ npm run build
 
 #### Redeploy to uPortal resource-server
 
-You can do this *while uPortal is still running* which is why it's much
+You can do this _while uPortal is still running_ which is why it's much
 faster. You don't have to stop and restart uPortal which can take several
 minutes. This assumes you used the uPortal-start project to run uPortal
 locally with `./gradlew portalInit` and `./gradlew portalOpen` (or
-`./gradlew tomcatStart`) and that *you have not stopped Tomcat* (with
+`./gradlew tomcatStart`) and that _you have not stopped Tomcat_ (with
 `./gradlew tomcatStop`).
 
 In the **uPortal-start project** root directory:
@@ -494,7 +504,7 @@ cp overlays/resource-server/build/libs/resource-server.war .gradle/tomcat/webapp
 
 To produce really compact .jar files that the uPortal resource server will
 deliver to the user's browser, try these. All the extraneous files except
-for the *.min.js file are excluded from the .jar file that gets built.
+for the \*.min.js file are excluded from the .jar file that gets built.
 
 #### build.gradle for Linux and Mac OS
 
@@ -586,4 +596,3 @@ sudo port install nodejs10
 brew search node
 brew install node
 ```
-

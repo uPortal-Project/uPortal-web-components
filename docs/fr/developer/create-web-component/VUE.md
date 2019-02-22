@@ -1,70 +1,78 @@
 # Développer des composants Web Vue pour uPortal
 
 ## Guide étape par étape pour le composant vue.js
+
 1. [Prérequis](#1-prérequis)
-    1. [Node.js](#nodejs)
-    2. [Vue CLI](#vue-cli)
-    3. [Maven](#maven)
-    4. [Gradle](#gradle)
+   1. [Node.js](#nodejs)
+   2. [Vue CLI](#vue-cli)
+   3. [Maven](#maven)
+   4. [Gradle](#gradle)
 2. [Générer une application Vue](#2-générer-une-application-vue)
 3. [Ajouter un support de gradle pour les WebJars](#3-ajouter-un-support-de-gradle-pour-les-webjars)
-    1. [Créer un fichier gradle.properties](#créer-un-fichier-gradleproperties)
-    2. [Créer un fichier build.gradle](#créer-un-fichier-buildgradle)
-    3. [Ajouter un wrapper Gradle (gradlew) au projet](#ajouter-un-wrapper-gradle-au-projet)
+   1. [Créer un fichier gradle.properties](#créer-un-fichier-gradleproperties)
+   2. [Créer un fichier build.gradle](#créer-un-fichier-buildgradle)
+   3. [Ajouter un wrapper Gradle (gradlew) au projet](#ajouter-un-wrapper-gradle-au-projet)
 4. [Éditer l’application Vue](#4-Éditer-lapplication-vue)
-    1. [Renommer HelloWorld.vue](#renommer-helloworldvue)
-    2. [Éditer App.vue](#Éditer-appvue)
-    3. [Éditer package.json](#Éditer-packagejson)
-    4. [Éditer babel.config.js](#Éditer-babelconfigjs)
+   1. [Renommer HelloWorld.vue](#renommer-helloworldvue)
+   2. [Éditer App.vue](#Éditer-appvue)
+   3. [Éditer package.json](#Éditer-packagejson)
+   4. [Éditer babel.config.js](#Éditer-babelconfigjs)
 5. [Assembler et déployer l’application Vue](#5-assembler-et-déployer-lapplication-vue)
 6. [Ajouter le composant dans uPortal](#6-ajouter-le-composant-dans-uportal)
-    1. [Créer un fichier portlet-definition.xml](#créer-un-fichier-portlet-definitionxml)
-    2. [Éditer le fichier portlet-definition](#Éditer-le-fichier-portlet-definition)
-    3. [Remplacer les valeurs entre le CDATA dans votre portlet-definition](#remplacer-les-valeurs-entre-le-cdata-dans-votre-portlet-definition)
-    4. [Autres options de la portlet-definition](#autres-options-de-la-portlet-definition)
-       (ne pas oublier d’ajouter des permissions)
-    5. [Ajouter le webjar au resource server](#ajouter-le-webjar-au-resource-server)
-7. Sélectionner le composant dans uPortal (**note :** par défaut, depuis uPortal-start, 
-il semble que vous ne pouvez l’ajouter qu’à d’autres onglets, et non à l’onglet d’accueil par défaut, 
-qui peut être verrouillé selon les configurations).
+   1. [Créer un fichier portlet-definition.xml](#créer-un-fichier-portlet-definitionxml)
+   2. [Éditer le fichier portlet-definition](#Éditer-le-fichier-portlet-definition)
+   3. [Remplacer les valeurs entre le CDATA dans votre portlet-definition](#remplacer-les-valeurs-entre-le-cdata-dans-votre-portlet-definition)
+   4. [Autres options de la portlet-definition](#autres-options-de-la-portlet-definition)
+      (ne pas oublier d’ajouter des permissions)
+   5. [Ajouter le webjar au resource server](#ajouter-le-webjar-au-resource-server)
+7. Sélectionner le composant dans uPortal (**note :** par défaut, depuis uPortal-start,
+   il semble que vous ne pouvez l’ajouter qu’à d’autres onglets, et non à l’onglet d’accueil par défaut,
+   qui peut être verrouillé selon les configurations).
 
 ## 1. Prérequis
 
 ### Node.js
+
 Si vous n’avez pas de Node installé, il y a plusieurs façons de le faire. Une
 est d’utiliser Node Version Manager ([nvm](https://github.com/creationix/nvm)).
 
-``` bash
+```bash
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash
 ```
 
 Installer la dernière version LTS (Long Term Support) de Node (actuellement 10.15.1).
 
-``` bash
+```bash
 nvm install node
 ```
 
 ### Vue CLI
+
 Si vous n’avez pas Vue cli installé (Node doit déjà être installé).
-``` bash
+
+```bash
 npm install --global @vue/cli
 ```
 
 ### Maven
+
 Utiliser le gestionnaire de paquets approprié pour votre système d’exploitation. Ces instructions ont été testées avec maven version 3.6.
 
 ### Gradle
+
 Utiliser le gestionnaire de paquets approprié pour votre système d’exploitation. Ces instructions ont été testées avec le gradle 5.2.
 
 ## 2. Générer une application Vue
+
 Remplacer `{nom-du-composant}` avec le nom souhaité pour le composant.
 
-``` bash
+```bash
 vue create {nom-du-composant} --default
 ```
 
 Installer les dépendances pour le support des anciens navigateurs dans l’application nouvellement générée.
-``` bash
+
+```bash
 cd {nom-du-composant}
 
 npm install --save-dev @babel/{cli,plugin-transform-runtime,preset-env}
@@ -76,6 +84,7 @@ npm install --save-dev @babel/{cli,plugin-transform-runtime,preset-env}
 
 Dans le répertoire racine, créer un fichier **gradle.properties**, avec le contenu
 suivant :
+
 ```
 group=org.webjars.npm
 ```
@@ -87,10 +96,10 @@ Copier le fichier **build.gradle** file depuis le répertoire @uportal du projet
 
 <https://github.com/uPortal-contrib/uPortal-web-components/blob/master/%40uportal/build.gradle>
 
-Si vous utilisez celui d’**uPortal-web-components**, supprimer la ligne `subprojects` 
+Si vous utilisez celui d’**uPortal-web-components**, supprimer la ligne `subprojects`
 jusqu’à la fin de ses accolades, par exemple :
 
-``` diff
+```diff
 - subprojects {
 
     apply plugin: 'java'
@@ -113,7 +122,7 @@ jusqu’à la fin de ses accolades, par exemple :
 
 Cela devrait ressembler au final à quelque chose comme ceci :
 
-``` gradle
+```gradle
     apply plugin: 'java'
     apply plugin: 'maven'
 
@@ -130,8 +139,8 @@ Cela devrait ressembler au final à quelque chose comme ceci :
     }
 ```
 
-**Note :** Pour produire le .jar le plus compact possible ceci afin de réduire le trafic du resource server 
-et d’accélérer le temps de réponse du navigateur, ou si vous développez sous Windows, 
+**Note :** Pour produire le .jar le plus compact possible ceci afin de réduire le trafic du resource server
+et d’accélérer le temps de réponse du navigateur, ou si vous développez sous Windows,
 essayer ce [build.gradle pour Linux et Mac OS](#buildgradle-pour-linux-et-mac-os)
 ou ce [build.gradle pour Windows](#buildgradle-pour-windows).
 
@@ -143,8 +152,8 @@ Lancer cette commande :
 gradle wrapper --gradle-version=5.1.1
 ```
 
-**Note :** Maintenant que le projet a un fichier build.gradle et un wrapper Gradle, 
-un IDE comme IntelliJ IDEA le reconnaîtra comme un projet Gradle. Vous pouvez 
+**Note :** Maintenant que le projet a un fichier build.gradle et un wrapper Gradle,
+un IDE comme IntelliJ IDEA le reconnaîtra comme un projet Gradle. Vous pouvez
 faire le reste de l’édition requise dans l’IDE.
 
 ## 4. Éditer l’application Vue
@@ -166,17 +175,17 @@ src/components/{nom-du-composant}.vue
 Rename the imports.generated HelloWorld.vue file, replace **{nom-du-composant}** with yours:
 Renommer le fichier d’imports généré HelloWorld.vue, remplacer **{nom-composant}** par les vôtres :
 
-``` javascript
+```javascript
 // DEPUIS :
-import HelloWorld from './components/HelloWorld.vue'
+import HelloWorld from './components/HelloWorld.vue';
 
 // À :
-import HelloWorld from './components/{nom-du-composant}.vue'
+import HelloWorld from './components/{nom-du-composant}.vue';
 ```
 
 ### Éditer package.json
 
-Le `{nom-du-composant}` après `--name` _**doit**_ avoir un 
+Le `{nom-du-composant}` après `--name` _**doit**_ avoir un
 trait d’union, par exemple `--name machin-meteo`. Modifier comme ce qui suit :
 
 ```
@@ -222,8 +231,8 @@ Remplacer le contenu de **babel.config.js** par ceci :
 
 ```js
 module.exports = {
-    presets: ['@babel/preset-env'],
-    plugins: [['@babel/plugin-transform-runtime', { useESModules: true }]]
+  presets: ['@babel/preset-env'],
+  plugins: [['@babel/plugin-transform-runtime', { useESModules: true }]]
 };
 ```
 
@@ -240,7 +249,6 @@ Pour assembler le webjar et le mettre en local sur un repo Maven, lancer :
 ```bash
 ./gradlew install
 ```
-
 
 ## 6. Ajouter le composant dans uPortal
 
@@ -262,7 +270,7 @@ data/quickstart/portlet-definition/{nom-du-composant}.portlet-definition.xml
 
 Dans le fichier portlet-definition.xml nouvellement créé, modifier les valeurs suivantes :
 
-``` xml
+```xml
     <title>Titre du composant</title>
     <name>Nom du composant</name>
     <fname>nom-du-composant</fname>
@@ -271,10 +279,10 @@ Dans le fichier portlet-definition.xml nouvellement créé, modifier les valeurs
 
 ### Remplacer les valeurs entre le CDATA dans votre portlet-definition
 
-Modifier par ce qui suit dans la section CDATA de la portlet-définition, en changeant 
+Modifier par ce qui suit dans la section CDATA de la portlet-définition, en changeant
 `{nom-du-composant}` par le nom de votre composant et en conservant les lignes d’ouverture et de fermeture du CDATA:
 
-``` xml
+```xml
 <portlet-preference>
     <name>content</name>
     <readOnly>false</readOnly>
@@ -290,7 +298,7 @@ Modifier par ce qui suit dans la section CDATA de la portlet-définition, en cha
 </portlet-preference>
 ```
 
-Pour retrouver le nom du fichier en min.js de votre composant que vous allez 
+Pour retrouver le nom du fichier en min.js de votre composant que vous allez
 appeler dans le script, examinez le contenu du webjar qui a été créé. Lancer cette commande bash par exemple :
 
 ```bash
@@ -315,14 +323,14 @@ Ceci vous montrera :
 META-INF/resources/webjars/uportal__machin-meteo/0.1.0-SNAPSHOT/dist/machin-meteo.min.js
 ```
 
-Donc le nom du fichier min.js est donc **machin-meteo.min.js**, qui sera ce que vous devez 
+Donc le nom du fichier min.js est donc **machin-meteo.min.js**, qui sera ce que vous devez
 mettre en valeur de la balise <script> du CDATA de la portlet-definition.
 
 ### Autres options de la portlet-definition
 
 Pour ajouter un encadrement (l’encadrement standard avec bordure des portlets):
 
-``` xml
+```xml
     <parameter>
         <name>chromeStyle</name>
         <value>default</value>
@@ -331,7 +339,7 @@ Pour ajouter un encadrement (l’encadrement standard avec bordure des portlets)
 
 Pour retirer l’encadrement :
 
-``` xml
+```xml
     <parameter>
         <name>chromeStyle</name>
         <value>no-chrome</value>
@@ -340,7 +348,7 @@ Pour retirer l’encadrement :
 
 ### Ajouter le webjar au resource server
 
-Dans le fichier `overlays/resource-server/build.gradle` de votre projet uPortal-start, 
+Dans le fichier `overlays/resource-server/build.gradle` de votre projet uPortal-start,
 ajouter la dépendance d’exécution suivante:
 
 ```
@@ -358,16 +366,20 @@ Par exemple:
 ### installation de Node.js
 
 #### Mac OS X
+
 1. [MacPorts](https://www.macports.org/)
 2. [HomeBrew](https://brew.sh/)
 3. l’installeur MacOS (.pkg) depuis [le site web de Node.js](https://nodejs.org/)
 
 ##### avec MacPorts
+
 ```bash
 sudo port list | grep node
 sudo port install nodejs10
 ```
+
 ##### avec Homebrew
+
 ```bash
 brew search node
 brew install node
@@ -375,9 +387,9 @@ brew install node
 
 ### fichiers build.gradle
 
-Pour produire des fichiers .jar vraiment compacts que le resource server d’uPortal 
-fournira au navigateur de vos utilisateurs, essayer ceci : (tous les fichiers étrangers 
-à l’exception du fichier *.min.js seront exclus du fichier.jar généré.)
+Pour produire des fichiers .jar vraiment compacts que le resource server d’uPortal
+fournira au navigateur de vos utilisateurs, essayer ceci : (tous les fichiers étrangers
+à l’exception du fichier \*.min.js seront exclus du fichier.jar généré.)
 
 #### build.gradle pour Linux et Mac OS
 
@@ -404,10 +416,10 @@ jar {
 
 #### build.gradle pour Windows
 
-Windows a une bizarrerie, que les tâches copyFiles et cleanUp dans ce fichier build.gradle 
+Windows a une bizarrerie, que les tâches copyFiles et cleanUp dans ce fichier build.gradle
 permettent de contourner. Cela fonctionnera également sous Mac OS et Linux...
 
-``` gradle
+```gradle
 apply plugin: 'java'
 apply plugin: 'maven'
 

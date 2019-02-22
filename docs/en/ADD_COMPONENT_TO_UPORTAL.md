@@ -21,7 +21,7 @@ data/quickstart/portlet-definition/{component-name}.portlet-definition.xml
 
 In the newly-created portlet-definition.xml, modify the following fields:
 
-``` xml
+```xml
     <title>Component Title</title>
     <name>Component Name</name>
     <fname>component-name</fname>
@@ -33,7 +33,7 @@ In the newly-created portlet-definition.xml, modify the following fields:
 Replace the CDATA section of the portlet definition with this, replacing
 `{component-name}` with your component name:
 
-``` xml
+```xml
 <portlet-preference>
     <name>content</name>
     <readOnly>false</readOnly>
@@ -81,7 +81,7 @@ you put in the CDATA <script> tag.
 
 To add Chrome (the standard border around portlets):
 
-``` xml
+```xml
     <parameter>
         <name>chromeStyle</name>
         <value>default</value>
@@ -90,7 +90,7 @@ To add Chrome (the standard border around portlets):
 
 To remove Chrome:
 
-``` xml
+```xml
     <parameter>
         <name>chromeStyle</name>
         <value>no-chrome</value>
