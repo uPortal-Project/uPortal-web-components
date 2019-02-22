@@ -49,3 +49,21 @@ compile 'org.webjars.npm:uportal__dashboard-carousel:{version number goes here}'
 - `debug` (optional, boolean, default: false): when enabled debug mode skips oauth authentication.
 - `layout-api-url` (optional, string, default: "/uPortal/api/v4-3/dlm/layout.json"): url to layout for carousel to use.
 - `region-name` (optional, string, default: "dashboard"): name of the region in the layout that should be displayed.
+
+### Theming
+
+Currently this component supports [CSS Variables](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_variables) for overriding button colors. Defining the following variables will change the colors for the component accordingly. They will fall back to the colors described below.
+
+You should define this in your custom stylesheet.
+
+fg = foreground (text)
+bg = background
+
+`
+:root {
+    --dash-carousel-btn-bg-color: #007bff; // Used for background and border
+    --dash-carousel-btn-fg-color: #fff // Default text color
+    --dash-carousel-btn-bg-active-color: white; // border remains same as background color
+    --dash-carousel-btn-fg-active-color: black; // active text color
+}
+`
