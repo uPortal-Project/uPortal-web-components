@@ -10,8 +10,8 @@
     width: 100%;
 
     img {
-      max-width: 100%;
-      height: inherit;
+      width: 100%;
+      object-fit: cover;
       vertical-align: middle;
     }
   }
