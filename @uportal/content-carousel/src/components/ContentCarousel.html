@@ -8,7 +8,7 @@
   </template>
   <template v-else>
     <div class="slick-inner">
-      <slick ref="slick" :options="computedSlickOptions">
+      <slick ref="slick" :options="computedSlickOptions" :style="{ height }">
         <template v-for="item in computedItems">
           <slot name="slide" :item="item">
             <div
@@ -24,6 +24,7 @@
                   v-if="item.imageUrl"
                   :src="item.imageUrl"
                   :alt="item.altText"
+                  :style="{ height }"
                 />
                 <template v-if="!item.imageUrl"
                   >{{ item.title }}</template
