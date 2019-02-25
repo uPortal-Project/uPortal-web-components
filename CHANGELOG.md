@@ -7,6 +7,28 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased][]
 
+### Feature
+
+- Make dashboard carousel buttons skinnable with CSS variables (#273)
+
+### fix
+
+- Set content-carousel hero images to stretch with object-fit (#272)
+
+### Docs
+
+- Cleaned up VUE.md and added quick build instructions (#262)
+
+### Style
+
+- Format markdown using prettier
+- Lowercase markdown header links
+
+### Chore
+
+- Enable renovate lockfile maintainance (#270)
+- Update dependencies (#265, #269, #271, #274, #275)
+
 ## [1.24.0][] - 2019-02-06
 
 ### Feature
