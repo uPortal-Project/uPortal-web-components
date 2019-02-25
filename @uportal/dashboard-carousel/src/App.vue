@@ -17,7 +17,6 @@ export default {
 </script>
 
 <style lang="scss">
-
 :root {
   --dash-carousel-btn-bg-color: #007bff;
   --dash-carousel-btn-fg-color: #fff;

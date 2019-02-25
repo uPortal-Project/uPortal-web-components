@@ -66,3 +66,4 @@ bg = background
     --dash-carousel-btn-bg-active-color: white; // border remains same as background color
     --dash-carousel-btn-fg-active-color: black; // active text color
 }
+```
