@@ -17,6 +17,15 @@ export default {
 </script>
 
 <style lang="scss">
+:root {
+  --dash-carousel-btn-bg-color: #007bff;
+  --dash-carousel-btn-fg-color: #fff;
+  --dash-carousel-btn-bg-active-color: #fff;
+  --dash-carousel-btn-fg-active-color: #000;
+  --dash-carousel-btn-bg-hover-color: rgba(255, 255, 255, 0.5);
+  --dash-carousel-btn-fg-hover-color: #000;
+}
+
 body {
   background-color: cadetblue;
 }
