@@ -61,9 +61,9 @@ bg = background
 
 ```css
 :root {
-    --dash-carousel-btn-bg-color: #007bff; // Used for background and border
-    --dash-carousel-btn-fg-color: #fff; // Default text color
-    --dash-carousel-btn-bg-active-color: white; // border remains same as background color
-    --dash-carousel-btn-fg-active-color: black; // active text color
+  --dash-carousel-btn-bg-color: #007bff; // Used for background and border
+  --dash-carousel-btn-fg-color: #fff; // Default text color
+  --dash-carousel-btn-bg-active-color: white; // border remains same as background color
+  --dash-carousel-btn-fg-active-color: black; // active text color
 }
 ```
