@@ -12,7 +12,7 @@
         fallback-text="RM"
         avatar-size="40px"
       >
-        <template #header>
+        <template v-slot:header>
           User Profile
         </template>
         <template>
@@ -29,7 +29,7 @@
             >Chat <i class="fas fa-comments"
           /></UserProfileMenuItem>
         </template>
-        <template #footer>
+        <template v-slot:footer>
           <a href="/uPortal/logout"
             >Sign Out <i class="fas fa-sign-out-alt"></i
           ></a>
@@ -41,8 +41,8 @@
 
 <script>
 // avatar-url="http://lorempixel.com/100/100"
-import UserProfileMenu from './components/UserProfileMenu.vue';
-import UserProfileMenuItem from './components/UserProfileMenuItem.vue';
+import UserProfileMenu from './components/ProfileMenu.vue';
+import UserProfileMenuItem from './components/ProfileMenuItem.vue';
 
 export default {
   name: 'app',

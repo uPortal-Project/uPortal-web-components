@@ -54,6 +54,7 @@ For example an `example-component` would be loaded by adding
 - [ESCO Content Menu](@uportal/esco-content-menu/README.md)
 - [Eyebrow User Info](@uportal/eyebrow-user-info/README.md)
 - [Waffle Menu](@uportal/waffle-menu/README.md)
+- [User Profile Menu](@uportal/user-profile-menu/README.md)
 
 ## Utilities
 

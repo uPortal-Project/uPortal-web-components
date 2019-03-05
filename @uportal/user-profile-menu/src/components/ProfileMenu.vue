@@ -18,10 +18,8 @@
       <div class="profile-dropdown-section profile-dropdown-header">
         <slot name="header"></slot>
       </div>
-      <div
-        class="profile-dropdown-section profile-dropdown-content list-group list-group-flush"
-      >
-        <slot></slot>
+      <div class="profile-dropdown-section profile-dropdown-content">
+        <slot name="default"></slot>
       </div>
       <div class="profile-dropdown-section profile-dropdown-footer">
         <slot name="footer"></slot>
@@ -31,7 +29,7 @@
 </template>
 <script>
 export default {
-  name: 'user-profile',
+  name: 'profile',
   data() {
     return {
       menuOpen: false
@@ -64,14 +62,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
-.profile-menu-container /deep/ {
-  @import '../../node_modules/bootstrap/scss/functions';
-  @import '../../node_modules/bootstrap/scss/variables';
-  @import '../../node_modules/bootstrap/scss/mixins';
-  // bootstrap styles needed by component
-  @import '../../node_modules/bootstrap/scss/list-group';
-  @import '../../node_modules/bootstrap/scss/utilities';
-
+.profile-menu-container {
   color: white;
   display: flex;
   margin-left: auto;
@@ -114,7 +105,7 @@ export default {
 
   .profile-dropdown {
     position: absolute;
-    top: 150%;
+    top: 125%;
     right: 0;
     z-index: 1000;
     display: flex;
@@ -140,9 +131,11 @@ export default {
       background-color: var(--user-prof-header-bg-color, #eee);
       color: var(--user-prof-header-fg-color, #000);
     }
-
-    .list-group-item-action {
-      width: auto;
+    &.profile-dropdown-content {
+      display: flex;
+      flex-direction: column;
+      padding-left: 0;
+      margin-bottom: 0;
     }
   }
 }
