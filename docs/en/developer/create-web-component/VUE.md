@@ -467,14 +467,14 @@ deploy it like this.
 
 #### Rebuild and redeploy resource-server
 
-1\. Re-build the resource-server so it pulls the new WebJar into its resources.
+1. Re-build the resource-server so it pulls the new WebJar into its resources.
 
 ```
 ./gradlew :overlays:resource-server:build
 ```
 
-2\. Copy the newly-built **resource-server.war** file into the **tomcat/webapps**
-directory where it will automatically be deployed and overwrite the current one.
+2. Copy the newly-built **resource-server.war** file into the **tomcat/webapps**
+   directory where it will automatically be deployed and overwrite the current one.
 
 ```
 cp overlays/resource-server/build/libs/resource-server.war .gradle/tomcat/webapps/
@@ -483,8 +483,10 @@ cp overlays/resource-server/build/libs/resource-server.war .gradle/tomcat/webapp
 #### Import portlet definition or add it in uPortal
 
 It is better, and easier, to create the portlet definition .xml file and
-import it rather than add it in Portlet Administration in uPortal, but you
-can do it both ways.
+import it ([Method 1](method-1-import-portlet-definition)) rather than add
+it in Portlet Administration in uPortal
+([Method 2](method-2-add-portlet-definition-in-uporttal)), but you can do
+it both ways.
 
 ##### Method 1: Import portlet definition
 
