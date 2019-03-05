@@ -485,7 +485,7 @@ deploy it like this.
 It is better, and easier, to create the portlet definition .xml file and
 import it ([Method 1](#method-1-import-portlet-definition)) rather than add
 it in Portlet Administration in uPortal
-([Method 2](#method-2-add-portlet-definition-in-uporttal)), but you can do
+([Method 2](#method-2-add-portlet-definition-in-uportal)), but you can do
 it both ways.
 
 ##### Method 1: Import portlet definition
