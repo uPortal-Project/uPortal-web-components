@@ -24,18 +24,19 @@
    2. [edit portlet definition](#edit-portlet-definition)
    3. [replace CDATA in portlet definition](#replace-cdata-in-portlet-definition)
    4. [other options for portlet definition](#other-options-for-portlet-definition)
-   5. [add webjar to resource server](#add-webjar-to-resource-server)
+   5. [add WebJar to resource server](#add-webjar-to-resource-server)
    6. [rebuild uPortal-start](#rebuild-uportal-start)
 
 [Appendix](#appendix)
 
-- [A. Quick rebuild and deploy](#a-quick-rebuild-and-deploy)
+- [A. Quick new deployment](#a-quick-new-deployment)
+- [B. Quick rebuild and deploy](#b-quick-rebuild-and-deploy)
   1. [Rebuild web component](#rebuild-web-component)
   2. [Redeploy to uPortal resource-server](#redeploy-to-uportal-resource-server)
-- [B. Sample build.gradle files](#b-sample-buildgradle-files)
+- [C. Sample build.gradle files](#c-sample-buildgradle-files)
   - [build.gradle for Linux and Mac OS](#buildgradle-for-linux-and-mac-os)
   - [build.gradle for Windows](#buildgradle-for-windows)
-- [C. Node.js installation](#c-nodejs-installation)
+- [D. Node.js installation](#d-nodejs-installation)
   - [Mac OS X](#mac-os-x)
     - [With MacPorts](#with-macports)
     - [With Homebrew](#with-homebrew)
@@ -128,9 +129,9 @@ its enclosing brackets; for example:
     jar {
         baseName "uportal__${project.name}"
         from '.'
+        into "META-INF/resources/webjars/uportal__${project.name}/${project.version}"
         exclude 'build'
         exclude 'node_modules'
-        into "META-INF/resources/webjars/uportal__${project.name}/${project.version}"
     }
 
 - }
@@ -149,9 +150,9 @@ It should look something like this:
     jar {
         baseName "uportal__${project.name}"
         from '.'
+        into "META-INF/resources/webjars/uportal__${project.name}/${project.version}"
         exclude 'build'
         exclude 'node_modules'
-        into "META-INF/resources/webjars/uportal__${project.name}/${project.version}"
     }
 ```
 
@@ -309,7 +310,7 @@ npm run serve
 Then go to the address specified in your browser (for example <http://localhost:8080>)
 to see if it displays.
 
-To assemble the webjar and put it in the local maven repo where the uPortal-start
+To assemble the WebJar and put it in the local maven repo where the uPortal-start
 project can find it, run:
 
 ```
@@ -366,7 +367,7 @@ Replace the CDATA section of the portlet definition with this, replacing
 ```
 
 To find the name of the component min.js file that you will name in the
-script, examine the contents of the webjar that was created. For example:
+script, examine the contents of the WebJar that was created. For example:
 
 ```
 ls -al ~/.m2/repository/org/webjars/npm/uportal__weather-thingy/0.1.0-SNAPSHOT/*.jar
@@ -425,7 +426,7 @@ To grant permission to everyone to browse for the web component and select it:
 
 ```
 
-### Add webjar to resource server
+### Add WebJar to resource server
 
 In the **overlays/resource-server/build.gradle** file in the uPortal-start
 project, add the following runtime dependency:
@@ -443,7 +444,7 @@ For example:
 ### Rebuild uPortal-start
 
 Rebuild the **uPortal-start** project to populate the database with the new
-portlet definition and load the new webjar into the resource server.
+portlet definition and load the new WebJar into the resource server.
 
 ```
 ./gradlew portalInit
@@ -454,7 +455,87 @@ you select _Customize > Add Stuff_.
 
 ## Appendix
 
-### A. Quick rebuild and deploy
+### A. Quick new deployment
+
+You can build and deploy a web component without having to restart the
+uPortal server and re-initialize uPortal data. Once the web component has
+been built and the WebJar dependency has been
+[added to the resource server](#add-webjar-to-resource-server) you can
+deploy it like this.
+
+#### Rebuild and redeploy resource-server
+
+1\. Re-build the resource-server so it pulls the new WebJar into its resources.
+
+```
+./gradlew :overlays:resource-server:build
+```
+
+2\. Copy the newly-built **resource-server.war** file into the **tomcat/webapps**
+directory where it will automatically be deployed and overwrite the current one.
+
+```
+cp overlays/resource-server/build/libs/resource-server.war .gradle/tomcat/webapps/
+```
+
+#### Import portlet definition or add it in uPortal
+
+It is better, and easier, to create the portlet definition .xml file and
+import it rather than add it in Portlet Administration in uPortal, but you
+can do it both ways.
+
+##### Method 1: Import portlet definition
+
+3\. Create a portlet-definition.xml according to the
+[instructions](#create-a-portlet-definitionxml) above and
+[modify it](#edit-portlet-definition) for your web component.
+
+4\. Import the portlet-definition.xml into the uPortal database.
+
+```
+./gradlew dataImport -Dfile=path/to/portlet-definition.xml
+```
+
+5\. Clear the uPortal cache in the Cache Manager. In uPortal, navigate to
+Admin Tools > Cache Administration. Select the **Empty All Caches** button.
+This causes uPortal to reload data from the database, which will load the
+portlet definition.
+
+You will now be able to find your portlet in the Customize menu.
+
+##### Method 2: Add portlet definition in uPortal
+
+The problem with this method is that the definition is only temporary. It
+is not included in the uPortal-start project and only resides in the
+database. If you delete or refresh the database, for example with
+`./gradlew portalInit`, the portlet definition is gone.
+
+In uPortal, navigate to Admin Tools > Portlet Administration.
+
+1. Select **Register New Portlet** button
+2. Select **Advanced CMS** and Continue
+3. Fill in the Portlet Title, Name, Functional Name, and optionally, Description.
+4. Select **Edit Principals** button then select the **Add to Selection**
+   button for the group(s) that can access the portlet (**Everyone** is the default at
+   the top) and **Save** it
+5. Select the **Published** radio button under **Lifecycle Management**
+6. Select the **Save and Configure** button
+7. In the Content Editor, select the **Source** button and paste this and
+   substite your component name:
+
+```
+<script src="https://unpkg.com/vue"></script>
+<script type="text/javascript" src="/resource-server/webjars/uportal__{component-name}/dist/{component-name}.min.js"></script>
+<{component-name}></{component-name}>
+```
+
+8. You won't be able to save until you select the **Source** button again to
+   return to normal editing. Then select the **Save** icon right next to it
+   to save your changes.
+
+You will now be able to find your portlet in the Customize menu.
+
+### B. Quick rebuild and deploy
 
 Once you have built the web component and included it in uPortal, here is
 a way to speed up the rebuild and redeployment process so you can see your
@@ -500,7 +581,7 @@ cp overlays/resource-server/build/libs/resource-server.war .gradle/tomcat/webapp
 
 5\. Refresh the browser and you should see the changes.
 
-### B. Sample build.gradle files
+### C. Sample build.gradle files
 
 To produce really compact .jar files that the uPortal resource server will
 deliver to the user's browser, try these. All the extraneous files except
@@ -519,13 +600,13 @@ project.version = parsedJson.version + '-SNAPSHOT'
 jar {
     baseName "uportal__${project.name}"
     from '.'
+    into "META-INF/resources/webjars/uportal__${project.name}/${project.version}"
     include 'META-INF'
     include 'dist/*'
     exclude "dist/demo.html"
     exclude "dist/${project.name}.js"
     exclude "dist/${project.name}.js.map"
     exclude "dist/${project.name}.min.js.map"
-    into "META-INF/resources/webjars/uportal__${project.name}/${project.version}"
 }
 ```
 
@@ -558,13 +639,13 @@ task copyFiles{
 jar {
     baseName "uportal__${project.name}"
     from '.'
+    into "META-INF/resources/webjars/uportal__${project.name}/${project.version}"
     include 'META-INF'
     include 'dist/*'
     exclude "dist/demo.html"
     exclude "dist/${project.name}.js"
     exclude "dist/${project.name}.js.map"
     exclude "dist/${project.name}.min.js.map"
-    into "META-INF/resources/webjars/uportal__${project.name}/${project.version}"
 }
 
 task cleanUp(type: Delete) {
@@ -575,7 +656,7 @@ task cleanUp(type: Delete) {
 jar.finalizedBy cleanUp
 ```
 
-### C. Node.js installation
+### D. Node.js installation
 
 #### Mac OS X
 
