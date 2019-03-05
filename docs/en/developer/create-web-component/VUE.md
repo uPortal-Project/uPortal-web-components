@@ -469,16 +469,16 @@ deploy it like this.
 
 1. Re-build the resource-server so it pulls the new WebJar into its resources.
 
-```
-./gradlew :overlays:resource-server:build
-```
+   ```
+   ./gradlew :overlays:resource-server:build
+   ```
 
 2. Copy the newly-built **resource-server.war** file into the **tomcat/webapps**
    directory where it will automatically be deployed and overwrite the current one.
 
-```
-cp overlays/resource-server/build/libs/resource-server.war .gradle/tomcat/webapps/
-```
+   ```
+   cp overlays/resource-server/build/libs/resource-server.war .gradle/tomcat/webapps/
+   ```
 
 #### Import portlet definition or add it in uPortal
 
@@ -495,10 +495,9 @@ it both ways.
    [modify it](#edit-portlet-definition) for your web component.
 2. Import the portlet-definition.xml into the uPortal database.
 
-
-    ```
-    ./gradlew dataImport -Dfile=path/to/portlet-definition.xml
-    ```
+   ```
+   ./gradlew dataImport -Dfile=path/to/portlet-definition.xml
+   ```
 
 3. Clear the uPortal cache in the Cache Manager. In uPortal, navigate to
    Admin Tools > Cache Administration. Select the **Empty All Caches** button.
@@ -526,11 +525,13 @@ In uPortal, navigate to Admin Tools > Portlet Administration.
 6. Select the **Save and Configure** button
 7. In the Content Editor, select the **Source** button and paste this and
    substite your component name:
+
    ```
    <script src="https://unpkg.com/vue"></script>
    <script type="text/javascript" src="/resource-server/webjars/uportal__{component-name}/dist/{component-name}.min.js"></script>
    <{component-name}></{component-name}>
    ```
+
 8. You won't be able to save until you select the **Source** button again to
    return to normal editing. Then select the **Save** icon right next to it
    to save your changes.
