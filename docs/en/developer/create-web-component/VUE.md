@@ -30,6 +30,8 @@
 [Appendix](#appendix)
 
 - [A. Quick new deployment](#a-quick-new-deployment)
+  1. [Rebuild and redeploy resource-server](#rebuild-and-redeploy-resource-server)
+  2. [Import portlet definition or add it in uPortal](#import-portlet-definition-or-add-it-in-uportal)
 - [B. Quick rebuild and deploy](#b-quick-rebuild-and-deploy)
   1. [Rebuild web component](#rebuild-web-component)
   2. [Redeploy to uPortal resource-server](#redeploy-to-uportal-resource-server)
@@ -486,20 +488,20 @@ can do it both ways.
 
 ##### Method 1: Import portlet definition
 
-3\. Create a portlet-definition.xml according to the
-[instructions](#create-a-portlet-definitionxml) above and
-[modify it](#edit-portlet-definition) for your web component.
+1. Create a portlet-definition.xml according to the
+   [instructions](#create-a-portlet-definitionxml) above and
+   [modify it](#edit-portlet-definition) for your web component.
+2. Import the portlet-definition.xml into the uPortal database.
 
-4\. Import the portlet-definition.xml into the uPortal database.
 
-```
-./gradlew dataImport -Dfile=path/to/portlet-definition.xml
-```
+    ```
+    ./gradlew dataImport -Dfile=path/to/portlet-definition.xml
+    ```
 
-5\. Clear the uPortal cache in the Cache Manager. In uPortal, navigate to
-Admin Tools > Cache Administration. Select the **Empty All Caches** button.
-This causes uPortal to reload data from the database, which will load the
-portlet definition.
+3. Clear the uPortal cache in the Cache Manager. In uPortal, navigate to
+   Admin Tools > Cache Administration. Select the **Empty All Caches** button.
+   This causes uPortal to reload data from the database, which will load the
+   portlet definition.
 
 You will now be able to find your portlet in the Customize menu.
 
@@ -522,13 +524,11 @@ In uPortal, navigate to Admin Tools > Portlet Administration.
 6. Select the **Save and Configure** button
 7. In the Content Editor, select the **Source** button and paste this and
    substite your component name:
-
-```
-<script src="https://unpkg.com/vue"></script>
-<script type="text/javascript" src="/resource-server/webjars/uportal__{component-name}/dist/{component-name}.min.js"></script>
-<{component-name}></{component-name}>
-```
-
+   ```
+   <script src="https://unpkg.com/vue"></script>
+   <script type="text/javascript" src="/resource-server/webjars/uportal__{component-name}/dist/{component-name}.min.js"></script>
+   <{component-name}></{component-name}>
+   ```
 8. You won't be able to save until you select the **Source** button again to
    return to normal editing. Then select the **Save** icon right next to it
    to save your changes.
