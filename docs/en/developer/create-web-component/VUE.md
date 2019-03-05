@@ -515,16 +515,16 @@ database. If you delete or refresh the database, for example with
 
 In uPortal, navigate to Admin Tools > Portlet Administration.
 
-1. Select **Register New Portlet** button
-2. Select **Advanced CMS** and Continue
+1. Select **Register New Portlet** button.
+2. Select **Advanced CMS** and Continue.
 3. Fill in the Portlet Title, Name, Functional Name, and optionally, Description.
 4. Select **Edit Principals** button then select the **Add to Selection**
    button for the group(s) that can access the portlet (**Everyone** is the default at
-   the top) and **Save** it
-5. Select the **Published** radio button under **Lifecycle Management**
-6. Select the **Save and Configure** button
-7. In the Content Editor, select the **Source** button and paste this and
-   substite your component name:
+   the top) and **Save** it.
+5. Select the **Published** radio button under **Lifecycle Management**.
+6. Select the **Save and Configure** button.
+7. In the Content Editor, select the **Source** button and paste the following
+   and substite your component name:
 
    ```
    <script src="https://unpkg.com/vue"></script>
