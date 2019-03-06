@@ -9,7 +9,7 @@
           'font-size': avatarSize
         }"
       >
-        <img :src="avatarUrl" v-if="avatarUrl" />
+        <img :src="avatarUrl" v-if="avatarUrl && !useInitials" />
         <span class="fallback" v-else>{{ fallbackText }}</span>
       </div>
       <span>{{ displayText }}</span>
@@ -28,18 +28,44 @@
   </div>
 </template>
 <script>
+import oidc from '@uportal/open-id-connect';
+
 export default {
   name: 'profile',
   data() {
     return {
-      menuOpen: false
+      menuOpen: false,
+      user: {
+        name: '',
+        family_name: '',
+        given_name: '',
+        image: null
+      },
+      dataLoaded: false,
+      hasError: false,
+      errorMessage: ''
     };
   },
+  computed: {
+    avatarUrl: function() {
+      return this.user.image;
+    },
+    displayText: function() {
+      return this.user.name;
+    },
+    fallbackText: function() {
+      return (
+        this.user.family_name.substr(0, 1) + this.user.given_name.substr(0, 1)
+      );
+    }
+  },
   props: {
-    fallbackText: { type: String, required: false },
-    displayText: { type: String, required: false },
-    avatarUrl: { type: String, required: false },
-    avatarSize: { type: String, default: '50px' }
+    avatarSize: { type: String, default: '50px' },
+    useInitials: { type: Boolean, default: false, required: false },
+    oidcUrl: {
+      type: String,
+      default: '/uPortal/api/v5-1/userinfo'
+    }
   },
   methods: {
     toggleMenu() {
@@ -52,16 +78,32 @@ export default {
       if (menu !== target && !shadow && !menu.contains(target)) {
         this.menuOpen = false;
       }
+    },
+    handleOidcError() {
+      this.hasError = true;
+      this.errorMessage = 'There was a problem authorizing this request.';
+    },
+    async getToken() {
+      try {
+        return await oidc({ userInfoApiUrl: this.oidcUrl });
+      } catch (err) {
+        this.handleOidcError(err);
+      }
+    },
+    async fetchMenuData() {
+      const token = this.debug ? null : (await this.getToken()).decoded;
+      this.user = token;
     }
   },
   mounted() {
     document.addEventListener('click', this.handleOutsideClick, false);
+    this.fetchMenuData();
   }
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style lang="scss" scoped>
+<style lang="scss">
 .profile-menu-container {
   color: white;
   display: flex;
@@ -71,6 +113,7 @@ export default {
 
   a {
     text-decoration: none;
+    color: var(--user-prof-menu-fg-color, #495057);
   }
 
   .profile-trigger {
@@ -136,6 +179,38 @@ export default {
       flex-direction: column;
       padding-left: 0;
       margin-bottom: 0;
+
+      a {
+        $border-style: 1px solid rgba(0, 0, 0, 0.125);
+        align-items: center;
+        justify-content: space-between;
+        display: flex;
+        padding: 0.75rem 1.25rem;
+        margin-bottom: -1px;
+        background-color: #fff;
+        border-top: $border-style;
+        border-bottom: $border-style;
+        border-right: 0px;
+        border-left: 0px;
+
+        color: var(--user-prof-menu-fg-color, #495057);
+        text-align: inherit;
+        text-decoration: none;
+
+        &:hover {
+          z-index: 1;
+          color: var(
+            --user-prof-menu-fg-hover-color,
+            var(--user-prof-menu-fg-color, #495057)
+          );
+          text-decoration: none;
+          background-color: #f8f9fa;
+        }
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
     }
   }
 }

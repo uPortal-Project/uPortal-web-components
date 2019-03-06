@@ -8,26 +8,22 @@
         crossorigin="anonymous"
       />
       <UserProfileMenu
-        display-text="Ryan Mathis"
-        fallback-text="RM"
-        avatar-size="40px"
+        oidc-url="/proxy/uPortal/api/v5-1/userinfo"
+        avatar-size="30px"
       >
         <template v-slot:header>
           User Profile
         </template>
         <template>
-          <UserProfileMenuItem href="/manage"
-            >Manage Account <i class="fas fa-user"
-          /></UserProfileMenuItem>
-          <UserProfileMenuItem href="/manage"
-            >Another link <i class="fas fa-cog"
-          /></UserProfileMenuItem>
-          <UserProfileMenuItem
-            >Some Tools <i class="fas fa-tools"
-          /></UserProfileMenuItem>
-          <UserProfileMenuItem href="/manage"
-            >Chat <i class="fas fa-comments"
-          /></UserProfileMenuItem>
+          <a href="/manage" icon="user"
+            >Manage Account <i class="fa fa-user"></i
+          ></a>
+          <a href="/manage" icon="cog"
+            >Another link <i class="fa fa-cog"></i
+          ></a>
+          <a href="/manage" icon="comments"
+            >Chat <i class="fa fa-comments"></i
+          ></a>
         </template>
         <template v-slot:footer>
           <a href="/uPortal/logout"
@@ -42,13 +38,11 @@
 <script>
 // avatar-url="http://lorempixel.com/100/100"
 import UserProfileMenu from './components/ProfileMenu.vue';
-import UserProfileMenuItem from './components/ProfileMenuItem.vue';
 
 export default {
   name: 'app',
   components: {
-    UserProfileMenu,
-    UserProfileMenuItem
+    UserProfileMenu
   }
 };
 </script>

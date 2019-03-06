@@ -5,10 +5,12 @@
   "scripts": {
     "start": "vue-cli-service serve",
     "prebuild": "babel node_modules/@vue/web-component-wrapper/dist/vue-wc-wrapper.js -o node_modules/@vue/web-component-wrapper/dist/vue-wc-wrapper.js",
-    "build": "vue-cli-service build --name user --target wc 'src/components/*.vue'",
+    "build": "vue-cli-service build --name user-profile-menu --target wc 'src/components/ProfileMenu.vue'",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@uportal/open-id-connect": "^1.25.0",
+    "font-awesome": "4.7.0",
     "vue": "^2.6.6"
   },
   "devDependencies": {
