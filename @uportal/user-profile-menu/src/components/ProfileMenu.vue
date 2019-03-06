@@ -131,7 +131,7 @@ export default {
       border-radius: 50%;
       overflow: hidden;
       margin: 0em 0.2em;
-      background-color: var(--user-prof-fallback-bg-color, #cccccc);
+      background-color: var(--user-prof-fallback-bg-color, #ccc);
       color: var(--user-prof-fallback-fg-color, #333);
       display: flex;
       align-items: center;
