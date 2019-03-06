@@ -117,7 +117,7 @@ export default {
   }
 
   .profile-trigger {
-    color: var(--user-prof-fg-color, #ffffff);
+    color: var(--user-prof-fg-color, #fff);
     padding: 0;
     margin-left: auto;
     background: transparent;
