@@ -526,7 +526,7 @@ In uPortal, navigate to Admin Tools > Portlet Administration.
 7. In the Content Editor, select the **Source** button and paste the following
    and substite your component name:
 
-   ```
+   ```html
    <script src="https://unpkg.com/vue"></script>
    <script type="text/javascript" src="/resource-server/webjars/uportal__{component-name}/dist/{component-name}.min.js"></script>
    <{component-name}></{component-name}>
