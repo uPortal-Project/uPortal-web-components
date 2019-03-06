@@ -1,14 +1,7 @@
 <template>
   <div class="profile-menu-container" ref="userProfileMenu">
     <button class="profile-trigger" @click="toggleMenu()">
-      <div
-        class="avatar"
-        :style="{
-          width: avatarSize,
-          height: avatarSize,
-          'font-size': avatarSize
-        }"
-      >
+      <div class="avatar">
         <img :src="avatarUrl" v-if="avatarUrl && !useInitials" />
         <span class="fallback" v-else>{{ fallbackText }}</span>
       </div>
@@ -60,7 +53,6 @@ export default {
     }
   },
   props: {
-    avatarSize: { type: String, default: '50px' },
     useInitials: { type: Boolean, default: false, required: false },
     oidcUrl: {
       type: String,
@@ -111,10 +103,12 @@ export default {
 
   a {
     text-decoration: none;
+    color: #495057;
     color: var(--user-prof-menu-fg-color, #495057);
   }
 
   .profile-trigger {
+    color: #fff;
     color: var(--user-prof-fg-color, #ffffff);
     padding: 0;
     margin-left: auto;
@@ -126,18 +120,30 @@ export default {
     font-size: 1.2rem;
 
     .avatar {
+      $default-avatar-size: 30px;
+
       border-radius: 50%;
       overflow: hidden;
-      margin: 0em 0.2em;
-      background-color: var(--user-prof-fallback-bg-color, #cccccc);
+      margin: 0 0.2em;
+      background-color: #ccc;
+      background-color: var(--user-prof-fallback-bg-color, #ccc);
+      color: #333;
       color: var(--user-prof-fallback-fg-color, #333333);
       display: flex;
       align-items: center;
       justify-content: center;
 
+      width: 30px;
+      width: var(--user-prof-avatar-size, $default-avatar-size);
+      height: 30px;
+      height: var(--user-prof-avatar-size, $default-avatar-size);
+      font-size: 30px;
+      font-size: var(--user-prof-avatar-size, $default-avatar-size);
+
       .fallback {
         font-size: 0.5em;
       }
+
       img {
         object-fit: cover;
       }
@@ -169,9 +175,12 @@ export default {
     &.profile-dropdown-header {
       padding: 1em;
       font-size: 1.2em;
+      background-color: #eee;
       background-color: var(--user-prof-header-bg-color, #eee);
+      color: #000;
       color: var(--user-prof-header-fg-color, #000);
     }
+
     &.profile-dropdown-content {
       display: flex;
       flex-direction: column;
@@ -188,15 +197,17 @@ export default {
         background-color: #fff;
         border-top: $border-style;
         border-bottom: $border-style;
-        border-right: 0px;
-        border-left: 0px;
+        border-right: 0;
+        border-left: 0;
 
+        color: #495057;
         color: var(--user-prof-menu-fg-color, #495057);
         text-align: inherit;
         text-decoration: none;
 
         &:hover {
           z-index: 1;
+          color: #495057;
           color: var(
             --user-prof-menu-fg-hover-color,
             var(--user-prof-menu-fg-color, #495057)

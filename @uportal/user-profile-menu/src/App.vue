@@ -7,10 +7,7 @@
         integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
         crossorigin="anonymous"
       />
-      <UserProfileMenu
-        oidc-url="/proxy/uPortal/api/v5-1/userinfo"
-        avatar-size="30px"
-      >
+      <UserProfileMenu oidc-url="/proxy/uPortal/api/v5-1/userinfo">
         <template v-slot:header>
           User Profile
         </template>
@@ -34,9 +31,7 @@
     </header>
   </main>
 </template>
-
 <script>
-// avatar-url="http://lorempixel.com/100/100"
 import UserProfileMenu from './components/ProfileMenu.vue';
 
 export default {
@@ -52,12 +47,14 @@ html {
   font-size: 10px;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
+
 body {
   color: white;
   font-size: 14px;
-  padding: 0px;
-  margin: 0px;
+  padding: 0;
+  margin: 0;
 }
+
 .example-heading {
   background-color: #001c4d;
   padding: 12px;

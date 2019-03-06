@@ -40,7 +40,7 @@ In `index.html`, you'll see that `<user-profile-menu />` is hard coded in place.
 Here's the guts of that html file:
 
 ```html
-<user-profile-menu avatar-size="30px">
+<user-profile-menu>
   <div slot="header">
     User Profile
   </div>
@@ -90,15 +90,7 @@ Url to connect to oidc.
 ></user-profile-menu>
 ```
 
-### `avatar-size`
-
-Tells the component to set a size for the avatar region.
-
-```html
-<user-profile-menu avatar-size="30px"></user-profile-menu>
-```
-
-### `avatar-size`
+### `use-initials`
 
 Tells the component to ignore the user's image and use the initials from first_name and given_name.
 
@@ -117,6 +109,7 @@ bg = background
 
 ```css
 :root {
+  --user-prof-avatar-size: 30px; // size of avatar in navbar
   --user-prof-menu-fg-color: #495057;
   --user-prof-fg-color: #ffffff; // color of user name text
   --user-prof-fallback-bg-color: #cccccc; // color of fallback/initial background
