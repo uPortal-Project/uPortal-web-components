@@ -40,7 +40,24 @@ In `index.html`, you'll see that `<user-profile-menu />` is hard coded in place.
 Here's the guts of that html file:
 
 ```html
-<user-profile-menu avatar-size="30px" oidc-url=""></user-profile-menu>
+<user-profile-menu avatar-size="30px">
+  <div slot="header">
+    User Profile
+  </div>
+  <div slot="default">
+    <a href="/manage"> Manage Account <i class="fa fa-user"></i> </a>
+    <a href="/manage"> Another link <i class="fa fa-cog"></i> </a>
+    <a href="/manage"> Chat <i class="fa fa-comments"></i> </a>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="/ResourceServingWebapp/rs/fontawesome/4.7.0/css/font-awesome.min.css"
+    />
+  </div>
+  <div slot="footer">
+    <a href="/uPortal/logout">Sign Out</a>
+  </div>
+</user-profile-menu>
 ```
 
 ##### Notice
