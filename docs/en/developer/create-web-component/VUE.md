@@ -167,7 +167,7 @@ or this [build.gradle for Windows](#buildgradle-for-windows).
 
 Run this:
 
-```
+```bash
 gradle wrapper --gradle-version=5.1.1
 ```
 
@@ -299,13 +299,13 @@ module.exports = {
 
 To pack the component, run:
 
-```
+```bash
 npm run build
 ```
 
 You can optionally check that the component will run properly with:
 
-```
+```bash
 npm run serve
 ```
 
@@ -315,7 +315,7 @@ to see if it displays.
 To assemble the WebJar and put it in the local maven repo where the uPortal-start
 project can find it, run:
 
-```
+```bash
 ./gradlew install
 ```
 
@@ -371,7 +371,7 @@ Replace the CDATA section of the portlet definition with this, replacing
 To find the name of the component min.js file that you will name in the
 script, examine the contents of the WebJar that was created. For example:
 
-```
+```bash
 ls -al ~/.m2/repository/org/webjars/npm/uportal__weather-thingy/0.1.0-SNAPSHOT/*.jar
 ```
 
@@ -383,7 +383,7 @@ uportal__weather-thingy-0.1.0-SNAPSHOT.jar
 
 Now inspect the contents of the .jar file, for example:
 
-```
+```bash
 jar tvf uportal__weather-thingy-0.1.0-SNAPSHOT.jar | grep min.js
 ```
 
@@ -433,13 +433,13 @@ To grant permission to everyone to browse for the web component and select it:
 In the **overlays/resource-server/build.gradle** file in the uPortal-start
 project, add the following runtime dependency:
 
-```
+```gradle
     runtime "org.webjars.npm:uportal__{component-name}:{version}@jar"
 ```
 
 For example:
 
-```
+```gradle
     runtime "org.webjars.npm:uportal__weather-thingy:0.1.0-SNAPSHOT@jar"
 ```
 
@@ -448,7 +448,7 @@ For example:
 Rebuild the **uPortal-start** project to populate the database with the new
 portlet definition and load the new WebJar into the resource server.
 
-```
+```bash
 ./gradlew portalInit
 ```
 
@@ -548,13 +548,13 @@ changes quickly in uPortal.
 
 1\. Re-build the web component.
 
-```
+```bash
 npm run build
 ```
 
 2\. Re-package the WebJar and copy to local Maven repo for uPortal-start to use.
 
-```
+```bash
 ./gradlew install
 ```
 
@@ -571,14 +571,14 @@ In the **uPortal-start project** root directory:
 
 3\. Re-build the resource-server so it pulls the new WebJar into its resources.
 
-```
+```bash
 ./gradlew :overlays:resource-server:build
 ```
 
 4\. Copy the newly-built **resource-server.war** file into the **tomcat/webapps**
 directory where it will automatically be deployed and overwrite the current one.
 
-```
+```bash
 cp overlays/resource-server/build/libs/resource-server.war .gradle/tomcat/webapps/
 ```
 
@@ -592,7 +592,7 @@ for the \*.min.js file are excluded from the .jar file that gets built.
 
 #### build.gradle for Linux and Mac OS
 
-```
+```gradle
 apply plugin: 'java'
 apply plugin: 'maven'
 
@@ -618,7 +618,7 @@ jar {
 Windows has a quirk that the copyFiles and cleanUp tasks in this build.gradle
 file works around. This will also work on Mac OS and Linux.
 
-```
+```gradle
 apply plugin: 'java'
 apply plugin: 'maven'
 
@@ -669,14 +669,14 @@ jar.finalizedBy cleanUp
 
 ##### With MacPorts
 
-```
+```bash
 sudo port list | grep node
 sudo port install nodejs10
 ```
 
 ##### With Homebrew
 
-```
+```bash
 brew search node
 brew install node
 ```
