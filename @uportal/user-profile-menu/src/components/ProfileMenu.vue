@@ -109,7 +109,7 @@ export default {
 
   .profile-trigger {
     color: #fff;
-    color: var(--user-prof-fg-color, #ffffff);
+    color: var(--user-prof-fg-color, #fff);
     padding: 0;
     margin-left: auto;
     background: transparent;
@@ -128,7 +128,7 @@ export default {
       background-color: #ccc;
       background-color: var(--user-prof-fallback-bg-color, #ccc);
       color: #333;
-      color: var(--user-prof-fallback-fg-color, #333333);
+      color: var(--user-prof-fallback-fg-color, #333);
       display: flex;
       align-items: center;
       justify-content: center;
