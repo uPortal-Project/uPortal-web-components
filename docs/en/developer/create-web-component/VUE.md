@@ -469,14 +469,14 @@ deploy it like this.
 
 1. Re-build the resource-server so it pulls the new WebJar into its resources.
 
-   ```
+   ```bash
    ./gradlew :overlays:resource-server:build
    ```
 
 2. Copy the newly-built **resource-server.war** file into the **tomcat/webapps**
    directory where it will automatically be deployed and overwrite the current one.
 
-   ```
+   ```bash
    cp overlays/resource-server/build/libs/resource-server.war .gradle/tomcat/webapps/
    ```
 
@@ -495,7 +495,7 @@ it both ways.
    [modify it](#edit-portlet-definition) for your web component.
 2. Import the portlet-definition.xml into the uPortal database.
 
-   ```
+   ```bash
    ./gradlew dataImport -Dfile=path/to/portlet-definition.xml
    ```
 
