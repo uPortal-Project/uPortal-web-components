@@ -132,7 +132,7 @@ export default {
       overflow: hidden;
       margin: 0em 0.2em;
       background-color: var(--user-prof-fallback-bg-color, #cccccc);
-      color: var(--user-prof-fallback-fg-color, #333333);
+      color: var(--user-prof-fallback-fg-color, #333);
       display: flex;
       align-items: center;
       justify-content: center;
