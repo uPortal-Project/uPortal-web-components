@@ -132,7 +132,6 @@ export default {
       display: flex;
       align-items: center;
       justify-content: center;
-
       width: 30px;
       width: var(--user-prof-avatar-size, $default-avatar-size);
       height: 30px;
@@ -189,6 +188,7 @@ export default {
 
       a {
         $border-style: 1px solid rgba(0, 0, 0, 0.125);
+
         align-items: center;
         justify-content: space-between;
         display: flex;
@@ -199,7 +199,6 @@ export default {
         border-bottom: $border-style;
         border-right: 0;
         border-left: 0;
-
         color: #495057;
         color: var(--user-prof-menu-fg-color, #495057);
         text-align: inherit;
