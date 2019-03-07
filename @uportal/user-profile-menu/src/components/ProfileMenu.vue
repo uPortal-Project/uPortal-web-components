@@ -93,8 +93,10 @@ export default {
   }
 };
 </script>
-<style lang="scss">
-.profile-menu-container {
+<style lang="scss" scoped>
+.profile-menu-container /deep/ {
+  @import '../../node_modules/bootstrap/scss/bootstrap';
+
   color: white;
   display: flex;
   margin-left: auto;
@@ -183,43 +185,8 @@ export default {
     &.profile-dropdown-content {
       display: flex;
       flex-direction: column;
-      padding-left: 0;
-      margin-bottom: 0;
-
-      a {
-        $border-style: 1px solid rgba(0, 0, 0, 0.125);
-
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        justify-content: var(--user-prof-menu-item-justify, space-between);
-        padding: 0.75rem 1.25rem;
-        margin-bottom: -1px;
-        background-color: #fff;
-        border-top: $border-style;
-        border-bottom: $border-style;
-        border-right: 0;
-        border-left: 0;
-        color: #495057;
-        color: var(--user-prof-menu-fg-color, #495057);
-        text-align: inherit;
-        text-decoration: none;
-
-        &:hover {
-          z-index: 1;
-          color: #495057;
-          color: var(
-            --user-prof-menu-fg-hover-color,
-            var(--user-prof-menu-fg-color, #495057)
-          );
-          text-decoration: none;
-          background-color: #f8f9fa;
-        }
-
-        &:last-child {
-          margin-bottom: 0;
-        }
-      }
+      padding: 0;
+      margin: 0;
     }
   }
 }

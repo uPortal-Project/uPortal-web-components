@@ -33,10 +33,6 @@ This will compile your JavaScript in to `build/static/js/main.{buildnumbers}.js`
 After building, grab the compiled javascript files and place it on your page.
 You can now place `<user-profile-menu>` anywhere on your page.
 
-Since `<user-profile-menu>` is a web component, it's usage is demonstrated in the `uPortal-web-components/@uportal/user-profile-menu/public/index.html` file.
-
-In `index.html`, you'll see that `<user-profile-menu />` is hard coded in place. There's supporting javascript on the page to assist in testing the component. A `json` variable is assigned in the header containing an array of objects as data for each of the links. Below the component, javascript is used to assign attributes to the component itself.
-
 Here's the guts of that html file:
 
 ```html
@@ -45,9 +41,23 @@ Here's the guts of that html file:
     User Profile
   </div>
   <div slot="default">
-    <a href="/manage"> Manage Account <i class="fa fa-user"></i> </a>
-    <a href="/manage"> Another link <i class="fa fa-cog"></i> </a>
-    <a href="/manage"> Chat <i class="fa fa-comments"></i> </a>
+    <div class="list-group list-group-flush">
+      <a
+        href="/manage"
+        class="list-group-item list-group-item-action d-flex justify-content-between"
+        >Manage Account <i class="fa fa-user"></i
+      ></a>
+      <a
+        href="/manage"
+        class="list-group-item list-group-item-action d-flex justify-content-between"
+        >Another link <i class="fa fa-cog"></i
+      ></a>
+      <a
+        href="/manage"
+        class="list-group-item list-group-item-action d-flex justify-content-between"
+        >Chat <i class="fa fa-comments"></i
+      ></a>
+    </div>
     <link
       rel="stylesheet"
       type="text/css"
@@ -59,6 +69,8 @@ Here's the guts of that html file:
   </div>
 </user-profile-menu>
 ```
+
+- Note: The component includes bootstrap, so that you can use bootstrap's styles in your content slots. However, font-awesome has issues crossing the shadow-dom boundry, so that if you include an icon in the content slot, you also need to include a `<link>` to the font-awesome stylesheet from uPortal (or elsewhere if you wish).
 
 ##### Notice
 
