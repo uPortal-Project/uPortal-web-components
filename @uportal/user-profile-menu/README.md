@@ -128,7 +128,5 @@ bg = background
   --user-prof-fallback-fg-color: #333333; // color of fallback/initial text
   --user-prof-header-bg-color: #eee; // color used by headers/footers
   --user-prof-header-fg-color: #000; // color used by headers/footers
-  --user-prof-menu-fg-color: #495057; // color of links in menu
-  --user-prof-menu-fg-hover-color: ; // color of links in menu on hover
 }
 ```
