@@ -189,9 +189,10 @@ export default {
       a {
         $border-style: 1px solid rgba(0, 0, 0, 0.125);
 
+        display: flex;
         align-items: center;
         justify-content: space-between;
-        display: flex;
+        justify-content: var(--user-prof-menu-item-justify, space-between);
         padding: 0.75rem 1.25rem;
         margin-bottom: -1px;
         background-color: #fff;
