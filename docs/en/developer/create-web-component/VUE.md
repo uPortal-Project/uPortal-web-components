@@ -652,8 +652,9 @@ plugin is the new way.
 _Do not put the repository name and password in the project_. You can store them
 as variables in a gradle.properties file in the directory named in
 the environment variable `GRADLE_USER_HOME`. If GRADLE_USER_HOME isn't set,
-Gradle defaults to the $USER_HOME/.gradle directory. For example, put the
-following in $USER_HOME/.gradle/gradle.properties:
+Gradle [defaults](https://docs.gradle.org/current/userguide/build_environment.html#sec:gradle_environment_variables)
+to the $USER_HOME/.gradle directory. For example, put the following in
+$USER_HOME/.gradle/gradle.properties:
 
 ```gradle
 mavReleaseUser=RelU$er123
@@ -661,6 +662,9 @@ mavReleasePass=RelU$erP@ss
 mavSnapshotUser=SnapU$er456
 mavSnapshotPass=SnapU$erP@ss
 ```
+
+See Gradle [Build Environment](https://docs.gradle.org/current/userguide/build_environment.html)
+for more.
 
 ##### Publish with maven plugin
 
