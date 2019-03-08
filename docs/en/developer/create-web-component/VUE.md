@@ -43,7 +43,7 @@
     - [Sample build.gradle with maven plugin:](#sample-buildgradle-with-maven-plugin)
     - [Publish with maven-publish plugin](#publish-with-maven-publish-plugin)
     - [Sample build.gradle with maven-publish plugin:](#sample-buildgradle-with-maven-publish-plugin)
-    - [Alternate build.gradle with maven-publish plugin:](#alternate-buildgradle-with-maven-publish-plugin)
+    - [Alternate build.gradle with maven-publish:](#alternate-buildgradle-with-maven-publish)
   - [build.gradle for Windows](#buildgradle-for-windows)
 - [D. Node.js installation](#d-nodejs-installation)
   - [Mac OS X](#mac-os-x)
