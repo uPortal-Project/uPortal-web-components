@@ -40,7 +40,10 @@
   - [Publishing artifacts](#publishing-artifacts)
     - [Repository user and password](#repository-user-and-password)
     - [Publish with maven plugin](#publish-with-maven-plugin)
+    - [Sample build.gradle with maven plugin:](#sample-buildgradle-with-maven-plugin)
     - [Publish with maven-publish plugin](#publish-with-maven-publish-plugin)
+    - [Sample build.gradle with maven-publish plugin:](#sample-buildgradle-with-maven-publish-plugin)
+    - [Alternate build.gradle with maven-publish plugin:](#alternate-buildgradle-with-maven-publish-plugin)
   - [build.gradle for Windows](#buildgradle-for-windows)
 - [D. Node.js installation](#d-nodejs-installation)
   - [Mac OS X](#mac-os-x)
@@ -679,7 +682,7 @@ The maven plugin automatically selects which one to publish to based on
 whether or not the project.version has "-SNAPSHOT" at the end; for example,
 `0.1.0-SNAPSHOT` versus `0.1.0`.
 
-Sample build.gradle:
+##### Sample build.gradle with maven plugin:
 
 ```gradle
 apply plugin: 'java'
@@ -750,7 +753,7 @@ publish{publication name}PublicationTo{repository name}Repository
 For example, the publication in the sample below is named "webJar" and the
 repository is named "myMaven" so the task is publishWebJarPublicationToMyMavenRepository.
 
-Sample build.gradle:
+##### Sample build.gradle with maven-publish plugin:
 
 ```gradle
 apply plugin: 'java'
@@ -826,7 +829,7 @@ The above example automatically detects which remote repository to publish to
 based on -SNAPSHOT in the name, but you could alternatively define multiple
 repositories and explicitly publish to the one you want. See this example.
 
-Sample build.gradle
+##### Alternate build.gradle with maven-publish:
 
 ```gradle
 apply plugin: 'java'
