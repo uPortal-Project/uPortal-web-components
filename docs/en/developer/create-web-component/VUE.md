@@ -916,9 +916,9 @@ task copyFiles{
 }
 
 jar {
-    baseName "uportal__${project.name}"
+    archiveBaseName = project.name
     from '.'
-    into "META-INF/resources/webjars/uportal__${project.name}/${project.version}"
+    into "META-INF/resources/webjars/${project.name}/${project.version}"
     include 'META-INF'
     include 'dist/*'
     exclude "dist/demo.html"
