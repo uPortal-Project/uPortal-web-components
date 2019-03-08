@@ -354,7 +354,7 @@ Replace the CDATA section of the portlet definition with this, replacing
     <value>
         <![CDATA[
            <script src="https://unpkg.com/vue"></script>
-           <script type="text/javascript" src="/resource-server/webjars/uportal__{component-name}/dist/{component-name}.min.js"></script>
+           <script type="text/javascript" src="/resource-server/webjars/{component-name}/dist/{component-name}.min.js"></script>
 
            <{component-name}></{component-name}>
 
@@ -367,25 +367,25 @@ To find the name of the component min.js file that you will name in the
 script, examine the contents of the WebJar that was created. For example:
 
 ```bash
-ls -al ~/.m2/repository/org/webjars/npm/uportal__weather-thingy/0.1.0-SNAPSHOT/*.jar
+ls -al ~/.m2/repository/org/webjars/npm/weather-thingy/0.1.0-SNAPSHOT/*.jar
 ```
 
 This shows the .jar file named:
 
 ```
-uportal__weather-thingy-0.1.0-SNAPSHOT.jar
+weather-thingy-0.1.0-SNAPSHOT.jar
 ```
 
 Now inspect the contents of the .jar file, for example:
 
 ```bash
-jar tvf uportal__weather-thingy-0.1.0-SNAPSHOT.jar | grep min.js
+jar tvf weather-thingy-0.1.0-SNAPSHOT.jar | grep min.js
 ```
 
 This shows:
 
 ```
-META-INF/resources/webjars/uportal__weather-thingy/0.1.0-SNAPSHOT/dist/weather-thingy.min.js
+META-INF/resources/webjars/weather-thingy/0.1.0-SNAPSHOT/dist/weather-thingy.min.js
 ```
 
 So the name of the min.js file is **weather-thingy.min.js**, which is what
@@ -429,13 +429,13 @@ In the **overlays/resource-server/build.gradle** file in the uPortal-start
 project, add the following runtime dependency:
 
 ```gradle
-    runtime "org.webjars.npm:uportal__{component-name}:{version}@jar"
+    runtime "org.webjars.npm:{component-name}:{version}@jar"
 ```
 
 For example:
 
 ```gradle
-    runtime "org.webjars.npm:uportal__weather-thingy:0.1.0-SNAPSHOT@jar"
+    runtime "org.webjars.npm:weather-thingy:0.1.0-SNAPSHOT@jar"
 ```
 
 ### Rebuild uPortal-start
@@ -523,7 +523,7 @@ In uPortal, navigate to Admin Tools > Portlet Administration.
 
    ```html
    <script src="https://unpkg.com/vue"></script>
-   <script type="text/javascript" src="/resource-server/webjars/uportal__{component-name}/dist/{component-name}.min.js"></script>
+   <script type="text/javascript" src="/resource-server/webjars/{component-name}/dist/{component-name}.min.js"></script>
    <{component-name}></{component-name}>
    ```
 
