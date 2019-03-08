@@ -149,8 +149,9 @@ small as possible. It excludes non-essential files. You can delete
 additional files you may need.
 
 This works for building and publishing to the local Maven repository on
-your computer. To publish to a remote repository and for details on creating
-a build.gradle file, or if you have problems, see
+your computer with `./gradlew build` and `./gradlew install`. To publish
+to a remote repository and for details on creating a build.gradle file, or
+if you have problems, see
 [C. Creating build.gradle files](#c-creating-buildgradle-files) in the
 [Appendix](#appendix).
 
