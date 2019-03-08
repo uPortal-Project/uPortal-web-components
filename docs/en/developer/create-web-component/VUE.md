@@ -40,7 +40,7 @@
   - [Publishing artifacts](#publishing-artifacts)
     - [Repository user and password](#repository-user-and-password)
     - [Publish with maven plugin](#publish-with-maven-plugin)
-    - [Publish with maven-publish plugin](#publish-with-mavenpublish-plugin)
+    - [Publish with maven-publish plugin](#publish-with-maven-publish-plugin)
   - [build.gradle for Windows](#buildgradle-for-windows)
 - [D. Node.js installation](#d-nodejs-installation)
   - [Mac OS X](#mac-os-x)
@@ -108,7 +108,7 @@ re-run the `npm install` command above.
 In the root directory, create a **gradle.properties** file, with the
 following content:
 
-```
+```gradle
 group=org.webjars.npm
 ```
 
@@ -118,7 +118,7 @@ This is the standard GroupId for [NPM package WebJars](https://www.webjars.org/)
 
 Create a build.gradle file. Here is a simple sample for SNAPSHOT versions:
 
-```
+```gradle
 apply plugin: 'java'
 apply plugin: 'maven'
 
@@ -616,7 +616,7 @@ org/webjars/npm/{project.name}/{project.version}/
 The **group** is set in gradle.properties and should be **org.webjars.npm** to
 follow the standard convention for publishing [WebJars](https://www.webjars.org/):
 
-```
+```gradle
 group=org.webjars.npm
 ```
 
@@ -625,7 +625,7 @@ directory or from the rootProject.name variable. If you want the artifact name
 to be different than the project directory name, you can set **rootProject.name**
 in **settings.gradle**:
 
-```
+```gradle
 rootProject.name="some-other-name"
 ```
 
@@ -635,7 +635,7 @@ to remote Maven repositories using the maven or maven-publish plugins.
 
 You can see what these variables are by adding this to your build.gradle script:
 
-```
+```gradle
 println("group = ${group}")
 println("project.name = ${project.name}")
 println("project.version = ${project.version}")
@@ -655,7 +655,7 @@ the environment variable `GRADLE_USER_HOME`. If GRADLE_USER_HOME isn't set,
 Gradle defaults to the $USER_HOME/.gradle directory. For example, put the
 following in $USER_HOME/.gradle/gradle.properties:
 
-```
+```gradle
 mavReleaseUser=RelU$er123
 mavReleasePass=RelU$erP@ss
 mavSnapshotUser=SnapU$er456
@@ -667,7 +667,7 @@ mavSnapshotPass=SnapU$erP@ss
 This example for SNAPSHOT builds includes both a SNAPSHOT repository and
 release repository. To publish to a remote Maven repository, run:
 
-```
+```bash
 ./gradlew uploadArchives
 ```
 
@@ -677,7 +677,7 @@ whether or not the project.version has "-SNAPSHOT" at the end; for example,
 
 Sample build.gradle:
 
-```
+```gradle
 apply plugin: 'java'
 apply plugin: 'maven'
 
@@ -714,7 +714,7 @@ uploadArchives {
 
 To publish to a local Maven repository on your computer, run:
 
-```
+```bash
 ./gradlew install
 ```
 
@@ -727,7 +727,7 @@ This example for SNAPSHOT builds includes both a SNAPSHOT repository and
 release repository, both identified by "myMaven". To publish to a remote
 Maven repository, run:
 
-```
+```bash
 ./gradlew publishWebJarPublicationToMyMavenRepository
 ```
 
@@ -748,7 +748,7 @@ repository is named "myMaven" so the task is publishWebJarPublicationToMyMavenRe
 
 Sample build.gradle:
 
-```
+```gradle
 apply plugin: 'java'
 
 def jsonFile = file("${projectDir}/package.json")
@@ -804,7 +804,7 @@ publishing {
 The maven-publish plugin _does not_ automatically recognize the Maven `install`
 command. To publish to a local Maven repository on your computer, run:
 
-```
+```bash
 ./gradlew publishToMavenLocal
 ```
 
@@ -824,7 +824,7 @@ repositories and explicitly publish to the one you want. See this example.
 
 Sample build.gradle
 
-```
+```gradle
 apply plugin: 'java'
 
 def jsonFile = file("${projectDir}/package.json")
@@ -902,7 +902,6 @@ apply plugin: 'maven'
 def jsonFile = file("${projectDir}/package.json")
 def parsedJson = new groovy.json.JsonSlurper().parseText(jsonFile.text)
 project.version = parsedJson.version + '-SNAPSHOT'
-
 
 task copyFiles{
     copy{
