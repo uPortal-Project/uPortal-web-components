@@ -669,9 +669,9 @@ For the build.gradle samples that follow, these variables are defined in
 
 ```gradle
 mavReleaseUser=relusername
-mavReleasePass=RelUserPassword
+mavReleasePass=secretRelUserPassword
 mavSnapshotUser=snapusername
-mavSnapshotPass=SnapUserPassword
+mavSnapshotPass=secretSnapUserPassword
 ```
 
 ##### Publish with maven plugin
