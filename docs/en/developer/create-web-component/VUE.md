@@ -119,7 +119,8 @@ This is the standard GroupId for [NPM package WebJars](https://www.webjars.org/)
 
 ### Create build.gradle
 
-Create a build.gradle file. Here is a simple sample for `-SNAPSHOT` versions:
+Create a build.gradle file. Here is a simple sample for `-SNAPSHOT` versions.
+To build and publish a release version, delete the `+ '-SNAPSHOT'`.
 
 ```gradle
 apply plugin: 'java'
@@ -128,6 +129,7 @@ apply plugin: 'maven'
 def jsonFile = file("${projectDir}/package.json")
 def parsedJson = new groovy.json.JsonSlurper().parseText(jsonFile.text)
 project.version = parsedJson.version + '-SNAPSHOT'
+/* remove '-SNAPSHOT' for release version */
 
 jar {
     archiveBaseName = project.name
