@@ -119,7 +119,7 @@ This is the standard GroupId for [NPM package WebJars](https://www.webjars.org/)
 
 ### Create build.gradle
 
-Create a build.gradle file. Here is a simple sample for SNAPSHOT versions:
+Create a build.gradle file. Here is a simple sample for `-SNAPSHOT` versions:
 
 ```gradle
 apply plugin: 'java'
@@ -142,7 +142,7 @@ jar {
 }
 ```
 
-This gets the project version from **package.json**, appends "-SNAPSHOT" to
+This gets the project version from **package.json**, appends `-SNAPSHOT` to
 it, creates a .jar file with the recommended paths for
 [contributing WebJars](https://www.webjars.org/contributing)
 (META-INF/resources/webjars/${name}/${version}), and includes just the
