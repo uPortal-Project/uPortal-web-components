@@ -591,19 +591,15 @@ for Gradle.
 #### Naming artifacts
 
 In order to publish to a remote Maven repository correctly, you should use
-the Gradle **project.name** and **project.version** variables to name the
-artifact with the [jar task](https://docs.gradle.org/current/userguide/java_plugin.html#sec:jar)
-of the Gradle [java plugin](https://docs.gradle.org/current/userguide/java_plugin.html)
-that will later be published with the maven or maven-publish plugins. This
-is especially important for SNAPSHOT versions because Maven writes each
-version with a timestamp appended to the name and retrieves the latest one
-when it is named as a dependencey in a project based on what is in the
-maven-metadata.xml file stored with it. This happens automatically and works
-properly if you use the project.name and project.version variables to name the
-artifact.
+the Gradle **group**, **project.name** and **project.version** variables to
+name the artifact with the
+[jar task](https://docs.gradle.org/current/userguide/java_plugin.html#sec:jar)
+of the Gradle
+[java plugin](https://docs.gradle.org/current/userguide/java_plugin.html).
+The **maven** and **maven-publish** plugins use these three variables to write
+the artifact to the Maven repository.
 
-The **maven** and **maven-publish** plugins use the following Gradle variables
-to determine where to publish the artifact in the remote Maven repository:
+Here is a summary of the Gradle variables and how they are used:
 
 - group
 - project.name
@@ -616,7 +612,7 @@ If the group is org.webjars.npm, it will be published to:
 org/webjars/npm/{project.name}/{project.version}/
 ```
 
-The **group** is set in gradle.properties and should be **org.webjars.npm** to
+The **group** is set in **gradle.properties** and should be **org.webjars.npm** to
 follow the standard convention for publishing [WebJars](https://www.webjars.org/):
 
 ```gradle
@@ -645,6 +641,14 @@ println("project.version = ${project.version}")
 println("rootProject.name = ${rootProject.name}")
 ```
 
+NOTE: The maven and maven-publish plugins perform some additional magic on
+versions named with `-SNAPSHOT` when publishing to _remote_ Maven repositories.
+They add a timestamp to the name of the artifact and related files and store
+the name of the most recent version in maven-metadata.xml in the same directory
+so the most recent snapshot will be retrieved as a dependency in a project.
+This works properly if you use the group, project.name and project.version
+variables to name the artifact.
+
 #### Publishing artifacts
 
 The Gradle **maven** plugin is the old way to publish. The **maven-publish**
@@ -652,35 +656,30 @@ plugin is the new way.
 
 ##### Repository user and password
 
-_Do not put the repository name and password in the project_. You can store them
+**_Do not put the repository name and password in the project_**. You can store them
 as variables in a gradle.properties file in the directory named in
 the environment variable `GRADLE_USER_HOME`. If `GRADLE_USER_HOME` isn't set,
 Gradle [defaults](https://docs.gradle.org/current/userguide/build_environment.html#sec:gradle_environment_variables)
-to the `$USER_HOME/.gradle` directory. For example, put the following in
+to the `$USER_HOME/.gradle` directory. See Gradle
+[Build Environment](https://docs.gradle.org/current/userguide/build_environment.html)
+for more.
+
+For the build.gradle samples that follow, these variables are defined in
 `$USER_HOME/.gradle/gradle.properties`:
 
 ```gradle
-mavReleaseUser=RelU$er123
-mavReleasePass=RelU$erP@ss
-mavSnapshotUser=SnapU$er456
-mavSnapshotPass=SnapU$erP@ss
+mavReleaseUser=relusername
+mavReleasePass=RelUserPassword
+mavSnapshotUser=snapusername
+mavSnapshotPass=SnapUserPassword
 ```
-
-See Gradle [Build Environment](https://docs.gradle.org/current/userguide/build_environment.html)
-for more.
 
 ##### Publish with maven plugin
 
-This example for SNAPSHOT builds includes both a SNAPSHOT repository and
-release repository. To publish to a remote Maven repository, run:
-
-```bash
-./gradlew uploadArchives
-```
-
-The maven plugin automatically selects which one to publish to based on
-whether or not the project.version has "-SNAPSHOT" at the end; for example,
-`0.1.0-SNAPSHOT` versus `0.1.0`.
+Here is an example of a build.gradle file that uses the maven plugin to
+publish. It includes both a snapshot repository and release repository.
+It generates a snapshot version of the artifact. To build and publish a
+release version, delete the `+ '-SNAPSHOT'`.
 
 ##### Sample build.gradle with maven plugin:
 
@@ -728,30 +727,26 @@ To publish to a local Maven repository on your computer, run:
 The maven plugin recognizes the Maven `install` command even though it's not
 listed as a task when you run `./gradlew tasks`.
 
-##### Publish with maven-publish plugin
-
-This example for SNAPSHOT builds includes both a SNAPSHOT repository and
-release repository, both identified by "myMaven". To publish to a remote
-Maven repository, run:
+To publish to a remote Maven repository, run:
 
 ```bash
-./gradlew publishWebJarPublicationToMyMavenRepository
+./gradlew uploadArchives
 ```
 
-It checks the name and automatically selects which repository to publish to
-based on whether or not it ends with "-SNAPSHOT"; for example, `0.1.0-SNAPSHOT`
-versus `0.1.0`.
+The uploadArchives task of the maven plugin checks the release version
+(`0.1.0` versus `0.1.0-SNAPSHOT`) to decide to send it to the `repository`
+location or the `snapshotRepository` location.
 
-The maven-publish plugin automatically generates a new task, **publishToMavenLocal**,
-and other tasks based on the name of the publication and the name of the
-repository. The task name convention for publishing to a remote repository is:
+The build.gradle file is simpler with the maven plugin, but is limited
+to only one release repository and one snapshot repository. The maven-publish
+plugin is more complicated but it can access more repositories.
 
-```
-publish{publication name}PublicationTo{repository name}Repository
-```
+##### Publish with maven-publish plugin
 
-For example, the publication in the sample below is named "webJar" and the
-repository is named "myMaven" so the task is publishWebJarPublicationToMyMavenRepository.
+Here is an example of a build.gradle file that uses the maven-publish plugin
+to publish. It includes both a snapshot repository and release repository.
+It generates a snapshot version of the artifact. To build and publish a
+release version, delete the `+ '-SNAPSHOT'`.
 
 ##### Sample build.gradle with maven-publish plugin:
 
@@ -808,15 +803,29 @@ publishing {
 }
 ```
 
-The maven-publish plugin _does not_ automatically recognize the Maven `install`
-command. To publish to a local Maven repository on your computer, run:
+The maven-publish plugin _does not_ recognize the Maven `install` command.
+To publish to a local Maven repository on your computer, run:
 
 ```bash
 ./gradlew publishToMavenLocal
 ```
 
-If you run `./gradlew tasks` you will see the following Publishing tasks
-that are automatically generated by the maven-publish plugin:
+To publish to a remote Maven repository, run:
+
+```bash
+./gradlew publishWebJarPublicationToMyMavenRepository
+```
+
+The maven-publish plugin doesn't automatically decide to publish to a release
+repository or a snapshot repository based on the release version (`0.1.0`
+versus `0.1.0-SNAPSHOT`) like the maven plugin does, so this example mimics
+that behavior with
+[ternary operators](https://en.wikipedia.org/wiki/%3F:) in the code.
+
+The maven-publish plugin generates a new task, **publishToMavenLocal**,
+and other tasks based on the name of the publication and the name of the
+repository. Run `./gradlew tasks` and you will see the following Publishing
+tasks that are automatically generated by the maven-publish plugin:
 
 ```
 publishToMavenLocal
@@ -825,11 +834,21 @@ publishWebJarPublicationToMavenLocalRepository
 publishWebJarPublicationToMyMavenRepository
 ```
 
-The above example automatically detects which remote repository to publish to
-based on -SNAPSHOT in the name, but you could alternatively define multiple
-repositories and explicitly publish to the one you want. See this example.
+The task name to publish to a remote repository,
+`publishWebJarPublicationToMyMavenRepository`, comes from the publication
+name `webJar()` and the repository name `myMaven`. The task name convention
+is:
+
+```
+publish{publication name}PublicationTo{repository name}Repository
+```
 
 ##### Alternate build.gradle with maven-publish:
+
+The previous maven-publish example automatically detects which remote repository
+to publish to based on `-SNAPSHOT` in the version, but you could alternatively
+define multiple repositories and explicitly publish to the one you want.
+See this example:
 
 ```gradle
 apply plugin: 'java'
@@ -883,7 +902,25 @@ publishing {
 }
 ```
 
-If you run `./gradlew tasks` you will see the following Publishing tasks
+To publish to a local Maven repository on your computer, run:
+
+```bash
+./gradlew publishToMavenLocal
+```
+
+To publish to a remote Maven snapshot repository, run:
+
+```bash
+./gradlew publishWebJarPublicationToMySnapshotRepository
+```
+
+To publish to a remote Maven release repository, run:
+
+```bash
+./gradlew publishWebJarPublicationToMyReleaseRepository
+```
+
+Run `./gradlew tasks` and you will see the following Publishing tasks
 that are automatically generated by the maven-publish plugin:
 
 ```
@@ -891,11 +928,7 @@ publishToMavenLocal
 publishWebJarPublicationToMyReleaseRepository
 publishWebJarPublicationToMySnapshotRepository
 publishWebJarPublicationToMavenLocal
-
 ```
-
-To publish to the release repository, use publishWebJarToMyReleaseRepository.
-To publish to the snapshot repository, use publishWebJarToMySnapshotRepository.
 
 #### build.gradle for Windows
 
