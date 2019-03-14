@@ -1,7 +1,19 @@
 {
   "name": "@uportal/user-profile-menu",
   "version": "0.1.0",
-  "private": true,
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uPortal-contrib/uPortal-web-components.git"
+  },
+  "bugs": {
+    "url": "https://github.com/uPortal-contrib/uPortal-web-components/issues"
+  },
+  "homepage": "https://github.com/uPortal-contrib/uPortal-web-components#readme",
+  "main": "dist/user-profile-menu.js",
+  "source": "src/components/ProfileMenu.js",
   "scripts": {
     "start": "vue-cli-service serve",
     "prebuild": "babel node_modules/@vue/web-component-wrapper/dist/vue-wc-wrapper.js -o node_modules/@vue/web-component-wrapper/dist/vue-wc-wrapper.js",
