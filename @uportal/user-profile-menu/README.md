@@ -10,7 +10,7 @@
 # clone the repository if you haven't already
 git clone https://github.com/uPortal-contrib/uPortal-web-components
 
-# navigate to the waffle menu folder
+# navigate to the user-profile-menu folder
 cd uPortal-web-components/@uportal/user-profile-menu
 
 # install the goods
@@ -40,7 +40,7 @@ Here's the guts of that html file:
   <div slot="header">
     User Profile
   </div>
-  <div slot="default">
+  <div>
     <div class="list-group list-group-flush">
       <a
         href="/manage"
@@ -94,12 +94,10 @@ We have a `/proxy/` leading the `oidc-url` attribute. This is a developer conven
 
 ### `oidc-url`
 
-Url to connect to oidc.
+Url to connect to oidc. The default for this value is `/uPortal/api/v5-1/userinfo`.
 
 ```html
-<user-profile-menu
-  oidc-url="https://example.com/uPortal/api/v5-1/userinfo"
-></user-profile-menu>
+<user-profile-menu oidc-url="/uPortal/api/v5-1/userinfo"></user-profile-menu>
 ```
 
 ### `use-initials`
