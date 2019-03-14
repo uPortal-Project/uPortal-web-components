@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased][]
 
+## [1.26.0][] - 2019-03-14
+
+### Feature
+
+- **user-profile-menu**: Add the user profile menu, a slot based user settings dropdown (#279).
+
+### Chore
+
+- Dependency updates (#276, #277, #280)
+
 ## [1.25.0][] - 2019-02-25
 
 ### Feature
@@ -879,7 +889,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - **open-id-connect**: Initial version of an OpenID Connect helper script to use in web components and JavaScript modules.
 - **content-carousel**: Initial version of content carousel, a carousel based portlet metadata display system.
 
-[unreleased]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.25.0...HEAD
+[unreleased]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.26.0...HEAD
+[1.26.0]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.25.0...v1.26.0
 [1.25.0]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.24.0...v1.25.0
 [1.24.0]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.23.0...v1.24.0
 [1.23.0]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.22.1...v1.23.0
