@@ -191,6 +191,7 @@ export default {
     margin: 0 10px;
     padding: 10px;
     border: 1px solid #ccc;
+    max-width: 33%;
   }
 }
 
@@ -256,16 +257,26 @@ ul {
   border: #007bff;
   border: 1px solid var(--dash-carousel-btn-bg-color, #007bff);
   padding: 0.375rem 0.75rem;
+  padding: var(--dash-carousel-btn-padding, 0.375rem 0.75rem);
   font-size: 1rem;
+  font-size: var(--dash-carousel-btn-font-size, 1rem);
   line-height: 1.5;
   border-radius: 0.25rem;
   width: 100%;
 
   &:hover {
     background-color: #fff;
-    background-color: var(--dash-carousel-btn-bg-hover-color, var(--dash-carousel-btn-bg-active-color, #fff));
+    /* stylelint-disable-next-line declaration-colon-newline-after */
+    background-color: var(
+      --dash-carousel-btn-bg-hover-color,
+      var(--dash-carousel-btn-bg-active-color, #fff)
+    );
     color: #000;
-    color: var(--dash-carousel-btn-fg-hover-color, var(--dash-carousel-btn-fg-active-color, #000));
+    /* stylelint-disable-next-line declaration-colon-newline-after */
+    color: var(
+      --dash-carousel-btn-fg-hover-color,
+      var(--dash-carousel-btn-fg-active-color, #000)
+    );
   }
 
   &.active {
@@ -280,6 +291,10 @@ ul {
 @media (max-width: 767.98px) {
   .slick-item {
     flex-direction: column;
+
+    & > span {
+      max-width: none;
+    }
   }
 
   ul {
