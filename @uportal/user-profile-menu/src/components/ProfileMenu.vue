@@ -172,6 +172,9 @@ export default {
   }
 
   .profile-dropdown-section {
+    &:empty {
+      display: none;
+    }
     &.profile-dropdown-footer,
     &.profile-dropdown-header {
       padding: 1em;
