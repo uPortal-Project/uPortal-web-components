@@ -1,1 +1,20 @@
-../../../docs/en/components/esco-content-menu/orginfo.json
+{
+  "18450311800020": {
+    "description": "COLLECTIVITE LOCALE",
+    "displayName": "My Organization",
+    "id": "18450311800020",
+    "name": "GIP-RECIA",
+    "otherAttributes": {}
+  },
+  "77551105800056": {
+    "description": "UNIVERSITY",
+    "displayName": "My University",
+    "id": "77551105800056",
+    "name": "My University",
+    "otherAttributes": {
+      "ESCOStructureLogo": [
+        "/annuaire_images/logos/77551105800056/logoportail0.jpg?2"
+      ]
+    }
+  }
+}

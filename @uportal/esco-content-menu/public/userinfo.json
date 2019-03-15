@@ -1,1 +1,16 @@
-../../../docs/en/components/esco-content-menu/userinfo.json
+{
+  "ESCOSIREN": ["18450311800020", "77551105800056"],
+  "ESCOSIRENCourant": ["18450311800020"],
+  "aud": "https://my.edu/uPortal",
+  "email": "john.do@my.edu",
+  "exp": 1530779747,
+  "family_name": "Doe",
+  "gender": "M",
+  "given_name": "John",
+  "groups": ["Portal Administrators"],
+  "iat": 1530779447,
+  "iss": "https://my.edu/uPortal",
+  "name": "John Doe",
+  "phone_number": "+33 2 00 11 22 33",
+  "sub": "test"
+}
