@@ -289,6 +289,7 @@ ul {
 @media (max-width: 767.98px) {
   .slick-item {
     flex-direction: column;
+
     & > span {
       max-width: none;
     }
