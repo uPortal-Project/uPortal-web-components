@@ -266,11 +266,13 @@ ul {
 
   &:hover {
     background-color: #fff;
+    /* stylelint-disable-next-line declaration-colon-newline-after */
     background-color: var(
       --dash-carousel-btn-bg-hover-color,
       var(--dash-carousel-btn-bg-active-color, #fff)
     );
     color: #000;
+    /* stylelint-disable-next-line declaration-colon-newline-after */
     color: var(
       --dash-carousel-btn-fg-hover-color,
       var(--dash-carousel-btn-fg-active-color, #000)
