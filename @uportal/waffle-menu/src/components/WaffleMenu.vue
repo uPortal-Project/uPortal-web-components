@@ -36,6 +36,8 @@
         <a
           :href="item.link"
           :background="item.image"
+          :target="item.targetLink"
+          :rel="item.targetLink === '_blank' ? 'noopener noreferrer' : ''"
         >
           <img
             :src="item.image"
@@ -48,7 +50,11 @@
         v-for="(item, index) in this.dataMenuFooter"
         :key="index"
       >
-        <a :href="item.link">
+        <a
+          :href="item.link"
+          :target="item.targetLink"
+          :rel="item.targetLink === '_blank' ? 'noopener noreferrer' : ''"
+        >
           {{ item.label }}
         </a>
       </li>
@@ -152,6 +158,11 @@ export default {
                 'alternativeMaximizedLink.value'
             );
 
+            let targetLinkValue = '_self';
+            if (alternativeMaximizedLink) {
+              targetLinkValue = '_blank';
+            }
+
             return {
               link: alternativeMaximizedLink || '/uPortal/p/' + fname,
               image: imgUrl
@@ -161,6 +172,7 @@ export default {
               : undefined,
               label: this.truncateTitle(title),
               type: 'box',
+              targetLink: targetLinkValue,
             };
           }
       );
