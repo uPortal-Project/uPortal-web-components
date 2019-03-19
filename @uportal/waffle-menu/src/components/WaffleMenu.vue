@@ -36,6 +36,8 @@
         <a
           :href="item.link"
           :background="item.image"
+          :target="item.targetLink"
+          :rel="item.targetLink === '_blank' ? 'noopener noreferrer' : ''"
         >
           <img
             :src="item.image"
@@ -48,7 +50,11 @@
         v-for="(item, index) in this.dataMenuFooter"
         :key="index"
       >
-        <a :href="item.link">
+        <a
+          :href="item.link"
+          :target="item.targetLink"
+          :rel="item.targetLink === '_blank' ? 'noopener noreferrer' : ''"
+        >
           {{ item.label }}
         </a>
       </li>
@@ -79,6 +85,10 @@ export default {
     oidcUrl: {
       type: String,
       default: '/uPortal/api/v5-1/userinfo',
+    },
+    contextPortletUrl: {
+      type: String,
+      default: '/uPortal/p/',
     },
     buttonColor: {
       type: String,
@@ -149,11 +159,16 @@ export default {
 
             const alternativeMaximizedLink = get(
                 parameters,
-                'alternativeMaximized.value'
+                'alternativeMaximizedLink.value'
             );
 
+            let targetLinkValue = '_self';
+            if (alternativeMaximizedLink) {
+              targetLinkValue = '_blank';
+            }
+
             return {
-              link: alternativeMaximizedLink || '/uPortal/p/' + fname,
+              link: alternativeMaximizedLink || this.contextPortletUrl + fname,
               image: imgUrl
               ? process.env.NODE_ENV === 'development'
                 ? 'proxy/' + imgUrl
@@ -161,6 +176,7 @@ export default {
               : undefined,
               label: this.truncateTitle(title),
               type: 'box',
+              targetLink: targetLinkValue,
             };
           }
       );
