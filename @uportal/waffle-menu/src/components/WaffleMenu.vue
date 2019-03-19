@@ -86,6 +86,10 @@ export default {
       type: String,
       default: '/uPortal/api/v5-1/userinfo',
     },
+    contextPortletUrl: {
+      type: String,
+      default: '/uPortal/p/',
+    },
     buttonColor: {
       type: String,
       default: '#fff',
@@ -164,7 +168,7 @@ export default {
             }
 
             return {
-              link: alternativeMaximizedLink || '/uPortal/p/' + fname,
+              link: alternativeMaximizedLink || this.contextPortletUrl + fname,
               image: imgUrl
               ? process.env.NODE_ENV === 'development'
                 ? 'proxy/' + imgUrl

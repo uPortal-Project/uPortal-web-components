@@ -109,6 +109,17 @@ Example:
 ></waffle-menu>
 ```
 
+### `context-portlet-url`
+
+Common URI or URL path to target a portlet inside the portal, the fname will be appended. The default value is
+`/uPortal/p/`.
+
+Example:
+
+```html
+<waffle-menu context-portlet-url="/portal/p/"></waffle-menu>
+```
+
 ### `debug`
 
 Disable open id connect for testing.

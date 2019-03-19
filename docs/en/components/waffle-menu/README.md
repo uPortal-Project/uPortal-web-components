@@ -1,7 +1,7 @@
 # Waffle Menu
 
 [![NPM Version](https://img.shields.io/npm/v/@uportal/waffle-menu.svg)](https://www.npmjs.com/package/@uportal/waffle-menu)
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.webjars.npm/waffle-menu/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.webjars.npm/uportal__waffle-menu)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.webjars.npm/uportal__waffle-menu/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.webjars.npm/uportal__waffle-menu)
 [![Build Status](https://travis-ci.org/uPortal-contrib/uPortal-web-components.svg?branch=master)](https://travis-ci.org/uPortal-contrib/uPortal-web-components)
 
 ## Demo
@@ -88,6 +88,15 @@ Example:
 
 `<waffle-menu button-color="#ffffff">`
 
+### `menu-background-color`
+
+applies a color to the waffle menu dropdown. Useful if you want to avoid specifying the color in CSS.
+If not set, `menu-background-color` defaults to `#e0e0e0`.
+
+Example:
+
+`<waffle-menu menu-background-color="#99aa99">`
+
 ### `url`
 
 Fully qualified url pointing to the API where `<waffle-menu>` can find data in portlet registry format.
@@ -98,6 +107,17 @@ Example:
 <waffle-menu
   url="/uPortal/api/v4-3/dlm/portletRegistry.json?categoryId=local.21"
 ></waffle-menu>
+```
+
+### `context-portlet-url`
+
+Common URI or URL path to target a portlet inside the portal, the fname will be appended. The default value is
+`/uPortal/p/`.
+
+Example:
+
+```html
+<waffle-menu context-portlet-url="/portal/p/"></waffle-menu>
 ```
 
 ### `debug`
