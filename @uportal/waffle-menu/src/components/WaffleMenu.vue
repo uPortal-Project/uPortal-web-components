@@ -149,7 +149,7 @@ export default {
 
             const alternativeMaximizedLink = get(
                 parameters,
-                'alternativeMaximized.value'
+                'alternativeMaximizedLink.value'
             );
 
             return {
