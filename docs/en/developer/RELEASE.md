@@ -24,9 +24,9 @@
    - also update the links at the bottom of the page
 9. `npm run publish-webjar`
    - creates webjars from npm packages on [npmjs.com][]
-   - uses [lerna-webjar][], which automates a manual process on https://www.webjars.org/
+   - uses [lerna-webjar][], which automates a manual process on <https://www.webjars.org/>
    - if the automated process fails, you may be able to re-deploy the webjar manually using the
-     _Add a WebJar_ tool on https://www.webjars.org/
+     _Add a WebJar_ tool on <https://www.webjars.org/>
 
 [two factor authentication]: https://docs.npmjs.com/getting-started/using-two-factor-authentication
 [npmjs.com]: https://www.npmjs.com
