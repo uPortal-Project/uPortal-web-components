@@ -7,6 +7,21 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased][]
 
+### fix
+
+- Fixed issue where empty slots were still displayed (#282)
+- Fixed size of dashboard content items & css variables for buttons (#283)
+- Use correct param `AlternativeMaximizedLink` + a few improvements (#285)
+
+### Docs
+
+- Replace symlink to provide docs on npm site (#281)
+
+### Chore
+
+- Lock file maintenance (#284)
+- Update Font Awesome (#286)
+
 ## [1.26.0][] - 2019-03-14
 
 ### Feature
