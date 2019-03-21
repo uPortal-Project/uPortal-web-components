@@ -28,6 +28,9 @@
       v-if="menuOpen && dataLoaded"
       :style="{ backgroundColor: menuBackgroundColor }"
     >
+      <li class="waffle-dropdown-header">
+        <slot name="header" />
+      </li>
       <li
         class="waffle-menu-item"
         v-for="(item, index) in this.dataMenuItems"
@@ -45,18 +48,8 @@
           > <span>{{ item.label }}</span>
         </a>
       </li>
-      <li
-        class="waffle-dropdown-footer"
-        v-for="(item, index) in this.dataMenuFooter"
-        :key="index"
-      >
-        <a
-          :href="item.link"
-          :target="item.targetLink"
-          :rel="item.targetLink === '_blank' ? 'noopener noreferrer' : ''"
-        >
-          {{ item.label }}
-        </a>
+      <li class="waffle-dropdown-footer">
+        <slot name="footer" />
       </li>
     </ul>
   </div>
@@ -260,7 +253,7 @@ export default {
   display: flex;
   float: left;
   min-width: 10rem;
-  padding: 0.5rem 0;
+  padding: 0;
   margin: 0.125rem 0 0;
   font-size: 1rem;
   color: #212529;
@@ -277,8 +270,9 @@ export default {
 .waffle-menu-item {
   display: block;
   flex: 0 0 46%;
-  margin: 0 2%;
+  margin: 2% 2%;
   line-height: 1rem;
+  padding: 0.25rem 0;
 
   &:hover {
     box-shadow: 0 0 2px rgba(0, 0, 0, 0.25);
@@ -308,24 +302,39 @@ export default {
   }
 }
 
-.waffle-dropdown-footer {
+.waffle-dropdown-footer,
+.waffle-dropdown-header {
   display: block;
   flex: 1 0 100%;
   line-height: 1rem;
-  margin-top: 4px;
+  margin-top: 0;
+  box-sizing: border-box;
+  padding: 1em;
+  font-size: 1.2em;
+  background-color: #eee;
+  background-color: var(--waffle-menu-header-footer-bg-color, #eee);
+
+  &:last-child {
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  &:first-child {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  &:empty {
+    display: none;
+  }
 
   a {
     display: block;
-    font-size: 80%;
-    font-weight: 400;
-    text-align: center;
-    padding: 10px 0;
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
     text-decoration: none;
-    color: #333;
+    color: #000;
+    color: var(--waffle-menu-header-footer-link-color, #000);
 
     &:hover {
-      background: white;
+      color: #666;
+      color: var(--waffle-menu-header-footer-link-hover-color, #666);
     }
   }
 }

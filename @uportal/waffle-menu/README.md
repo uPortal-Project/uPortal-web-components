@@ -51,6 +51,21 @@ Here's the guts of that html file:
 ></waffle-menu>
 ```
 
+### slots
+
+This component supports slots for a header and footer element above and below the list of icons.
+
+```html
+<waffle-menu oidc-url="https://example.com/uPortal/api/v5-1/userinfo">
+  <div slot="header">
+    Header goes here
+  </div>
+  <div slot="footer">
+    <a href="">Footer goes here</a>
+  </div>
+</waffle-menu>
+```
+
 ##### Notice
 
 We have a `/proxy/` leading the `url` attribute. This is a developer convenience to be able to query against your local running instance of uPortal. The proxy is configured in `package.json`:
