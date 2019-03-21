@@ -1,6 +1,6 @@
 {
   "name": "@uportal/user-profile-menu",
-  "version": "1.26.1",
+  "version": "1.26.2",
   "publishConfig": {
     "access": "public"
   },
@@ -21,7 +21,7 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "@uportal/open-id-connect": "^1.26.1",
+    "@uportal/open-id-connect": "^1.26.2",
     "bootstrap": "^4.3.1",
     "font-awesome": "4.7.0",
     "vue": "^2.6.6"
