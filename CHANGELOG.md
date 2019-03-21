@@ -7,6 +7,21 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased][]
 
+## [1.26.2][] - 2019-03-21
+
+### Fix
+
+- Correct the waffle menu slots for header and footer (#290)
+
+### Docs
+
+- Enhance info about publish-webjar (#289)
+
+### Chore
+
+- Update `build` script and `source` setting to match other modules (#288)
+- Dependency updates (#287)
+
 ## [1.26.1][] - 2019-03-19
 
 ### fix
@@ -906,7 +921,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - **open-id-connect**: Initial version of an OpenID Connect helper script to use in web components and JavaScript modules.
 - **content-carousel**: Initial version of content carousel, a carousel based portlet metadata display system.
 
-[unreleased]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.26.1...HEAD
+[unreleased]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.26.2...HEAD
+[1.26.2]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.26.1...v1.26.2
 [1.26.1]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.26.0...v1.26.1
 [1.26.0]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.25.0...v1.26.0
 [1.25.0]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.24.0...v1.25.0
