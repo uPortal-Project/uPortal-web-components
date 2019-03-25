@@ -5,7 +5,7 @@
     class="content-favorites">
     <div class="content-favorites-title">
       <h1>
-        {{ translate("message.favorites.title") }}
+        {{ translate('message.favorites.title') }}
       </h1>
     </div>
     <div
@@ -22,7 +22,9 @@
           <a
             :href="getRenderPortletUrl(portlet)"
             :target="hasAlternativeMaximizedUrl(portlet) ? '_blank' : '_self'"
-            :rel="hasAlternativeMaximizedUrl(portlet) ? 'noopener noreferrer' : ''"
+            :rel="
+              hasAlternativeMaximizedUrl(portlet) ? 'noopener noreferrer' : ''
+            "
             class="no-style">
             <portlet-card
               :portlet-desc="portlet"
@@ -33,7 +35,7 @@
               :back-ground-is-dark="true"
               :favorite-api-url="favoriteApiUrl"
               :user-info-api-url="userInfoApiUrl"
-              :debug="debug" />
+              :debug="debug"/>
           </a>
         </swiper-slide>
       </swiper>
@@ -56,7 +58,7 @@
       :style="favorited.length > 0 ? 'display:none' : ''"
       class="empty-favorites">
       <div>
-        {{ translate("message.favorites.empty" ) }}
+        {{ translate('message.favorites.empty') }}
       </div>
     </div>
   </section>
@@ -228,7 +230,7 @@ export default {
       }, 300);
     },
     updateSlider() {
-      if (!this.isHidden) {
+      if (!this.isHidden && this.favorited.length > 0) {
         if (!this.$refs.favSwiper.swiper.initialized) {
           this.$refs.favSwiper.swiper.init();
         } else {

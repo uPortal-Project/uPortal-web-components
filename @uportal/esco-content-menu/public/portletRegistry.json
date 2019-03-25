@@ -24,7 +24,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/ResourceServingWebapp/rs/tango/0.8.90/32x32/categories/applications-system.png"
+                    "value": "https://noswap.com/pub/tango/tango-icon-theme-0.8.90/32x32/categories/applications-system.png"
                   }
                 },
                 "ratingsCount": 0,
@@ -84,7 +84,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/ResourceServingWebapp/rs/tango/0.8.90/32x32/categories/applications-system.png"
+                    "value": "https://noswap.com/pub/tango/tango-icon-theme-0.8.90/32x32/categories/applications-system.png"
                   }
                 },
                 "ratingsCount": 0,
@@ -104,7 +104,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/ResourceServingWebapp/rs/tango/0.8.90/32x32/categories/applications-system.png"
+                    "value": "https://noswap.com/pub/tango/tango-icon-theme-0.8.90/32x32/categories/applications-system.png"
                   }
                 },
                 "ratingsCount": 0,
@@ -124,7 +124,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/ResourceServingWebapp/rs/tango/0.8.90/32x32/categories/applications-system.png"
+                    "value": "https://noswap.com/pub/tango/tango-icon-theme-0.8.90/32x32/categories/applications-system.png"
                   }
                 },
                 "ratingsCount": 0,
@@ -144,7 +144,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/ResourceServingWebapp/rs/tango/0.8.90/32x32/apps/system-users.png"
+                    "value": "https://noswap.com/pub/tango/tango-icon-theme-0.8.90/32x32/apps/system-users.png"
                   }
                 },
                 "ratingsCount": 0,
@@ -229,7 +229,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/ResourceServingWebapp/rs/tango/0.8.90/32x32/categories/applications-system.png"
+                    "value": "https://noswap.com/pub/tango/tango-icon-theme-0.8.90/32x32/categories/applications-system.png"
                   }
                 },
                 "ratingsCount": 0,
@@ -249,7 +249,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/ResourceServingWebapp/rs/tango/0.8.90/32x32/categories/applications-system.png"
+                    "value": "https://noswap.com/pub/tango/tango-icon-theme-0.8.90/32x32/categories/applications-system.png"
                   }
                 },
                 "ratingsCount": 0,
@@ -322,7 +322,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/AdminListesDiffusion.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/AdminListesDiffusion.svg"
                   },
                   "locale": {
                     "description": "",
@@ -332,7 +332,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/AdminListesDiffusion.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/AdminListesDiffusion.svg"
                   },
                   "printable": {
                     "description": "",
@@ -412,7 +412,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/ResumeInfosENT"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/ResumeInfosENT"
                   },
                   "locale": {
                     "description": "",
@@ -422,7 +422,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/ResumeInfosENT"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/ResumeInfosENT"
                   },
                   "printable": {
                     "description": "",
@@ -502,7 +502,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/DocENT.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/DocENT.svg"
                   },
                   "locale": {
                     "description": "",
@@ -512,7 +512,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/DocENT.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/DocENT.svg"
                   },
                   "printable": {
                     "description": "",
@@ -587,7 +587,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/I2Grouper-UI.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/I2Grouper-UI.svg"
                   },
                   "locale": {
                     "description": "",
@@ -597,7 +597,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/I2Grouper-UI.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/I2Grouper-UI.svg"
                   },
                   "printable": {
                     "description": "",
@@ -672,7 +672,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/ESCO-GLC.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/ESCO-GLC.svg"
                   },
                   "locale": {
                     "description": "",
@@ -682,7 +682,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/ESCO-GLC.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/ESCO-GLC.svg"
                   },
                   "printable": {
                     "description": "",
@@ -757,7 +757,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/Statistiques.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/Statistiques.svg"
                   },
                   "locale": {
                     "description": "",
@@ -767,7 +767,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/Statistiques.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/Statistiques.svg"
                   },
                   "printable": {
                     "description": "",
@@ -847,7 +847,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/AnnoncesRECIA.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/AnnoncesRECIA.svg"
                   },
                   "locale": {
                     "description": "",
@@ -857,7 +857,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/AnnoncesRECIA.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/AnnoncesRECIA.svg"
                   },
                   "printable": {
                     "description": "",
@@ -952,7 +952,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/ESCO-ParamEtab.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/ESCO-ParamEtab.svg"
                   },
                   "locale": {
                     "description": "",
@@ -962,7 +962,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/ESCO-ParamEtab.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/ESCO-ParamEtab.svg"
                   },
                   "printable": {
                     "description": "",
@@ -1042,7 +1042,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/ITSM.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/ITSM.svg"
                   },
                   "locale": {
                     "description": "",
@@ -1052,7 +1052,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/ITSM.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/ITSM.svg"
                   },
                   "printable": {
                     "description": "",
@@ -1122,7 +1122,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/YmagLog.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/YmagLog.svg"
                   },
                   "locale": {
                     "description": "",
@@ -1132,7 +1132,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/YmagLog.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/YmagLog.svg"
                   },
                   "printable": {
                     "description": "",
@@ -1220,7 +1220,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/AidePortailENT.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/AidePortailENT.svg"
                   },
                   "locale": {
                     "description": "",
@@ -1230,7 +1230,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/AidePortailENT.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/AidePortailENT.svg"
                   }
                 },
                 "ratingsCount": 1,
@@ -1295,7 +1295,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/ResumeInfosENT"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/ResumeInfosENT"
                   },
                   "locale": {
                     "description": "",
@@ -1305,7 +1305,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/ResumeInfosENT"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/ResumeInfosENT"
                   },
                   "printable": {
                     "description": "",
@@ -1385,7 +1385,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/DocENT.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/DocENT.svg"
                   },
                   "locale": {
                     "description": "",
@@ -1395,7 +1395,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/DocENT.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/DocENT.svg"
                   },
                   "printable": {
                     "description": "",
@@ -1475,7 +1475,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/AnnoncesRECIA.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/AnnoncesRECIA.svg"
                   },
                   "locale": {
                     "description": "",
@@ -1485,7 +1485,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/AnnoncesRECIA.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/AnnoncesRECIA.svg"
                   },
                   "printable": {
                     "description": "",
@@ -1565,7 +1565,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/ITSM.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/ITSM.svg"
                   },
                   "locale": {
                     "description": "",
@@ -1575,7 +1575,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/ITSM.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/ITSM.svg"
                   },
                   "printable": {
                     "description": "",
@@ -1663,7 +1663,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/ActualitesRegion.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/ActualitesRegion.svg"
                   },
                   "locale": {
                     "description": "",
@@ -1673,7 +1673,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/ActualitesRegion.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/ActualitesRegion.svg"
                   },
                   "printable": {
                     "description": "",
@@ -1753,7 +1753,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/ActualitesEtab.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/ActualitesEtab.svg"
                   },
                   "locale": {
                     "description": "",
@@ -1763,7 +1763,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/ActualitesEtab.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/ActualitesEtab.svg"
                   },
                   "printable": {
                     "description": "",
@@ -1843,7 +1843,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/ActualitesCD37.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/ActualitesCD37.svg"
                   },
                   "locale": {
                     "description": "",
@@ -1853,7 +1853,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/ActualitesCD37.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/ActualitesCD37.svg"
                   },
                   "printable": {
                     "description": "",
@@ -1933,7 +1933,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/AdminListesDiffusion.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/AdminListesDiffusion.svg"
                   },
                   "locale": {
                     "description": "",
@@ -1943,7 +1943,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/AdminListesDiffusion.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/AdminListesDiffusion.svg"
                   },
                   "printable": {
                     "description": "",
@@ -2028,7 +2028,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/AidePortailENT.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/AidePortailENT.svg"
                   },
                   "locale": {
                     "description": "",
@@ -2038,7 +2038,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/AidePortailENT.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/AidePortailENT.svg"
                   }
                 },
                 "ratingsCount": 1,
@@ -2103,7 +2103,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/aidesInfosCFA.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/aidesInfosCFA.svg"
                   },
                   "locale": {
                     "description": "",
@@ -2113,7 +2113,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/aidesInfosCFA.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/aidesInfosCFA.svg"
                   },
                   "printable": {
                     "description": "",
@@ -2198,12 +2198,12 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/MonCDIPLCourier.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/MonCDIPLCourier.svg"
                   },
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/MonCDIPLCourier.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/MonCDIPLCourier.svg"
                   },
                   "printable": {
                     "description": "",
@@ -2283,12 +2283,12 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/CourrielEducagri.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/CourrielEducagri.svg"
                   },
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/CourrielEducagri.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/CourrielEducagri.svg"
                   },
                   "printable": {
                     "description": "",
@@ -2358,7 +2358,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/CourrielEleves.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/CourrielEleves.svg"
                   },
                   "locale": {
                     "description": "",
@@ -2368,7 +2368,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/CourrielEleves.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/CourrielEleves.svg"
                   },
                   "printable": {
                     "description": "",
@@ -2448,7 +2448,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/ResumeActualitesEtab.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/ResumeActualitesEtab.svg"
                   },
                   "locale": {
                     "description": "",
@@ -2458,7 +2458,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/ResumeActualitesEtab.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/ResumeActualitesEtab.svg"
                   },
                   "printable": {
                     "description": "",
@@ -2538,7 +2538,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/ResumeActualitesRegion.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/ResumeActualitesRegion.svg"
                   },
                   "locale": {
                     "description": "",
@@ -2548,7 +2548,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/ResumeActualitesRegion.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/ResumeActualitesRegion.svg"
                   },
                   "printable": {
                     "description": "",
@@ -2628,7 +2628,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/ResumeActualitesCD37.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/ResumeActualitesCD37.svg"
                   },
                   "locale": {
                     "description": "",
@@ -2638,7 +2638,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/ResumeActualitesCD37.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/ResumeActualitesCD37.svg"
                   },
                   "printable": {
                     "description": "",
@@ -2718,7 +2718,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/ResumeInfosENT"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/ResumeInfosENT"
                   },
                   "locale": {
                     "description": "",
@@ -2728,7 +2728,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/ResumeInfosENT"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/ResumeInfosENT"
                   },
                   "printable": {
                     "description": "",
@@ -2808,7 +2808,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/accueil-lycees.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/accueil-lycees.svg"
                   },
                   "locale": {
                     "description": "",
@@ -2818,7 +2818,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/accueil-lycees.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/accueil-lycees.svg"
                   },
                   "printable": {
                     "description": "",
@@ -2898,7 +2898,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/accueil-clg37.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/accueil-clg37.svg"
                   },
                   "locale": {
                     "description": "",
@@ -2908,7 +2908,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/accueil-clg37.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/accueil-clg37.svg"
                   },
                   "printable": {
                     "description": "",
@@ -2988,7 +2988,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/accueil-cfa.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/accueil-cfa.svg"
                   },
                   "locale": {
                     "description": "",
@@ -2998,7 +2998,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/accueil-cfa.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/accueil-cfa.svg"
                   },
                   "printable": {
                     "description": "",
@@ -3078,7 +3078,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/DocumentsEtab.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/DocumentsEtab.svg"
                   },
                   "locale": {
                     "description": "",
@@ -3088,7 +3088,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/DocumentsEtab.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/DocumentsEtab.svg"
                   },
                   "printable": {
                     "description": "",
@@ -3163,7 +3163,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/PMB.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/PMB.svg"
                   },
                   "locale": {
                     "description": "",
@@ -3173,7 +3173,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/PMB.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/PMB.svg"
                   },
                   "printable": {
                     "description": "",
@@ -3253,7 +3253,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/AnnoncesRECIA.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/AnnoncesRECIA.svg"
                   },
                   "locale": {
                     "description": "",
@@ -3263,7 +3263,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/AnnoncesRECIA.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/AnnoncesRECIA.svg"
                   },
                   "printable": {
                     "description": "",
@@ -3343,12 +3343,12 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/EducationTouraine.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/EducationTouraine.svg"
                   },
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/EducationTouraine.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/EducationTouraine.svg"
                   },
                   "printable": {
                     "description": "",
@@ -3423,12 +3423,12 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/CDITheresePlaniol.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/CDITheresePlaniol.svg"
                   },
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/CDITheresePlaniol.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/CDITheresePlaniol.svg"
                   },
                   "printable": {
                     "description": "",
@@ -3503,12 +3503,12 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/LettreActualites.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/LettreActualites.svg"
                   },
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/LettreActualites.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/LettreActualites.svg"
                   },
                   "printable": {
                     "description": "",
@@ -3583,7 +3583,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/ListesDiffusion.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/ListesDiffusion.svg"
                   },
                   "locale": {
                     "description": "",
@@ -3593,7 +3593,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/ListesDiffusion.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/ListesDiffusion.svg"
                   },
                   "printable": {
                     "description": "",
@@ -3688,12 +3688,12 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/MILycees.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/MILycees.svg"
                   },
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/MILycees.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/MILycees.svg"
                   },
                   "printable": {
                     "description": "",
@@ -3773,12 +3773,12 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/CourrielAcademique.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/CourrielAcademique.svg"
                   },
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/CourrielAcademique.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/CourrielAcademique.svg"
                   },
                   "printable": {
                     "description": "",
@@ -3853,7 +3853,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/CourrielRECIA.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/CourrielRECIA.svg"
                   },
                   "locale": {
                     "description": "",
@@ -3863,7 +3863,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/CourrielRECIA.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/CourrielRECIA.svg"
                   },
                   "printable": {
                     "description": "",
@@ -3948,12 +3948,12 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/MonCDI.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/MonCDI.svg"
                   },
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/MonCDI.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/MonCDI.svg"
                   },
                   "printable": {
                     "description": "",
@@ -4028,12 +4028,12 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/VideoNOCWPP.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/VideoNOCWPP.svg"
                   },
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/VideoNOCWPP.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/VideoNOCWPP.svg"
                   },
                   "printable": {
                     "description": "",
@@ -4118,7 +4118,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/Limesurvey.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/Limesurvey.svg"
                   },
                   "locale": {
                     "description": "",
@@ -4128,7 +4128,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/Limesurvey.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/Limesurvey.svg"
                   },
                   "printable": {
                     "description": "",
@@ -4208,7 +4208,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/PublicationContenus.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/PublicationContenus.svg"
                   },
                   "locale": {
                     "description": "",
@@ -4218,7 +4218,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/PublicationContenus.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/PublicationContenus.svg"
                   },
                   "printable": {
                     "description": "",
@@ -4303,12 +4303,12 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/PMB_LesCharmilles.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/PMB_LesCharmilles.svg"
                   },
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/PMB_LesCharmilles.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/PMB_LesCharmilles.svg"
                   },
                   "printable": {
                     "description": "",
@@ -4398,12 +4398,12 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/ItsTours_VieEtudiante.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/ItsTours_VieEtudiante.svg"
                   },
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/ItsTours_VieEtudiante.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/ItsTours_VieEtudiante.svg"
                   },
                   "printable": {
                     "description": "",
@@ -4493,12 +4493,12 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/MessageAccueilWoC.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/MessageAccueilWoC.svg"
                   },
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/MessageAccueilWoC.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/MessageAccueilWoC.svg"
                   },
                   "printable": {
                     "description": "",
@@ -4573,7 +4573,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/YEPS.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/YEPS.svg"
                   },
                   "locale": {
                     "description": "",
@@ -4583,7 +4583,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/YEPS.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/YEPS.svg"
                   },
                   "printable": {
                     "description": "",
@@ -4626,7 +4626,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/ResourceServingWebapp/rs/tango/0.8.90/32x32/categories/preferences-system.png"
+                    "value": "https://noswap.com/pub/tango/tango-icon-theme-0.8.90/32x32/categories/preferences-system.png"
                   }
                 },
                 "ratingsCount": 0,
@@ -4646,7 +4646,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/ResourceServingWebapp/rs/tango/0.8.90/32x32/categories/applications-system.png"
+                    "value": "https://noswap.com/pub/tango/tango-icon-theme-0.8.90/32x32/categories/applications-system.png"
                   }
                 },
                 "ratingsCount": 0,
@@ -4666,7 +4666,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/ResourceServingWebapp/rs/tango/0.8.90/32x32/categories/applications-development.png"
+                    "value": "https://noswap.com/pub/tango/tango-icon-theme-0.8.90/32x32/categories/applications-development.png"
                   }
                 },
                 "ratingsCount": 0,
@@ -4691,7 +4691,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/ResourceServingWebapp/rs/tango/0.8.90/32x32/categories/applications-system.png"
+                    "value": "https://noswap.com/pub/tango/tango-icon-theme-0.8.90/32x32/categories/applications-system.png"
                   }
                 },
                 "ratingsCount": 0,
@@ -4764,7 +4764,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/ActualitesRegion.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/ActualitesRegion.svg"
                   },
                   "locale": {
                     "description": "",
@@ -4774,7 +4774,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/ActualitesRegion.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/ActualitesRegion.svg"
                   },
                   "printable": {
                     "description": "",
@@ -4854,7 +4854,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/aidesInfosCFA.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/aidesInfosCFA.svg"
                   },
                   "locale": {
                     "description": "",
@@ -4864,7 +4864,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/aidesInfosCFA.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/aidesInfosCFA.svg"
                   },
                   "printable": {
                     "description": "",
@@ -4944,7 +4944,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/ResumeActualitesRegion.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/ResumeActualitesRegion.svg"
                   },
                   "locale": {
                     "description": "",
@@ -4954,7 +4954,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/ResumeActualitesRegion.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/ResumeActualitesRegion.svg"
                   },
                   "printable": {
                     "description": "",
@@ -5034,7 +5034,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/accueil-lycees.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/accueil-lycees.svg"
                   },
                   "locale": {
                     "description": "",
@@ -5044,7 +5044,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/accueil-lycees.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/accueil-lycees.svg"
                   },
                   "printable": {
                     "description": "",
@@ -5124,7 +5124,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/accueil-cfa.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/accueil-cfa.svg"
                   },
                   "locale": {
                     "description": "",
@@ -5134,7 +5134,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/accueil-cfa.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/accueil-cfa.svg"
                   },
                   "printable": {
                     "description": "",
@@ -5214,12 +5214,12 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/LettreActualites.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/LettreActualites.svg"
                   },
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/LettreActualites.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/LettreActualites.svg"
                   },
                   "printable": {
                     "description": "",
@@ -5294,7 +5294,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/Catalogue_OPSI.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/Catalogue_OPSI.svg"
                   },
                   "locale": {
                     "description": "",
@@ -5304,7 +5304,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/Catalogue_OPSI.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/Catalogue_OPSI.svg"
                   },
                   "printable": {
                     "description": "",
@@ -5399,12 +5399,12 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/MILycees.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/MILycees.svg"
                   },
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/MILycees.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/MILycees.svg"
                   },
                   "printable": {
                     "description": "",
@@ -5479,12 +5479,12 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/VideoNOCWPP.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/VideoNOCWPP.svg"
                   },
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/VideoNOCWPP.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/VideoNOCWPP.svg"
                   },
                   "printable": {
                     "description": "",
@@ -5569,12 +5569,12 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/MessageAccueilWoC.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/MessageAccueilWoC.svg"
                   },
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/MessageAccueilWoC.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/MessageAccueilWoC.svg"
                   },
                   "printable": {
                     "description": "",
@@ -5649,7 +5649,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/YEPS.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/YEPS.svg"
                   },
                   "locale": {
                     "description": "",
@@ -5659,7 +5659,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/YEPS.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/YEPS.svg"
                   },
                   "printable": {
                     "description": "",
@@ -5747,7 +5747,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/ActualitesCD37.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/ActualitesCD37.svg"
                   },
                   "locale": {
                     "description": "",
@@ -5757,7 +5757,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/ActualitesCD37.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/ActualitesCD37.svg"
                   },
                   "printable": {
                     "description": "",
@@ -5837,7 +5837,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/ResumeActualitesCD37.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/ResumeActualitesCD37.svg"
                   },
                   "locale": {
                     "description": "",
@@ -5847,7 +5847,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/ResumeActualitesCD37.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/ResumeActualitesCD37.svg"
                   },
                   "printable": {
                     "description": "",
@@ -5927,7 +5927,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/accueil-clg37.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/accueil-clg37.svg"
                   },
                   "locale": {
                     "description": "",
@@ -5937,7 +5937,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/accueil-clg37.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/accueil-clg37.svg"
                   },
                   "printable": {
                     "description": "",
@@ -6017,12 +6017,12 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/EducationTouraine.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/EducationTouraine.svg"
                   },
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/EducationTouraine.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/EducationTouraine.svg"
                   },
                   "printable": {
                     "description": "",
@@ -6105,7 +6105,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/MoodleMu.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/MoodleMu.svg"
                   },
                   "locale": {
                     "description": "",
@@ -6115,7 +6115,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/MoodleMu.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/MoodleMu.svg"
                   },
                   "printable": {
                     "description": "",
@@ -6195,7 +6195,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/esup-filemanager.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/esup-filemanager.svg"
                   },
                   "locale": {
                     "description": "",
@@ -6205,7 +6205,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/esup-filemanager.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/esup-filemanager.svg"
                   },
                   "printable": {
                     "description": "",
@@ -6285,7 +6285,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/ListesDiffusion.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/ListesDiffusion.svg"
                   },
                   "locale": {
                     "description": "",
@@ -6295,7 +6295,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/ListesDiffusion.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/ListesDiffusion.svg"
                   },
                   "printable": {
                     "description": "",
@@ -6375,12 +6375,12 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/AccesOAE_RECIA.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/AccesOAE_RECIA.svg"
                   },
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/AccesOAE_RECIA.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/AccesOAE_RECIA.svg"
                   },
                   "printable": {
                     "description": "",
@@ -6455,7 +6455,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/OwnCloud_RECIA.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/OwnCloud_RECIA.svg"
                   },
                   "locale": {
                     "description": "",
@@ -6465,7 +6465,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/OwnCloud_RECIA.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/OwnCloud_RECIA.svg"
                   },
                   "printable": {
                     "description": "",
@@ -6508,7 +6508,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/ResourceServingWebapp/rs/tango/0.8.90/32x32/actions/system-search.png"
+                    "value": "https://noswap.com/pub/tango/tango-icon-theme-0.8.90/32x32/actions/system-search.png"
                   },
                   "mobileIconUrl": {
                     "description": "",
@@ -6538,7 +6538,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/ResourceServingWebapp/rs/tango/0.8.90/32x32/mimetypes/x-office-address-book.png"
+                    "value": "https://noswap.com/pub/tango/tango-icon-theme-0.8.90/32x32/mimetypes/x-office-address-book.png"
                   },
                   "mobileIconUrl": {
                     "description": "",
@@ -6623,7 +6623,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/CPRO.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/CPRO.svg"
                   },
                   "locale": {
                     "description": "",
@@ -6633,7 +6633,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/CPRO.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/CPRO.svg"
                   },
                   "printable": {
                     "description": "",
@@ -6713,7 +6713,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/CPRO.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/CPRO.svg"
                   },
                   "locale": {
                     "description": "",
@@ -6723,7 +6723,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/CPRO.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/CPRO.svg"
                   },
                   "printable": {
                     "description": "",
@@ -6808,12 +6808,12 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/Folios.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/Folios.svg"
                   },
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/Folios.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/Folios.svg"
                   },
                   "printable": {
                     "description": "",
@@ -6888,7 +6888,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/infosEtoile.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/infosEtoile.svg"
                   },
                   "locale": {
                     "description": "",
@@ -6898,7 +6898,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/infosEtoile.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/infosEtoile.svg"
                   },
                   "printable": {
                     "description": "",
@@ -6978,7 +6978,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/OBII.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/OBII.svg"
                   },
                   "locale": {
                     "description": "",
@@ -6988,7 +6988,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/OBII.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/OBII.svg"
                   },
                   "printable": {
                     "description": "",
@@ -7068,12 +7068,12 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/RessourcesOrientationLycees.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/RessourcesOrientationLycees.svg"
                   },
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/RessourcesOrientationLycees.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/RessourcesOrientationLycees.svg"
                   },
                   "printable": {
                     "description": "",
@@ -7148,7 +7148,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/SACoche.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/SACoche.svg"
                   },
                   "locale": {
                     "description": "",
@@ -7158,7 +7158,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/SACoche.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/SACoche.svg"
                   },
                   "printable": {
                     "description": "",
@@ -7251,12 +7251,12 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/MonCDIPLCourier.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/MonCDIPLCourier.svg"
                   },
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/MonCDIPLCourier.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/MonCDIPLCourier.svg"
                   },
                   "printable": {
                     "description": "",
@@ -7326,7 +7326,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/CahierTexte.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/CahierTexte.svg"
                   },
                   "locale": {
                     "description": "",
@@ -7336,7 +7336,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/CahierTexte.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/CahierTexte.svg"
                   },
                   "printable": {
                     "description": "",
@@ -7416,7 +7416,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/CPRO.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/CPRO.svg"
                   },
                   "locale": {
                     "description": "",
@@ -7426,7 +7426,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/CPRO.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/CPRO.svg"
                   },
                   "printable": {
                     "description": "",
@@ -7506,7 +7506,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/CPRO.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/CPRO.svg"
                   },
                   "locale": {
                     "description": "",
@@ -7516,7 +7516,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/CPRO.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/CPRO.svg"
                   },
                   "printable": {
                     "description": "",
@@ -7601,7 +7601,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/EchoSpheres.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/EchoSpheres.svg"
                   },
                   "locale": {
                     "description": "",
@@ -7611,7 +7611,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/EchoSpheres.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/EchoSpheres.svg"
                   },
                   "printable": {
                     "description": "",
@@ -7691,7 +7691,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/VieScolaire.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/VieScolaire.svg"
                   },
                   "locale": {
                     "description": "",
@@ -7701,7 +7701,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/VieScolaire.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/VieScolaire.svg"
                   },
                   "printable": {
                     "description": "",
@@ -7781,7 +7781,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/MoodleMu.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/MoodleMu.svg"
                   },
                   "locale": {
                     "description": "",
@@ -7791,7 +7791,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/MoodleMu.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/MoodleMu.svg"
                   },
                   "printable": {
                     "description": "",
@@ -7871,7 +7871,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/esup-filemanager.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/esup-filemanager.svg"
                   },
                   "locale": {
                     "description": "",
@@ -7881,7 +7881,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/esup-filemanager.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/esup-filemanager.svg"
                   },
                   "printable": {
                     "description": "",
@@ -7956,7 +7956,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/PMB.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/PMB.svg"
                   },
                   "locale": {
                     "description": "",
@@ -7966,7 +7966,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/PMB.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/PMB.svg"
                   },
                   "printable": {
                     "description": "",
@@ -8046,12 +8046,12 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/CDITheresePlaniol.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/CDITheresePlaniol.svg"
                   },
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/CDITheresePlaniol.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/CDITheresePlaniol.svg"
                   },
                   "printable": {
                     "description": "",
@@ -8121,7 +8121,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/LEA.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/LEA.svg"
                   },
                   "locale": {
                     "description": "",
@@ -8131,7 +8131,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/LEA.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/LEA.svg"
                   },
                   "printable": {
                     "description": "",
@@ -8211,7 +8211,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/Mediacentre.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/Mediacentre.svg"
                   },
                   "locale": {
                     "description": "",
@@ -8221,7 +8221,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/Mediacentre.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/Mediacentre.svg"
                   },
                   "printable": {
                     "description": "",
@@ -8301,7 +8301,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/Mediacentre.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/Mediacentre.svg"
                   },
                   "locale": {
                     "description": "",
@@ -8311,7 +8311,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/Mediacentre.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/Mediacentre.svg"
                   },
                   "printable": {
                     "description": "",
@@ -8391,12 +8391,12 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/pod.png"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/pod.png"
                   },
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/pod.png"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/pod.png"
                   }
                 },
                 "ratingsCount": 0,
@@ -8466,12 +8466,12 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/PMB_LesCharmilles.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/PMB_LesCharmilles.svg"
                   },
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/PMB_LesCharmilles.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/PMB_LesCharmilles.svg"
                   },
                   "printable": {
                     "description": "",
@@ -8546,7 +8546,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/SiecleVieScolaire.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/SiecleVieScolaire.svg"
                   },
                   "locale": {
                     "description": "",
@@ -8556,7 +8556,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/SiecleVieScolaire.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/SiecleVieScolaire.svg"
                   },
                   "printable": {
                     "description": "",
@@ -8636,7 +8636,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/SconetNotes_chefetab.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/SconetNotes_chefetab.svg"
                   },
                   "locale": {
                     "description": "",
@@ -8646,7 +8646,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/SconetNotes_chefetab.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/SconetNotes_chefetab.svg"
                   },
                   "printable": {
                     "description": "",
@@ -8726,7 +8726,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/SconetNotes_peda.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/SconetNotes_peda.svg"
                   },
                   "locale": {
                     "description": "",
@@ -8736,7 +8736,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/SconetNotes_peda.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/SconetNotes_peda.svg"
                   },
                   "printable": {
                     "description": "",
@@ -8816,7 +8816,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/SconetNotes.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/SconetNotes.svg"
                   },
                   "locale": {
                     "description": "",
@@ -8826,7 +8826,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/SconetNotes.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/SconetNotes.svg"
                   },
                   "printable": {
                     "description": "",
@@ -8906,7 +8906,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/SconetNotes_viesco.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/SconetNotes_viesco.svg"
                   },
                   "locale": {
                     "description": "",
@@ -8916,7 +8916,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/SconetNotes_viesco.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/SconetNotes_viesco.svg"
                   },
                   "printable": {
                     "description": "",
@@ -9001,7 +9001,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/Teleservices.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/Teleservices.svg"
                   },
                   "locale": {
                     "description": "",
@@ -9011,7 +9011,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/Teleservices.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/Teleservices.svg"
                   },
                   "printable": {
                     "description": "",
@@ -9106,12 +9106,12 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/ItsTours_VieEtudiante.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/ItsTours_VieEtudiante.svg"
                   },
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/ItsTours_VieEtudiante.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/ItsTours_VieEtudiante.svg"
                   },
                   "printable": {
                     "description": "",
@@ -9186,7 +9186,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/Ypareo.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/Ypareo.svg"
                   },
                   "locale": {
                     "description": "",
@@ -9196,7 +9196,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/Ypareo.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/Ypareo.svg"
                   },
                   "printable": {
                     "description": "",
@@ -9284,12 +9284,12 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/MonCDIPLCourier.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/MonCDIPLCourier.svg"
                   },
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/MonCDIPLCourier.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/MonCDIPLCourier.svg"
                   },
                   "printable": {
                     "description": "",
@@ -9364,7 +9364,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/DocumentsEtab.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/DocumentsEtab.svg"
                   },
                   "locale": {
                     "description": "",
@@ -9374,7 +9374,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/DocumentsEtab.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/DocumentsEtab.svg"
                   },
                   "printable": {
                     "description": "",
@@ -9454,7 +9454,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/MoodleMu.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/MoodleMu.svg"
                   },
                   "locale": {
                     "description": "",
@@ -9464,7 +9464,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/MoodleMu.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/MoodleMu.svg"
                   },
                   "printable": {
                     "description": "",
@@ -9544,7 +9544,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/esup-filemanager.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/esup-filemanager.svg"
                   },
                   "locale": {
                     "description": "",
@@ -9554,7 +9554,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/esup-filemanager.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/esup-filemanager.svg"
                   },
                   "printable": {
                     "description": "",
@@ -9629,7 +9629,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/PMB.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/PMB.svg"
                   },
                   "locale": {
                     "description": "",
@@ -9639,7 +9639,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/PMB.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/PMB.svg"
                   },
                   "printable": {
                     "description": "",
@@ -9719,12 +9719,12 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/CDITheresePlaniol.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/CDITheresePlaniol.svg"
                   },
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/CDITheresePlaniol.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/CDITheresePlaniol.svg"
                   },
                   "printable": {
                     "description": "",
@@ -9799,7 +9799,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/LiensUtilAgri.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/LiensUtilAgri.svg"
                   },
                   "locale": {
                     "description": "",
@@ -9809,7 +9809,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/LiensUtilAgri.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/LiensUtilAgri.svg"
                   },
                   "printable": {
                     "description": "",
@@ -9889,7 +9889,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/liensUtilesCFA.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/liensUtilesCFA.svg"
                   },
                   "locale": {
                     "description": "",
@@ -9899,7 +9899,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/liensUtilesCFA.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/liensUtilesCFA.svg"
                   },
                   "printable": {
                     "description": "",
@@ -9979,7 +9979,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/LiensEdutiles.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/LiensEdutiles.svg"
                   },
                   "locale": {
                     "description": "",
@@ -9989,7 +9989,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/LiensEdutiles.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/LiensEdutiles.svg"
                   },
                   "printable": {
                     "description": "",
@@ -10069,7 +10069,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/Mediacentre.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/Mediacentre.svg"
                   },
                   "locale": {
                     "description": "",
@@ -10079,7 +10079,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/Mediacentre.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/Mediacentre.svg"
                   },
                   "printable": {
                     "description": "",
@@ -10164,12 +10164,12 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/MonCDI.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/MonCDI.svg"
                   },
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/MonCDI.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/MonCDI.svg"
                   },
                   "printable": {
                     "description": "",
@@ -10244,7 +10244,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/Mediacentre.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/Mediacentre.svg"
                   },
                   "locale": {
                     "description": "",
@@ -10254,7 +10254,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/Mediacentre.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/Mediacentre.svg"
                   },
                   "printable": {
                     "description": "",
@@ -10339,12 +10339,12 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/PMB_LesCharmilles.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/PMB_LesCharmilles.svg"
                   },
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/PMB_LesCharmilles.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/PMB_LesCharmilles.svg"
                   },
                   "printable": {
                     "description": "",
@@ -10419,12 +10419,12 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/AccesOAE_RECIA.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/AccesOAE_RECIA.svg"
                   },
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/AccesOAE_RECIA.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/AccesOAE_RECIA.svg"
                   },
                   "printable": {
                     "description": "",
@@ -10499,7 +10499,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/OwnCloud_RECIA.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/OwnCloud_RECIA.svg"
                   },
                   "locale": {
                     "description": "",
@@ -10509,7 +10509,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/OwnCloud_RECIA.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/OwnCloud_RECIA.svg"
                   },
                   "printable": {
                     "description": "",
@@ -10592,7 +10592,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/ResumeInfosENT"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/ResumeInfosENT"
                   },
                   "locale": {
                     "description": "",
@@ -10602,7 +10602,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/ResumeInfosENT"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/ResumeInfosENT"
                   },
                   "printable": {
                     "description": "",
@@ -10682,7 +10682,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/DocENT.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/DocENT.svg"
                   },
                   "locale": {
                     "description": "",
@@ -10692,7 +10692,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/DocENT.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/DocENT.svg"
                   },
                   "printable": {
                     "description": "",
@@ -10767,7 +10767,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/I2Grouper-UI.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/I2Grouper-UI.svg"
                   },
                   "locale": {
                     "description": "",
@@ -10777,7 +10777,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/I2Grouper-UI.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/I2Grouper-UI.svg"
                   },
                   "printable": {
                     "description": "",
@@ -10852,7 +10852,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/ESCO-GLC.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/ESCO-GLC.svg"
                   },
                   "locale": {
                     "description": "",
@@ -10862,7 +10862,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/ESCO-GLC.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/ESCO-GLC.svg"
                   },
                   "printable": {
                     "description": "",
@@ -10942,7 +10942,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/AnnoncesRECIA.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/AnnoncesRECIA.svg"
                   },
                   "locale": {
                     "description": "",
@@ -10952,7 +10952,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/AnnoncesRECIA.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/AnnoncesRECIA.svg"
                   },
                   "printable": {
                     "description": "",
@@ -11032,7 +11032,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/Catalogue_OPSI.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/Catalogue_OPSI.svg"
                   },
                   "locale": {
                     "description": "",
@@ -11042,7 +11042,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/Catalogue_OPSI.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/Catalogue_OPSI.svg"
                   },
                   "printable": {
                     "description": "",
@@ -11137,12 +11137,12 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/MILycees.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/MILycees.svg"
                   },
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/MILycees.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/MILycees.svg"
                   },
                   "printable": {
                     "description": "",
@@ -11232,7 +11232,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/ESCO-ParamEtab.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/ESCO-ParamEtab.svg"
                   },
                   "locale": {
                     "description": "",
@@ -11242,7 +11242,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/ESCO-ParamEtab.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/ESCO-ParamEtab.svg"
                   },
                   "printable": {
                     "description": "",
@@ -11322,7 +11322,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/ITSM.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/ITSM.svg"
                   },
                   "locale": {
                     "description": "",
@@ -11332,7 +11332,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/ITSM.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/ITSM.svg"
                   },
                   "printable": {
                     "description": "",
@@ -11493,12 +11493,12 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/CourrielEducagri.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/CourrielEducagri.svg"
                   },
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/CourrielEducagri.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/CourrielEducagri.svg"
                   },
                   "printable": {
                     "description": "",
@@ -11578,12 +11578,12 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/CourrielAcademique.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/CourrielAcademique.svg"
                   },
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/CourrielAcademique.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/CourrielAcademique.svg"
                   },
                   "printable": {
                     "description": "",
@@ -11658,7 +11658,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/CourrielRECIA.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/CourrielRECIA.svg"
                   },
                   "locale": {
                     "description": "",
@@ -11668,7 +11668,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/CourrielRECIA.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/CourrielRECIA.svg"
                   },
                   "printable": {
                     "description": "",
@@ -11753,12 +11753,12 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/eurecia.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/eurecia.svg"
                   },
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/eurecia.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/eurecia.svg"
                   },
                   "printable": {
                     "description": "",
@@ -11838,12 +11838,12 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/PortailArenA.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/PortailArenA.svg"
                   },
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/PortailArenA.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/PortailArenA.svg"
                   },
                   "printable": {
                     "description": "",
@@ -11921,7 +11921,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/CahierTexte.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/CahierTexte.svg"
                   },
                   "locale": {
                     "description": "",
@@ -11931,7 +11931,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/CahierTexte.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/CahierTexte.svg"
                   },
                   "printable": {
                     "description": "",
@@ -12011,7 +12011,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/DocumentsEtab.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/DocumentsEtab.svg"
                   },
                   "locale": {
                     "description": "",
@@ -12021,7 +12021,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/DocumentsEtab.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/DocumentsEtab.svg"
                   },
                   "printable": {
                     "description": "",
@@ -12101,7 +12101,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/EDT.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/EDT.svg"
                   },
                   "locale": {
                     "description": "",
@@ -12111,7 +12111,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/EDT.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/EDT.svg"
                   },
                   "printable": {
                     "description": "",
@@ -12196,7 +12196,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/EchoSpheres.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/EchoSpheres.svg"
                   },
                   "locale": {
                     "description": "",
@@ -12206,7 +12206,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/EchoSpheres.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/EchoSpheres.svg"
                   },
                   "printable": {
                     "description": "",
@@ -12286,7 +12286,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/VieScolaire.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/VieScolaire.svg"
                   },
                   "locale": {
                     "description": "",
@@ -12296,7 +12296,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/VieScolaire.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/VieScolaire.svg"
                   },
                   "printable": {
                     "description": "",
@@ -12371,7 +12371,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/LEA.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/LEA.svg"
                   },
                   "locale": {
                     "description": "",
@@ -12381,7 +12381,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/LEA.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/LEA.svg"
                   },
                   "printable": {
                     "description": "",
@@ -12451,7 +12451,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/YmagLog.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/YmagLog.svg"
                   },
                   "locale": {
                     "description": "",
@@ -12461,7 +12461,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/YmagLog.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/YmagLog.svg"
                   },
                   "printable": {
                     "description": "",
@@ -12536,7 +12536,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/SiecleVieScolaire.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/SiecleVieScolaire.svg"
                   },
                   "locale": {
                     "description": "",
@@ -12546,7 +12546,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/SiecleVieScolaire.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/SiecleVieScolaire.svg"
                   },
                   "printable": {
                     "description": "",
@@ -12626,7 +12626,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/SconetNotes_chefetab.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/SconetNotes_chefetab.svg"
                   },
                   "locale": {
                     "description": "",
@@ -12636,7 +12636,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/SconetNotes_chefetab.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/SconetNotes_chefetab.svg"
                   },
                   "printable": {
                     "description": "",
@@ -12716,7 +12716,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/SconetNotes_peda.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/SconetNotes_peda.svg"
                   },
                   "locale": {
                     "description": "",
@@ -12726,7 +12726,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/SconetNotes_peda.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/SconetNotes_peda.svg"
                   },
                   "printable": {
                     "description": "",
@@ -12806,7 +12806,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/SconetNotes.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/SconetNotes.svg"
                   },
                   "locale": {
                     "description": "",
@@ -12816,7 +12816,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/SconetNotes.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/SconetNotes.svg"
                   },
                   "printable": {
                     "description": "",
@@ -12896,7 +12896,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/SconetNotes_viesco.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/SconetNotes_viesco.svg"
                   },
                   "locale": {
                     "description": "",
@@ -12906,7 +12906,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/SconetNotes_viesco.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/SconetNotes_viesco.svg"
                   },
                   "printable": {
                     "description": "",
@@ -12991,7 +12991,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/Teleservices.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/Teleservices.svg"
                   },
                   "locale": {
                     "description": "",
@@ -13001,7 +13001,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/Teleservices.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/Teleservices.svg"
                   },
                   "printable": {
                     "description": "",
@@ -13096,12 +13096,12 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/ItsTours_VieEtudiante.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/ItsTours_VieEtudiante.svg"
                   },
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/ItsTours_VieEtudiante.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/ItsTours_VieEtudiante.svg"
                   },
                   "printable": {
                     "description": "",
@@ -13176,7 +13176,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/Ypareo.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/Ypareo.svg"
                   },
                   "locale": {
                     "description": "",
@@ -13186,7 +13186,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/Ypareo.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/Ypareo.svg"
                   },
                   "printable": {
                     "description": "",
@@ -13269,7 +13269,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/ActualitesEtab.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/ActualitesEtab.svg"
                   },
                   "locale": {
                     "description": "",
@@ -13279,7 +13279,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/ActualitesEtab.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/ActualitesEtab.svg"
                   },
                   "printable": {
                     "description": "",
@@ -13359,7 +13359,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/AdminListesDiffusion.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/AdminListesDiffusion.svg"
                   },
                   "locale": {
                     "description": "",
@@ -13369,7 +13369,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/AdminListesDiffusion.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/AdminListesDiffusion.svg"
                   },
                   "printable": {
                     "description": "",
@@ -13449,7 +13449,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/AgendaKronolith.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/AgendaKronolith.svg"
                   },
                   "locale": {
                     "description": "",
@@ -13459,7 +13459,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/AgendaKronolith.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/AgendaKronolith.svg"
                   },
                   "printable": {
                     "description": "",
@@ -13539,7 +13539,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/ResumeActualitesEtab.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/ResumeActualitesEtab.svg"
                   },
                   "locale": {
                     "description": "",
@@ -13549,7 +13549,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/ResumeActualitesEtab.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/ResumeActualitesEtab.svg"
                   },
                   "printable": {
                     "description": "",
@@ -13629,7 +13629,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/DocumentsEtab.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/DocumentsEtab.svg"
                   },
                   "locale": {
                     "description": "",
@@ -13639,7 +13639,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/DocumentsEtab.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/DocumentsEtab.svg"
                   },
                   "printable": {
                     "description": "",
@@ -13719,7 +13719,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/EDT.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/EDT.svg"
                   },
                   "locale": {
                     "description": "",
@@ -13729,7 +13729,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/EDT.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/EDT.svg"
                   },
                   "printable": {
                     "description": "",
@@ -13814,7 +13814,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/EchoSpheres.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/EchoSpheres.svg"
                   },
                   "locale": {
                     "description": "",
@@ -13824,7 +13824,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/EchoSpheres.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/EchoSpheres.svg"
                   },
                   "printable": {
                     "description": "",
@@ -13899,7 +13899,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/GRR2_CFA.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/GRR2_CFA.svg"
                   },
                   "locale": {
                     "description": "",
@@ -13909,7 +13909,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/GRR2_CFA.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/GRR2_CFA.svg"
                   },
                   "printable": {
                     "description": "",
@@ -13984,7 +13984,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/GRR_JCoeurEleves.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/GRR_JCoeurEleves.svg"
                   },
                   "locale": {
                     "description": "",
@@ -13994,7 +13994,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/GRR_JCoeurEleves.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/GRR_JCoeurEleves.svg"
                   },
                   "printable": {
                     "description": "",
@@ -14069,7 +14069,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/GRR2_netocentre.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/GRR2_netocentre.svg"
                   },
                   "locale": {
                     "description": "",
@@ -14079,7 +14079,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/GRR2_netocentre.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/GRR2_netocentre.svg"
                   },
                   "printable": {
                     "description": "",
@@ -14159,7 +14159,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/GLPI.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/GLPI.svg"
                   },
                   "locale": {
                     "description": "",
@@ -14169,7 +14169,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/GLPI.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/GLPI.svg"
                   },
                   "printable": {
                     "description": "",
@@ -14244,7 +14244,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/Statistiques.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/Statistiques.svg"
                   },
                   "locale": {
                     "description": "",
@@ -14254,7 +14254,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/Statistiques.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/Statistiques.svg"
                   },
                   "printable": {
                     "description": "",
@@ -14334,7 +14334,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/ListesDiffusion.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/ListesDiffusion.svg"
                   },
                   "locale": {
                     "description": "",
@@ -14344,7 +14344,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/ListesDiffusion.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/ListesDiffusion.svg"
                   },
                   "printable": {
                     "description": "",
@@ -14419,7 +14419,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/ESCO-MCE.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/ESCO-MCE.svg"
                   },
                   "locale": {
                     "description": "",
@@ -14429,7 +14429,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/ESCO-MCE.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/ESCO-MCE.svg"
                   },
                   "printable": {
                     "description": "",
@@ -14524,7 +14524,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/Limesurvey.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/Limesurvey.svg"
                   },
                   "locale": {
                     "description": "",
@@ -14534,7 +14534,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/Limesurvey.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/Limesurvey.svg"
                   },
                   "printable": {
                     "description": "",
@@ -14619,12 +14619,12 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/eurecia.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/eurecia.svg"
                   },
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/eurecia.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/eurecia.svg"
                   },
                   "printable": {
                     "description": "",
@@ -14714,7 +14714,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/ESCO-ParamEtab.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/ESCO-ParamEtab.svg"
                   },
                   "locale": {
                     "description": "",
@@ -14724,7 +14724,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/ESCO-ParamEtab.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/ESCO-ParamEtab.svg"
                   },
                   "printable": {
                     "description": "",
@@ -14804,7 +14804,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/PublicationContenus.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/PublicationContenus.svg"
                   },
                   "locale": {
                     "description": "",
@@ -14814,7 +14814,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/PublicationContenus.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/PublicationContenus.svg"
                   },
                   "printable": {
                     "description": "",
@@ -14869,7 +14869,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/SiteEtablissement.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/SiteEtablissement.svg"
                   },
                   "locale": {
                     "description": "",
@@ -14879,7 +14879,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/SiteEtablissement.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/SiteEtablissement.svg"
                   },
                   "secure": {
                     "description": "",
@@ -14949,7 +14949,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/OwnCloud_RECIA.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/OwnCloud_RECIA.svg"
                   },
                   "locale": {
                     "description": "",
@@ -14959,7 +14959,7 @@
                   "mobileIconUrl": {
                     "description": "",
                     "name": "mobileIconUrl",
-                    "value": "https://ent.recia.fr/images/portlet_icons/OwnCloud_RECIA.svg"
+                    "value": "https://gip-recia.github.io/icons-pack/icons/OwnCloud_RECIA.svg"
                   },
                   "printable": {
                     "description": "",
@@ -14997,7 +14997,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/ResourceServingWebapp/rs/tango/0.8.90/32x32/categories/preferences-system.png"
+                    "value": "https://noswap.com/pub/tango/tango-icon-theme-0.8.90/32x32/categories/preferences-system.png"
                   }
                 },
                 "ratingsCount": 0,
@@ -15017,7 +15017,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/ResourceServingWebapp/rs/tango/0.8.90/32x32/categories/preferences-system.png"
+                    "value": "https://noswap.com/pub/tango/tango-icon-theme-0.8.90/32x32/categories/preferences-system.png"
                   }
                 },
                 "ratingsCount": 0,
@@ -15037,7 +15037,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/ResourceServingWebapp/rs/tango/0.8.90/32x32/categories/preferences-system.png"
+                    "value": "https://noswap.com/pub/tango/tango-icon-theme-0.8.90/32x32/categories/preferences-system.png"
                   }
                 },
                 "ratingsCount": 0,
@@ -15057,7 +15057,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/ResourceServingWebapp/rs/tango/0.8.90/32x32/categories/preferences-system.png"
+                    "value": "https://noswap.com/pub/tango/tango-icon-theme-0.8.90/32x32/categories/preferences-system.png"
                   }
                 },
                 "ratingsCount": 0,
@@ -15077,7 +15077,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/ResourceServingWebapp/rs/tango/0.8.90/32x32/apps/system-users.png"
+                    "value": "https://noswap.com/pub/tango/tango-icon-theme-0.8.90/32x32/apps/system-users.png"
                   }
                 },
                 "ratingsCount": 0,
@@ -15097,7 +15097,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/ResourceServingWebapp/rs/tango/0.8.90/32x32/categories/preferences-system.png"
+                    "value": "https://noswap.com/pub/tango/tango-icon-theme-0.8.90/32x32/categories/preferences-system.png"
                   }
                 },
                 "ratingsCount": 0,
@@ -15117,7 +15117,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/ResourceServingWebapp/rs/tango/0.8.90/32x32/categories/preferences-system.png"
+                    "value": "https://noswap.com/pub/tango/tango-icon-theme-0.8.90/32x32/categories/preferences-system.png"
                   }
                 },
                 "ratingsCount": 0,
@@ -15137,7 +15137,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/ResourceServingWebapp/rs/tango/0.8.90/32x32/apps/system-users.png"
+                    "value": "https://noswap.com/pub/tango/tango-icon-theme-0.8.90/32x32/apps/system-users.png"
                   }
                 },
                 "ratingsCount": 0,
@@ -15162,7 +15162,7 @@
                   "iconUrl": {
                     "description": "",
                     "name": "iconUrl",
-                    "value": "https://ent.recia.fr/ResourceServingWebapp/rs/tango/0.8.90/32x32/mimetypes/x-office-spreadsheet.png"
+                    "value": "https://noswap.com/pub/tango/tango-icon-theme-0.8.90/32x32/mimetypes/x-office-spreadsheet.png"
                   }
                 },
                 "ratingsCount": 0,
@@ -15287,7 +15287,7 @@
               "iconUrl": {
                 "description": "",
                 "name": "iconUrl",
-                "value": "https://ent.recia.fr/images/portlet_icons/HelpInfo.svg"
+                "value": "https://gip-recia.github.io/icons-pack/icons/HelpInfo.svg"
               },
               "locale": {
                 "description": "",
@@ -15297,7 +15297,7 @@
               "mobileIconUrl": {
                 "description": "",
                 "name": "mobileIconUrl",
-                "value": "https://ent.recia.fr/images/portlet_icons/HelpInfo.svg"
+                "value": "https://gip-recia.github.io/icons-pack/icons/HelpInfo.svg"
               },
               "printable": {
                 "description": "",
@@ -15441,12 +15441,12 @@
               "iconUrl": {
                 "description": "",
                 "name": "iconUrl",
-                "value": "https://ent.recia.fr/ResourceServingWebapp/rs/tango/0.8.90/32x32/apps/preferences-desktop-theme.png"
+                "value": "https://noswap.com/pub/tango/tango-icon-theme-0.8.90/32x32/apps/preferences-desktop-theme.png"
               },
               "mobileIconUrl": {
                 "description": "",
                 "name": "mobileIconUrl",
-                "value": "https://ent.recia.fr/ResourceServingWebapp/rs/tango/0.8.90/32x32/apps/preferences-desktop-theme.png"
+                "value": "https://noswap.com/pub/tango/tango-icon-theme-0.8.90/32x32/apps/preferences-desktop-theme.png"
               }
             },
             "ratingsCount": 0,
@@ -15476,12 +15476,12 @@
               "iconUrl": {
                 "description": "",
                 "name": "iconUrl",
-                "value": "https://ent.recia.fr/ResourceServingWebapp/rs/tango/0.8.90/32x32/apps/preferences-desktop-theme.png"
+                "value": "https://noswap.com/pub/tango/tango-icon-theme-0.8.90/32x32/apps/preferences-desktop-theme.png"
               },
               "mobileIconUrl": {
                 "description": "",
                 "name": "mobileIconUrl",
-                "value": "https://ent.recia.fr/ResourceServingWebapp/rs/tango/0.8.90/32x32/apps/preferences-desktop-theme.png"
+                "value": "https://noswap.com/pub/tango/tango-icon-theme-0.8.90/32x32/apps/preferences-desktop-theme.png"
               }
             },
             "ratingsCount": 0,
@@ -15511,12 +15511,12 @@
               "iconUrl": {
                 "description": "",
                 "name": "iconUrl",
-                "value": "https://ent.recia.fr/ResourceServingWebapp/rs/tango/0.8.90/32x32/apps/preferences-desktop-theme.png"
+                "value": "https://noswap.com/pub/tango/tango-icon-theme-0.8.90/32x32/apps/preferences-desktop-theme.png"
               },
               "mobileIconUrl": {
                 "description": "",
                 "name": "mobileIconUrl",
-                "value": "https://ent.recia.fr/ResourceServingWebapp/rs/tango/0.8.90/32x32/apps/preferences-desktop-theme.png"
+                "value": "https://noswap.com/pub/tango/tango-icon-theme-0.8.90/32x32/apps/preferences-desktop-theme.png"
               }
             },
             "ratingsCount": 0,
@@ -15536,7 +15536,7 @@
               "iconUrl": {
                 "description": "",
                 "name": "iconUrl",
-                "value": "https://ent.recia.fr/ResourceServingWebapp/rs/tango/0.8.90/32x32/status/dialog-warning.png"
+                "value": "https://noswap.com/pub/tango/tango-icon-theme-0.8.90/32x32/status/dialog-warning.png"
               }
             },
             "ratingsCount": 0,
@@ -15601,7 +15601,7 @@
               "iconUrl": {
                 "description": "",
                 "name": "iconUrl",
-                "value": "https://ent.recia.fr/images/portlet_icons/Annonces.png"
+                "value": "https://gip-recia.github.io/icons-pack/icons/FlashInfoEtab.svg"
               },
               "locale": {
                 "description": "",
@@ -15611,7 +15611,7 @@
               "mobileIconUrl": {
                 "description": "",
                 "name": "mobileIconUrl",
-                "value": "https://ent.recia.fr/images/portlet_icons/Annonces.png"
+                "value": "https://gip-recia.github.io/icons-pack/icons/FlashInfoEtab.svg"
               },
               "printable": {
                 "description": "",
@@ -15691,7 +15691,7 @@
               "iconUrl": {
                 "description": "",
                 "name": "iconUrl",
-                "value": "https://ent.recia.fr/images/portlet_icons/Annonces.png"
+                "value": "https://gip-recia.github.io/icons-pack/icons/FlashInfoEtab.svg"
               },
               "locale": {
                 "description": "",
@@ -15701,7 +15701,7 @@
               "mobileIconUrl": {
                 "description": "",
                 "name": "mobileIconUrl",
-                "value": "https://ent.recia.fr/images/portlet_icons/Annonces.png"
+                "value": "https://gip-recia.github.io/icons-pack/icons/FlashInfoEtab.svg"
               },
               "printable": {
                 "description": "",
@@ -15781,7 +15781,7 @@
               "iconUrl": {
                 "description": "",
                 "name": "iconUrl",
-                "value": "https://ent.recia.fr/images/portlet_icons/Annonces.png"
+                "value": "https://gip-recia.github.io/icons-pack/icons/FlashInfoEtab.svg"
               },
               "locale": {
                 "description": "",
@@ -15791,7 +15791,7 @@
               "mobileIconUrl": {
                 "description": "",
                 "name": "mobileIconUrl",
-                "value": "https://ent.recia.fr/images/portlet_icons/Annonces.png"
+                "value": "https://gip-recia.github.io/icons-pack/icons/FlashInfoEtab.svg"
               },
               "printable": {
                 "description": "",
@@ -15871,7 +15871,7 @@
               "iconUrl": {
                 "description": "",
                 "name": "iconUrl",
-                "value": "https://ent.recia.fr/images/portlet_icons/Annonces.png"
+                "value": "https://gip-recia.github.io/icons-pack/icons/FlashInfoEtab.svg"
               },
               "locale": {
                 "description": "",
@@ -15881,7 +15881,7 @@
               "mobileIconUrl": {
                 "description": "",
                 "name": "mobileIconUrl",
-                "value": "https://ent.recia.fr/images/portlet_icons/Annonces.png"
+                "value": "https://gip-recia.github.io/icons-pack/icons/FlashInfoEtab.svg"
               },
               "printable": {
                 "description": "",
@@ -15961,7 +15961,7 @@
               "iconUrl": {
                 "description": "",
                 "name": "iconUrl",
-                "value": "https://ent.recia.fr/images/portlet_icons/Annonces.png"
+                "value": "https://gip-recia.github.io/icons-pack/icons/FlashInfoEtab.svg"
               },
               "locale": {
                 "description": "",
@@ -15971,7 +15971,7 @@
               "mobileIconUrl": {
                 "description": "",
                 "name": "mobileIconUrl",
-                "value": "https://ent.recia.fr/images/portlet_icons/Annonces.png"
+                "value": "https://gip-recia.github.io/icons-pack/icons/FlashInfoEtab.svg"
               },
               "printable": {
                 "description": "",
@@ -16051,7 +16051,7 @@
               "iconUrl": {
                 "description": "",
                 "name": "iconUrl",
-                "value": "https://ent.recia.fr/images/portlet_icons/Annonces.png"
+                "value": "https://gip-recia.github.io/icons-pack/icons/FlashInfoEtab.svg"
               },
               "locale": {
                 "description": "",
@@ -16061,7 +16061,7 @@
               "mobileIconUrl": {
                 "description": "",
                 "name": "mobileIconUrl",
-                "value": "https://ent.recia.fr/images/portlet_icons/Annonces.png"
+                "value": "https://gip-recia.github.io/icons-pack/icons/FlashInfoEtab.svg"
               },
               "printable": {
                 "description": "",
@@ -16141,7 +16141,7 @@
               "iconUrl": {
                 "description": "",
                 "name": "iconUrl",
-                "value": "https://ent.recia.fr/images/portlet_icons/FlashInfoEtab.svg"
+                "value": "https://gip-recia.github.io/icons-pack/icons/FlashInfoEtab.svg"
               },
               "locale": {
                 "description": "",
@@ -16151,7 +16151,7 @@
               "mobileIconUrl": {
                 "description": "",
                 "name": "mobileIconUrl",
-                "value": "https://ent.recia.fr/images/portlet_icons/FlashInfoEtab.svg"
+                "value": "https://gip-recia.github.io/icons-pack/icons/FlashInfoEtab.svg"
               },
               "printable": {
                 "description": "",
@@ -16474,7 +16474,7 @@
               "iconUrl": {
                 "description": "",
                 "name": "iconUrl",
-                "value": "https://ent.recia.fr/ResourceServingWebapp/rs/tango/0.8.90/32x32/actions/system-search.png"
+                "value": "https://noswap.com/pub/tango/tango-icon-theme-0.8.90/32x32/actions/system-search.png"
               },
               "mobileIconUrl": {
                 "description": "",
