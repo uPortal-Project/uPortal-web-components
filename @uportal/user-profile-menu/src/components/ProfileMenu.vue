@@ -48,7 +48,7 @@ export default {
     },
     fallbackText: function() {
       return (
-        this.user.family_name.substr(0, 1) + this.user.given_name.substr(0, 1)
+        this.user.given_name.substr(0, 1) + this.user.family_name.substr(0, 1)
       );
     }
   },
