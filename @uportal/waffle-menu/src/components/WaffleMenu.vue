@@ -143,7 +143,11 @@ export default {
       }
     },
     truncateTitle(title) {
-      return title.substring(0, this.truncateLength + 1) + '...';
+      if (title.length > this.truncateLength) {
+        return title.substring(0, this.truncateLength + 1) + '...';
+      }
+
+      return title;
     },
     wafflePress(registry) {
       const menuItems = portletRegistryToArray(registry).map(
