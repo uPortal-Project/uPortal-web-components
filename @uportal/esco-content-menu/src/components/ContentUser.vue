@@ -152,12 +152,13 @@ export default {
     display: flex;
     flex-direction: column;
     height: 100%;
+    justify-content: flex-end;
 
     > .org-img {
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-top: auto;
+      flex: 1;
 
       img {
         width: 270px;
@@ -231,10 +232,6 @@ export default {
           }
         }
       }
-    }
-
-    > .org-img + .user-info {
-      margin-top: auto;
     }
   }
 }
