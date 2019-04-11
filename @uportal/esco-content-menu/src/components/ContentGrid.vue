@@ -50,6 +50,7 @@
         <div
           v-for="portlet in filteredPortlets"
           :key="portlet.id"
+          :class="['portlet-card-' + _portletCardSize]"
           class="flex-item ma-3 text-xs-center">
           <a
             :href="getRenderPortletUrl(portlet)"
@@ -470,7 +471,7 @@ $searchSize: 32px;
     .flex-grid {
       display: flex;
       flex-flow: row wrap;
-      justify-content: center;
+      justify-content: var(--content-grid-flex-grid-justify, center);
 
       .flex-item {
         margin: 20px auto;

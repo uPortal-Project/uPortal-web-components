@@ -275,6 +275,17 @@ The `footer` slot permit to apply a custom title replacing the default filter on
 </content-grid>
 ```
 
+#### Theming
+
+This component supports [CSS Variables](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_variables) for overriding some default values. So defining the following variables will override default values.
+
+```css
+:root {
+  --content-grid-flex-grid-justify: center; // How to justify all flex grid elements, default value is center
+  --content-grid-flex-grid-item-margin: 20px auto; // To set a margin on all flex items, default is `20px auto`
+}
+```
+
 ### The action favorite
 
 The component `action-favorite` is really simple, it show a start button that permit to add or remove from favorites a portlet.
