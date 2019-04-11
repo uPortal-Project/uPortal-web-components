@@ -182,6 +182,26 @@ and with additional properties to work with the `hamburger-menu`:
 - `is-hidden`: type: `Boolean`, default: `false`, used by the `hamburger-menu` to indicate the state of the page.
 - `id`: type: `String`, default: `null`, provide an id to be able to select the dome element, as example if you want to manage manualy an `hamburger-menu`
 
+#### Slots
+
+The HTML content of the component can also be modified using [slots](https://vuejs.org/v2/guide/components-slots.html).
+
+##### Content User
+
+The `content-user` slot permit to apply a custom component at this place, or to remove it. As example:
+
+```html
+<esco-content-menu
+  sign-out-url="/uPortal/Logout"
+  default-org-logo="https://www.toureiffel.paris/sites/default/files/styles/1440x810/public/2017-10/monument-landing-header-bg_0.jpg?itok=_dSLLBlZ"
+  favorites-portlet-card-size="small"
+  grid-portlet-card-size="auto"
+  hide-action-mode="never"
+>
+  <div slot="content-user" />
+</esco-content-menu>
+```
+
 ### The content grid
 
 This component provide a flexbox way to show a list of `portlet-card`, depending on uPortal rest-api.
