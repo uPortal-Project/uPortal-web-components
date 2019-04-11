@@ -29,7 +29,8 @@
           :is-hidden="_isHidden"
           :user-info-api-url="userInfoApiUrl"
           :context-api-url="contextApiUrl"
-          :debug="debug"/>
+          :debug="debug"
+          :use-swipper="showFavoritesInSlider"/>
       </div>
       <div
         :style="
@@ -152,6 +153,7 @@ export default {
       type: String,
       default: 'otherAttributes.ESCOStructureLogo[0]',
     },
+    showFavoritesInSlider: {type: Boolean, default: true},
   },
   data() {
     return {
