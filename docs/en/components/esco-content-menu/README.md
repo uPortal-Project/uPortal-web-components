@@ -202,6 +202,22 @@ The `content-user` slot permit to apply a custom component at this place, or to 
 </esco-content-menu>
 ```
 
+##### Header Buttons
+
+The `header-buttons` slot permit to apply a custom component at this place, or to remove it. As example:
+
+```html
+<esco-content-menu
+  sign-out-url="/uPortal/Logout"
+  default-org-logo="https://www.toureiffel.paris/sites/default/files/styles/1440x810/public/2017-10/monument-landing-header-bg_0.jpg?itok=_dSLLBlZ"
+  favorites-portlet-card-size="small"
+  grid-portlet-card-size="auto"
+  hide-action-mode="never"
+>
+  <div slot="header-buttons" />
+</esco-content-menu>
+```
+
 ### The content grid
 
 This component provide a flexbox way to show a list of `portlet-card`, depending on uPortal rest-api.

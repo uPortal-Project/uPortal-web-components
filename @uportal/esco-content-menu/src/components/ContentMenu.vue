@@ -3,9 +3,11 @@
     :class="['toggler-menu', _screenSize, !_isHidden ? 'active-menu' : '']"
     class="content-menu">
     <header>
-      <header-buttons
-        :call-on-close="close"
-        :sign-out-url="signOutUrl" />
+      <slot name="header-buttons">
+        <header-buttons
+          :call-on-close="close"
+          :sign-out-url="signOutUrl" />
+      </slot>
       <div class="wrapper">
         <slot name="content-user">
           <content-user

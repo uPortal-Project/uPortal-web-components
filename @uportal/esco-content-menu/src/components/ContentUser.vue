@@ -159,6 +159,7 @@ export default {
       align-items: center;
       justify-content: center;
       flex: 1;
+      margin-top: 15px;
 
       img {
         width: 270px;
