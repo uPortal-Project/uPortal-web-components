@@ -198,7 +198,7 @@ The `content-user` slot permit to apply a custom component at this place, or to 
   grid-portlet-card-size="auto"
   hide-action-mode="never"
 >
-  <div slot="content-user" />
+  <div slot="content-user"></div>
 </esco-content-menu>
 ```
 
@@ -214,7 +214,7 @@ The `header-buttons` slot permit to apply a custom component at this place, or t
   grid-portlet-card-size="auto"
   hide-action-mode="never"
 >
-  <div slot="header-buttons" />
+  <div slot="header-buttons"></div>
 </esco-content-menu>
 ```
 
