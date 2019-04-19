@@ -1,7 +1,13 @@
 <template>
   <section
     :class="parentScreenSize"
-    :style="(parentScreenSize === 'small' || parentScreenSize === 'smaller') ? 'background-image: linear-gradient(0deg, rgba(0,0,0,.2),rgba(0,0,0,.2)), url(' + getOrgImgUrl() + ');' : ''"
+    :style="
+      parentScreenSize === 'small' || parentScreenSize === 'smaller'
+        ? 'background-image: linear-gradient(0deg, rgba(0,0,0,.2),rgba(0,0,0,.2)), url(' +
+          getOrgImgUrl() +
+          ');'
+        : ''
+    "
     class="content-user">
     <div>
       <div class="org-img">
@@ -22,12 +28,12 @@
               :title="translate('message.userInfoPortletUrl.title')">
               <img
                 :src="getUserAvatar()"
-                :alt="'avatar'">
+                :alt="'avatar'" >
             </a>
             <img
               v-else
               :src="getUserAvatar()"
-              :alt="'avatar'">
+              :alt="'avatar'" >
           </div>
           <div
             v-else
@@ -40,7 +46,11 @@
                 {{ userInfo.name }}
               </span>
             </div>
-            <div class="user-org"><span :title="orgInfo.displayName">{{ orgInfo.displayName }}</span></div>
+            <div class="user-org">
+              <span :title="orgInfo.displayName">{{
+                orgInfo.displayName
+              }}</span>
+            </div>
           </div>
           <div
             v-if="otherOrgs.length > 1"

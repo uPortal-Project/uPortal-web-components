@@ -9,7 +9,7 @@
         v-if="!hideTitle">
         <slot name="header-left">
           <h1>
-            {{ translate("message.services.title") }}
+            {{ translate('message.services.title') }}
           </h1>
         </slot>
         <slot name="header-right">
@@ -54,7 +54,9 @@
           <a
             :href="getRenderPortletUrl(portlet)"
             :target="hasAlternativeMaximizedUrl(portlet) ? '_blank' : '_self'"
-            :rel="hasAlternativeMaximizedUrl(portlet) ? 'noopener noreferrer' : ''"
+            :rel="
+              hasAlternativeMaximizedUrl(portlet) ? 'noopener noreferrer' : ''
+            "
             class="no-style">
             <portlet-card
               :portlet-desc="portlet"
@@ -64,7 +66,7 @@
               :call-after-action="actionToggleFav"
               :favorite-api-url="favoriteApiUrl"
               :user-info-api-url="userInfoApiUrl"
-              :debug="debug" />
+              :debug="debug"/>
           </a>
         </div>
       </div>
@@ -110,6 +112,7 @@ import {
   hasAlternativeMaximizedUrl,
   getRenderUrl,
 } from '../services/managePortletUrl';
+import matchSorter from 'match-sorter';
 
 export default {
   name: 'ContentGrid',
@@ -192,27 +195,29 @@ export default {
     },
     filteredPortlets() {
       const portlets = this.portlets || this.localPortlets;
-      const filterValue = this.filterValue.toLowerCase();
-      const filterCategory = this.filterCategory.toLowerCase();
 
-      if (filterValue === '' && filterCategory === '') {
-        return portlets;
-      }
+      const categoryFilter =
+        this.filterCategory.trim() === ''
+          ? // no filter applied return everything
+            (portlets) => portlets
+          : // filter by category
+            (portlets) =>
+              matchSorter(portlets, this.filterCategory, {
+                keys: ['categories'],
+                threshold: matchSorter.rankings.EQUAL,
+              });
 
-      return portlets.filter(
-          ({categories, title, name, description}) =>
-            (filterCategory === '' ||
-            categories.some((cat) =>
-              cat.toLowerCase().includes(filterCategory)
-            )) &&
-          (filterValue === '' ||
-            (categories.some((cat) =>
-              cat.toLowerCase().includes(filterValue)
-            ) ||
-              title.toLowerCase().includes(filterValue) ||
-              name.toLowerCase().includes(filterValue) ||
-              description.toLowerCase().includes(filterValue)))
-      );
+      const valueFilter =
+        this.filterValue.trim() === ''
+          ? // no filter applied return everything
+            (portlets) => portlets
+          : // filter and sort by best match
+            (portlets) =>
+              matchSorter(portlets, this.filterValue, {
+                keys: ['title', 'name', 'description'],
+              });
+
+      return valueFilter(categoryFilter(portlets));
     },
   },
   beforeMount() {

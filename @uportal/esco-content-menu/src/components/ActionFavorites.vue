@@ -1,7 +1,14 @@
 <template>
   <div
-    :class="['action-favorites ' + fname, backGroundIsDark ? 'background-dark' : '']"
-    :title="isFavorite ? translate('message.favorites.remove') : translate('message.favorites.add')"
+    :class="[
+      'action-favorites ' + fname,
+      backGroundIsDark ? 'background-dark' : '',
+    ]"
+    :title="
+      isFavorite
+        ? translate('message.favorites.remove')
+        : translate('message.favorites.add')
+    "
     @click="toggleFavorite($event)">
     <button class="favorite-button">
       <font-awesome-icon :icon="[isFavorite ? 'fas' : 'far', 'star']" />

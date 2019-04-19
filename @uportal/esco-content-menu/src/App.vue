@@ -10,8 +10,8 @@
       layout-api-url="layout.json"
       organization-api-url="orginfo.json"
       user-info-api-url="userinfo.json"
-      debug />
-  <!-- <content-grid
+      debug/>
+      <!-- <content-grid
       background-color="grey"
       portlet-card-size="medium"
       portlet-api-url="portletRegistry.json"
