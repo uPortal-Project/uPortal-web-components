@@ -1,4 +1,4 @@
-export interface Registry {
+export interface RegistryResponse {
   registry: {
     categories: Category[];
   };
@@ -33,4 +33,4 @@ export interface Portlet {
   };
 }
 
-export function portletRegistryToArray(registry: Registry): Portlet[];
+export function portletRegistryToArray(registry: RegistryResponse): Portlet[];
