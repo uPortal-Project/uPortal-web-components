@@ -7,6 +7,28 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased][]
 
+## [1.27.0][] - 2019-04-22
+
+### Feature
+
+- Support partial term matching and ranking in the `esco-content-menu` (#312)
+
+### Fix
+
+- Fix recursion on swipper (#295)
+- Swap order of initials on `user-profile-menu` to first then last (#296)
+- Update `waffle-menu` to include '...' in `truncateTitle` when necessary (#299)
+- Fix scaling of large user images in the `user-profile-menu` (#309)
+
+### Docs
+
+- Added "quick new deployment" instructions to Appendix (#278)
+
+### Chore
+
+- Lock file maintenance (#294, #298, #300, #301, #307)
+- Dependency updates (#291, #297, #302, #304, #305, #306, #301, #311)
+
 ## [1.26.2][] - 2019-03-21
 
 ### Fix
@@ -921,7 +943,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - **open-id-connect**: Initial version of an OpenID Connect helper script to use in web components and JavaScript modules.
 - **content-carousel**: Initial version of content carousel, a carousel based portlet metadata display system.
 
-[unreleased]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.26.2...HEAD
+[unreleased]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.27.0...HEAD
+[1.27.0]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.26.2...v1.27.0
 [1.26.2]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.26.1...v1.26.2
 [1.26.1]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.26.0...v1.26.1
 [1.26.0]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.25.0...v1.26.0
