@@ -10,12 +10,14 @@
     "esm/open-id-connect.js",
     "cjs/open-id-connect.js",
     "src/open-id-connect.js",
-    "umd/open-id-connect.js"
+    "umd/open-id-connect.js",
+    "src/open-id-connect.d.ts"
   ],
   "main": "cjs/open-id-connect.js",
   "umd:main": "umd/open-id-connect.js",
   "module": "esm/open-id-connect.js",
   "source": "src/open-id-connect.js",
+  "types": "src/open-id-connect.d.ts",
   "keywords": [
     "apereo",
     "uportal",
