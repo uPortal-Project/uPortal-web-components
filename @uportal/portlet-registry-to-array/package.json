@@ -10,12 +10,14 @@
     "esm/portlet-registry-to-array.js",
     "cjs/portlet-registry-to-array.js",
     "src/portlet-registry-to-array.js",
-    "umd/portlet-registry-to-array.js"
+    "umd/portlet-registry-to-array.js",
+    "src/portlet-registry-to-array.d.ts"
   ],
   "main": "cjs/portlet-registry-to-array.js",
   "umd:main": "umd/portlet-registry-to-array.js",
   "module": "esm/portlet-registry-to-array.js",
   "source": "src/portlet-registry-to-array.js",
+  "types": "src/portlet-registry-to-array.d.ts",
   "keywords": [
     "apereo",
     "uportal",

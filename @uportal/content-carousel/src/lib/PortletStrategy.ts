@@ -32,11 +32,6 @@ export class PortletStrategy implements DataStrategy {
           name,
           description,
           parameters,
-        }: {
-        fname: string;
-        name: string;
-        description: string;
-        parameters: any;
         }) => {
           let imageUrl = '';
           let altText = '';
