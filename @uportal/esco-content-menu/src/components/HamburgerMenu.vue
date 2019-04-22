@@ -8,12 +8,12 @@
       aria-expanded="false"
       aria-haspopup="true"
       aria-controls="content-menu"
-      @click="toggleMenu($event)" >
+      @click="toggleMenu($event)">
       <slot name="menu-icon">
         <div class="menu-wrapper">
-          <div class="hm-line"/>
-          <div class="hm-line"/>
-          <div class="hm-line"/>
+          <div class="hm-line" />
+          <div class="hm-line" />
+          <div class="hm-line" />
         </div>
       </slot>
     </div>
@@ -41,7 +41,7 @@
         :user-all-orgs-id-attribute-name="userAllOrgsIdAttributeName"
         :org-logo-url-attribute-name="orgLogoUrlAttributeName"
         default-class="toggler-menu"
-        visible-class="active-menu" />
+        visible-class="active-menu"/>
     </slot>
   </div>
 </template>

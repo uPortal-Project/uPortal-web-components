@@ -49,7 +49,7 @@ Le composant nécessite un type. Il y a également les propriétés `carousel-he
 <content-carousel
   type="rss"
   source="/hero.rss"
-  slick-options="{ &quot;slidesToShow&quot;: 1, &quot;infinite&quot;: true, &quot;arrows&quot;: true }"
+  slick-options='{ "slidesToShow": 1, "infinite": true, "arrows": true }'
   carousel-height="30rem"
   fit-to-container="true"
 >

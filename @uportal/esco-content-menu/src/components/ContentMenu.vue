@@ -15,7 +15,7 @@
           :default-org-logo="defaultOrgLogo"
           :user-info-portlet-url="userInfoPortletUrl"
           :switch-org-portlet-url="switchOrgPortletUrl"
-          :org-logo-url-attribute-name="orgLogoUrlAttributeName" />
+          :org-logo-url-attribute-name="orgLogoUrlAttributeName"/>
         <content-favorites
           :portlets="_portlets"
           :favorites="_favorites"
@@ -30,8 +30,15 @@
           :debug="debug"/>
       </div>
       <div
-        :style="(backgroundImg != null && (_screenSize === 'large' || _screenSize === 'medium')) ? 'background-image: linear-gradient(0deg, rgba(0,0,0,.2),rgba(0,0,0,.2)), url(' + backgroundImg + ');' : ''"
-        class="background" />
+        :style="
+          backgroundImg != null &&
+            (_screenSize === 'large' || _screenSize === 'medium')
+            ? 'background-image: linear-gradient(0deg, rgba(0,0,0,.2),rgba(0,0,0,.2)), url(' +
+              backgroundImg +
+              ');'
+            : ''
+        "
+        class="background"/>
     </header>
     <content-grid
       :portlets="_portlets"
@@ -49,7 +56,7 @@
     <vue-simple-spinner
       v-show="isLoading"
       class="spinner"
-      line-fg-color="#545454" />
+      line-fg-color="#545454"/>
   </div>
 </template>
 

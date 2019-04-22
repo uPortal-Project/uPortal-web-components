@@ -4,15 +4,28 @@
       ref="dropdownMenu"
       :class="$style.dropdown">
       <div
-        :class="menuIsDark ? [$style.lighter, $style.dropdownMenu] : $style.dropdownMenu"
+        :class="
+          menuIsDark
+            ? [$style.lighter, $style.dropdownMenu]
+            : $style.dropdownMenu
+        "
         @click="toggleDropdown($event)">
-        <div :class="$style.userName"><span :class="$style.label">{{ displayName }}</span></div>
-        <div :class="$style.userAvatar"><img
-          :src="picture"
-          :alt="'avatar'"
-          :style="'height: ' + avatarSize + '; width: ' + avatarSize + ';'"></div>
+        <div :class="$style.userName">
+          <span :class="$style.label">{{ displayName }}</span>
+        </div>
+        <div :class="$style.userAvatar">
+          <img
+            :src="picture"
+            :alt="'avatar'"
+            :style="'height: ' + avatarSize + '; width: ' + avatarSize + ';'">
+        </div>
       </div>
-      <div :class="visible ? $style.dropdownContent : [ $style.dropdownContent, $style.closed ]">
+      <div
+        :class="
+          visible
+            ? $style.dropdownContent
+            : [$style.dropdownContent, $style.closed]
+        ">
         <div :class="$style.userDetails">
           <div :class="$style.userAvatar">
             <a
@@ -21,14 +34,19 @@
               :title="translate('userInfoPortletUrl.title')"><img
                 :src="picture"
                 :alt="'avatar'"></a>
+
             <img
               v-else
               :src="picture"
-              :alt="'avatar'">
+              :alt="'avatar'" >
           </div>
           <div :class="$style.wrapperInfo">
-            <div :class="$style.userName"><span :class="$style.label">{{ displayName }}</span></div>
-            <div :class="$style.userMail"><span :class="$style.label">{{ email }}</span></div>
+            <div :class="$style.userName">
+              <span :class="$style.label">{{ displayName }}</span>
+            </div>
+            <div :class="$style.userMail">
+              <span :class="$style.label">{{ email }}</span>
+            </div>
           </div>
         </div>
         <div
@@ -38,7 +56,7 @@
             :href="logoutLink"
             :title="translate('buttons.logout')"><span>{{ translate('buttons.logout') }}</span><i
               :class="[$style.fa, $style.faSignOut]"
-              aria-hidden="true" /></a>
+              aria-hidden="true"/></a>
         </div>
       </div>
     </div>

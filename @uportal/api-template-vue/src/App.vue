@@ -1,8 +1,7 @@
 <template>
-  <api-template-vue
-    debug
-    data-api-url="example.json">
-    <div v-pre><!-- Directive v-pre required b/c Vue will attempt to process anything in App.vue -->
+  <api-template-vue debug data-api-url="example.json">
+    <div v-pre>
+      <!-- Directive v-pre required b/c Vue will attempt to process anything in App.vue -->
       <h3>{{ displayName[0] }}</h3>
       <dl>
         <dt>username:</dt>

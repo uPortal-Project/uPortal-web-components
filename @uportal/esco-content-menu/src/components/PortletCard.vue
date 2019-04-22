@@ -7,12 +7,12 @@
         class="img-wrapper">
         <img
           :src="iconUrl"
-          :alt="title">
+          :alt="title" >
       </div>
       <div
         v-else
         :style="'background-color:' + iconBackgroundColor"
-        class="img-wrapper" />
+        class="img-wrapper"/>
     </div>
     <div class="portlet-card-title">
       {{ title }}
@@ -22,7 +22,7 @@
         v-if="append"
         :message="truncate(description)"
         :line-height="'20px'"
-        :end-char="'...'" />
+        :end-char="'...'"/>
     </div>
     <div
       v-if="!hideAction"
@@ -36,7 +36,7 @@
         :favorite-api-url="favoriteApiUrl"
         :user-info-api-url="userInfoApiUrl"
         :back-ground-is-dark="favBgIsDark"
-        :debug="debug" />
+        :debug="debug"/>
     </div>
   </div>
 </template>
@@ -136,7 +136,6 @@ export default {
   },
 };
 </script>
-
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
