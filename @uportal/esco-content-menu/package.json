@@ -1,6 +1,6 @@
 {
   "name": "@uportal/esco-content-menu",
-  "version": "1.26.2",
+  "version": "1.27.0",
   "scripts": {
     "start": "vue-cli-service serve",
     "prebuild": "babel node_modules/@vue/web-component-wrapper/dist/vue-wc-wrapper.js -o node_modules/@vue/web-component-wrapper/dist/vue-wc-wrapper.js",
@@ -8,7 +8,7 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "@uportal/open-id-connect": "^1.26.2",
+    "@uportal/open-id-connect": "^1.27.0",
     "lodash": "^4.17.11",
     "match-sorter": "^3.0.0",
     "vue": "^2.6.6",
