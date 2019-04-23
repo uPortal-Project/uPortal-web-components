@@ -1,7 +1,9 @@
 export interface RegistryResponse {
-  registry: {
-    categories: Category[];
-  };
+  registry: Registry;
+}
+
+export interface Registry {
+  categories: Category[];
 }
 
 export interface Category {
