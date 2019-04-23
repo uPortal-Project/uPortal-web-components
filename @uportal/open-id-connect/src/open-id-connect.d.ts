@@ -3,9 +3,9 @@
  */
 export interface JWT {
   /**
-   * custom attributes will almost exclusively be an array of strings
+   * custom attributes will usually be an array of strings
    */
-  [customAttributes: string]: string | number | string[];
+  [customAttributes: string]: unknown;
 
   /**
    * The server issued this token
@@ -74,7 +74,7 @@ export interface Response {
  * Takes in the  original value,
  * the return value will replace the original value of the property
  */
-export type PropertyTransform = (value: string | string []) => string | string[];
+export type PropertyTransform = (value: unknown) => unknown;
 
 /**
  * Options for request
