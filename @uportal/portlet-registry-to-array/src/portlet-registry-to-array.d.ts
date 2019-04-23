@@ -27,12 +27,14 @@ export interface Portlet {
   portletState: string;
   title: string;
   parameters: {
-    [name: string]: {
-      name: string;
-      description: string;
-      value: string;
-    },
+    [name: string]: PortletParameter;
   };
+}
+
+export interface PortletParameter {
+  name: string;
+  description: string;
+  value: string;
 }
 
 export function portletRegistryToArray(registry: RegistryResponse): Portlet[];
