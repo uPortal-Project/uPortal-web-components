@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import VueI18n from 'vue-i18n';
 
-function checkLang(availableLanguages) {
+function getBrowserLang(availableLanguages) {
   // These window.navigator contain language information
   // 1. languages -> Array of preferred languages
   //                 (eg ["en-US", "zh-CN", "ja-JP"]) Firefox^32, Chrome^32
@@ -36,11 +36,26 @@ function checkLang(availableLanguages) {
   return detectedLocale || 'en';
 }
 
+function getPageLang(availableLanguages) {
+  // retrieve lang from html lang tag
+  const pageLang = document.documentElement.lang;
+  if (pageLang) {
+    // we add the the shorten two char lang in the list in case the more specific lang isn't provided
+    const allLangs = [pageLang, pageLang.substring(0, 2)];
+    // Returns first language matched in available languages
+    const detectedLocale = allLangs.find((x) => availableLanguages.includes(x));
+    // If no available language is detected, fallback to 'en'
+    return detectedLocale || 'en';
+  }
+  // if no lang is retrieved from the document page we try to resolve from the browser
+  return getBrowserLang(availableLanguages);
+}
+
 function loadLocaleMessages() {
-  const locales = require.context('./locales', true, /[a-z0-9]+\.json$/i);
+  const locales = require.context('./locales', true, /[a-z0-9-]+\.json$/i);
   const messages = {};
   locales.keys().forEach((key) => {
-    const matched = key.match(/([a-z0-9]+)\./i);
+    const matched = key.match(/([a-z0-9-]+)\./i);
     if (matched && matched.length > 1) {
       const locale = matched[1];
       messages[locale] = locales(key);
@@ -52,7 +67,7 @@ function loadLocaleMessages() {
 Vue.use(VueI18n);
 
 export default new VueI18n({
-  locale: checkLang(['fr', 'en']),
+  locale: getPageLang(['fr-FR', 'fr', 'en-US', 'en']),
   fallbackLocale: 'en',
   messages: loadLocaleMessages(),
 });
