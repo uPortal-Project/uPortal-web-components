@@ -159,7 +159,7 @@ export default {
       default: 'medium',
     },
     portletCardSize: {
-      validator: (value) => sizeValidator(value, true),
+      validator: (value) => sizeValidator(value, true, true),
       default: 'auto',
     },
     hideAction: {type: Boolean, default: false},

@@ -15,11 +15,13 @@ export function breakPointName(size) {
   return 'large';
 }
 
-export function sizeValidator(value, withAuto = false) {
+export function sizeValidator(value, withAuto = false, withCustom = false) {
+  let options = ['large', 'medium', 'small', 'smaller'];
   if (withAuto) {
-    return ['auto', 'large', 'medium', 'small', 'smaller', 'custom'].includes(
-        value
-    );
+    options = [...options, 'auto'];
   }
-  return ['large', 'medium', 'small', 'smaller', 'custom'].includes(value);
+  if (withCustom) {
+    options = [...options, 'custom'];
+  }
+  return options.includes(value);
 }

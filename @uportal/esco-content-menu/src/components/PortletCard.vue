@@ -72,7 +72,7 @@ export default {
     },
     debug: {type: Boolean, default: false},
     size: {
-      validator: sizeValidator(),
+      validator: (value) => sizeValidator(value, true, true),
       default: 'medium',
     },
     hideAction: {type: Boolean, default: false},
@@ -236,7 +236,6 @@ export default {
     height: var(--content-gridcard-size-h, $PortletCardSizeCustomHeight);
 
     &:hover {
-      cursor: pointer;
       box-shadow: none;
       box-shadow: var(--content-gridcard-shadow-hover, none);
     }
