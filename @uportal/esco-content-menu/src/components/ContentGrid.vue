@@ -472,7 +472,7 @@ $searchSize: 32px;
 
       .flex-item {
         margin: 20px auto;
-        margin: var(--content-griditem-margin);
+        margin: var(--content-griditem-margin, 20px auto);
         padding: 0 2.5px;
       }
 
