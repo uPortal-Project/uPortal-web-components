@@ -17,7 +17,9 @@ export function breakPointName(size) {
 
 export function sizeValidator(value, withAuto = false) {
   if (withAuto) {
-    return ['auto', 'large', 'medium', 'small', 'smaller'].includes(value);
+    return ['auto', 'large', 'medium', 'small', 'smaller', 'custom'].includes(
+        value
+    );
   }
-  return ['large', 'medium', 'small', 'smaller'].includes(value);
+  return ['large', 'medium', 'small', 'smaller', 'custom'].includes(value);
 }

@@ -218,6 +218,51 @@ export default {
     font-size: 14px;
   }
 
+  &.custom-card {
+    padding: 5px;
+    padding: var(--content-gridcard-padding, 5px);
+    border: none;
+    border: var(--content-gridcard-border, none);
+    background-color: white;
+    background-color: var(--content-gridcard-bg-color, white);
+    border-radius: 5px;
+    border-radius: var(--content-gridcard-border-radius, 5px);
+    box-shadow: none;
+    box-shadow: var(--content-gridcard-shadow, none);
+    transition: box-shadow 0.25s;
+    width: $PortletCardSizeCustomWidth;
+    width: var(--content-gridcard-size-w, $PortletCardSizeCustomWidth);
+    height: $PortletCardSizeCustomHeight;
+    height: var(--content-gridcard-size-h, $PortletCardSizeCustomHeight);
+
+    &:hover {
+      cursor: pointer;
+      box-shadow: none;
+      box-shadow: var(--content-gridcard-shadow-hover, none);
+    }
+
+    & > .portlet-card-icon {
+      > div {
+        height: 75px;
+        height: var(--content-gridcard-icon-size, 75px);
+        width: 75px;
+        width: var(--content-gridcard-icon-size, 75px);
+        margin-top: 0px;
+      }
+    }
+
+    > .portlet-card-title {
+      overflow-x: hidden;
+      overflow-y: visible;
+      text-overflow: ellipsis;
+      font-size: var(--content-gridcard-title-fontsize, 16px);
+    }
+
+    > .portlet-card-description {
+      font-size: var(--content-gridcard-description-fontsize, 16px);
+    }
+  }
+
   &.medium-card,
   &.small-card,
   &.smaller-card {
