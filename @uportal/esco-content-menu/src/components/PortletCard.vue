@@ -247,7 +247,7 @@ export default {
         height: var(--content-gridcard-icon-size, 75px);
         width: 75px;
         width: var(--content-gridcard-icon-size, 75px);
-        margin-top: 0px;
+        margin-top: 0;
       }
     }
 
