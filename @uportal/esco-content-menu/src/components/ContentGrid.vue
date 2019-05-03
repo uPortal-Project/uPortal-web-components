@@ -159,7 +159,7 @@ export default {
       default: 'medium',
     },
     portletCardSize: {
-      validator: (value) => sizeValidator(value, true),
+      validator: (value) => sizeValidator(value, true, true),
       default: 'auto',
     },
     hideAction: {type: Boolean, default: false},
@@ -472,6 +472,7 @@ $searchSize: 32px;
 
       .flex-item {
         margin: 20px auto;
+        margin: var(--content-griditem-margin, 20px auto);
         padding: 0 2.5px;
       }
 
