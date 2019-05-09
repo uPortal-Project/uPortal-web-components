@@ -33,17 +33,10 @@
 }
 
 .slick-slide {
-  width: 300px;
+  width: var(--cc-slick-slide-width, 300px);
   margin: 0 10px;
   border: 1px solid rgba(0, 0, 0, 0.125);
   background: #fff;
-}
-
-.slick-title {
-  padding-top: 10px;
-  border-top: 1px solid rgba(0, 0, 0, 0.125);
-  display: block;
-  padding: 10px;
 }
 
 .slick-container.hero {
@@ -75,9 +68,70 @@
     padding: 0 10px;
   }
 
+  &.has-image .slick-item-description {
+    display: none;
+  }
+
   .slick-image {
     display: block;
     min-height: 9rem;
     margin: 10px;
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    background-position: top center;
+  }
+
+  .slick-title {
+    padding-top: 10px;
+    border-top: 1px solid rgba(0, 0, 0, 0.125);
+    display: block;
+    padding: 10px;
+  }
+}
+
+.flexy {
+  .slick-slide {
+    width: var(--cc-flexy-slide-width, 240px);
+  }
+  .slick-item {
+    display: flex;
+    flex-direction: column;
+    width: var(--cc-flexy-item-width, block);
+
+    .slick-item-description {
+      order: var(--cc-flexy-description-order, 3);
+      display: var(--cc-flexy-description-display, block);
+      background: var(--cc-flexy-description-bgcolor, #ccc);
+      margin: var(--cc-flexy-description-margin, 0);
+      padding: var(--cc-flexy-description-padding, 8px);
+      flex: var(--cc-flexy-description-flex, 2);
+    }
+    .slick-image {
+      order: var(--cc-flexy-image-order, 1);
+      display: var(--cc-flexy-image-display, block);
+      background: var(--cc-flexy-image-bgcolor, #ccc);
+      margin: var(--cc-flexy-image-margin, 0);
+      padding: var(--cc-flexy-image-padding, 8px);
+      flex: var(--cc-flexy-description-flex, 1 1 33%);
+      min-height: var(--cc-flexy-image-height, 5rem);
+      background-size: cover;
+    }
+    .slick-title {
+      order: var(--cc-flexy-title-order, 1);
+      display: var(--cc-flexy-title-display, block);
+      background: var(--cc-flexy-title-bgcolor, #fff);
+      margin: var(--cc-flexy-title-margin, 0);
+      padding: var(--cc-flexy-title-padding, 8px);
+      overflow: var(--cc-flexy-title-overflow, hidden);
+      text-overflow: var(--cc-flexy-title-text-overflow, ellipsis);
+      white-space: var(--cc-flexy-title-white-space, nowrap);
+      flex: var(--cc-flexy-description-flex, 1);
+    }
+
+    .slick-title,
+    .slick-image,
+    .slick-item-description {
+      border: none;
+    }
   }
 }

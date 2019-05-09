@@ -46,7 +46,7 @@ export class RssStrategy implements DataStrategy {
             destinationUrl: link,
             imageUrl: image,
             title,
-            description: image ? null : description,
+            description,
           };
         },
     );

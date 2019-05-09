@@ -21,6 +21,15 @@
     <section class="content">
       <content-carousel
         :type="'rss'"
+        :source="'/content-image.rss'"
+        :slick-options="contentOptions"
+        :carousel-height="contentHeight"
+        theme="flexy"
+      />
+    </section>
+    <section class="content">
+      <content-carousel
+        :type="'rss'"
         :source="'/empty.rss'"
         :slick-options="contentOptions"
         :carousel-height="contentHeight"

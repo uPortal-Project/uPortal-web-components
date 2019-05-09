@@ -16,7 +16,7 @@ export default class ContentCarousel extends Vue {
     return this.carouselHeight;
   }
 
-  get alignText(): Object {
+  get alignText(): object {
     return {
       textAlign: this.textAlign,
     };
@@ -30,7 +30,7 @@ export default class ContentCarousel extends Vue {
     return this.strategy.items;
   }
 
-  get computedSlickOptions(): Object {
+  get computedSlickOptions(): object {
     const options =
       typeof this.slickOptions === 'string'
         ? JSON.parse(this.slickOptions)
@@ -48,7 +48,7 @@ export default class ContentCarousel extends Vue {
   public source!: string;
 
   @Prop({type: [String, Object], default: () => ({})})
-  public slickOptions!: string | Object;
+  public slickOptions!: string | object;
 
   @Prop({type: [String], default: 'auto'})
   public carouselHeight!: string;
@@ -59,10 +59,14 @@ export default class ContentCarousel extends Vue {
   @Prop({type: [String], default: 'left'})
   public textAlign?: string;
 
+  @Prop({type: [String], default: ''})
+  public theme?: string;
+
   public strategy: DataStrategy = {
     items: [] as CarouselItem[],
   } as DataStrategy;
 
+  /*tslint:disable no-empty */
   @Watch('computedItems')
   public onComputedItemsChange() {
     const slick: any = this.$refs.slick || {
@@ -105,6 +109,7 @@ export default class ContentCarousel extends Vue {
         break;
       }
       default: {
+       /*tslint:disable no-console */
         console.error(`type: "${this.type}" is not recognized`);
       }
     }
