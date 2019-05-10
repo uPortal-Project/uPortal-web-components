@@ -9,7 +9,7 @@
             <description>Open registration for next semester begins next month on the first at 8:00AM</description>
             <pubDate>Mon, 01 Aug 2016 07:00:00 GMT</pubDate>
             <guid>http://localhost:8080/uPortal/p/announcements?pP_announcementId=2&amp;pP_action=displayFullAnnouncement</guid>
-            <enclosure url="http://lorempixel.com/200/100/" length="5929" type="image/jpeg" />
+            <enclosure url="/stock-photo.jpg" length="5929" type="image/jpeg" />
             <dc:creator>admin</dc:creator>
             <dc:date>2016-08-01T07:00:00Z</dc:date>
         </item>
@@ -19,7 +19,7 @@
             <description>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In cursus vestibulum iaculis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</description>
             <pubDate>Mon, 01 Aug 2016 07:00:00 GMT</pubDate>
             <guid>http://localhost:8080/uPortal/p/announcements?pP_announcementId=2&amp;pP_action=displayFullAnnouncement</guid>
-            <enclosure url="http://lorempixel.com/200/100/" length="5929" type="image/jpeg" />
+            <enclosure url="/stock-photo.jpg" length="5929" type="image/jpeg" />
             <dc:creator>admin</dc:creator>
             <dc:date>2016-08-01T07:00:00Z</dc:date>
         </item>
@@ -29,7 +29,7 @@
             <description>Nulla tellus neque, mollis id est id, aliquam accumsan velit. Sed eget odio finibus, placerat tellus ac, egestas orci.</description>
             <pubDate>Mon, 01 Aug 2016 07:00:00 GMT</pubDate>
             <guid>http://localhost:8080/uPortal/p/announcements?pP_announcementId=2&amp;pP_action=displayFullAnnouncement</guid>
-            <enclosure url="http://lorempixel.com/200/100/" length="5929" type="image/jpeg" />
+            <enclosure url="/stock-photo.jpg" length="5929" type="image/jpeg" />
             <dc:creator>admin</dc:creator>
             <dc:date>2016-08-01T07:00:00Z</dc:date>
         </item>
@@ -39,7 +39,7 @@
             <description>Pellentesque dictum magna sapien, sit amet ullamcorper augue gravida sit amet.</description>
             <pubDate>Mon, 01 Aug 2016 07:00:00 GMT</pubDate>
             <guid>http://localhost:8080/uPortal/p/announcements?pP_announcementId=2&amp;pP_action=displayFullAnnouncement</guid>
-            <enclosure url="http://lorempixel.com/200/100/" length="5929" type="image/jpeg" />
+            <enclosure url="/stock-photo.jpg" length="5929" type="image/jpeg" />
             <dc:creator>admin</dc:creator>
             <dc:date>2016-08-01T07:00:00Z</dc:date>
         </item>

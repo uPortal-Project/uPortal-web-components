@@ -68,70 +68,72 @@
     padding: 0 10px;
   }
 
-  &.has-image .slick-item-description {
-    display: none;
-  }
-
   .slick-image {
-    display: block;
-    min-height: 9rem;
-    margin: 10px;
     background-repeat: no-repeat;
     background-size: auto 100%;
     background-position: top center;
   }
-
-  .slick-title {
-    padding-top: 10px;
-    border-top: 1px solid rgba(0, 0, 0, 0.125);
-    display: block;
-    padding: 10px;
-  }
 }
 
-.flexy {
-  .slick-slide {
-    width: var(--cc-flexy-slide-width, 240px);
-  }
-  .slick-item {
-    display: flex;
-    flex-direction: column;
-    width: var(--cc-flexy-item-width, block);
+.slick-slide {
+  width: var(--cc-slide-width, 240px);
+}
+.slick-item {
+  display: flex;
+  flex-direction: column;
+  width: var(--cc-item-width, block);
 
-    .slick-item-description {
-      order: var(--cc-flexy-description-order, 3);
-      display: var(--cc-flexy-description-display, block);
-      background: var(--cc-flexy-description-bgcolor, #ccc);
-      margin: var(--cc-flexy-description-margin, 0);
-      padding: var(--cc-flexy-description-padding, 8px);
-      flex: var(--cc-flexy-description-flex, 2);
-    }
-    .slick-image {
-      order: var(--cc-flexy-image-order, 1);
-      display: var(--cc-flexy-image-display, block);
-      background: var(--cc-flexy-image-bgcolor, #ccc);
-      margin: var(--cc-flexy-image-margin, 0);
-      padding: var(--cc-flexy-image-padding, 8px);
-      flex: var(--cc-flexy-description-flex, 1 1 33%);
-      min-height: var(--cc-flexy-image-height, 5rem);
+  > .slick-item-description,
+  > .slick-image,
+  > .slick-title {
+    display: none;
+  }
+
+  &.has-description .slick-item-description {
+    order: var(--cc-description-order, 2);
+    display: var(--cc-description-display, block);
+    background: var(--cc-description-bgcolor, #fff);
+    color: var(--cc-description-textcolor, inherit);
+    margin: var(--cc-description-margin, 0);
+    padding: var(--cc-description-padding, 8px);
+    flex: var(--cc-description-flex, 2);
+
+    border-top: var(--cc-description-border-top, none);
+    border-bottom: var(--cc-description-border-bottom, none);
+  }
+  &.has-image .slick-image {
+    order: var(--cc-image-order, 1);
+    display: var(--cc-image-display, block);
+    background: var(--cc-image-bgcolor, #ccc);
+    margin: var(--cc-image-margin, 0);
+    padding: var(--cc-image-padding, 0);
+    flex: var(--cc-description-flex, 1 1 33%);
+    min-height: var(--cc-image-min-height, 5rem);
+    max-height: var(--cc-image-max-height, 100px);
+    overflow: hidden;
+    > span {
       background-size: cover;
     }
-    .slick-title {
-      order: var(--cc-flexy-title-order, 1);
-      display: var(--cc-flexy-title-display, block);
-      background: var(--cc-flexy-title-bgcolor, #fff);
-      margin: var(--cc-flexy-title-margin, 0);
-      padding: var(--cc-flexy-title-padding, 8px);
-      overflow: var(--cc-flexy-title-overflow, hidden);
-      text-overflow: var(--cc-flexy-title-text-overflow, ellipsis);
-      white-space: var(--cc-flexy-title-white-space, nowrap);
-      flex: var(--cc-flexy-description-flex, 1);
+    &,
+    > img {
+      object-fit: cover;
+      width: 100%;
+      height: auto;
     }
+  }
 
-    .slick-title,
-    .slick-image,
-    .slick-item-description {
-      border: none;
-    }
+  &.has-title .slick-title {
+    order: var(--cc-title-order, 3);
+    display: var(--cc-title-display, block);
+    background: var(--cc-title-bgcolor, #fff);
+    margin: var(--cc-title-margin, 0);
+    padding: var(--cc-title-padding, 10px);
+    overflow: var(--cc-title-overflow, auto);
+    text-overflow: var(--cc-title-text-overflow, clip);
+    white-space: var(--cc-title-white-space, normal);
+    flex: var(--cc-description-flex, 1);
+
+    border-top: var(--cc-title-border-top, 1px solid rgba(0, 0, 0, 0.125));
+    border-bottom: var(--cc-title-border-bottom, 0);
   }
 }

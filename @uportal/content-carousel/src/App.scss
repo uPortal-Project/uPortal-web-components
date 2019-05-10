@@ -1,5 +1,14 @@
-:root {
-  --cc-flexy-title-display: none;
+.primary {
+  // --cc-title-display: block;
+}
+
+.flush {
+  --cc-title-display: none;
+  --cc-title-padding: 8px;
+  --cc-title-overflow: hidden;
+  --cc-title-text-overflow: ellipsis;
+  --cc-title-white-space: nowrap;
+  --cc-description-bgcolor: #eee;
 }
 
 body {
