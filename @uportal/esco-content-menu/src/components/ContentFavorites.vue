@@ -12,47 +12,65 @@
       ref="favsSection"
       :style="favorited.length > 0 ? '' : 'display:none'"
       class="favorites">
-      <swiper
-        ref="favSwiper"
-        :options="swiperOption"
-        @transitionEnd="updateSlider">
-        <swiper-slide
-          v-for="portlet in favorited"
-          :key="portlet.id">
-          <a
-            :href="getRenderPortletUrl(portlet)"
-            :target="hasAlternativeMaximizedUrl(portlet) ? '_blank' : '_self'"
-            :rel="
-              hasAlternativeMaximizedUrl(portlet) ? 'noopener noreferrer' : ''
-            "
-            class="no-style">
-            <portlet-card
-              :portlet-desc="portlet"
-              :is-favorite="true"
-              :size="_portletCardSize"
-              :hide-action="hideAction"
-              :call-after-action="callAfterFavAction"
-              :back-ground-is-dark="true"
-              :favorite-api-url="favoriteApiUrl"
-              :user-info-api-url="userInfoApiUrl"
-              :debug="debug"/>
-          </a>
-        </swiper-slide>
-      </swiper>
-      <div
-        slot="button-prev"
-        :class="disablePrev ? 'fav-swiper-button-disabled' : ''"
-        class="swiper-button-prev"
-        @click="slidePrev($event)">
-        <font-awesome-icon icon="chevron-left" />
-      </div>
-      <div
-        slot="button-next"
-        :class="disableNext ? 'fav-swiper-button-disabled' : ''"
-        class="swiper-button-next"
-        @click="slideNext($event)">
-        <font-awesome-icon icon="chevron-right" />
-      </div>
+      <template v-if="useSwipper">
+        <swiper
+          ref="favSwiper"
+          :options="swiperOption"
+          @transitionEnd="updateSlider">
+          <swiper-slide
+            v-for="portlet in favorited"
+            :key="portlet.id">
+            <a
+              :href="getRenderPortletUrl(portlet)"
+              :target="hasAlternativeMaximizedUrl(portlet) ? '_blank' : '_self'"
+              :rel="
+                hasAlternativeMaximizedUrl(portlet) ? 'noopener noreferrer' : ''
+              "
+              class="no-style">
+              <portlet-card
+                :portlet-desc="portlet"
+                :is-favorite="true"
+                :size="_portletCardSize"
+                :hide-action="hideAction"
+                :call-after-action="callAfterFavAction"
+                :back-ground-is-dark="true"
+                :favorite-api-url="favoriteApiUrl"
+                :user-info-api-url="userInfoApiUrl"
+                :debug="debug"/>
+            </a>
+          </swiper-slide>
+        </swiper>
+        <div
+          slot="button-prev"
+          :class="disablePrev ? 'fav-swiper-button-disabled' : ''"
+          class="swiper-button-prev"
+          @click="slidePrev($event)">
+          <font-awesome-icon icon="chevron-left" />
+        </div>
+        <div
+          slot="button-next"
+          :class="disableNext ? 'fav-swiper-button-disabled' : ''"
+          class="swiper-button-next"
+          @click="slideNext($event)">
+          <font-awesome-icon icon="chevron-right" />
+        </div>
+      </template>
+      <template v-else>
+        <content-grid
+          hide-title
+          :call-after-action="callAfterFavAction"
+          :portlet-card-size="_portletCardSize"
+          :favorites="favorites"
+          :portlets="favorited"
+          :hide-action="hideAction"
+          :favorite-api-url="favoriteApiUrl"
+          :user-info-api-url="userInfoApiUrl"
+          portlet-background-is-dark
+          :parent-screen-size="parentScreenSize"
+          :context-api-url="contextApiUrl"
+          :portlet-api-url="portletApiUrl"
+          :debug="debug"/>
+      </template>
     </div>
     <div
       :style="favorited.length > 0 ? 'display:none' : ''"
@@ -76,10 +94,12 @@ import {
   hasAlternativeMaximizedUrl,
   getRenderUrl,
 } from '../services/managePortletUrl';
+import ContentGrid from './ContentGrid';
 
 export default {
   name: 'ContentFavorites',
   components: {
+    ContentGrid,
     PortletCard,
     swiper,
     // false positive
@@ -118,6 +138,7 @@ export default {
       type: String,
       default: process.env.VUE_APP_PORTAL_CONTEXT,
     },
+    useSwipper: {type: Boolean, default: true},
   },
   data() {
     return {
@@ -230,7 +251,7 @@ export default {
       }, 300);
     },
     updateSlider() {
-      if (!this.isHidden && this.favorited.length > 0) {
+      if (this.useSwipper && !this.isHidden && this.favorited.length > 0) {
         if (!this.$refs.favSwiper.swiper.initialized) {
           this.$refs.favSwiper.swiper.init();
         } else {
@@ -238,8 +259,8 @@ export default {
         }
         this.disableNext = this.$refs.favSwiper.swiper.isEnd;
         this.disablePrev = this.$refs.favSwiper.swiper.isBeginning;
-        this.calculateSize();
       }
+      this.calculateSize();
     },
   },
 };
@@ -276,6 +297,21 @@ $buttonWidth: 32px;
   > .favorites {
     position: relative;
     padding: 0 2em;
+
+    > /deep/ .content-grid {
+      > div .flex-grid {
+        justify-content: flex-start;
+
+        .flex-item {
+          margin: 0;
+        }
+
+        .flex-item.portlet-card-medium,
+        .flix-item.portlet-card-large {
+          margin: $buttonWidth 5px 5px 0;
+        }
+      }
+    }
 
     > .swiper-container {
       margin: 0 15px;
@@ -350,9 +386,12 @@ $buttonWidth: 32px;
   &.small,
   &.smaller {
     > .favorites {
-      > .swiper-container {
+      > .swiper-container,
+      > .content-grid {
         margin: 0;
+      }
 
+      > .swiper-container {
         > .swiper-wrapper {
           > .swiper-slide {
             height: auto;

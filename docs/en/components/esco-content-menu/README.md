@@ -182,6 +182,42 @@ and with additional properties to work with the `hamburger-menu`:
 - `is-hidden`: type: `Boolean`, default: `false`, used by the `hamburger-menu` to indicate the state of the page.
 - `id`: type: `String`, default: `null`, provide an id to be able to select the dome element, as example if you want to manage manualy an `hamburger-menu`
 
+#### Slots
+
+The HTML content of the component can also be modified using [slots](https://vuejs.org/v2/guide/components-slots.html).
+
+##### Content User
+
+The `content-user` slot permit to apply a custom component at this place, or to remove it. As example:
+
+```html
+<esco-content-menu
+  sign-out-url="/uPortal/Logout"
+  default-org-logo="https://www.toureiffel.paris/sites/default/files/styles/1440x810/public/2017-10/monument-landing-header-bg_0.jpg?itok=_dSLLBlZ"
+  favorites-portlet-card-size="small"
+  grid-portlet-card-size="auto"
+  hide-action-mode="never"
+>
+  <div slot="content-user"></div>
+</esco-content-menu>
+```
+
+##### Header Buttons
+
+The `header-buttons` slot permit to apply a custom component at this place, or to remove it. As example:
+
+```html
+<esco-content-menu
+  sign-out-url="/uPortal/Logout"
+  default-org-logo="https://www.toureiffel.paris/sites/default/files/styles/1440x810/public/2017-10/monument-landing-header-bg_0.jpg?itok=_dSLLBlZ"
+  favorites-portlet-card-size="small"
+  grid-portlet-card-size="auto"
+  hide-action-mode="never"
+>
+  <div slot="header-buttons"></div>
+</esco-content-menu>
+```
+
 ### The content grid
 
 This component provide a flexbox way to show a list of `portlet-card`, depending on uPortal rest-api.
@@ -217,6 +253,7 @@ Standalone properties:
 - `hide-action: type`: `Boolean`, default: `false`, define to hide or not the `action-favorite` button defined into `portlet-card`
 - `show-footer-categories`: `Boolean`, default: `false`, define to display category dropdown filter near bottom of grid
 - `hide-title`: `Boolean`, default: `false`, define to remove the title area from the grid, useful when a basic grid is desired
+- `portlet-background-is-dark`: `Boolean`, default: `false`, indicate to the component that the parent background is dark and permit to the portlet-card component to show buttons like favorites in a more suitable color.
 - `debug`: type: `Boolean`, default: `false`, for the demo/debug mode to be able to run in a standalone way (disable api call)
 
 and additional properties to work with the parent component `content-menu`:
@@ -272,6 +309,17 @@ The `footer` slot permit to apply a custom title replacing the default filter on
 >
   <div slot="footer"></div>
 </content-grid>
+```
+
+#### Theming
+
+This component supports [CSS Variables](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_variables) for overriding some default values. So defining the following variables will override default values.
+
+```css
+:root {
+  --content-grid-flex-grid-justify: center; // How to justify all flex grid elements, default value is center
+  --content-grid-flex-grid-item-margin: 20px auto; // To set a margin on all flex items, default is `20px auto`
+}
 ```
 
 ### The action favorite

@@ -40,6 +40,7 @@
         :user-org-id-attribute-name="userOrgIdAttributeName"
         :user-all-orgs-id-attribute-name="userAllOrgsIdAttributeName"
         :org-logo-url-attribute-name="orgLogoUrlAttributeName"
+        :show-favorites-in-slider="showFavoritesInSlider"
         default-class="toggler-menu"
         visible-class="active-menu"/>
     </slot>
@@ -109,6 +110,7 @@ export default {
       type: String,
       default: 'otherAttributes.ESCOStructureLogo[0]',
     },
+    showFavoritesInSlider: {type: Boolean, default: true},
   },
   data() {
     return {

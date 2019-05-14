@@ -3,19 +3,23 @@
     :class="['toggler-menu', _screenSize, !_isHidden ? 'active-menu' : '']"
     class="content-menu">
     <header>
-      <header-buttons
-        :call-on-close="close"
-        :sign-out-url="signOutUrl" />
+      <slot name="header-buttons">
+        <header-buttons
+          :call-on-close="close"
+          :sign-out-url="signOutUrl" />
+      </slot>
       <div class="wrapper">
-        <content-user
-          :org-info="_userOrganization"
-          :user-info="_user"
-          :other-orgs="_organizations"
-          :parent-screen-size="_screenSize"
-          :default-org-logo="defaultOrgLogo"
-          :user-info-portlet-url="userInfoPortletUrl"
-          :switch-org-portlet-url="switchOrgPortletUrl"
-          :org-logo-url-attribute-name="orgLogoUrlAttributeName"/>
+        <slot name="content-user">
+          <content-user
+            :org-info="_userOrganization"
+            :user-info="_user"
+            :other-orgs="_organizations"
+            :parent-screen-size="_screenSize"
+            :default-org-logo="defaultOrgLogo"
+            :user-info-portlet-url="userInfoPortletUrl"
+            :switch-org-portlet-url="switchOrgPortletUrl"
+            :org-logo-url-attribute-name="orgLogoUrlAttributeName"/>
+        </slot>
         <content-favorites
           :portlets="_portlets"
           :favorites="_favorites"
@@ -27,7 +31,8 @@
           :is-hidden="_isHidden"
           :user-info-api-url="userInfoApiUrl"
           :context-api-url="contextApiUrl"
-          :debug="debug"/>
+          :debug="debug"
+          :use-swipper="showFavoritesInSlider"/>
       </div>
       <div
         :style="
@@ -150,6 +155,7 @@ export default {
       type: String,
       default: 'otherAttributes.ESCOStructureLogo[0]',
     },
+    showFavoritesInSlider: {type: Boolean, default: true},
   },
   data() {
     return {

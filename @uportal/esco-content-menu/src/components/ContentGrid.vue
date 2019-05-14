@@ -50,6 +50,7 @@
         <div
           v-for="portlet in filteredPortlets"
           :key="portlet.id"
+          :class="['portlet-card-' + _portletCardSize]"
           class="flex-item ma-3 text-xs-center">
           <a
             :href="getRenderPortletUrl(portlet)"
@@ -66,6 +67,7 @@
               :call-after-action="actionToggleFav"
               :favorite-api-url="favoriteApiUrl"
               :user-info-api-url="userInfoApiUrl"
+              :back-ground-is-dark="portletBackgroundIsDark"
               :debug="debug"/>
           </a>
         </div>
@@ -168,6 +170,7 @@ export default {
      */
     portlets: {type: Array, default: undefined},
     showFooterCategories: {type: Boolean, default: false},
+    portletBackgroundIsDark: {type: Boolean, default: false},
   },
   data() {
     return {
@@ -468,7 +471,7 @@ $searchSize: 32px;
     .flex-grid {
       display: flex;
       flex-flow: row wrap;
-      justify-content: center;
+      justify-content: var(--content-grid-flex-grid-justify, center);
 
       .flex-item {
         margin: 20px auto;
