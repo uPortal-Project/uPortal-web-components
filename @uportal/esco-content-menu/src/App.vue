@@ -17,6 +17,7 @@
       layout-api-url="layout.json"
       debug /> -->
     <content-menu
+      messages='[{"locales": ["en", "en-US"], "messages": { "message": {"favorites": { "add": "Add me to your favorites!" } }}}]'
       default-org-logo="https://lycees.netocentre.fr/annuaire_images/default_banner_v1.jpg"
       favorites-portlet-card-size="small"
       grid-portlet-card-size="auto"

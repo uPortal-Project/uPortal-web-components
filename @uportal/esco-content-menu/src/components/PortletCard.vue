@@ -29,6 +29,7 @@
       class="portlet-card-action">
       <action-favorites
         v-if="canFavorite"
+        :messages="messages"
         :fname="fname"
         :chan-id="channelId"
         :is-favorite="isFavorite"
@@ -43,12 +44,14 @@
 
 <script>
 import Ellipsis from './Ellipsis';
+import i18nMixin from '../mixins/i18n.js';
 import ActionFavorites from './ActionFavorites';
 import {sizeValidator} from '../services/sizeTools';
 import computeUrl from '../services/computeUrl';
 
 export default {
   name: 'PortletCard',
+  mixins: [i18nMixin],
   components: {
     ActionFavorites,
     Ellipsis,

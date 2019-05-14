@@ -4,11 +4,7 @@
       'action-favorites ' + fname,
       backGroundIsDark ? 'background-dark' : '',
     ]"
-    :title="
-      isFavorite
-        ? translate('message.favorites.remove')
-        : translate('message.favorites.add')
-    "
+    :title="favoriteMessage"
     @click="toggleFavorite($event)">
     <button class="favorite-button">
       <font-awesome-icon :icon="[isFavorite ? 'fas' : 'far', 'star']" />
@@ -18,7 +14,7 @@
 
 <script>
 import oidc from '@uportal/open-id-connect';
-import i18n from '../i18n.js';
+import i18nMixin from '../mixins/i18n.js';
 import '../icons.js';
 import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome';
 
@@ -40,6 +36,7 @@ export default {
   components: {
     FontAwesomeIcon,
   },
+  mixins: [i18nMixin],
   props: {
     callOnToggleFav: {type: Function, default: () => {}},
     chanId: {type: Number, required: true},
@@ -64,10 +61,14 @@ export default {
       favorite: this.isFavorite,
     };
   },
-  methods: {
-    translate(text, lang) {
-      return i18n.t(text, lang);
+  computed: {
+    favoriteMessage() {
+      return this.translate(
+        this.isFavorite ? 'message.favorites.remove' : 'message.favorites.add'
+      );
     },
+  },
+  methods: {
     toggleFavorite(event) {
       event.preventDefault();
       if (!this.debug) {
