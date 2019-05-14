@@ -218,6 +218,7 @@ export default {
             (portlets) =>
               matchSorter(portlets, this.filterValue, {
                 keys: ['title', 'name', 'description'],
+                threshold: matchSorter.rankings.ACRONYM,
               });
 
       return valueFilter(categoryFilter(portlets));
