@@ -38,14 +38,14 @@
 <script>
 import ContentMenu from './components/ContentMenu.vue';
 // import ContentGrid from './components/ContentGrid.vue';
-import HamburgerMenu from './components/HamburgerMenu';
+// import HamburgerMenu from './components/HamburgerMenu';
 
 export default {
   name: 'App',
   components: {
     ContentMenu,
     // ContentGrid,
-    HamburgerMenu,
+    // HamburgerMenu,
   },
 };
 </script>
