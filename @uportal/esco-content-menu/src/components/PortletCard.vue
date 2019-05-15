@@ -188,6 +188,7 @@ export default {
 
   > .portlet-card-icon {
     display: var(--content-gridcard-icon-display);
+
     > div {
       display: inline-flex;
       align-items: center;
