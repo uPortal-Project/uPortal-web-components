@@ -46,6 +46,7 @@
         class="background"/>
     </header>
     <content-grid
+      :messages="messages"
       :portlets="_portlets"
       :favorites="_favorites"
       :call-after-action="actionToggleFav"
@@ -78,6 +79,7 @@ import {portletRegistryToArray} from '../services/portlet-registry-to-array';
 import flattenFavorites from '../services/flattenFavorites';
 import byPortlet from '../services/sortByPortlet';
 import toggleArray from '../services/toggleArray';
+import i18nMixin from '../mixins/i18n.js';
 import {
   elementWidth,
   breakPointName,
@@ -91,6 +93,7 @@ import computeUrl from '../services/computeUrl';
 
 export default {
   name: 'ContentMenu',
+  mixins: [i18nMixin],
   components: {
     ContentFavorites,
     ContentGrid,

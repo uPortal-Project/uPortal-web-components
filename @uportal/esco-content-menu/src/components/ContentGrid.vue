@@ -60,6 +60,7 @@
             "
             class="no-style">
             <portlet-card
+              :messages="messages"
               :portlet-desc="portlet"
               :is-favorite="isFavorite(portlet.fname)"
               :size="_portletCardSize"
@@ -97,7 +98,7 @@
 </template>
 
 <script>
-import i18n from '../i18n.js';
+import i18nMixin from '../mixins/i18n.js';
 import PortletCard from './PortletCard';
 import fetchPortlets from '../services/fetchPortlets';
 import byPortlet from '../services/sortByPortlet';
@@ -118,6 +119,7 @@ import matchSorter from 'match-sorter';
 
 export default {
   name: 'ContentGrid',
+  mixins: [i18nMixin],
   components: {
     PortletCard,
   },
@@ -246,9 +248,6 @@ export default {
     window.removeEventListener('resize', this.calculateSize);
   },
   methods: {
-    translate(text, lang) {
-      return i18n.t(text, lang);
-    },
     hasAlternativeMaximizedUrl(portletDesc) {
       return hasAlternativeMaximizedUrl(portletDesc);
     },

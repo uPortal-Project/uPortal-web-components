@@ -36,6 +36,51 @@ compile 'org.webjars.npm:uportal__esco-content-menu:{version number goes here}'
 
 ## Usage as Web Component
 
+### internationalization
+
+The `hamburger-menu`, `content-grid`, and `content-menu` components support an internationalization mixin. This adds the additional prop `messages` which can be applied to override the default text messages in the various components. This property will trickle down to the PortletCard and ActionFavorites components, as well.
+
+For example:
+
+```html
+<esco-hamburger-menu
+  messages='[{"locales": ["en", "en-US"], "messages": { "message": {"favorites": { "add": "Add me to your favorites!" } }}}]'
+>
+</esco-hamburger-menu>
+```
+
+The available messages to override are as follows:
+
+```json
+{
+  "message": {
+    "services": {
+      "title": "All services",
+      "filter": "Find a service..."
+    },
+    "favorites": {
+      "add": "Add to favorites",
+      "remove": "Remove from favorites",
+      "title": "My Favorites",
+      "empty": "No favorite defined"
+    },
+    "filter": {
+      "selectOption": "All categories"
+    },
+    "userInfoPortletUrl": {
+      "title": "See my account informations"
+    },
+    "userChangeEtabUrl": {
+      "title": "Select an other organization"
+    },
+    "buttons": {
+      "logout": "Sign out",
+      "menuClose": "Close menu"
+    }
+  }
+}
+```
+
 ### The hamburger menu
 
 This is the main component that show a hamburger menu and that open an entire page with `content-menu` component.

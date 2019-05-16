@@ -21,6 +21,7 @@
     <slot name="menu-content">
       <content-menu
         v-if="append"
+        :messages="messages"
         :switch-org-portlet-url="switchOrgPortletUrl"
         :call-on-close="toggleMenu"
         :context-api-url="contextApiUrl"
@@ -50,9 +51,11 @@
 <script>
 import ContentMenu from './ContentMenu';
 import {sizeValidator} from '../services/sizeTools';
+import i18nMixin from '../mixins/i18n.js';
 
 export default {
   name: 'HamburgerMenu',
+  mixins: [i18nMixin],
   components: {
     ContentMenu,
   },
