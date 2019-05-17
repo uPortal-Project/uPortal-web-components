@@ -20,7 +20,7 @@ export default class App extends Vue {
     infinite: true,
     arrows: true,
     dots: true,
-    variableWidth: true,
+    variableWidth: false,
   };
 
   @Provide()

@@ -3,12 +3,13 @@
 }
 
 .flush {
-  --cc-title-display: none;
+  --cc-description-display: none;
   --cc-title-padding: 8px;
-  --cc-title-overflow: hidden;
-  --cc-title-text-overflow: ellipsis;
-  --cc-title-white-space: nowrap;
+  // --cc-title-overflow: hidden;
+  // --cc-title-text-overflow: ellipsis;
+  // --cc-title-white-space: nowrap;
   --cc-description-bgcolor: #eee;
+  --cc-title-flex: 1 1 auto;
 }
 
 body {
