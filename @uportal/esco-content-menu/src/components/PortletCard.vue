@@ -190,6 +190,8 @@ export default {
   }
 
   > .portlet-card-icon {
+    display: var(--content-gridcard-icon-display);
+
     > div {
       display: inline-flex;
       align-items: center;
@@ -208,6 +210,7 @@ export default {
   }
 
   > .portlet-card-title {
+    display: var(--content-gridcard-title-display);
     padding-top: 1em;
     font-size: 16px;
     font-weight: bold;
@@ -216,6 +219,7 @@ export default {
   }
 
   > .portlet-card-description {
+    display: var(--content-gridcard-description-display);
     padding-top: 0.3em;
     flex: 1;
     font-size: 14px;
