@@ -50,6 +50,7 @@
         <div
           v-for="portlet in filteredPortlets"
           :key="portlet.id"
+          :class="['portlet-card-' + _portletCardSize]"
           class="flex-item ma-3 text-xs-center">
           <a
             :href="getRenderPortletUrl(portlet)"
@@ -59,6 +60,7 @@
             "
             class="no-style">
             <portlet-card
+              :messages="messages"
               :portlet-desc="portlet"
               :is-favorite="isFavorite(portlet.fname)"
               :size="_portletCardSize"
@@ -66,6 +68,7 @@
               :call-after-action="actionToggleFav"
               :favorite-api-url="favoriteApiUrl"
               :user-info-api-url="userInfoApiUrl"
+              :back-ground-is-dark="portletBackgroundIsDark"
               :debug="debug"/>
           </a>
         </div>
@@ -95,7 +98,7 @@
 </template>
 
 <script>
-import i18n from '../i18n.js';
+import i18nMixin from '../mixins/i18n.js';
 import PortletCard from './PortletCard';
 import fetchPortlets from '../services/fetchPortlets';
 import byPortlet from '../services/sortByPortlet';
@@ -116,6 +119,7 @@ import matchSorter from 'match-sorter';
 
 export default {
   name: 'ContentGrid',
+  mixins: [i18nMixin],
   components: {
     PortletCard,
   },
@@ -168,6 +172,7 @@ export default {
      */
     portlets: {type: Array, default: undefined},
     showFooterCategories: {type: Boolean, default: false},
+    portletBackgroundIsDark: {type: Boolean, default: false},
   },
   data() {
     return {
@@ -215,6 +220,7 @@ export default {
             (portlets) =>
               matchSorter(portlets, this.filterValue, {
                 keys: ['title', 'name', 'description'],
+                threshold: matchSorter.rankings.ACRONYM,
               });
 
       return valueFilter(categoryFilter(portlets));
@@ -242,9 +248,6 @@ export default {
     window.removeEventListener('resize', this.calculateSize);
   },
   methods: {
-    translate(text, lang) {
-      return i18n.t(text, lang);
-    },
     hasAlternativeMaximizedUrl(portletDesc) {
       return hasAlternativeMaximizedUrl(portletDesc);
     },
@@ -468,7 +471,7 @@ $searchSize: 32px;
     .flex-grid {
       display: flex;
       flex-flow: row wrap;
-      justify-content: center;
+      justify-content: var(--content-grid-flex-grid-justify, center);
 
       .flex-item {
         margin: 20px auto;

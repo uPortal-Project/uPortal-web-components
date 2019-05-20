@@ -21,6 +21,7 @@
     <slot name="menu-content">
       <content-menu
         v-if="append"
+        :messages="messages"
         :switch-org-portlet-url="switchOrgPortletUrl"
         :call-on-close="toggleMenu"
         :context-api-url="contextApiUrl"
@@ -40,6 +41,7 @@
         :user-org-id-attribute-name="userOrgIdAttributeName"
         :user-all-orgs-id-attribute-name="userAllOrgsIdAttributeName"
         :org-logo-url-attribute-name="orgLogoUrlAttributeName"
+        :show-favorites-in-slider="showFavoritesInSlider"
         default-class="toggler-menu"
         visible-class="active-menu"/>
     </slot>
@@ -49,9 +51,11 @@
 <script>
 import ContentMenu from './ContentMenu';
 import {sizeValidator} from '../services/sizeTools';
+import i18nMixin from '../mixins/i18n.js';
 
 export default {
   name: 'HamburgerMenu',
+  mixins: [i18nMixin],
   components: {
     ContentMenu,
   },
@@ -109,6 +113,7 @@ export default {
       type: String,
       default: 'otherAttributes.ESCOStructureLogo[0]',
     },
+    showFavoritesInSlider: {type: Boolean, default: true},
   },
   data() {
     return {

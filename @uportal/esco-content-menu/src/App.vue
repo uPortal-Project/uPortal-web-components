@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <hamburger-menu
+    <!--<hamburger-menu
+      messages='[{"locales": ["en", "en-US"], "messages": { "message": {"favorites": { "add": "Add me to your favorites!" } }}}]'
       default-org-logo="https://lycees.netocentre.fr/annuaire_images/default_banner_v1.jpg"
-      api-url-org-info="/p/test"
       favorites-portlet-card-size="small"
       grid-portlet-card-size="auto"
       hide-action-mode="never"
@@ -10,27 +10,42 @@
       layout-api-url="layout.json"
       organization-api-url="orginfo.json"
       user-info-api-url="userinfo.json"
-      debug/>
-      <!-- <content-grid
+      debug />
+    -->
+    <!-- <content-grid
       background-color="grey"
       portlet-card-size="medium"
       portlet-api-url="portletRegistry.json"
       layout-api-url="layout.json"
       debug /> -->
+    <content-menu
+      messages='[{"locales": ["en", "en-US"], "messages": { "message": {"favorites": { "add": "Add me to your favorites!" } }}}]'
+      default-org-logo="https://lycees.netocentre.fr/annuaire_images/default_banner_v1.jpg"
+      favorites-portlet-card-size="small"
+      grid-portlet-card-size="auto"
+      hide-action-mode="never"
+      portlet-api-url="portletRegistry.json"
+      layout-api-url="layout.json"
+      organization-api-url="orginfo.json"
+      user-info-api-url="userinfo.json"
+      :show-favorites-in-slider="false"
+      debug>
+      <!--      <div slot="content-user"></div>-->
+    </content-menu>
   </div>
 </template>
 
 <script>
-// import ContentMenu from './components/ContentMenu.vue';
+import ContentMenu from './components/ContentMenu.vue';
 // import ContentGrid from './components/ContentGrid.vue';
-import HamburgerMenu from './components/HamburgerMenu';
+// import HamburgerMenu from './components/HamburgerMenu';
 
 export default {
   name: 'App',
   components: {
-    // ContentMenu,
+    ContentMenu,
     // ContentGrid,
-    HamburgerMenu,
+    // HamburgerMenu,
   },
 };
 </script>
