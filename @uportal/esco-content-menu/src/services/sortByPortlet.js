@@ -1,7 +1,14 @@
 export default function(a, b) {
   // if parameter is missing or an invalid integer, Not a Number (NaN) will be set
-  const aCustomOrder = parseInt(a?.layoutObject?.parameters?.escoMenuOrder, 10);
-  const bCustomOrder = parseInt(b?.layoutObject?.parameters?.escoMenuOrder, 10);
+  let aCustomOrder = parseInt(a?.parameters?.escoMenuOrder?.value, 10);
+  let bCustomOrder = parseInt(b?.parameters?.escoMenuOrder?.value, 10);
+
+  if (isNaN(aCustomOrder)) {
+    aCustomOrder = parseInt(a?.layoutObject?.parameters?.escoMenuOrder, 10);
+  }
+  if (isNaN(bCustomOrder)) {
+    bCustomOrder = parseInt(b?.layoutObject?.parameters?.escoMenuOrder, 10);
+  }
 
   // if neither has a custom order, sort by title
   if (isNaN(aCustomOrder) && isNaN(bCustomOrder)) {
