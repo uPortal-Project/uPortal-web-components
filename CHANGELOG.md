@@ -7,6 +7,37 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased][]
 
+## [1.29.0][] - 2019-05-21
+
+### Features
+
+- Add choice to show favorites into a slider or not in the esco-content-menu (#303)
+- Add slot on content-user part in the esco-content-menu (#303)
+- Added support for custom i18n messages (#326)
+- Added vars to control display of specific elements (#323)
+
+### Fixes
+
+- Detect lang from main document lang property in the esco-content-menu (#303)
+- Set matchSorter to ACRONYM in the esco-content-grid (#325)
+- Fixed esco-content custom sort order (#329)
+
+### Style
+
+- Add slot on header-buttons in the esco-content-menu (#303)
+- Add css variable to customize the flex-grid in the esco-content-menu (#303)
+- Add prop for background contrast in the esco-content-menu (#303)
+- remove margin auto to flex justified content in the esco-content-menu (#303)
+
+### Documentation
+
+- Fix empty slots examples, end tag is required (#303)
+
+### Chores
+
+- Dependency updates (#319, #320, #322, #324)
+- Lock file maintenance (#318, #321, #328)
+
 ## [1.28.0][] - 2019-05-03
 
 ### Feature
@@ -954,7 +985,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - **open-id-connect**: Initial version of an OpenID Connect helper script to use in web components and JavaScript modules.
 - **content-carousel**: Initial version of content carousel, a carousel based portlet metadata display system.
 
-[unreleased]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.28.0...HEAD
+[unreleased]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.29.0...HEAD
+[1.29.0]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.28.0...v1.29.0
 [1.28.0]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.27.0...v1.28.0
 [1.27.0]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.26.2...v1.27.0
 [1.26.2]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.26.1...v1.26.2
