@@ -16,7 +16,7 @@ export default class App extends Vue {
 
   @Provide()
   public contentOptions: any = {
-    slidesToShow: 3,
+    slidesToShow: 6,
     infinite: true,
     arrows: true,
     dots: true,
