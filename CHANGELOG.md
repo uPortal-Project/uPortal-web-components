@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased][]
 
+## [1.30.0][] - 2019-05-23
+
+### Features
+
+-Implement flex-based layout for the content-carousel (#327)
+
 ## [1.29.0][] - 2019-05-21
 
 ### Features
@@ -985,7 +991,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - **open-id-connect**: Initial version of an OpenID Connect helper script to use in web components and JavaScript modules.
 - **content-carousel**: Initial version of content carousel, a carousel based portlet metadata display system.
 
-[unreleased]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.29.0...HEAD
+[unreleased]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.30.0...HEAD
+[1.30.0]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.29.0...v1.30.0
 [1.29.0]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.28.0...v1.29.0
 [1.28.0]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.27.0...v1.28.0
 [1.27.0]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.26.2...v1.27.0
