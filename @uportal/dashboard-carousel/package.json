@@ -1,6 +1,6 @@
 {
   "name": "@uportal/dashboard-carousel",
-  "version": "1.29.0",
+  "version": "1.30.0",
   "publishConfig": {
     "access": "public"
   },
@@ -12,7 +12,7 @@
     "build": "vue-cli-service build --target wc --name dashboard-carousel src/components/DashboardCarousel.vue"
   },
   "dependencies": {
-    "@uportal/open-id-connect": "^1.29.0",
+    "@uportal/open-id-connect": "^1.30.0",
     "jquery": "^3.3.1",
     "ky": "^0.11.0",
     "vue": "^2.5.17",
