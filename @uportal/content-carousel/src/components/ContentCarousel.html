@@ -35,27 +35,33 @@
               </a>
             </div>
             <div v-if="computedSlickOptions.slidesToShow > 1">
-              <div class="slick-item">
-                <p
-                  v-if="!item.imageUrl"
-                  v-html="item.description"
-                  class="slick-item-description"
-                ></p>
+              <div
+                class="slick-item"
+                :class="{'has-image': !!item.imageUrl, 'has-title': !!item.title, 'has-description': !!item.description}"
+              >
                 <a
+                  v-if="item.imageUrl"
                   :href="item.destinationUrl"
-                  :class="{ 'slick-title': !item.imageUrl }"
+                  class="slick-link slick-image"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <span
-                    v-if="item.imageUrl"
-                    v-bind:style="{background: 'url(' + item.imageUrl + ') top center no-repeat', backgroundSize: 'auto 100%', backgroundPosition: 'center'}"
-                    class="slick-image"
-                  ></span>
-                  <span :class="{ 'slick-title': item.imageUrl }"
-                    >{{ item.title }}</span
-                  >
+                  <img :src="item.imageUrl" />
                 </a>
+                <a
+                  v-if="item.title"
+                  :href="item.destinationUrl"
+                  class="slick-link slick-title"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {{ item.title }}
+                </a>
+                <p
+                  v-if="item.description"
+                  v-html="item.description"
+                  class="slick-item-description"
+                ></p>
               </div>
             </div>
           </slot>

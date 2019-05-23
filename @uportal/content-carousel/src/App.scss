@@ -1,3 +1,14 @@
+.primary {
+  // --cc-title-display: block;
+}
+
+.flush {
+  --cc-description-display: none;
+  --cc-title-padding: 8px;
+  --cc-description-bgcolor: #eee;
+  --cc-title-flex: 1 1 auto;
+}
+
 body {
   background: #eee;
   height: 100%;

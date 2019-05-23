@@ -1,0 +1,127 @@
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <channel>
+        <title>Academic Notices</title>
+        <link>http://localhost:8080/Announcements/getRssFeed?topic=2</link>
+        <description>Notices to all students, faculty, and staff</description>
+        <item>
+            <title>Open registration next month from the 1st to the 8th, Open registration next month from the 1st to the 8th</title>
+            <link>http://localhost:8080/uPortal/p/announcements?pP_announcementId=2&amp;pP_action=displayFullAnnouncement</link>
+            <description>Open registration for next semester begins next month on the first at 8:00AM</description>
+            <pubDate>Mon, 01 Aug 2016 07:00:00 GMT</pubDate>
+            <guid>http://localhost:8080/uPortal/p/announcements?pP_announcementId=2&amp;pP_action=displayFullAnnouncement</guid>
+            <enclosure url="/stock-photo.jpg" length="5929" type="image/jpeg" />
+            <dc:creator>admin</dc:creator>
+            <dc:date>2016-08-01T07:00:00Z</dc:date>
+        </item>
+        <item>
+            <title>Item 2</title>
+            <link>http://localhost:8080/uPortal/p/announcements?pP_announcementId=2&amp;pP_action=displayFullAnnouncement</link>
+            <description>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In cursus vestibulum iaculis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</description>
+            <pubDate>Mon, 01 Aug 2016 07:00:00 GMT</pubDate>
+            <guid>http://localhost:8080/uPortal/p/announcements?pP_announcementId=2&amp;pP_action=displayFullAnnouncement</guid>
+            <enclosure url="/stock-photo.jpg" length="5929" type="image/jpeg" />
+            <dc:creator>admin</dc:creator>
+            <dc:date>2016-08-01T07:00:00Z</dc:date>
+        </item>
+        <item>
+            <title>Item 3</title>
+            <link>http://localhost:8080/uPortal/p/announcements?pP_announcementId=2&amp;pP_action=displayFullAnnouncement</link>
+            <description>Nulla tellus neque, mollis id est id, aliquam accumsan velit. Sed eget odio finibus, placerat tellus ac, egestas orci.</description>
+            <pubDate>Mon, 01 Aug 2016 07:00:00 GMT</pubDate>
+            <guid>http://localhost:8080/uPortal/p/announcements?pP_announcementId=2&amp;pP_action=displayFullAnnouncement</guid>
+            <enclosure url="/stock-photo.jpg" length="5929" type="image/jpeg" />
+            <dc:creator>admin</dc:creator>
+            <dc:date>2016-08-01T07:00:00Z</dc:date>
+        </item>
+        <item>
+            <title>Item 4, Open registration next month from the 1st to the 8th, Open registration next month from the 1st to the 8th</title>
+            <link>http://localhost:8080/uPortal/p/announcements?pP_announcementId=2&amp;pP_action=displayFullAnnouncement</link>
+            <description>Pellentesque dictum magna sapien, sit amet ullamcorper augue gravida sit amet.</description>
+            <pubDate>Mon, 01 Aug 2016 07:00:00 GMT</pubDate>
+            <guid>http://localhost:8080/uPortal/p/announcements?pP_announcementId=2&amp;pP_action=displayFullAnnouncement</guid>
+            <enclosure url="/stock-photo.jpg" length="5929" type="image/jpeg" />
+            <dc:creator>admin</dc:creator>
+            <dc:date>2016-08-01T07:00:00Z</dc:date>
+        </item>
+        <item>
+            <title>Open registration next month from the 1st to the 8th, Open registration next month from the 1st to the 8th</title>
+            <link>http://localhost:8080/uPortal/p/announcements?pP_announcementId=2&amp;pP_action=displayFullAnnouncement</link>
+            <description>Open registration for next semester begins next month on the first at 8:00AM</description>
+            <pubDate>Mon, 01 Aug 2016 07:00:00 GMT</pubDate>
+            <guid>http://localhost:8080/uPortal/p/announcements?pP_announcementId=2&amp;pP_action=displayFullAnnouncement</guid>
+            <enclosure url="/stock-photo.jpg" length="5929" type="image/jpeg" />
+            <dc:creator>admin</dc:creator>
+            <dc:date>2016-08-01T07:00:00Z</dc:date>
+        </item>
+        <item>
+            <title>Open registration next month from the 1st to the 8th, Open registration next month from the 1st to the 8th</title>
+            <link>http://localhost:8080/uPortal/p/announcements?pP_announcementId=2&amp;pP_action=displayFullAnnouncement</link>
+            <description>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In cursus vestibulum iaculis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</description>
+            <pubDate>Mon, 01 Aug 2016 07:00:00 GMT</pubDate>
+            <guid>http://localhost:8080/uPortal/p/announcements?pP_announcementId=2&amp;pP_action=displayFullAnnouncement</guid>
+            <enclosure url="/stock-photo.jpg" length="5929" type="image/jpeg" />
+            <dc:creator>admin</dc:creator>
+            <dc:date>2016-08-01T07:00:00Z</dc:date>
+        </item>
+        <item>
+            <title>Item 7</title>
+            <link>http://localhost:8080/uPortal/p/announcements?pP_announcementId=2&amp;pP_action=displayFullAnnouncement</link>
+            <description>Nulla tellus neque, mollis id est id, aliquam accumsan velit. Sed eget odio finibus, placerat tellus ac, egestas orci.</description>
+            <pubDate>Mon, 01 Aug 2016 07:00:00 GMT</pubDate>
+            <guid>http://localhost:8080/uPortal/p/announcements?pP_announcementId=2&amp;pP_action=displayFullAnnouncement</guid>
+            <enclosure url="/stock-photo.jpg" length="5929" type="image/jpeg" />
+            <dc:creator>admin</dc:creator>
+            <dc:date>2016-08-01T07:00:00Z</dc:date>
+        </item>
+        <item>
+            <title>Item 8</title>
+            <link>http://localhost:8080/uPortal/p/announcements?pP_announcementId=2&amp;pP_action=displayFullAnnouncement</link>
+            <description>Pellentesque dictum magna sapien, sit amet ullamcorper augue gravida sit amet.</description>
+            <pubDate>Mon, 01 Aug 2016 07:00:00 GMT</pubDate>
+            <guid>http://localhost:8080/uPortal/p/announcements?pP_announcementId=2&amp;pP_action=displayFullAnnouncement</guid>
+            <enclosure url="/stock-photo.jpg" length="5929" type="image/jpeg" />
+            <dc:creator>admin</dc:creator>
+            <dc:date>2016-08-01T07:00:00Z</dc:date>
+        </item>
+        <item>
+            <title>Open registration next month from the 1st to the 8th</title>
+            <link>http://localhost:8080/uPortal/p/announcements?pP_announcementId=2&amp;pP_action=displayFullAnnouncement</link>
+            <description>Open registration for next semester begins next month on the first at 8:00AM</description>
+            <pubDate>Mon, 01 Aug 2016 07:00:00 GMT</pubDate>
+            <guid>http://localhost:8080/uPortal/p/announcements?pP_announcementId=2&amp;pP_action=displayFullAnnouncement</guid>
+            <enclosure url="/stock-photo.jpg" length="5929" type="image/jpeg" />
+            <dc:creator>admin</dc:creator>
+            <dc:date>2016-08-01T07:00:00Z</dc:date>
+        </item>
+        <item>
+            <title>Item 10</title>
+            <link>http://localhost:8080/uPortal/p/announcements?pP_announcementId=2&amp;pP_action=displayFullAnnouncement</link>
+            <description>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In cursus vestibulum iaculis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</description>
+            <pubDate>Mon, 01 Aug 2016 07:00:00 GMT</pubDate>
+            <guid>http://localhost:8080/uPortal/p/announcements?pP_announcementId=2&amp;pP_action=displayFullAnnouncement</guid>
+            <enclosure url="/stock-photo.jpg" length="5929" type="image/jpeg" />
+            <dc:creator>admin</dc:creator>
+            <dc:date>2016-08-01T07:00:00Z</dc:date>
+        </item>
+        <item>
+            <title>Item 11</title>
+            <link>http://localhost:8080/uPortal/p/announcements?pP_announcementId=2&amp;pP_action=displayFullAnnouncement</link>
+            <description>Nulla tellus neque, mollis id est id, aliquam accumsan velit. Sed eget odio finibus, placerat tellus ac, egestas orci.</description>
+            <pubDate>Mon, 01 Aug 2016 07:00:00 GMT</pubDate>
+            <guid>http://localhost:8080/uPortal/p/announcements?pP_announcementId=2&amp;pP_action=displayFullAnnouncement</guid>
+            <enclosure url="/stock-photo.jpg" length="5929" type="image/jpeg" />
+            <dc:creator>admin</dc:creator>
+            <dc:date>2016-08-01T07:00:00Z</dc:date>
+        </item>
+        <item>
+            <title>Item 12</title>
+            <link>http://localhost:8080/uPortal/p/announcements?pP_announcementId=2&amp;pP_action=displayFullAnnouncement</link>
+            <description>Pellentesque dictum magna sapien, sit amet ullamcorper augue gravida sit amet.</description>
+            <pubDate>Mon, 01 Aug 2016 07:00:00 GMT</pubDate>
+            <guid>http://localhost:8080/uPortal/p/announcements?pP_announcementId=2&amp;pP_action=displayFullAnnouncement</guid>
+            <enclosure url="/stock-photo.jpg" length="5929" type="image/jpeg" />
+            <dc:creator>admin</dc:creator>
+            <dc:date>2016-08-01T07:00:00Z</dc:date>
+        </item>
+    </channel>
+</rss>

@@ -16,6 +16,16 @@
         :source="'/content.rss'"
         :slick-options="contentOptions"
         :carousel-height="contentHeight"
+        class="primary"
+      />
+    </section>
+    <section class="content">
+      <content-carousel
+        :type="'rss'"
+        :source="'/content-image.rss'"
+        :slick-options="contentOptions"
+        :carousel-height="contentHeight"
+        class="flush"
       />
     </section>
     <section class="content">
@@ -39,21 +49,72 @@
         :type="'passthrough'"
         :slick-options="contentOptions"
         :carousel-height="portletHeight"
+        class="flush"
       >
-        <div class="slick-item">
-          arbitrary
+        <div class="slick-item has-image has-description">
+          <img
+            src="/stock-photo.jpg"
+            class="slick-image"
+          >
+          <span class="slick-title">Title Goes Here</span>
+          <p class="slick-item-description">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
+            rhoncus tincidunt semper. Vivamus luctus sem tincidunt neque
+            convallis malesuada. Etiam eget nisl faucibus, tempor ligula
+            interdum, luctus elit.
+          </p>
         </div>
-        <div class="slick-item">
-          content
+        <div class="slick-item has-image has-description">
+          <img
+            src="/stock-photo.jpg"
+            class="slick-image"
+          >
+          <span class="slick-title">Title Goes Here</span>
+          <p class="slick-item-description">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
+            rhoncus tincidunt semper. Vivamus luctus sem tincidunt neque
+            convallis malesuada. Etiam eget nisl faucibus, tempor ligula
+            interdum, luctus elit.
+          </p>
         </div>
-        <div class="slick-item">
-          displayed
+        <div class="slick-item has-image has-description">
+          <img
+            src="/stock-photo.jpg"
+            class="slick-image"
+          >
+          <span class="slick-title">Title Goes Here</span>
+          <p class="slick-item-description">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
+            rhoncus tincidunt semper. Vivamus luctus sem tincidunt neque
+            convallis malesuada. Etiam eget nisl faucibus, tempor ligula
+            interdum, luctus elit.
+          </p>
         </div>
-        <div class="slick-item">
-          as
+        <div class="slick-item has-image has-description">
+          <img
+            src="/stock-photo.jpg"
+            class="slick-image"
+          >
+          <span class="slick-title">Title Goes Here</span>
+          <p class="slick-item-description">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
+            rhoncus tincidunt semper. Vivamus luctus sem tincidunt neque
+            convallis malesuada. Etiam eget nisl faucibus, tempor ligula
+            interdum, luctus elit.
+          </p>
         </div>
-        <div class="slick-item">
-          slides
+        <div class="slick-item has-image has-description">
+          <img
+            src="/stock-photo.jpg"
+            class="slick-image"
+          >
+          <span class="slick-title">Title Goes Here</span>
+          <p class="slick-item-description">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
+            rhoncus tincidunt semper. Vivamus luctus sem tincidunt neque
+            convallis malesuada. Etiam eget nisl faucibus, tempor ligula
+            interdum, luctus elit.
+          </p>
         </div>
       </content-carousel>
     </section>
