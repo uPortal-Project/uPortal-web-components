@@ -1,7 +1,7 @@
 language: node_js
 node_js:
   - 10 # long term support
-  - 11 # latest
+  - 12 # latest
 os:
   - linux
   - osx
