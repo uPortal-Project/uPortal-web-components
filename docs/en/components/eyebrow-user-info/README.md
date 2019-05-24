@@ -4,7 +4,7 @@
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.webjars.npm/uportal__eyebrow-user-info/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.webjars.npm/uportal__eyebrow-user-info)
 [![Build Status](https://travis-ci.org/uPortal-contrib/uPortal-web-components.svg?branch=master)](https://travis-ci.org/uPortal-contrib/uPortal-web-components)
 
-![Example of rendering](/eyebrow-user-info/doc/example.gif?raw=true)
+![Example of rendering](doc/example.gif)
 
 ## Demo
 
