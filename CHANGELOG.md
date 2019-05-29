@@ -7,6 +7,22 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased][]
 
+## [1.30.1][] - 2019-05-29
+
+### Fixes
+
+- Added css variable to slick-item height (#331)
+
+### Testing
+
+- Remove eslint react (#330)
+
+### Chores
+
+- Add nvmrc (#334)
+- Dependency updates (#221)
+- Lock file maintenance (#331, #333)
+
 ## [1.30.0][] - 2019-05-23
 
 ### Features
@@ -991,7 +1007,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - **open-id-connect**: Initial version of an OpenID Connect helper script to use in web components and JavaScript modules.
 - **content-carousel**: Initial version of content carousel, a carousel based portlet metadata display system.
 
-[unreleased]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.30.0...HEAD
+[unreleased]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.30.1...HEAD
+[1.30.1]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.30.0...v1.30.1
 [1.30.0]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.29.0...v1.30.0
 [1.29.0]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.28.0...v1.29.0
 [1.28.0]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.27.0...v1.28.0
