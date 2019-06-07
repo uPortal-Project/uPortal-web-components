@@ -9,7 +9,7 @@
     <template v-else>
       <Slick
         ref="slick"
-        :options="slickOptions"
+        :options="computedSlickOptions"
         @afterChange="handleAfterChange"
       >
         <div
@@ -28,7 +28,10 @@
           </span>
         </div>
       </Slick>
-      <ul ref="buttons">
+      <ul
+        ref="buttons"
+        v-if="!computedSlickOptions.dots && dashboard.folders.length > 1"
+      >
         <li
           v-for="(region, index) in dashboard.folders"
           :key="region.name"
@@ -60,10 +63,6 @@ export default {
   name: 'DashboardCarousel',
   data: function() {
     return {
-      slickOptions: {
-        dots: false,
-        arrows: true,
-      },
       activeIndex: 0,
     };
   },
@@ -84,6 +83,13 @@ export default {
     layoutApiUrl: {
       type: String,
       default: '/uPortal/api/v4-3/dlm/layout.json',
+    },
+    slickOptions: {
+      type: String | Object,
+      default: () => ({
+        dots: false,
+        arrows: true,
+      }),
     },
     debug: {
       type: Boolean,
@@ -118,6 +124,13 @@ export default {
     },
   },
   computed: {
+    computedSlickOptions() {
+      const options =
+        typeof this.slickOptions === 'string'
+          ? JSON.parse(this.slickOptions)
+          : this.slickOptions;
+      return {slick: this.$el || '', swipeToSlide: true, ...options};
+    },
     dashboard() {
       const slick = this.$refs.slick || {
         currentSlide: () => {},
@@ -191,7 +204,10 @@ export default {
     margin: 0 10px;
     padding: 10px;
     border: 1px solid #ccc;
+    border: var(--dash-carousel-item-border, 1px solid #ccc);
     max-width: 33%;
+    border-radius: 0;
+    border-radius: var(--dash-carousel-item-border-radius, 0);
   }
 }
 

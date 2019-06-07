@@ -1,6 +1,7 @@
 <template>
   <DashboardCarousel
     debug
+    slick-options="{&quot;arrows&quot;: false}"
     layout-api-url="layout.json"
   />
 </template>
