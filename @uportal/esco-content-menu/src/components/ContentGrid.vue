@@ -229,6 +229,7 @@ export default {
   beforeMount() {
     window.addEventListener('gridNeedCategories', this.emitAllCategories);
     window.addEventListener('gridCategoryFilter', this.setFilterCategory);
+    window.addEventListener('gridFavoritesUpdated', this.reload);
   },
   mounted() {
     if (!this.portlets) {
@@ -245,6 +246,7 @@ export default {
   beforeDestroy() {
     window.removeEventListener('gridCategoryFilter', this.setFilterCategory);
     window.removeEventListener('gridNeedCategories', this.emitAllCategories);
+    window.removeEventListener('gridFavoritesUpdated', this.reload);
     window.removeEventListener('resize', this.calculateSize);
   },
   methods: {
@@ -257,6 +259,11 @@ export default {
     isFavorite(fname) {
       const favorites = this.favorites || this.localFavorites;
       return favorites.includes(fname);
+    },
+    reload(event) {
+      if (this._uid !== event.detail) {
+        this.fetchPortlets();
+      }
     },
     async fetchPortlets() {
       const portlets = await fetchPortlets(
@@ -278,6 +285,11 @@ export default {
       this.elementSize = breakPointName(elementWidth(this.$el));
     },
     actionToggleFav(fname) {
+      const event = new CustomEvent('gridFavoritesUpdated', {
+        bubbles: true,
+        detail: this._uid,
+      });
+      window.dispatchEvent(event);
       /**
        * use case:
        * if used independently or without external component need on favorites we should manage locally favorited

@@ -117,6 +117,12 @@ export default {
         process.env.VUE_APP_PORTAL_CONTEXT +
         process.env.VUE_APP_FAVORITES_PORTLETS_URI,
     },
+    portletApiUrl: {
+      type: String,
+      default:
+        process.env.VUE_APP_PORTAL_CONTEXT +
+        process.env.VUE_APP_BROWSABLE_PORTLETS_URI,
+    },
     userInfoApiUrl: {
       type: String,
       default:
