@@ -85,7 +85,7 @@ export default {
       default: '/uPortal/api/v4-3/dlm/layout.json',
     },
     slickOptions: {
-      type: String | Object,
+      type: [String, Object],
       default: () => ({
         dots: false,
         arrows: true,
