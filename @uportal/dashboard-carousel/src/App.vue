@@ -3,6 +3,7 @@
     <div class="p-4">
       <DashboardCarousel
         debug
+        slick-options="{&quot;arrows&quot;: false}"
         layout-api-url="layout.json"
       />
     </div>
