@@ -1,6 +1,6 @@
 <template>
   <main>
-    <section>
+    <!--<section>
       <content-carousel
         :type="'rss'"
         :source="'/hero.rss'"
@@ -18,17 +18,34 @@
         :carousel-height="contentHeight"
         class="primary"
       />
-    </section>
+    </section>-->
     <section class="content">
       <content-carousel
         :type="'rss'"
         :source="'/content-image.rss'"
-        :slick-options="contentOptions"
+        fit-to-container="true"
+        slick-options="{
+          &quot;slidesToShow&quot;: 6,
+          &quot;infinite&quot;: true,
+          &quot;arrows&quot;: true,
+          &quot;dots&quot;: true,
+          &quot;variableWidth&quot;: false,
+          &quot;responsive&quot;: [
+            {
+              &quot;breakpoint&quot;: &quot;768&quot;,
+              &quot;settings&quot;: {
+                &quot;slidesToShow&quot;: 2,
+                &quot;slidesToScroll&quot;: 2,
+                &quot;dots&quot;: false
+              }
+            }
+          ]
+        }"
         :carousel-height="contentHeight"
         class="flush"
       />
     </section>
-    <section class="content">
+    <!--<section class="content">
       <content-carousel
         :type="'rss'"
         :source="'/empty.rss'"
@@ -117,7 +134,7 @@
           </p>
         </div>
       </content-carousel>
-    </section>
+    </section>-->
   </main>
 </template>
 <script lang="ts" src="./App.ts"></script>
