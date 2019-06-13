@@ -151,5 +151,13 @@ export default {
   padding: var(--dcg-card-body-padding, 1.25rem);
 }
 
+@media (max-width: 767.98px) {
+  .card-list {
+    .card-container {
+      flex: 1 1 100%;
+    }
+  }
+}
+
 /* Small devices (landscape phones, less than 768px) */
 </style>
