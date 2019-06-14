@@ -1,6 +1,4 @@
 module.exports = {
-  // options...
-  runtimeCompiler: true,
   devServer: {
     proxy: {
       '/uPortal': {
