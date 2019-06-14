@@ -1,6 +1,6 @@
 <template>
   <div>
-    <template v-if="!dashboard">
+    <template v-if="!dashboard || !dashboard.length">
       <slot name="empty">
         <p>no results found</p>
       </slot>
@@ -14,26 +14,37 @@
       >
         <div
           class="slick-item"
-          v-for="region of dashboard.folders"
+          v-for="region of dashboard"
           :key="region.name"
         >
-          <span
+          <div
             v-for="card of region.content"
             :key="card.name"
           >
-            <PortletRenderer
-              :portlet-html-url="card.url"
-              :debug="debug"
-            />
-          </span>
+            <template v-if="card.widgetTemplate">
+              <WidgetRenderer
+                :template="card.widgetTemplate"
+                :config="card.widgetConfig"
+                :url="card.widgetURL"
+                :type="card.widgetType"
+                :debug="debug"
+              />
+            </template>
+            <template v-else>
+              <PortletRenderer
+                :portlet-html-url="card.url"
+                :debug="debug"
+              />
+            </template>
+          </div>
         </div>
       </Slick>
       <ul
         ref="buttons"
-        v-if="!computedSlickOptions.dots && dashboard.folders.length > 1"
+        v-if="!computedSlickOptions.dots && dashboard.length > 1"
       >
         <li
-          v-for="(region, index) in dashboard.folders"
+          v-for="(region, index) in dashboard"
           :key="region.name"
           :id="'dashboardCarousel-' + index"
         >
@@ -52,15 +63,12 @@
 <script>
 import Slick from 'vue-slick';
 import PortletRenderer from './PortletRenderer';
-import Vue from 'vue';
-import AsyncComputed from 'vue-async-computed';
-import ky from 'ky';
-import oidc from '@uportal/open-id-connect';
-
-Vue.use(AsyncComputed);
+import WidgetRenderer from './WidgetRenderer';
+import LayoutData from '../mixins/LayoutData';
 
 export default {
   name: 'DashboardCarousel',
+  mixins: [LayoutData],
   data: function() {
     return {
       activeIndex: 0,
@@ -69,6 +77,7 @@ export default {
   components: {
     Slick,
     PortletRenderer,
+    WidgetRenderer,
   },
   methods: {
     clickHandler(slideIndex) {
@@ -80,10 +89,6 @@ export default {
     },
   },
   props: {
-    layoutApiUrl: {
-      type: String,
-      default: '/uPortal/api/v4-3/dlm/layout.json',
-    },
     slickOptions: {
       type: [String, Object],
       default: () => ({
@@ -98,29 +103,6 @@ export default {
     regionName: {
       type: String,
       default: 'dashboard',
-    },
-  },
-  asyncComputed: {
-    layout: {
-      async get() {
-        const {layoutApiUrl, debug} = this;
-        try {
-          const headers = debug
-            ? {}
-            : {
-              'Authorization': 'Bearer ' + (await oidc()).encoded,
-              'content-type': 'application/jwt',
-            };
-          return (await ky.get(layoutApiUrl, {headers}).json()).layout;
-        } catch (err) {
-          // eslint-disable-next-line no-console
-          console.error(err);
-          return [];
-        }
-      },
-      default: {
-        regions: [],
-      },
     },
   },
   computed: {
@@ -145,14 +127,12 @@ export default {
         slick.create();
         slick.goTo(currentIndex, true);
       });
-      const dashboard = this.layout.regions.find(
-          (region) => region.name === this.regionName
-      );
-
-      if (!dashboard) {
+      if (!this.layout) {
         console.error('Dashboard data not loaded');
+        return;
       }
-      return dashboard;
+
+      return this.layout;
     },
   },
 };
@@ -198,7 +178,7 @@ export default {
   display: flex !important;
   justify-content: space-evenly;
 
-  > span {
+  > div {
     flex: 1 1 auto;
     background-color: #fff;
     margin: 0 10px;
@@ -208,6 +188,8 @@ export default {
     max-width: 33%;
     border-radius: 0;
     border-radius: var(--dash-carousel-item-border-radius, 0);
+    display: inline-flex;
+    flex-direction: column;
   }
 }
 

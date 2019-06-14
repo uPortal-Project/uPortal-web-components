@@ -1,0 +1,83 @@
+<template>
+  <div class="widget">
+    <div v-html="html" />
+    <div class="links">
+      <a
+        v-for="(link, index) in config.links"
+        :key="index"
+        :href="link.href"
+        :title="link.title"
+        :target="link.target"
+        :aria-label="'Launch ' + link.title"
+      >{{ config.launchText }}</a>
+    </div>
+  </div>
+</template>
+
+<script>
+import ky from 'ky';
+import oidc from '@uportal/open-id-connect';
+import Handlebars from 'handlebars/lib/handlebars';
+
+export default {
+  name: 'WidgetRenderer',
+  props: {
+    template: String,
+    config: {
+      type: Object,
+      default: () => ({links: []}),
+    },
+    type: String,
+    url: String,
+    debug: {
+      type: Boolean,
+      default: false,
+    },
+  },
+  computed: {
+    html() {
+      return Handlebars.compile(this.template)({
+        $root: {
+          tabContext: this.type,
+        },
+        content: this.content,
+      });
+    },
+    configuration() {
+      return this.config || {links: []};
+    },
+  },
+  asyncComputed: {
+    content: {
+      async get() {
+        const {url, debug} = this;
+        try {
+          const headers = debug
+            ? {}
+            : {
+              'Authorization': 'Bearer ' + (await oidc()).encoded,
+              'content-type': 'application/jwt',
+            };
+          return await ky.get(url, {headers}).text();
+        } catch (err) {
+          // eslint-disable-next-line no-console
+          console.error(err);
+          return '';
+        }
+      },
+    },
+  },
+};
+</script>
+
+<style lang="scss" scoped>
+.widget {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+  > *:first-child {
+    flex-grow: 1;
+  }
+}
+</style>

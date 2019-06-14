@@ -4,13 +4,15 @@
       <DashboardCarousel
         debug
         slick-options="{&quot;arrows&quot;: false}"
-        layout-api-url="layout.json"
+        layout-api-url="/layout.json"
+        layout-doc-url="/layoutDoc.json"
       />
     </div>
     <div class="p-4">
       <DashboardContentGrid
         debug
-        layout-api-url="layout.json"
+        layout-api-url="/layout.json"
+        layout-doc-url="/layoutDoc.json"
       />
     </div>
   </div>
@@ -39,13 +41,22 @@ export default {
   --dash-carousel-btn-fg-hover-color: #000;
 }
 
+html,
+body {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+}
+
 body {
   background-color: cadetblue;
   margin: 0;
 }
 
+a {
+  text-decoration: none;
+  color: teal;
+}
+
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;

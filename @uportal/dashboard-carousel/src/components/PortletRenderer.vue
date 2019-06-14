@@ -1,5 +1,10 @@
 <template>
-  <div v-html="portletContent" />
+  <div v-if="portletContent">
+    <div v-html="portletContent" />
+  </div>
+  <div v-else>
+    <div v-html="portlet" />
+  </div>
 </template>
 
 <script>
@@ -10,13 +15,14 @@ export default {
   name: 'PortletRenderer',
   props: {
     portletHtmlUrl: String,
+    portletContent: String,
     debug: {
       type: Boolean,
       default: false,
     },
   },
   asyncComputed: {
-    portletContent: {
+    portlet: {
       async get() {
         const {portletHtmlUrl, debug} = this;
         try {
