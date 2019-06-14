@@ -41,9 +41,15 @@
 </template>
 
 <script>
-import PortletRenderer from './PortletRenderer';
-import WidgetRenderer from './WidgetRenderer';
+import PortletRenderer from '@uportal/content-renderer/src/components/PortletRenderer';
+import WidgetRenderer from '@uportal/content-renderer/src/components/WidgetRenderer';
 import LayoutDataMixin from '../mixins/LayoutData';
+import Vue from 'vue';
+import AsyncComputed from 'vue-async-computed';
+import ky from 'ky';
+import oidc from '@uportal/open-id-connect';
+
+Vue.use(AsyncComputed);
 
 export default {
   name: 'DashboardContentGraid',
@@ -90,7 +96,7 @@ export default {
   }
 
   .card-container {
-    flex: 1 0 25%;
+    flex: 1 0 33%;
     flex: var(--dcg-card-flex, 1 0 33%);
   }
 }
@@ -98,10 +104,8 @@ export default {
 .card-container {
   display: flex;
   flex-direction: column;
-
   padding: 8px;
   padding: var(--dcg-card-spacing, 8px);
-
   box-sizing: border-box;
 }
 
@@ -110,7 +114,6 @@ export default {
   word-wrap: break-word;
   background-color: white;
   background-color: var(--dcg-card-bg-color, white);
-
   background-clip: border-box;
   border: 1px solid rgba(0, 0, 0, 0.125);
   border: var(--dcg-card-border, 1px solid rgba(0, 0, 0, 0.125));

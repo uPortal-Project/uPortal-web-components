@@ -1,15 +1,13 @@
 <template>
-  <div v-if="portletContent">
-    <div v-html="portletContent" />
-  </div>
-  <div v-else>
-    <div v-html="portlet" />
-  </div>
+  <div v-html="portlet" />
 </template>
 
 <script>
 import ky from 'ky';
 import oidc from '@uportal/open-id-connect';
+import Vue from 'vue';
+import AsyncComputed from 'vue-async-computed';
+Vue.use(AsyncComputed);
 
 export default {
   name: 'PortletRenderer',

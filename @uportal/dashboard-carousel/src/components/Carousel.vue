@@ -62,9 +62,15 @@
 
 <script>
 import Slick from 'vue-slick';
-import PortletRenderer from './PortletRenderer';
-import WidgetRenderer from './WidgetRenderer';
+import PortletRenderer from '@uportal/content-renderer/src/components/PortletRenderer';
+import WidgetRenderer from '@uportal/content-renderer/src/components/WidgetRenderer';
 import LayoutData from '../mixins/LayoutData';
+import Vue from 'vue';
+import AsyncComputed from 'vue-async-computed';
+import ky from 'ky';
+import oidc from '@uportal/open-id-connect';
+
+Vue.use(AsyncComputed);
 
 export default {
   name: 'DashboardCarousel',
