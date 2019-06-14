@@ -83,6 +83,7 @@ export default {
   flex-direction: column;
   justify-content: space-between;
   flex: 1;
+
   > *:first-child {
     flex-grow: 1;
   }
