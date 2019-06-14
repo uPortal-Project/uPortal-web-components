@@ -106,7 +106,7 @@ export default {
             )
                 .then(checkStatus)
                 .then(parseJSON)
-                .then(this.changeFavoriteValue());
+                .then(() => this.changeFavoriteValue());
           })
       // eslint-disable-next-line
         .catch((err) => console.error('Error, with message:', err.statusText));
@@ -130,7 +130,7 @@ export default {
             )
                 .then(checkStatus)
                 .then(parseJSON)
-                .then(this.changeFavoriteValue());
+                .then(() => this.changeFavoriteValue());
           })
       // eslint-disable-next-line
         .catch((err) => console.error('Error, with message:', err.statusText));
