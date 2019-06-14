@@ -1,24 +1,23 @@
 {
-  "name": "@uportal/dashboard-carousel",
+  "name": "@uportal/content-renderer",
   "version": "1.30.1",
   "publishConfig": {
     "access": "public"
   },
-  "main": "dist/dashboard-carousel.js",
-  "source": "src/components/dashboard-carousel.vue",
+  "main": "dist/content-renderer.js",
+  "source": "src/components/*.vue",
   "scripts": {
     "start": "vue-cli-service serve",
     "prebuild": "babel node_modules/@vue/web-component-wrapper/dist/vue-wc-wrapper.js -o node_modules/@vue/web-component-wrapper/dist/vue-wc-wrapper.js",
-    "build": "vue-cli-service build --target wc --name dashboard 'src/components/*.vue'"
+    "build": "vue-cli-service build --target wc --name content 'src/components/*.vue'"
   },
   "dependencies": {
     "@uportal/open-id-connect": "^1.30.1",
-    "@uportal/content-renderer": "^1.30.1",
+    "handlebars": "^4.1.2",
     "jquery": "^3.3.1",
     "ky": "^0.11.0",
     "vue": "^2.5.17",
-    "vue-async-computed": "^3.5.0",
-    "vue-slick": "^1.1.15"
+    "vue-async-computed": "^3.5.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.0",

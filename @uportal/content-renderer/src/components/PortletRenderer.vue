@@ -1,10 +1,13 @@
 <template>
-  <div v-html="portletContent" />
+  <div v-html="portlet" />
 </template>
 
 <script>
 import ky from 'ky';
 import oidc from '@uportal/open-id-connect';
+import Vue from 'vue';
+import AsyncComputed from 'vue-async-computed';
+Vue.use(AsyncComputed);
 
 export default {
   name: 'PortletRenderer',
@@ -16,7 +19,7 @@ export default {
     },
   },
   asyncComputed: {
-    portletContent: {
+    portlet: {
       async get() {
         const {portletHtmlUrl, debug} = this;
         try {

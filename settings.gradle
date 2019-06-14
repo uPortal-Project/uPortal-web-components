@@ -5,6 +5,7 @@
 
 include '@uportal:api-template-vue'
 include '@uportal:content-carousel'
+include '@uportal:content-renderer'
 include '@uportal:dashboard-carousel'
 include '@uportal:esco-content-menu'
 include '@uportal:eyebrow-user-info'
