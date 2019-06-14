@@ -1,9 +1,12 @@
 <template>
   <div class="widget">
     <div v-html="html" />
-    <div class="links">
+    <div
+      class="links"
+      :v-if="configuration.links.length > 0"
+    >
       <a
-        v-for="(link, index) in config.links"
+        v-for="(link, index) in configuration.links"
         :key="index"
         :href="link.href"
         :title="link.title"
@@ -58,19 +61,22 @@ export default {
     content: {
       async get() {
         const {url, debug} = this;
-        try {
-          const headers = debug
-            ? {}
-            : {
-              'Authorization': 'Bearer ' + (await oidc()).encoded,
-              'content-type': 'application/jwt',
-            };
-          return await ky.get(url, {headers}).json();
-        } catch (err) {
-          // eslint-disable-next-line no-console
-          console.error(err);
-          return '';
+        if (url) {
+          try {
+            const headers = debug
+              ? {}
+              : {
+                'Authorization': 'Bearer ' + (await oidc()).encoded,
+                'content-type': 'application/jwt',
+              };
+            return await ky.get(url, {headers}).json();
+          } catch (err) {
+            // eslint-disable-next-line no-console
+            console.error(err);
+            return '';
+          }
         }
+        return {};
       },
     },
   },

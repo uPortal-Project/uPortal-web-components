@@ -4,7 +4,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "main": "dist/dashboard-carousel.js",
+  "main": "dist/dashboard.js",
   "source": "src/components/dashboard-carousel.vue",
   "scripts": {
     "start": "vue-cli-service serve",

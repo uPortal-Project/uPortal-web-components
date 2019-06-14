@@ -1,6 +1,6 @@
 <template>
   <div>
-    <template v-if="!dashboard">
+    <template v-if="!dashboard || !dashboard.length">
       <slot name="empty">
         <p>no results found</p>
       </slot>
@@ -44,27 +44,28 @@
 import PortletRenderer from '@uportal/content-renderer/src/components/PortletRenderer';
 import WidgetRenderer from '@uportal/content-renderer/src/components/WidgetRenderer';
 import LayoutDataMixin from '../mixins/LayoutData';
-import Vue from 'vue';
-import AsyncComputed from 'vue-async-computed';
-import ky from 'ky';
-import oidc from '@uportal/open-id-connect';
-
-Vue.use(AsyncComputed);
 
 export default {
-  name: 'DashboardContentGraid',
+  name: 'DashboardContentGrid',
   mixins: [LayoutDataMixin],
-  data: function() {
-    return {
-      activeIndex: 0,
-    };
-  },
   components: {
     PortletRenderer,
     WidgetRenderer,
   },
   methods: {},
   props: {
+    layoutApiUrl: {
+      type: String,
+      default: '/uPortal/api/v4-3/dlm/layout.json',
+    },
+    layoutDocUrl: {
+      type: String,
+      default: '/uPortal/api/layoutDoc',
+    },
+    regionName: {
+      type: String,
+      default: 'dashboard',
+    },
     debug: {
       type: Boolean,
       default: false,
@@ -90,6 +91,7 @@ export default {
   flex-flow: var(--dcg-container-flex-flow, row wrap);
   justify-content: center;
   justify-content: var(--dcg-container-justify, center);
+  align-items: stretch;
 
   & * {
     box-sizing: border-box;
@@ -107,6 +109,10 @@ export default {
   padding: 8px;
   padding: var(--dcg-card-spacing, 8px);
   box-sizing: border-box;
+
+  > .card {
+    flex: 1 0 auto;
+  }
 }
 
 .card {
