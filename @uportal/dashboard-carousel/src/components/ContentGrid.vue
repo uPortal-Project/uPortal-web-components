@@ -116,7 +116,7 @@ export default {
   }
 
   .card-container {
-    flex: 1 0 25%;
+    flex: 1 0 33%;
     flex: var(--dcg-card-flex, 1 0 33%);
   }
 }
@@ -124,10 +124,8 @@ export default {
 .card-container {
   display: flex;
   flex-direction: column;
-
   padding: 8px;
   padding: var(--dcg-card-spacing, 8px);
-
   box-sizing: border-box;
 }
 
@@ -136,7 +134,6 @@ export default {
   word-wrap: break-word;
   background-color: white;
   background-color: var(--dcg-card-bg-color, white);
-
   background-clip: border-box;
   border: 1px solid rgba(0, 0, 0, 0.125);
   border: var(--dcg-card-border, 1px solid rgba(0, 0, 0, 0.125));
