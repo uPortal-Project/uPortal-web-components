@@ -1,6 +1,6 @@
 <template>
   <main>
-    <!--<section>
+    <section>
       <content-carousel
         :type="'rss'"
         :source="'/hero.rss'"
@@ -18,7 +18,7 @@
         :carousel-height="contentHeight"
         class="primary"
       />
-    </section>-->
+    </section>
     <section class="content">
       <content-carousel
         :type="'rss'"
@@ -45,7 +45,7 @@
         class="flush"
       />
     </section>
-    <!--<section class="content">
+    <section class="content">
       <content-carousel
         :type="'rss'"
         :source="'/empty.rss'"
@@ -134,7 +134,7 @@
           </p>
         </div>
       </content-carousel>
-    </section>-->
+    </section>
   </main>
 </template>
 <script lang="ts" src="./App.ts"></script>
