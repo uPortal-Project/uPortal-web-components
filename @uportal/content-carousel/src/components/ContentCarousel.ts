@@ -53,8 +53,8 @@ export default class ContentCarousel extends Vue {
   @Prop({type: [String], default: 'auto'})
   public carouselHeight!: string;
 
-  @Prop([Boolean])
-  public fitToContainer?: boolean;
+  @Prop([Boolean, String])
+  public fitToContainer?: boolean | object;
 
   @Prop({type: [String], default: 'left'})
   public textAlign?: string;
@@ -86,6 +86,7 @@ export default class ContentCarousel extends Vue {
 
   public mounted(): void {
     const list = Array.from(this.$el.getElementsByClassName('slick-list'));
+
     if (list.length > 0) {
       list.forEach((el) => el.setAttribute('style', `height:${this.height}`));
     }
