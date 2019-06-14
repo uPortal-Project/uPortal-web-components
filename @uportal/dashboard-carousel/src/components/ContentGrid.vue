@@ -30,7 +30,7 @@
 </template>
 
 <script>
-import PortletRenderer from './PortletRenderer';
+import PortletRenderer from '@uportal/content-renderer/src/components/PortletRenderer';
 import Vue from 'vue';
 import AsyncComputed from 'vue-async-computed';
 import ky from 'ky';
