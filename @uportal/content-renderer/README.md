@@ -51,7 +51,7 @@ compile 'org.webjars.npm:uportal__content-renderer:{version number goes here}'
 
 ### uPortal home style 'widget' renderer
 
-```
+```html
 <content-widget-renderer
   template="{widgetTemplate string}",
   config="{widgetConfig object}",
