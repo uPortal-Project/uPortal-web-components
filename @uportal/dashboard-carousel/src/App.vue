@@ -1,18 +1,30 @@
 <template>
-  <DashboardCarousel
-    debug
-    slick-options="{&quot;arrows&quot;: false}"
-    layout-api-url="layout.json"
-  />
+  <div class="p-4">
+    <div class="p-4">
+      <DashboardCarousel
+        debug
+        slick-options="{&quot;arrows&quot;: false}"
+        layout-api-url="layout.json"
+      />
+    </div>
+    <div class="p-4">
+      <DashboardContentGrid
+        debug
+        layout-api-url="layout.json"
+      />
+    </div>
+  </div>
 </template>
 
 <script>
-import DashboardCarousel from './components/DashboardCarousel.vue';
+import DashboardCarousel from './components/Carousel.vue';
+import DashboardContentGrid from './components/ContentGrid.vue';
 
 export default {
   name: 'App',
   components: {
     DashboardCarousel,
+    DashboardContentGrid,
   },
 };
 </script>
@@ -29,6 +41,7 @@ export default {
 
 body {
   background-color: cadetblue;
+  margin: 0;
 }
 
 #app {
