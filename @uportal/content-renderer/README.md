@@ -44,14 +44,14 @@ compile 'org.webjars.npm:uportal__content-renderer:{version number goes here}'
 
 ### Portlet renderer
 
-```
+```html
 <content-portlet-renderer
   portlet-html-url="{portlet-url}"></content-portlet-renderer>
 ```
 
 ### uPortal home style 'widget' renderer
 
-```
+```html
 <content-widget-renderer
   template="{widgetTemplate string}",
   config="{widgetConfig object}",
