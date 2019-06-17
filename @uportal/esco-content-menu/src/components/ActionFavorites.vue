@@ -71,6 +71,7 @@ export default {
   methods: {
     toggleFavorite(event) {
       event.preventDefault();
+      event.stopPropagation();
       if (!this.debug) {
         if (this.favorite) {
           this.removeFromFavorite();
