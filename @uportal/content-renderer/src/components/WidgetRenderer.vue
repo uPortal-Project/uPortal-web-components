@@ -90,6 +90,18 @@ export default {
   justify-content: space-between;
   flex: 1;
 
+  & a {
+    color: #333;
+    color: var(--cc-title-fg-link-color, #333);
+    text-decoration: none;
+
+    &:hover {
+      color: #444;
+      color: var(--cc-title-fg-link-hover-color, #444);
+      text-decoration: underline;
+    }
+  }
+
   > *:first-child {
     flex-grow: 1;
   }
