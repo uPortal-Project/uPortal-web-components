@@ -55,13 +55,9 @@ compile 'org.webjars.npm:uportal__content-renderer:{version number goes here}'
 ```html
 <content-widget-renderer
   template="{widgetTemplate string}"
-  ,
   config="{widgetConfig object}"
-  ,
   type="{widgetType string}"
-  ,
   url="{widgetUrl string}"
-  ,
 ></content-widget-renderer>
 ```
 
