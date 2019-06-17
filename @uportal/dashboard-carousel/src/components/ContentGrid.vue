@@ -1,6 +1,6 @@
 <template>
   <div>
-    <template v-if="!dashboard">
+    <template v-if="!dashboard || !dashboard.length">
       <slot name="empty">
         <p>no results found</p>
       </slot>
@@ -8,7 +8,7 @@
 
     <template v-else>
       <div class="card-list">
-        <template v-for="region of dashboard.folders">
+        <template v-for="region of dashboard">
           <div
             v-for="card of region.content"
             :key="card.name"
@@ -16,10 +16,21 @@
           >
             <div class="card">
               <div class="card-body">
-                <PortletRenderer
-                  :portlet-html-url="card.url"
-                  :debug="debug"
-                />
+                <template v-if="card.widgetTemplate">
+                  <WidgetRenderer
+                    :template="card.widgetTemplate"
+                    :config="card.widgetConfig"
+                    :url="card.widgetUrl"
+                    :type="card.widgetType"
+                    :debug="debug"
+                  />
+                </template>
+                <template v-else>
+                  <PortletRenderer
+                    :portlet-html-url="card.url"
+                    :debug="debug"
+                  />
+                </template>
               </div>
             </div>
           </div>
@@ -31,22 +42,15 @@
 
 <script>
 import PortletRenderer from '@uportal/content-renderer/src/components/PortletRenderer';
-import Vue from 'vue';
-import AsyncComputed from 'vue-async-computed';
-import ky from 'ky';
-import oidc from '@uportal/open-id-connect';
-
-Vue.use(AsyncComputed);
+import WidgetRenderer from '@uportal/content-renderer/src/components/WidgetRenderer';
+import LayoutDataMixin from '../mixins/LayoutData';
 
 export default {
-  name: 'DashboardContentGraid',
-  data: function() {
-    return {
-      activeIndex: 0,
-    };
-  },
+  name: 'DashboardContentGrid',
+  mixins: [LayoutDataMixin],
   components: {
     PortletRenderer,
+    WidgetRenderer,
   },
   methods: {},
   props: {
@@ -54,48 +58,25 @@ export default {
       type: String,
       default: '/uPortal/api/v4-3/dlm/layout.json',
     },
-    debug: {
-      type: Boolean,
-      default: false,
+    layoutDocUrl: {
+      type: String,
+      default: '/uPortal/api/layoutDoc',
     },
     regionName: {
       type: String,
       default: 'dashboard',
     },
-  },
-  asyncComputed: {
-    layout: {
-      async get() {
-        const {layoutApiUrl, debug} = this;
-        try {
-          const headers = debug
-            ? {}
-            : {
-              'Authorization': 'Bearer ' + (await oidc()).encoded,
-              'content-type': 'application/jwt',
-            };
-          return (await ky.get(layoutApiUrl, {headers}).json()).layout;
-        } catch (err) {
-          // eslint-disable-next-line no-console
-          console.error(err);
-          return [];
-        }
-      },
-      default: {
-        regions: [],
-      },
+    debug: {
+      type: Boolean,
+      default: false,
     },
   },
   computed: {
     dashboard() {
-      const dashboard = this.layout.regions.find(
-          (region) => region.name === this.regionName
-      );
-
-      if (!dashboard) {
+      if (!this.layout) {
         console.error('Dashboard data not loaded');
       }
-      return dashboard;
+      return this.layout;
     },
   },
 };
@@ -110,6 +91,7 @@ export default {
   flex-flow: var(--dcg-container-flex-flow, row wrap);
   justify-content: center;
   justify-content: var(--dcg-container-justify, center);
+  align-items: stretch;
 
   & * {
     box-sizing: border-box;
@@ -127,6 +109,10 @@ export default {
   padding: 8px;
   padding: var(--dcg-card-spacing, 8px);
   box-sizing: border-box;
+
+  > .card {
+    flex: 1 0 auto;
+  }
 }
 
 .card {

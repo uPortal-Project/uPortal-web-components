@@ -13,6 +13,7 @@ export default {
   name: 'PortletRenderer',
   props: {
     portletHtmlUrl: String,
+    portletContent: String,
     debug: {
       type: Boolean,
       default: false,

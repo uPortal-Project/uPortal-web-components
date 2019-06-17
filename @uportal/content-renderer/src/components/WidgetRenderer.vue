@@ -1,9 +1,12 @@
 <template>
   <div class="widget">
     <div v-html="html" />
-    <div class="links">
+    <div
+      class="links"
+      :v-if="configuration.links.length > 0"
+    >
       <a
-        v-for="(link, index) in config.links"
+        v-for="(link, index) in configuration.links"
         :key="index"
         :href="link.href"
         :title="link.title"
@@ -58,19 +61,22 @@ export default {
     content: {
       async get() {
         const {url, debug} = this;
-        try {
-          const headers = debug
-            ? {}
-            : {
-              'Authorization': 'Bearer ' + (await oidc()).encoded,
-              'content-type': 'application/jwt',
-            };
-          return await ky.get(url, {headers}).json();
-        } catch (err) {
-          // eslint-disable-next-line no-console
-          console.error(err);
-          return '';
+        if (url) {
+          try {
+            const headers = debug
+              ? {}
+              : {
+                'Authorization': 'Bearer ' + (await oidc()).encoded,
+                'content-type': 'application/jwt',
+              };
+            return await ky.get(url, {headers}).json();
+          } catch (err) {
+            // eslint-disable-next-line no-console
+            console.error(err);
+            return '';
+          }
         }
+        return {};
       },
     },
   },
@@ -83,6 +89,18 @@ export default {
   flex-direction: column;
   justify-content: space-between;
   flex: 1;
+
+  & a {
+    color: #333;
+    color: var(--cc-title-fg-link-color, #333);
+    text-decoration: none;
+
+    &:hover {
+      color: #444;
+      color: var(--cc-title-fg-link-hover-color, #444);
+      text-decoration: underline;
+    }
+  }
 
   > *:first-child {
     flex-grow: 1;
