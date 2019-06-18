@@ -1,73 +1,75 @@
-<div
-  class="slick-container"
-  :class="{ 'responsive': isResponsiveToContainer, 'hero': computedSlickOptions.slidesToShow === 1 }"
->
-  <slot name="header"></slot>
-  <template v-if="computedItems.length < 1 && type !== 'passthrough'">
-    <slot name="empty"> <p>no results found</p> </slot>
-  </template>
-  <template v-else>
-    <div class="slick-inner">
-      <slick ref="slick" :options="computedSlickOptions" :style="{ height }">
-        <template v-for="item in computedItems">
-          <slot name="slide" :item="item">
-            <div
-              v-if="computedSlickOptions.slidesToShow === 1"
-              class="slick-hero-container"
-            >
-              <a
-                :href="item.destinationUrl"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <img
-                  v-if="item.imageUrl"
-                  :src="item.imageUrl"
-                  :alt="item.altText"
-                  :style="{ height }"
-                />
-                <template v-if="!item.imageUrl"
-                  >{{ item.title }}</template
-                >
-                <div v-if="item.altText" class="slick-hero-text">
-                  <p v-bind:style="alignText">{{ item.altText }}</p>
-                </div>
-              </a>
-            </div>
-            <div v-if="computedSlickOptions.slidesToShow > 1">
+<div class="content-carousel">
+  <div
+    class="slick-container"
+    :class="{ 'responsive': isResponsiveToContainer, 'hero': computedSlickOptions.slidesToShow === 1 }"
+  >
+    <slot name="header"></slot>
+    <template v-if="computedItems.length < 1 && type !== 'passthrough'">
+      <slot name="empty"> <p>no results found</p> </slot>
+    </template>
+    <template v-else>
+      <div class="slick-inner">
+        <slick ref="slick" :options="computedSlickOptions" :style="{ height }">
+          <template v-for="item in computedItems">
+            <slot name="slide" :item="item">
               <div
-                class="slick-item"
-                :class="{'has-image': !!item.imageUrl, 'has-title': !!item.title, 'has-description': !!item.description}"
+                v-if="computedSlickOptions.slidesToShow === 1"
+                class="slick-hero-container"
               >
                 <a
-                  v-if="item.imageUrl"
                   :href="item.destinationUrl"
-                  class="slick-link slick-image"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <img :src="item.imageUrl" />
+                  <img
+                    v-if="item.imageUrl"
+                    :src="item.imageUrl"
+                    :alt="item.altText"
+                    :style="{ height }"
+                  />
+                  <template v-if="!item.imageUrl"
+                    >{{ item.title }}</template
+                  >
+                  <div v-if="item.altText" class="slick-hero-text">
+                    <p v-bind:style="alignText">{{ item.altText }}</p>
+                  </div>
                 </a>
-                <a
-                  v-if="item.title"
-                  :href="item.destinationUrl"
-                  class="slick-link slick-title"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {{ item.title }}
-                </a>
-                <p
-                  v-if="item.description"
-                  v-html="item.description"
-                  class="slick-item-description"
-                ></p>
               </div>
-            </div>
-          </slot>
-        </template>
-        <slot v-if="type === 'passthrough'"></slot>
-      </slick>
-    </div>
-  </template>
+              <div v-if="computedSlickOptions.slidesToShow > 1">
+                <div
+                  class="slick-item"
+                  :class="{'has-image': !!item.imageUrl, 'has-title': !!item.title, 'has-description': !!item.description}"
+                >
+                  <a
+                    v-if="item.imageUrl"
+                    :href="item.destinationUrl"
+                    class="slick-link slick-image"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <img :src="item.imageUrl" />
+                  </a>
+                  <a
+                    v-if="item.title"
+                    :href="item.destinationUrl"
+                    class="slick-link slick-title"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {{ item.title }}
+                  </a>
+                  <p
+                    v-if="item.description"
+                    v-html="item.description"
+                    class="slick-item-description"
+                  ></p>
+                </div>
+              </div>
+            </slot>
+          </template>
+          <slot v-if="type === 'passthrough'"></slot>
+        </slick>
+      </div>
+    </template>
+  </div>
 </div>

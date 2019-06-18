@@ -1,269 +1,271 @@
 @import '../../node_modules/slick-carousel/slick/slick.css';
 @import '../../node_modules/slick-carousel/slick/slick-theme.css';
 
-.slick-container.responsive {
-  .slick-inner {
-    width: 100%;
-  }
-
-  .slick-list {
-    width: 100%;
-
-    img {
+.content-carousel /deep/ {
+  .slick-container.responsive {
+    .slick-inner {
       width: 100%;
-      object-fit: cover;
-      vertical-align: middle;
     }
-  }
 
-  .slick-arrow.slick-prev {
-    left: -24px;
-    left: var(--cc-slick-arrow-position, var(--cc-slick-arrow-size, -24px));
-    &::before {
-      content: '\2190';
-      content: var(--cc-slick-arrow-content-left, '\2190');
-    }
-  }
-
-  .slick-arrow.slick-next {
-    right: -24px;
-    right: var(--cc-slick-arrow-position, var(--cc-slick-arrow-size, -24px));
-    &::before {
-      content: '\2192';
-      content: var(--cc-slick-arrow-content-right, '\2192');
-    }
-  }
-
-  .slick-arrow.slick-next,
-  .slick-arrow.slick-prev {
-    width: 24px;
-    width: var(--cc-slick-arrow-size, 24px);
-    height: 24px;
-    height: var(--cc-slick-arrow-size, 24px);
-    font-size: 24px;
-    font-size: var(--cc-slick-arrow-size, 24px);
-    z-index: 2;
-    background: none;
-    background: var(--cc-slick-arrow-background, none);
-    border-radius: 0;
-    border-radius: var(--cc-slick-arrow-border-radius);
-    border: none;
-    border: var(--cc-slick-arrow-border, none);
-    box-shadow: none;
-    box-shadow: var(--cc-slick-arrow-box-shadow);
-    padding: 0;
-    padding: var(--cc-slick-arrow-padding, 0);
-
-    &::before {
-      color: white;
-      color: var(--cc-slick-arrow-fg-color, white);
-      opacity: 1;
-      opacity: var(--cc-slick-arrow-opacity, 1);
-      font-size: inherit;
-      font-family: 'slick';
-      font-family: var(--cc-slick-arrow-font-family, 'slick');
-      display: flex;
-      justify-content: center;
-    }
-  }
-}
-
-.slick-inner {
-  width: 98%;
-  margin: auto;
-}
-
-.slick-slide {
-  width: 240px;
-  width: var(--cc-slick-slide-width, 240px);
-  margin: 0 10px;
-  border: 1px solid rgba(0, 0, 0, 0.125);
-  background: #fff;
-  > div {
-    height: 100%;
-    > div {
-      height: 100%;
-    }
-  }
-}
-
-.slick-track {
-  display: flex;
-  align-items: stretch;
-  > .slick-slide {
-    float: none;
-    align-self: stretch;
-    height: auto;
-  }
-}
-
-.slick-container.hero {
-  .slick-slide {
-    margin: 0;
-  }
-
-  .slick-hero-container {
-    position: relative;
-  }
-
-  .slick-hero-text {
-    width: 100%;
-    position: absolute;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.5);
-    color: white;
-
-    p {
-      padding: 10px;
-      margin: 0;
-    }
-  }
-}
-
-.slick-item {
-  .slick-item-description {
-    min-height: 9rem;
-    padding: 0 10px;
-  }
-
-  .slick-image {
-    background-repeat: no-repeat;
-    background-size: auto 100%;
-    background-position: top center;
-  }
-}
-
-.slick-item {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  height: var(--cc-slick-item-height, 100%);
-
-  > .slick-item-description,
-  > .slick-image,
-  > .slick-title {
-    display: none;
-    box-sizing: border-box;
-  }
-
-  &.has-description .slick-item-description {
-    order: 2;
-    order: var(--cc-description-order, 2);
-    display: block;
-    display: var(--cc-description-display, block);
-    background: #fff;
-    background: var(--cc-description-bgcolor, #fff);
-    color: inherit;
-    color: var(--cc-description-textcolor, inherit);
-    margin: 0;
-    margin: var(--cc-description-margin, 0);
-    padding: 8px;
-    padding: var(--cc-description-padding, 8px);
-    flex: 2;
-    flex: var(--cc-description-flex, 2);
-
-    border-top: none;
-    border-top: var(--cc-description-border-top, none);
-    border-bottom: none;
-    border-bottom: var(--cc-description-border-bottom, none);
-  }
-  &.has-image .slick-image {
-    order: 1;
-    order: var(--cc-image-order, 1);
-    display: block;
-    display: var(--cc-image-display, block);
-    background: #ccc;
-    background: var(--cc-image-bgcolor, #ccc);
-    margin: 0;
-    margin: var(--cc-image-margin, 0);
-    padding: 0;
-    padding: var(--cc-image-padding, 0);
-    flex: 1 1 33%;
-    flex: var(--cc-image-flex, 1 1 33%);
-    min-height: 5rem;
-    min-height: var(--cc-image-min-height, 5rem);
-    max-height: none;
-    max-height: var(--cc-image-max-height, none);
-    overflow: hidden;
-    > span {
-      background-size: cover;
-    }
-    &,
-    > img {
-      object-fit: cover;
+    .slick-list {
       width: 100%;
-      height: 100%;
+
+      img {
+        width: 100%;
+        object-fit: cover;
+        vertical-align: middle;
+      }
     }
-  }
 
-  &.has-title .slick-title {
-    order: 3;
-    order: var(--cc-title-order, 3);
-    display: block;
-    display: var(--cc-title-display, block);
-    background: #fff;
-    background: var(--cc-title-bgcolor, #fff);
-    margin: 0;
-    margin: var(--cc-title-margin, 0);
-    padding: 10px;
-    padding: var(--cc-title-padding, 10px);
-    overflow: auto;
-    overflow: var(--cc-title-overflow, auto);
-    text-overflow: clip;
-    text-overflow: var(--cc-title-text-overflow, clip);
-    white-space: normal;
-    white-space: var(--cc-title-white-space, normal);
-    flex: 1;
-    flex: var(--cc-title-flex, 1);
-    border-top: 1px solid rgba(0, 0, 0, 0.125);
-    border-top: var(--cc-title-border-top, 1px solid rgba(0, 0, 0, 0.125));
-    border-bottom: 0;
-    border-bottom: var(--cc-title-border-bottom, 0);
-    color: #333;
-    color: var(--cc-title-fg-color, #333);
+    .slick-arrow.slick-prev {
+      left: -24px;
+      left: var(--cc-slick-arrow-position, var(--cc-slick-arrow-size, -24px));
+      &::before {
+        content: '\2190';
+        content: var(--cc-slick-arrow-content-left, '\2190');
+      }
+    }
 
-    & a {
-      color: #333;
-      color: var(--cc-title-fg-link-color, #333);
-      text-decoration: none;
+    .slick-arrow.slick-next {
+      right: -24px;
+      right: var(--cc-slick-arrow-position, var(--cc-slick-arrow-size, -24px));
+      &::before {
+        content: '\2192';
+        content: var(--cc-slick-arrow-content-right, '\2192');
+      }
+    }
 
-      &:hover {
-        color: #444;
-        color: var(--cc-title-fg-link-hover-color, #444);
-        text-decoration: underline;
+    .slick-arrow.slick-next,
+    .slick-arrow.slick-prev {
+      width: 24px;
+      width: var(--cc-slick-arrow-size, 24px);
+      height: 24px;
+      height: var(--cc-slick-arrow-size, 24px);
+      font-size: 24px;
+      font-size: var(--cc-slick-arrow-size, 24px);
+      z-index: 2;
+      background: none;
+      background: var(--cc-slick-arrow-background, none);
+      border-radius: 0;
+      border-radius: var(--cc-slick-arrow-border-radius);
+      border: none;
+      border: var(--cc-slick-arrow-border, none);
+      box-shadow: none;
+      box-shadow: var(--cc-slick-arrow-box-shadow);
+      padding: 0;
+      padding: var(--cc-slick-arrow-padding, 0);
+
+      &::before {
+        color: white;
+        color: var(--cc-slick-arrow-fg-color, white);
+        opacity: 1;
+        opacity: var(--cc-slick-arrow-opacity, 1);
+        font-size: inherit;
+        font-family: 'slick';
+        font-family: var(--cc-slick-arrow-font-family, 'slick');
+        display: flex;
+        justify-content: center;
       }
     }
   }
 
-  &.has-image.has-description,
-  &.has-image:not(.has-description) {
-    .slick-image {
-      height: 160px;
-      height: var(--cc-image-height, 160px);
-      flex: 2 1 100%;
-      flex: var(--cc-image-flex, 2 1 33%);
-    }
-    .slick-item-description {
-      display: none;
-      display: var(--cc-description-display, none);
+  .slick-inner {
+    width: 98%;
+    margin: auto;
+  }
+
+  .slick-slide {
+    width: 240px;
+    width: var(--cc-slick-slide-width, 240px);
+    margin: 0 10px;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    background: #fff;
+    > div {
+      height: 100%;
+      > div {
+        height: 100%;
+      }
     }
   }
-}
 
-@media (max-width: 767.98px) {
+  .slick-track {
+    display: flex;
+    align-items: stretch;
+    > .slick-slide {
+      float: none;
+      align-self: stretch;
+      height: auto;
+    }
+  }
+
+  .slick-container.hero {
+    .slick-slide {
+      margin: 0;
+    }
+
+    .slick-hero-container {
+      position: relative;
+    }
+
+    .slick-hero-text {
+      width: 100%;
+      position: absolute;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      color: white;
+
+      p {
+        padding: 10px;
+        margin: 0;
+      }
+    }
+  }
+
   .slick-item {
-    flex-direction: column;
+    .slick-item-description {
+      min-height: 9rem;
+      padding: 0 10px;
+    }
 
-    & > span {
-      max-width: none;
+    .slick-image {
+      background-repeat: no-repeat;
+      background-size: auto 100%;
+      background-position: top center;
     }
   }
 
-  ul {
+  .slick-item {
+    display: flex;
     flex-direction: column;
+    height: 100%;
+    height: var(--cc-slick-item-height, 100%);
 
-    li {
-      margin-top: 10px;
+    > .slick-item-description,
+    > .slick-image,
+    > .slick-title {
+      display: none;
+      box-sizing: border-box;
+    }
+
+    &.has-description .slick-item-description {
+      order: 2;
+      order: var(--cc-description-order, 2);
+      display: block;
+      display: var(--cc-description-display, block);
+      background: #fff;
+      background: var(--cc-description-bgcolor, #fff);
+      color: inherit;
+      color: var(--cc-description-textcolor, inherit);
+      margin: 0;
+      margin: var(--cc-description-margin, 0);
+      padding: 8px;
+      padding: var(--cc-description-padding, 8px);
+      flex: 2;
+      flex: var(--cc-description-flex, 2);
+
+      border-top: none;
+      border-top: var(--cc-description-border-top, none);
+      border-bottom: none;
+      border-bottom: var(--cc-description-border-bottom, none);
+    }
+    &.has-image .slick-image {
+      order: 1;
+      order: var(--cc-image-order, 1);
+      display: block;
+      // display: var(--cc-image-display, block);
+      background: #ccc;
+      background: var(--cc-image-bgcolor, #ccc);
+      margin: 0;
+      margin: var(--cc-image-margin, 0);
+      padding: 0;
+      padding: var(--cc-image-padding, 0);
+      flex: 1 1 33%;
+      flex: var(--cc-image-flex, 1 1 33%);
+      min-height: 5rem;
+      min-height: var(--cc-image-min-height, 5rem);
+      max-height: none;
+      max-height: var(--cc-image-max-height, none);
+      overflow: hidden;
+      > span {
+        background-size: cover;
+      }
+      &,
+      > img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    &.has-title .slick-title {
+      order: 3;
+      order: var(--cc-title-order, 3);
+      display: block;
+      // display: var(--cc-title-display, block);
+      background: #fff;
+      background: var(--cc-title-bgcolor, #fff);
+      margin: 0;
+      margin: var(--cc-title-margin, 0);
+      padding: 10px;
+      padding: var(--cc-title-padding, 10px);
+      overflow: auto;
+      overflow: var(--cc-title-overflow, auto);
+      text-overflow: clip;
+      text-overflow: var(--cc-title-text-overflow, clip);
+      white-space: normal;
+      white-space: var(--cc-title-white-space, normal);
+      flex: 1;
+      flex: var(--cc-title-flex, 1);
+      border-top: 1px solid rgba(0, 0, 0, 0.125);
+      border-top: var(--cc-title-border-top, 1px solid rgba(0, 0, 0, 0.125));
+      border-bottom: 0;
+      border-bottom: var(--cc-title-border-bottom, 0);
+      color: #333;
+      color: var(--cc-title-fg-color, #333);
+
+      & a {
+        color: #333;
+        color: var(--cc-title-fg-link-color, #333);
+        text-decoration: none;
+
+        &:hover {
+          color: #444;
+          color: var(--cc-title-fg-link-hover-color, #444);
+          text-decoration: underline;
+        }
+      }
+    }
+
+    &.has-image.has-description,
+    &.has-image:not(.has-description) {
+      .slick-image {
+        height: 160px;
+        height: var(--cc-image-height, 160px);
+        flex: 2 1 100%;
+        flex: var(--cc-image-flex, 2 1 33%);
+      }
+      .slick-item-description {
+        display: none;
+        display: var(--cc-description-display, none);
+      }
+    }
+  }
+
+  @media (max-width: 767.98px) {
+    .slick-item {
+      flex-direction: column;
+
+      & > span {
+        max-width: none;
+      }
+    }
+
+    ul {
+      flex-direction: column;
+
+      li {
+        margin-top: 10px;
+      }
     }
   }
 }
