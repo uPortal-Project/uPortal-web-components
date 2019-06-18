@@ -219,6 +219,20 @@
     border-top: var(--cc-title-border-top, 1px solid rgba(0, 0, 0, 0.125));
     border-bottom: 0;
     border-bottom: var(--cc-title-border-bottom, 0);
+    color: #333;
+    color: var(--cc-title-fg-color, #333);
+
+    & a {
+      color: #333;
+      color: var(--cc-title-fg-link-color, #333);
+      text-decoration: none;
+
+      &:hover {
+        color: #444;
+        color: var(--cc-title-fg-link-hover-color, #444);
+        text-decoration: underline;
+      }
+    }
   }
 
   &.has-image.has-description,
