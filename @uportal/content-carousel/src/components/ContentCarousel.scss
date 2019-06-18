@@ -143,15 +143,12 @@
     > .slick-item-description,
     > .slick-image,
     > .slick-title {
-      display: none;
       box-sizing: border-box;
     }
 
     &.has-description .slick-item-description {
       order: 2;
       order: var(--cc-description-order, 2);
-      display: block;
-      display: var(--cc-description-display, block);
       background: #fff;
       background: var(--cc-description-bgcolor, #fff);
       color: inherit;
@@ -166,6 +163,10 @@
       border-top: var(--cc-description-border-top, none);
       border-bottom: none;
       border-bottom: var(--cc-description-border-bottom, none);
+      display: block;
+    }
+    &.has-description .slick-item-description {
+      display: var(--cc-description-display, block);
     }
     &.has-image .slick-image {
       order: 1;
@@ -193,6 +194,9 @@
         width: 100%;
         height: 100%;
       }
+    }
+    &.has-image .slick-image {
+      display: var(--cc-image-display, block);
     }
 
     &.has-title .slick-title {
@@ -231,6 +235,9 @@
           text-decoration: underline;
         }
       }
+    }
+    &.has-title .slick-title {
+      display: var(--cc-title-display, block);
     }
 
     &.has-image.has-description,
