@@ -162,7 +162,6 @@
       padding: var(--cc-description-padding, 8px);
       flex: 2;
       flex: var(--cc-description-flex, 2);
-
       border-top: none;
       border-top: var(--cc-description-border-top, none);
       border-bottom: none;
@@ -172,7 +171,6 @@
       order: 1;
       order: var(--cc-image-order, 1);
       display: block;
-      // display: var(--cc-image-display, block);
       background: #ccc;
       background: var(--cc-image-bgcolor, #ccc);
       margin: 0;
@@ -201,7 +199,6 @@
       order: 3;
       order: var(--cc-title-order, 3);
       display: block;
-      // display: var(--cc-title-display, block);
       background: #fff;
       background: var(--cc-title-bgcolor, #fff);
       margin: 0;
