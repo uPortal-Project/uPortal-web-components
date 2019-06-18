@@ -1,4 +1,5 @@
 module.exports = {
+  transpileDependencies: ['ky'],
   devServer: {
     proxy: {
       '/uPortal': {
