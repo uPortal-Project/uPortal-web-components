@@ -7,6 +7,30 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased][]
 
+## [1.31.0][] - 2019-06-18
+
+### Features
+
+- **dashboard-carousel**: allow slick carousel to be configured through an attribute (#344)
+- **content-renderer**: create a new rendering components for content (#346, #347, #349)
+- **content-carousel**: allow customization of styles using CSS variables (#348, #354, #357)
+
+### Fixes
+
+- **esco-content-menu**: ensure events for favorites are emitted (#343)
+- **esco-content-menu**: prevent favorite event from bubbling up (#352)
+- **content-renderer**: transpile `ky` to support IE/Edge (#355)
+- **dashboard-carousel**: transpile `ky` to support IE/Edge (#355)
+- **content-carousel**: ensure styles are scoped to prevent styles leaking in IE/Edge (#356)
+
+### Documentation
+
+- Update demo page dependencies (#335)
+
+### Chores
+
+- Update dependencies (#336, #337, #339, #340, #341, #342, #353)
+
 ## [1.30.1][] - 2019-05-29
 
 ### Fixes
@@ -1007,7 +1031,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - **open-id-connect**: Initial version of an OpenID Connect helper script to use in web components and JavaScript modules.
 - **content-carousel**: Initial version of content carousel, a carousel based portlet metadata display system.
 
-[unreleased]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.30.1...HEAD
+[unreleased]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.31.0...HEAD
+[1.31.0]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.30.1...v1.31.0
 [1.30.1]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.30.0...v1.30.1
 [1.30.0]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.29.0...v1.30.0
 [1.29.0]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.28.0...v1.29.0
