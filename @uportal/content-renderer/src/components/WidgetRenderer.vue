@@ -89,15 +89,16 @@ export default {
   flex-direction: column;
   justify-content: space-between;
   flex: 1;
+  color: var(--widget-fg-color, #333);
 
   & a {
     color: #333;
-    color: var(--cc-title-fg-link-color, #333);
+    color: var(--widget-title-fg-link-color, #333);
     text-decoration: none;
 
     &:hover {
       color: #444;
-      color: var(--cc-title-fg-link-hover-color, #444);
+      color: var(--widget-title-fg-link-hover-color, #444);
       text-decoration: underline;
     }
   }

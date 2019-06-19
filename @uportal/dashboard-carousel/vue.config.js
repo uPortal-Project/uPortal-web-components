@@ -1,5 +1,5 @@
 module.exports = {
-  transpileDependencies: ['ky'],
+  transpileDependencies: ['handlebars', 'ky'],
   devServer: {
     proxy: {
       '/uPortal': {
