@@ -9,5 +9,5 @@ module.exports = {
       },
     },
   },
-  transpileDependencies: ['ky'],
+  transpileDependencies: ['handlebars/lib/handlebars', 'ky'],
 };
