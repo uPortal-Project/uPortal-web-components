@@ -1,6 +1,6 @@
 {
   "name": "@uportal/api-template-vue",
-  "version": "1.31.0",
+  "version": "1.31.1",
   "publishConfig": {
     "access": "public"
   },
@@ -13,7 +13,7 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "@uportal/open-id-connect": "^1.31.0",
+    "@uportal/open-id-connect": "^1.31.1",
     "axios": "^0.19.0",
     "vue": "^2.5.21"
   },
