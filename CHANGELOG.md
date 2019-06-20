@@ -1037,7 +1037,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - **open-id-connect**: Initial version of an OpenID Connect helper script to use in web components and JavaScript modules.
 - **content-carousel**: Initial version of content carousel, a carousel based portlet metadata display system.
 
-[unreleased]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.31.0...HEAD
+[unreleased]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.31.1...HEAD
+[1.31.1]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.31.0...v1.31.1
 [1.31.0]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.30.1...v1.31.0
 [1.30.1]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.30.0...v1.30.1
 [1.30.0]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.29.0...v1.30.0
