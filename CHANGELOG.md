@@ -7,6 +7,20 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased][]
 
+## [1.32.0][] - 2019-06-26
+
+### Features
+
+- **waffle-menu**: now has its own `waffleIconUrl` and `waffleLabel` portlet parameters, which can customize `iconUrl` and `title` respectively (#363)
+
+### Fixes
+
+- **dashboard-carousel**: ensure slides are evenly sized (#364)
+
+### Chores
+
+- update dependencies (#360, #361, #361)
+
 ## [1.31.1][] - 2019-06-20
 
 ### Fixes
@@ -1037,7 +1051,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - **open-id-connect**: Initial version of an OpenID Connect helper script to use in web components and JavaScript modules.
 - **content-carousel**: Initial version of content carousel, a carousel based portlet metadata display system.
 
-[unreleased]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.31.1...HEAD
+[unreleased]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.32.0...HEAD
+[1.32.0]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.31.1...v1.32.0
 [1.31.1]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.31.0...v1.31.1
 [1.31.0]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.30.1...v1.31.0
 [1.30.1]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.30.0...v1.30.1
