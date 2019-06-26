@@ -151,6 +151,7 @@ export default {
 <style scoped lang="scss">
 @import '../../node_modules/slick-carousel/slick/slick.css';
 @import '../../node_modules/slick-carousel/slick/slick-theme.css';
+
 .carousel /deep/ {
   display: flex;
   flex-direction: column;
@@ -159,9 +160,11 @@ export default {
 
   .slick-list {
     width: 100%;
+
     .slick-track {
       display: flex;
       align-items: stretch;
+
       > .slick-slide {
         float: none;
         align-self: stretch;
