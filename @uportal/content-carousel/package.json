@@ -1,6 +1,6 @@
 {
   "name": "@uportal/content-carousel",
-  "version": "1.31.1",
+  "version": "1.32.0",
   "publishConfig": {
     "access": "public"
   },
@@ -14,8 +14,8 @@
   },
   "dependencies": {
     "@types/xml2js": "^0.4.3",
-    "@uportal/open-id-connect": "^1.31.1",
-    "@uportal/portlet-registry-to-array": "^1.31.1",
+    "@uportal/open-id-connect": "^1.32.0",
+    "@uportal/portlet-registry-to-array": "^1.32.0",
     "jquery": "^3.3.1",
     "rss-to-json": "^1.0.4",
     "vue": "^2.5.20",
