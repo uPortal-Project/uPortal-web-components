@@ -20,7 +20,6 @@
           <div
             v-for="card of region.content"
             :key="card.name"
-            :style="{ width: Math.floor(100 / region.content.length) + '%' }"
           >
             <template v-if="card.widgetTemplate">
               <WidgetRenderer
@@ -198,7 +197,7 @@ export default {
     height: var(--cc-slick-item-height, 100%);
 
     > div {
-      flex: 1 1 auto;
+      flex: 1 1 0;
       background-color: #fff;
       margin: 0 10px;
       padding: 10px;
