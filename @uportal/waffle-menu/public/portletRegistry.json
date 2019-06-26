@@ -23,6 +23,11 @@
                 "description": "",
                 "value": "false"
               },
+              "waffleLabel": {
+                "name": "waffleLabel",
+                "description": "",
+                "value": "LTI Portlet"
+              },
               "highlight": {
                 "name": "highlight",
                 "description": "",
@@ -87,15 +92,20 @@
             "state": "PUBLISHED",
             "title": "Courses",
             "parameters": {
+              "waffleIconUrl": {
+                "name": "waffleIconUrl",
+                "description": "",
+                "value": "ResourceServingWebapp/rs/tango/0.8.90/32x32/mimetypes/video-x-generic.png"
+              },
               "mobileIconUrl": {
                 "name": "mobileIconUrl",
                 "description": "",
-                "value": "/uPortal/media/skins/icons/mobile/courses_alt.png"
+                "value": "uPortal/media/skins/icons/mobile/courses_alt.png"
               },
               "iconUrl": {
                 "name": "iconUrl",
                 "description": "",
-                "value": "/ResourceServingWebapp/rs/tango/0.8.90/32x32/apps/accessories-text-editor.png"
+                "value": "ResourceServingWebapp/rs/tango/0.8.90/32x32/apps/accessories-text-editor.png"
               },
               "configurable": {
                 "name": "configurable",
@@ -188,12 +198,12 @@
               "mobileIconUrl": {
                 "name": "mobileIconUrl",
                 "description": "",
-                "value": "/uPortal/media/skins/icons/mobile/youtube.png"
+                "value": "uPortal/media/skins/icons/mobile/youtube.png"
               },
               "iconUrl": {
                 "name": "iconUrl",
                 "description": "",
-                "value": "/ResourceServingWebapp/rs/tango/0.8.90/32x32/mimetypes/video-x-generic.png"
+                "value": "ResourceServingWebapp/rs/tango/0.8.90/32x32/mimetypes/video-x-generic.png"
               }
             }
           }

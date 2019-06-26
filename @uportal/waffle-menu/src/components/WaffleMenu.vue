@@ -152,7 +152,11 @@ export default {
     wafflePress(registry) {
       const menuItems = portletRegistryToArray(registry).map(
           ({fname, parameters, title}) => {
-            const imgUrl = get(parameters, 'iconUrl.value') || this.defaultIcon;
+            const imgUrl =
+            get(parameters, 'waffleIconUrl.value') ||
+            get(parameters, 'iconUrl.value') ||
+            this.defaultIcon;
+            const text = get(parameters, 'waffleLabel.value') || title;
 
             const alternativeMaximizedLink = get(
                 parameters,
@@ -171,7 +175,7 @@ export default {
                 ? 'proxy/' + imgUrl
                 : imgUrl
               : undefined,
-              label: this.truncateTitle(title),
+              label: this.truncateTitle(text),
               type: 'box',
               targetLink: targetLinkValue,
             };

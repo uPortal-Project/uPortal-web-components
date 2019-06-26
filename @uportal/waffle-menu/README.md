@@ -159,3 +159,9 @@ The JSON structure for the data is pretty simple. It's an array of objects, and 
 | `link`        | The url of the link item in the menu.                                                  |
 | `label`       | The label to display for the link.                                                     |
 | `image`       | The url of an image to use for `box` links.                                            |
+
+### Waffle specific portlet parameters
+
+For the image, the Waffle Menu searches for a `waffleIconUrl`, then `iconUrl`, and then falls back to the provided `default property`.
+
+For text, the Waffle Menu searches for a `waffleLabel`, and falls back to the portlet's `title`.
