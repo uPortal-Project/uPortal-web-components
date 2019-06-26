@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="carousel">
     <template v-if="!dashboard || !dashboard.length">
       <slot name="empty">
         <p>no results found</p>
@@ -151,60 +151,71 @@ export default {
 @import '../../node_modules/slick-carousel/slick/slick.css';
 @import '../../node_modules/slick-carousel/slick/slick-theme.css';
 
-.slick-track {
-  background-color: aquamarine;
-}
-
-.slick-list {
-  width: 100%;
-}
-
-.slick-initialized {
+.carousel /deep/ {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
+  justify-content: stretch;
+  height: auto;
 
-  .slick-slide {
-    display: none !important;
+  .slick-list {
+    width: 100%;
 
-    .slick-current {
-      display: block !important;
+    .slick-track {
+      display: flex;
+      align-items: stretch;
+
+      > .slick-slide {
+        float: none;
+        align-self: stretch;
+        height: auto;
+      }
     }
   }
 
-  .slick-list {
-    flex: 1 1 auto;
+  .slick-list,
+  .slick-track,
+  .slick-slide,
+  .slick-slide > div {
+    height: 100%;
   }
 
-  .slick-arrow {
-    flex: 0 0 auto;
-    width: 50px;
+  .slick-initialized {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .slick-list {
+      flex: 1 1 auto;
+    }
   }
-}
 
-.slick-item {
-  display: flex !important;
-  justify-content: space-evenly;
+  .slick-item {
+    display: flex !important;
+    justify-content: space-evenly;
+    align-items: stretch;
+    height: 100%;
+    height: var(--cc-slick-item-height, 100%);
 
-  > div {
-    flex: 1 1 auto;
-    background-color: #fff;
-    margin: 0 10px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border: var(--dash-carousel-item-border, 1px solid #ccc);
-    max-width: 33%;
-    border-radius: 0;
-    border-radius: var(--dash-carousel-item-border-radius, 0);
-    display: inline-flex;
-    flex-direction: column;
+    > div {
+      flex: 1 1 0;
+      background-color: #fff;
+      margin: 0 10px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border: var(--dash-carousel-item-border, 1px solid #ccc);
+      max-width: 33%;
+      border-radius: 0;
+      border-radius: var(--dash-carousel-item-border-radius, 0);
+      display: inline-flex;
+      flex-direction: column;
+    }
   }
-}
 
-.slick-dots {
-  li {
-    button::before {
-      font-size: 16px;
+  .slick-dots {
+    li {
+      button::before {
+        font-size: 16px;
+      }
     }
   }
 }
