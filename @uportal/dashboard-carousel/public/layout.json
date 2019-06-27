@@ -20,7 +20,7 @@
             "content": [
               {
                 "_objectType": "portlet",
-                "url": "example-portlet-tiny.html",
+                "url": "example-portlet.html",
                 "iconUrl": "/uPortal/media/skins/icons/mobile/weather.png",
                 "ID": "u30l1n111",
                 "chanID": "61",

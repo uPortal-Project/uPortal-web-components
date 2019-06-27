@@ -112,6 +112,10 @@ export default {
       type: String,
       default: 'dashboard',
     },
+    useLayoutDocData: {
+      type: Boolean,
+      default: false,
+    },
   },
   computed: {
     computedSlickOptions() {

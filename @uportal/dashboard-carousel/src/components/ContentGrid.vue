@@ -70,6 +70,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    useLayoutDocData: {
+      type: Boolean,
+      default: false,
+    },
   },
   computed: {
     dashboard() {
