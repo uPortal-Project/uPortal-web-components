@@ -19,6 +19,10 @@ export default {
       type: String,
       default: 'dashboard',
     },
+    useLayoutDocData: {
+      type: Boolean,
+      default: false,
+    },
   },
   asyncComputed: {
     layoutApi: {
@@ -44,7 +48,7 @@ export default {
     },
     layoutDocument: {
       async get() {
-        const {layoutDocUrl, debug} = this;
+        const {layoutDocUrl, debug, useLayoutDocData} = this;
         try {
           const headers = debug
             ? {}
@@ -52,20 +56,21 @@ export default {
               'Authorization': 'Bearer ' + (await oidc()).encoded,
               'content-type': 'application/jwt',
             };
-          return (await ky.get(layoutDocUrl, {headers}).json()).layout;
+          return useLayoutDocData
+            ? (await ky.get(layoutDocUrl, {headers}).json()).layout
+            : Promise.resolve({layout: []});
         } catch (err) {
           // eslint-disable-next-line no-console
           console.error(err);
           return [];
         }
       },
-      default: [],
+      default: {layout: []},
     },
     async layout() {
-      const [doc, api] = await Promise.all([
-        this.layoutDocument,
-        this.layoutApi,
-      ]);
+      const promises = [this.layoutApi, this.layoutDocument];
+
+      const [api, doc] = await Promise.all(promises);
 
       const region = api.regions.find(
           (region) => region.name === this.regionName
@@ -74,13 +79,15 @@ export default {
         return;
       }
 
-      const parsed = region.folders.map((folder) => ({
-        ...folder,
-        content: folder.content.map((card) => ({
-          ...card,
-          ...doc.find((obj) => obj.fname === card.fname),
-        })),
-      }));
+      const parsed = this.useLayoutDocData
+        ? region.folders.map((folder) => ({
+          ...folder,
+          content: folder.content.map((card) => ({
+            ...card,
+            ...doc.find((obj) => obj.fname === card.fname),
+          })),
+        }))
+        : region.folders;
 
       return parsed;
     },
