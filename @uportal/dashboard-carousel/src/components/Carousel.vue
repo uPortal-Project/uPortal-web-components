@@ -198,7 +198,7 @@ export default {
     justify-content: space-evenly;
     align-items: stretch;
     height: 100%;
-    height: var(--cc-slick-item-height, 100%);
+    height: var(--dash-carousel-slick-item-height, 100%);
 
     > div {
       flex: 1 1 0;
