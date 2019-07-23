@@ -1,6 +1,6 @@
 <template>
   <div class="waffle-menu-container" ref="waffleMenu">
-    <button class="waffle-trigger" @click="toggleMenu()">
+    <button class="waffle-trigger" @click="toggleMenu()" :aria-label="ariaLabel">
       <FontAwesomeIcon icon="th" :color="buttonColor" size="2x" />
       <div v-if="menuOpen">
         <div class="waffle-triangle-black" />
@@ -74,6 +74,10 @@ export default {
       type: String,
       default: '#fff'
     },
+    buttonLabel: {
+      type: String,
+      default: 'Waffle Menu',
+    },
     menuBackgroundColor: {
       type: String,
       default: '#fff'
@@ -104,6 +108,7 @@ export default {
   data() {
     return {
       menuOpen: false,
+      ariaLabel : this.buttonLabel + ' closed',
       data: [],
       dataItems: [],
       dataLoaded: false,
@@ -199,6 +204,7 @@ export default {
     // toggle the menu
     toggleMenu() {
       this.menuOpen = !this.menuOpen;
+      this.updateAriaLabel();
     },
     // close the menu if we're clicking outside the menu or trigger
     handleOutsideClick(event) {
@@ -215,6 +221,14 @@ export default {
         this.$refs.waffleMenu.querySelector('.waffle-trigger').focus();
       }
     },
+    updateAriaLabel() {
+      if (this.menuOpen) {
+        this.ariaLabel = this.buttonLabel + ' open';
+      }
+      else {
+        this.ariaLabel = this.buttonLabel + ' closed';
+      }
+    }
   },
   mounted() {
     document.addEventListener('click', this.handleOutsideClick, false);
@@ -222,7 +236,9 @@ export default {
 
     // Initialize Menu data when Mounted
     this.fetchMenuData();
-  }
+
+    this.updateAriaLabel();
+  },
 };
 </script>
 <style lang="scss">
