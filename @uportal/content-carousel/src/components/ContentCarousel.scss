@@ -254,6 +254,21 @@
       }
     }
   }
+  .slick-controls {
+    button {
+      background-color: var(--cc-control-bg, #716e6e);
+      color: var(--cc-control, #fff);
+      border: 0px;
+      padding: 7px;
+      &:hover {
+        background-color: var(--cc-control-bg-hover, #01426a);
+        color: var(--cc-control-hover, #fff);
+      }
+      svg {
+        max-width: 1rem;
+      }
+    }
+  }
 
   @media (max-width: 767.98px) {
     .slick-item {

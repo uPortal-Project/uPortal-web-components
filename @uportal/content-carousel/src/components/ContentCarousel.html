@@ -67,6 +67,29 @@
           </template>
           <slot v-if="type === 'passthrough'"></slot>
         </slick>
+        <div
+          v-if="computedSlickOptions.slidesToShow === 1 && computedSlickOptions.autoplay === true"
+          class="slick-controls"
+        >
+        <button
+          @click="onPauseClick"
+          aria-label="pause carousel"
+        >
+          <FontAwesomeIcon
+            icon="pause"
+            size="1x"
+          />
+        </button>&nbsp;
+        <button
+          @click="onPlayClick"
+          aria-label="play carousel"
+        >
+          <FontAwesomeIcon
+            icon="play"
+            size="1x"
+          />
+        </button>
+        </div>
       </div>
     </template>
   </div>
