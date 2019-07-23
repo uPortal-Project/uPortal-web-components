@@ -172,6 +172,7 @@ export default {
      */
     portlets: {type: Array, default: undefined},
     showFooterCategories: {type: Boolean, default: false},
+    useExternalFilter: {type: Boolean, default: true},
     portletBackgroundIsDark: {type: Boolean, default: false},
   },
   data() {
@@ -227,8 +228,10 @@ export default {
     },
   },
   beforeMount() {
-    window.addEventListener('gridNeedCategories', this.emitAllCategories);
-    window.addEventListener('gridCategoryFilter', this.setFilterCategory);
+    if (this.useExternalFilter) {
+      window.addEventListener('gridNeedCategories', this.emitAllCategories);
+      window.addEventListener('gridCategoryFilter', this.setFilterCategory);
+    }
     window.addEventListener('gridFavoritesUpdated', this.reload);
   },
   mounted() {
@@ -242,10 +245,17 @@ export default {
       window.addEventListener('resize', this.calculateSize);
       this.calculateSize();
     });
+    if (this.useExternalFilter) {
+      this.$nextTick(function() {
+        this.emitAllCategories();
+      });
+    }
   },
   beforeDestroy() {
-    window.removeEventListener('gridCategoryFilter', this.setFilterCategory);
-    window.removeEventListener('gridNeedCategories', this.emitAllCategories);
+    if (this.useExternalFilter) {
+      window.removeEventListener('gridCategoryFilter', this.setFilterCategory);
+      window.removeEventListener('gridNeedCategories', this.emitAllCategories);
+    }
     window.removeEventListener('gridFavoritesUpdated', this.reload);
     window.removeEventListener('resize', this.calculateSize);
   },
