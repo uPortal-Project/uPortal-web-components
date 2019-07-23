@@ -208,11 +208,19 @@ export default {
       if (menu !== target && !shadow && !menu.contains(target)) {
         this.menuOpen = false;
       }
-    }
+    },
+    handleKeyDown(event) {
+      if (event.key === 'Escape') {
+        this.toggleMenu();
+        this.$refs.waffleMenu.querySelector('.waffle-trigger').focus();
+      }
+    },
   },
   mounted() {
-    // Initialize Menu Date when Mounted
     document.addEventListener('click', this.handleOutsideClick, false);
+    document.addEventListener('keydown', this.handleKeyDown, false);
+
+    // Initialize Menu data when Mounted
     this.fetchMenuData();
   }
 };
