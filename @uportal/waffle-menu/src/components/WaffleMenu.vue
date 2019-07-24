@@ -1,6 +1,6 @@
 <template>
   <div class="waffle-menu-container" ref="waffleMenu">
-    <button class="waffle-trigger" @click="toggleMenu()" :aria-label="ariaLabel">
+    <button class="waffle-trigger" @click="toggleMenu()" :aria-label="ariaLabel" :aria-expanded="menuOpen ? 'true' : 'false'">
       <FontAwesomeIcon icon="th" :color="buttonColor" size="2x" />
       <div v-if="menuOpen">
         <div class="waffle-triangle-black" />
@@ -108,7 +108,7 @@ export default {
   data() {
     return {
       menuOpen: false,
-      ariaLabel : this.buttonLabel + ' closed',
+      ariaLabel : this.buttonLabel,
       data: [],
       dataItems: [],
       dataLoaded: false,
@@ -204,7 +204,6 @@ export default {
     // toggle the menu
     toggleMenu() {
       this.menuOpen = !this.menuOpen;
-      this.updateAriaLabel();
     },
     // close the menu if we're clicking outside the menu or trigger
     handleOutsideClick(event) {
@@ -221,14 +220,6 @@ export default {
         this.$refs.waffleMenu.querySelector('.waffle-trigger').focus();
       }
     },
-    updateAriaLabel() {
-      if (this.menuOpen) {
-        this.ariaLabel = this.buttonLabel + ' open';
-      }
-      else {
-        this.ariaLabel = this.buttonLabel + ' closed';
-      }
-    }
   },
   mounted() {
     document.addEventListener('click', this.handleOutsideClick, false);
@@ -236,8 +227,6 @@ export default {
 
     // Initialize Menu data when Mounted
     this.fetchMenuData();
-
-    this.updateAriaLabel();
   },
 };
 </script>
