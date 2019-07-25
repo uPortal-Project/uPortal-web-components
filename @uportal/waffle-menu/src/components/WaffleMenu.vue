@@ -215,9 +215,11 @@ export default {
       }
     },
     handleKeyDown(event) {
-      if (event.key === 'Escape') {
+      const menu = this.$refs.waffleMenu;
+      const target = event.target;
+      if (event.key === 'Escape' && this.menuOpen && (menu.contains(target) || event.tagName === 'WAFFLE-MENU' || target.tagName === 'WAFFLE-MENU')) {
         this.toggleMenu();
-        this.$refs.waffleMenu.querySelector('.waffle-trigger').focus();
+        menu.querySelector('.waffle-trigger').focus();
       }
     },
   },
