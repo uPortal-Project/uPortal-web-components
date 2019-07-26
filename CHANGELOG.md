@@ -7,6 +7,24 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased][]
 
+## [1.33.0][] - 2019-07-26
+
+### Features
+
+- **esco-content-menu**: allow content-grids to ignore external content-grid-filters (#389)
+
+### Fix
+
+- **content-carousel**: renamed css variable to avoid collision (#373)
+
+### Documentation
+
+- **committers**: add Chris Beach, remove Jeff (#369)
+
+### Chore
+
+- update dependencies (#359, #368, #370, #371, #372, #374, #378, #381, #382, #383, #387)
+
 ## [1.32.1][] - 2019-06-28
 
 ### Fix
