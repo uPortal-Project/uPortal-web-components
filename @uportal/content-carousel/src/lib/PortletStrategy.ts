@@ -29,7 +29,7 @@ export class PortletStrategy implements DataStrategy {
     this.items = portletRegistryToArray(registry).map(
         ({
           fname,
-          name,
+          title,
           description,
           parameters,
         }) => {
@@ -50,7 +50,7 @@ export class PortletStrategy implements DataStrategy {
             altText,
             destinationUrl: alternativeMaximized || '/uPortal/p/' + fname,
             imageUrl,
-            title: name,
+            title,
             description,
           };
         },
