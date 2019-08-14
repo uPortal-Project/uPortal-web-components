@@ -10,13 +10,13 @@
             "fname": "basiclti-portlet",
             "keywords": [],
             "averageRating": 0,
-            "name": "Basic LTI Portlet (demo)",
+            "name": "Basic LTI Portlet (demo) (\"demo\" should not be showing)",
             "description": "Implements the IMS Basic Learning Tools Interoperability spec and allows you to render any Basic LTI enabled app inside uPortal",
             "ratingsCount": 0,
             "typeId": 2,
             "id": 88,
             "state": "PUBLISHED",
-            "title": "Basic LTI Portlet (demo)",
+            "title": "Basic LTI Portlet",
             "parameters": {
               "hideFromMobile": {
                 "name": "hideFromMobile",
