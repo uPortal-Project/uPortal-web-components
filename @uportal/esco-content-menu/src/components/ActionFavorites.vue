@@ -73,7 +73,7 @@ export default {
       event.preventDefault();
       event.stopPropagation();
       if (!this.debug) {
-        if (this.favorite) {
+        if (this.isFavorite) {
           this.removeFromFavorite();
         } else {
           this.addToFavorite();
