@@ -73,7 +73,7 @@ export default {
       event.preventDefault();
       event.stopPropagation();
       if (!this.debug) {
-        if (this.favorite) {
+        if (this.isFavorite) {
           this.removeFromFavorite();
         } else {
           this.addToFavorite();
@@ -84,7 +84,7 @@ export default {
       return false;
     },
     changeFavoriteValue() {
-      this.favorite = !this.favorite;
+      this.favorite = !this.isFavorite;
       this.$emit('is-favorite', this.favorite);
       this.callOnToggleFav(this.fname);
     },
