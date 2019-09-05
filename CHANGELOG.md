@@ -7,7 +7,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased][]
 
-### Fix
+## [1.33.2][] - 2019-09-05
+
+### Fixes
 
 - **esco-favorite-action**: favorite data not watched (#405)
 - **content-carousel**: updated portlet strategy to use title (#402)
@@ -1100,7 +1102,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - **open-id-connect**: Initial version of an OpenID Connect helper script to use in web components and JavaScript modules.
 - **content-carousel**: Initial version of content carousel, a carousel based portlet metadata display system.
 
-[unreleased]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.33.1...HEAD
+[unreleased]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.33.2...HEAD
+[1.33.2]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.33.1...v1.33.2
 [1.33.1]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.33.0...v1.33.1
 [1.33.0]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.32.1...v1.33.0
 [1.32.1]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.32.0...v1.32.1

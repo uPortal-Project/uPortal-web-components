@@ -69,5 +69,6 @@
     "type": "git",
     "url": "git+https://github.com/uPortal-contrib/uPortal-web-components.git"
   },
-  "homepage": "https://uportal-contrib.github.io/uPortal-web-components/"
+  "homepage": "https://uportal-contrib.github.io/uPortal-web-components/",
+  "gitHead": "cc4c3c5e78594db37244566d15fe872767baf3f2"
 }

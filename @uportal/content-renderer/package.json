@@ -47,5 +47,6 @@
   "bugs": {
     "url": "https://github.com/uPortal-contrib/uPortal-web-components/issues"
   },
-  "homepage": "https://github.com/uPortal-contrib/uPortal-web-components#readme"
+  "homepage": "https://github.com/uPortal-contrib/uPortal-web-components#readme",
+  "gitHead": "cc4c3c5e78594db37244566d15fe872767baf3f2"
 }
