@@ -7,6 +7,21 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased][]
 
+### Fix
+
+- **esco-favorite-action**: favorite data not watched (#405)
+- **content-carousel**: updated portlet strategy to use title (#402)
+
+### Chores
+
+- Update package lock file (#415)
+- Update dependencies
+  - ky to ^0.13.0 (#420)
+  - sass-loader to v8 (#417)
+  - gradle to v5.6.1 (#416)
+  - node.js to v12.9.1 (#412)
+  - font awesome (#406)
+
 ## [1.33.1][] - 2019-07-30
 
 ### Chore
