@@ -354,7 +354,7 @@ Replace the CDATA section of the portlet definition with this, replacing
     <readOnly>false</readOnly>
     <value>
         <![CDATA[
-           <script src="https://unpkg.com/vue"></script>
+           <script src="/resource-server/webjars/vue/dist/vue.min.js"></script>
            <script type="text/javascript" src="/resource-server/webjars/{component-name}/dist/{component-name}.min.js"></script>
 
            <{component-name}></{component-name}>
@@ -523,7 +523,7 @@ In uPortal, navigate to Admin Tools > Portlet Administration.
    and substite your component name:
 
    ```html
-   <script src="https://unpkg.com/vue"></script>
+   <script src="/resource-server/webjars/vue/dist/vue.min.js"></script>
    <script type="text/javascript" src="/resource-server/webjars/{component-name}/dist/{component-name}.min.js"></script>
    <{component-name}></{component-name}>
    ```
