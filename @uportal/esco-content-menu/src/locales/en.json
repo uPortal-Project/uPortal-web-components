@@ -5,8 +5,10 @@
       "filter": "Find a service..."
     },
     "favorites": {
-      "add": "Add to favorites",
-      "remove": "Remove from favorites",
+      "add": "Add \"{}\" to favorites",
+      "added": "\"{}\" has been added to your favorites",
+      "remove": "Remove \"{}\" from favorites",
+      "removed": "\"{}\" has been removed from your favorites",
       "title": "My Favorites",
       "empty": "No favorite defined"
     },

@@ -1,29 +1,37 @@
 <template>
   <div :class="mainClass">
-    <div class="portlet-card-icon">
-      <div
-        v-if="iconUrl !== null"
-        :style="'background-color:' + iconBackgroundColor"
-        class="img-wrapper">
-        <img
-          :src="iconUrl"
-          :alt="title" >
+    <a
+      :href="getRenderPortletUrl(portletDesc)"
+      :target="hasAlternativeMaximizedUrl(portletDesc) ? '_blank' : '_self'"
+      :rel="
+        hasAlternativeMaximizedUrl(portletDesc) ? 'noopener noreferrer' : ''
+      ">
+      <div class="portlet-card-icon">
+        <div
+          v-if="iconUrl !== null"
+          :style="'background-color:' + iconBackgroundColor"
+          class="img-wrapper">
+          <img
+            :src="iconUrl"
+            alt=""
+            role="presentation">
+        </div>
+        <div
+          v-else
+          :style="'background-color:' + iconBackgroundColor"
+          class="img-wrapper"/>
       </div>
-      <div
-        v-else
-        :style="'background-color:' + iconBackgroundColor"
-        class="img-wrapper"/>
-    </div>
-    <div class="portlet-card-title">
-      {{ title }}
-    </div>
-    <div class="portlet-card-description">
-      <ellipsis
-        v-if="append"
-        :message="truncate(description)"
-        :line-height="'20px'"
-        :end-char="'...'"/>
-    </div>
+      <div class="portlet-card-title">
+        {{ title }}
+      </div>
+      <div class="portlet-card-description">
+        <ellipsis
+          v-if="append"
+          :message="truncate(description)"
+          :line-height="'20px'"
+          :end-char="'...'"/>
+      </div>
+    </a>
     <div
       v-if="!hideAction"
       class="portlet-card-action">
@@ -37,7 +45,8 @@
         :favorite-api-url="favoriteApiUrl"
         :user-info-api-url="userInfoApiUrl"
         :back-ground-is-dark="favBgIsDark"
-        :debug="debug"/>
+        :debug="debug"
+        :portlet-desc="portletDesc"/>
     </div>
   </div>
 </template>
@@ -48,6 +57,10 @@ import i18nMixin from '../mixins/i18n.js';
 import ActionFavorites from './ActionFavorites';
 import {sizeValidator} from '../services/sizeTools';
 import computeUrl from '../services/computeUrl';
+import {
+  hasAlternativeMaximizedUrl,
+  getRenderUrl,
+} from '../services/managePortletUrl';
 
 export default {
   name: 'PortletCard',
@@ -129,6 +142,12 @@ export default {
     },
   },
   methods: {
+    hasAlternativeMaximizedUrl(portletDesc) {
+      return hasAlternativeMaximizedUrl(portletDesc);
+    },
+    getRenderPortletUrl(portletDesc) {
+      return getRenderUrl(portletDesc, this.contextApiUrl);
+    },
     truncate(entry) {
       if (entry) {
         const text = entry.split('   ');
@@ -145,196 +164,199 @@ export default {
 @import './../styles/vars.scss';
 
 .portlet-card {
-  width: $PortletCardSizeLarge;
-  height: 170px;
-  padding: 5px;
-  line-height: 20px;
-  background-color: white;
-  text-align: center;
-  border-radius: 5px;
-  position: relative;
-  display: flex;
-  flex-flow: column nowrap;
-
-  /* prettier-ignore */
-  box-shadow:
-    0 2px 2px 0 rgba(0, 0, 0, 0.14),
-    0 3px 1px -2px rgba(0, 0, 0, 0.12),
-    0 1px 5px 0 rgba(0, 0, 0, 0.2);
-  transition: box-shadow 0.25s;
-
-  &:hover {
-    cursor: pointer;
-
+  a {
+    width: $PortletCardSizeLarge;
+    height: 170px;
+    padding: 5px;
+    line-height: 20px;
+    background-color: white;
+    text-align: center;
+    border-radius: 5px;
+    position: relative;
+    display: flex;
+    flex-flow: column nowrap;
+    text-decoration: none;
+    
     /* prettier-ignore */
     box-shadow:
-      0 7px 8px -4px rgba(0, 0, 0, 0.2),
-      0 12px 17px 2px rgba(0, 0, 0, 0.14),
-      0 5px 22px 4px rgba(0, 0, 0, 0.12);
+      0 2px 2px 0 rgba(0, 0, 0, 0.14),
+      0 3px 1px -2px rgba(0, 0, 0, 0.12),
+      0 1px 5px 0 rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.25s;
+
+    &:hover {
+      cursor: pointer;
+
+      /* prettier-ignore */
+      box-shadow:
+        0 7px 8px -4px rgba(0, 0, 0, 0.2),
+        0 12px 17px 2px rgba(0, 0, 0, 0.14),
+        0 5px 22px 4px rgba(0, 0, 0, 0.12);
+    }
+
+    > .portlet-card-icon,
+    > .portlet-card-title,
+    > .portlet-card-description {
+      display: block;
+      text-align: center;
+      color: rgba(0, 0, 0, 0.8);
+    }
+
+    > .portlet-card-icon {
+      display: var(--content-gridcard-icon-display);
+
+      > div {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        height: 83px;
+        width: 83px;
+        margin-top: -30px;
+        border-radius: 10px;
+
+        img {
+          height: 100%;
+          width: auto;
+          border-radius: 10px;
+        }
+      }
+    }
+
+    > .portlet-card-title {
+      display: var(--content-gridcard-title-display);
+      padding-top: 1em;
+      font-size: 16px;
+      font-weight: bold;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    > .portlet-card-description {
+      display: var(--content-gridcard-description-display);
+      padding-top: 0.3em;
+      flex: 1;
+      font-size: 14px;
+    }
+
+    &.custom-card {
+      padding: 5px;
+      padding: var(--content-gridcard-padding, 5px);
+      border: none;
+      border: var(--content-gridcard-border, none);
+      background-color: white;
+      background-color: var(--content-gridcard-bg-color, white);
+      border-radius: 5px;
+      border-radius: var(--content-gridcard-border-radius, 5px);
+      box-shadow: none;
+      box-shadow: var(--content-gridcard-shadow, none);
+      transition: box-shadow 0.25s;
+      width: $PortletCardSizeCustomWidth;
+      width: var(--content-gridcard-size-w, $PortletCardSizeCustomWidth);
+      height: $PortletCardSizeCustomHeight;
+      height: var(--content-gridcard-size-h, $PortletCardSizeCustomHeight);
+
+      &:hover {
+        box-shadow: none;
+        box-shadow: var(--content-gridcard-shadow-hover, none);
+      }
+
+      & > .portlet-card-icon {
+        > div {
+          height: 75px;
+          height: var(--content-gridcard-icon-size, 75px);
+          width: 75px;
+          width: var(--content-gridcard-icon-size, 75px);
+          margin-top: 0;
+        }
+      }
+
+      > .portlet-card-title {
+        overflow-x: hidden;
+        overflow-y: visible;
+        text-overflow: ellipsis;
+        font-size: var(--content-gridcard-title-fontsize, 16px);
+      }
+
+      > .portlet-card-description {
+        font-size: var(--content-gridcard-description-fontsize, 16px);
+      }
+    }
+
+    &.medium-card,
+    &.small-card,
+    &.smaller-card {
+      height: 160px;
+
+      > .portlet-card-icon {
+        > div {
+          height: 75px;
+          width: 75px;
+        }
+      }
+    }
+
+    &.small-card,
+    &.smaller-card {
+      height: auto;
+      background-color: transparent;
+      border: none;
+      box-shadow: none;
+      padding: 0;
+
+      &.background-dark {
+        > .portlet-card-title,
+        > .portlet-card-description {
+          color: white;
+        }
+      }
+
+      > .portlet-card-description {
+        display: none;
+      }
+
+      > .portlet-card-icon {
+        > div {
+          margin: 0;
+        }
+      }
+
+      > .portlet-card-title {
+        padding-top: 0.8em;
+        font-weight: 500;
+      }
+
+      > .portlet-card-action {
+        margin: 0;
+      }
+
+      &:not(.hide-action) {
+        margin-top: $PortletCardButtonSize / 2;
+
+        > .portlet-card-action {
+          top: $PortletCardButtonSize - (($PortletCardButtonSize / 2) * 3);
+        }
+      }
+    }
+
+    &.medium-card {
+      width: $PortletCardSizeMedium;
+    }
+
+    &.small-card {
+      width: $PortletCardSizeSmall;
+    }
+
+    &.smaller-card {
+      width: $PortletCardSizeSmaller;
+    }
   }
 
-  > .portlet-card-icon,
-  > .portlet-card-title,
-  > .portlet-card-description {
-    display: block;
-    text-align: center;
-    color: rgba(0, 0, 0, 0.8);
-  }
-
-  > .portlet-card-action {
+  .portlet-card-action {
     color: rgba(0, 0, 0, 0.34);
     position: absolute;
     top: 0;
     right: 0;
     margin: 5px;
-  }
-
-  > .portlet-card-icon {
-    display: var(--content-gridcard-icon-display);
-
-    > div {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      height: 83px;
-      width: 83px;
-      margin-top: -30px;
-      border-radius: 10px;
-
-      img {
-        height: 100%;
-        width: auto;
-        border-radius: 10px;
-      }
-    }
-  }
-
-  > .portlet-card-title {
-    display: var(--content-gridcard-title-display);
-    padding-top: 1em;
-    font-size: 16px;
-    font-weight: bold;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  > .portlet-card-description {
-    display: var(--content-gridcard-description-display);
-    padding-top: 0.3em;
-    flex: 1;
-    font-size: 14px;
-  }
-
-  &.custom-card {
-    padding: 5px;
-    padding: var(--content-gridcard-padding, 5px);
-    border: none;
-    border: var(--content-gridcard-border, none);
-    background-color: white;
-    background-color: var(--content-gridcard-bg-color, white);
-    border-radius: 5px;
-    border-radius: var(--content-gridcard-border-radius, 5px);
-    box-shadow: none;
-    box-shadow: var(--content-gridcard-shadow, none);
-    transition: box-shadow 0.25s;
-    width: $PortletCardSizeCustomWidth;
-    width: var(--content-gridcard-size-w, $PortletCardSizeCustomWidth);
-    height: $PortletCardSizeCustomHeight;
-    height: var(--content-gridcard-size-h, $PortletCardSizeCustomHeight);
-
-    &:hover {
-      box-shadow: none;
-      box-shadow: var(--content-gridcard-shadow-hover, none);
-    }
-
-    & > .portlet-card-icon {
-      > div {
-        height: 75px;
-        height: var(--content-gridcard-icon-size, 75px);
-        width: 75px;
-        width: var(--content-gridcard-icon-size, 75px);
-        margin-top: 0;
-      }
-    }
-
-    > .portlet-card-title {
-      overflow-x: hidden;
-      overflow-y: visible;
-      text-overflow: ellipsis;
-      font-size: var(--content-gridcard-title-fontsize, 16px);
-    }
-
-    > .portlet-card-description {
-      font-size: var(--content-gridcard-description-fontsize, 16px);
-    }
-  }
-
-  &.medium-card,
-  &.small-card,
-  &.smaller-card {
-    height: 160px;
-
-    > .portlet-card-icon {
-      > div {
-        height: 75px;
-        width: 75px;
-      }
-    }
-  }
-
-  &.small-card,
-  &.smaller-card {
-    height: auto;
-    background-color: transparent;
-    border: none;
-    box-shadow: none;
-    padding: 0;
-
-    &.background-dark {
-      > .portlet-card-title,
-      > .portlet-card-description {
-        color: white;
-      }
-    }
-
-    > .portlet-card-description {
-      display: none;
-    }
-
-    > .portlet-card-icon {
-      > div {
-        margin: 0;
-      }
-    }
-
-    > .portlet-card-title {
-      padding-top: 0.8em;
-      font-weight: 500;
-    }
-
-    > .portlet-card-action {
-      margin: 0;
-    }
-
-    &:not(.hide-action) {
-      margin-top: $PortletCardButtonSize / 2;
-
-      > .portlet-card-action {
-        top: $PortletCardButtonSize - (($PortletCardButtonSize / 2) * 3);
-      }
-    }
-  }
-
-  &.medium-card {
-    width: $PortletCardSizeMedium;
-  }
-
-  &.small-card {
-    width: $PortletCardSizeSmall;
-  }
-
-  &.smaller-card {
-    width: $PortletCardSizeSmaller;
   }
 }
 </style>

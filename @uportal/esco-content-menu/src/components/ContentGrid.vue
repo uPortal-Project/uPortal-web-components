@@ -46,31 +46,24 @@
           </div>
         </slot>
       </div>
+      <div class="status sr-only" aria-live="polite">{{ statusMsg }}</div>
       <div class="flex-grid">
         <div
           v-for="portlet in filteredPortlets"
           :key="portlet.id"
           :class="['portlet-card-' + _portletCardSize]"
           class="flex-item ma-3 text-xs-center">
-          <a
-            :href="getRenderPortletUrl(portlet)"
-            :target="hasAlternativeMaximizedUrl(portlet) ? '_blank' : '_self'"
-            :rel="
-              hasAlternativeMaximizedUrl(portlet) ? 'noopener noreferrer' : ''
-            "
-            class="no-style">
-            <portlet-card
-              :messages="messages"
-              :portlet-desc="portlet"
-              :is-favorite="isFavorite(portlet.fname)"
-              :size="_portletCardSize"
-              :hide-action="hideAction"
-              :call-after-action="actionToggleFav"
-              :favorite-api-url="favoriteApiUrl"
-              :user-info-api-url="userInfoApiUrl"
-              :back-ground-is-dark="portletBackgroundIsDark"
-              :debug="debug"/>
-          </a>
+          <portlet-card
+            :messages="messages"
+            :portlet-desc="portlet"
+            :is-favorite="isFavorite(portlet.fname)"
+            :size="_portletCardSize"
+            :hide-action="hideAction"
+            :call-after-action="actionToggleFav"
+            :favorite-api-url="favoriteApiUrl"
+            :user-info-api-url="userInfoApiUrl"
+            :back-ground-is-dark="portletBackgroundIsDark"
+            :debug="debug"/>
         </div>
       </div>
       <slot name="footer">
@@ -111,10 +104,6 @@ import {
   breakPointName,
   sizeValidator,
 } from '../services/sizeTools';
-import {
-  hasAlternativeMaximizedUrl,
-  getRenderUrl,
-} from '../services/managePortletUrl';
 import matchSorter from 'match-sorter';
 
 export default {
@@ -183,6 +172,7 @@ export default {
       elementSize: this.parentScreenSize,
       localPortlets: [],
       localFavorites: [],
+      statusMsg: '',
     };
   },
   computed: {
@@ -260,12 +250,6 @@ export default {
     window.removeEventListener('resize', this.calculateSize);
   },
   methods: {
-    hasAlternativeMaximizedUrl(portletDesc) {
-      return hasAlternativeMaximizedUrl(portletDesc);
-    },
-    getRenderPortletUrl(portletDesc) {
-      return getRenderUrl(portletDesc, this.contextApiUrl);
-    },
     isFavorite(fname) {
       const favorites = this.favorites || this.localFavorites;
       return favorites.includes(fname);
@@ -311,6 +295,13 @@ export default {
       if (!this.favorites) {
         this.localFavorites = toggleArray(this.localFavorites, fname);
       }
+
+      const portlets = this.portlets || this.localPortlets;
+      const portlet = portlets.filter(function(p) {
+        return p.fname === fname;
+      });
+      this.statusMsg = this.translate(this.isFavorite(fname) ? 'message.favorites.added' : 'message.favorites.removed')
+          .replace('{}', portlet[0].title);
     },
     setFilterCategory(e) {
       this.filterCategory = e.detail || '';
@@ -499,6 +490,7 @@ $searchSize: 32px;
         margin: 20px auto;
         margin: var(--content-griditem-margin, 20px auto);
         padding: 0 2.5px;
+        position: relative;
       }
 
       /** fix IE flexbox bug on margin auto https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/14593426/. */

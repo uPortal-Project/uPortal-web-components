@@ -56,6 +56,7 @@ export default {
     fname: {type: String, required: true},
     isFavorite: {type: Boolean, default: false},
     backGroundIsDark: {type: Boolean, default: false},
+    portletDesc: {type: Object, required: true},
   },
   data() {
     return {
@@ -66,7 +67,7 @@ export default {
     favoriteMessage() {
       return this.translate(
         this.isFavorite ? 'message.favorites.remove' : 'message.favorites.add'
-      );
+      ).replace('{}', this.portletDesc.title);
     },
   },
   methods: {
