@@ -5,8 +5,8 @@
       backGroundIsDark ? 'background-dark' : '',
     ]"
     @click="toggleFavorite($event)">
-    <button class="favorite-button">
-      <span class="sr-only">{{ favoriteMessage }}</span>
+    <button class="favorite-button"
+      :title="favoriteMessage">
       <font-awesome-icon :icon="[isFavorite ? 'fas' : 'far', 'star']" />
     </button>
   </div>
