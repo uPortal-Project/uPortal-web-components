@@ -68,7 +68,7 @@
           <slot v-if="type === 'passthrough'"></slot>
         </slick>
         <div
-          v-if="computedSlickOptions.slidesToShow === 1 && computedSlickOptions.autoplay === true"
+          v-if="computedItems.length > 1 && computedSlickOptions.slidesToShow === 1 && computedSlickOptions.autoplay === true"
           class="slick-controls"
         >
         <button
