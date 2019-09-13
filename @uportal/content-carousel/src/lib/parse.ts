@@ -1,7 +1,7 @@
 import * as util from 'util';
 import {parseString} from 'xml2js';
 
-function convert(json: any): any {
+function convert(json: any, displayTitle = true, displayDescription = true): any {
   let channel = json.rss.channel;
   const rss: { items: any[]; [propName: string]: any } = {items: []};
   if (Array.isArray(json.rss.channel)) {
@@ -30,9 +30,11 @@ function convert(json: any): any {
     }
     channel.item.forEach((val: any) => {
       const obj = {} as any;
-      obj.title = !util.isNullOrUndefined(val.title) ? val.title[0] : '';
+      obj.title = !util.isNullOrUndefined(val.title)
+        ? (displayTitle ? val.title[0] : '')
+        : '';
       obj.description = !util.isNullOrUndefined(val.description)
-        ? val.description[0]
+        ? (displayDescription ? val.description[0] : '')
         : '';
       obj.url = obj.link = !util.isNullOrUndefined(val.link) ? val.link[0] : '';
 
@@ -67,13 +69,13 @@ function convert(json: any): any {
   return rss;
 }
 
-export function parseXml(xml: string): Promise<any> {
+export function parseXml(xml: string, displayTitle = true, displayDescription = true): Promise<any> {
   return new Promise((resolve, reject) => {
     parseString(xml, (err, result) => {
       if (err) {
         reject(err);
       } else {
-        resolve(convert(result));
+        resolve(convert(result, displayTitle, displayDescription));
       }
     });
   });

@@ -36,7 +36,7 @@ compile 'org.webjars.npm:uportal__content-carousel:{version number goes here}'
 
 ## Usage as Web Component
 
-The component requires a type. It also allows for a `carousel-height` (in rem units), a `fit-to-container` property which causes it to size to its container (horizontally), and `slick-options`.
+The component requires a type. It also allows for a `carousel-height` (in rem units), a `fit-to-container` property which causes it to size to its container (horizontally), `slick-options`, `display-title` to allow or remove the title from the 'alt text' and caption bar, and `display-description` to allow or remove the description from the 'alt text' and caption bar.
 
 ```html
 <link
@@ -52,6 +52,8 @@ The component requires a type. It also allows for a `carousel-height` (in rem un
   slick-options='{ "slidesToShow": 1, "infinite": true, "arrows": true }'
   carousel-height="30rem"
   fit-to-container="true"
+  display-title="true"
+  display-description="true"
 >
 </content-carousel>
 ```
@@ -63,6 +65,8 @@ The component requires a type. It also allows for a `carousel-height` (in rem un
 - `slick-options` (optional, [slick settings](https://kenwheeler.github.io/slick/#settings)): configuration for slick carousel.
 - `carousel-height` (optional, string): css height to apply on slides.
 - `fit-to-container` (optional, boolean): by default carousel will fit content, `true` will make carousel match width of surrounding container.
+- `display-title` (optional, boolean): Current implemented for the RSS Strategy. By default carousel will show the title in the 'alt text' and the caption bar. Setting to `false` will remove the title from the 'alt text' and the caption bar.
+- `display-description` (optional, boolean): Current implemented for the RSS Strategy. By default carousel will show the description in the 'alt text' and the caption bar. Setting to `false` will remove the description from the 'alt text' and the caption bar. Note - if BOTH `display-title` and `display-description` are `false`, the caption bar will be hidden.
 
 ### Types
 

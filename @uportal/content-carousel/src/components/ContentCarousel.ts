@@ -62,6 +62,12 @@ export default class ContentCarousel extends Vue {
   @Prop({type: [String], default: ''})
   public theme?: string;
 
+  @Prop({type: Boolean, default: true})
+  public displayTitle!: boolean;
+
+  @Prop({type: Boolean, default: true})
+  public displayDescription!: boolean;
+
   public strategy: DataStrategy = {
     items: [] as CarouselItem[],
   } as DataStrategy;
@@ -93,7 +99,7 @@ export default class ContentCarousel extends Vue {
 
     switch (this.type.toLowerCase()) {
       case 'rss': {
-        this.strategy = new RssStrategy(this.source);
+        this.strategy = new RssStrategy(this.source, this.displayTitle, this.displayDescription);
         break;
       }
       case 'portlet': {

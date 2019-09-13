@@ -7,7 +7,12 @@ export class RssStrategy implements DataStrategy {
 
   public items: CarouselItem[] = [];
 
-  constructor(public feed: string) {
+  private displayTitle: boolean;
+  private displayDescription: boolean;
+
+  constructor(public feed: string, displayTitle: boolean, displayDescription: boolean) {
+    this.displayTitle = displayTitle;
+    this.displayDescription = displayDescription;
     this.load(feed);
   }
 
@@ -18,7 +23,7 @@ export class RssStrategy implements DataStrategy {
     }
     const feed = await response.text();
 
-    const {items} = await parseXml(feed);
+    const {items} = await parseXml(feed, this.displayTitle, this.displayDescription);
     this.items = items.map(
         (
             {
