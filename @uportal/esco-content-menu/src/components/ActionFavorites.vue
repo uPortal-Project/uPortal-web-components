@@ -159,7 +159,6 @@ export default {
     text-transform: uppercase;
     text-decoration: none;
     border: none;
-    outline: none;
     background-color: transparent;
     box-shadow: none;
     cursor: pointer;
