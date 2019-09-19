@@ -3,14 +3,7 @@
     <div class="sidebar-nav__search"></div>
 
     <div class="sidebar-nav__accordions">
-      <div class="accordion" v-for="n in 4" :key="n">
-        <a href="#" class="accordion__header">Accordion Header {{ n }}</a>
-        <ul>
-          <li v-for="link in 4" :key="link">
-            <a href="#">Link {{ link }}</a>
-          </li>
-        </ul>
-      </div>
+      <accordion v-for="n in 4" :key="n" />
     </div>
 
     <div class="sidebar-nav__info-box">
@@ -22,18 +15,18 @@
 </template>
 
 <script>
+import Accordion from './Accordion';
+
 export default {
   name: 'SidebarNav',
-  props: {}
+  props: {},
+  components: {
+    Accordion
+  }
 };
 </script>
 
 <style lang="scss" scoped>
-a {
-  text-decoration: none;
-  font-family: 'Helvetica Neue', Helvetica, sans-serif;
-}
-
 .sidebar-nav {
   position: absolute;
   top: 0;
@@ -47,37 +40,6 @@ a {
 
   &__accordions {
     margin: 0 0 15px;
-
-    .accordion {
-      background-color: white;
-      border: 1px solid #dfdfdf;
-      border-radius: 5px;
-
-      &__header {
-        display: block;
-        background-color: #b2c6db;
-        padding: 25px 0 25px 35px;
-        color: #042158;
-      }
-
-      > ul {
-        display: block;
-        list-style: none;
-        margin: 0;
-        padding: 20px;
-
-        > li {
-          display: block;
-          color: #042158;
-          padding: 10px 15px;
-          border-bottom: 1px solid #bfbfbf;
-
-          > a {
-            color: #042158;
-          }
-        }
-      }
-    }
   }
 
   &__info-box {

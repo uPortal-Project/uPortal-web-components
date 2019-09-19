@@ -15,4 +15,10 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+a,
+a:visited {
+  text-decoration: none;
+  font-family: 'Helvetica Neue', Helvetica, sans-serif;
+}
+</style>
