@@ -64,6 +64,18 @@ The component requires a type. It also allows for a `carousel-height` (in rem un
 - `carousel-height` (optional, string): css height to apply on slides.
 - `fit-to-container` (optional, boolean): by default carousel will fit content, `true` will make carousel match width of surrounding container.
 
+### Theming
+
+Currently this component supports CSS Variables for the following abilities. Defining the following variables will change the function for the component accordingly. They will fall back to the default behavior described below.
+
+You should define this in your custom stylesheet.
+
+```
+:root {
+  --cc-hero-text-display: block; // Affects the grey bar at the bottom of slides.  Default is 'block'.
+}
+```
+
 ### Types
 
 There are three data source types currently supported RSS, Portlet, and Passthrough.
