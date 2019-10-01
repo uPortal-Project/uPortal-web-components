@@ -113,6 +113,8 @@
       bottom: 0;
       background: rgba(0, 0, 0, 0.5);
       color: white;
+      display: block;
+      display: var(--cc-hero-text-display, block);
 
       p {
         padding: 10px;
@@ -164,8 +166,6 @@
       border-bottom: none;
       border-bottom: var(--cc-description-border-bottom, none);
       display: block;
-    }
-    &.has-description .slick-item-description {
       display: var(--cc-description-display, block);
     }
     &.has-image .slick-image {
