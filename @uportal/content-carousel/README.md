@@ -70,7 +70,7 @@ Currently this component supports CSS Variables for the following abilities. Def
 
 You should define this in your custom stylesheet.
 
-```
+```css
 :root {
   --cc-hero-text-display: block; // Affects the grey bar at the bottom of slides.  Default is 'block'.
 }
