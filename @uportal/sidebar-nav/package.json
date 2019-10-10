@@ -1,6 +1,6 @@
 {
   "name": "@uportal/sidebar-nav",
-  "version": "0.1.0",
+  "version": "1.33.2",
   "private": true,
   "main": "dist/sidebar-nav.js",
   "source": "src/components/SidebarNav.vue",
