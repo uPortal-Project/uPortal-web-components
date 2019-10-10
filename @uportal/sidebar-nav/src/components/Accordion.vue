@@ -1,11 +1,11 @@
 <template>
-  <div class="accordion" :class="{ open: isOpen }">
-    <a href="#" class="accordion__header" @click.prevent="isOpen = !isOpen"
-      >Accordion Header {{ n }}</a
-    >
+  <div class="accordion" :class="{ open: isOpen }" v-if="accordionItem">
+    <a href="#" class="accordion__header" @click.prevent="isOpen = !isOpen">{{
+      accordionItem.accordionTitle
+    }}</a>
     <ul>
-      <li v-for="link in 4" :key="link">
-        <a href="#">Link {{ link }}</a>
+      <li v-for="link in links" :key="link.linkID">
+        <a href="#">{{ link.linkTitle }}</a>
       </li>
     </ul>
   </div>
@@ -14,9 +14,32 @@
 <script>
 export default {
   name: 'Accordion',
+  props: ['accordionItem'],
   data() {
     return {
-      isOpen: false
+      isOpen: false,
+      links: [
+        {
+          linkID: 1,
+          linkTitle: 'Link Title'
+        },
+        {
+          linkID: 2,
+          linkTitle: 'Link Title'
+        },
+        {
+          linkID: 3,
+          linkTitle: 'Link Title'
+        },
+        {
+          linkID: 4,
+          linkTitle: 'Link Title'
+        },
+        {
+          linkID: 5,
+          linkTitle: 'Link Title'
+        }
+      ]
     };
   }
 };

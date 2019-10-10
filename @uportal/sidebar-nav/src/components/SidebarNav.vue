@@ -1,9 +1,11 @@
 <template>
   <div class="sidebar-nav">
-    <div class="sidebar-nav__search"></div>
-
     <div class="sidebar-nav__accordions">
-      <accordion v-for="n in 4" :key="n" />
+      <accordion
+        v-for="accordionItem in accordions"
+        :accordionItem="accordionItem"
+        :key="accordionItem.accordionID"
+      />
     </div>
 
     <div class="sidebar-nav__info-box">
@@ -19,7 +21,41 @@ import Accordion from './Accordion';
 
 export default {
   name: 'SidebarNav',
-  props: {},
+  props: ['portlet-api-url'],
+  data() {
+    return {
+      accordions: [
+        {
+          accordionID: 1,
+          accordionTitle: 'Pre-Award'
+        },
+        {
+          accordionID: 2,
+          accordionTitle: 'Financial Management'
+        },
+        {
+          accordionID: 3,
+          accordionTitle: 'Personnel Management'
+        },
+        {
+          accordionID: 4,
+          accordionTitle: 'Compliance and Training'
+        },
+        {
+          accordionID: 5,
+          accordionTitle: 'Facilities and Lab Management'
+        },
+        {
+          accordionID: 6,
+          accordionTitle: 'Industry Engagement'
+        },
+        {
+          accordionID: 7,
+          accordionTitle: 'Accordion Item'
+        }
+      ]
+    };
+  },
   components: {
     Accordion
   }
@@ -28,16 +64,6 @@ export default {
 
 <style lang="scss" scoped>
 .sidebar-nav {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  height: 100%;
-  width: 330px;
-  padding: 15px;
-  background-color: #435982;
-  overflow: auto;
-
   &__accordions {
     margin: 0 0 15px;
   }
