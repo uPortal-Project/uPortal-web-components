@@ -1,11 +1,11 @@
 <template>
-  <div class="accordion" :class="{ open: isOpen }" v-if="accordionItem">
+  <div class="accordion" :class="{ open: isOpen }" v-if="topic">
     <a href="#" class="accordion__header" @click.prevent="isOpen = !isOpen">{{
-      accordionItem.accordionTitle
+      topic.title
     }}</a>
     <ul>
-      <li v-for="link in links" :key="link.linkID">
-        <a href="#">{{ link.linkTitle }}</a>
+      <li v-for="(link, index) in topic.links" :key="index">
+        <a :href="link.url">{{ link.title }}</a>
       </li>
     </ul>
   </div>
@@ -14,32 +14,10 @@
 <script>
 export default {
   name: 'Accordion',
-  props: ['accordionItem'],
+  props: ['topic'],
   data() {
     return {
-      isOpen: false,
-      links: [
-        {
-          linkID: 1,
-          linkTitle: 'Link Title'
-        },
-        {
-          linkID: 2,
-          linkTitle: 'Link Title'
-        },
-        {
-          linkID: 3,
-          linkTitle: 'Link Title'
-        },
-        {
-          linkID: 4,
-          linkTitle: 'Link Title'
-        },
-        {
-          linkID: 5,
-          linkTitle: 'Link Title'
-        }
-      ]
+      isOpen: false
     };
   }
 };
@@ -54,7 +32,7 @@ export default {
   &__header {
     display: block;
     background-color: #b2c6db;
-    padding: 25px 0 25px 35px;
+    padding: 15px 0 15px 15px;
     color: #042158;
   }
 

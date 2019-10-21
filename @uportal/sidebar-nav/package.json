@@ -1,19 +1,17 @@
 {
   "name": "@uportal/sidebar-nav",
   "version": "1.33.2",
-  "private": true,
   "main": "dist/sidebar-nav.js",
   "source": "src/components/SidebarNav.vue",
   "scripts": {
     "serve": "vue-cli-service serve",
     "prebuild": "babel node_modules/@vue/web-component-wrapper/dist/vue-wc-wrapper.js -o node_modules/@vue/web-component-wrapper/dist/vue-wc-wrapper.js",
-    "build": "vue-cli-service build --name sidebar-nav --target wc src/components/*.vue",
+    "build": "vue-cli-service build --name sidebar-nav --target wc 'src/components/SidebarNav.vue'",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
     "@uportal/open-id-connect": "^1.33.2",
     "bootstrap": "^4.3.1",
-    "font-awesome": "^4.7.0",
     "core-js": "^2.6.5",
     "vue": "^2.6.10"
   },
