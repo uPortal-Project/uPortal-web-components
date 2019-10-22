@@ -1,7 +1,6 @@
 {
   "topics": [
     {
-      "accessLevel": null,
       "title": "Pre-Award",
       "links": [
         {
@@ -27,7 +26,6 @@
       ]
     },
     {
-      "accessLevel": null,
       "title": "Financial Management",
       "links": [
         {
@@ -53,7 +51,6 @@
       ]
     },
     {
-      "accessLevel": null,
       "title": "Personnel Management",
       "links": [
         {
@@ -79,7 +76,6 @@
       ]
     },
     {
-      "accessLevel": null,
       "title": "Compliance and Training",
       "links": [
         {
@@ -131,7 +127,6 @@
       ]
     },
     {
-      "accessLevel": null,
       "title": "Industry Engagement",
       "links": [
         {
@@ -157,7 +152,6 @@
       ]
     },
     {
-      "accessLevel": null,
       "title": "Accordion Item",
       "links": [
         {
