@@ -143,6 +143,7 @@ export default {
 
 <style lang="scss" scoped>
 @import './../styles/vars.scss';
+@import './../styles/common.scss';
 
 .action-favorites {
   &.background-dark {
