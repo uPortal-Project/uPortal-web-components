@@ -4,6 +4,7 @@
       'action-favorites ' + fname,
       backGroundIsDark ? 'background-dark' : '',
     ]"
+    :title="favoriteMessage"
     @click="toggleFavorite($event)">
     <button class="favorite-button">
       <span class="sr-only">{{ favoriteMessage }}</span>
