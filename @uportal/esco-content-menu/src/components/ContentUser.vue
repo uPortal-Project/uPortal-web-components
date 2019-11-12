@@ -38,7 +38,15 @@
           <div
             v-else
             class="user-avatar">
-            <font-awesome-icon icon="user" />
+            <a
+              v-if="userInfoPortletUrl !== ''"
+              :href="userInfoPortletUrl"
+              :title="translate('message.userInfoPortletUrl.title')">
+              <font-awesome-icon icon="user" />
+            </a>
+            <font-awesome-icon
+              v-else
+              icon="user" />
           </div>
           <div class="wrapper-info">
             <div class="user-name">
