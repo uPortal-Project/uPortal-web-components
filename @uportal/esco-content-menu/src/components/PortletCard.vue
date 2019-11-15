@@ -14,7 +14,7 @@
           <img
             :src="iconUrl"
             alt=""
-            role="presentation">
+            role="presentation" >
         </div>
         <div
           v-else
@@ -71,6 +71,10 @@ export default {
   },
   props: {
     callAfterAction: {type: Function, default: () => {}},
+    contextApiUrl: {
+      type: String,
+      default: process.env.VUE_APP_PORTAL_CONTEXT,
+    },
     cssClass: {type: String, default: 'portlet-card'},
     // Background is needed if your icons doesn't have it integrated
     iconBackgroundColor: {type: String, default: 'Transparent'},
@@ -176,7 +180,7 @@ export default {
     display: flex;
     flex-flow: column nowrap;
     text-decoration: none;
-    
+
     /* prettier-ignore */
     box-shadow:
       0 2px 2px 0 rgba(0, 0, 0, 0.14),
