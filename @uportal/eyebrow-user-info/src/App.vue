@@ -7,7 +7,8 @@
         picture="https://lycees.netocentre.fr/images/icones//noPictureUser.svg"
         email="john.doe@edu.univ.org"
         logout-link="/uPortal/Logout"
-        avatar-size="48px"/>
+        avatar-size="48px"
+      />
     </header>
     <div class="content">
       a content for test !
@@ -21,8 +22,8 @@ import EyebrowUserInfo from './components/EyebrowUserInfo';
 export default {
   name: 'App',
   components: {
-    EyebrowUserInfo,
-  },
+    EyebrowUserInfo
+  }
 };
 </script>
 

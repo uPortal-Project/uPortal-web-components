@@ -4,15 +4,15 @@ export default {
   methods: {
     translate(text, lang) {
       return i18n.t(text, lang);
-    },
+    }
   },
   props: {
-    messages: {type: [String, Array]},
+    messages: { type: [String, Array] }
   },
   mounted() {
     if (this.customMessages) {
-      this.customMessages.forEach((override) => {
-        override.locales.forEach((key) =>
+      this.customMessages.forEach(override => {
+        override.locales.forEach(key =>
           i18n.mergeLocaleMessage(key, override.messages)
         );
       });
@@ -25,6 +25,6 @@ export default {
           ? JSON.parse(this.messages)
           : this.messages;
       return options;
-    },
-  },
+    }
+  }
 };

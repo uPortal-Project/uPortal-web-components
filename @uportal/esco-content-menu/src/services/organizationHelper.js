@@ -2,13 +2,13 @@ import get from 'lodash/get';
 import isString from 'lodash/isString';
 
 export function getCurrentOrganization(
-    user,
-    userOrgIdAttribute,
-    organizations
+  user,
+  userOrgIdAttribute,
+  organizations
 ) {
   const currentUserOrgId = get(user, userOrgIdAttribute, null);
   if (isString(currentUserOrgId) && organizations?.length > 0) {
-    return organizations.find((entry) => entry.id === currentUserOrgId);
+    return organizations.find(entry => entry.id === currentUserOrgId);
   } else if (organizations?.length > 0) {
     return organizations[0];
   }

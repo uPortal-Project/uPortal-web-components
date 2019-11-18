@@ -1,7 +1,5 @@
 <template>
-  <div
-    class="autofit-ellipsis"
-    ref="sentence" />
+  <div class="autofit-ellipsis" ref="sentence" />
 </template>
 
 <script>
@@ -11,11 +9,11 @@
 export default {
   name: 'Ellipsis',
   props: {
-    message: {type: String, default: ''},
-    lineClamp: {type: Number, default: 0},
-    lineHeight: {type: String, default: '22px'},
-    endChar: {type: String, default: '...'},
-    endHtml: {type: String, default: ''},
+    message: { type: String, default: '' },
+    lineClamp: { type: Number, default: 0 },
+    lineHeight: { type: String, default: '22px' },
+    endChar: { type: String, default: '...' },
+    endHtml: { type: String, default: '' }
   },
   mounted() {
     this.$nextTick(function() {
@@ -84,8 +82,8 @@ export default {
 
         while (stNodeHeight > maxHeight) {
           stNode.innerHTML = stNode.innerHTML
-              .substring(0, stNode.innerHTML.trimRight().length - 1)
-              .trim();
+            .substring(0, stNode.innerHTML.trimRight().length - 1)
+            .trim();
           stNodeHeight =
             stNode.getBoundingClientRect().height || stNodeLineHeight;
         }
@@ -97,8 +95,8 @@ export default {
 
         const stNodeLen = stNode.innerHTML.trimRight().length;
         const stNodeDelStr = stNode.innerHTML
-            .substring(stNodeLen - endLen, stNodeLen)
-            .trim();
+          .substring(stNodeLen - endLen, stNodeLen)
+          .trim();
         const match = stNodeDelStr.match(/\s+/g);
         const extraLen = match && match.length ? match.length : 0;
         stNode.innerHTML =
@@ -106,8 +104,8 @@ export default {
           this.endChar +
           this.endHtml;
       }
-    },
-  },
+    }
+  }
 };
 </script>
 

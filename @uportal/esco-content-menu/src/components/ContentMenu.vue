@@ -1,12 +1,11 @@
 <template>
   <div
     :class="['toggler-menu', _screenSize, !_isHidden ? 'active-menu' : '']"
-    class="content-menu">
+    class="content-menu"
+  >
     <header>
       <slot name="header-buttons">
-        <header-buttons
-          :call-on-close="close"
-          :sign-out-url="signOutUrl" />
+        <header-buttons :call-on-close="close" :sign-out-url="signOutUrl" />
       </slot>
       <div class="wrapper">
         <slot name="content-user">
@@ -18,7 +17,8 @@
             :default-org-logo="defaultOrgLogo"
             :user-info-portlet-url="userInfoPortletUrl"
             :switch-org-portlet-url="switchOrgPortletUrl"
-            :org-logo-url-attribute-name="orgLogoUrlAttributeName"/>
+            :org-logo-url-attribute-name="orgLogoUrlAttributeName"
+          />
         </slot>
         <content-favorites
           :portlets="_portlets"
@@ -32,18 +32,20 @@
           :user-info-api-url="userInfoApiUrl"
           :context-api-url="contextApiUrl"
           :debug="debug"
-          :use-swipper="showFavoritesInSlider"/>
+          :use-swipper="showFavoritesInSlider"
+        />
       </div>
       <div
         :style="
           backgroundImg != null &&
-            (_screenSize === 'large' || _screenSize === 'medium')
+          (_screenSize === 'large' || _screenSize === 'medium')
             ? 'background-image: linear-gradient(0deg, rgba(0,0,0,.2),rgba(0,0,0,.2)), url(' +
               backgroundImg +
               ');'
             : ''
         "
-        class="background"/>
+        class="background"
+      />
     </header>
     <content-grid
       :messages="messages"
@@ -58,11 +60,13 @@
       :user-info-api-url="userInfoApiUrl"
       :context-api-url="contextApiUrl"
       :portlet-api-url="portletApiUrl"
-      :debug="debug"/>
+      :debug="debug"
+    />
     <vue-simple-spinner
       v-show="isLoading"
       class="spinner"
-      line-fg-color="#545454"/>
+      line-fg-color="#545454"
+    />
   </div>
 </template>
 
@@ -75,7 +79,7 @@ import vueSimpleSpinner from 'vue-simple-spinner';
 import fetchUserInfoAndOrg from '../services/fetchUserInfoAndOrgs';
 import fetchPortlets from '../services/fetchPortlets';
 import fetchFavorites from '../services/fetchFavorites';
-import {portletRegistryToArray} from '../services/portlet-registry-to-array';
+import { portletRegistryToArray } from '../services/portlet-registry-to-array';
 import flattenFavorites from '../services/flattenFavorites';
 import byPortlet from '../services/sortByPortlet';
 import toggleArray from '../services/toggleArray';
@@ -83,11 +87,11 @@ import i18nMixin from '../mixins/i18n.js';
 import {
   elementWidth,
   breakPointName,
-  sizeValidator,
+  sizeValidator
 } from '../services/sizeTools';
 import {
   getCurrentOrganization,
-  getOrganizationLogo,
+  getOrganizationLogo
 } from '../services/organizationHelper';
 import computeUrl from '../services/computeUrl';
 
@@ -99,66 +103,66 @@ export default {
     ContentGrid,
     ContentUser,
     HeaderButtons,
-    vueSimpleSpinner,
+    vueSimpleSpinner
   },
   props: {
-    id: {type: String, default: null},
-    callOnClose: {type: Function, default: () => {}},
-    isHidden: {type: Boolean, default: false},
+    id: { type: String, default: null },
+    callOnClose: { type: Function, default: () => {} },
+    isHidden: { type: Boolean, default: false },
     contextApiUrl: {
       type: String,
-      default: process.env.VUE_APP_PORTAL_CONTEXT,
+      default: process.env.VUE_APP_PORTAL_CONTEXT
     },
     favoriteApiUrl: {
       type: String,
       default:
         process.env.VUE_APP_PORTAL_CONTEXT +
-        process.env.VUE_APP_FAVORITES_PORTLETS_URI,
+        process.env.VUE_APP_FAVORITES_PORTLETS_URI
     },
     layoutApiUrl: {
       type: String,
       default:
-        process.env.VUE_APP_PORTAL_CONTEXT + process.env.VUE_APP_FAVORITES_URI,
+        process.env.VUE_APP_PORTAL_CONTEXT + process.env.VUE_APP_FAVORITES_URI
     },
     organizationApiUrl: {
       type: String,
-      default: null,
+      default: null
     },
     portletApiUrl: {
       type: String,
       default:
         process.env.VUE_APP_PORTAL_CONTEXT +
-        process.env.VUE_APP_BROWSABLE_PORTLETS_URI,
+        process.env.VUE_APP_BROWSABLE_PORTLETS_URI
     },
     userInfoApiUrl: {
       type: String,
       default:
-        process.env.VUE_APP_PORTAL_CONTEXT + process.env.VUE_APP_USER_INFO_URI,
+        process.env.VUE_APP_PORTAL_CONTEXT + process.env.VUE_APP_USER_INFO_URI
     },
-    debug: {type: Boolean, default: false},
-    signOutUrl: {type: String, default: process.env.VUE_APP_LOGOUT_URL},
-    defaultOrgLogo: {type: String, required: true},
-    userInfoPortletUrl: {type: String, default: ''},
-    switchOrgPortletUrl: {type: String, default: ''},
+    debug: { type: Boolean, default: false },
+    signOutUrl: { type: String, default: process.env.VUE_APP_LOGOUT_URL },
+    defaultOrgLogo: { type: String, required: true },
+    userInfoPortletUrl: { type: String, default: '' },
+    switchOrgPortletUrl: { type: String, default: '' },
     favoritesPortletCardSize: {
-      validator: (value) => sizeValidator(value, true),
-      default: 'auto',
+      validator: value => sizeValidator(value, true),
+      default: 'auto'
     },
     gridPortletCardSize: {
-      validator: (value) => sizeValidator(value, true),
-      default: 'auto',
+      validator: value => sizeValidator(value, true),
+      default: 'auto'
     },
     hideActionMode: {
-      validator: (value) => ['auto', 'always', 'never'].includes(value),
-      default: 'auto',
+      validator: value => ['auto', 'always', 'never'].includes(value),
+      default: 'auto'
     },
-    userOrgIdAttributeName: {type: String, default: 'ESCOSIRENCourant[0]'},
-    userAllOrgsIdAttributeName: {type: String, default: 'ESCOSIREN'},
+    userOrgIdAttributeName: { type: String, default: 'ESCOSIRENCourant[0]' },
+    userAllOrgsIdAttributeName: { type: String, default: 'ESCOSIREN' },
     orgLogoUrlAttributeName: {
       type: String,
-      default: 'otherAttributes.ESCOStructureLogo[0]',
+      default: 'otherAttributes.ESCOStructureLogo[0]'
     },
-    showFavoritesInSlider: {type: Boolean, default: true},
+    showFavoritesInSlider: { type: Boolean, default: true }
   },
   data() {
     return {
@@ -170,14 +174,14 @@ export default {
         organizations: [],
         user: {},
         userOrganization: {},
-        portlets: [],
+        portlets: []
       },
       loadingState: {
         favorites: true,
         portlets: true,
         user: true,
-        organization: true,
-      },
+        organization: true
+      }
     };
   },
   computed: {
@@ -215,7 +219,7 @@ export default {
         !this.loadingState.user ||
         !this.loadingState.organization
       );
-    },
+    }
   },
   watch: {
     isHidden: {
@@ -225,8 +229,8 @@ export default {
             this.calculateSize();
           });
         }
-      },
-    },
+      }
+    }
   },
   mounted() {
     this.fetchPortlets();
@@ -267,20 +271,20 @@ export default {
     },
     computeCurrentOrg() {
       const currentOrganization = getCurrentOrganization(
-          this.info.user,
-          this.userOrgIdAttributeName,
-          this.info.organizations
+        this.info.user,
+        this.userOrgIdAttributeName,
+        this.info.organizations
       );
       if (currentOrganization !== null) {
         this.info.userOrganization = Object.assign(
-            {},
-            this.info.userOrganization,
-            currentOrganization
+          {},
+          this.info.userOrganization,
+          currentOrganization
         );
         const logo =
           getOrganizationLogo(
-              currentOrganization,
-              this.orgLogoUrlAttributeName
+            currentOrganization,
+            this.orgLogoUrlAttributeName
           ) || this.defaultOrgLogo;
         this.backgroundImg = computeUrl(logo);
       }
@@ -288,11 +292,11 @@ export default {
     async fetchUserInfo() {
       this.loadingState.user = false;
       this.loadingState.organization = false;
-      const {user, organizations} = await fetchUserInfoAndOrg(
-          this.userInfoApiUrl,
-          this.organizationApiUrl,
-          this.userAllOrgsIdAttributeName,
-          this.debug
+      const { user, organizations } = await fetchUserInfoAndOrg(
+        this.userInfoApiUrl,
+        this.organizationApiUrl,
+        this.userAllOrgsIdAttributeName,
+        this.debug
       );
       this.info.user = Object.assign({}, this.info.user, user);
       this.loadingState.user = true;
@@ -302,9 +306,9 @@ export default {
     async fetchPortlets() {
       this.loadingState.portlets = false;
       const portlets = await fetchPortlets(
-          this.userInfoApiUrl,
-          this.portletApiUrl,
-          this.debug
+        this.userInfoApiUrl,
+        this.portletApiUrl,
+        this.debug
       );
       this.info.portlets = portletRegistryToArray(portlets).sort(byPortlet);
       this.loadingState.portlets = true;
@@ -312,17 +316,17 @@ export default {
     async fetchFavorites() {
       this.loadingState.favorites = false;
       const favoritesTree = await fetchFavorites(
-          this.userInfoApiUrl,
-          this.layoutApiUrl,
-          this.debug
+        this.userInfoApiUrl,
+        this.layoutApiUrl,
+        this.debug
       );
       this.info.favorites = flattenFavorites(favoritesTree);
       this.loadingState.favorites = true;
     },
     actionToggleFav(fname) {
       this.info.favorites = toggleArray(this.info.favorites, fname);
-    },
-  },
+    }
+  }
 };
 </script>
 

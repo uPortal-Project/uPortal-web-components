@@ -5,16 +5,16 @@ export default async function(userInfoApiUrl, layoutApiUrl, debug) {
     const headers = debug
       ? {}
       : {
-        'Authorization':
+          Authorization:
             'Bearer ' +
-            (await oidc({userInfoApiUrl: userInfoApiUrl})).encoded,
-        'content-type': 'application/jwt',
-      };
+            (await oidc({ userInfoApiUrl: userInfoApiUrl })).encoded,
+          'content-type': 'application/jwt'
+        };
 
     const options = {
       method: 'GET',
       credentials: 'same-origin',
-      headers: headers,
+      headers: headers
     };
 
     const response = await fetch(layoutApiUrl, options);

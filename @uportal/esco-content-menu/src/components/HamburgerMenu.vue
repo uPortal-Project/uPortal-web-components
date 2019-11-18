@@ -8,7 +8,8 @@
       aria-expanded="false"
       aria-haspopup="true"
       aria-controls="content-menu"
-      @click="toggleMenu($event)">
+      @click="toggleMenu($event)"
+    >
       <slot name="menu-icon">
         <div class="menu-wrapper">
           <div class="hm-line" />
@@ -43,82 +44,83 @@
         :org-logo-url-attribute-name="orgLogoUrlAttributeName"
         :show-favorites-in-slider="showFavoritesInSlider"
         default-class="toggler-menu"
-        visible-class="active-menu"/>
+        visible-class="active-menu"
+      />
     </slot>
   </div>
 </template>
 
 <script>
 import ContentMenu from './ContentMenu';
-import {sizeValidator} from '../services/sizeTools';
+import { sizeValidator } from '../services/sizeTools';
 import i18nMixin from '../mixins/i18n.js';
 
 export default {
   name: 'HamburgerMenu',
   mixins: [i18nMixin],
   components: {
-    ContentMenu,
+    ContentMenu
   },
   props: {
     contextApiUrl: {
       type: String,
-      default: process.env.VUE_APP_PORTAL_CONTEXT,
+      default: process.env.VUE_APP_PORTAL_CONTEXT
     },
     favoriteApiUrl: {
       type: String,
       default:
         process.env.VUE_APP_PORTAL_CONTEXT +
-        process.env.VUE_APP_FAVORITES_PORTLETS_URI,
+        process.env.VUE_APP_FAVORITES_PORTLETS_URI
     },
     layoutApiUrl: {
       type: String,
       default:
-        process.env.VUE_APP_PORTAL_CONTEXT + process.env.VUE_APP_FAVORITES_URI,
+        process.env.VUE_APP_PORTAL_CONTEXT + process.env.VUE_APP_FAVORITES_URI
     },
     organizationApiUrl: {
       type: String,
-      default: null,
+      default: null
     },
     portletApiUrl: {
       type: String,
       default:
         process.env.VUE_APP_PORTAL_CONTEXT +
-        process.env.VUE_APP_BROWSABLE_PORTLETS_URI,
+        process.env.VUE_APP_BROWSABLE_PORTLETS_URI
     },
     userInfoApiUrl: {
       type: String,
       default:
-        process.env.VUE_APP_PORTAL_CONTEXT + process.env.VUE_APP_USER_INFO_URI,
+        process.env.VUE_APP_PORTAL_CONTEXT + process.env.VUE_APP_USER_INFO_URI
     },
-    debug: {type: Boolean, default: false},
-    signOutUrl: {type: String, default: process.env.VUE_APP_LOGOUT_URL},
-    defaultOrgLogo: {type: String, required: true},
-    userInfoPortletUrl: {type: String, default: ''},
-    switchOrgPortletUrl: {type: String, default: ''},
+    debug: { type: Boolean, default: false },
+    signOutUrl: { type: String, default: process.env.VUE_APP_LOGOUT_URL },
+    defaultOrgLogo: { type: String, required: true },
+    userInfoPortletUrl: { type: String, default: '' },
+    switchOrgPortletUrl: { type: String, default: '' },
     favoritesPortletCardSize: {
-      validator: (value) => sizeValidator(value, true),
-      default: 'auto',
+      validator: value => sizeValidator(value, true),
+      default: 'auto'
     },
     gridPortletCardSize: {
-      validator: (value) => sizeValidator(value, true),
-      default: 'auto',
+      validator: value => sizeValidator(value, true),
+      default: 'auto'
     },
     hideActionMode: {
-      validator: (value) => ['auto', 'always', 'never'].includes(value),
-      default: 'auto',
+      validator: value => ['auto', 'always', 'never'].includes(value),
+      default: 'auto'
     },
-    userOrgIdAttributeName: {type: String, default: 'ESCOSIRENCourant[0]'},
-    userAllOrgsIdAttributeName: {type: String, default: 'ESCOSIREN'},
+    userOrgIdAttributeName: { type: String, default: 'ESCOSIRENCourant[0]' },
+    userAllOrgsIdAttributeName: { type: String, default: 'ESCOSIREN' },
     orgLogoUrlAttributeName: {
       type: String,
-      default: 'otherAttributes.ESCOStructureLogo[0]',
+      default: 'otherAttributes.ESCOStructureLogo[0]'
     },
-    showFavoritesInSlider: {type: Boolean, default: true},
+    showFavoritesInSlider: { type: Boolean, default: true }
   },
   data() {
     return {
       visible: false,
-      append: false,
+      append: false
     };
   },
   mounted() {
@@ -134,8 +136,8 @@ export default {
       if (html) {
         html.style.overflowY = this.visible ? 'hidden' : 'auto';
       }
-    },
-  },
+    }
+  }
 };
 </script>
 

@@ -2,11 +2,10 @@
   <section
     :class="['parent-' + parentScreenSize, elementSize]"
     :style="'background-color:' + backgroundColor"
-    class="content-grid">
+    class="content-grid"
+  >
     <div>
-      <div
-        class="title"
-        v-if="!hideTitle">
+      <div class="title" v-if="!hideTitle">
         <slot name="header-left">
           <h1>
             {{ translate('message.services.title') }}
@@ -15,33 +14,31 @@
         <slot name="header-right">
           <div
             :class="visible ? 'opened' : 'closed'"
-            class="filter custom-caret">
+            class="filter custom-caret"
+          >
             <input
               :title="translate('message.services.filter')"
               v-model.trim="filterValue"
               :placeholder="translate('message.services.filter')"
               type="text"
               @focus="filterValue = ''"
-              autofocus>
+              autofocus
+            />
             <select v-model="filterCategory">
-              <option
-                class="default"
-                selected
-                value="">
+              <option class="default" selected value="">
                 {{ translate('message.filter.selectOption') }}
               </option>
               <option
                 v-for="category in allCategories"
                 :value="category"
                 :label="category"
-                :key="category">
+                :key="category"
+              >
                 {{ category }}
               </option>
             </select>
             <div @click="visible = !visible">
-              <i
-                class="fa fa-search"
-                aria-hidden="true" />
+              <i class="fa fa-search" aria-hidden="true" />
             </div>
           </div>
         </slot>
@@ -51,14 +48,16 @@
           v-for="portlet in filteredPortlets"
           :key="portlet.id"
           :class="['portlet-card-' + _portletCardSize]"
-          class="flex-item ma-3 text-xs-center">
+          class="flex-item ma-3 text-xs-center"
+        >
           <a
             :href="getRenderPortletUrl(portlet)"
             :target="hasAlternativeMaximizedUrl(portlet) ? '_blank' : '_self'"
             :rel="
               hasAlternativeMaximizedUrl(portlet) ? 'noopener noreferrer' : ''
             "
-            class="no-style">
+            class="no-style"
+          >
             <portlet-card
               :messages="messages"
               :portlet-desc="portlet"
@@ -69,7 +68,8 @@
               :favorite-api-url="favoriteApiUrl"
               :user-info-api-url="userInfoApiUrl"
               :back-ground-is-dark="portletBackgroundIsDark"
-              :debug="debug"/>
+              :debug="debug"
+            />
           </a>
         </div>
       </div>
@@ -77,18 +77,18 @@
         <select
           class="footer-categories"
           v-if="showFooterCategories"
-          v-model="filterCategory">
-          <option
-            class="default"
-            selected
-            value="">
+          v-model="filterCategory"
+        >
+          >
+          <option class="default" selected value="">
             {{ translate('message.filter.selectOption') }}
           </option>
           <option
             v-for="category in allCategories"
             :value="category"
             :label="category"
-            :key="category">
+            :key="category"
+          >
             {{ category }}
           </option>
         </select>
@@ -104,16 +104,16 @@ import fetchPortlets from '../services/fetchPortlets';
 import byPortlet from '../services/sortByPortlet';
 import fetchFavorites from '../services/fetchFavorites';
 import flattenFavorites from '../services/flattenFavorites';
-import {portletRegistryToArray} from '../services/portlet-registry-to-array';
+import { portletRegistryToArray } from '../services/portlet-registry-to-array';
 import toggleArray from '../services/toggleArray';
 import {
   elementWidth,
   breakPointName,
-  sizeValidator,
+  sizeValidator
 } from '../services/sizeTools';
 import {
   hasAlternativeMaximizedUrl,
-  getRenderUrl,
+  getRenderUrl
 } from '../services/managePortletUrl';
 import matchSorter from 'match-sorter';
 
@@ -121,59 +121,59 @@ export default {
   name: 'ContentGrid',
   mixins: [i18nMixin],
   components: {
-    PortletCard,
+    PortletCard
   },
   props: {
-    hideTitle: {type: Boolean, default: false},
-    backgroundColor: {type: String, default: 'rgba(0, 0, 0, 0)'},
-    callAfterAction: {type: Function, default: undefined},
+    hideTitle: { type: Boolean, default: false },
+    backgroundColor: { type: String, default: 'rgba(0, 0, 0, 0)' },
+    callAfterAction: { type: Function, default: undefined },
     contextApiUrl: {
       type: String,
-      default: process.env.VUE_APP_PORTAL_CONTEXT,
+      default: process.env.VUE_APP_PORTAL_CONTEXT
     },
     favoriteApiUrl: {
       type: String,
       default:
         process.env.VUE_APP_PORTAL_CONTEXT +
-        process.env.VUE_APP_FAVORITES_PORTLETS_URI,
+        process.env.VUE_APP_FAVORITES_PORTLETS_URI
     },
     layoutApiUrl: {
       type: String,
       default:
-        process.env.VUE_APP_PORTAL_CONTEXT + process.env.VUE_APP_FAVORITES_URI,
+        process.env.VUE_APP_PORTAL_CONTEXT + process.env.VUE_APP_FAVORITES_URI
     },
     portletApiUrl: {
       type: String,
       default:
         process.env.VUE_APP_PORTAL_CONTEXT +
-        process.env.VUE_APP_BROWSABLE_PORTLETS_URI,
+        process.env.VUE_APP_BROWSABLE_PORTLETS_URI
     },
     userInfoApiUrl: {
       type: String,
       default:
-        process.env.VUE_APP_PORTAL_CONTEXT + process.env.VUE_APP_USER_INFO_URI,
+        process.env.VUE_APP_PORTAL_CONTEXT + process.env.VUE_APP_USER_INFO_URI
     },
-    debug: {type: Boolean, default: false},
+    debug: { type: Boolean, default: false },
     /**
      * Warning the default value as undefined permit to distinct if the component should manage favorites locally.
      */
-    favorites: {type: Array, default: undefined},
+    favorites: { type: Array, default: undefined },
     parentScreenSize: {
       validator: sizeValidator,
-      default: 'medium',
+      default: 'medium'
     },
     portletCardSize: {
-      validator: (value) => sizeValidator(value, true, true),
-      default: 'auto',
+      validator: value => sizeValidator(value, true, true),
+      default: 'auto'
     },
-    hideAction: {type: Boolean, default: false},
+    hideAction: { type: Boolean, default: false },
     /**
      * Warning the default value as undefined permit to distinct if the component should manage portlets locally.
      */
-    portlets: {type: Array, default: undefined},
-    showFooterCategories: {type: Boolean, default: false},
-    useExternalFilter: {type: Boolean, default: true},
-    portletBackgroundIsDark: {type: Boolean, default: false},
+    portlets: { type: Array, default: undefined },
+    showFooterCategories: { type: Boolean, default: false },
+    useExternalFilter: { type: Boolean, default: true },
+    portletBackgroundIsDark: { type: Boolean, default: false }
   },
   data() {
     return {
@@ -182,7 +182,7 @@ export default {
       visible: false,
       elementSize: this.parentScreenSize,
       localPortlets: [],
-      localFavorites: [],
+      localFavorites: []
     };
   },
   computed: {
@@ -195,7 +195,7 @@ export default {
     },
     allCategories() {
       const portlets = this.portlets || this.localPortlets;
-      const allCategories = portlets.flatMap(({categories}) => categories);
+      const allCategories = portlets.flatMap(({ categories }) => categories);
       const uniqueCategories = [...new Set(allCategories)];
       return uniqueCategories.sort();
     },
@@ -205,27 +205,27 @@ export default {
       const categoryFilter =
         this.filterCategory.trim() === ''
           ? // no filter applied return everything
-            (portlets) => portlets
+            portlets => portlets
           : // filter by category
-            (portlets) =>
+            portlets =>
               matchSorter(portlets, this.filterCategory, {
                 keys: ['categories'],
-                threshold: matchSorter.rankings.EQUAL,
+                threshold: matchSorter.rankings.EQUAL
               });
 
       const valueFilter =
         this.filterValue.trim() === ''
           ? // no filter applied return everything
-            (portlets) => portlets
+            portlets => portlets
           : // filter and sort by best match
-            (portlets) =>
+            portlets =>
               matchSorter(portlets, this.filterValue, {
                 keys: ['title', 'name', 'description'],
-                threshold: matchSorter.rankings.ACRONYM,
+                threshold: matchSorter.rankings.ACRONYM
               });
 
       return valueFilter(categoryFilter(portlets));
-    },
+    }
   },
   beforeMount() {
     if (this.useExternalFilter) {
@@ -277,17 +277,17 @@ export default {
     },
     async fetchPortlets() {
       const portlets = await fetchPortlets(
-          this.userInfoApiUrl,
-          this.portletApiUrl,
-          this.debug
+        this.userInfoApiUrl,
+        this.portletApiUrl,
+        this.debug
       );
       this.localPortlets = portletRegistryToArray(portlets).sort(byPortlet);
     },
     async fetchFavorites() {
       const favoritesTree = await fetchFavorites(
-          this.userInfoApiUrl,
-          this.layoutApiUrl,
-          this.debug
+        this.userInfoApiUrl,
+        this.layoutApiUrl,
+        this.debug
       );
       this.localFavorites = flattenFavorites(favoritesTree);
     },
@@ -297,7 +297,7 @@ export default {
     actionToggleFav(fname) {
       const event = new CustomEvent('gridFavoritesUpdated', {
         bubbles: true,
-        detail: this._uid,
+        detail: this._uid
       });
       window.dispatchEvent(event);
       /**
@@ -315,18 +315,18 @@ export default {
     setFilterCategory(e) {
       this.filterCategory = e.detail || '';
     },
-    emitAllCategories(e) {
+    emitAllCategories() {
       this.$nextTick(() => {
         // nextTick() waits for data to be resolved
         if (this.allCategories.length > 0) {
           const event = new CustomEvent('gridCategories', {
-            detail: this.allCategories,
+            detail: this.allCategories
           });
           window.dispatchEvent(event);
         }
       });
-    },
-  },
+    }
+  }
 };
 </script>
 

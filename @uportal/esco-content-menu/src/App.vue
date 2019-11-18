@@ -29,7 +29,8 @@
       organization-api-url="orginfo.json"
       user-info-api-url="userinfo.json"
       :show-favorites-in-slider="false"
-      debug>
+      debug
+    >
       <!--      <div slot="content-user"></div>-->
     </content-menu>
   </div>
@@ -43,10 +44,10 @@ import ContentMenu from './components/ContentMenu.vue';
 export default {
   name: 'App',
   components: {
-    ContentMenu,
+    ContentMenu
     // ContentGrid,
     // HamburgerMenu,
-  },
+  }
 };
 </script>
 

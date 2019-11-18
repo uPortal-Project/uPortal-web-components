@@ -2,10 +2,10 @@ import oidc from '@uportal/open-id-connect';
 import get from 'lodash/get';
 
 export default async function(
-    userInfoApiUrl,
-    organizationApiUrl,
-    userAllOrgIdAttribute,
-    debug
+  userInfoApiUrl,
+  organizationApiUrl,
+  userAllOrgIdAttribute,
+  debug
 ) {
   try {
     if (debug) {
@@ -15,21 +15,21 @@ export default async function(
 
         const [userInfo, orgsInfo] = await Promise.all([
           userInfoRequest.json(),
-          orgsInfoRequest.json(),
+          orgsInfoRequest.json()
         ]);
         return {
           user: userInfo,
-          organizations: Object.values(orgsInfo),
+          organizations: Object.values(orgsInfo)
         };
       }
       const userInfo = await userInfoRequest.json();
       return {
         user: userInfo,
-        organizations: [],
+        organizations: []
       };
     }
 
-    const {encoded, decoded} = await oidc({userInfoApiUrl: userInfoApiUrl});
+    const { encoded, decoded } = await oidc({ userInfoApiUrl: userInfoApiUrl });
 
     const orgIds = get(decoded, userAllOrgIdAttribute, null);
     if (orgIds?.length > 0 && organizationApiUrl?.length > 0) {
@@ -37,13 +37,13 @@ export default async function(
         method: 'GET',
         credentials: 'same-origin',
         headers: {
-          'Authorization': 'Bearer ' + encoded,
-          'Content-Type': 'application/jwt',
-        },
+          Authorization: 'Bearer ' + encoded,
+          'Content-Type': 'application/jwt'
+        }
       };
       const response = await fetch(
-          organizationApiUrl + '?ids=' + orgIds,
-          options
+        organizationApiUrl + '?ids=' + orgIds,
+        options
       );
 
       if (!response.ok) {
@@ -53,20 +53,20 @@ export default async function(
 
       return {
         user: decoded,
-        organizations: Object.values(data),
+        organizations: Object.values(data)
       };
     }
     // do nothing expect returning an empty value
     return {
       user: decoded,
-      organizations: [],
+      organizations: []
     };
   } catch (err) {
     // eslint-disable-next-line
     console.error(err);
     return {
       user: {},
-      organizations: [],
+      organizations: []
     };
   }
 }

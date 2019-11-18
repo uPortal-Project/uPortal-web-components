@@ -1,15 +1,14 @@
 <template>
   <div :class="$style.userInfo">
-    <div
-      ref="dropdownMenu"
-      :class="$style.dropdown">
+    <div ref="dropdownMenu" :class="$style.dropdown">
       <div
         :class="
           menuIsDark
             ? [$style.lighter, $style.dropdownMenu]
             : $style.dropdownMenu
         "
-        @click="toggleDropdown($event)">
+        @click="toggleDropdown($event)"
+      >
         <div :class="$style.userName">
           <span :class="$style.label">{{ displayName }}</span>
         </div>
@@ -17,7 +16,8 @@
           <img
             :src="picture"
             :alt="'avatar'"
-            :style="'height: ' + avatarSize + '; width: ' + avatarSize + ';'">
+            :style="'height: ' + avatarSize + '; width: ' + avatarSize + ';'"
+          />
         </div>
       </div>
       <div
@@ -25,20 +25,19 @@
           visible
             ? $style.dropdownContent
             : [$style.dropdownContent, $style.closed]
-        ">
+        "
+      >
         <div :class="$style.userDetails">
           <div :class="$style.userAvatar">
             <a
               v-if="moreLink"
               :href="moreLink"
-              :title="translate('userInfoPortletUrl.title')"><img
-                :src="picture"
-                :alt="'avatar'"></a>
-
-            <img
-              v-else
-              :src="picture"
-              :alt="'avatar'" >
+              :title="translate('userInfoPortletUrl.title')"
+            >
+              <img />
+              <img :src="picture" :alt="'avatar'" />
+            </a>
+            <img v-else :src="picture" :alt="'avatar'" />
           </div>
           <div :class="$style.wrapperInfo">
             <div :class="$style.userName">
@@ -49,14 +48,11 @@
             </div>
           </div>
         </div>
-        <div
-          v-if="logoutLink"
-          :class="$style.signOut">
-          <a
-            :href="logoutLink"
-            :title="translate('buttons.logout')"><span>{{ translate('buttons.logout') }}</span><i
-              :class="[$style.fa, $style.faSignOut]"
-              aria-hidden="true"/></a>
+        <div v-if="logoutLink" :class="$style.signOut">
+          <a :href="logoutLink" :title="translate('buttons.logout')">
+            <span>{{ translate('buttons.logout') }}</span>
+            <i :class="[$style.fa, $style.faSignOut]" aria-hidden="true" />
+          </a>
         </div>
       </div>
     </div>
@@ -69,17 +65,17 @@ import i18n from '../i18n.js';
 export default {
   name: 'EyebrowUserInfo',
   props: {
-    displayName: {type: String, required: true},
-    email: {type: String, default: ''},
-    picture: {type: String, required: true},
-    moreLink: {type: String, default: null},
-    logoutLink: {type: String, default: null},
-    menuIsDark: {type: Boolean, default: true},
-    avatarSize: {type: String, default: '28px'},
+    displayName: { type: String, required: true },
+    email: { type: String, default: '' },
+    picture: { type: String, required: true },
+    moreLink: { type: String, default: null },
+    logoutLink: { type: String, default: null },
+    menuIsDark: { type: Boolean, default: true },
+    avatarSize: { type: String, default: '28px' }
   },
   data() {
     return {
-      visible: false,
+      visible: false
     };
   },
   created() {
@@ -124,8 +120,8 @@ export default {
       if (el !== target && !el.contains(target)) {
         this.visible = false;
       }
-    },
-  },
+    }
+  }
 };
 </script>
 

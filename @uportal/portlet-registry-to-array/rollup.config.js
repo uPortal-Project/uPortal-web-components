@@ -5,17 +5,17 @@ export default {
   output: [
     {
       format: 'esm',
-      file: 'esm/portlet-registry-to-array.js',
+      file: 'esm/portlet-registry-to-array.js'
     },
     {
       format: 'umd',
       name: 'portletRegistryToArray',
-      file: 'umd/portlet-registry-to-array.js',
+      file: 'umd/portlet-registry-to-array.js'
     },
     {
       format: 'cjs',
-      file: 'cjs/portlet-registry-to-array.js',
-    },
+      file: 'cjs/portlet-registry-to-array.js'
+    }
   ],
-  plugins: [babel()],
+  plugins: [babel()]
 };
