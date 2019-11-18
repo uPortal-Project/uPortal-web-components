@@ -5,8 +5,8 @@
       "filter": "Rechercher un service..."
     },
     "favorites": {
-      "add": "Ajouter aux favoris",
-      "remove": "Supprimer des favoris",
+      "add": "Ajouter \"{}\" aux favoris",
+      "remove": "Supprimer \"{}\" des favoris",
       "title": "Mes favoris",
       "empty": "Aucun favori défini"
     },

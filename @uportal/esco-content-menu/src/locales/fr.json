@@ -5,8 +5,10 @@
       "filter": "Rechercher un service..."
     },
     "favorites": {
-      "add": "Ajouter aux favoris",
-      "remove": "Supprimer des favoris",
+      "add": "Ajouter \"{}\" aux favoris",
+      "added": "\"{}\" a été ajouté à vos favoris",
+      "remove": "Supprimer \"{}\" des favoris",
+      "removed": "\"{}\" a été retiré de vos favoris",
       "title": "Mes favoris",
       "empty": "Aucun favori défini"
     },
