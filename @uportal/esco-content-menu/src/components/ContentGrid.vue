@@ -46,7 +46,9 @@
           </div>
         </slot>
       </div>
-      <div class="status sr-only" aria-live="polite">{{ statusMsg }}</div>
+      <div
+        class="status sr-only"
+        aria-live="polite">{{ statusMsg }}</div>
       <div class="flex-grid">
         <div
           v-for="portlet in filteredPortlets"
@@ -300,8 +302,11 @@ export default {
       const portlet = portlets.filter(function(p) {
         return p.fname === fname;
       });
-      this.statusMsg = this.translate(this.isFavorite(fname) ? 'message.favorites.added' : 'message.favorites.removed')
-          .replace('{}', portlet[0].title);
+      this.statusMsg = this.translate(
+        this.isFavorite(fname)
+          ? 'message.favorites.added'
+          : 'message.favorites.removed'
+      ).replace('{}', portlet[0].title);
     },
     setFilterCategory(e) {
       this.filterCategory = e.detail || '';
@@ -322,6 +327,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import './../styles/common.scss';
+
 $searchSize: 32px;
 
 .content-grid {
