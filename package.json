@@ -8,7 +8,7 @@
     "@vue/eslint-config-prettier": "^5.0.0",
     "babel-eslint": "^10.0.0",
     "eslint": "^6.1.0",
-    "eslint-config-google": "^0.13.0",
+    "eslint-config-google": "^0.14.0",
     "eslint-plugin-vue": "^5.0.0-beta.3",
     "lerna": "^3.16.4",
     "lerna-webjar": "^1.1.1",
