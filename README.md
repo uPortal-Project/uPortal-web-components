@@ -1,5 +1,6 @@
 # uPortal Web Components
 
+[![GitHub CI](https://github.com/uPortal-contrib/uPortal-web-components/workflows/CI/badge.svg)](https://github.com/uPortal-contrib/uPortal-web-components/actions?workflow=CI)
 [![Build Status](https://travis-ci.org/uPortal-contrib/uPortal-web-components.svg?branch=master)](https://travis-ci.org/uPortal-contrib/uPortal-web-components)
 
 > A collection of reusable, standardized, and accessible [web components][] for [uPortal][]
