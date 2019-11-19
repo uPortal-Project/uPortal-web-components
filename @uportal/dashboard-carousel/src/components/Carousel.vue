@@ -300,11 +300,18 @@ ul {
 
 /* Small devices (landscape phones, less than 768px) */
 @media (max-width: 767.98px) {
-  .slick-item {
-    flex-direction: column;
+  .carousel /deep/ {
+    .slick-item {
+      flex-direction: column;
 
-    & > span {
-      max-width: none;
+      > div {
+        max-width: none;
+        margin-bottom: 10px;
+      }
+
+      & > span {
+        max-width: none;
+      }
     }
   }
 
