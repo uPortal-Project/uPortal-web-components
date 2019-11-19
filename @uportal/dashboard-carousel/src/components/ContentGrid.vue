@@ -50,30 +50,30 @@ export default {
   mixins: [LayoutDataMixin],
   components: {
     PortletRenderer,
-    WidgetRenderer,
+    WidgetRenderer
   },
   methods: {},
   props: {
     layoutApiUrl: {
       type: String,
-      default: '/uPortal/api/v4-3/dlm/layout.json',
+      default: '/uPortal/api/v4-3/dlm/layout.json'
     },
     layoutDocUrl: {
       type: String,
-      default: '/uPortal/api/layoutDoc',
+      default: '/uPortal/api/layoutDoc'
     },
     regionName: {
       type: String,
-      default: 'dashboard',
+      default: 'dashboard'
     },
     debug: {
       type: Boolean,
-      default: false,
+      default: false
     },
     useLayoutDocData: {
       type: Boolean,
-      default: false,
-    },
+      default: false
+    }
   },
   computed: {
     dashboard() {
@@ -81,8 +81,8 @@ export default {
         console.error('Dashboard data not loaded');
       }
       return this.layout;
-    },
-  },
+    }
+  }
 };
 </script>
 

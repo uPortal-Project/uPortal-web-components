@@ -4,15 +4,15 @@
       <div
         v-if="iconUrl !== null"
         :style="'background-color:' + iconBackgroundColor"
-        class="img-wrapper">
-        <img
-          :src="iconUrl"
-          :alt="title" >
+        class="img-wrapper"
+      >
+        <img :src="iconUrl" :alt="title" />
       </div>
       <div
         v-else
         :style="'background-color:' + iconBackgroundColor"
-        class="img-wrapper"/>
+        class="img-wrapper"
+      />
     </div>
     <div class="portlet-card-title">
       {{ title }}
@@ -22,11 +22,10 @@
         v-if="append"
         :message="truncate(description)"
         :line-height="'20px'"
-        :end-char="'...'"/>
+        :end-char="'...'"
+      />
     </div>
-    <div
-      v-if="!hideAction"
-      class="portlet-card-action">
+    <div v-if="!hideAction" class="portlet-card-action">
       <action-favorites
         v-if="canFavorite"
         :messages="messages"
@@ -37,7 +36,8 @@
         :favorite-api-url="favoriteApiUrl"
         :user-info-api-url="userInfoApiUrl"
         :back-ground-is-dark="favBgIsDark"
-        :debug="debug"/>
+        :debug="debug"
+      />
     </div>
   </div>
 </template>
@@ -46,7 +46,7 @@
 import Ellipsis from './Ellipsis';
 import i18nMixin from '../mixins/i18n.js';
 import ActionFavorites from './ActionFavorites';
-import {sizeValidator} from '../services/sizeTools';
+import { sizeValidator } from '../services/sizeTools';
 import computeUrl from '../services/computeUrl';
 
 export default {
@@ -54,33 +54,33 @@ export default {
   mixins: [i18nMixin],
   components: {
     ActionFavorites,
-    Ellipsis,
+    Ellipsis
   },
   props: {
-    callAfterAction: {type: Function, default: () => {}},
-    cssClass: {type: String, default: 'portlet-card'},
+    callAfterAction: { type: Function, default: () => {} },
+    cssClass: { type: String, default: 'portlet-card' },
     // Background is needed if your icons doesn't have it integrated
-    iconBackgroundColor: {type: String, default: 'Transparent'},
-    isFavorite: {type: Boolean, default: false},
+    iconBackgroundColor: { type: String, default: 'Transparent' },
+    isFavorite: { type: Boolean, default: false },
     favoriteApiUrl: {
       type: String,
       default:
         process.env.VUE_APP_PORTAL_CONTEXT +
-        process.env.VUE_APP_FAVORITES_PORTLETS_URI,
+        process.env.VUE_APP_FAVORITES_PORTLETS_URI
     },
     userInfoApiUrl: {
       type: String,
       default:
-        process.env.VUE_APP_PORTAL_CONTEXT + process.env.VUE_APP_USER_INFO_URI,
+        process.env.VUE_APP_PORTAL_CONTEXT + process.env.VUE_APP_USER_INFO_URI
     },
-    debug: {type: Boolean, default: false},
+    debug: { type: Boolean, default: false },
     size: {
-      validator: (value) => sizeValidator(value, true, true),
-      default: 'medium',
+      validator: value => sizeValidator(value, true, true),
+      default: 'medium'
     },
-    hideAction: {type: Boolean, default: false},
-    portletDesc: {type: Object, required: true},
-    backGroundIsDark: {type: Boolean, default: false},
+    hideAction: { type: Boolean, default: false },
+    portletDesc: { type: Object, required: true },
+    backGroundIsDark: { type: Boolean, default: false }
   },
   data() {
     return {
@@ -94,7 +94,7 @@ export default {
           ? this.portletDesc.parameters?.iconUrl?.value
           : null
       ),
-      append: false,
+      append: false
     };
   },
   mounted() {
@@ -122,11 +122,11 @@ export default {
         appClasses.push('hide-action');
       }
 
-      return appClasses.map((v) => v.toLowerCase()).join(' ');
+      return appClasses.map(v => v.toLowerCase()).join(' ');
     },
     favBgIsDark() {
       return this.backGroundIsDark && this.size.includes('small');
-    },
+    }
   },
   methods: {
     truncate(entry) {
@@ -135,8 +135,8 @@ export default {
         return text[0].trim();
       }
       return entry;
-    },
-  },
+    }
+  }
 };
 </script>
 

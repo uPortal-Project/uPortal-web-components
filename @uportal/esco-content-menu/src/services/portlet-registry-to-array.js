@@ -32,18 +32,18 @@ function treeWalker(registryJson) {
   const portlets = registryJson.portlets || [];
 
   if (portlets.length > 0) {
-    portlets.forEach((p) => (p.categories = new Array(registryJson.name)));
+    portlets.forEach(p => (p.categories = new Array(registryJson.name)));
   }
 
   if (registryJson.categories) {
     return portlets
-        .concat(registryJson.categories.map(portletRegistryToArray))
-        .reduce(flatten, []);
+      .concat(registryJson.categories.map(portletRegistryToArray))
+      .reduce(flatten, []);
   }
   if (registryJson.subcategories) {
     return portlets
-        .concat(registryJson.subcategories.map(portletRegistryToArray))
-        .reduce(flatten, []);
+      .concat(registryJson.subcategories.map(portletRegistryToArray))
+      .reduce(flatten, []);
   }
 
   return portlets;
@@ -57,9 +57,9 @@ function treeWalker(registryJson) {
 function customUnique(array) {
   const unique = uniqBy(array, 'fname');
   // we construct unique portlets array will all linked categories (reversing category and portlets child)
-  unique.forEach((elem) => {
-    const dupl = array.filter((e) => e.fname === elem.fname);
-    const allCategories = dupl.flatMap(({categories}) => categories);
+  unique.forEach(elem => {
+    const dupl = array.filter(e => e.fname === elem.fname);
+    const allCategories = dupl.flatMap(({ categories }) => categories);
     elem.categories = [...new Set(allCategories)];
   });
   return unique;

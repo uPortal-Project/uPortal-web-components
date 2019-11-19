@@ -3,7 +3,7 @@
     <div class="p-4">
       <DashboardCarousel
         debug
-        slick-options="{&quot;arrows&quot;: false}"
+        slick-options='{"arrows": false}'
         layout-api-url="/layout.json"
         layout-doc-url="/layoutDoc.json"
       />
@@ -26,8 +26,8 @@ export default {
   name: 'App',
   components: {
     DashboardCarousel,
-    DashboardContentGrid,
-  },
+    DashboardContentGrid
+  }
 };
 </script>
 

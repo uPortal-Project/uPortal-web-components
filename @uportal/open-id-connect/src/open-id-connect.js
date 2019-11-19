@@ -27,18 +27,17 @@ import decode from 'jwt-decode';
  *                           token in an Object
  */
 export default async function openIdConnect(
-    {
-      userInfoApiUrl = '/uPortal/api/v5-1/userinfo',
-      timeout = 50000,
-      propertyTransforms = {},
-    } = {},
-    callback
+  {
+    userInfoApiUrl = '/uPortal/api/v5-1/userinfo',
+    propertyTransforms = {}
+  } = {},
+  callback
 ) {
   try {
     // get a new token
     const response = await fetch(userInfoApiUrl, {
       method: 'GET',
-      credentials: 'include',
+      credentials: 'include'
     });
 
     if (!response.ok) {
@@ -81,6 +80,6 @@ export default async function openIdConnect(
 export function tokenize(jwt) {
   return {
     encoded: jwt,
-    decoded: decode(jwt),
+    decoded: decode(jwt)
   };
 }

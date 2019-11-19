@@ -8,45 +8,38 @@
           ');'
         : ''
     "
-    class="content-user">
+    class="content-user"
+  >
     <div>
       <div class="org-img">
         <img
           :src="getOrgImgUrl()"
           :title="orgInfo.displayName"
-          :alt="orgInfo.displayName">
+          :alt="orgInfo.displayName"
+        />
       </div>
 
       <div class="user-info">
         <div>
-          <div
-            v-if="getUserAvatar() != null"
-            class="user-avatar">
+          <div v-if="getUserAvatar() != null" class="user-avatar">
             <a
               v-if="userInfoPortletUrl !== ''"
               :href="userInfoPortletUrl"
-              :title="translate('message.userInfoPortletUrl.title')">
-              <img
-                :src="getUserAvatar()"
-                :alt="'avatar'" >
+              :title="translate('message.userInfoPortletUrl.title')"
+            >
+              <img :src="getUserAvatar()" :alt="'avatar'" />
             </a>
-            <img
-              v-else
-              :src="getUserAvatar()"
-              :alt="'avatar'" >
+            <img v-else :src="getUserAvatar()" :alt="'avatar'" />
           </div>
-          <div
-            v-else
-            class="user-avatar">
+          <div v-else class="user-avatar">
             <a
               v-if="userInfoPortletUrl !== ''"
               :href="userInfoPortletUrl"
-              :title="translate('message.userInfoPortletUrl.title')">
+              :title="translate('message.userInfoPortletUrl.title')"
+            >
               <font-awesome-icon icon="user" />
             </a>
-            <font-awesome-icon
-              v-else
-              icon="user" />
+            <font-awesome-icon v-else icon="user" />
           </div>
           <div class="wrapper-info">
             <div class="user-name">
@@ -60,12 +53,11 @@
               }}</span>
             </div>
           </div>
-          <div
-            v-if="otherOrgs.length > 1"
-            class="other-orgs">
+          <div v-if="otherOrgs.length > 1" class="other-orgs">
             <a
               :href="switchOrgPortletUrl"
-              :title="translate('message.userChangeEtabUrl.title')">
+              :title="translate('message.userChangeEtabUrl.title')"
+            >
               <font-awesome-icon icon="exchange-alt" />
             </a>
           </div>
@@ -78,34 +70,34 @@
 <script>
 import i18n from '../i18n.js';
 import '../icons.js';
-import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome';
-import {sizeValidator} from '../services/sizeTools';
-import {getOrganizationLogo} from '../services/organizationHelper';
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+import { sizeValidator } from '../services/sizeTools';
+import { getOrganizationLogo } from '../services/organizationHelper';
 import computeUrl from '../services/computeUrl';
 
 export default {
   name: 'ContentUser',
   components: {
-    FontAwesomeIcon,
+    FontAwesomeIcon
   },
   props: {
     parentScreenSize: {
       validator: sizeValidator,
-      default: 'medium',
+      default: 'medium'
     },
-    orgInfo: {type: Object, default: () => ({})},
-    otherOrgs: {type: Array, default: () => []},
-    userInfo: {type: Object, required: true, default: () => undefined},
+    orgInfo: { type: Object, default: () => ({}) },
+    otherOrgs: { type: Array, default: () => [] },
+    userInfo: { type: Object, required: true, default: () => undefined },
     switchOrgPortletUrl: {
       type: String,
-      default: process.env.VUE_APP_ORG_SWITCH_URI,
+      default: process.env.VUE_APP_ORG_SWITCH_URI
     },
-    defaultOrgLogo: {type: String, required: true},
-    userInfoPortletUrl: {type: String, default: ''},
+    defaultOrgLogo: { type: String, required: true },
+    userInfoPortletUrl: { type: String, default: '' },
     orgLogoUrlAttributeName: {
       type: String,
-      default: 'otherAttributes.ESCOStructureLogo[0]',
-    },
+      default: 'otherAttributes.ESCOStructureLogo[0]'
+    }
   },
   methods: {
     translate(text, lang) {
@@ -120,8 +112,8 @@ export default {
     getUserAvatar() {
       const avatar = this.userInfo.picture || null;
       return computeUrl(avatar);
-    },
-  },
+    }
+  }
 };
 </script>
 

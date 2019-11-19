@@ -9,7 +9,7 @@
   "scripts": {
     "start": "vue-cli-service serve",
     "prebuild": "babel node_modules/@vue/web-component-wrapper/dist/vue-wc-wrapper.js -o node_modules/@vue/web-component-wrapper/dist/vue-wc-wrapper.js",
-    "build": "vue-cli-service build --name content-carousel --target wc 'src/components/*.vue'",
+    "build": "vue-cli-service build --name content-carousel --target wc \"src/components/*.vue\"",
     "postbuild": "cp node_modules/slick-carousel/slick/slick-theme.css dist/slick-theme.css && cp -r node_modules/slick-carousel/slick/fonts dist/fonts"
   },
   "dependencies": {

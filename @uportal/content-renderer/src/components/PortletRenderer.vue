@@ -16,28 +16,28 @@ export default {
     portletContent: String,
     debug: {
       type: Boolean,
-      default: false,
-    },
+      default: false
+    }
   },
   asyncComputed: {
     portlet: {
       async get() {
-        const {portletHtmlUrl, debug} = this;
+        const { portletHtmlUrl, debug } = this;
         try {
           const headers = debug
             ? {}
             : {
-              'Authorization': 'Bearer ' + (await oidc()).encoded,
-              'content-type': 'application/jwt',
-            };
-          return await ky.get(portletHtmlUrl, {headers}).text();
+                Authorization: 'Bearer ' + (await oidc()).encoded,
+                'content-type': 'application/jwt'
+              };
+          return await ky.get(portletHtmlUrl, { headers }).text();
         } catch (err) {
           // eslint-disable-next-line no-console
           console.error(err);
           return '';
         }
-      },
-    },
-  },
+      }
+    }
+  }
 };
 </script>

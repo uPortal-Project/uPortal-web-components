@@ -1,10 +1,7 @@
 <template>
   <div class="widget">
     <div v-html="html" />
-    <div
-      class="links"
-      :v-if="configuration.links.length > 0"
-    >
+    <div class="links" :v-if="configuration.links.length > 0">
       <a
         v-for="(link, index) in configuration.links"
         :key="index"
@@ -12,7 +9,9 @@
         :title="link.title"
         :target="link.target"
         :aria-label="'Launch ' + link.title"
-      >{{ config.launchText }}</a>
+      >
+        {{ config.launchText }}
+      </a>
     </div>
   </div>
 </template>
@@ -30,46 +29,46 @@ export default {
   props: {
     template: {
       type: String,
-      required: true,
+      required: true
     },
     config: {
       type: Object,
-      default: () => ({links: []}),
+      default: () => ({ links: [] })
     },
     type: String,
     url: String,
     debug: {
       type: Boolean,
-      default: false,
-    },
+      default: false
+    }
   },
   computed: {
     html() {
       return Handlebars.compile(this.template)({
         $root: {
-          tabContext: this.type,
+          tabContext: this.type
         },
         content: this.content,
-        config: this.configuration,
+        config: this.configuration
       });
     },
     configuration() {
-      return this.config || {links: []};
-    },
+      return this.config || { links: [] };
+    }
   },
   asyncComputed: {
     content: {
       async get() {
-        const {url, debug} = this;
+        const { url, debug } = this;
         if (url) {
           try {
             const headers = debug
               ? {}
               : {
-                'Authorization': 'Bearer ' + (await oidc()).encoded,
-                'content-type': 'application/jwt',
-              };
-            return await ky.get(url, {headers}).json();
+                  Authorization: 'Bearer ' + (await oidc()).encoded,
+                  'content-type': 'application/jwt'
+                };
+            return await ky.get(url, { headers }).json();
           } catch (err) {
             // eslint-disable-next-line no-console
             console.error(err);
@@ -77,9 +76,9 @@ export default {
           }
         }
         return {};
-      },
-    },
-  },
+      }
+    }
+  }
 };
 </script>
 

@@ -9,7 +9,7 @@
   "scripts": {
     "start": "vue-cli-service serve",
     "prebuild": "babel node_modules/@vue/web-component-wrapper/dist/vue-wc-wrapper.js -o node_modules/@vue/web-component-wrapper/dist/vue-wc-wrapper.js",
-    "build": "vue-cli-service build --target wc --name content 'src/components/*.vue'"
+    "build": "vue-cli-service build --target wc --name content \"src/components/*.vue\""
   },
   "dependencies": {
     "@uportal/open-id-connect": "^1.33.2",

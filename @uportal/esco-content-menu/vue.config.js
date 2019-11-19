@@ -1,5 +1,5 @@
 module.exports = {
   pluginOptions: {
-    enableInSFC: true,
-  },
+    enableInSFC: true
+  }
 };
