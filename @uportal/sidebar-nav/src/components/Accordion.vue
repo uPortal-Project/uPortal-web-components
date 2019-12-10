@@ -42,6 +42,7 @@ export default {
       transition: max-height 350ms ease-in-out;
     }
   }
+
   > ul {
     display: block;
     box-sizing: border-box;
@@ -63,6 +64,7 @@ export default {
       &:first-child {
         margin-top: 20px;
       }
+
       &:last-child {
         margin-bottom: 20px;
       }
