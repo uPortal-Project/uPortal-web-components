@@ -6,7 +6,7 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "prebuild": "babel node_modules/@vue/web-component-wrapper/dist/vue-wc-wrapper.js -o node_modules/@vue/web-component-wrapper/dist/vue-wc-wrapper.js",
-    "build": "vue-cli-service build --name sidebar-nav --target wc 'src/components/SidebarNav.vue'",
+    "build": "vue-cli-service build --name sidebar-nav --target wc \"src/components/*.vue\"",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
