@@ -12,15 +12,8 @@
         :options="computedSlickOptions"
         @afterChange="handleAfterChange"
       >
-        <div
-          class="slick-item"
-          v-for="region of dashboard"
-          :key="region.name"
-        >
-          <div
-            v-for="card of region.content"
-            :key="card.name"
-          >
+        <div class="slick-item" v-for="region of dashboard" :key="region.name">
+          <div v-for="card of region.content" :key="card.name">
             <template v-if="card.widgetTemplate">
               <WidgetRenderer
                 :template="card.widgetTemplate"
@@ -31,10 +24,7 @@
               />
             </template>
             <template v-else>
-              <PortletRenderer
-                :portlet-html-url="card.url"
-                :debug="debug"
-              />
+              <PortletRenderer :portlet-html-url="card.url" :debug="debug" />
             </template>
           </div>
         </div>
@@ -71,13 +61,13 @@ export default {
   mixins: [LayoutData],
   data: function() {
     return {
-      activeIndex: 0,
+      activeIndex: 0
     };
   },
   components: {
     Slick,
     PortletRenderer,
-    WidgetRenderer,
+    WidgetRenderer
   },
   methods: {
     clickHandler(slideIndex) {
@@ -86,36 +76,36 @@ export default {
     },
     handleAfterChange(event, slick, currentSlide) {
       this.activeIndex = currentSlide;
-    },
+    }
   },
   props: {
     slickOptions: {
       type: [String, Object],
       default: () => ({
         dots: false,
-        arrows: true,
-      }),
+        arrows: true
+      })
     },
     debug: {
       type: Boolean,
-      default: false,
+      default: false
     },
     layoutApiUrl: {
       type: String,
-      default: '/uPortal/api/v4-3/dlm/layout.json',
+      default: '/uPortal/api/v4-3/dlm/layout.json'
     },
     layoutDocUrl: {
       type: String,
-      default: '/uPortal/api/layoutDoc',
+      default: '/uPortal/api/layoutDoc'
     },
     regionName: {
       type: String,
-      default: 'dashboard',
+      default: 'dashboard'
     },
     useLayoutDocData: {
       type: Boolean,
-      default: false,
-    },
+      default: false
+    }
   },
   computed: {
     computedSlickOptions() {
@@ -123,14 +113,14 @@ export default {
         typeof this.slickOptions === 'string'
           ? JSON.parse(this.slickOptions)
           : this.slickOptions;
-      return {slick: this.$el || '', swipeToSlide: true, ...options};
+      return { slick: this.$el || '', swipeToSlide: true, ...options };
     },
     dashboard() {
       const slick = this.$refs.slick || {
         currentSlide: () => {},
         destroy: () => {},
         create: () => {},
-        goTo: () => {},
+        goTo: () => {}
       };
       const currentIndex = slick.currentSlide();
 
@@ -145,8 +135,8 @@ export default {
       }
 
       return this.layout;
-    },
-  },
+    }
+  }
 };
 </script>
 
@@ -310,11 +300,18 @@ ul {
 
 /* Small devices (landscape phones, less than 768px) */
 @media (max-width: 767.98px) {
-  .slick-item {
-    flex-direction: column;
+  .carousel /deep/ {
+    .slick-item {
+      flex-direction: column;
 
-    & > span {
-      max-width: none;
+      > div {
+        max-width: none;
+        margin-bottom: 10px;
+      }
+
+      & > span {
+        max-width: none;
+      }
     }
   }
 

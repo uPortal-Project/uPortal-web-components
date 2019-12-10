@@ -13,11 +13,11 @@ export default function(a, b) {
   // if neither has a custom order, sort by title
   if (isNaN(aCustomOrder) && isNaN(bCustomOrder)) {
     return a.title
-        .trim()
-        .toLowerCase()
-        .localeCompare(b.title.trim().toLowerCase(), undefined, {
-          numberic: true,
-        });
+      .trim()
+      .toLowerCase()
+      .localeCompare(b.title.trim().toLowerCase(), undefined, {
+        numberic: true
+      });
   }
 
   // sort the items with custom order in front of items without

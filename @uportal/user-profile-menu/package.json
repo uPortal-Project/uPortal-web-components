@@ -17,7 +17,7 @@
   "scripts": {
     "start": "vue-cli-service serve",
     "prebuild": "babel node_modules/@vue/web-component-wrapper/dist/vue-wc-wrapper.js -o node_modules/@vue/web-component-wrapper/dist/vue-wc-wrapper.js",
-    "build": "vue-cli-service build --name user-profile-menu --target wc 'src/components/*.vue'",
+    "build": "vue-cli-service build --name user-profile-menu --target wc \"src/components/*.vue\"",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
@@ -36,7 +36,7 @@
     "@vue/cli-service": "^3.4.1",
     "babel-eslint": "^10.0.1",
     "eslint": "^6.0.0",
-    "eslint-plugin-vue": "^5.0.0",
+    "eslint-plugin-vue": "^6.0.0",
     "node-sass": "^4.12.0",
     "sass-loader": "^8.0.0",
     "vue-template-compiler": "^2.5.21"

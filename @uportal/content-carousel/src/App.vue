@@ -24,23 +24,23 @@
         :type="'rss'"
         :source="'/content-image.rss'"
         fit-to-container="true"
-        slick-options="{
-          &quot;slidesToShow&quot;: 6,
-          &quot;infinite&quot;: true,
-          &quot;arrows&quot;: true,
-          &quot;dots&quot;: true,
-          &quot;variableWidth&quot;: false,
-          &quot;responsive&quot;: [
+        slick-options='{
+          "slidesToShow": 6,
+          "infinite": true,
+          "arrows": true,
+          "dots": true,
+          "variableWidth": false,
+          "responsive": [
             {
-              &quot;breakpoint&quot;: &quot;768&quot;,
-              &quot;settings&quot;: {
-                &quot;slidesToShow&quot;: 2,
-                &quot;slidesToScroll&quot;: 2,
-                &quot;dots&quot;: false
+              "breakpoint": "768",
+              "settings": {
+                "slidesToShow": 2,
+                "slidesToScroll": 2,
+                "dots": false
               }
             }
           ]
-        }"
+        }'
         :carousel-height="contentHeight"
         class="flush"
       />
@@ -69,10 +69,7 @@
         class="flush"
       >
         <div class="slick-item has-image has-description">
-          <img
-            src="/stock-photo.jpg"
-            class="slick-image"
-          >
+          <img src="/stock-photo.jpg" class="slick-image" />
           <span class="slick-title">Title Goes Here</span>
           <p class="slick-item-description">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
@@ -82,10 +79,7 @@
           </p>
         </div>
         <div class="slick-item has-image has-description">
-          <img
-            src="/stock-photo.jpg"
-            class="slick-image"
-          >
+          <img src="/stock-photo.jpg" class="slick-image" />
           <span class="slick-title">Title Goes Here</span>
           <p class="slick-item-description">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
@@ -95,10 +89,7 @@
           </p>
         </div>
         <div class="slick-item has-image has-description">
-          <img
-            src="/stock-photo.jpg"
-            class="slick-image"
-          >
+          <img src="/stock-photo.jpg" class="slick-image" />
           <span class="slick-title">Title Goes Here</span>
           <p class="slick-item-description">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
@@ -108,10 +99,7 @@
           </p>
         </div>
         <div class="slick-item has-image has-description">
-          <img
-            src="/stock-photo.jpg"
-            class="slick-image"
-          >
+          <img src="/stock-photo.jpg" class="slick-image" />
           <span class="slick-title">Title Goes Here</span>
           <p class="slick-item-description">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
@@ -121,10 +109,7 @@
           </p>
         </div>
         <div class="slick-item has-image has-description">
-          <img
-            src="/stock-photo.jpg"
-            class="slick-image"
-          >
+          <img src="/stock-photo.jpg" class="slick-image" />
           <span class="slick-title">Title Goes Here</span>
           <p class="slick-item-description">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce

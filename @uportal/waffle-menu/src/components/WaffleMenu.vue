@@ -1,24 +1,14 @@
 <template>
-  <div
-    class="waffle-menu-container"
-    ref="waffleMenu"
-  >
-    <button
-      class="waffle-trigger"
-      @click="toggleMenu()"
-    >
-      <FontAwesomeIcon
-        icon="th"
-        :color="buttonColor"
-        size="2x"
-      />
+  <div class="waffle-menu-container" ref="waffleMenu">
+    <button class="waffle-trigger" @click="toggleMenu()">
+      <FontAwesomeIcon icon="th" :color="buttonColor" size="2x" />
       <div v-if="menuOpen">
         <div class="waffle-triangle-black" />
         <div
           class="waffle-triangle"
           :style="{
             borderColor:
-              'transparent transparent ' + menuBackgroundColor + ' transparent',
+              'transparent transparent ' + menuBackgroundColor + ' transparent'
           }"
         />
       </div>
@@ -42,10 +32,7 @@
           :target="item.targetLink"
           :rel="item.targetLink === '_blank' ? 'noopener noreferrer' : ''"
         >
-          <img
-            :src="item.image"
-            alt=""
-          > <span>{{ item.label }}</span>
+          <img :src="item.image" alt="" /> <span>{{ item.label }}</span>
         </a>
       </li>
       <li class="waffle-dropdown-footer">
@@ -56,63 +43,63 @@
 </template>
 <script>
 import oidc from '@uportal/open-id-connect';
-import {portletRegistryToArray} from '@uportal/portlet-registry-to-array';
+import { portletRegistryToArray } from '@uportal/portlet-registry-to-array';
 import get from 'lodash/get';
 // import PropTypes from 'prop-types';
-import {library} from '@fortawesome/fontawesome-svg-core';
-import {faTh} from '@fortawesome/free-solid-svg-icons';
-import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faTh } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
 library.add(faTh);
 
 export default {
   name: 'WaffleMenu',
   components: {
-    FontAwesomeIcon,
+    FontAwesomeIcon
   },
   props: {
     url: {
       type: String,
-      default: '/uPortal/api/v4-3/dlm/portletRegistry.json',
+      default: '/uPortal/api/v4-3/dlm/portletRegistry.json'
     },
     oidcUrl: {
       type: String,
-      default: '/uPortal/api/v5-1/userinfo',
+      default: '/uPortal/api/v5-1/userinfo'
     },
     contextPortletUrl: {
       type: String,
-      default: '/uPortal/p/',
+      default: '/uPortal/p/'
     },
     buttonColor: {
       type: String,
-      default: '#fff',
+      default: '#fff'
     },
     menuBackgroundColor: {
       type: String,
-      default: '#fff',
+      default: '#fff'
     },
     debug: {
       type: Boolean,
-      default: false,
+      default: false
     },
     defaultIcon: {
       type: String,
       default:
-        '/ResourceServingWebapp/rs/tango/0.8.90/32x32/categories/applications-other.png',
+        '/ResourceServingWebapp/rs/tango/0.8.90/32x32/categories/applications-other.png'
     },
     truncateLength: {
       type: Number,
-      default: 50,
-    },
+      default: 50
+    }
   },
 
   computed: {
     dataMenuItems: function() {
-      return this.data.filter((datum) => datum.type === 'box');
+      return this.data.filter(datum => datum.type === 'box');
     },
     dataMenuFooter: function() {
-      return this.data.filter((datum) => datum.type === 'footer');
-    },
+      return this.data.filter(datum => datum.type === 'footer');
+    }
   },
   data() {
     return {
@@ -121,7 +108,7 @@ export default {
       dataItems: [],
       dataLoaded: false,
       hasError: false,
-      errorMessage: '',
+      errorMessage: ''
     };
   },
   methods: {
@@ -131,12 +118,13 @@ export default {
       this.errorMessage = 'There was a problem authorizing this request.';
     },
     handleWflError(err) {
+      console.error(err);
       this.hasError = true;
       this.errorMessage = 'There was a problem cooking your waffle.';
     },
     async getToken() {
       try {
-        return await oidc({userInfoApiUrl: this.oidcUrl});
+        return await oidc({ userInfoApiUrl: this.oidcUrl });
       } catch (err) {
         console.error(err);
         this.handleOidcError(err);
@@ -151,35 +139,35 @@ export default {
     },
     wafflePress(registry) {
       const menuItems = portletRegistryToArray(registry).map(
-          ({fname, parameters, title}) => {
-            const imgUrl =
+        ({ fname, parameters, title }) => {
+          const imgUrl =
             get(parameters, 'waffleIconUrl.value') ||
             get(parameters, 'iconUrl.value') ||
             this.defaultIcon;
-            const text = get(parameters, 'waffleLabel.value') || title;
+          const text = get(parameters, 'waffleLabel.value') || title;
 
-            const alternativeMaximizedLink = get(
-                parameters,
-                'alternativeMaximizedLink.value'
-            );
+          const alternativeMaximizedLink = get(
+            parameters,
+            'alternativeMaximizedLink.value'
+          );
 
-            let targetLinkValue = '_self';
-            if (alternativeMaximizedLink) {
-              targetLinkValue = '_blank';
-            }
+          let targetLinkValue = '_self';
+          if (alternativeMaximizedLink) {
+            targetLinkValue = '_blank';
+          }
 
-            return {
-              link: alternativeMaximizedLink || this.contextPortletUrl + fname,
-              image: imgUrl
+          return {
+            link: alternativeMaximizedLink || this.contextPortletUrl + fname,
+            image: imgUrl
               ? process.env.NODE_ENV === 'development'
                 ? 'proxy/' + imgUrl
                 : imgUrl
               : undefined,
-              label: this.truncateTitle(text),
-              type: 'box',
-              targetLink: targetLinkValue,
-            };
-          }
+            label: this.truncateTitle(text),
+            type: 'box',
+            targetLink: targetLinkValue
+          };
+        }
       );
 
       this.data = menuItems;
@@ -192,9 +180,9 @@ export default {
         const response = await fetch(this.url, {
           credentials: 'same-origin',
           headers: {
-            'Authorization': 'Bearer ' + token,
-            'content-type': 'application/jwt',
-          },
+            Authorization: 'Bearer ' + token,
+            'content-type': 'application/jwt'
+          }
         });
 
         if (!response.ok || response.status !== 200) {
@@ -220,13 +208,13 @@ export default {
       if (menu !== target && !shadow && !menu.contains(target)) {
         this.menuOpen = false;
       }
-    },
+    }
   },
   mounted() {
     // Initialize Menu Date when Mounted
     document.addEventListener('click', this.handleOutsideClick, false);
     this.fetchMenuData();
-  },
+  }
 };
 </script>
 <style lang="scss">

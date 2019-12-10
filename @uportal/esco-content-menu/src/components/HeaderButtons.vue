@@ -5,13 +5,15 @@
       type="button"
       class="content-menu-close"
       aria-label="Close"
-      @click="callOnClose($event)">
+      @click="callOnClose($event)"
+    >
       <font-awesome-icon icon="times" />
     </button>
     <a
       :href="signOutUrl"
       :title="translate('message.buttons.logout')"
-      class="signout">
+      class="signout"
+    >
       <font-awesome-icon icon="sign-out-alt" />
     </a>
   </section>
@@ -20,22 +22,22 @@
 <script>
 import i18n from '../i18n.js';
 import '../icons.js';
-import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome';
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
 export default {
   name: 'HeaderButtons',
   components: {
-    FontAwesomeIcon,
+    FontAwesomeIcon
   },
   props: {
-    callOnClose: {type: Function, default: () => {}},
-    signOutUrl: {type: String, default: process.env.VUE_APP_LOGOUT_URL},
+    callOnClose: { type: Function, default: () => {} },
+    signOutUrl: { type: String, default: process.env.VUE_APP_LOGOUT_URL }
   },
   methods: {
     translate(text, lang) {
       return i18n.t(text, lang);
-    },
-  },
+    }
+  }
 };
 </script>
 

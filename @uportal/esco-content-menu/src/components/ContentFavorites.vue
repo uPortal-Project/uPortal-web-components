@@ -2,7 +2,8 @@
   <section
     :class="['parent-' + parentScreenSize, calculatedSize]"
     :style="'background-color:' + backgroundColor"
-    class="content-favorites">
+    class="content-favorites"
+  >
     <div class="content-favorites-title">
       <h1>
         {{ translate('message.favorites.title') }}
@@ -11,22 +12,23 @@
     <div
       ref="favsSection"
       :style="favorited.length > 0 ? '' : 'display:none'"
-      class="favorites">
+      class="favorites"
+    >
       <template v-if="useSwipper">
         <swiper
           ref="favSwiper"
           :options="swiperOption"
-          @transitionEnd="updateSlider">
-          <swiper-slide
-            v-for="portlet in favorited"
-            :key="portlet.id">
+          @transitionEnd="updateSlider"
+        >
+          <swiper-slide v-for="portlet in favorited" :key="portlet.id">
             <a
               :href="getRenderPortletUrl(portlet)"
               :target="hasAlternativeMaximizedUrl(portlet) ? '_blank' : '_self'"
               :rel="
                 hasAlternativeMaximizedUrl(portlet) ? 'noopener noreferrer' : ''
               "
-              class="no-style">
+              class="no-style"
+            >
               <portlet-card
                 :portlet-desc="portlet"
                 :is-favorite="true"
@@ -36,7 +38,8 @@
                 :back-ground-is-dark="true"
                 :favorite-api-url="favoriteApiUrl"
                 :user-info-api-url="userInfoApiUrl"
-                :debug="debug"/>
+                :debug="debug"
+              />
             </a>
           </swiper-slide>
         </swiper>
@@ -44,14 +47,16 @@
           slot="button-prev"
           :class="disablePrev ? 'fav-swiper-button-disabled' : ''"
           class="swiper-button-prev"
-          @click="slidePrev($event)">
+          @click="slidePrev($event)"
+        >
           <font-awesome-icon icon="chevron-left" />
         </div>
         <div
           slot="button-next"
           :class="disableNext ? 'fav-swiper-button-disabled' : ''"
           class="swiper-button-next"
-          @click="slideNext($event)">
+          @click="slideNext($event)"
+        >
           <font-awesome-icon icon="chevron-right" />
         </div>
       </template>
@@ -69,12 +74,14 @@
           :parent-screen-size="parentScreenSize"
           :context-api-url="contextApiUrl"
           :portlet-api-url="portletApiUrl"
-          :debug="debug"/>
+          :debug="debug"
+        />
       </template>
     </div>
     <div
       :style="favorited.length > 0 ? 'display:none' : ''"
-      class="empty-favorites">
+      class="empty-favorites"
+    >
       <div>
         {{ translate('message.favorites.empty') }}
       </div>
@@ -86,13 +93,13 @@
 import i18n from '../i18n.js';
 import PortletCard from './PortletCard';
 import '../icons.js';
-import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome';
-import {swiper, swiperSlide} from 'vue-awesome-swiper';
-import {elementWidth, sizeValidator} from '../services/sizeTools';
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+import { swiper, swiperSlide } from 'vue-awesome-swiper';
+import { elementWidth, sizeValidator } from '../services/sizeTools';
 import byFavoriteOrder from '../services/sortByFavoriteOrder';
 import {
   hasAlternativeMaximizedUrl,
-  getRenderUrl,
+  getRenderUrl
 } from '../services/managePortletUrl';
 import ContentGrid from './ContentGrid';
 
@@ -105,46 +112,46 @@ export default {
     // false positive
     // eslint-disable-next-line vue/no-unused-components
     swiperSlide,
-    FontAwesomeIcon,
+    FontAwesomeIcon
   },
   props: {
-    backgroundColor: {type: String, default: 'rgba(0, 0, 0, 0)'},
-    callAfterAction: {type: Function, default: () => {}},
-    isHidden: {type: Boolean, default: false},
+    backgroundColor: { type: String, default: 'rgba(0, 0, 0, 0)' },
+    callAfterAction: { type: Function, default: () => {} },
+    isHidden: { type: Boolean, default: false },
     favoriteApiUrl: {
       type: String,
       default:
         process.env.VUE_APP_PORTAL_CONTEXT +
-        process.env.VUE_APP_FAVORITES_PORTLETS_URI,
+        process.env.VUE_APP_FAVORITES_PORTLETS_URI
     },
     portletApiUrl: {
       type: String,
       default:
         process.env.VUE_APP_PORTAL_CONTEXT +
-        process.env.VUE_APP_BROWSABLE_PORTLETS_URI,
+        process.env.VUE_APP_BROWSABLE_PORTLETS_URI
     },
     userInfoApiUrl: {
       type: String,
       default:
-        process.env.VUE_APP_PORTAL_CONTEXT + process.env.VUE_APP_USER_INFO_URI,
+        process.env.VUE_APP_PORTAL_CONTEXT + process.env.VUE_APP_USER_INFO_URI
     },
-    debug: {type: Boolean, default: false},
-    favorites: {type: Array, required: true, default: () => []},
+    debug: { type: Boolean, default: false },
+    favorites: { type: Array, required: true, default: () => [] },
     parentScreenSize: {
       validator: sizeValidator(),
-      default: 'medium',
+      default: 'medium'
     },
     portletCardSize: {
-      validator: (value) => sizeValidator(value, true),
-      default: 'auto',
+      validator: value => sizeValidator(value, true),
+      default: 'auto'
     },
-    hideAction: {type: Boolean, default: false},
-    portlets: {type: Array, required: true, default: () => []},
+    hideAction: { type: Boolean, default: false },
+    portlets: { type: Array, required: true, default: () => [] },
     contextApiUrl: {
       type: String,
-      default: process.env.VUE_APP_PORTAL_CONTEXT,
+      default: process.env.VUE_APP_PORTAL_CONTEXT
     },
-    useSwipper: {type: Boolean, default: true},
+    useSwipper: { type: Boolean, default: true }
   },
   data() {
     return {
@@ -162,12 +169,12 @@ export default {
         // },
         navigation: {
           nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
-        },
+          prevEl: '.swiper-button-prev'
+        }
       },
       calculatedSize: this.parentScreenSize,
       disableNext: false,
-      disablePrev: false,
+      disablePrev: false
     };
   },
   watch: {
@@ -175,20 +182,20 @@ export default {
       handler() {
         this.updateSlider();
       },
-      deep: true,
+      deep: true
     },
     portlets: {
       handler() {
         this.updateSlider();
       },
-      deep: true,
+      deep: true
     },
     isHidden: {
       handler() {
         this.updateSlider();
       },
-      deep: true,
-    },
+      deep: true
+    }
   },
   mounted() {
     this.$nextTick(function() {
@@ -207,9 +214,9 @@ export default {
     },
     favorited() {
       return this.portlets
-          .filter((portlet) => this.favorites.includes(portlet.fname))
-          .sort(byFavoriteOrder(this.favorites));
-    },
+        .filter(portlet => this.favorites.includes(portlet.fname))
+        .sort(byFavoriteOrder(this.favorites));
+    }
   },
   methods: {
     translate(text, lang) {
@@ -267,8 +274,8 @@ export default {
         this.disablePrev = this.$refs.favSwiper.swiper.isBeginning;
       }
       this.calculateSize();
-    },
-  },
+    }
+  }
 };
 </script>
 

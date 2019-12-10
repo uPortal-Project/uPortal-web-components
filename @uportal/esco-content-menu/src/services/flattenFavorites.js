@@ -9,10 +9,10 @@ export default function flattenFavorites(elem) {
     return elem.flatMap(flattenFavorites);
   }
 
-  const {content} = elem;
+  const { content } = elem;
   // if there is no content it is a leaf node
   if (!content) {
-    const {fname} = elem;
+    const { fname } = elem;
     // return fname when availible
     return fname ? [fname] : [];
   }

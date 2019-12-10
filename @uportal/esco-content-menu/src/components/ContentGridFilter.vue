@@ -2,18 +2,17 @@
   <select
     @change="fireFilterCategoryEvent()"
     class="grid-categories"
-    v-model="filterCategory">
-    <option
-      class="default"
-      selected
-      value="">
+    v-model="filterCategory"
+  >
+    <option class="default" selected value="">
       {{ translate('message.filter.selectOption') }}
     </option>
     <option
       v-for="category in allCategories"
       :value="category"
       :label="category"
-      :key="category">
+      :key="category"
+    >
       {{ category }}
     </option>
   </select>
@@ -27,7 +26,7 @@ export default {
   data() {
     return {
       filterCategory: '',
-      allCategories: [],
+      allCategories: []
     };
   },
   beforeMount() {
@@ -60,7 +59,7 @@ export default {
     fireFilterCategoryEvent() {
       const event = new CustomEvent('gridCategoryFilter', {
         bubbles: true,
-        detail: this.filterCategory,
+        detail: this.filterCategory
       });
       //
       // should check for fallback on older browsers
@@ -71,8 +70,8 @@ export default {
     },
     setAllCategories(e) {
       this.allCategories = e.detail || [];
-    },
-  },
+    }
+  }
 };
 </script>
 

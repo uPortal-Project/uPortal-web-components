@@ -2,9 +2,11 @@
   <div
     :class="[
       'action-favorites ' + fname,
-      backGroundIsDark ? 'background-dark' : '',
+      backGroundIsDark ? 'background-dark' : ''
     ]"
-    @click="toggleFavorite($event)">
+    :title="favoriteMessage"
+    @click="toggleFavorite($event)"
+  >
     <button class="favorite-button">
       <span class="sr-only">{{ favoriteMessage }}</span>
       <font-awesome-icon :icon="[isFavorite ? 'fas' : 'far', 'star']" />
@@ -16,7 +18,7 @@
 import oidc from '@uportal/open-id-connect';
 import i18nMixin from '../mixins/i18n.js';
 import '../icons.js';
-import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome';
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
 const checkStatus = function(response) {
   if (response.ok) {
@@ -34,31 +36,31 @@ const parseJSON = function(response) {
 export default {
   name: 'ActionFavorites',
   components: {
-    FontAwesomeIcon,
+    FontAwesomeIcon
   },
   mixins: [i18nMixin],
   props: {
-    callOnToggleFav: {type: Function, default: () => {}},
-    chanId: {type: Number, required: true},
+    callOnToggleFav: { type: Function, default: () => {} },
+    chanId: { type: Number, required: true },
     favoriteApiUrl: {
       type: String,
       default:
         process.env.VUE_APP_PORTAL_CONTEXT +
-        process.env.VUE_APP_FAVORITES_PORTLETS_URI,
+        process.env.VUE_APP_FAVORITES_PORTLETS_URI
     },
     userInfoApiUrl: {
       type: String,
       default:
-        process.env.VUE_APP_PORTAL_CONTEXT + process.env.VUE_APP_USER_INFO_URI,
+        process.env.VUE_APP_PORTAL_CONTEXT + process.env.VUE_APP_USER_INFO_URI
     },
-    debug: {type: Boolean, default: false},
-    fname: {type: String, required: true},
-    isFavorite: {type: Boolean, default: false},
-    backGroundIsDark: {type: Boolean, default: false},
+    debug: { type: Boolean, default: false },
+    fname: { type: String, required: true },
+    isFavorite: { type: Boolean, default: false },
+    backGroundIsDark: { type: Boolean, default: false }
   },
   data() {
     return {
-      favorite: this.isFavorite,
+      favorite: this.isFavorite
     };
   },
   computed: {
@@ -66,7 +68,7 @@ export default {
       return this.translate(
         this.isFavorite ? 'message.favorites.remove' : 'message.favorites.add'
       );
-    },
+    }
   },
   methods: {
     toggleFavorite(event) {
@@ -89,59 +91,60 @@ export default {
       this.callOnToggleFav(this.fname);
     },
     addToFavorite() {
-      oidc({userInfoApiUrl: this.userInfoApiUrl})
-          .then((token) => {
-            const options = {
-              method: 'POST',
-              credentials: 'same-origin',
-              headers: {
-                'Authorization': 'Bearer ' + token.encoded,
-                'Content-Type': 'application/json',
-              },
-            };
-            fetch(
-                this.favoriteApiUrl +
+      oidc({ userInfoApiUrl: this.userInfoApiUrl })
+        .then(token => {
+          const options = {
+            method: 'POST',
+            credentials: 'same-origin',
+            headers: {
+              Authorization: 'Bearer ' + token.encoded,
+              'Content-Type': 'application/json'
+            }
+          };
+          fetch(
+            this.favoriteApiUrl +
               '?action=addFavorite&channelId=' +
               this.chanId,
-                options
-            )
-                .then(checkStatus)
-                .then(parseJSON)
-                .then(() => this.changeFavoriteValue());
-          })
-      // eslint-disable-next-line
+            options
+          )
+            .then(checkStatus)
+            .then(parseJSON)
+            .then(() => this.changeFavoriteValue());
+        })
+        // eslint-disable-next-line
         .catch((err) => console.error('Error, with message:', err.statusText));
     },
     removeFromFavorite() {
-      oidc({userInfoApiUrl: this.userInfoApiUrl})
-          .then((token) => {
-            const options = {
-              method: 'POST',
-              credentials: 'same-origin',
-              headers: {
-                'Authorization': 'Bearer ' + token.encoded,
-                'Content-Type': 'application/json',
-              },
-            };
-            fetch(
-                this.favoriteApiUrl +
+      oidc({ userInfoApiUrl: this.userInfoApiUrl })
+        .then(token => {
+          const options = {
+            method: 'POST',
+            credentials: 'same-origin',
+            headers: {
+              Authorization: 'Bearer ' + token.encoded,
+              'Content-Type': 'application/json'
+            }
+          };
+          fetch(
+            this.favoriteApiUrl +
               '?action=removeFavorite&channelId=' +
               this.chanId,
-                options
-            )
-                .then(checkStatus)
-                .then(parseJSON)
-                .then(() => this.changeFavoriteValue());
-          })
-      // eslint-disable-next-line
+            options
+          )
+            .then(checkStatus)
+            .then(parseJSON)
+            .then(() => this.changeFavoriteValue());
+        })
+        // eslint-disable-next-line
         .catch((err) => console.error('Error, with message:', err.statusText));
-    },
-  },
+    }
+  }
 };
 </script>
 
 <style lang="scss" scoped>
 @import './../styles/vars.scss';
+@import './../styles/common.scss';
 
 .action-favorites {
   &.background-dark {
