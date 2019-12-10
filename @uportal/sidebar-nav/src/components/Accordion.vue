@@ -48,8 +48,6 @@ export default {
     list-style: none;
     margin: 0;
     padding: 0 20px;
-
-    // Styles for open/close animation
     max-height: 0;
     overflow: hidden;
     transition: max-height 350ms cubic-bezier(0, 1, 0, 1);
