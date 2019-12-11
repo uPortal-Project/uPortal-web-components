@@ -45,3 +45,33 @@ The component source can also be imported and used directly within other Vue pro
 ```js
 import contentCarousel from '@uportal/sidebar-nav/src/components/SidebarNav';
 ```
+
+This package requires an attribute `link-data-url`
+This attribute should reference a JSON file with the following structure:
+
+```
+"topics": [
+  {
+      "title": "Test Item",
+      "links": [
+          {
+              "title": "Link Title",
+              "url": "/"
+          },
+          {
+              "title": "Link Title",
+              "url": "/"
+          }
+      ]
+  },
+  {
+      "title": "Test Item",
+      "links": [
+          {
+              "title": "Link Title",
+              "url": "/"
+          }
+      ]
+  }
+]
+```

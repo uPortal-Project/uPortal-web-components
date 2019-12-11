@@ -1,6 +1,6 @@
 <template>
-  <div class="sidebar-nav">
-    <div class="sidebar-nav__accordions" v-if="linkDataUrl !== null">
+  <div class="sidebar-nav" v-if="linkDataUrl">
+    <div class="sidebar-nav__accordions">
       <accordion
         v-for="(accordionItem, index) in linkData.topics"
         :topic="accordionItem"
@@ -24,199 +24,19 @@ export default {
   data() {
     return {
       linkData: null
-      // linkData: {
-      //   topics: [
-      //     {
-      //       title: 'Pre-Award',
-      //       links: [
-      //         {
-      //           title: 'Link Title',
-      //           url: '/'
-      //         },
-      //         {
-      //           title: 'Link Title',
-      //           url: '/'
-      //         },
-      //         {
-      //           title: 'Link Title',
-      //           url: '/'
-      //         },
-      //         {
-      //           title: 'Link Title',
-      //           url: '/'
-      //         },
-      //         {
-      //           title: 'Link Title',
-      //           url: '/'
-      //         }
-      //       ]
-      //     },
-      //     {
-      //       title: 'Financial Management',
-      //       links: [
-      //         {
-      //           title: 'Link Title',
-      //           url: '/'
-      //         },
-      //         {
-      //           title: 'Link Title',
-      //           url: '/'
-      //         },
-      //         {
-      //           title: 'Link Title',
-      //           url: '/'
-      //         },
-      //         {
-      //           title: 'Link Title',
-      //           url: '/'
-      //         },
-      //         {
-      //           title: 'Link Title',
-      //           url: '/'
-      //         }
-      //       ]
-      //     },
-      //     {
-      //       title: 'Personnel Management',
-      //       links: [
-      //         {
-      //           title: 'Link Title',
-      //           url: '/'
-      //         },
-      //         {
-      //           title: 'Link Title',
-      //           url: '/'
-      //         },
-      //         {
-      //           title: 'Link Title',
-      //           url: '/'
-      //         },
-      //         {
-      //           title: 'Link Title',
-      //           url: '/'
-      //         },
-      //         {
-      //           title: 'Link Title',
-      //           url: '/'
-      //         }
-      //       ]
-      //     },
-      //     {
-      //       title: 'Compliance and Training',
-      //       links: [
-      //         {
-      //           title: 'Link Title',
-      //           url: '/'
-      //         },
-      //         {
-      //           title: 'Link Title',
-      //           url: '/'
-      //         },
-      //         {
-      //           title: 'Link Title',
-      //           url: '/'
-      //         },
-      //         {
-      //           title: 'Link Title',
-      //           url: '/'
-      //         },
-      //         {
-      //           title: 'Link Title',
-      //           url: '/'
-      //         }
-      //       ]
-      //     },
-      //     {
-      //       title: 'Facilities and Lab Management',
-      //       links: [
-      //         {
-      //           title: 'Link Title',
-      //           url: '/'
-      //         },
-      //         {
-      //           title: 'Link Title',
-      //           url: '/'
-      //         },
-      //         {
-      //           title: 'Link Title',
-      //           url: '/'
-      //         },
-      //         {
-      //           title: 'Link Title',
-      //           url: '/'
-      //         },
-      //         {
-      //           title: 'Link Title',
-      //           url: '/'
-      //         }
-      //       ]
-      //     },
-      //     {
-      //       title: 'Industry Engagement',
-      //       links: [
-      //         {
-      //           title: 'Link Title',
-      //           url: '/'
-      //         },
-      //         {
-      //           title: 'Link Title',
-      //           url: '/'
-      //         },
-      //         {
-      //           title: 'Link Title',
-      //           url: '/'
-      //         },
-      //         {
-      //           title: 'Link Title',
-      //           url: '/'
-      //         },
-      //         {
-      //           title: 'Link Title',
-      //           url: '/'
-      //         }
-      //       ]
-      //     },
-      //     {
-      //       title: 'Accordion Item',
-      //       links: [
-      //         {
-      //           title: 'Link Title',
-      //           url: '/'
-      //         },
-      //         {
-      //           title: 'Link Title',
-      //           url: '/'
-      //         },
-      //         {
-      //           title: 'Link Title',
-      //           url: '/'
-      //         },
-      //         {
-      //           title: 'Link Title',
-      //           url: '/'
-      //         },
-      //         {
-      //           title: 'Link Title',
-      //           url: '/'
-      //         }
-      //       ]
-      //     }
-      //   ]
-      // }
     };
   },
   components: {
     Accordion
   },
   mounted() {
-    fetch(this.linkDataUrl)
-      .then(r => r.json())
-      .then(json => {
-        this.linkData = json;
-      });
-    // response => {
-    //     console.log('Error loading json:', response)
-    // });
+      if (this.linkDataUrl) {
+          fetch(this.linkDataUrl)
+              .then(r => r.json())
+              .then(json => {
+                  this.linkData = json;
+              });
+      }
   }
 };
 </script>
