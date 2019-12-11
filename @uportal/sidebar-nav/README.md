@@ -6,13 +6,13 @@
 
 ## Project setup
 
-```
+```bash
 npm install
 ```
 
 ### Compiles and hot-reloads for development
 
-```
+```bash
 npm run serve
 ```
 
@@ -49,7 +49,7 @@ import contentCarousel from '@uportal/sidebar-nav/src/components/SidebarNav';
 This package requires an attribute `link-data-url`
 This attribute should reference a JSON file with the following structure:
 
-```
+```json
 "topics": [
   {
       "title": "Test Item",
