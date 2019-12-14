@@ -51,6 +51,7 @@ export default {
     padding: 0 20px;
     max-height: 0;
     overflow: hidden;
+    // The cubic-bezier overrides a glitchy animation in some browsers
     transition: max-height 350ms cubic-bezier(0, 1, 0, 1);
     backface-visibility: hidden;
     transform: scale(1);
@@ -69,8 +70,9 @@ export default {
         margin-bottom: 20px;
       }
 
-      > a {
+      a {
         color: #042158;
+        text-decoration: none;
       }
     }
   }

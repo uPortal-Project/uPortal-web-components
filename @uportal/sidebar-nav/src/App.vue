@@ -1,5 +1,5 @@
 <template>
-  <sidebar-nav></sidebar-nav>
+  <sidebar-nav link-data-url="/links.json"></sidebar-nav>
 </template>
 
 <script>

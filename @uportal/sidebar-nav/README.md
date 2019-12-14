@@ -50,28 +50,30 @@ This package requires an attribute `link-data-url`
 This attribute should reference a JSON file with the following structure:
 
 ```json
-"topics": [
-  {
+{
+  "topics": [
+    {
       "title": "Test Item",
       "links": [
-          {
-              "title": "Link Title",
-              "url": "/"
-          },
-          {
-              "title": "Link Title",
-              "url": "/"
-          }
+        {
+          "title": "Link Title",
+          "url": "/"
+        },
+        {
+          "title": "Link Title",
+          "url": "/"
+        }
       ]
-  },
-  {
+    },
+    {
       "title": "Test Item",
       "links": [
-          {
-              "title": "Link Title",
-              "url": "/"
-          }
+        {
+          "title": "Link Title",
+          "url": "/"
+        }
       ]
-  }
-]
+    }
+  ]
+}
 ```
