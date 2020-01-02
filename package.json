@@ -4,7 +4,7 @@
     "@commitlint/cli": "^8.0.0",
     "@commitlint/config-conventional": "^8.0.0",
     "@commitlint/travis-cli": "^8.0.0",
-    "@mapbox/stylelint-processor-arbitrary-tags": "^0.2.0",
+    "@mapbox/stylelint-processor-arbitrary-tags": "^0.3.0",
     "@vue/eslint-config-prettier": "^6.0.0",
     "babel-eslint": "^10.0.0",
     "eslint": "^6.1.0",
