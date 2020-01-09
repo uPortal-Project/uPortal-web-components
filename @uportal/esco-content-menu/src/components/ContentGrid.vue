@@ -43,6 +43,9 @@
           </div>
         </slot>
       </div>
+      <div class="preamble">
+        <slot name="preamble" class="preamble" />
+      </div>
       <div class="flex-grid">
         <div
           v-for="portlet in filteredPortlets"
@@ -488,6 +491,12 @@ $searchSize: 32px;
           display: none;
         }
       }
+    }
+
+    .preamble {
+      display: flex;
+      flex-flow: row wrap;
+      padding: 0 20px;
     }
 
     .flex-grid {

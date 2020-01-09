@@ -341,6 +341,21 @@ The `header-right` slot permit to apply a custom title replacing the default fil
 </content-grid>
 ```
 
+##### Preamble
+
+The `preamble` slot permit to add descriptive text between the headers and grid. As example:
+
+```html
+<content-grid
+  background-color="grey"
+  portlet-card-size="medium"
+  portlet-api-url="/uPortal/api/v4-3/dlm/portletRegistry.json?category=administration"
+  layout-api-url="..."
+>
+  <div slot="preamble">This is explanatory text for the grid.</div>
+</content-grid>
+```
+
 ##### Footer
 
 The `footer` slot permit to apply a custom title replacing the default filter on footer. As example:
