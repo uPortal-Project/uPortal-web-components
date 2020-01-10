@@ -36,6 +36,51 @@ compile 'org.webjars.npm:uportal__esco-content-menu:{version number goes here}'
 
 ## Utilisation comme composant Web
 
+### internationalisation
+
+Les composants `hamburger-menu`, `content-grid`, and `content-menu` supportent la mixin d'internationalisation. Cela ajoute la propriété `messages` qui peut surchargera les textes par défaut dans les différents composants. Cette property propriété sera répercutée dans les composants `PortletCard` et le `ActionFavorites`.
+
+Par exemple:
+
+```html
+<esco-hamburger-menu
+  messages='[{"locales": ["en", "en-US"], "messages": { "message": {"favorites": { "add": "Add me to your favorites!" } }}}]'
+>
+</esco-hamburger-menu>
+```
+
+Les massages disponibles comme suit:
+
+```json
+{
+  "message": {
+    "services": {
+      "title": "All services",
+      "filter": "Find a service..."
+    },
+    "favorites": {
+      "add": "Add to favorites",
+      "remove": "Remove from favorites",
+      "title": "My Favorites",
+      "empty": "No favorite defined"
+    },
+    "filter": {
+      "selectOption": "All categories"
+    },
+    "userInfoPortletUrl": {
+      "title": "See my account informations"
+    },
+    "userChangeEtabUrl": {
+      "title": "Select an other organization"
+    },
+    "buttons": {
+      "logout": "Sign out",
+      "menuClose": "Close menu"
+    }
+  }
+}
+```
+
 ### Le menu hamburger
 
 C'est le composant principal qui affiche un menu hamburger et qui ouvre une page entière avec le composant `content-menu`.
@@ -184,6 +229,42 @@ et avec des propriétés supplémentaires pour travailler avec le `hamburger-men
 - `is-hidden`: type : `Boolean`, défaut : `false`, utilisé par `hamburger-menu` tpour indiquer l'état de la page.
 - `id`: type : `String`, défaut : `null`, fournit un identifiant pour pouvoir sélectionner l'élément du dôme, par exemple si vous voulez gérer manuellement un `hamburger-menu`
 
+#### Slots
+
+The HTML content of the component can also be modified using [slots](https://vuejs.org/v2/guide/components-slots.html).
+
+##### Content User
+
+The `content-user` slot permit to apply a custom component at this place, or to remove it. As example:
+
+```html
+<esco-content-menu
+  sign-out-url="/uPortal/Logout"
+  default-org-logo="https://www.toureiffel.paris/sites/default/files/styles/1440x810/public/2017-10/monument-landing-header-bg_0.jpg?itok=_dSLLBlZ"
+  favorites-portlet-card-size="small"
+  grid-portlet-card-size="auto"
+  hide-action-mode="never"
+>
+  <div slot="content-user"></div>
+</esco-content-menu>
+```
+
+##### Header Buttons
+
+The `header-buttons` slot permit to apply a custom component at this place, or to remove it. As example:
+
+```html
+<esco-content-menu
+  sign-out-url="/uPortal/Logout"
+  default-org-logo="https://www.toureiffel.paris/sites/default/files/styles/1440x810/public/2017-10/monument-landing-header-bg_0.jpg?itok=_dSLLBlZ"
+  favorites-portlet-card-size="small"
+  grid-portlet-card-size="auto"
+  hide-action-mode="never"
+>
+  <div slot="header-buttons"></div>
+</esco-content-menu>
+```
+
 ### la grille de contenu
 
 Ce composant fournit une façon flexible d'afficher une liste de `portlet-card`, en fonction de l'api rest de uPortal.
@@ -220,6 +301,7 @@ Propriétés autonomes :
 - `show-footer-categories`: `Boolean`, défaut : `false`, défini pour afficher la liste déroulant des catégories en bas de la grille
 - `hide-title`: `Boolean`, défaut : `false`, défini pour supprimer la zone de titre de la grille, utile lorsqu'une grille de base est souhaitée
 - `debug`: type : `Boolean`, défaut : `false`, pour que le mode démo/débogage puisse fonctionner de manière autonome (désactiver l'appel api)
+- `portlet-background-is-dark`: `Boolean`, default: `false`, indicate to the component that the parent background is dark and permit to the portlet-card component to show buttons like favorites in a more suitable color.
 
 et des propriétés supplémentaires pour travailler avec le composant parent `content-menu`:
 
@@ -261,6 +343,21 @@ L'attribut slot `header-right` permet d'appliquer un titre personnalisé rempla�
 </content-grid>
 ```
 
+##### Preamble
+
+The `preamble` slot permit to add descriptive text between the headers and grid. As example:
+
+```html
+<content-grid
+  background-color="grey"
+  portlet-card-size="medium"
+  portlet-api-url="/uPortal/api/v4-3/dlm/portletRegistry.json?category=administration"
+  layout-api-url="..."
+>
+  <div slot="preamble">This is explanatory text for the grid.</div>
+</content-grid>
+```
+
 ##### Pied de page
 
 L'attribut slot `footer` permet d'appliquer un titre personnalisé remplaçant le filtre par défaut sur le pied de page. Par exemple :
@@ -274,6 +371,17 @@ L'attribut slot `footer` permet d'appliquer un titre personnalisé remplaçant l
 >
   <div slot="footer"></div>
 </content-grid>
+```
+
+#### Theming
+
+This component supports [CSS Variables](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_variables) for overriding some default values. So defining the following variables will override default values.
+
+```css
+:root {
+  --content-grid-flex-grid-justify: center; // How to justify all flex grid elements, default value is center
+  --content-grid-flex-grid-item-margin: 20px auto; // To set a margin on all flex items, default is `20px auto`
+}
 ```
 
 ### L'action favori
@@ -443,6 +551,7 @@ Ce composant rend une partie d'en-tête avec quelques boutons principaux, comme 
 ### Theming
 
 Actuellement ce composant supporte [CSS Variables](https://developer.mozilla.org/fr/docs/Web/CSS/Using_CSS_custom_properties) pour surcharger les couleurs de boutons. Définir les variables suivante changera les couleurs du composant en conséquence. Les variables suivantes par défaut seront appliquées.
+
 **_NOTE:_** Cela est appliqué seulement quand la propriété de `size` est définie à `custom`.
 
 Vous devez définir cela dans votre feuille de style:
