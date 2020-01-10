@@ -1,0 +1,19 @@
+apply plugin: 'java'
+apply plugin: 'maven'
+
+def jsonFile = file("${projectDir}/package.json")
+def parsedJson = new groovy.json.JsonSlurper().parseText(jsonFile.text)
+project.version = parsedJson.version + '-SNAPSHOT'
+/* remove '-SNAPSHOT' for release version */
+
+jar {
+    archiveBaseName = project.name
+    from '.'
+    into "META-INF/resources/webjars/${project.name}/${project.version}"
+    include 'META-INF'
+    include 'dist/*'
+    exclude "dist/demo.html"
+    exclude "dist/${project.name}.js"
+    exclude "dist/${project.name}.js.map"
+    exclude "dist/${project.name}.min.js.map"
+}
