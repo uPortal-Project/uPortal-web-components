@@ -33,6 +33,7 @@
         :user-info-api-url="userInfoApiUrl"
         :debug="debug"
         :default-org-logo="defaultOrgLogo"
+        :force-org-logo="forceOrgLogo"
         :favorites-portlet-card-size="favoritesPortletCardSize"
         :grid-portlet-card-size="gridPortletCardSize"
         :hide-action-mode="hideActionMode"
@@ -95,6 +96,7 @@ export default {
     debug: { type: Boolean, default: false },
     signOutUrl: { type: String, default: process.env.VUE_APP_LOGOUT_URL },
     defaultOrgLogo: { type: String, required: true },
+    forceOrgLogo: { type: String },
     userInfoPortletUrl: { type: String, default: '' },
     switchOrgPortletUrl: { type: String, default: '' },
     favoritesPortletCardSize: {

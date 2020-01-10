@@ -15,6 +15,7 @@
             :other-orgs="_organizations"
             :parent-screen-size="_screenSize"
             :default-org-logo="defaultOrgLogo"
+            :force-org-logo="forceOrgLogo"
             :user-info-portlet-url="userInfoPortletUrl"
             :switch-org-portlet-url="switchOrgPortletUrl"
             :org-logo-url-attribute-name="orgLogoUrlAttributeName"
@@ -37,10 +38,10 @@
       </div>
       <div
         :style="
-          backgroundImg != null &&
+          getOrgImgUrl() != null &&
           (_screenSize === 'large' || _screenSize === 'medium')
             ? 'background-image: linear-gradient(0deg, rgba(0,0,0,.2),rgba(0,0,0,.2)), url(' +
-              backgroundImg +
+              getOrgImgUrl() +
               ');'
             : ''
         "
@@ -142,6 +143,7 @@ export default {
     debug: { type: Boolean, default: false },
     signOutUrl: { type: String, default: process.env.VUE_APP_LOGOUT_URL },
     defaultOrgLogo: { type: String, required: true },
+    forceOrgLogo: { type: String },
     userInfoPortletUrl: { type: String, default: '' },
     switchOrgPortletUrl: { type: String, default: '' },
     favoritesPortletCardSize: {
@@ -166,7 +168,7 @@ export default {
   },
   data() {
     return {
-      backgroundImg: this.defaultOrgLogo,
+      backgroundImg: this.forceOrgLogo || this.defaultOrgLogo,
       screenSize: 'medium',
       hideAction: false,
       info: {
@@ -288,6 +290,9 @@ export default {
           ) || this.defaultOrgLogo;
         this.backgroundImg = computeUrl(logo);
       }
+    },
+    getOrgImgUrl() {
+      return this.forceOrgLogo || this.backgroundImg;
     },
     async fetchUserInfo() {
       this.loadingState.user = false;

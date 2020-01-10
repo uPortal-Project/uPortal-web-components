@@ -36,6 +36,51 @@ compile 'org.webjars.npm:uportal__esco-content-menu:{version number goes here}'
 
 ## Usage as Web Component
 
+### internationalization
+
+The `hamburger-menu`, `content-grid`, and `content-menu` components support an internationalization mixin. This adds the additional prop `messages` which can be applied to override the default text messages in the various components. This property will trickle down to the PortletCard and ActionFavorites components, as well.
+
+For example:
+
+```html
+<esco-hamburger-menu
+  messages='[{"locales": ["en", "en-US"], "messages": { "message": {"favorites": { "add": "Add me to your favorites!" } }}}]'
+>
+</esco-hamburger-menu>
+```
+
+The available messages to override are as follows:
+
+```json
+{
+  "message": {
+    "services": {
+      "title": "All services",
+      "filter": "Find a service..."
+    },
+    "favorites": {
+      "add": "Add to favorites",
+      "remove": "Remove from favorites",
+      "title": "My Favorites",
+      "empty": "No favorite defined"
+    },
+    "filter": {
+      "selectOption": "All categories"
+    },
+    "userInfoPortletUrl": {
+      "title": "See my account informations"
+    },
+    "userChangeEtabUrl": {
+      "title": "Select an other organization"
+    },
+    "buttons": {
+      "logout": "Sign out",
+      "menuClose": "Close menu"
+    }
+  }
+}
+```
+
 ### The hamburger menu
 
 This is the main component that show a hamburger menu and that open an entire page with `content-menu` component.
@@ -87,6 +132,7 @@ For some integration you could need a bit more, like into uPortal you will need 
 - `user-org-id-attribute-name`: type: `String`, default: `'ESCOSIRENCourant[0]'`, the attribute object path to obtain the id of the organization to retrieve from the organization's api
 - `user-all-orgs-id-attribute-name`: type: `String`, default: `'ESCOSIREN`, the attribute object path to obtain all ids of the organizations linked to the user and to retrieve from the organization's api
 - `org-logo-url-attribute-name`: type: `String`, default: `'otherAttributes.ESCOStructureLogo[0]'`, the attribute object path to obtain the organization Picture from organization details obtained from the organization's api
+- `force-org-logo`: type: `String`, optional, an url/uri to provide an institutional picture overriding the default-org-logo and the institutional one obtained by an api (used to have an overview before updating change to every users from the api),
 - `debug`: type: `Boolean`, default: `false`, for the demo/debug mode to be able to run in a standalone way (disable api call).
 
 #### Slots
@@ -174,6 +220,7 @@ This use the same properties from the `hamburger-menu` (see on `hamburger-menu` 
 - `user-org-id-attribute-name`
 - `user-all-orgs-id-attribute-name`
 - `org-logo-url-attribute-name`
+- `force-org-logo`
 - `debug`
 
 and with additional properties to work with the `hamburger-menu`:
@@ -249,7 +296,7 @@ Standalone properties:
 - `layout-api-url`: type: `String`, default: `/uPortal/api/v4-3/dlm/layout.json`, the uri/url of the layout api to request the favorite list in the other defined order (only needed to get favorite's order defined by the user)
 - `portlet-api-url`: type: `String`, default: `/uPortal/api/v4-3/dlm/portletRegistry.json`, the uri/url of the portletRegistry api to obtains user authorized portlet list
 - `userInfo-api-url`: type: `String`, default: `/uPortal/api/v5-1/userinfo`, url/uri on which the api request is done to obtain user information and the jwt token
-- `portlet-card-size`: type: possible value `auto|large|medium|small|smaller`, default: `auto`, define the size of `portlet-cards` component.
+- `portlet-card-size`: type: possible value `auto|large|medium|small|smaller|custom`, default: `auto`, define the size of `portlet-cards` component.
 - `hide-action: type`: `Boolean`, default: `false`, define to hide or not the `action-favorite` button defined into `portlet-card`
 - `show-footer-categories`: `Boolean`, default: `false`, define to display category dropdown filter near bottom of grid
 - `hide-title`: `Boolean`, default: `false`, define to remove the title area from the grid, useful when a basic grid is desired
@@ -258,7 +305,7 @@ Standalone properties:
 
 and additional properties to work with the parent component `content-menu`:
 
-- `parent-screen-size`: type: possible value `large|medium|small|smaller`, default: `medium`, permit to indicate the breakpoint view of the parent.
+- `parent-screen-size`: type: possible value `large|medium|small|smaller|custom`, default: `medium`, permit to indicate the breakpoint view of the parent.
 - `portlets`: type: `Array`, default: `undefined`, used if the list of portlets is loaded and provided from a parent component,
 - `favorites`: type: `Array`, default: `undefined`, used if the list of favorites portlets loaded and provided from a parent component,
 
@@ -293,6 +340,21 @@ The `header-right` slot permit to apply a custom title replacing the default fil
   layout-api-url="..."
 >
   <div slot="header-rigth"></div>
+</content-grid>
+```
+
+##### Preamble
+
+The `preamble` slot permit to add descriptive text between the headers and grid. As example:
+
+```html
+<content-grid
+  background-color="grey"
+  portlet-card-size="medium"
+  portlet-api-url="/uPortal/api/v4-3/dlm/portletRegistry.json?category=administration"
+  layout-api-url="..."
+>
+  <div slot="preamble">This is explanatory text for the grid.</div>
 </content-grid>
 ```
 
@@ -375,6 +437,7 @@ Need some work for a standalone use.
 - `default-org-logo`: type: `String`, required: `true`, an url/uri to provide an institutional picture when none is found from an optional api (not provided into uPortal),
 - `user-info-portlet-url`: type: `String`, default: `''`, an url/uri to the user information application,
 - `org-logo-url-attribute-name`: type: `String`, default: `'otherAttributes.ESCOStructureLogo[0]'`, the attribute object path to obtain the organization Picture from organization details obtained from the organization's api.
+- `force-org-logo`: type: `String`, optional, an url/uri to provide an institutional picture overriding the default-org-logo and the institutional one obtained by an api (used to have an overview before updating change to every users from the api),
 
 and additional properties to work with the parent component `content-menu`:
 
@@ -400,7 +463,7 @@ This component render informations about a portlet as a card.
 #### Properties
 
 - `portlet-desc`: type: `Object`, required: `true`, the portlet description object
-- `size`: type: possible value `large|medium|small|smaller`, default: `medium`, the fixed size of card to apply
+- `size`: type: possible value `large|medium|small|smaller|custom`, default: `medium`, the fixed size of card to apply
 - `hide-action: type`: `Boolean`, default: `false`, define to hide or not the `action-favorite` button
 - `back-ground-is-dark`: type: `Boolean`, default: `false`, permit to apply a style depending on background color, as the component is used as embeded,
 - `is-favorite`: type: `Boolean`, default: `false`, provide the favorite state (passed to the `action-favorite` component),
@@ -484,3 +547,30 @@ This component render a header part with some main buttons, like closing the pag
 
 - Q: What does "ESCO" mean?
 - A: "ESCO" is an abbreviation of "e-scolaire", French for Online School.
+
+### Theming
+
+Currently this component supports [CSS Variables](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_variables) for overriding button colors. Defining the following variables will change the colors for the component accordingly. They will fall back to the colors described below.
+
+**_NOTE:_** This is only supported when the size attribute is set to `custom`.
+
+You should define this in your custom stylesheet.
+
+```css
+:root {
+  --content-gridcard-padding: 5px;
+  --content-gridcard-border: none;
+  --content-gridcard-bg-color: white;
+  --content-gridcard-border-radius: 5px;
+  --content-gridcard-shadow: none;
+  --content-gridcard-shadow-hover: none;
+  --content-gridcard-size-w: 180px;
+  --content-gridcard-size-h: 180px;
+  --content-gridcard-icon-size: 75px;
+  --content-gridcard-icon-size: 75px;
+  --content-gridcard-title-fontsize: 16px;
+  --content-gridcard-description-fontsize: 16px;
+
+  --content-griditem-margin: 20px auto;
+}
+```

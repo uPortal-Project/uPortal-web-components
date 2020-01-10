@@ -87,6 +87,7 @@ Pour une certaine intégration vous pourriez avoir besoin d'un peu plus, comme d
 - `user-org-id-attribute-name`: type: `String`, défaut : `'ESCOSIRENCourant[0]'`, 'attribut chemin de l'objet pour obtenir l'identifiant de l'organisation à récupérer dans l'API de l'organisation
 - `user-all-orgs-id-attribute-name`: type: `String`, défaut : `'ESCOSIREN`, le chemin d'objet de l'attribut pour obtenir tous les identifiants des organisations liées à l'utilisateur et pour récupérer à partir de l'API de l'organisation
 - `org-logo-url-attribute-name`: type: `String`, défaut : `'otherAttributes.ESCOStructureLogo[0]'`, l'attribut chemin de l'objet pour obtenir l'image de l'organisation Image à partir des détails de l'organisation obtenus à partir de l'API de l'organisation
+- `force-org-logo`: type: `String`, optionnelle, une url/uri pour fournir une image institutionnelle surchargeant la default-org-logo et l'image institutionnelle obtenue par l'API (utilisé pour avoir un aperçu de changement avant l'application à tous les utilisateurs via l'API),
 - `debug`: type: `Boolean`, défaut : `false`, pour que le mode démo/débogage puisse fonctionner de manière autonome (désactiver l'appel api).
 
 #### Slots
@@ -174,6 +175,7 @@ Ceci utilise les mêmes propriétés que dans le menu `hamburger-menu` (voir les
 - `user-org-id-attribute-name`
 - `user-all-orgs-id-attribute-name`
 - `org-logo-url-attribute-name`
+- `force-org-logo`
 - `debug`
 
 et avec des propriétés supplémentaires pour travailler avec le `hamburger-menu`:
@@ -327,6 +329,7 @@ Besoin de travail pour une utilisation autonome.
 - `default-org-logo`: type : `String`, requis : `true`, une url/uri pour fournir une image institutionnelle quand aucune n'est trouvée à partir d'une api optionnel ( non fourni dans uPortal ),
 - `user-info-portlet-url`: type: `String`, défaut : `''`, une url/uri pour les informations utilisateur de l'application,
 - `org-logo-url-attribute-name`: type : `String`, défaut : `'otherAttributes.ESCOStructureLogo[0]'`, l'attribut chemin obtenu par l'object organisation image pour obtenir les détails de l'organisation depuis l'api organisation.
+- `force-org-logo`: type: `String`, optionnelle, une url/uri pour fournir une image institutionnelle surchargeant la default-org-logo et l'image institutionnelle obtenue par l'API (utilisé pour avoir un aperçu de changement avant l'application à tous les utilisateurs via l'API),
 
 et des propriétés supplémentaires pour travailler avec le composant parent `content-menu`:
 
@@ -436,3 +439,29 @@ Ce composant rend une partie d'en-tête avec quelques boutons principaux, comme 
 
 - Q: Que signifie "ESCO" ?
 - A: "ESCO" est l'abréviation de "e-scolaire".
+
+### Theming
+
+Actuellement ce composant supporte [CSS Variables](https://developer.mozilla.org/fr/docs/Web/CSS/Using_CSS_custom_properties) pour surcharger les couleurs de boutons. Définir les variables suivante changera les couleurs du composant en conséquence. Les variables suivantes par défaut seront appliquées.
+**_NOTE:_** Cela est appliqué seulement quand la propriété de `size` est définie à `custom`.
+
+Vous devez définir cela dans votre feuille de style:
+
+```css
+:root {
+  --content-gridcard-padding: 5px;
+  --content-gridcard-border: none;
+  --content-gridcard-bg-color: white;
+  --content-gridcard-border-radius: 5px;
+  --content-gridcard-shadow: none;
+  --content-gridcard-shadow-hover: none;
+  --content-gridcard-size-w: 180px;
+  --content-gridcard-size-h: 180px;
+  --content-gridcard-icon-size: 75px;
+  --content-gridcard-icon-size: 75px;
+  --content-gridcard-title-fontsize: 16px;
+  --content-gridcard-description-fontsize: 16px;
+
+  --content-griditem-margin: 20px auto;
+}
+```

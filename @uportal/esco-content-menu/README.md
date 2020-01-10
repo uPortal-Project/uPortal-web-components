@@ -132,6 +132,7 @@ For some integration you could need a bit more, like into uPortal you will need 
 - `user-org-id-attribute-name`: type: `String`, default: `'ESCOSIRENCourant[0]'`, the attribute object path to obtain the id of the organization to retrieve from the organization's api
 - `user-all-orgs-id-attribute-name`: type: `String`, default: `'ESCOSIREN`, the attribute object path to obtain all ids of the organizations linked to the user and to retrieve from the organization's api
 - `org-logo-url-attribute-name`: type: `String`, default: `'otherAttributes.ESCOStructureLogo[0]'`, the attribute object path to obtain the organization Picture from organization details obtained from the organization's api
+- `force-org-logo`: type: `String`, optional, an url/uri to provide an institutional picture overriding the default-org-logo and the institutional one obtained by an api (used to have an overview before updating change to every users from the api),
 - `debug`: type: `Boolean`, default: `false`, for the demo/debug mode to be able to run in a standalone way (disable api call).
 
 #### Slots
@@ -219,6 +220,7 @@ This use the same properties from the `hamburger-menu` (see on `hamburger-menu` 
 - `user-org-id-attribute-name`
 - `user-all-orgs-id-attribute-name`
 - `org-logo-url-attribute-name`
+- `force-org-logo`
 - `debug`
 
 and with additional properties to work with the `hamburger-menu`:
@@ -435,6 +437,7 @@ Need some work for a standalone use.
 - `default-org-logo`: type: `String`, required: `true`, an url/uri to provide an institutional picture when none is found from an optional api (not provided into uPortal),
 - `user-info-portlet-url`: type: `String`, default: `''`, an url/uri to the user information application,
 - `org-logo-url-attribute-name`: type: `String`, default: `'otherAttributes.ESCOStructureLogo[0]'`, the attribute object path to obtain the organization Picture from organization details obtained from the organization's api.
+- `force-org-logo`: type: `String`, optional, an url/uri to provide an institutional picture overriding the default-org-logo and the institutional one obtained by an api (used to have an overview before updating change to every users from the api),
 
 and additional properties to work with the parent component `content-menu`:
 
