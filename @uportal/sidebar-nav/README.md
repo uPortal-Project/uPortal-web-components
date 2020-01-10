@@ -30,7 +30,7 @@ npm run test
 
 ### Lints and fixes files
 
-```<span class="x x-first x-last">bash</span>
+```bash
 npm run lint
 ```
 
