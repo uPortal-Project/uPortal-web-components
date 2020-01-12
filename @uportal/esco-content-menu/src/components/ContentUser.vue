@@ -93,6 +93,7 @@ export default {
       default: process.env.VUE_APP_ORG_SWITCH_URI
     },
     defaultOrgLogo: { type: String, required: true },
+    forceOrgLogo: { type: String },
     userInfoPortletUrl: { type: String, default: '' },
     orgLogoUrlAttributeName: {
       type: String,
@@ -105,6 +106,7 @@ export default {
     },
     getOrgImgUrl() {
       const logo =
+        this.forceOrgLogo ||
         getOrganizationLogo(this.orgInfo, this.orgLogoUrlAttributeName) ||
         this.defaultOrgLogo;
       return computeUrl(logo);

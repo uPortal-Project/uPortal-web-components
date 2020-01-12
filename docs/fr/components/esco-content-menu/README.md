@@ -36,6 +36,51 @@ compile 'org.webjars.npm:uportal__esco-content-menu:{version number goes here}'
 
 ## Utilisation comme composant Web
 
+### internationalisation
+
+Les composants `hamburger-menu`, `content-grid`, and `content-menu` supportent la mixin d'internationalisation. Cela ajoute la propriété `messages` qui peut surchargera les textes par défaut dans les différents composants. Cette property propriété sera répercutée dans les composants `PortletCard` et le `ActionFavorites`.
+
+Par exemple:
+
+```html
+<esco-hamburger-menu
+  messages='[{"locales": ["en", "en-US"], "messages": { "message": {"favorites": { "add": "Add me to your favorites!" } }}}]'
+>
+</esco-hamburger-menu>
+```
+
+Les massages disponibles comme suit:
+
+```json
+{
+  "message": {
+    "services": {
+      "title": "All services",
+      "filter": "Find a service..."
+    },
+    "favorites": {
+      "add": "Add to favorites",
+      "remove": "Remove from favorites",
+      "title": "My Favorites",
+      "empty": "No favorite defined"
+    },
+    "filter": {
+      "selectOption": "All categories"
+    },
+    "userInfoPortletUrl": {
+      "title": "See my account informations"
+    },
+    "userChangeEtabUrl": {
+      "title": "Select an other organization"
+    },
+    "buttons": {
+      "logout": "Sign out",
+      "menuClose": "Close menu"
+    }
+  }
+}
+```
+
 ### Le menu hamburger
 
 C'est le composant principal qui affiche un menu hamburger et qui ouvre une page entière avec le composant `content-menu`.
@@ -87,6 +132,7 @@ Pour une certaine intégration vous pourriez avoir besoin d'un peu plus, comme d
 - `user-org-id-attribute-name`: type: `String`, défaut : `'ESCOSIRENCourant[0]'`, 'attribut chemin de l'objet pour obtenir l'identifiant de l'organisation à récupérer dans l'API de l'organisation
 - `user-all-orgs-id-attribute-name`: type: `String`, défaut : `'ESCOSIREN`, le chemin d'objet de l'attribut pour obtenir tous les identifiants des organisations liées à l'utilisateur et pour récupérer à partir de l'API de l'organisation
 - `org-logo-url-attribute-name`: type: `String`, défaut : `'otherAttributes.ESCOStructureLogo[0]'`, l'attribut chemin de l'objet pour obtenir l'image de l'organisation Image à partir des détails de l'organisation obtenus à partir de l'API de l'organisation
+- `force-org-logo`: type: `String`, optionnelle, une url/uri pour fournir une image institutionnelle surchargeant la default-org-logo et l'image institutionnelle obtenue par l'API (utilisé pour avoir un aperçu de changement avant l'application à tous les utilisateurs via l'API),
 - `debug`: type: `Boolean`, défaut : `false`, pour que le mode démo/débogage puisse fonctionner de manière autonome (désactiver l'appel api).
 
 #### Slots
@@ -174,6 +220,7 @@ Ceci utilise les mêmes propriétés que dans le menu `hamburger-menu` (voir les
 - `user-org-id-attribute-name`
 - `user-all-orgs-id-attribute-name`
 - `org-logo-url-attribute-name`
+- `force-org-logo`
 - `debug`
 
 et avec des propriétés supplémentaires pour travailler avec le `hamburger-menu`:
@@ -181,6 +228,42 @@ et avec des propriétés supplémentaires pour travailler avec le `hamburger-men
 - `call-on-close`: type : `Function`, défaut : `{}`, fournit une fonction de rappel à appeler dès que le bouton fermer a été actionné avec le `header-buttons` composant.
 - `is-hidden`: type : `Boolean`, défaut : `false`, utilisé par `hamburger-menu` tpour indiquer l'état de la page.
 - `id`: type : `String`, défaut : `null`, fournit un identifiant pour pouvoir sélectionner l'élément du dôme, par exemple si vous voulez gérer manuellement un `hamburger-menu`
+
+#### Slots
+
+The HTML content of the component can also be modified using [slots](https://vuejs.org/v2/guide/components-slots.html).
+
+##### Content User
+
+The `content-user` slot permit to apply a custom component at this place, or to remove it. As example:
+
+```html
+<esco-content-menu
+  sign-out-url="/uPortal/Logout"
+  default-org-logo="https://www.toureiffel.paris/sites/default/files/styles/1440x810/public/2017-10/monument-landing-header-bg_0.jpg?itok=_dSLLBlZ"
+  favorites-portlet-card-size="small"
+  grid-portlet-card-size="auto"
+  hide-action-mode="never"
+>
+  <div slot="content-user"></div>
+</esco-content-menu>
+```
+
+##### Header Buttons
+
+The `header-buttons` slot permit to apply a custom component at this place, or to remove it. As example:
+
+```html
+<esco-content-menu
+  sign-out-url="/uPortal/Logout"
+  default-org-logo="https://www.toureiffel.paris/sites/default/files/styles/1440x810/public/2017-10/monument-landing-header-bg_0.jpg?itok=_dSLLBlZ"
+  favorites-portlet-card-size="small"
+  grid-portlet-card-size="auto"
+  hide-action-mode="never"
+>
+  <div slot="header-buttons"></div>
+</esco-content-menu>
+```
 
 ### la grille de contenu
 
@@ -218,6 +301,7 @@ Propriétés autonomes :
 - `show-footer-categories`: `Boolean`, défaut : `false`, défini pour afficher la liste déroulant des catégories en bas de la grille
 - `hide-title`: `Boolean`, défaut : `false`, défini pour supprimer la zone de titre de la grille, utile lorsqu'une grille de base est souhaitée
 - `debug`: type : `Boolean`, défaut : `false`, pour que le mode démo/débogage puisse fonctionner de manière autonome (désactiver l'appel api)
+- `portlet-background-is-dark`: `Boolean`, default: `false`, indicate to the component that the parent background is dark and permit to the portlet-card component to show buttons like favorites in a more suitable color.
 
 et des propriétés supplémentaires pour travailler avec le composant parent `content-menu`:
 
@@ -259,6 +343,21 @@ L'attribut slot `header-right` permet d'appliquer un titre personnalisé rempla�
 </content-grid>
 ```
 
+##### Preamble
+
+The `preamble` slot permit to add descriptive text between the headers and grid. As example:
+
+```html
+<content-grid
+  background-color="grey"
+  portlet-card-size="medium"
+  portlet-api-url="/uPortal/api/v4-3/dlm/portletRegistry.json?category=administration"
+  layout-api-url="..."
+>
+  <div slot="preamble">This is explanatory text for the grid.</div>
+</content-grid>
+```
+
 ##### Pied de page
 
 L'attribut slot `footer` permet d'appliquer un titre personnalisé remplaçant le filtre par défaut sur le pied de page. Par exemple :
@@ -272,6 +371,17 @@ L'attribut slot `footer` permet d'appliquer un titre personnalisé remplaçant l
 >
   <div slot="footer"></div>
 </content-grid>
+```
+
+#### Theming
+
+This component supports [CSS Variables](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_variables) for overriding some default values. So defining the following variables will override default values.
+
+```css
+:root {
+  --content-grid-flex-grid-justify: center; // How to justify all flex grid elements, default value is center
+  --content-grid-flex-grid-item-margin: 20px auto; // To set a margin on all flex items, default is `20px auto`
+}
 ```
 
 ### L'action favori
@@ -327,6 +437,7 @@ Besoin de travail pour une utilisation autonome.
 - `default-org-logo`: type : `String`, requis : `true`, une url/uri pour fournir une image institutionnelle quand aucune n'est trouvée à partir d'une api optionnel ( non fourni dans uPortal ),
 - `user-info-portlet-url`: type: `String`, défaut : `''`, une url/uri pour les informations utilisateur de l'application,
 - `org-logo-url-attribute-name`: type : `String`, défaut : `'otherAttributes.ESCOStructureLogo[0]'`, l'attribut chemin obtenu par l'object organisation image pour obtenir les détails de l'organisation depuis l'api organisation.
+- `force-org-logo`: type: `String`, optionnelle, une url/uri pour fournir une image institutionnelle surchargeant la default-org-logo et l'image institutionnelle obtenue par l'API (utilisé pour avoir un aperçu de changement avant l'application à tous les utilisateurs via l'API),
 
 et des propriétés supplémentaires pour travailler avec le composant parent `content-menu`:
 
@@ -436,3 +547,30 @@ Ce composant rend une partie d'en-tête avec quelques boutons principaux, comme 
 
 - Q: Que signifie "ESCO" ?
 - A: "ESCO" est l'abréviation de "e-scolaire".
+
+### Theming
+
+Actuellement ce composant supporte [CSS Variables](https://developer.mozilla.org/fr/docs/Web/CSS/Using_CSS_custom_properties) pour surcharger les couleurs de boutons. Définir les variables suivante changera les couleurs du composant en conséquence. Les variables suivantes par défaut seront appliquées.
+
+**_NOTE:_** Cela est appliqué seulement quand la propriété de `size` est définie à `custom`.
+
+Vous devez définir cela dans votre feuille de style:
+
+```css
+:root {
+  --content-gridcard-padding: 5px;
+  --content-gridcard-border: none;
+  --content-gridcard-bg-color: white;
+  --content-gridcard-border-radius: 5px;
+  --content-gridcard-shadow: none;
+  --content-gridcard-shadow-hover: none;
+  --content-gridcard-size-w: 180px;
+  --content-gridcard-size-h: 180px;
+  --content-gridcard-icon-size: 75px;
+  --content-gridcard-icon-size: 75px;
+  --content-gridcard-title-fontsize: 16px;
+  --content-gridcard-description-fontsize: 16px;
+
+  --content-griditem-margin: 20px auto;
+}
+```
