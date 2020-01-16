@@ -7,6 +7,59 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased][]
 
+## [1.34.0][] - 2020-01-16
+
+### Features
+
+- **esco-content-menu**: force org logo (#474)
+- **sidebar-nav**: new component (#467)
+- **esco-content-grid**: add preamble slot (#470)
+- **content-carousel**: CSS var to control the display of the hero text (#441)
+- **dashboard-carousel**: added max-width & margin-bottom rules for mobile viewports (#442)
+
+### Fixes
+
+- **esco-content-menu**: missing user info link (#455)
+- **esco-content-menu**: style favorite sr-only (#456)
+- **esco-content-grid**: restored title attribute to favorite btn (#428)
+- **esco-content-grid**: added context to favorite button (#427)
+
+### Chores
+
+- support Node 13 and Windows (#461)
+- ci: setup github actions ci (#460)
+- Import vue.min.js from resource-server instead of unpkg (#423)
+- Update dependencies
+  - gradle to v6.1.0 (#478)
+  - stylelint to v13 (#476)
+  - core-js to v3 (#475)
+  - @kazupon/vue-i18n-loader to ^0.5.0 (#472)
+  - font awesome (#468)
+  - node.js to v13.6.0 (#473)
+  - @mapbox/stylelint-processor-arbitrary-tags to ^0.3.0 (#471)
+  - node.js to v13.5.0 (#469)
+  - node.js to v13.3.0 (#466)
+  - node.js to v13.2.0 (#464)
+  - ky to ^0.16.0 (#457)
+  - gradle to v6 (#452)
+  - @vue/eslint-config-prettier to v6 (#459)
+  - eslint-plugin-jest to v23 (#450)
+  - eslint-plugin-vue to v6 (#451)
+  - stylelint to v12 (#458)
+  - gradle to v5.6.4 (#447)
+  - prettier to v1.19.1 (#453)
+  - Node.js to v12.13.0 (#449)
+  - Node.js to v12.12.0 (#445)
+  - ky to ^0.15.0 (#444)
+  - Node.js to v12.11.1 (#443)
+  - Font Awesome (#435)
+  - stylelint-config-standard to v19 (#434)
+  - stylelint to v11 (#433)
+  - node.js to v12.11.0 (#436)
+  - ky to ^0.14.0 (#425)
+  - gradle to v5.6.2 (#422)
+  - node.js to v12.10.0 (#421)
+
 ## [1.33.2][] - 2019-09-05
 
 ### Fixes
