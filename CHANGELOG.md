@@ -7,8 +7,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased][]
 
-## [1.34.0][] - 2020-01-16
-
 ### Features
 
 - **esco-content-menu**: force org logo (#474)
