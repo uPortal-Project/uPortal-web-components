@@ -86,25 +86,20 @@
   },
   "lint-staged": {
     "*.{js,vue}": [
-      "eslint --ext .js,.vue --fix",
-      "git add"
+      "eslint --ext .js,.vue --fix"
     ],
     "*.ts": [
-      "tslint -c tslint.json --fix",
-      "git add"
+      "tslint -c tslint.json --fix"
     ],
     "*.css": [
-      "prettier-stylelint --write",
-      "git add"
+      "prettier-stylelint --write"
     ],
     "*.scss": [
       "prettier --write --parser scss",
-      "stylelint",
-      "git add"
+      "stylelint"
     ],
     "*.{html,md,json}": [
-      "prettier --write",
-      "git add"
+      "prettier --write"
     ]
   },
   "stylelint": {
