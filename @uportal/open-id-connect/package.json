@@ -1,7 +1,7 @@
 {
   "name": "@uportal/open-id-connect",
   "description": "A shared Open ID Connect authorization helper for uPortal",
-  "version": "1.34.0",
+  "version": "1.34.1",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/uPortal-contrib/uPortal-web-components.git"
