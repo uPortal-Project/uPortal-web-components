@@ -34,7 +34,6 @@
               :href="moreLink"
               :title="translate('userInfoPortletUrl.title')"
             >
-              <img />
               <img :src="picture" :alt="'avatar'" />
             </a>
             <img v-else :src="picture" :alt="'avatar'" />
