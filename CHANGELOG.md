@@ -17,6 +17,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
   - Node.js to v13.7.0 (#480)
   - lint-staged to v10 (#479)
   - jest monorepo to v25 (#481)
+  - gradle to v6.1.1 (#482)
 
 ## [1.34.0][] - 2020-01-16
 
