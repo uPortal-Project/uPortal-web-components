@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased][]
 
+### Fixes
+
+- **eyebrow-user-info**: extra html tag added after linter update (#483)
+
+### Chores
+
+- Update dependencies
+  - Node.js to v13.7.0 (#480)
+  - lint-staged to v10 (#479)
+  - jest monorepo to v25 (#481)
+
 ## [1.34.0][] - 2020-01-16
 
 ### Features
