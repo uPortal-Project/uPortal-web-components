@@ -7,6 +7,18 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased][]
 
+### Fixes
+
+- **sidebar-nav**: add repo url and other metadata (#488)
+
+### Chores
+
+- Update dependencies
+  - stylelint-config-standard to v20 (#487)
+  - node.js to v13.8.0 (#486)
+  - fontawesome (#485)
+  - ky to ^0.17.0 (#484)
+
 ## [1.34.1][] - 2020-01-27
 
 ### Fixes
