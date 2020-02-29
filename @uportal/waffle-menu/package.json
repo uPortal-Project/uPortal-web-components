@@ -1,15 +1,15 @@
 {
   "name": "@uportal/waffle-menu",
   "description": "An app launcher dropdown",
-  "version": "1.34.2",
+  "version": "1.34.3",
   "publishConfig": {
     "access": "public"
   },
   "main": "dist/waffle-menu.js",
   "source": "src/components/WaffleMenu.vue",
   "dependencies": {
-    "@uportal/open-id-connect": "^1.34.2",
-    "@uportal/portlet-registry-to-array": "^1.34.2",
+    "@uportal/open-id-connect": "^1.34.3",
+    "@uportal/portlet-registry-to-array": "^1.34.3",
     "lodash.get": "^4.4.2",
     "vue": "^2.6.2"
   },
