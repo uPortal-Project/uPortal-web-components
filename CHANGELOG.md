@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased][]
 
+## [1.34.3][] - 2020-02-29
+
 ### Fixes
 
 - **sidebar-nav**: update build in package.json to correct name of tag (#493)
@@ -1195,7 +1197,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - **open-id-connect**: Initial version of an OpenID Connect helper script to use in web components and JavaScript modules.
 - **content-carousel**: Initial version of content carousel, a carousel based portlet metadata display system.
 
-[unreleased]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.34.2...HEAD
+[unreleased]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.34.3...HEAD
+[1.34.3]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.34.2...v1.34.3
 [1.34.2]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.34.1...v1.34.2
 [1.34.1]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.34.0...v1.34.1
 [1.34.0]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.33.2...v1.34.0
