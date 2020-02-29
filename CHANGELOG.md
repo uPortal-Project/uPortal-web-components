@@ -7,6 +7,18 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased][]
 
+### Fixes
+
+- **sidebar-nav**: update build in package.json to correct name of tag (#493)
+
+### Chores
+
+- Update dependencies
+  - update dependency ky to ^0.18.0 (#492)
+  - update node.js to v13.9.0 (#490)
+  - update dependency gradle to v6.2.1 (#491)
+  - update dependency gradle to v6.2.0 (#489)
+
 ## [1.34.2][] - 2020-02-12
 
 ### Fixes
