@@ -1,6 +1,11 @@
 <template>
   <div class="waffle-menu-container" ref="waffleMenu">
-    <button class="waffle-trigger" @click="toggleMenu()">
+    <button
+      class="waffle-trigger"
+      @click="toggleMenu()"
+      :aria-label="ariaLabel"
+      :aria-expanded="menuOpen ? 'true' : 'false'"
+    >
       <FontAwesomeIcon icon="th" :color="buttonColor" size="2x" />
       <div v-if="menuOpen">
         <div class="waffle-triangle-black" />
@@ -74,6 +79,10 @@ export default {
       type: String,
       default: '#fff'
     },
+    buttonLabel: {
+      type: String,
+      default: 'Waffle Menu'
+    },
     menuBackgroundColor: {
       type: String,
       default: '#fff'
@@ -104,6 +113,7 @@ export default {
   data() {
     return {
       menuOpen: false,
+      ariaLabel: this.buttonLabel,
       data: [],
       dataItems: [],
       dataLoaded: false,
@@ -208,11 +218,27 @@ export default {
       if (menu !== target && !shadow && !menu.contains(target)) {
         this.menuOpen = false;
       }
+    },
+    handleKeyDown(event) {
+      const menu = this.$refs.waffleMenu;
+      const target = event.target;
+      if (
+        event.key === 'Escape' &&
+        this.menuOpen &&
+        (menu.contains(target) ||
+          event.tagName === 'WAFFLE-MENU' ||
+          target.tagName === 'WAFFLE-MENU')
+      ) {
+        this.toggleMenu();
+        menu.querySelector('.waffle-trigger').focus();
+      }
     }
   },
   mounted() {
-    // Initialize Menu Date when Mounted
     document.addEventListener('click', this.handleOutsideClick, false);
+    document.addEventListener('keydown', this.handleKeyDown, false);
+
+    // Initialize Menu data when Mounted
     this.fetchMenuData();
   }
 };
