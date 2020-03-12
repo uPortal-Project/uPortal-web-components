@@ -15,7 +15,7 @@
     "@uportal/open-id-connect": "^1.34.3",
     "handlebars": "^4.1.2",
     "jquery": "^3.3.1",
-    "ky": "^0.18.0",
+    "ky": "^0.19.0",
     "vue": "^2.5.17",
     "vue-async-computed": "^3.5.0"
   },
