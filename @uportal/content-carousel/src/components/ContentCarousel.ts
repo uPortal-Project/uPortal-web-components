@@ -1,13 +1,20 @@
 import {AuthenticatedRssStrategy} from '@/lib/AuthenticatedRssStrategy';
 import {PortletStrategy} from '@/lib/PortletStrategy';
 import {RssStrategy} from '@/lib/RssStrategy';
+import {library} from '@fortawesome/fontawesome-svg-core';
+import {faPause, faPlay} from '@fortawesome/free-solid-svg-icons';
+import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome';
 import {Component, Prop, Vue, Watch} from 'vue-property-decorator';
 import Slick from 'vue-slick';
 import {CarouselItem} from '../lib/CarouselItem';
 import {DataStrategy} from '../lib/DataStrategy';
 
+library.add(faPause);
+library.add(faPlay);
+
 @Component({
 components: {
+    FontAwesomeIcon,
     Slick,
     },
     })
@@ -114,5 +121,15 @@ export default class ContentCarousel extends Vue {
         console.error(`type: "${this.type}" is not recognized`);
       }
     }
+  }
+
+  protected onPauseClick() {
+    const slick: any = this.$refs.slick;
+    slick.pause();
+  }
+
+  protected onPlayClick() {
+    const slick: any = this.$refs.slick;
+    slick.play();
   }
 }
