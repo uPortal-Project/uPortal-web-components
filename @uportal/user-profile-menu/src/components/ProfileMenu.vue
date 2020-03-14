@@ -94,7 +94,7 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-.profile-menu-container /deep/ {
+.profile-menu-container ::v-deep {
   @import '../../node_modules/bootstrap/scss/bootstrap';
 
   color: white;

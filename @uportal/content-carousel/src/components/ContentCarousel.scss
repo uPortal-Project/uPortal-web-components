@@ -1,7 +1,7 @@
 @import '../../node_modules/slick-carousel/slick/slick.css';
 @import '../../node_modules/slick-carousel/slick/slick-theme.css';
 
-.content-carousel /deep/ {
+.content-carousel ::v-deep {
   .slick-container.responsive {
     .slick-inner {
       width: 100%;

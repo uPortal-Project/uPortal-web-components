@@ -427,7 +427,7 @@ export default {
       }
     }
 
-    > /deep/ section.content-grid {
+    > ::v-deep section.content-grid {
       > div {
         background-color: #f3f3f3;
 
