@@ -311,7 +311,7 @@ $buttonWidth: 32px;
     position: relative;
     padding: 0 2em;
 
-    > /deep/ .content-grid {
+    > ::v-deep .content-grid {
       > div .flex-grid {
         justify-content: flex-start;
 

@@ -14,11 +14,13 @@ module.exports = {
     }
   },
   css: {
+    requireModuleExtension: true,
     loaderOptions: {
       css: {
-        modules: true,
-        localIdentName: '[name]-[local]',
-        camelCase: 'only'
+        modules: {
+          localIdentName: '[name]-[local]'
+        },
+        localsConvention: 'camelCaseOnly'
       }
     }
   }

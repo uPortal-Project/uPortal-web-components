@@ -15,9 +15,9 @@
   "main": "dist/user-profile-menu.js",
   "source": "src/components/ProfileMenu.js",
   "scripts": {
-    "start": "vue-cli-service serve",
+    "start": "vue-cli-service serve --skip-plugins eslint",
     "prebuild": "babel node_modules/@vue/web-component-wrapper/dist/vue-wc-wrapper.js -o node_modules/@vue/web-component-wrapper/dist/vue-wc-wrapper.js",
-    "build": "vue-cli-service build --name user-profile-menu --target wc \"src/components/*.vue\"",
+    "build": "vue-cli-service build --skip-plugins eslint --name user-profile-menu --target wc \"src/components/*.vue\"",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
@@ -31,9 +31,9 @@
     "@babel/plugin-transform-runtime": "^7.3.4",
     "@babel/preset-env": "^7.3.4",
     "@babel/runtime": "^7.3.4",
-    "@vue/cli-plugin-babel": "^3.4.1",
-    "@vue/cli-plugin-eslint": "^3.4.0",
-    "@vue/cli-service": "^3.4.1",
+    "@vue/cli-plugin-babel": "^4.0.0",
+    "@vue/cli-plugin-eslint": "^4.0.0",
+    "@vue/cli-service": "^4.0.0",
     "babel-eslint": "^10.0.1",
     "eslint": "^6.0.0",
     "eslint-plugin-vue": "^6.0.0",

@@ -7,9 +7,9 @@
   "main": "dist/api-template-vue.js",
   "source": "src/components/ApiTemplateVue.vue",
   "scripts": {
-    "start": "vue-cli-service serve",
+    "start": "vue-cli-service serve --skip-plugins eslint",
     "prebuild": "babel node_modules/@vue/web-component-wrapper/dist/vue-wc-wrapper.js -o node_modules/@vue/web-component-wrapper/dist/vue-wc-wrapper.js",
-    "build": "vue-cli-service build --name api-template-vue --target wc \"src/components/*.vue\"",
+    "build": "vue-cli-service --skip-plugins eslint build --name api-template-vue --target wc \"src/components/*.vue\"",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
@@ -21,9 +21,9 @@
     "@babel/cli": "^7.2.3",
     "@babel/plugin-transform-runtime": "^7.2.0",
     "@babel/preset-env": "^7.2.3",
-    "@vue/cli-plugin-babel": "^3.2.0",
-    "@vue/cli-plugin-eslint": "^3.2.0",
-    "@vue/cli-service": "^3.2.0",
+    "@vue/cli-plugin-babel": "^4.0.0",
+    "@vue/cli-plugin-eslint": "^4.0.0",
+    "@vue/cli-service": "^4.0.0",
     "babel-eslint": "^10.0.1",
     "bootstrap": "^4.2.1",
     "eslint": "^6.0.0",

@@ -145,7 +145,7 @@ export default {
 @import '../../node_modules/slick-carousel/slick/slick.css';
 @import '../../node_modules/slick-carousel/slick/slick-theme.css';
 
-.carousel /deep/ {
+.carousel ::v-deep {
   display: flex;
   flex-direction: column;
   justify-content: stretch;
@@ -214,8 +214,8 @@ export default {
   }
 }
 
-.slick-slider /deep/ .slick-prev,
-.slick-slider /deep/ .slick-next {
+.slick-slider ::v-deep .slick-prev,
+.slick-slider ::v-deep .slick-next {
   position: relative;
   height: inherit;
   width: inherit;
@@ -229,13 +229,13 @@ export default {
   }
 }
 
-.slick-slider /deep/ .slick-prev {
+.slick-slider ::v-deep .slick-prev {
   &::before {
     content: '\3008';
   }
 }
 
-.slick-slider /deep/ .slick-next {
+.slick-slider ::v-deep .slick-next {
   &::before {
     content: '\3009';
   }
@@ -300,7 +300,7 @@ ul {
 
 /* Small devices (landscape phones, less than 768px) */
 @media (max-width: 767.98px) {
-  .carousel /deep/ {
+  .carousel ::v-deep {
     .slick-item {
       flex-direction: column;
 

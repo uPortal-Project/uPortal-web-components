@@ -102,7 +102,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
 /* HACK: needed to scope styles for browsers that do not have shadow dom support */
-.atv-outer /deep/ {
+.atv-outer ::v-deep {
   @import '../../node_modules/bootstrap/scss/bootstrap';
 }
 </style>
