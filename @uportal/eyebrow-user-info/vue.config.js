@@ -12,5 +12,16 @@ module.exports = {
     i18n: {
       enableInSFC: true
     }
+  },
+  css: {
+    requireModuleExtension: true,
+    loaderOptions: {
+      css: {
+        modules: {
+          localIdentName: '[name]-[local]'
+        },
+        localsConvention: 'camelCaseOnly'
+      }
+    }
   }
 };
