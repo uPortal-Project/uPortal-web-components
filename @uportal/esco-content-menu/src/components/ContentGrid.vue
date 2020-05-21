@@ -227,7 +227,7 @@ export default {
                 threshold: matchSorter.rankings.ACRONYM
               });
 
-      return valueFilter(categoryFilter(portlets));
+      return valueFilter(categoryFilter(portlets)).sort(byPortlet);
     }
   },
   beforeMount() {
