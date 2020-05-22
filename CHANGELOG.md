@@ -7,6 +7,31 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased][]
 
+### Features
+
+- Waffle menu/accessibility enhancements (#391)
+
+### Fixes
+
+- **esco-content-grid**: fix sort of grid (#526)
+
+### Chores
+
+- Update dependencies
+  - eslint to v7 (#523)
+  - font awesome (#509)
+  - remark monorepo (major) (#510)
+  - nvmrc to use node 14 by default (#527)
+  - ky to ^0.20.0 (#524)
+  - gradle to v6.4.1 (#522)
+  - gradle to v6.3.0 (#511)
+  - vue-cli monorepo to v4 (major) (#448)
+  - acorn from 6.3.0 to 6.4.1 (#501, #502, #503, #504, #505)
+  - ky to ^0.19.0 (#498)
+  - tslint to v6 (#500)
+  - node.js to v13.11.0 (#496)
+  - gradle to v6.2.2 (#495)
+
 ## [1.34.3][] - 2020-02-29
 
 ### Fixes
