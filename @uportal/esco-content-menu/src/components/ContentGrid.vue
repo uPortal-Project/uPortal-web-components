@@ -227,7 +227,7 @@ export default {
                 threshold: matchSorter.rankings.ACRONYM
               });
 
-      return valueFilter(categoryFilter(portlets)).sort(byPortlet);
+      return valueFilter(categoryFilter(portlets).sort(byPortlet));
     }
   },
   beforeMount() {
@@ -284,7 +284,7 @@ export default {
         this.portletApiUrl,
         this.debug
       );
-      this.localPortlets = portletRegistryToArray(portlets).sort(byPortlet);
+      this.localPortlets = portletRegistryToArray(portlets);
     },
     async fetchFavorites() {
       const favoritesTree = await fetchFavorites(
