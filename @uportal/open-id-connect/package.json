@@ -43,15 +43,14 @@
     "jwt-decode": "^2.2.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.1.2",
-    "@babel/preset-env": "^7.1.0",
-    "babel-core": "^7.0.0-bridge.0",
-    "babel-jest": "^25.0.0",
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.0",
+    "babel-jest": "^26.0.0",
     "eslint-plugin-jest": "^23.0.0",
-    "jest": "^25.0.0",
+    "jest": "^26.0.0",
     "npm-run-all": "^4.1.5",
-    "rollup": "^1.0.0",
-    "rollup-plugin-babel": "^4.0.3"
+    "rollup": "^2.10.0",
+    "rollup-plugin-babel": "^4.4.0"
   },
   "eslintConfig": {
     "parserOptions": {
@@ -68,7 +67,6 @@
     }
   },
   "engines": {
-    "node": "^6.0.0 || ^8.0.0 || ^10.0.0"
-  },
-  "gitHead": "cc4c3c5e78594db37244566d15fe872767baf3f2"
+    "node": "^10.0.0 || ^12.0.0 || ^14.0.0"
+  }
 }
