@@ -18,6 +18,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Chores
 
 - Update dependencies
+  - prettier to v2 (#508)
   - eslint to v7 (#523)
   - font awesome (#509)
   - remark monorepo (major) (#510)
