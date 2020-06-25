@@ -149,7 +149,7 @@ export default {
 .action-favorites {
   &.background-dark {
     .favorite-button > .svg-inline--fa {
-      color: #f2f2f2;
+      color: var(--action-favorites-dark-background-icon-color, #f2f2f2);
     }
   }
 
@@ -176,7 +176,7 @@ export default {
     > .svg-inline--fa {
       width: 60%;
       height: 60%; /* or any other relative font sizes */
-      color: #b7b7b7;
+      color: var(--action-favorites-normal-icon-color, #b7b7b7);
     }
   }
 }
