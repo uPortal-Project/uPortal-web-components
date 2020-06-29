@@ -388,7 +388,7 @@ This component supports [CSS Variables](https://developer.mozilla.org/en-US/docs
 
 The component `action-favorite` is really simple, it show a start button that permit to add or remove from favorites a portlet.
 
-### Html
+#### Html
 
 ```html
 <script src="/resource-server/webjars/vue/dist/vue.min.js"></script>
@@ -411,6 +411,17 @@ The component `action-favorite` is really simple, it show a start button that pe
 - `is-favorite`: type: `Boolean`, default: `false`, provide the favorite state,
 - `back-ground-is-dark`: type: `Boolean`, default: `false`, permit to apply a style depending on background color, as the component is used as embeded,
 - `debug`: type: `Boolean`, default: `false`, for the demo/debug mode to be able to run in a standalone way (disable favorites api call)
+
+#### Theming
+
+This component supports [CSS Variables](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_variables) for overriding some default values. So defining the following variables will override default values.
+
+```css
+:root {
+  --action-favorites-dark-background-icon-color: #010101; // To set a different color of the favorite svg icon when background is dark.
+  --action-favorites-normal-icon-color: red; // To set a different color of the favorite svg icon when background is normal.
+}
+```
 
 ### The content favorites
 

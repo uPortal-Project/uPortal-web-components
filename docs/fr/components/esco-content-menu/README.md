@@ -375,7 +375,7 @@ L'attribut slot `footer` permet d'appliquer un titre personnalisé remplaçant l
 
 #### Theming
 
-This component supports [CSS Variables](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_variables) for overriding some default values. So defining the following variables will override default values.
+Ce composant supporte les [CSS Variables](https://developer.mozilla.org/fr/docs/Web/CSS/Using_CSS_custom_properties) pour surcharger quelques valeurs par défaut. Donc définir les variables suivantes surchargera les valeurs par défaut.
 
 ```css
 :root {
@@ -388,7 +388,7 @@ This component supports [CSS Variables](https://developer.mozilla.org/en-US/docs
 
 Le composant `action-favorite` est très simple, il affiche un bouton de démarrage qui permet d'ajouter ou de supprimer des favoris un portlet.
 
-### Html
+#### Html
 
 ```html
 <script src="/resource-server/webjars/vue/dist/vue.min.js"></script>
@@ -411,6 +411,17 @@ Le composant `action-favorite` est très simple, il affiche un bouton de démarr
 - `is-favorite`: type : `Boolean`, défaut : `false`, fournir l'état favori,
 - `back-ground-is-dark`: type : `Boolean`, défaut : `false`, permet d'appliquer un style en fonction de la couleur de fond, car le composant est utilisé en tant qu'embeded,
 - `debug`: type : `Boolean`, défaut : `false`, pour que le mode démo/débogage puisse s'exécuter de manière autonome (désactiver l'appel de l'api des favoris)
+
+#### Theming
+
+Ce composant supporte les [CSS Variables](https://developer.mozilla.org/fr/docs/Web/CSS/Using_CSS_custom_properties) pour surcharger quelques valeurs par défaut. Donc définir les variables suivantes surchargera les valeurs par défaut.
+
+```css
+:root {
+  --action-favorites-dark-background-icon-color: #010101; // Pour définir une couleur différente de l'icône svg de favoris quand l'arrière-plan est sombre.
+  --action-favorites-normal-icon-color: red; // Pour définir une couleur différente de l'icône svg de favoris quand l'arrière-plan est normal.
+}
+```
 
 ### Les contenus favoris
 
