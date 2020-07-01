@@ -5,17 +5,17 @@ export default {
   output: [
     {
       format: 'esm',
-      file: 'esm/open-id-connect.js'
+      file: 'esm/open-id-connect.js',
     },
     {
       format: 'umd',
       name: 'openIdConnect',
-      file: 'umd/open-id-connect.js'
+      file: 'umd/open-id-connect.js',
     },
     {
       format: 'cjs',
-      file: 'cjs/open-id-connect.js'
-    }
+      file: 'cjs/open-id-connect.js',
+    },
   ],
-  plugins: [babel()]
+  plugins: [babel()],
 };

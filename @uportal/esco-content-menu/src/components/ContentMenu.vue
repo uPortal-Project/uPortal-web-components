@@ -88,11 +88,11 @@ import i18nMixin from '../mixins/i18n.js';
 import {
   elementWidth,
   breakPointName,
-  sizeValidator
+  sizeValidator,
 } from '../services/sizeTools';
 import {
   getCurrentOrganization,
-  getOrganizationLogo
+  getOrganizationLogo,
 } from '../services/organizationHelper';
 import computeUrl from '../services/computeUrl';
 
@@ -104,7 +104,7 @@ export default {
     ContentGrid,
     ContentUser,
     HeaderButtons,
-    vueSimpleSpinner
+    vueSimpleSpinner,
   },
   props: {
     id: { type: String, default: null },
@@ -112,33 +112,33 @@ export default {
     isHidden: { type: Boolean, default: false },
     contextApiUrl: {
       type: String,
-      default: process.env.VUE_APP_PORTAL_CONTEXT
+      default: process.env.VUE_APP_PORTAL_CONTEXT,
     },
     favoriteApiUrl: {
       type: String,
       default:
         process.env.VUE_APP_PORTAL_CONTEXT +
-        process.env.VUE_APP_FAVORITES_PORTLETS_URI
+        process.env.VUE_APP_FAVORITES_PORTLETS_URI,
     },
     layoutApiUrl: {
       type: String,
       default:
-        process.env.VUE_APP_PORTAL_CONTEXT + process.env.VUE_APP_FAVORITES_URI
+        process.env.VUE_APP_PORTAL_CONTEXT + process.env.VUE_APP_FAVORITES_URI,
     },
     organizationApiUrl: {
       type: String,
-      default: null
+      default: null,
     },
     portletApiUrl: {
       type: String,
       default:
         process.env.VUE_APP_PORTAL_CONTEXT +
-        process.env.VUE_APP_BROWSABLE_PORTLETS_URI
+        process.env.VUE_APP_BROWSABLE_PORTLETS_URI,
     },
     userInfoApiUrl: {
       type: String,
       default:
-        process.env.VUE_APP_PORTAL_CONTEXT + process.env.VUE_APP_USER_INFO_URI
+        process.env.VUE_APP_PORTAL_CONTEXT + process.env.VUE_APP_USER_INFO_URI,
     },
     debug: { type: Boolean, default: false },
     signOutUrl: { type: String, default: process.env.VUE_APP_LOGOUT_URL },
@@ -147,24 +147,24 @@ export default {
     userInfoPortletUrl: { type: String, default: '' },
     switchOrgPortletUrl: { type: String, default: '' },
     favoritesPortletCardSize: {
-      validator: value => sizeValidator(value, true),
-      default: 'auto'
+      validator: (value) => sizeValidator(value, true),
+      default: 'auto',
     },
     gridPortletCardSize: {
-      validator: value => sizeValidator(value, true),
-      default: 'auto'
+      validator: (value) => sizeValidator(value, true),
+      default: 'auto',
     },
     hideActionMode: {
-      validator: value => ['auto', 'always', 'never'].includes(value),
-      default: 'auto'
+      validator: (value) => ['auto', 'always', 'never'].includes(value),
+      default: 'auto',
     },
     userOrgIdAttributeName: { type: String, default: 'ESCOSIRENCourant[0]' },
     userAllOrgsIdAttributeName: { type: String, default: 'ESCOSIREN' },
     orgLogoUrlAttributeName: {
       type: String,
-      default: 'otherAttributes.ESCOStructureLogo[0]'
+      default: 'otherAttributes.ESCOStructureLogo[0]',
     },
-    showFavoritesInSlider: { type: Boolean, default: true }
+    showFavoritesInSlider: { type: Boolean, default: true },
   },
   data() {
     return {
@@ -176,14 +176,14 @@ export default {
         organizations: [],
         user: {},
         userOrganization: {},
-        portlets: []
+        portlets: [],
       },
       loadingState: {
         favorites: true,
         portlets: true,
         user: true,
-        organization: true
-      }
+        organization: true,
+      },
     };
   },
   computed: {
@@ -221,24 +221,24 @@ export default {
         !this.loadingState.user ||
         !this.loadingState.organization
       );
-    }
+    },
   },
   watch: {
     isHidden: {
       handler() {
         if (!this.isHidden) {
-          this.$nextTick(function() {
+          this.$nextTick(function () {
             this.calculateSize();
           });
         }
-      }
-    }
+      },
+    },
   },
   mounted() {
     this.fetchPortlets();
     this.fetchFavorites();
     this.fetchUserInfo();
-    this.$nextTick(function() {
+    this.$nextTick(function () {
       window.addEventListener('resize', this.calculateSize);
       this.calculateSize();
     });
@@ -330,8 +330,8 @@ export default {
     },
     actionToggleFav(fname) {
       this.info.favorites = toggleArray(this.info.favorites, fname);
-    }
-  }
+    },
+  },
 };
 </script>
 

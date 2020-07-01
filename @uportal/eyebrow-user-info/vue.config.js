@@ -1,5 +1,5 @@
 module.exports = {
-  chainWebpack: config => {
+  chainWebpack: (config) => {
     config.module
       .rule('i18n')
       .resourceQuery(/blockType=i18n/)
@@ -10,18 +10,18 @@ module.exports = {
 
   pluginOptions: {
     i18n: {
-      enableInSFC: true
-    }
+      enableInSFC: true,
+    },
   },
   css: {
     requireModuleExtension: true,
     loaderOptions: {
       css: {
         modules: {
-          localIdentName: '[name]-[local]'
+          localIdentName: '[name]-[local]',
         },
-        localsConvention: 'camelCaseOnly'
-      }
-    }
-  }
+        localsConvention: 'camelCaseOnly',
+      },
+    },
+  },
 };

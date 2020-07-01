@@ -21,7 +21,7 @@ import WaffleMenu from './components/WaffleMenu.vue';
 export default {
   name: 'App',
   components: {
-    WaffleMenu
-  }
+    WaffleMenu,
+  },
 };
 </script>

@@ -61,26 +61,26 @@ const exampleRegistry = {
               mobileIconUrl: {
                 name: 'mobileIconUrl',
                 description: '',
-                value: '/uPortal/media/skins/icons/mobile/courses_alt.png'
+                value: '/uPortal/media/skins/icons/mobile/courses_alt.png',
               },
               iconUrl: {
                 name: 'iconUrl',
                 description: '',
                 value:
-                  '/ResourceServingWebapp/rs/tango/0.8.90/32x32/apps/accessories-text-editor.png'
+                  '/ResourceServingWebapp/rs/tango/0.8.90/32x32/apps/accessories-text-editor.png',
               },
               configurable: {
                 name: 'configurable',
                 description: '',
-                value: 'true'
-              }
-            }
-          }
+                value: 'true',
+              },
+            },
+          },
         ],
-        subcategories: []
-      }
-    ]
-  }
+        subcategories: [],
+      },
+    ],
+  },
 };
 
 const portletList = portletRegistryToArray(exampleRegistry);

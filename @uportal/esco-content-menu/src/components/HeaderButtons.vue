@@ -27,17 +27,17 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 export default {
   name: 'HeaderButtons',
   components: {
-    FontAwesomeIcon
+    FontAwesomeIcon,
   },
   props: {
     callOnClose: { type: Function, default: () => {} },
-    signOutUrl: { type: String, default: process.env.VUE_APP_LOGOUT_URL }
+    signOutUrl: { type: String, default: process.env.VUE_APP_LOGOUT_URL },
   },
   methods: {
     translate(text, lang) {
       return i18n.t(text, lang);
-    }
-  }
+    },
+  },
 };
 </script>
 

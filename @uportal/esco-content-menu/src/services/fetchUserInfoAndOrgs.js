@@ -1,7 +1,7 @@
 import oidc from '@uportal/open-id-connect';
 import get from 'lodash/get';
 
-export default async function(
+export default async function (
   userInfoApiUrl,
   organizationApiUrl,
   userAllOrgIdAttribute,
@@ -15,17 +15,17 @@ export default async function(
 
         const [userInfo, orgsInfo] = await Promise.all([
           userInfoRequest.json(),
-          orgsInfoRequest.json()
+          orgsInfoRequest.json(),
         ]);
         return {
           user: userInfo,
-          organizations: Object.values(orgsInfo)
+          organizations: Object.values(orgsInfo),
         };
       }
       const userInfo = await userInfoRequest.json();
       return {
         user: userInfo,
-        organizations: []
+        organizations: [],
       };
     }
 
@@ -38,8 +38,8 @@ export default async function(
         credentials: 'same-origin',
         headers: {
           Authorization: 'Bearer ' + encoded,
-          'Content-Type': 'application/jwt'
-        }
+          'Content-Type': 'application/jwt',
+        },
       };
       const response = await fetch(
         organizationApiUrl + '?ids=' + orgIds,
@@ -53,20 +53,20 @@ export default async function(
 
       return {
         user: decoded,
-        organizations: Object.values(data)
+        organizations: Object.values(data),
       };
     }
     // do nothing expect returning an empty value
     return {
       user: decoded,
-      organizations: []
+      organizations: [],
     };
   } catch (err) {
     // eslint-disable-next-line
     console.error(err);
     return {
       user: {},
-      organizations: []
+      organizations: [],
     };
   }
 }

@@ -32,7 +32,7 @@ function treeWalker(registryJson) {
   const portlets = registryJson.portlets || [];
 
   if (portlets.length > 0) {
-    portlets.forEach(p => (p.categories = new Array(registryJson.name)));
+    portlets.forEach((p) => (p.categories = new Array(registryJson.name)));
   }
 
   if (registryJson.categories) {
@@ -57,8 +57,8 @@ function treeWalker(registryJson) {
 function customUnique(array) {
   const unique = uniqBy(array, 'fname');
   // we construct unique portlets array will all linked categories (reversing category and portlets child)
-  unique.forEach(elem => {
-    const dupl = array.filter(e => e.fname === elem.fname);
+  unique.forEach((elem) => {
+    const dupl = array.filter((e) => e.fname === elem.fname);
     const allCategories = dupl.flatMap(({ categories }) => categories);
     elem.categories = [...new Set(allCategories)];
   });

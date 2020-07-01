@@ -26,7 +26,7 @@ export default {
   data() {
     return {
       filterCategory: '',
-      allCategories: []
+      allCategories: [],
     };
   },
   beforeMount() {
@@ -59,7 +59,7 @@ export default {
     fireFilterCategoryEvent() {
       const event = new CustomEvent('gridCategoryFilter', {
         bubbles: true,
-        detail: this.filterCategory
+        detail: this.filterCategory,
       });
       //
       // should check for fallback on older browsers
@@ -70,8 +70,8 @@ export default {
     },
     setAllCategories(e) {
       this.allCategories = e.detail || [];
-    }
-  }
+    },
+  },
 };
 </script>
 

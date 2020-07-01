@@ -99,7 +99,7 @@ import { elementWidth, sizeValidator } from '../services/sizeTools';
 import byFavoriteOrder from '../services/sortByFavoriteOrder';
 import {
   hasAlternativeMaximizedUrl,
-  getRenderUrl
+  getRenderUrl,
 } from '../services/managePortletUrl';
 import ContentGrid from './ContentGrid';
 
@@ -112,7 +112,7 @@ export default {
     // false positive
     // eslint-disable-next-line vue/no-unused-components
     swiperSlide,
-    FontAwesomeIcon
+    FontAwesomeIcon,
   },
   props: {
     backgroundColor: { type: String, default: 'rgba(0, 0, 0, 0)' },
@@ -122,36 +122,36 @@ export default {
       type: String,
       default:
         process.env.VUE_APP_PORTAL_CONTEXT +
-        process.env.VUE_APP_FAVORITES_PORTLETS_URI
+        process.env.VUE_APP_FAVORITES_PORTLETS_URI,
     },
     portletApiUrl: {
       type: String,
       default:
         process.env.VUE_APP_PORTAL_CONTEXT +
-        process.env.VUE_APP_BROWSABLE_PORTLETS_URI
+        process.env.VUE_APP_BROWSABLE_PORTLETS_URI,
     },
     userInfoApiUrl: {
       type: String,
       default:
-        process.env.VUE_APP_PORTAL_CONTEXT + process.env.VUE_APP_USER_INFO_URI
+        process.env.VUE_APP_PORTAL_CONTEXT + process.env.VUE_APP_USER_INFO_URI,
     },
     debug: { type: Boolean, default: false },
     favorites: { type: Array, required: true, default: () => [] },
     parentScreenSize: {
       validator: sizeValidator(),
-      default: 'medium'
+      default: 'medium',
     },
     portletCardSize: {
-      validator: value => sizeValidator(value, true),
-      default: 'auto'
+      validator: (value) => sizeValidator(value, true),
+      default: 'auto',
     },
     hideAction: { type: Boolean, default: false },
     portlets: { type: Array, required: true, default: () => [] },
     contextApiUrl: {
       type: String,
-      default: process.env.VUE_APP_PORTAL_CONTEXT
+      default: process.env.VUE_APP_PORTAL_CONTEXT,
     },
-    useSwipper: { type: Boolean, default: true }
+    useSwipper: { type: Boolean, default: true },
   },
   data() {
     return {
@@ -169,12 +169,12 @@ export default {
         // },
         navigation: {
           nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev'
-        }
+          prevEl: '.swiper-button-prev',
+        },
       },
       calculatedSize: this.parentScreenSize,
       disableNext: false,
-      disablePrev: false
+      disablePrev: false,
     };
   },
   watch: {
@@ -182,23 +182,23 @@ export default {
       handler() {
         this.updateSlider();
       },
-      deep: true
+      deep: true,
     },
     portlets: {
       handler() {
         this.updateSlider();
       },
-      deep: true
+      deep: true,
     },
     isHidden: {
       handler() {
         this.updateSlider();
       },
-      deep: true
-    }
+      deep: true,
+    },
   },
   mounted() {
-    this.$nextTick(function() {
+    this.$nextTick(function () {
       window.addEventListener('resize', this.timedUpdate);
       this.updateSlider();
     });
@@ -214,9 +214,9 @@ export default {
     },
     favorited() {
       return this.portlets
-        .filter(portlet => this.favorites.includes(portlet.fname))
+        .filter((portlet) => this.favorites.includes(portlet.fname))
         .sort(byFavoriteOrder(this.favorites));
-    }
+    },
   },
   methods: {
     translate(text, lang) {
@@ -274,8 +274,8 @@ export default {
         this.disablePrev = this.$refs.favSwiper.swiper.isBeginning;
       }
       this.calculateSize();
-    }
-  }
+    },
+  },
 };
 </script>
 

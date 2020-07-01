@@ -2,7 +2,7 @@
   <div
     :class="[
       'action-favorites ' + fname,
-      backGroundIsDark ? 'background-dark' : ''
+      backGroundIsDark ? 'background-dark' : '',
     ]"
     :title="favoriteMessage"
     @click="toggleFavorite($event)"
@@ -20,7 +20,7 @@ import i18nMixin from '../mixins/i18n.js';
 import '../icons.js';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
-const checkStatus = function(response) {
+const checkStatus = function (response) {
   if (response.ok) {
     return response;
   } else {
@@ -30,13 +30,13 @@ const checkStatus = function(response) {
   }
 };
 
-const parseJSON = function(response) {
+const parseJSON = function (response) {
   return response.json();
 };
 export default {
   name: 'ActionFavorites',
   components: {
-    FontAwesomeIcon
+    FontAwesomeIcon,
   },
   mixins: [i18nMixin],
   props: {
@@ -46,21 +46,21 @@ export default {
       type: String,
       default:
         process.env.VUE_APP_PORTAL_CONTEXT +
-        process.env.VUE_APP_FAVORITES_PORTLETS_URI
+        process.env.VUE_APP_FAVORITES_PORTLETS_URI,
     },
     userInfoApiUrl: {
       type: String,
       default:
-        process.env.VUE_APP_PORTAL_CONTEXT + process.env.VUE_APP_USER_INFO_URI
+        process.env.VUE_APP_PORTAL_CONTEXT + process.env.VUE_APP_USER_INFO_URI,
     },
     debug: { type: Boolean, default: false },
     fname: { type: String, required: true },
     isFavorite: { type: Boolean, default: false },
-    backGroundIsDark: { type: Boolean, default: false }
+    backGroundIsDark: { type: Boolean, default: false },
   },
   data() {
     return {
-      favorite: this.isFavorite
+      favorite: this.isFavorite,
     };
   },
   computed: {
@@ -68,7 +68,7 @@ export default {
       return this.translate(
         this.isFavorite ? 'message.favorites.remove' : 'message.favorites.add'
       );
-    }
+    },
   },
   methods: {
     toggleFavorite(event) {
@@ -92,14 +92,14 @@ export default {
     },
     addToFavorite() {
       oidc({ userInfoApiUrl: this.userInfoApiUrl })
-        .then(token => {
+        .then((token) => {
           const options = {
             method: 'POST',
             credentials: 'same-origin',
             headers: {
               Authorization: 'Bearer ' + token.encoded,
-              'Content-Type': 'application/json'
-            }
+              'Content-Type': 'application/json',
+            },
           };
           fetch(
             this.favoriteApiUrl +
@@ -116,14 +116,14 @@ export default {
     },
     removeFromFavorite() {
       oidc({ userInfoApiUrl: this.userInfoApiUrl })
-        .then(token => {
+        .then((token) => {
           const options = {
             method: 'POST',
             credentials: 'same-origin',
             headers: {
               Authorization: 'Bearer ' + token.encoded,
-              'Content-Type': 'application/json'
-            }
+              'Content-Type': 'application/json',
+            },
           };
           fetch(
             this.favoriteApiUrl +
@@ -137,8 +137,8 @@ export default {
         })
         // eslint-disable-next-line
         .catch((err) => console.error('Error, with message:', err.statusText));
-    }
-  }
+    },
+  },
 };
 </script>
 

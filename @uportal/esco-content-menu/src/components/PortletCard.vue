@@ -54,7 +54,7 @@ export default {
   mixins: [i18nMixin],
   components: {
     ActionFavorites,
-    Ellipsis
+    Ellipsis,
   },
   props: {
     callAfterAction: { type: Function, default: () => {} },
@@ -66,21 +66,21 @@ export default {
       type: String,
       default:
         process.env.VUE_APP_PORTAL_CONTEXT +
-        process.env.VUE_APP_FAVORITES_PORTLETS_URI
+        process.env.VUE_APP_FAVORITES_PORTLETS_URI,
     },
     userInfoApiUrl: {
       type: String,
       default:
-        process.env.VUE_APP_PORTAL_CONTEXT + process.env.VUE_APP_USER_INFO_URI
+        process.env.VUE_APP_PORTAL_CONTEXT + process.env.VUE_APP_USER_INFO_URI,
     },
     debug: { type: Boolean, default: false },
     size: {
-      validator: value => sizeValidator(value, true, true),
-      default: 'medium'
+      validator: (value) => sizeValidator(value, true, true),
+      default: 'medium',
     },
     hideAction: { type: Boolean, default: false },
     portletDesc: { type: Object, required: true },
-    backGroundIsDark: { type: Boolean, default: false }
+    backGroundIsDark: { type: Boolean, default: false },
   },
   data() {
     return {
@@ -94,11 +94,11 @@ export default {
           ? this.portletDesc.parameters?.iconUrl?.value
           : null
       ),
-      append: false
+      append: false,
     };
   },
   mounted() {
-    this.$nextTick(function() {
+    this.$nextTick(function () {
       this.append = true;
     });
   },
@@ -122,11 +122,11 @@ export default {
         appClasses.push('hide-action');
       }
 
-      return appClasses.map(v => v.toLowerCase()).join(' ');
+      return appClasses.map((v) => v.toLowerCase()).join(' ');
     },
     favBgIsDark() {
       return this.backGroundIsDark && this.size.includes('small');
-    }
+    },
   },
   methods: {
     truncate(entry) {
@@ -135,8 +135,8 @@ export default {
         return text[0].trim();
       }
       return entry;
-    }
-  }
+    },
+  },
 };
 </script>
 

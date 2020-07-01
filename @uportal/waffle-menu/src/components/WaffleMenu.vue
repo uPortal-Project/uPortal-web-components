@@ -13,7 +13,7 @@
           class="waffle-triangle"
           :style="{
             borderColor:
-              'transparent transparent ' + menuBackgroundColor + ' transparent'
+              'transparent transparent ' + menuBackgroundColor + ' transparent',
           }"
         />
       </div>
@@ -60,55 +60,55 @@ library.add(faTh);
 export default {
   name: 'WaffleMenu',
   components: {
-    FontAwesomeIcon
+    FontAwesomeIcon,
   },
   props: {
     url: {
       type: String,
-      default: '/uPortal/api/v4-3/dlm/portletRegistry.json'
+      default: '/uPortal/api/v4-3/dlm/portletRegistry.json',
     },
     oidcUrl: {
       type: String,
-      default: '/uPortal/api/v5-1/userinfo'
+      default: '/uPortal/api/v5-1/userinfo',
     },
     contextPortletUrl: {
       type: String,
-      default: '/uPortal/p/'
+      default: '/uPortal/p/',
     },
     buttonColor: {
       type: String,
-      default: '#fff'
+      default: '#fff',
     },
     buttonLabel: {
       type: String,
-      default: 'Waffle Menu'
+      default: 'Waffle Menu',
     },
     menuBackgroundColor: {
       type: String,
-      default: '#fff'
+      default: '#fff',
     },
     debug: {
       type: Boolean,
-      default: false
+      default: false,
     },
     defaultIcon: {
       type: String,
       default:
-        '/ResourceServingWebapp/rs/tango/0.8.90/32x32/categories/applications-other.png'
+        '/ResourceServingWebapp/rs/tango/0.8.90/32x32/categories/applications-other.png',
     },
     truncateLength: {
       type: Number,
-      default: 50
-    }
+      default: 50,
+    },
   },
 
   computed: {
-    dataMenuItems: function() {
-      return this.data.filter(datum => datum.type === 'box');
+    dataMenuItems: function () {
+      return this.data.filter((datum) => datum.type === 'box');
     },
-    dataMenuFooter: function() {
-      return this.data.filter(datum => datum.type === 'footer');
-    }
+    dataMenuFooter: function () {
+      return this.data.filter((datum) => datum.type === 'footer');
+    },
   },
   data() {
     return {
@@ -118,7 +118,7 @@ export default {
       dataItems: [],
       dataLoaded: false,
       hasError: false,
-      errorMessage: ''
+      errorMessage: '',
     };
   },
   methods: {
@@ -175,7 +175,7 @@ export default {
               : undefined,
             label: this.truncateTitle(text),
             type: 'box',
-            targetLink: targetLinkValue
+            targetLink: targetLinkValue,
           };
         }
       );
@@ -191,8 +191,8 @@ export default {
           credentials: 'same-origin',
           headers: {
             Authorization: 'Bearer ' + token,
-            'content-type': 'application/jwt'
-          }
+            'content-type': 'application/jwt',
+          },
         });
 
         if (!response.ok || response.status !== 200) {
@@ -232,7 +232,7 @@ export default {
         this.toggleMenu();
         menu.querySelector('.waffle-trigger').focus();
       }
-    }
+    },
   },
   mounted() {
     document.addEventListener('click', this.handleOutsideClick, false);
@@ -240,7 +240,7 @@ export default {
 
     // Initialize Menu data when Mounted
     this.fetchMenuData();
-  }
+  },
 };
 </script>
 <style lang="scss">

@@ -42,16 +42,16 @@ var oidc = require('@uportal/open-id-connect');
 // with a promise
 oidc
   .default()
-  .then(function(token) {
+  .then(function (token) {
     console.log(token.encoded); // Raw JWT
     console.log(token.decoded); // parsed JSON
   })
-  .catch(function(err) {
+  .catch(function (err) {
     console.error(err);
   });
 
 // with a callback
-oidc.default({}, function(err, token) {
+oidc.default({}, function (err, token) {
   if (err) {
     console.error(err);
     return;
@@ -82,8 +82,8 @@ try {
     userInfoApiUrl: '/uPortal/api/v5-1/userinfo',
     timeout: 5000,
     propertyTransforms: {
-      example: JSON.parse
-    }
+      example: JSON.parse,
+    },
   });
   console.log(encoded);
   console.log(decoded);

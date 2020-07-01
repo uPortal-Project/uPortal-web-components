@@ -13,10 +13,10 @@ export default {
     lineClamp: { type: Number, default: 0 },
     lineHeight: { type: String, default: '22px' },
     endChar: { type: String, default: '...' },
-    endHtml: { type: String, default: '' }
+    endHtml: { type: String, default: '' },
   },
   mounted() {
-    this.$nextTick(function() {
+    this.$nextTick(function () {
       window.addEventListener('resize', this.timedRun);
       this.timedRun();
     });
@@ -104,8 +104,8 @@ export default {
           this.endChar +
           this.endHtml;
       }
-    }
-  }
+    },
+  },
 };
 </script>
 

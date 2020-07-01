@@ -29,32 +29,32 @@ export default {
   props: {
     template: {
       type: String,
-      required: true
+      required: true,
     },
     config: {
       type: Object,
-      default: () => ({ links: [] })
+      default: () => ({ links: [] }),
     },
     type: String,
     url: String,
     debug: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   computed: {
     html() {
       return Handlebars.compile(this.template)({
         $root: {
-          tabContext: this.type
+          tabContext: this.type,
         },
         content: this.content,
-        config: this.configuration
+        config: this.configuration,
       });
     },
     configuration() {
       return this.config || { links: [] };
-    }
+    },
   },
   asyncComputed: {
     content: {
@@ -66,7 +66,7 @@ export default {
               ? {}
               : {
                   Authorization: 'Bearer ' + (await oidc()).encoded,
-                  'content-type': 'application/jwt'
+                  'content-type': 'application/jwt',
                 };
             return await ky.get(url, { headers }).json();
           } catch (err) {
@@ -76,9 +76,9 @@ export default {
           }
         }
         return {};
-      }
-    }
-  }
+      },
+    },
+  },
 };
 </script>
 

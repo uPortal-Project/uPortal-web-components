@@ -26,8 +26,8 @@ export default {
   name: 'App',
   components: {
     DashboardCarousel,
-    DashboardContentGrid
-  }
+    DashboardContentGrid,
+  },
 };
 </script>
 

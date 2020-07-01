@@ -16,8 +16,8 @@ export default {
     portletContent: String,
     debug: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   asyncComputed: {
     portlet: {
@@ -28,7 +28,7 @@ export default {
             ? {}
             : {
                 Authorization: 'Bearer ' + (await oidc()).encoded,
-                'content-type': 'application/jwt'
+                'content-type': 'application/jwt',
               };
           return await ky.get(portletHtmlUrl, { headers }).text();
         } catch (err) {
@@ -36,8 +36,8 @@ export default {
           console.error(err);
           return '';
         }
-      }
-    }
-  }
+      },
+    },
+  },
 };
 </script>

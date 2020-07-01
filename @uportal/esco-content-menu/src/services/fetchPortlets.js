@@ -1,6 +1,6 @@
 import oidc from '@uportal/open-id-connect';
 
-export default async function(userInfoApiUrl, portletApiUrl, debug) {
+export default async function (userInfoApiUrl, portletApiUrl, debug) {
   try {
     const headers = debug
       ? {}
@@ -8,13 +8,13 @@ export default async function(userInfoApiUrl, portletApiUrl, debug) {
           Authorization:
             'Bearer ' +
             (await oidc({ userInfoApiUrl: userInfoApiUrl })).encoded,
-          'content-type': 'application/jwt'
+          'content-type': 'application/jwt',
         };
 
     const options = {
       method: 'GET',
       credentials: 'same-origin',
-      headers: headers
+      headers: headers,
     };
 
     const response = await fetch(portletApiUrl, options);
