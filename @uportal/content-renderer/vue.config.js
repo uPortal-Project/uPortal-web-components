@@ -5,9 +5,9 @@ module.exports = {
     proxy: {
       '/uPortal': {
         target: 'http://localhost:8080',
-        changeOrigin: true
-      }
-    }
+        changeOrigin: true,
+      },
+    },
   },
-  transpileDependencies: ['handlebars/lib/handlebars', 'ky']
+  transpileDependencies: ['handlebars/lib/handlebars', 'ky'],
 };

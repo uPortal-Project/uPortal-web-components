@@ -232,7 +232,7 @@ Remplacer le contenu de **babel.config.js** par ceci :
 ```js
 module.exports = {
   presets: ['@babel/preset-env'],
-  plugins: [['@babel/plugin-transform-runtime', { useESModules: true }]]
+  plugins: [['@babel/plugin-transform-runtime', { useESModules: true }]],
 };
 ```
 

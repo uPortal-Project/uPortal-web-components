@@ -59,15 +59,15 @@ import LayoutData from '../mixins/LayoutData';
 export default {
   name: 'DashboardCarousel',
   mixins: [LayoutData],
-  data: function() {
+  data: function () {
     return {
-      activeIndex: 0
+      activeIndex: 0,
     };
   },
   components: {
     Slick,
     PortletRenderer,
-    WidgetRenderer
+    WidgetRenderer,
   },
   methods: {
     clickHandler(slideIndex) {
@@ -76,36 +76,36 @@ export default {
     },
     handleAfterChange(event, slick, currentSlide) {
       this.activeIndex = currentSlide;
-    }
+    },
   },
   props: {
     slickOptions: {
       type: [String, Object],
       default: () => ({
         dots: false,
-        arrows: true
-      })
+        arrows: true,
+      }),
     },
     debug: {
       type: Boolean,
-      default: false
+      default: false,
     },
     layoutApiUrl: {
       type: String,
-      default: '/uPortal/api/v4-3/dlm/layout.json'
+      default: '/uPortal/api/v4-3/dlm/layout.json',
     },
     layoutDocUrl: {
       type: String,
-      default: '/uPortal/api/layoutDoc'
+      default: '/uPortal/api/layoutDoc',
     },
     regionName: {
       type: String,
-      default: 'dashboard'
+      default: 'dashboard',
     },
     useLayoutDocData: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   computed: {
     computedSlickOptions() {
@@ -120,7 +120,7 @@ export default {
         currentSlide: () => {},
         destroy: () => {},
         create: () => {},
-        goTo: () => {}
+        goTo: () => {},
       };
       const currentIndex = slick.currentSlide();
 
@@ -135,8 +135,8 @@ export default {
       }
 
       return this.layout;
-    }
-  }
+    },
+  },
 };
 </script>
 

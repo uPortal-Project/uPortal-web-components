@@ -21,17 +21,17 @@ export default {
   name: 'App',
   components: {
     WidgetRenderer,
-    PortletRenderer
+    PortletRenderer,
   },
   data: () => ({
     widget: {
       config: {
-        text: 'foo bar baz: I am being rendered by the widget renderer!'
+        text: 'foo bar baz: I am being rendered by the widget renderer!',
       },
-      template: `<p>{{ config.text }}</p>`
+      template: `<p>{{ config.text }}</p>`,
     },
-    portletUrl: '/portlet.html'
-  })
+    portletUrl: '/portlet.html',
+  }),
 };
 </script>
 

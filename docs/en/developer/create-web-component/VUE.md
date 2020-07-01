@@ -214,8 +214,8 @@ import HelloWorld from './components/{component-name}.vue';
 export default {
   name: 'app',
   components: {
-    HelloWorld
-  }
+    HelloWorld,
+  },
 };
 </script>
 ```
@@ -230,8 +230,8 @@ of `HelloWorld` to your `{ComponentName}`:
 export default {
   name: 'HelloWorld',
   props: {
-    msg: String
-  }
+    msg: String,
+  },
 };
 </script>
 ```
@@ -287,7 +287,7 @@ Replace the contents of **babel.config.js** with this:
 ```javascript
 module.exports = {
   presets: ['@babel/preset-env'],
-  plugins: [['@babel/plugin-transform-runtime', { useESModules: true }]]
+  plugins: [['@babel/plugin-transform-runtime', { useESModules: true }]],
 };
 ```
 

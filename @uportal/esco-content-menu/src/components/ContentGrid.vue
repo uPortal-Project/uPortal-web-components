@@ -112,11 +112,11 @@ import toggleArray from '../services/toggleArray';
 import {
   elementWidth,
   breakPointName,
-  sizeValidator
+  sizeValidator,
 } from '../services/sizeTools';
 import {
   hasAlternativeMaximizedUrl,
-  getRenderUrl
+  getRenderUrl,
 } from '../services/managePortletUrl';
 import matchSorter from 'match-sorter';
 
@@ -124,7 +124,7 @@ export default {
   name: 'ContentGrid',
   mixins: [i18nMixin],
   components: {
-    PortletCard
+    PortletCard,
   },
   props: {
     hideTitle: { type: Boolean, default: false },
@@ -132,29 +132,29 @@ export default {
     callAfterAction: { type: Function, default: undefined },
     contextApiUrl: {
       type: String,
-      default: process.env.VUE_APP_PORTAL_CONTEXT
+      default: process.env.VUE_APP_PORTAL_CONTEXT,
     },
     favoriteApiUrl: {
       type: String,
       default:
         process.env.VUE_APP_PORTAL_CONTEXT +
-        process.env.VUE_APP_FAVORITES_PORTLETS_URI
+        process.env.VUE_APP_FAVORITES_PORTLETS_URI,
     },
     layoutApiUrl: {
       type: String,
       default:
-        process.env.VUE_APP_PORTAL_CONTEXT + process.env.VUE_APP_FAVORITES_URI
+        process.env.VUE_APP_PORTAL_CONTEXT + process.env.VUE_APP_FAVORITES_URI,
     },
     portletApiUrl: {
       type: String,
       default:
         process.env.VUE_APP_PORTAL_CONTEXT +
-        process.env.VUE_APP_BROWSABLE_PORTLETS_URI
+        process.env.VUE_APP_BROWSABLE_PORTLETS_URI,
     },
     userInfoApiUrl: {
       type: String,
       default:
-        process.env.VUE_APP_PORTAL_CONTEXT + process.env.VUE_APP_USER_INFO_URI
+        process.env.VUE_APP_PORTAL_CONTEXT + process.env.VUE_APP_USER_INFO_URI,
     },
     debug: { type: Boolean, default: false },
     /**
@@ -163,11 +163,11 @@ export default {
     favorites: { type: Array, default: undefined },
     parentScreenSize: {
       validator: sizeValidator,
-      default: 'medium'
+      default: 'medium',
     },
     portletCardSize: {
-      validator: value => sizeValidator(value, true, true),
-      default: 'auto'
+      validator: (value) => sizeValidator(value, true, true),
+      default: 'auto',
     },
     hideAction: { type: Boolean, default: false },
     /**
@@ -176,7 +176,7 @@ export default {
     portlets: { type: Array, default: undefined },
     showFooterCategories: { type: Boolean, default: false },
     useExternalFilter: { type: Boolean, default: true },
-    portletBackgroundIsDark: { type: Boolean, default: false }
+    portletBackgroundIsDark: { type: Boolean, default: false },
   },
   data() {
     return {
@@ -185,7 +185,7 @@ export default {
       visible: false,
       elementSize: this.parentScreenSize,
       localPortlets: [],
-      localFavorites: []
+      localFavorites: [],
     };
   },
   computed: {
@@ -208,27 +208,27 @@ export default {
       const categoryFilter =
         this.filterCategory.trim() === ''
           ? // no filter applied return everything
-            portlets => portlets
+            (portlets) => portlets
           : // filter by category
-            portlets =>
+            (portlets) =>
               matchSorter(portlets, this.filterCategory, {
                 keys: ['categories'],
-                threshold: matchSorter.rankings.EQUAL
+                threshold: matchSorter.rankings.EQUAL,
               });
 
       const valueFilter =
         this.filterValue.trim() === ''
           ? // no filter applied return everything
-            portlets => portlets
+            (portlets) => portlets
           : // filter and sort by best match
-            portlets =>
+            (portlets) =>
               matchSorter(portlets, this.filterValue, {
                 keys: ['title', 'name', 'description'],
-                threshold: matchSorter.rankings.ACRONYM
+                threshold: matchSorter.rankings.ACRONYM,
               });
 
       return valueFilter(categoryFilter(portlets).sort(byPortlet));
-    }
+    },
   },
   beforeMount() {
     if (this.useExternalFilter) {
@@ -244,12 +244,12 @@ export default {
     if (!this.favorites) {
       this.fetchFavorites();
     }
-    this.$nextTick(function() {
+    this.$nextTick(function () {
       window.addEventListener('resize', this.calculateSize);
       this.calculateSize();
     });
     if (this.useExternalFilter) {
-      this.$nextTick(function() {
+      this.$nextTick(function () {
         this.emitAllCategories();
       });
     }
@@ -300,7 +300,7 @@ export default {
     actionToggleFav(fname) {
       const event = new CustomEvent('gridFavoritesUpdated', {
         bubbles: true,
-        detail: this._uid
+        detail: this._uid,
       });
       window.dispatchEvent(event);
       /**
@@ -323,13 +323,13 @@ export default {
         // nextTick() waits for data to be resolved
         if (this.allCategories.length > 0) {
           const event = new CustomEvent('gridCategories', {
-            detail: this.allCategories
+            detail: this.allCategories,
           });
           window.dispatchEvent(event);
         }
       });
-    }
-  }
+    },
+  },
 };
 </script>
 

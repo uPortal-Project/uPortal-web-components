@@ -44,10 +44,10 @@ import ContentMenu from './components/ContentMenu.vue';
 export default {
   name: 'App',
   components: {
-    ContentMenu
+    ContentMenu,
     // ContentGrid,
     // HamburgerMenu,
-  }
+  },
 };
 </script>
 

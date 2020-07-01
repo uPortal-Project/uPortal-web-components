@@ -78,27 +78,27 @@ import computeUrl from '../services/computeUrl';
 export default {
   name: 'ContentUser',
   components: {
-    FontAwesomeIcon
+    FontAwesomeIcon,
   },
   props: {
     parentScreenSize: {
       validator: sizeValidator,
-      default: 'medium'
+      default: 'medium',
     },
     orgInfo: { type: Object, default: () => ({}) },
     otherOrgs: { type: Array, default: () => [] },
     userInfo: { type: Object, required: true, default: () => undefined },
     switchOrgPortletUrl: {
       type: String,
-      default: process.env.VUE_APP_ORG_SWITCH_URI
+      default: process.env.VUE_APP_ORG_SWITCH_URI,
     },
     defaultOrgLogo: { type: String, required: true },
     forceOrgLogo: { type: String },
     userInfoPortletUrl: { type: String, default: '' },
     orgLogoUrlAttributeName: {
       type: String,
-      default: 'otherAttributes.ESCOStructureLogo[0]'
-    }
+      default: 'otherAttributes.ESCOStructureLogo[0]',
+    },
   },
   methods: {
     translate(text, lang) {
@@ -114,8 +114,8 @@ export default {
     getUserAvatar() {
       const avatar = this.userInfo.picture || null;
       return computeUrl(avatar);
-    }
-  }
+    },
+  },
 };
 </script>
 

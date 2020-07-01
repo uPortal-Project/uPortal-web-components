@@ -1,4 +1,4 @@
-export default function(a, b) {
+export default function (a, b) {
   // if parameter is missing or an invalid integer, Not a Number (NaN) will be set
   let aCustomOrder = parseInt(a?.parameters?.escoMenuOrder?.value, 10);
   let bCustomOrder = parseInt(b?.parameters?.escoMenuOrder?.value, 10);
@@ -16,7 +16,7 @@ export default function(a, b) {
       .trim()
       .toLowerCase()
       .localeCompare(b.title.trim().toLowerCase(), undefined, {
-        numberic: true
+        numberic: true,
       });
   }
 

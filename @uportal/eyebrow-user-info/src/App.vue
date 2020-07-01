@@ -22,8 +22,8 @@ import EyebrowUserInfo from './components/EyebrowUserInfo';
 export default {
   name: 'App',
   components: {
-    EyebrowUserInfo
-  }
+    EyebrowUserInfo,
+  },
 };
 </script>
 

@@ -70,11 +70,11 @@ export default {
     moreLink: { type: String, default: null },
     logoutLink: { type: String, default: null },
     menuIsDark: { type: Boolean, default: true },
-    avatarSize: { type: String, default: '28px' }
+    avatarSize: { type: String, default: '28px' },
   },
   data() {
     return {
-      visible: false
+      visible: false,
     };
   },
   created() {
@@ -119,8 +119,8 @@ export default {
       if (el !== target && !el.contains(target)) {
         this.visible = false;
       }
-    }
-  }
+    },
+  },
 };
 </script>
 

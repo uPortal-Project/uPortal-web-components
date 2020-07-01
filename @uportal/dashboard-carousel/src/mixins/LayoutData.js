@@ -9,20 +9,20 @@ export default {
   props: {
     layoutApiUrl: {
       type: String,
-      default: '/uPortal/api/v4-3/dlm/layout.json'
+      default: '/uPortal/api/v4-3/dlm/layout.json',
     },
     layoutDocUrl: {
       type: String,
-      default: '/uPortal/api/layoutDoc'
+      default: '/uPortal/api/layoutDoc',
     },
     regionName: {
       type: String,
-      default: 'dashboard'
+      default: 'dashboard',
     },
     useLayoutDocData: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   asyncComputed: {
     layoutApi: {
@@ -33,7 +33,7 @@ export default {
             ? {}
             : {
                 Authorization: 'Bearer ' + (await oidc()).encoded,
-                'content-type': 'application/jwt'
+                'content-type': 'application/jwt',
               };
           return (await ky.get(layoutApiUrl, { headers }).json()).layout;
         } catch (err) {
@@ -43,8 +43,8 @@ export default {
         }
       },
       default: {
-        regions: []
-      }
+        regions: [],
+      },
     },
     layoutDocument: {
       async get() {
@@ -54,7 +54,7 @@ export default {
             ? {}
             : {
                 Authorization: 'Bearer ' + (await oidc()).encoded,
-                'content-type': 'application/jwt'
+                'content-type': 'application/jwt',
               };
           return useLayoutDocData
             ? (await ky.get(layoutDocUrl, { headers }).json()).layout
@@ -65,7 +65,7 @@ export default {
           return [];
         }
       },
-      default: { layout: [] }
+      default: { layout: [] },
     },
     async layout() {
       const promises = [this.layoutApi, this.layoutDocument];
@@ -73,23 +73,23 @@ export default {
       const [api, doc] = await Promise.all(promises);
 
       const region = api.regions.find(
-        region => region.name === this.regionName
+        (region) => region.name === this.regionName
       );
       if (!region) {
         return;
       }
 
       const parsed = this.useLayoutDocData
-        ? region.folders.map(folder => ({
+        ? region.folders.map((folder) => ({
             ...folder,
-            content: folder.content.map(card => ({
+            content: folder.content.map((card) => ({
               ...card,
-              ...doc.find(obj => obj.fname === card.fname)
-            }))
+              ...doc.find((obj) => obj.fname === card.fname),
+            })),
           }))
         : region.folders;
 
       return parsed;
-    }
-  }
+    },
+  },
 };
