@@ -10,9 +10,7 @@
         avatar-size="48px"
       />
     </header>
-    <div class="content">
-      a content for test !
-    </div>
+    <div class="content">a content for test !</div>
   </div>
 </template>
 
@@ -22,8 +20,8 @@ import EyebrowUserInfo from './components/EyebrowUserInfo';
 export default {
   name: 'App',
   components: {
-    EyebrowUserInfo,
-  },
+    EyebrowUserInfo
+  }
 };
 </script>
 
