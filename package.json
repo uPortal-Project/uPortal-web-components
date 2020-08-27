@@ -83,7 +83,7 @@
     "singleQuote": true
   },
   "gitHooks": {
-    "commit-msg": "commitlint -e",
+    "commit-msg": "commitlint -ev",
     "pre-commit": "lint-staged"
   },
   "lint-staged": {
