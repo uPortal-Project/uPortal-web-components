@@ -43,7 +43,7 @@
     "@babel/core": "^7.9.0",
     "@babel/preset-env": "^7.9.0",
     "babel-jest": "^26.0.0",
-    "eslint-plugin-jest": "^23.13.0",
+    "eslint-plugin-jest": "^24.0.0",
     "jest": "^26.0.0",
     "rollup": "^2.10.0",
     "rollup-plugin-babel": "^4.4.0"
