@@ -1,5 +1,5 @@
 import {Component, Provide, Vue} from 'vue-property-decorator';
-import ContentCarousel from './components/ContentCarousel';
+import ContentCarousel from './components/ContentCarousel.vue';
 
 @Component({
 components: {

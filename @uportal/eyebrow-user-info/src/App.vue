@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import EyebrowUserInfo from './components/EyebrowUserInfo';
+import EyebrowUserInfo from './components/EyebrowUserInfo.vue';
 
 export default {
   name: 'App',

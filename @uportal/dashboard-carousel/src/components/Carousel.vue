@@ -52,8 +52,8 @@
 
 <script>
 import Slick from 'vue-slick';
-import PortletRenderer from '@uportal/content-renderer/src/components/PortletRenderer';
-import WidgetRenderer from '@uportal/content-renderer/src/components/WidgetRenderer';
+import PortletRenderer from '@uportal/content-renderer/src/components/PortletRenderer.vue';
+import WidgetRenderer from '@uportal/content-renderer/src/components/WidgetRenderer.vue';
 import LayoutData from '../mixins/LayoutData';
 
 export default {
