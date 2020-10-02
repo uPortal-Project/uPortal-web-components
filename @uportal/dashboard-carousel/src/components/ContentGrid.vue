@@ -41,8 +41,8 @@
 </template>
 
 <script>
-import PortletRenderer from '@uportal/content-renderer/src/components/PortletRenderer';
-import WidgetRenderer from '@uportal/content-renderer/src/components/WidgetRenderer';
+import PortletRenderer from '@uportal/content-renderer/src/components/PortletRenderer.vue';
+import WidgetRenderer from '@uportal/content-renderer/src/components/WidgetRenderer.vue';
 import LayoutDataMixin from '../mixins/LayoutData';
 
 export default {

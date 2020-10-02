@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import SidebarNav from './components/SidebarNav';
+import SidebarNav from './components/SidebarNav.vue';
 
 export default {
   components: {

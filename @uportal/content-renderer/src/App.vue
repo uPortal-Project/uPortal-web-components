@@ -14,8 +14,8 @@
 </template>
 
 <script>
-import WidgetRenderer from './components/WidgetRenderer';
-import PortletRenderer from './components/PortletRenderer';
+import WidgetRenderer from './components/WidgetRenderer.vue';
+import PortletRenderer from './components/PortletRenderer.vue';
 
 export default {
   name: 'App',
