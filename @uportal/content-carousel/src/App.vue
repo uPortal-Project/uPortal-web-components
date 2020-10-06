@@ -13,6 +13,15 @@
     <section class="content">
       <content-carousel
         :type="'rss'"
+        :source="'/news.rss.txt'"
+        :slick-options="contentOptions"
+        :carousel-height="contentHeight"
+        class="primary"
+      />
+    </section>
+    <section class="content">
+      <content-carousel
+        :type="'rss'"
         :source="'/content.rss'"
         :slick-options="contentOptions"
         :carousel-height="contentHeight"

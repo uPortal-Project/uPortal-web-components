@@ -37,6 +37,8 @@ export class RssStrategy implements DataStrategy {
             index: number,
         ) => {
           const image = media ? media.content : enclosures ? enclosures[0] : null;
+          const mediaImageUrl = media && Array.isArray(image) && image.length > 0 && image[0].$ ? image[0].$.url : image;
+
           return {
             id: `${index}-${new Date().getTime()}`,
             altText: title && description ?
@@ -44,7 +46,7 @@ export class RssStrategy implements DataStrategy {
               title ? title :
               description ? description : '',
             destinationUrl: link,
-            imageUrl: image,
+            imageUrl: mediaImageUrl,
             title,
             description,
           };

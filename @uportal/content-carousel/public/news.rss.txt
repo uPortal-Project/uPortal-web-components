@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:media="http://search.yahoo.com/mrss/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:nyt="http://www.nytimes.com/namespaces/rss/2.0" version="2.0">
+  <channel>
+    <title>NYT &gt; Education</title>
+    <link>https://www.nytimes.com/section/education?emc=rss&amp;partner=rss</link>
+    <atom:link href="https://rss.nytimes.com/services/xml/rss/nyt/Education.xml" rel="self" type="application/rss+xml"></atom:link>
+    <description></description>
+    <language>en-us</language>
+    <copyright>Copyright 2019 The New York Times Company</copyright>
+    <lastBuildDate>Wed, 12 Jun 2019 21:11:13 +0000</lastBuildDate>
+    <image>
+      <title>NYT &gt; Education</title>
+      <url>https://static01.nyt.com/images/misc/NYT_logo_rss_250x40.png</url>
+      <link>https://www.nytimes.com/section/education?emc=rss&amp;partner=rss</link>
+    </image>
+    <item>
+      <title>From Instability at Home to Study Overseas</title>
+      <link>https://www.nytimes.com/2019/06/07/education/learning/homeless-students-study-abroad.html?emc=rss&amp;partner=rss</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2019/06/07/education/learning/homeless-students-study-abroad.html</guid>
+      <atom:link href="https://www.nytimes.com/2019/06/07/education/learning/homeless-students-study-abroad.html?emc=rss&amp;partner=rss" rel="standout"></atom:link>
+      <description>These students “have a level of grit that students who have not been through similar experiences probably don’t have.”</description>
+      <dc:creator>John Hanc</dc:creator>
+      <pubDate>Fri, 07 Jun 2019 04:00:06 +0000</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Colleges and Universities</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Americans Abroad</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">International Study and Teaching</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Community Colleges</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Homeless Persons</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">American Council on Education</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">Miami Dade College</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_geo">London (England)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_geo">Miami (Fla)</category>
+      <media:content height="151" medium="image" url="https://static01.nyt.com/images/2019/06/07/learning/07sp-abroad1/07sp-abroad1-moth.jpg" width="151"></media:content>
+      <media:credit>Scott McIntyre for The New York Times</media:credit>
+      <media:description>Naf Luyeye Makabu, originally from the Republic of Congo, jumped at the chance to take a literature course in Britain through his college in Florida.</media:description>
+    </item>
+    <item>
+      <title>Taking the Future of Manufacturing Into High Schools</title>
+      <link>https://www.nytimes.com/2019/06/07/education/learning/high-school-manufacturing-robotics.html?emc=rss&amp;partner=rss</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2019/06/07/education/learning/high-school-manufacturing-robotics.html</guid>
+      <atom:link href="https://www.nytimes.com/2019/06/07/education/learning/high-school-manufacturing-robotics.html?emc=rss&amp;partner=rss" rel="standout"></atom:link>
+      <description>A number of secondary schools around the world offer robotics programs to prepare students for industries being transformed by automation.</description>
+      <dc:creator>Nick Leiber</dc:creator>
+      <pubDate>Fri, 07 Jun 2019 04:00:05 +0000</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Education (K-12)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Robots and Robotics</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Factories and Manufacturing</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">Honda Motor Co Ltd</category>
+      <media:content height="151" medium="image" url="https://static01.nyt.com/images/2019/06/07/learning/07sp-robotics1/07sp-robotics1-moth.jpg" width="151"></media:content>
+      <media:credit>Jann H&amp;ouml;fer for The New York Times</media:credit>
+      <media:description>Christian Zimbelmann, a teacher, and students at Hans-Dietrich-Genscher-Schule near Bonn, Germany, checking the motion sequence of the Yaskawa robot arm in their classroom.</media:description>
+    </item>
+    <item>
+      <title>Online Classrooms Look to Improve Higher Education Across Africa, but Face Skepticism</title>
+      <link>https://www.nytimes.com/2019/06/07/education/learning/online-higher-education-opportunities-africa.html?emc=rss&amp;partner=rss</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2019/06/07/education/learning/online-higher-education-opportunities-africa.html</guid>
+      <atom:link href="https://www.nytimes.com/2019/06/07/education/learning/online-higher-education-opportunities-africa.html?emc=rss&amp;partner=rss" rel="standout"></atom:link>
+      <description>New ventures hope to fill a need as the number of African high school graduates grows, along with demand for a more highly skilled work force.</description>
+      <dc:creator>Karin Fischer</dc:creator>
+      <pubDate>Fri, 07 Jun 2019 04:00:06 +0000</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Colleges and Universities</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">E-Learning</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">Unicaf University</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_geo">Africa</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_geo">Nigeria</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_geo">Zambia</category>
+      <media:content height="151" medium="image" url="https://static01.nyt.com/images/2019/06/07/learning/07sp-unicaf1/07sp-unicaf1-moth.jpg" width="151"></media:content>
+      <media:credit>Jason J Mulikita for The New York Times</media:credit>
+      <media:description>Emily Kamizi, right, at a market near her home in Lusaka, Zambia, is studying for an M.B.A. through Unicaf, whose courses are mostly online.</media:description>
+    </item>
+    <item>
+      <title>Biggest Offender in Outsize Debt: Graduate Schools</title>
+      <link>https://www.nytimes.com/2019/06/03/upshot/student-debt-big-culprit-graduate-school.html?emc=rss&amp;partner=rss</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2019/06/03/upshot/student-debt-big-culprit-graduate-school.html</guid>
+      <atom:link href="https://www.nytimes.com/2019/06/03/upshot/student-debt-big-culprit-graduate-school.html?emc=rss&amp;partner=rss" rel="standout"></atom:link>
+      <description>The market for master’s degrees behaves in strange and erratic ways, new data reveals.</description>
+      <dc:creator>Kevin Carey</dc:creator>
+      <pubDate>Wed, 05 Jun 2019 07:04:43 +0000</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">For-Profit Schools</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Student Loans</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Graduate Schools and Students</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">Academy of Art University</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Financial Aid (Education)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Accreditation</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Regulation and Deregulation of Industry</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">DeVos, Elizabeth (1958- )</category>
+      <media:content height="151" medium="image" url="https://static01.nyt.com/images/2019/05/31/upshot/up-gradschools/up-gradschools-moth.jpg" width="151"></media:content>
+      <media:credit>Drew Angerer/Getty Images</media:credit>
+      <media:description>Many students who graduated this season face high debt levels for study in fields that don’t pay that well.</media:description>
+    </item>
+    <item>
+      <title>Jury Finds Oberlin College Libeled a Bakery and Awards $11 Million in Damages</title>
+      <link>https://www.nytimes.com/2019/06/10/us/oberlin-bakery-lawsuit.html?emc=rss&amp;partner=rss</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2019/06/10/us/oberlin-bakery-lawsuit.html</guid>
+      <atom:link href="https://www.nytimes.com/2019/06/10/us/oberlin-bakery-lawsuit.html?emc=rss&amp;partner=rss" rel="standout"></atom:link>
+      <description>The verdict raised questions about the responsibility of colleges to police students’ speech and behavior, as well as broader First Amendment issues.</description>
+      <dc:creator>Mihir Zaveri and Emily S. Rueb</dc:creator>
+      <pubDate>Mon, 10 Jun 2019 12:31:16 +0000</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Colleges and Universities</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">Gibson&#39;s Bakery (Oberlin, Ohio)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">Oberlin College</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Freedom of Speech and Expression</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Race and Ethnicity</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Discrimination</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">First Amendment (US Constitution)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_geo">Lorain County (Ohio)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Demonstrations, Protests and Riots</category>
+      <media:content height="151" medium="image" url="https://static01.nyt.com/images/2019/06/09/multimedia/09xp-oberlin/09xp-oberlin-moth.jpg" width="151"></media:content>
+      <media:credit>Dake Kang/Associated Press</media:credit>
+      <media:description>A jury in Ohio determined that Oberlin College libeled Gibson’s Bakery when students accused the business of being racist.</media:description>
+    </item>
+    <item>
+      <title>Bulletin Board</title>
+      <link>https://www.nytimes.com/2019/06/07/education/learning/bulletin-board-graduation-guidance.html?emc=rss&amp;partner=rss</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2019/06/07/education/learning/bulletin-board-graduation-guidance.html</guid>
+      <atom:link href="https://www.nytimes.com/2019/06/07/education/learning/bulletin-board-graduation-guidance.html?emc=rss&amp;partner=rss" rel="standout"></atom:link>
+      <description>Graduation guidance, e-learning around the globe, a scholarship program for refugees — and more. A collection of views and news from a special report on Learning.</description>
+      <pubDate>Fri, 07 Jun 2019 18:43:42 +0000</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Foreign Students (in US)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Education (K-12)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Colleges and Universities</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Community Colleges</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">International Study and Teaching</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">Education Department (US)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_geo">Orange County (Calif)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Women and Girls</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Skeleton (Sport)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Olympic Games (2018)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">E-Learning</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Refugees and Displaced Persons</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Computers and the Internet</category>
+      <media:content height="151" medium="image" url="https://static01.nyt.com/images/2019/06/07/multimedia/07spp2-foreign-art/07spp2-foreign-art-moth.jpg" width="151"></media:content>
+      <media:credit>David Suter</media:credit>
+    </item>
+    <item>
+      <title>The New School’s Leader on Global Goals and What Lies Ahead</title>
+      <link>https://www.nytimes.com/2019/06/07/education/learning/van-zandt-new-school-global-learning.html?emc=rss&amp;partner=rss</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2019/06/07/education/learning/van-zandt-new-school-global-learning.html</guid>
+      <atom:link href="https://www.nytimes.com/2019/06/07/education/learning/van-zandt-new-school-global-learning.html?emc=rss&amp;partner=rss" rel="standout"></atom:link>
+      <description>David Van Zandt. the university’s president, on the importance of reaching students outside the United States.</description>
+      <dc:creator>Alina Tugend</dc:creator>
+      <pubDate>Fri, 07 Jun 2019 04:00:07 +0000</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Van Zandt, David E</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">New School</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_geo">Dubai (United Arab Emirates)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_geo">Paris (France)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Foreign Students (in US)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Colleges and Universities</category>
+    </item>
+    <item>
+      <title>Short-Term Programs for Long-Term Success</title>
+      <link>https://www.nytimes.com/2019/06/07/education/learning/global-training-programs-bootcamps.html?emc=rss&amp;partner=rss</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2019/06/07/education/learning/global-training-programs-bootcamps.html</guid>
+      <atom:link href="https://www.nytimes.com/2019/06/07/education/learning/global-training-programs-bootcamps.html?emc=rss&amp;partner=rss" rel="standout"></atom:link>
+      <description>A growing number of intensive programs offered online, or on campuses around the world, can help workers at all stages become more globally minded.</description>
+      <dc:creator>Kerry Hannon</dc:creator>
+      <pubDate>Fri, 07 Jun 2019 04:00:07 +0000</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Colleges and Universities</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Computers and the Internet</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Scholarships and Fellowships</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Entrepreneurship</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">Aspen Institute</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">Massachusetts Institute of Technology</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">New York University</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">Sloan School of Management</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">University of California, San Francisco</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">IE University</category>
+      <media:content height="151" medium="image" url="https://static01.nyt.com/images/2019/06/07/learning/07sp-lifelong3/07sp-lifelong3-moth.jpg" width="151"></media:content>
+      <media:credit>Cody O&#39;Loughlin for The New York Times</media:credit>
+      <media:description>From left, seated on couch: Amory González Juárez, Jon Hanson and Thiago Naves, all of whom attended an M.I.T. boot camp in Australia. Together, they founded a company called QuickBrasil.</media:description>
+    </item>
+    <item>
+      <title>From Albania to Singapore, U.S. Students Look for Tailored Experiences Abroad</title>
+      <link>https://www.nytimes.com/2019/06/07/education/learning/us-students-study-abroad.html?emc=rss&amp;partner=rss</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2019/06/07/education/learning/us-students-study-abroad.html</guid>
+      <atom:link href="https://www.nytimes.com/2019/06/07/education/learning/us-students-study-abroad.html?emc=rss&amp;partner=rss" rel="standout"></atom:link>
+      <description>More students in the United States are studying overseas, and colleges now offer a variety of experiences that let students choose what they want.</description>
+      <dc:creator>Laura Pappano</dc:creator>
+      <pubDate>Fri, 07 Jun 2019 04:00:07 +0000</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Colleges and Universities</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">International Study and Teaching</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">Lehigh University</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">Worcester Polytechnic Institute</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_geo">Albania</category>
+      <media:content height="151" medium="image" url="https://static01.nyt.com/images/2019/06/07/learning/07sp-purpose1/07sp-purpose1-moth.jpg" width="151"></media:content>
+      <media:credit>Amrita Chandradas for The New York Times</media:credit>
+      <media:description>Megan Carroll, a rising senior at Lehigh University, visited Singapore&amp;rsquo;s Gardens by the Bay, known for its botanical conservatories and iconic Supertrees. She said she was itching to see the world for herself.</media:description>
+    </item>
+    <item>
+      <title>Patricia Battin, Lightning Rod in a Library War, Dies at 89</title>
+      <link>https://www.nytimes.com/2019/06/05/obituaries/patricia-battin-dead.html?emc=rss&amp;partner=rss</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2019/06/05/obituaries/patricia-battin-dead.html</guid>
+      <atom:link href="https://www.nytimes.com/2019/06/05/obituaries/patricia-battin-dead.html?emc=rss&amp;partner=rss" rel="standout"></atom:link>
+      <description>A leading librarian who championed high tech, she dueled with preservationists like Nicholson Baker over how best to protect the written word for posterity.</description>
+      <dc:creator>Katharine Q. Seelye</dc:creator>
+      <pubDate>Wed, 05 Jun 2019 20:43:02 +0000</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Battin, Patricia (1929-2019)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Libraries and Librarians</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Deaths (Obituaries)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Computers and the Internet</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Books and Literature</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Baker, Nicholson</category>
+    </item>
+    <item>
+      <title>Juliann Bluitt Foster, Trailblazer in Dentistry, Is Dead at 80</title>
+      <link>https://www.nytimes.com/2019/06/03/obituaries/juliann-bluitt-foster-dead.html?emc=rss&amp;partner=rss</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2019/06/03/obituaries/juliann-bluitt-foster-dead.html</guid>
+      <atom:link href="https://www.nytimes.com/2019/06/03/obituaries/juliann-bluitt-foster-dead.html?emc=rss&amp;partner=rss" rel="standout"></atom:link>
+      <description>Just 2 percent of dentists were women when she joined their ranks, and “maybe 2 percent of that 2 percent” were black. She made it her goal to change that.</description>
+      <dc:creator>Karen Weintraub</dc:creator>
+      <pubDate>Mon, 03 Jun 2019 22:09:54 +0000</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Foster, Juliann Bluitt</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Deaths (Obituaries)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Teeth and Dentistry</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Blacks</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Women and Girls</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">Northwestern University</category>
+    </item>
+    <item>
+      <title>An Editor’s Yearbook Tells a Tale of Race in New York’s Elite Public Schools</title>
+      <link>https://www.nytimes.com/2019/06/03/reader-center/bronx-science-nyc-public-schools-black-hispanic-yearbook.html?emc=rss&amp;partner=rss</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2019/06/03/reader-center/bronx-science-nyc-public-schools-black-hispanic-yearbook.html</guid>
+      <atom:link href="https://www.nytimes.com/2019/06/03/reader-center/bronx-science-nyc-public-schools-black-hispanic-yearbook.html?emc=rss&amp;partner=rss" rel="standout"></atom:link>
+      <description>When I attended Bronx Science, the student body was 23 percent black and Hispanic. Its ethnic makeup is very different today.</description>
+      <dc:creator>Dodai Stewart</dc:creator>
+      <pubDate>Thu, 06 Jun 2019 03:50:50 +0000</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">Bronx High School of Science</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Race and Ethnicity</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Blacks</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Magnet Schools</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Education (Secondary)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_geo">New York City</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Equal Educational Opportunities</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Admissions Standards</category>
+    </item>
+    <item>
+      <title>Does Your Education Level Affect Your Health?</title>
+      <link>https://www.nytimes.com/2019/06/03/upshot/education-impact-health-longevity.html?emc=rss&amp;partner=rss</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2019/06/03/upshot/education-impact-health-longevity.html</guid>
+      <atom:link href="https://www.nytimes.com/2019/06/03/upshot/education-impact-health-longevity.html?emc=rss&amp;partner=rss" rel="standout"></atom:link>
+      <description>Some clever studies have teased out causal effects by taking advantage of natural experiments.</description>
+      <dc:creator>Austin Frakt</dc:creator>
+      <pubDate>Tue, 04 Jun 2019 13:55:39 +0000</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Medicine and Health</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Longevity</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Education</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Preventive Medicine</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Discrimination</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Anxiety and Stress</category>
+      <media:content height="151" medium="image" url="https://static01.nyt.com/images/2019/06/03/upshot/03up-health-educated/03up-health-educated-moth.jpg" width="151"></media:content>
+      <media:credit>Travis Dove for The New York Times</media:credit>
+      <media:description>New graduates of Fayetteville State University last month in North Carolina. A college degree is linked to higher life expectancy, but does it cause it?</media:description>
+    </item>
+    <item>
+      <title>F.B.I. Is Said to Be Investigating College Admissions Practices at T.M. Landry</title>
+      <link>https://www.nytimes.com/2019/06/02/us/politics/tm-landry-fbi-college-admissions.html?emc=rss&amp;partner=rss</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2019/06/02/us/politics/tm-landry-fbi-college-admissions.html</guid>
+      <atom:link href="https://www.nytimes.com/2019/06/02/us/politics/tm-landry-fbi-college-admissions.html?emc=rss&amp;partner=rss" rel="standout"></atom:link>
+      <description>The private school in Louisiana, once celebrated for helping underprivileged and minority students attend elite colleges, is now under federal investigation over its college applications.</description>
+      <dc:creator>Katie Benner and Erica L. Green</dc:creator>
+      <pubDate>Mon, 03 Jun 2019 13:27:45 +0000</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">TM Landry College Preparatory (Breaux Bridge, La)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Admissions Standards</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">School Discipline (Students)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Colleges and Universities</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Education (K-12)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">Federal Bureau of Investigation</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_geo">Louisiana</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Landry, Michael (1969- )</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Landry, Tracey J (1968- )</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Blacks</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Minorities</category>
+    </item>
+    <item>
+      <title>Did I Need to Know What Gender My Nonbinary Interviewees Were Assigned at Birth? Maybe Not</title>
+      <link>https://www.nytimes.com/2019/06/02/reader-center/nonbinary-teens-reporting.html?emc=rss&amp;partner=rss</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2019/06/02/reader-center/nonbinary-teens-reporting.html</guid>
+      <atom:link href="https://www.nytimes.com/2019/06/02/reader-center/nonbinary-teens-reporting.html?emc=rss&amp;partner=rss" rel="standout"></atom:link>
+      <description>To write about the debate over adding an “X” option to state IDs, I was trying to better understand how the issue plays out in everyday life.</description>
+      <dc:creator>Amy Harmon</dc:creator>
+      <pubDate>Tue, 04 Jun 2019 03:56:17 +0000</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Gender</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Transgender and Transsexuals</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Teenagers and Adolescence</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Discrimination</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Drivers Licenses</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Law and Legislation</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_geo">Maryland</category>
+      <media:content height="151" medium="image" url="https://static01.nyt.com/images/2019/06/04/insider/04insider-nonbinary-teens-top-image/8e33576a09a34855aef561ad81da339d-moth.jpg" width="151"></media:content>
+      <media:credit>Gabriella Demczuk for The New York Times</media:credit>
+      <media:description>Flynn Djan, left, who is nonbinary, and Beau Bryant, a transgender man, embracing during a meeting of an L.G.B.T. group at Centennial High School in Ellicott City, Md.</media:description>
+    </item>
+    <item>
+      <title>Let’s Hear It for the Average Child</title>
+      <link>https://www.nytimes.com/2019/05/31/opinion/average-child.html?emc=rss&amp;partner=rss</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2019/05/31/opinion/average-child.html</guid>
+      <atom:link href="https://www.nytimes.com/2019/05/31/opinion/average-child.html?emc=rss&amp;partner=rss" rel="standout"></atom:link>
+      <description>In this season of prizes and trophies, we salute all the students whose talents lie outside the arena.</description>
+      <dc:creator>Margaret Renkl</dc:creator>
+      <pubDate>Sat, 01 Jun 2019 22:39:47 +0000</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Children and Childhood</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Education</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Awards, Decorations and Honors</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Parenting</category>
+      <media:content height="151" medium="image" url="https://static01.nyt.com/images/2019/06/03/opinion/03renkl/03renkl-moth-v2.jpg" width="151"></media:content>
+      <media:credit>Jennifer Xiao</media:credit>
+    </item>
+    <item>
+      <title>3 of This Year’s Spelling Bee Winners Are Friends From Dallas</title>
+      <link>https://www.nytimes.com/2019/05/31/us/spelling-bee-winners-dallas.html?emc=rss&amp;partner=rss</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2019/05/31/us/spelling-bee-winners-dallas.html</guid>
+      <atom:link href="https://www.nytimes.com/2019/05/31/us/spelling-bee-winners-dallas.html?emc=rss&amp;partner=rss" rel="standout"></atom:link>
+      <description>The region, where the boys competed together and became friends, has emerged as something of a spelling juggernaut in recent years.</description>
+      <dc:creator>Sarah Mervosh</dc:creator>
+      <pubDate>Sat, 01 Jun 2019 01:45:37 +0000</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Scripps National Spelling Bee</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Spelling</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_geo">Dallas (Tex)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Contests and Prizes</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Kodali, Abhijay</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Raja, Rohan</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Sukhatankar, Sohum</category>
+    </item>
+    <item>
+      <title>A Financial Checklist for Your Newly Minted High School Graduate</title>
+      <link>https://www.nytimes.com/2019/05/31/your-money/teenager-financial-preparation.html?emc=rss&amp;partner=rss</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2019/05/31/your-money/teenager-financial-preparation.html</guid>
+      <atom:link href="https://www.nytimes.com/2019/05/31/your-money/teenager-financial-preparation.html?emc=rss&amp;partner=rss" rel="standout"></atom:link>
+      <description>We’ve got budget, retirement account, credit, information security and insurance advice for your independent adult, college student, gap-year taker or future soldier.</description>
+      <dc:creator>Ron Lieber</dc:creator>
+      <pubDate>Fri, 07 Jun 2019 15:27:35 +0000</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Teenagers and Adolescence</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Personal Finances</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Colleges and Universities</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Financial Aid (Education)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Student Loans</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Parenting</category>
+      <media:content height="151" medium="image" url="https://static01.nyt.com/images/2019/05/31/business/31money-03/31money-03-moth.jpg" width="151"></media:content>
+      <media:credit>Robert Neubecker</media:credit>
+    </item>
+    <item>
+      <title>Joe Biden Debuts Education Plan, Then Touts It to Teachers’ Union</title>
+      <link>https://www.nytimes.com/2019/05/28/us/politics/biden-education-plan-2020.html?emc=rss&amp;partner=rss</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2019/05/28/us/politics/biden-education-plan-2020.html</guid>
+      <atom:link href="https://www.nytimes.com/2019/05/28/us/politics/biden-education-plan-2020.html?emc=rss&amp;partner=rss" rel="standout"></atom:link>
+      <description>Mr. Biden promoted the plan, the first policy of his campaign, at a town-hall event with the American Federation of Teachers in Houston on Tuesday.</description>
+      <dc:creator>Katie Glueck</dc:creator>
+      <pubDate>Wed, 29 May 2019 03:05:06 +0000</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Education (K-12)</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Presidential Election of 2020</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_org">American Federation of Teachers</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_per">Biden, Joseph R Jr</category>
+      <media:content height="151" medium="image" url="https://static01.nyt.com/images/2019/05/28/multimedia/biden-education2/biden-education2-moth-v2.jpg" width="151"></media:content>
+      <media:credit>Brett Coomer/Houston Chronicle, via Associated Press</media:credit>
+      <media:description>Joseph R. Biden Jr. at an event with the American Federation of Teachers, a teachers’ union, in Houston on Tuesday at which he discussed his education proposal.</media:description>
+    </item>
+    <item>
+      <title>4 Years of College, $0 in Debt: How Some Countries Make Higher Education Affordable</title>
+      <link>https://www.nytimes.com/2019/05/28/reader-center/international-college-costs-financing.html?emc=rss&amp;partner=rss</link>
+      <guid isPermaLink="true">https://www.nytimes.com/2019/05/28/reader-center/international-college-costs-financing.html</guid>
+      <atom:link href="https://www.nytimes.com/2019/05/28/reader-center/international-college-costs-financing.html?emc=rss&amp;partner=rss" rel="standout"></atom:link>
+      <description>When we asked people around the world what sort of financial burden they bore for their higher education, we heard how much it varies from country to country.</description>
+      <dc:creator>Lara Takenaga</dc:creator>
+      <pubDate>Tue, 28 May 2019 16:42:01 +0000</pubDate>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Colleges and Universities</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Politics and Government</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Tuition</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Student Loans</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/des">Income</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_geo">Brazil</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_geo">Canada</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_geo">Denmark</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_geo">Europe</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_geo">United States</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_geo">Turkey</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_geo">Taiwan</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_geo">Scotland</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_geo">Philippines</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_geo">New Zealand</category>
+      <category domain="http://www.nytimes.com/namespaces/keywords/nyt_geo">Ireland</category>
+      <media:content height="151" medium="image" url="https://static01.nyt.com/images/2019/05/29/insider/caps-promo/caps-promo-moth.jpg" width="151"></media:content>
+    </item>
+  </channel>
+</rss>
