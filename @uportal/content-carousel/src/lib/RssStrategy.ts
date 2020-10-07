@@ -11,6 +11,16 @@ export class RssStrategy implements DataStrategy {
     this.load(feed);
   }
 
+  private extractImageFromRss(media: any, enclosures: any) {
+    const mediaContent = media ? media.content : enclosures ? enclosures[0] : null;
+
+    if (media && Array.isArray(mediaContent) && mediaContent.length > 0 && mediaContent[0].$) {
+      return mediaContent[0].$.url;
+    }
+
+    return mediaContent;
+  }
+
   private async load(path: string): Promise<any> {
     const response = await fetch(path);
     if (!response.ok) {
@@ -36,8 +46,6 @@ export class RssStrategy implements DataStrategy {
             },
             index: number,
         ) => {
-          const image = media ? media.content : enclosures ? enclosures[0] : null;
-          const mediaImageUrl = media && Array.isArray(image) && image.length > 0 && image[0].$ ? image[0].$.url : image;
 
           return {
             id: `${index}-${new Date().getTime()}`,
@@ -46,7 +54,7 @@ export class RssStrategy implements DataStrategy {
               title ? title :
               description ? description : '',
             destinationUrl: link,
-            imageUrl: mediaImageUrl,
+            imageUrl: this.extractImageFromRss(media, enclosures),
             title,
             description,
           };
