@@ -40,7 +40,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "jwt-decode": "^2.2.0"
+    "jwt-decode": "^3.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.10.0",
