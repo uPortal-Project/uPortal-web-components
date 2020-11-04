@@ -2,7 +2,7 @@
 
 [![NPM Version](https://img.shields.io/npm/v/@uportal/open-id-connect.svg)](https://www.npmjs.com/package/@uportal/open-id-connect)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.webjars.npm/uportal__open-id-connect/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.webjars.npm/uportal__open-id-connect)
-[![Build Status](https://travis-ci.org/uPortal-contrib/uPortal-web-components.svg?branch=master)](https://travis-ci.org/uPortal-contrib/uPortal-web-components)
+[![Build Status](https://github.com/uPortal-contrib/uPortal-web-components/workflows/CI/badge.svg)](https://github.com/uPortal-contrib/uPortal-web-components/actions?workflow=CI)
 
 > A client side abstraction to efficiently get Open ID Connect tokens from uPortal
 

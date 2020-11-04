@@ -2,7 +2,7 @@
 
 [![NPM Version](https://img.shields.io/npm/v/@uportal/content-renderer.svg)](https://www.npmjs.com/package/@uportal/content-renderer)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.webjars.npm/uportal__content-renderer/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.webjars.npm/uportal__dashboard-carousel)
-[![Build Status](https://travis-ci.org/uPortal-contrib/uPortal-web-components.svg?branch=master)](https://travis-ci.org/uPortal-contrib/uPortal-web-components)
+[![Build Status](https://github.com/uPortal-contrib/uPortal-web-components/workflows/CI/badge.svg)](https://github.com/uPortal-contrib/uPortal-web-components/actions?workflow=CI)
 
 ## Demo
 
