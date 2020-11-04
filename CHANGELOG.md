@@ -7,6 +7,48 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased][]
 
+- TBD
+
+## [1.36.0][] - 2020-11-04
+
+### Features
+
+- **esco-content-menu** add var on color (#544)
+
+### Fixes
+
+- **content-carousel** Resolves issue where an RSS feed with external images was not properly being parsed into an image URL for display (#598)
+- **eyebrow-user-info** Lint error in @uportal/eyebrow-user-info/src/App.vue
+- **waffle-menu** Lint error in @uportal/waffle-menu/src/App.vue
+- **general** Editor broke link in App.vue & commitlint
+- **general** Resolves issue where components without .vue file extension would cause rendering errors (#597)
+
+### Chores
+
+- Update dependencies
+  - update commitlint monorepo to v11 (#542, #586)
+  - @fortawesome/vue-fontawesome to v2 (#582)
+  - axios to ^0.21.0 (#574, #607)
+  - eslint-plugin-jest to v24 (#583)
+  - eslint-plugin-vue to v7 (#595)
+  - gradle to v6.7 (#530, #545, #570, #578, #605)
+  - jwt-decode to v3 (#596)
+  - ky to ^0.24.0 (#550, #563, #564, #593)
+  - prettier to v2.1.2 (#576, #579, #590)
+  - remark-cli to v9 (#604)
+  - remark-preset-lint-recommended to v5 (#602)
+  - sass-loader to v10 (#577)
+  - typescript to v4 (#573)
+  - vue-cli-plugin-i18n to v1 (#515)
+  - vue-property-decorator to v9 (#540)
+  - font awesome (#541, #551)
+  - node.js to v14.14.0 (#529, #546, #565, #567, #571, #580, #584, #589, #600, #606, #608)
+- build: migrate from prettier stylelint to stylelint prettier plugin
+- lock file maintenance (#538, #539, #543, #547, #549, #566, #568, #569, #572, #575, #581, #587, #588, #591)
+- style: format files with prettier
+
+## [1.35.0][] - 2020-05-26
+
 ### Features
 
 - Waffle menu/accessibility enhancements (#391)
