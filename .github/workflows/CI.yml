@@ -10,13 +10,20 @@ jobs:
     strategy:
       matrix:
         platform: [ubuntu-latest, windows-latest, macos-latest]
-        node-version: [10, 12, 14]
+        node-version: [14]
+        include:
+          - platform: ubuntu-latest
+            node-version: 12
+          - platform: ubuntu-latest
+            node-version: 10
     runs-on: ${{ matrix.platform }}
     steps:
       - name: Checkout
-        uses: actions/checkout@master
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
       - name: Set up Node.js
-        uses: actions/setup-node@master
+        uses: actions/setup-node@v2-beta
         with:
           node-version: ${{ matrix.node-version }}
       - name: Install
@@ -29,3 +36,5 @@ jobs:
         run: npm run test
       - name: Build
         run: npx lerna run build
+      - name: Check Commit Message
+        run: npx commitlint --from HEAD~${{ github.event.pull_request.commits }} --to HEAD
