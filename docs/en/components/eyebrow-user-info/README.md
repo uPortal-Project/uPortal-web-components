@@ -2,7 +2,7 @@
 
 [![NPM Version](https://img.shields.io/npm/v/@uportal/eyebrow-user-info.svg)](https://www.npmjs.com/package/@uportal/eyebrow-user-info)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.webjars.npm/uportal__eyebrow-user-info/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.webjars.npm/uportal__eyebrow-user-info)
-[![Build Status](https://travis-ci.org/uPortal-contrib/uPortal-web-components.svg?branch=master)](https://travis-ci.org/uPortal-contrib/uPortal-web-components)
+[![Build Status](https://github.com/uPortal-contrib/uPortal-web-components/workflows/CI/badge.svg)](https://github.com/uPortal-contrib/uPortal-web-components/actions?workflow=CI)
 
 ![Example of rendering](doc/example.gif)
 

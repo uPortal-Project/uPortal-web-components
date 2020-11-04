@@ -2,7 +2,7 @@
 
 [![NPM Version](https://img.shields.io/npm/v/@uportal/user-profile-menu.svg)](https://www.npmjs.com/package/@uportal/user-profile-menu)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.webjars.npm/uportal__user-profile-menu/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.webjars.npm/uportal__user-profile-menu)
-[![Build Status](https://travis-ci.org/uPortal-contrib/uPortal-web-components.svg?branch=master)](https://travis-ci.org/uPortal-contrib/uPortal-web-components)
+[![Build Status](https://github.com/uPortal-contrib/uPortal-web-components/workflows/CI/badge.svg)](https://github.com/uPortal-contrib/uPortal-web-components/actions?workflow=CI)
 
 ## Development
 
@@ -37,9 +37,7 @@ Here's the guts of that html file:
 
 ```html
 <user-profile-menu>
-  <div slot="header">
-    User Profile
-  </div>
+  <div slot="header">User Profile</div>
   <div>
     <div class="list-group list-group-flush">
       <a

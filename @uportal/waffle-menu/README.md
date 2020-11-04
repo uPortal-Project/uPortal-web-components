@@ -2,7 +2,7 @@
 
 [![NPM Version](https://img.shields.io/npm/v/@uportal/waffle-menu.svg)](https://www.npmjs.com/package/@uportal/waffle-menu)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.webjars.npm/uportal__waffle-menu/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.webjars.npm/uportal__waffle-menu)
-[![Build Status](https://travis-ci.org/uPortal-contrib/uPortal-web-components.svg?branch=master)](https://travis-ci.org/uPortal-contrib/uPortal-web-components)
+[![Build Status](https://github.com/uPortal-contrib/uPortal-web-components/workflows/CI/badge.svg)](https://github.com/uPortal-contrib/uPortal-web-components/actions?workflow=CI)
 
 ## Demo
 
@@ -57,9 +57,7 @@ This component supports slots for a header and footer element above and below th
 
 ```html
 <waffle-menu oidc-url="https://example.com/uPortal/api/v5-1/userinfo">
-  <div slot="header">
-    Header goes here
-  </div>
+  <div slot="header">Header goes here</div>
   <div slot="footer">
     <a href="">Footer goes here</a>
   </div>

@@ -2,7 +2,7 @@
 
 [![NPM Version](https://img.shields.io/npm/v/@uportal/portlet-registry-to-array.svg)](https://www.npmjs.com/package/@uportal/portlet-registry-to-array)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.webjars.npm/uportal__portlet-registry-to-array/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.webjars.npm/uportal__portlet-registry-to-array)
-[![Build Status](https://travis-ci.org/uPortal-contrib/uPortal-web-components.svg?branch=master)](https://travis-ci.org/uPortal-contrib/uPortal-web-components)
+[![Build Status](https://github.com/uPortal-contrib/uPortal-web-components/workflows/CI/badge.svg)](https://github.com/uPortal-contrib/uPortal-web-components/actions?workflow=CI)
 
 > Un utilitaire qui aplatit l'arborescence du registre des portlets dans un tableau
 
