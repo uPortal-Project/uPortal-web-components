@@ -8,6 +8,10 @@
 
 <https://uportal-contrib.github.io/uPortal-web-components/en/components/dashboard-carousel/demo>
 
+## uPortal Demo
+
+[uPortal Demo Guide](/uPortal-web-components/docs/en/developer/uportal-demo)
+
 ## Installation
 
 ```bash
