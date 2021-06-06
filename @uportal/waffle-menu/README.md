@@ -6,7 +6,7 @@
 
 ## Demo
 
-<https://uportal-contrib.github.io/uPortal-web-components/en/components/waffle-menu/demo>
+<https://uportal-project.github.io/uPortal-web-components/en/components/waffle-menu/demo>
 
 ## Development
 

@@ -31,7 +31,7 @@
   "bugs": {
     "url": "https://github.com/uPortal-contrib/uPortal-web-components/issues"
   },
-  "homepage": "https://uportal-contrib.github.io/uPortal-web-components/",
+  "homepage": "https://uportal-project.github.io/uPortal-web-components/",
   "publishConfig": {
     "access": "public"
   },
