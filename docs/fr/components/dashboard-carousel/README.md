@@ -6,7 +6,7 @@
 
 ## Démonstration
 
-<https://uportal-contrib.github.io/uPortal-web-components/en/components/dashboard-carousel/demo>
+<https://uportal-project.github.io/uPortal-web-components/en/components/dashboard-carousel/demo>
 
 ## Installation
 
