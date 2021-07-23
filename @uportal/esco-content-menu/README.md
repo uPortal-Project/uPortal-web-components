@@ -302,6 +302,7 @@ Standalone properties:
 - `hide-title`: `Boolean`, default: `false`, define to remove the title area from the grid, useful when a basic grid is desired
 - `portlet-background-is-dark`: `Boolean`, default: `false`, indicate to the component that the parent background is dark and permit to the portlet-card component to show buttons like favorites in a more suitable color.
 - `debug`: type: `Boolean`, default: `false`, for the demo/debug mode to be able to run in a standalone way (disable api call)
+- `card-hover-src`: type: possible value `none|title|desc|description`, default: `none`, set the hover text for the grid cards to one of the portlet definition values `title` or `description`
 
 and additional properties to work with the parent component `content-menu`:
 
