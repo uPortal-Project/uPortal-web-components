@@ -1,5 +1,5 @@
 <template>
-  <div :class="mainClass">
+  <div :class="mainClass" v-bind:title="hover">
     <div class="portlet-card-icon">
       <div
         v-if="iconUrl !== null"
@@ -81,6 +81,7 @@ export default {
     hideAction: { type: Boolean, default: false },
     portletDesc: { type: Object, required: true },
     backGroundIsDark: { type: Boolean, default: false },
+    cardHoverSrc: { type: String, default: 'none' },
   },
   data() {
     return {
@@ -88,6 +89,11 @@ export default {
       channelId: this.portletDesc.id,
       description: this.portletDesc.description,
       title: this.portletDesc.title,
+      hover: this.hoverText(
+        this.cardHoverSrc,
+        this.portletDesc.title,
+        this.portletDesc.description
+      ),
       canFavorite: this.portletDesc?.canAdd ? this.portletDesc.canAdd : true,
       iconUrl: computeUrl(
         this.portletDesc.parameters?.iconUrl?.value
@@ -135,6 +141,17 @@ export default {
         return text[0].trim();
       }
       return entry;
+    },
+    hoverText(cardHoverSrc, title, description) {
+      switch (cardHoverSrc) {
+        case 'title':
+          return title;
+        case 'desc':
+        case 'description':
+          return description;
+        default:
+          return null;
+      }
     },
   },
 };

@@ -62,6 +62,7 @@
       :context-api-url="contextApiUrl"
       :portlet-api-url="portletApiUrl"
       :debug="debug"
+      :card-hover-src="cardHoverSrc"
     />
     <vue-simple-spinner
       v-show="isLoading"
@@ -165,6 +166,7 @@ export default {
       default: 'otherAttributes.ESCOStructureLogo[0]',
     },
     showFavoritesInSlider: { type: Boolean, default: true },
+    cardHoverSrc: { type: String, default: 'none' },
   },
   data() {
     return {

@@ -72,6 +72,7 @@
               :user-info-api-url="userInfoApiUrl"
               :back-ground-is-dark="portletBackgroundIsDark"
               :debug="debug"
+              :card-hover-src="cardHoverSrc"
             />
           </a>
         </div>
@@ -177,6 +178,7 @@ export default {
     showFooterCategories: { type: Boolean, default: false },
     useExternalFilter: { type: Boolean, default: true },
     portletBackgroundIsDark: { type: Boolean, default: false },
+    cardHoverSrc: { type: String, default: 'none' },
   },
   data() {
     return {
