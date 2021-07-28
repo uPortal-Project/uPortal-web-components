@@ -14,7 +14,7 @@
   "dependencies": {
     "@uportal/content-renderer": "^1.36.0",
     "@uportal/open-id-connect": "^1.36.0",
-    "handlebars": "^4.1.2",
+    "handlebars": "^4.7.7",
     "jquery": "^3.3.1",
     "ky": "^0.26.0",
     "vue": "^2.5.17",
