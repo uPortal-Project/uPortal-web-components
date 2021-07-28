@@ -2,14 +2,14 @@
   <api-template-vue debug data-api-url="example.json">
     <div v-pre>
       <!-- Directive v-pre required b/c Vue will attempt to process anything in App.vue -->
-      <h3>{{ displayName[0] }}</h3>
+      <h3>{{ data.displayName[0] }}</h3>
       <dl>
         <dt>username:</dt>
-        <dd>{{ username[0] }}</dd>
+        <dd>{{ data.username[0] }}</dd>
         <dt>email:</dt>
-        <dd>{{ mail[0] }}</dd>
+        <dd>{{ data.mail[0] }}</dd>
         <dt>Phone:</dt>
-        <dd>{{ telephoneNumber[0] }}</dd>
+        <dd>{{ data.telephoneNumber[0] }}</dd>
       </dl>
     </div>
   </api-template-vue>
