@@ -41,7 +41,7 @@ The component requires a `data-api-url` (URL to acquire a JSON payload).
 <api-template-vue data-api-url="/uPortal/api/v5-0/people/me">
   <div class="card">
     <div class="card-body">
-      <h3 class="card-title">{{ displayName[0] }}</h3>
+      <h3 class="card-title">{{ data.displayName[0] }}</h3>
       <table class="table">
         <caption>
           User attributes
@@ -49,15 +49,15 @@ The component requires a `data-api-url` (URL to acquire a JSON payload).
         <tbody>
           <tr>
             <td>username:</td>
-            <td>{{ username[0] }}</td>
+            <td>{{ data.username[0] }}</td>
           </tr>
           <tr>
             <td>email:</td>
-            <td>{{ mail[0] }}</td>
+            <td>{{ data.mail[0] }}</td>
           </tr>
           <tr>
             <td>Phone:</td>
-            <td>{{ telephoneNumber[0] }}</td>
+            <td>{{ data.telephoneNumber[0] }}</td>
           </tr>
         </tbody>
       </table>

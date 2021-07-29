@@ -28,6 +28,7 @@
       layout-api-url="layout.json"
       organization-api-url="orginfo.json"
       user-info-api-url="userinfo.json"
+      card-hover-src="title"
       :show-favorites-in-slider="false"
       debug
     >

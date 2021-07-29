@@ -9,7 +9,7 @@
 ## Démo
 
 Dans la page de démonstration du menu de contenu d'esco :
-<https://uportal-contrib.github.io/uPortal-web-components/fr/components/esco-content-menu/demo>
+<https://uportal-project.github.io/uPortal-web-components/fr/components/esco-content-menu/demo>
 
 ## Utilisation en html
 
