@@ -39,6 +39,10 @@
     "build": "rollup -c",
     "test": "jest"
   },
+  "engines": {
+    "node": "^14.0.0",
+    "npm": "^6.0.0"
+  },
   "dependencies": {
     "jwt-decode": "^3.0.0"
   },
@@ -65,8 +69,5 @@
       "test": true,
       "expect": true
     }
-  },
-  "engines": {
-    "node": "^10.0.0 || ^12.0.0 || ^14.0.0"
   }
 }

@@ -12,6 +12,10 @@
     "build": "vue-cli-service build --name content-carousel --target wc \"src/components/*.vue\"",
     "postbuild": "cp node_modules/slick-carousel/slick/slick-theme.css dist/slick-theme.css && cp -r node_modules/slick-carousel/slick/fonts dist/fonts"
   },
+  "engines": {
+    "node": "^14.0.0",
+    "npm": "^6.0.0"
+  },
   "dependencies": {
     "@types/xml2js": "^0.4.3",
     "@uportal/open-id-connect": "^1.36.0",

@@ -12,6 +12,10 @@
     "build": "vue-cli-service --skip-plugins eslint build --name api-template-vue --target wc \"src/components/*.vue\"",
     "lint": "vue-cli-service lint"
   },
+  "engines": {
+    "node": "^14.0.0",
+    "npm": "^6.0.0"
+  },
   "dependencies": {
     "@uportal/open-id-connect": "^1.36.0",
     "axios": "^0.21.1",

@@ -11,6 +11,10 @@
     "prebuild": "babel node_modules/@vue/web-component-wrapper/dist/vue-wc-wrapper.js -o node_modules/@vue/web-component-wrapper/dist/vue-wc-wrapper.js",
     "build": "vue-cli-service build --target wc --name content \"src/components/*.vue\""
   },
+  "engines": {
+    "node": "^14.0.0",
+    "npm": "^6.0.0"
+  },
   "dependencies": {
     "@uportal/open-id-connect": "^1.36.0",
     "handlebars": "^4.1.2",
