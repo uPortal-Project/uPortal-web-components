@@ -50,7 +50,7 @@
     "babel-eslint": "^10.0.1",
     "eslint": "^7.1.0",
     "eslint-plugin-vue": "^7.0.0",
-    "node-sass": "^4.12.0",
+    "node-sass": "^6.0.0",
     "sass-loader": "^10.0.0",
     "vue-template-compiler": "^2.6.10"
   },
