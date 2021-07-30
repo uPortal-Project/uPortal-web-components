@@ -20,6 +20,10 @@
     "build": "vue-cli-service build --skip-plugins eslint --name user-profile-menu --target wc \"src/components/*.vue\"",
     "lint": "vue-cli-service lint"
   },
+  "engines": {
+    "node": "^14.0.0",
+    "npm": "^6.0.0"
+  },
   "dependencies": {
     "@uportal/open-id-connect": "^1.36.0",
     "bootstrap": "^4.3.1",

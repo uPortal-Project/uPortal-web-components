@@ -25,10 +25,14 @@
     "access": "public"
   },
   "scripts": {
-    "serve": "vue-cli-service serve",
+    "start": "vue-cli-service serve",
     "prebuild": "babel node_modules/@vue/web-component-wrapper/dist/vue-wc-wrapper.js -o node_modules/@vue/web-component-wrapper/dist/vue-wc-wrapper.js",
     "build": "vue-cli-service build --name sidebar-nav --target wc \"src/components/SidebarNav.vue\"",
     "lint": "vue-cli-service lint"
+  },
+  "engines": {
+    "node": "^14.0.0",
+    "npm": "^6.0.0"
   },
   "dependencies": {
     "@uportal/open-id-connect": "^1.36.0",
