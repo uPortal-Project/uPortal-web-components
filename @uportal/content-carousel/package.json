@@ -21,7 +21,7 @@
     "@uportal/open-id-connect": "^1.36.0",
     "@uportal/portlet-registry-to-array": "^1.36.0",
     "jquery": "^3.3.1",
-    "rss-to-json": "^1.0.4",
+    "rss-to-json": "^2.0.0",
     "vue": "^2.5.20",
     "vue-class-component": "^7.0.0",
     "vue-property-decorator": "^9.0.0",
