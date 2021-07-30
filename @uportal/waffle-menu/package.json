@@ -15,7 +15,6 @@
     "@uportal/open-id-connect": "^1.36.0",
     "@uportal/portlet-registry-to-array": "^1.36.0",
     "lodash.get": "^4.4.2",
-    "npm": "^6.14.14",
     "vue": "^2.6.2"
   },
   "devDependencies": {
