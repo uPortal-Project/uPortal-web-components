@@ -1,4 +1,5 @@
 import babel from 'rollup-plugin-babel';
+import resolve from '@rollup/plugin-node-resolve';
 
 export default {
   input: 'src/portlet-registry-to-array.js',
@@ -11,11 +12,18 @@ export default {
       format: 'umd',
       name: 'portletRegistryToArray',
       file: 'umd/portlet-registry-to-array.js',
+      globals: { 'lodash/uniqBy': 'uniqBy' },
     },
     {
       format: 'cjs',
       file: 'cjs/portlet-registry-to-array.js',
     },
   ],
-  plugins: [babel()],
+  plugins: [
+    babel({
+      exclude: 'node_modules/**',
+    }),
+    resolve({ moduleDirectories: ['node_modules'] }),
+  ],
+  external: ['lodash/uniqBy'],
 };
