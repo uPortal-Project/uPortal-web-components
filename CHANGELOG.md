@@ -7,7 +7,141 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased][]
 
-- TBD
+### Features
+
+- feat: add hover text to cards based on portlet title or desc (#749)
+
+### Fixes
+
+- fix(api-template-vue): updated README.md and example to use data property (#740)
+- fix(deps): update dependency ky to ^0.25.0 (#612)
+- fix(deps): update dependency ky to ^0.26.0 (#625)
+- fix(esco-grid): fix categories (#780)
+- fix: add rollup node resolve plugin for extern modules (#781)
+
+### Documentation
+
+- doc: update new github repository url (#737)
+- docs: update links to continuous integration (#611)
+
+### Chores
+
+- chore(deps): bump axios from 0.21.0 to 0.21.1 in /@uportal/api-template-vue
+- chore(deps): bump browserslist from 4.14.5 to 4.16.6
+- chore(deps): bump browserslist from 4.14.5 to 4.16.6 in /@uportal/api-template-vue
+- chore(deps): bump browserslist from 4.14.5 to 4.16.6 in /@uportal/content-carousel
+- chore(deps): bump browserslist from 4.14.5 to 4.16.6 in /@uportal/dashboard-carousel
+- chore(deps): bump browserslist from 4.14.5 to 4.16.6 in /@uportal/esco-content-menu
+- chore(deps): bump browserslist from 4.14.5 to 4.16.6 in /@uportal/eyebrow-user-info
+- chore(deps): bump browserslist from 4.14.5 to 4.16.6 in /@uportal/open-id-connect
+- chore(deps): bump browserslist from 4.14.5 to 4.16.6 in /@uportal/portlet-registry-to-array
+- chore(deps): bump browserslist from 4.14.5 to 4.16.6 in /@uportal/user-profile-menu
+- chore(deps): bump browserslist from 4.14.5 to 4.16.6 in /@uportal/waffle-menu
+- chore(deps): bump color-string from 1.5.3 to 1.6.0 in /@uportal/api-template-vue
+- chore(deps): bump color-string from 1.5.3 to 1.6.0 in /@uportal/content-carousel
+- chore(deps): bump color-string from 1.5.3 to 1.6.0 in /@uportal/dashboard-carousel
+- chore(deps): bump color-string from 1.5.3 to 1.6.0 in /@uportal/esco-content-menu
+- chore(deps): bump color-string from 1.5.3 to 1.6.0 in /@uportal/eyebrow-user-info
+- chore(deps): bump color-string from 1.5.3 to 1.6.0 in /@uportal/user-profile-menu
+- chore(deps): bump color-string from 1.5.3 to 1.6.0 in /@uportal/waffle-menu
+- chore(deps): bump dns-packet from 1.3.1 to 1.3.4 in /@uportal/api-template-vue
+- chore(deps): bump dns-packet from 1.3.1 to 1.3.4 in /@uportal/content-carousel
+- chore(deps): bump dns-packet from 1.3.1 to 1.3.4 in /@uportal/dashboard-carousel
+- chore(deps): bump dns-packet from 1.3.1 to 1.3.4 in /@uportal/esco-content-menu
+- chore(deps): bump dns-packet from 1.3.1 to 1.3.4 in /@uportal/eyebrow-user-info
+- chore(deps): bump dns-packet from 1.3.1 to 1.3.4 in /@uportal/user-profile-menu
+- chore(deps): bump dns-packet from 1.3.1 to 1.3.4 in /@uportal/waffle-menu
+- chore(deps): bump elliptic from 6.5.3 to 6.5.4 in /@uportal/api-template-vue
+- chore(deps): bump elliptic from 6.5.3 to 6.5.4 in /@uportal/content-carousel
+- chore(deps): bump elliptic from 6.5.3 to 6.5.4 in /@uportal/dashboard-carousel
+- chore(deps): bump elliptic from 6.5.3 to 6.5.4 in /@uportal/esco-content-menu
+- chore(deps): bump elliptic from 6.5.3 to 6.5.4 in /@uportal/eyebrow-user-info
+- chore(deps): bump elliptic from 6.5.3 to 6.5.4 in /@uportal/user-profile-menu
+- chore(deps): bump elliptic from 6.5.3 to 6.5.4 in /@uportal/waffle-menu
+- chore(deps): bump glob-parent from 5.1.1 to 5.1.2 in /@uportal/open-id-connect
+- chore(deps): bump glob-parent from 5.1.1 to 5.1.2 in /@uportal/portlet-registry-to-array
+- chore(deps): bump handlebars from 4.7.6 to 4.7.7
+- chore(deps): bump handlebars from 4.7.6 to 4.7.7 in /@uportal/dashboard-carousel
+- chore(deps): bump hosted-git-info from 2.8.8 to 2.8.9
+- chore(deps): bump hosted-git-info from 2.8.8 to 2.8.9 in /@uportal/api-template-vue
+- chore(deps): bump hosted-git-info from 2.8.8 to 2.8.9 in /@uportal/content-carousel
+- chore(deps): bump hosted-git-info from 2.8.8 to 2.8.9 in /@uportal/dashboard-carousel
+- chore(deps): bump hosted-git-info from 2.8.8 to 2.8.9 in /@uportal/esco-content-menu
+- chore(deps): bump hosted-git-info from 2.8.8 to 2.8.9 in /@uportal/eyebrow-user-info
+- chore(deps): bump hosted-git-info from 2.8.8 to 2.8.9 in /@uportal/open-id-connect
+- chore(deps): bump hosted-git-info from 2.8.8 to 2.8.9 in /@uportal/portlet-registry-to-array
+- chore(deps): bump hosted-git-info from 2.8.8 to 2.8.9 in /@uportal/user-profile-menu
+- chore(deps): bump hosted-git-info from 2.8.8 to 2.8.9 in /@uportal/waffle-menu
+- chore(deps): bump ini from 1.3.5 to 1.3.8
+- chore(deps): bump lodash from 4.17.20 to 4.17.21 in /@uportal/api-template-vue
+- chore(deps): bump lodash from 4.17.20 to 4.17.21 in /@uportal/content-carousel
+- chore(deps): bump lodash from 4.17.20 to 4.17.21 in /@uportal/dashboard-carousel
+- chore(deps): bump lodash from 4.17.20 to 4.17.21 in /@uportal/esco-content-menu
+- chore(deps): bump lodash from 4.17.20 to 4.17.21 in /@uportal/eyebrow-user-info
+- chore(deps): bump lodash from 4.17.20 to 4.17.21 in /@uportal/open-id-connect
+- chore(deps): bump lodash from 4.17.20 to 4.17.21 in /@uportal/portlet-registry-to-array
+- chore(deps): bump lodash from 4.17.20 to 4.17.21 in /@uportal/user-profile-menu
+- chore(deps): bump lodash from 4.17.20 to 4.17.21 in /@uportal/waffle-menu
+- chore(deps): bump node-notifier from 8.0.0 to 8.0.1 in /@uportal/open-id-connect
+- chore(deps): bump node-notifier from 8.0.0 to 8.0.1 in /@uportal/portlet-registry-to-array
+- chore(deps): bump postcss from 7.0.35 to 7.0.36
+- chore(deps): bump postcss from 7.0.35 to 7.0.36 in /@uportal/api-template-vue
+- chore(deps): bump postcss from 7.0.35 to 7.0.36 in /@uportal/user-profile-menu
+- chore(deps): bump ssri from 6.0.1 to 6.0.2
+- chore(deps): bump ssri from 6.0.1 to 6.0.2 in /@uportal/api-template-vue
+- chore(deps): bump ssri from 6.0.1 to 6.0.2 in /@uportal/content-carousel
+- chore(deps): bump ssri from 6.0.1 to 6.0.2 in /@uportal/dashboard-carousel
+- chore(deps): bump ssri from 6.0.1 to 6.0.2 in /@uportal/esco-content-menu
+- chore(deps): bump ssri from 6.0.1 to 6.0.2 in /@uportal/eyebrow-user-info
+- chore(deps): bump ssri from 6.0.1 to 6.0.2 in /@uportal/user-profile-menu
+- chore(deps): bump ssri from 6.0.1 to 6.0.2 in /@uportal/waffle-menu
+- chore(deps): bump url-parse from 1.4.7 to 1.5.3 in /@uportal/api-template-vue
+- chore(deps): bump url-parse from 1.4.7 to 1.5.3 in /@uportal/content-carousel
+- chore(deps): bump url-parse from 1.4.7 to 1.5.3 in /@uportal/dashboard-carousel
+- chore(deps): bump url-parse from 1.4.7 to 1.5.3 in /@uportal/esco-content-menu
+- chore(deps): bump url-parse from 1.4.7 to 1.5.3 in /@uportal/eyebrow-user-info
+- chore(deps): bump url-parse from 1.4.7 to 1.5.3 in /@uportal/user-profile-menu
+- chore(deps): bump url-parse from 1.4.7 to 1.5.3 in /@uportal/waffle-menu
+- chore(deps): bump ws from 6.2.1 to 6.2.2 in /@uportal/api-template-vue
+- chore(deps): bump ws from 6.2.1 to 6.2.2 in /@uportal/content-carousel
+- chore(deps): bump ws from 6.2.1 to 6.2.2 in /@uportal/dashboard-carousel
+- chore(deps): bump ws from 6.2.1 to 6.2.2 in /@uportal/esco-content-menu
+- chore(deps): bump ws from 6.2.1 to 6.2.2 in /@uportal/eyebrow-user-info
+- chore(deps): bump ws from 6.2.1 to 6.2.2 in /@uportal/user-profile-menu
+- chore(deps): bump ws from 6.2.1 to 6.2.2 in /@uportal/waffle-menu
+- chore(deps): bump ws from 7.3.1 to 7.5.3 in /@uportal/open-id-connect
+- chore(deps): bump ws from 7.3.1 to 7.5.3 in /@uportal/portlet-registry-to-array
+- chore(deps): bump y18n from 4.0.0 to 4.0.1 in /@uportal/open-id-connect
+- chore(deps): bump y18n from 4.0.0 to 4.0.1 in /@uportal/portlet-registry-to-array
+- chore(deps): bump y18n from 4.0.0 to 4.0.1 in /@uportal/user-profile-menu
+- chore(deps): bump y18n from 4.0.0 to 4.0.3
+- chore(deps): bump y18n from 4.0.0 to 4.0.3 in /@uportal/content-carousel
+- chore(deps): bump y18n from 4.0.0 to 4.0.3 in /@uportal/dashboard-carousel
+- chore(deps): bump y18n from 4.0.0 to 4.0.3 in /@uportal/esco-content-menu
+- chore(deps): update dependency eslint-config-prettier to v7
+- chore(deps): update dependency eslint-config-prettier to v8
+- chore(deps): update dependency gradle to v6.7.1
+- chore(deps): update dependency gradle to v6.8
+- chore(deps): update dependency gradle to v6.8.1
+- chore(deps): update dependency gradle to v6.8.2
+- chore(deps): update dependency gradle to v6.8.3
+- chore(deps): update dependency gradle to v6.9
+- chore(deps): update dependency lerna to v4
+- chore(deps): update dependency lint-staged to v11
+- chore(deps): update dependency node-sass to v6
+- chore(deps): update dependency prettier to v2.2.1
+- chore(deps): update dependency prettier to v2.3.2
+- chore(deps): update font awesome
+- chore(deps): update font awesome
+- chore(deps): update font awesome
+- chore(deps): update jest monorepo to v27 (major)
+- chore(deps): update node.js to v14.15.1
+- chore(deps): update node.js to v14.15.3
+- chore(deps): update node.js to v14.15.4
+- chore(deps): update node.js to v14.15.5
+- chore(deps): update node.js to v14.16.1
+- chore(deps): update package lock files
+- chore(npm): set npm to v14
 
 ## [1.36.0][] - 2020-11-04
 
