@@ -62,6 +62,8 @@ export default async function openIdConnect(
     // resolve the promise
     return token;
   } catch (err) {
+    /*tslint:disable no-console */
+    console.error(err);
     // pass back error for callback
     if (callback) {
       return callback(err);
