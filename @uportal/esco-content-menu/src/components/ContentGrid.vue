@@ -29,7 +29,7 @@
                 {{ translate('message.filter.selectOption') }}
               </option>
               <option
-                v-for="category in localAllCategories"
+                v-for="category in allCategories"
                 :value="category"
                 :label="category"
                 :key="category"
@@ -88,7 +88,7 @@
             {{ translate('message.filter.selectOption') }}
           </option>
           <option
-            v-for="category in localAllCategories"
+            v-for="category in allCategories"
             :value="category"
             :label="category"
             :key="category"
@@ -188,7 +188,6 @@ export default {
       elementSize: this.parentScreenSize,
       localPortlets: [],
       localFavorites: [],
-      localAllCategories: [],
     };
   },
   computed: {
@@ -198,6 +197,13 @@ export default {
         return this.elementSize;
       }
       return this.portletCardSize;
+    },
+    allCategories() {
+      const portlets = this.portlets || this.localPortlets;
+      if (!portlets) return [];
+      const allCategories = portlets.flatMap(({ categories }) => categories);
+      const uniqueCategories = [...new Set(allCategories)];
+      return uniqueCategories.sort();
     },
     filteredPortlets() {
       const portlets = this.portlets || this.localPortlets;
@@ -275,12 +281,6 @@ export default {
         this.fetchPortlets();
       }
     },
-    calcAllCategories() {
-      const portlets = this.portlets || this.localPortlets;
-      const allCategories = portlets.flatMap(({ categories }) => categories);
-      const uniqueCategories = [...new Set(allCategories)];
-      return uniqueCategories.sort();
-    },
     async fetchPortlets() {
       const portlets = await fetchPortlets(
         this.userInfoApiUrl,
@@ -288,7 +288,6 @@ export default {
         this.debug
       );
       this.localPortlets = portletRegistryToArray(portlets);
-      this.localAllCategories = this.calcAllCategories();
     },
     async fetchFavorites() {
       const favoritesTree = await fetchFavorites(
@@ -325,9 +324,9 @@ export default {
     emitAllCategories() {
       this.$nextTick(() => {
         // nextTick() waits for data to be resolved
-        if (this.localAllCategories.length > 0) {
+        if (this.allCategories.length > 0) {
           const event = new CustomEvent('gridCategories', {
-            detail: this.localAllCategories,
+            detail: this.allCategories,
           });
           window.dispatchEvent(event);
         }
