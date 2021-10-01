@@ -18,7 +18,7 @@
   },
   "dependencies": {
     "@uportal/open-id-connect": "^1.37.0",
-    "axios": "^0.21.1",
+    "axios": "^0.22.0",
     "vue": "^2.5.21"
   },
   "devDependencies": {
