@@ -9,7 +9,7 @@
   "source": "src/components/WaffleMenu.vue",
   "engines": {
     "node": "^14.0.0",
-    "npm": "^6.0.0"
+    "npm": "^7.0.0"
   },
   "dependencies": {
     "@uportal/open-id-connect": "^1.37.0",
