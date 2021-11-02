@@ -1,11 +1,15 @@
 {
   "name": "@uportal/eyebrow-user-info",
-  "version": "1.36.0",
+  "version": "1.37.0",
   "scripts": {
     "start": "vue-cli-service serve",
     "prebuild": "babel node_modules/@vue/web-component-wrapper/dist/vue-wc-wrapper.js -o node_modules/@vue/web-component-wrapper/dist/vue-wc-wrapper.js",
     "build": "vue-cli-service build --name eyebrow-user-info --target wc \"./src/components/EyebrowUserInfo.vue\"",
     "lint": "vue-cli-service lint"
+  },
+  "engines": {
+    "node": "^14.0.0",
+    "npm": "^6.0.0"
   },
   "dependencies": {
     "vue": "^2.6.14",
@@ -20,7 +24,7 @@
     "@vue/cli-plugin-babel": "^4.0.0",
     "@vue/cli-plugin-eslint": "^4.0.0",
     "@vue/cli-service": "^4.0.0",
-    "node-sass": "^4.12.0",
+    "node-sass": "^6.0.0",
     "sass-loader": "^10.0.0",
     "vue-cli-plugin-i18n": "^1.0.0",
     "vue-template-compiler": "^2.6.14"
