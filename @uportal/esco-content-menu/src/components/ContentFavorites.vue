@@ -18,7 +18,7 @@
         <swiper
           ref="favSwiper"
           :options="swiperOption"
-          @transitionEnd="updateSlider"
+          :reach-end="updateSlider"
         >
           <swiper-slide v-for="portlet in favorited" :key="portlet.id">
             <a
@@ -94,7 +94,7 @@ import i18n from '../i18n.js';
 import PortletCard from './PortletCard';
 import '../icons.js';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
-import { swiper, swiperSlide } from 'vue-awesome-swiper';
+import { Swiper, SwiperSlide } from 'vue-awesome-swiper';
 import { elementWidth, sizeValidator } from '../services/sizeTools';
 import byFavoriteOrder from '../services/sortByFavoriteOrder';
 import {
@@ -108,10 +108,10 @@ export default {
   components: {
     ContentGrid,
     PortletCard,
-    swiper,
+    Swiper,
     // false positive
     // eslint-disable-next-line vue/no-unused-components
-    swiperSlide,
+    SwiperSlide,
     FontAwesomeIcon,
   },
   props: {
@@ -250,12 +250,12 @@ export default {
     },
     slideNext(event) {
       event.preventDefault();
-      this.$refs.favSwiper.swiper.slideNext(800);
+      this.$refs.favSwiper.$swiper.slideNext(800);
       this.updateSlider();
     },
     slidePrev(event) {
       event.preventDefault();
-      this.$refs.favSwiper.swiper.slidePrev(800);
+      this.$refs.favSwiper.$swiper.slidePrev(800);
       this.updateSlider();
     },
     timedUpdate() {
@@ -265,13 +265,13 @@ export default {
     },
     updateSlider() {
       if (this.useSwipper && !this.isHidden && this.favorited.length > 0) {
-        if (!this.$refs.favSwiper.swiper.initialized) {
-          this.$refs.favSwiper.swiper.init();
+        if (!this.$refs.favSwiper.$swiper.initialized) {
+          this.$refs.favSwiper.$swiper.init();
         } else {
-          this.$refs.favSwiper.swiper.update();
+          this.$refs.favSwiper.$swiper.update();
         }
-        this.disableNext = this.$refs.favSwiper.swiper.isEnd;
-        this.disablePrev = this.$refs.favSwiper.swiper.isBeginning;
+        this.disableNext = this.$refs.favSwiper.$swiper.isEnd;
+        this.disablePrev = this.$refs.favSwiper.$swiper.isBeginning;
       }
       this.calculateSize();
     },
@@ -280,7 +280,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '../../node_modules/swiper/dist/css/swiper.css';
+@import '../../node_modules/swiper/css/swiper.css';
 @import './../styles/vars.scss';
 
 $buttonWidth: 32px;
@@ -362,6 +362,9 @@ $buttonWidth: 32px;
       width: $buttonWidth;
       height: $buttonWidth;
       text-align: center;
+      &::after {
+        content: none;
+      }
     }
 
     .swiper-button-prev {
