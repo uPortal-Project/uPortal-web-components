@@ -19,7 +19,7 @@
     "vue": "^2.6.6",
     "vue-awesome-swiper": "^4.1.1",
     "vue-i18n": "^8.17.7",
-    "vue-simple-spinner": "^1.2.8"
+    "vue-simple-spinner": "^1.2.10"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.0",
