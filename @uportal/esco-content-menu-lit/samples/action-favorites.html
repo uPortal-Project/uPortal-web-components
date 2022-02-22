@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Test : <%= htmlWebpackPlugin.options.title %></title>
+    <style lang="scss"></style>
+  </head>
+  <body>
+    <%= htmlWebpackPlugin.options.header %>
+    <h2><%= htmlWebpackPlugin.options.title %></h2>
+    <div class="parameters">
+      <h3>Parameters</h3>
+      <dl>
+        <dt>messages</dt>
+        <dd>
+          [{"locales": ["fr", "fr-FR"], "messages": { "message": {"favorites": {
+          "add": "Add me to your favorites!" } }}}]
+        </dd>
+      </dl>
+      <dl>
+        <dt>fname</dt>
+        <dd>test</dd>
+      </dl>
+      <dl>
+        <dt>chan-id</dt>
+        <dd>1</dd>
+      </dl>
+      <dl>
+        <dt>background-is-dark</dt>
+        <dd></dd>
+      </dl>
+      <dl>
+        <dt>is-favorite</dt>
+        <dd></dd>
+      </dl>
+      <dl>
+        <dt>debug</dt>
+        <dd>true</dd>
+      </dl>
+      <h3>Events</h3>
+      <dl>
+        <dt>close (local)</dt>
+        <dd id="toggleEvt">Not emit</dd>
+      </dl>
+    </div>
+    <hr />
+    <div>
+      <esco-action-favorites
+        messages='[{"locales": ["fr", "fr-FR"], "messages": { "message": {"favorites": { "add": "Add me to your favorites!" } }}}]'
+        fname="test"
+        chan-id="1"
+        debug
+      >
+      </esco-action-favorites>
+    </div>
+    <script defer>
+      document.querySelectorAll('action-favorites').forEach((actFav) => {
+        actFav.addEventListener('toggle', (e) => {
+          const date = new Date().toLocaleTimeString();
+          document.querySelector(
+            '#toggleEvt'
+          ).textContent = `Last emit : ${date} | fname : ${e.detail.fname} | chan-id : ${e.detail.chanId} | is-favorite : ${e.detail.isFavorite}`;
+        });
+      });
+    </script>
+  </body>
+</html>
