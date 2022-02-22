@@ -215,9 +215,7 @@ export class ContentFavorites extends LitLoggable(LitElement) {
 
   favorited(): Portlet[] {
     return (this.portlets as Portlet[])
-      .filter((portlet) =>
-        (this.favorites as string[]).includes(portlet.fname)
-      )
+      .filter((portlet) => (this.favorites as string[]).includes(portlet.fname))
       .sort((a, b) => {
         return (
           (this.favorites as string[]).indexOf(a.fname) -
