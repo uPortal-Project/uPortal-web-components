@@ -1,5 +1,5 @@
-import oidc from '../../@uportal/open-id-connect/src/open-id-connect';
-import type { JWT } from '../../@uportal/open-id-connect/src/open-id-connect';
+import oidc from '../../../open-id-connect';
+import type { JWT } from '../../../open-id-connect';
 // import oidc from '@uportal/open-id-connect';
 // import type { JWT } from '@uportal/open-id-connect';
 import get from 'lodash/get';

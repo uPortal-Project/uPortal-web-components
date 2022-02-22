@@ -1,5 +1,4 @@
-import oidc from '../../@uportal/open-id-connect/src/open-id-connect';
-// import oidc from '@uportal/open-id-connect';
+import oidc from '../../../open-id-connect';
 import uniqBy from 'lodash/uniqBy';
 
 export default class portletService {
@@ -44,10 +43,7 @@ export default class portletService {
    * @param {Array<Portlet>} arr - new array to add to the accumulator
    * @return {Array<Portlet>} merged arrays
    */
-  private static flatten(
-    acc: Portlet[],
-    arr: Portlet[]
-  ): Portlet[] {
+  private static flatten(acc: Portlet[], arr: Portlet[]): Portlet[] {
     return acc.concat(arr);
   }
 
@@ -57,9 +53,7 @@ export default class portletService {
    * @param {Object} registryJson Portlet Registry Tree
    * @return {Array<Portlet>} list of portlets
    */
-  static portletRegistryToArray(
-    registryJson: FetchPortletResult
-  ): Portlet[] {
+  static portletRegistryToArray(registryJson: FetchPortletResult): Portlet[] {
     return portletService.customUnique(portletService.treeWalker(registryJson));
   }
 
