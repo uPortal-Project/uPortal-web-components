@@ -1,0 +1,27 @@
+{
+  "name": "@uportal/esco-content-menu-lit",
+  "version": "2.0.0",
+  "description": "Web component to display into eyebrow menu a user information menu with profile picture and more.",
+  "license": "Apache-2.0",
+  "author": "Grégory Brousse <pro@gregory-brousse.fr>",
+  "contributors": [
+    "Julien Gribonvald <julien.gribonvald@gmail.com>"
+  ],
+  "keywords": [
+    "apereo",
+    "uportal",
+    "content",
+    "menu",
+    "user-info"
+  ],
+  "main": "dist/js/esco-content-menu.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "browserslist": [
+    ">2%",
+    "Edge > 14",
+    "Firefox > 63",
+    "Chrome > 67"
+  ],
+  "scripts": {}
+}
