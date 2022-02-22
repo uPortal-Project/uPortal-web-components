@@ -1,5 +1,4 @@
-import oidc from '../../../open-id-connect';
-// import oidc from '@uportal/open-id-connect';
+import oidc from '@uportal/open-id-connect';
 
 export default class favoritesService {
   static async fetch(
