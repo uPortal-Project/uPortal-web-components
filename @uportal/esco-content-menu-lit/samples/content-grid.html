@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Test : <%= htmlWebpackPlugin.options.title %></title>
+    <style lang="scss"></style>
+  </head>
+  <body>
+    <%= htmlWebpackPlugin.options.header %>
+    <h2><%= htmlWebpackPlugin.options.title %></h2>
+    <div class="parameters">
+      <h3>Parameters</h3>
+      <dl>
+        <dt>messages</dt>
+        <dd>
+          [{"locales": ["fr", "fr-FR"], "messages": { "message": {"filter": {
+          "selectOption": "Ensemble des catégories" } ,"favorites": { "add":
+          "Add me to your favorites!" } }}}]
+        </dd>
+      </dl>
+      <dl>
+        <dt>parent-screen-size</dt>
+        <dd>1600</dd>
+      </dl>
+      <dl>
+        <dt>card-size</dt>
+        <dd>auto</dd>
+      </dl>
+      <dl>
+        <dt>background-color</dt>
+        <dd></dd>
+      </dl>
+      <dl>
+        <dt>context-api-url</dt>
+        <dd></dd>
+      </dl>
+      <dl>
+        <dt>favorite-api-url</dt>
+        <dd>http://localhost:3000/layout</dd>
+      </dl>
+      <dl>
+        <dt>layout-api-url</dt>
+        <dd>http://localhost:3000/layout</dd>
+      </dl>
+      <dl>
+        <dt>portlet-api-url</dt>
+        <dd>http://localhost:3000/portletRegistry</dd>
+      </dl>
+      <dl>
+        <dt>user-info-api-url</dt>
+        <dd>http://localhost:3000/userinfo</dd>
+      </dl>
+      <dl>
+        <dt>favorites</dt>
+        <dd></dd>
+      </dl>
+      <dl>
+        <dt>all-categories</dt>
+        <dd></dd>
+      </dl>
+      <dl>
+        <dt>portlets</dt>
+        <dd></dd>
+      </dl>
+      <dl>
+        <dt>hide-title</dt>
+        <dd></dd>
+      </dl>
+      <dl>
+        <dt>hide-action</dt>
+        <dd></dd>
+      </dl>
+      <dl>
+        <dt>use-external-filter</dt>
+        <dd></dd>
+      </dl>
+      <dl>
+        <dt>portlet-background-is-dark</dt>
+        <dd></dd>
+      </dl>
+      <dl>
+        <dt>debug</dt>
+        <dd>true</dd>
+      </dl>
+      <h3>Events</h3>
+      <dl>
+        <dt>gridFavoritesUpdated (global)</dt>
+        <dd id="gfuEvt">Not emit</dd>
+      </dl>
+      <dl>
+        <dt>esco-cm-grid-filter (global)</dt>
+        <dd id="gfEvt">Not emit</dd>
+      </dl>
+      <dl>
+        <dt>esco-cm-categories (global)</dt>
+        <dd id="catEvt">Not emit</dd>
+      </dl>
+      <dl>
+        <dt>toggle-favorite (local)</dt>
+        <dd id="toggleEvt">Not emit</dd>
+      </dl>
+    </div>
+    <hr />
+    <div>
+      <esco-content-grid
+        messages='[{"locales": ["fr", "fr-FR"], "messages": { "message": {"filter": {
+          "selectOption": "Ensemble des catégories" } ,"favorites": {
+            "add": "Add me to your favorites!" } }}}]'
+        parent-screen-size="1600"
+        portlet-card-size="auto"
+        favorite-api-url="http://localhost:3000/layout"
+        layout-api-url="http://localhost:3000/layout"
+        user-info-api-url="http://localhost:3000/userinfo"
+        portlet-api-url="http://localhost:3000/portletRegistry"
+        debug
+      >
+      </esco-content-grid>
+    </div>
+    <script defer>
+      document.querySelectorAll('content-grid').forEach((el) => {
+        el.addEventListener('toggle-favorite', (e) => {
+          const date = new Date().toLocaleTimeString();
+          document.querySelector(
+            '#toggleEvt'
+          ).textContent = `Last emit : ${date} | fname : ${e.detail.fname} | chan-id : ${e.detail.chanId} | is-favorite : ${e.detail.isFavorite}`;
+        });
+      });
+      window.addEventListener('gridFavoritesUpdated', (e) => {
+        const date = new Date().toLocaleTimeString();
+        document.querySelector(
+          '#gfuEvt'
+        ).textContent = `Last emit : ${date} | fname : ${e.detail.fname} | chan-id : ${e.detail.chanId} | is-favorite : ${e.detail.isFavorite}`;
+      });
+      window.addEventListener('esco-cm-grid-filter', (e) => {
+        const date = new Date().toLocaleTimeString();
+        document.querySelector(
+          '#gfEvt'
+        ).textContent = `Last emit : ${date} | category : ${e.detail.category} | value : ${e.detail.value}`;
+      });
+      window.addEventListener('esco-cm-categories', (e) => {
+        const date = new Date().toLocaleTimeString();
+        document.querySelector(
+          '#catEvt'
+        ).textContent = `Last emit : ${date} | categories : ${e.detail.categories.toString()}`;
+      });
+    </script>
+  </body>
+</html>
