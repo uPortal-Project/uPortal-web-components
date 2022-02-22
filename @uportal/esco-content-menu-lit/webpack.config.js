@@ -10,7 +10,7 @@ const BundleAnalyzerPlugin =
 
 const header = fs.readFileSync(__dirname + '/samples/header.html');
 
-const devComponents = ['lit-ellipsis', 'action-favorites'];
+const devComponents = ['lit-ellipsis', 'action-favorites', 'portlet-card'];
 
 const prodComponents = [];
 
