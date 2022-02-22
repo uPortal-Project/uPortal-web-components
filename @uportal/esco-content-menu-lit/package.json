@@ -1,11 +1,11 @@
 {
-  "name": "@uportal/esco-content-menu-lit",
+  "name": "@uportal/esco-content-menu",
   "version": "2.0.0",
   "description": "Web component to display into eyebrow menu a user information menu with profile picture and more.",
   "license": "Apache-2.0",
-  "author": "Grégory Brousse <pro@gregory-brousse.fr>",
+  "author": "Julien Gribonvald <julien.gribonvald@gmail.com>",
   "contributors": [
-    "Julien Gribonvald <julien.gribonvald@gmail.com>"
+    "Grégory Brousse <pro@gregory-brousse.fr>"
   ],
   "keywords": [
     "apereo",
@@ -15,13 +15,72 @@
     "user-info"
   ],
   "main": "dist/js/esco-content-menu.js",
-  "dependencies": {},
-  "devDependencies": {},
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.36",
+    "@fortawesome/free-brands-svg-icons": "^5.15.4",
+    "@fortawesome/free-regular-svg-icons": "^5.15.4",
+    "@fortawesome/free-solid-svg-icons": "^5.15.4",
+    "@lit/localize": "^0.11.0",
+    "concurrently": "^7.0.0",
+    "core-js": "^3.21.1",
+    "lit": "^2.0.2",
+    "lodash": "^4.17.21",
+    "match-sorter": "^6.3.1",
+    "swiper": "^8.0.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.1.0",
+    "@babel/plugin-proposal-decorators": "^7.1.0",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-typescript": "^7.1.0",
+    "@lit/localize-tools": "^0.4.0",
+    "@types/lodash": "^4.14.178",
+    "@typescript-eslint/eslint-plugin": "^4.31.2",
+    "@typescript-eslint/parser": "^4.31.2",
+    "acorn": "^8.5.0",
+    "babel-loader": "^8.2.3",
+    "babel-polyfill": "^6.26.0",
+    "css-loader": "^6.3.0",
+    "dotenv-webpack": "^7.1.0",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "html-webpack-plugin": "^5.3.2",
+    "json-server": "^0.17.0",
+    "prettier": "^2.4.1",
+    "sass": "^1.42.1",
+    "sass-loader": "^12.3.0",
+    "terser-webpack-plugin": "^5.2.4",
+    "ts-loader": "^9.2.6",
+    "typescript": "^4.4.3",
+    "webpack": "^5.54.0",
+    "webpack-bundle-analyzer": "^4.5.0",
+    "webpack-cli": "^4.9.1",
+    "webpack-dev-server": "^4.3.0"
+  },
   "browserslist": [
     ">2%",
     "Edge > 14",
     "Firefox > 63",
     "Chrome > 67"
   ],
-  "scripts": {}
+  "scripts": {
+    "start": "npm run _lint && npm run _run-dev",
+    "start-final": "npm run _lint && npm run _run-final",
+    "build": "npm run _lint && npm run _build",
+    "build4test": "npm run _lint && npm run _fortest",
+    "profiling": "npm run _lint && npm run _profiling",
+    "_run-dev": "concurrently --kill-others \"npm run _serve-api\" \"npm run _serve-dev\" ",
+    "_run-final": "concurrently --kill-others \"npm run _serve-api\" \"npm run _serve-final\" ",
+    "_serve-dev": "webpack-dev-server --mode development",
+    "_serve-final": "webpack-dev-server --mode production",
+    "_serve-api": "json-server --watch ./samples/api.json",
+    "_dev": "webpack --mode development",
+    "_build": "webpack --mode production",
+    "_profiling": "webpack --mode production --env profiling=true",
+    "_fortest": "webpack --mode production --env fortest=true",
+    "_lint": "eslint . --ext .ts",
+    "extractLocales": "lit-localize extract",
+    "buildLocales": "lit-localize build"
+  }
 }
