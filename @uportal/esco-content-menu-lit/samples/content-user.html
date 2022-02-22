@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Test : <%= htmlWebpackPlugin.options.title %></title>
+    <style lang="scss"></style>
+  </head>
+  <body>
+    <%= htmlWebpackPlugin.options.header %>
+    <h2><%= htmlWebpackPlugin.options.title %></h2>
+    <div class="parameters">
+      <h3>Parameters</h3>
+      <dl>
+        <dt>messages</dt>
+        <dd>
+          [{"locales": ["fr", "fr-FR"], "messages": { "message":
+          {"userInfoPortletUrl": { "title": "Voir les infos" }}}}]
+        </dd>
+      </dl>
+      <dl>
+        <dt>parent-screen-size</dt>
+        <dd>medium</dd>
+      </dl>
+      <dl>
+        <dt>org-display-name</dt>
+        <dd>My Organization</dd>
+      </dl>
+      <dl>
+        <dt>org-img-url</dt>
+        <dd>
+          https://lycees.netocentre.fr/annuaire_images/default_banner_v1.jpg
+        </dd>
+      </dl>
+      <dl>
+        <dt>user-display-name</dt>
+        <dd>John Doe</dd>
+      </dl>
+      <dl>
+        <dt>user-avatar-url</dt>
+        <dd></dd>
+      </dl>
+      <dl>
+        <dt>switch-org-portlet-url</dt>
+        <dd>#test-switch-url</dd>
+      </dl>
+      <dl>
+        <dt>user-info-portlet-url</dt>
+        <dd>#test-user-info-url</dd>
+      </dl>
+      <dl>
+        <dt>enable-switch</dt>
+        <dd>true</dd>
+      </dl>
+    </div>
+    <hr />
+    <div>
+      <esco-content-user
+        messages='[{"locales": ["fr", "fr-FR"], "messages": { "message":
+        {"userInfoPortletUrl": { "title": "Voir les infos" }}}}]'
+        org-display-name="My Organization"
+        org-img-url="https://lycees.netocentre.fr/annuaire_images/default_banner_v1.jpg"
+        user-display-name="John Doe"
+        parent-screen-size="medium"
+        user-info-portlet-url="#test-user-info-url"
+        switch-org-portlet-url="#test-switch-url"
+        enable-switch
+      ></esco-content-user>
+    </div>
+  </body>
+</html>
