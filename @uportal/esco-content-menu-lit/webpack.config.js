@@ -15,6 +15,7 @@ const devComponents = [
   'action-favorites',
   'portlet-card',
   'content-grid',
+  'content-favorites',
 ];
 
 const prodComponents = [];
