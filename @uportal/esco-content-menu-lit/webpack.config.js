@@ -137,7 +137,9 @@ module.exports = (env, argv) => {
       'esco-content-menu.min': entryFiles,
     };
     config.plugins = [new Dotenv()];
-    if (env.profiling) config.plugins.concat([new BundleAnalyzerPlugin()]);
+    if (env.profiling) {
+      config.plugins.push(new BundleAnalyzerPlugin());
+    }
     if (env.fortest) config.devtool = 'source-map';
   }
 
