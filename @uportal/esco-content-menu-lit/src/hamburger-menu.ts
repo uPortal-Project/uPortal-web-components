@@ -62,9 +62,9 @@ export class HamburgerMenu extends LitLoggable(LitElement) {
   userInfoPortletUrl = '';
   @property({ type: String, attribute: 'switch-org-portlet-url' })
   switchOrgPortletUrl = '';
-  @property({ type: String, attribute: 'org-attribute-name' })
+  @property({ type: String, attribute: 'user-org-id-attribute-name' })
   orgAttributeName = 'ESCOSIRENCourant[0]';
-  @property({ type: String, attribute: 'org-logo-url-attribute-name' })
+  @property({ type: String, attribute: 'user-all-orgs-id-attribute-name' })
   orgLogoUrlAttributeName = 'ESCOSIRENCourant[0]';
   @property({ type: String, attribute: 'user-all-orgs-attribute-name' })
   userAllOrgsIdAttributeName = 'ESCOSIREN';
