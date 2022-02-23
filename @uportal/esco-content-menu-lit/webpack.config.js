@@ -11,19 +11,20 @@ const BundleAnalyzerPlugin =
 const header = fs.readFileSync(__dirname + '/samples/header.html');
 
 const devComponents = [
+  'lit-spinner',
   'lit-ellipsis',
   'action-favorites',
   'portlet-card',
   'content-grid',
-  'content-favorites',
-  'content-user',
   'header-buttons',
-  'lit-spinner',
+  'content-user',
+  'content-favorites',
   'content-menu',
   'hamburger-menu',
+  'content-grid-filter',
 ];
 
-const prodComponents = ['hamburger-menu'];
+const prodComponents = ['hamburger-menu', 'content-grid-filter'];
 
 let config = {
   output: {
@@ -106,6 +107,14 @@ module.exports = (env, argv) => {
     ].concat(
       devComponents.map((component) => {
         switch (component) {
+          case 'content-grid-filter':
+            return new HtmlWebpackPlugin({
+              filename: 'content-grid-filter.html',
+              title: 'content-grid-filter',
+              header: header,
+              chunks: ['content-grid', 'content-grid-filter'],
+              template: './samples/content-grid-filter.html',
+            });
           default:
             return new HtmlWebpackPlugin({
               filename: component + '.html',
@@ -128,8 +137,8 @@ module.exports = (env, argv) => {
       'esco-content-menu.min': entryFiles,
     };
     config.plugins = [new Dotenv()];
-    if (env.fortest) config.devtool = 'source-map';
     if (env.profiling) config.plugins.concat([new BundleAnalyzerPlugin()]);
+    if (env.fortest) config.devtool = 'source-map';
   }
 
   return config;
