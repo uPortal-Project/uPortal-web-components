@@ -17,4 +17,6 @@ export const templates = {
   s9e226e0a027f39a6: str`Supprimer des favoris`,
   scff3aac0935b2a74: str`Ajouter aux favoris`,
   s1967faf9ed8d3504: str`Avatar`,
+  s1d5d2564d7aae78e: str`Close menu`,
+  s8fa032cdafb3c9b0: str`Sign Out`,
 };

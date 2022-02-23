@@ -16,6 +16,8 @@ const devComponents = [
   'portlet-card',
   'content-grid',
   'content-favorites',
+  'content-user',
+  'header-buttons',
 ];
 
 const prodComponents = [];
