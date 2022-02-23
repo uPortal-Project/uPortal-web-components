@@ -18,6 +18,7 @@ const devComponents = [
   'content-favorites',
   'content-user',
   'header-buttons',
+  'lit-spinner',
 ];
 
 const prodComponents = [];
