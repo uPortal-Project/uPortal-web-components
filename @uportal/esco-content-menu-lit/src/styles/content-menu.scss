@@ -1,0 +1,104 @@
+:host {
+  --lit-spinner-color: #fff;
+  min-width: 280px;
+  background-color: #d0d0d0;
+
+  /* same value as @zindex-navbar-fixed from bootstrap. */
+  z-index: 1030;
+
+  * {
+    font-family: Roboto, sans-serif;
+  }
+
+  > section {
+    padding: 0.5em 1.5em;
+  }
+
+  header {
+    position: relative;
+    overflow: hidden;
+
+    esco-header-buttons,
+    slot esco-header-buttons {
+      position: relative;
+      width: 100%;
+      z-index: 2;
+    }
+
+    > :not(:last-child) {
+      position: relative;
+      z-index: 1;
+    }
+
+    > .wrapper {
+      display: flex;
+      flex-flow: row nowrap;
+
+      esco-content-favorites {
+        flex-grow: 1;
+        filter: none;
+        overflow: hidden;
+      }
+    }
+
+    div.background {
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      position: absolute;
+      width: 110%;
+      height: 110%;
+      overflow: hidden;
+      top: 0;
+      z-index: 0;
+      filter: blur(7px);
+    }
+  }
+
+  .spinner {
+    position: fixed;
+    z-index: 1040;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #545454;
+    opacity: 0.7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .small,
+  .smaller {
+    background-color: #545454;
+
+    > section {
+      padding: 0.5em;
+    }
+
+    header {
+      div.background {
+        background-image: none;
+      }
+
+      slot {
+        width: 100%;
+      }
+
+      > .wrapper {
+        flex-flow: row wrap;
+      }
+    }
+
+    > ::v-deep section.content-grid {
+      > div {
+        background-color: #f3f3f3;
+
+        > .title {
+          background-color: #fff;
+        }
+      }
+    }
+  }
+}

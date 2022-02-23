@@ -19,6 +19,7 @@ const devComponents = [
   'content-user',
   'header-buttons',
   'lit-spinner',
+  'content-menu',
 ];
 
 const prodComponents = [];
