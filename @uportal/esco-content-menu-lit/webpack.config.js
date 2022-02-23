@@ -20,9 +20,10 @@ const devComponents = [
   'header-buttons',
   'lit-spinner',
   'content-menu',
+  'hamburger-menu',
 ];
 
-const prodComponents = [];
+const prodComponents = ['hamburger-menu'];
 
 let config = {
   output: {

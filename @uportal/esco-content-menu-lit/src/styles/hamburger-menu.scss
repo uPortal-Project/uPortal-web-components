@@ -1,0 +1,44 @@
+.hamburger-menu {
+  > .content-menu-toggle {
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 5px 0;
+
+    &:hover > .menu-wrapper > .hm-line {
+      opacity: 0.7;
+    }
+
+    > .menu-wrapper,
+    > slot > .menu-wrapper {
+      margin: 0 10px;
+
+      > .hm-line {
+        height: 2px;
+        background-color: #fff;
+        margin: 5px 0;
+        width: 25px;
+      }
+    }
+  }
+
+  .toggler-menu,
+  slot esco-content-menu {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    overflow-y: scroll;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 600ms, visibility 600ms;
+    animation: fade 600ms;
+  }
+
+  .active-menu,
+  slot .active-menu {
+    visibility: visible;
+    opacity: 1;
+  }
+}
