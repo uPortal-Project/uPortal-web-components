@@ -64,7 +64,7 @@ export class ContentMenu extends LitLoggable(LitElement) {
   userInfoApiUrl =
     (process.env.APP_PORTAL_CONTEXT ?? '') +
     (process.env.APP_USER_INFO_URI ?? '');
-  @property({ type: String, attribute: 'signout-url' })
+  @property({ type: String, attribute: 'sign-out-url' })
   signoutUrl = process.env.APP_LOGOUT_URL;
   @property({ type: String, attribute: 'user-info-portlet-url' })
   userInfoPortletUrl = '';

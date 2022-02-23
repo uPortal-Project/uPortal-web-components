@@ -151,7 +151,7 @@ export class HamburgerMenu extends LitLoggable(LitElement) {
               organization-api-url="${this.organizationApiUrl}"
               org-logo-url-attribute-name="${this.orgLogoUrlAttributeName}"
               portlet-api-url="${this.portletApiUrl}"
-              signout-url="${this.signoutUrl}"
+              sign-out-url="${this.signoutUrl}"
               ?show-favorites-in-slider="${this.showFavoritesInSlider}"
               switch-org-portlet-url="${this.switchOrgPortletUrl}"
               user-all-orgs-attribute-name="${this.orgAttributeName}"
