@@ -125,6 +125,14 @@ export class ContentMenu extends LitLoggable(LitElement) {
     window.removeEventListener('resize', this.calculateSize.bind(this));
   }
 
+  protected shouldUpdate(): boolean {
+    if (this.defaultOrgLogo === '') {
+      this.errorLog('default-org-logo attribute is required');
+      return false;
+    }
+    return true;
+  }
+
   updated(changedProperties: Map<string | number | symbol, unknown>): void {
     if (changedProperties.has('userInfoApiUrl')) {
       if (changedProperties.has('portletApiUrl')) {
