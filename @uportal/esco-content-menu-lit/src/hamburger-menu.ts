@@ -91,6 +91,14 @@ export class HamburgerMenu extends LitLoggable(LitElement) {
     this.debugLog('Component loaded');
   }
 
+  protected shouldUpdate(): boolean {
+    if (this.defaultOrgLogo === '') {
+      this.errorLog('default-org-logo attribute is required');
+      return false;
+    }
+    return true;
+  }
+
   toggleMenu(e: Event): void {
     e.preventDefault();
     this.isVisible = !this.isVisible;
@@ -154,8 +162,9 @@ export class HamburgerMenu extends LitLoggable(LitElement) {
               sign-out-url="${this.signoutUrl}"
               ?show-favorites-in-slider="${this.showFavoritesInSlider}"
               switch-org-portlet-url="${this.switchOrgPortletUrl}"
-              user-all-orgs-attribute-name="${this.orgAttributeName}"
-              user-all-orgs-attribute-name="${this.userAllOrgsIdAttributeName}"
+              user-org-id-attribute-name="${this.orgAttributeName}"
+              user-all-orgs-id-attribute-name="${this
+                .userAllOrgsIdAttributeName}"
               user-info-api-url="${this.userInfoApiUrl}"
               user-info-portlet-url="${this.userInfoPortletUrl}"
               @close=${this.toggleMenu.bind(this)}
