@@ -21,7 +21,7 @@ export class HamburgerMenu extends LitLoggable(LitElement) {
     hasChanged(newVal: string) {
       return sizeHelper.validate(newVal, true, true);
     },
-    attribute: 'favorites-Portlet-card-size',
+    attribute: 'favorites-portlet-card-size',
   })
   favoritesPortletCardSize = 'small';
   @property({
@@ -29,7 +29,7 @@ export class HamburgerMenu extends LitLoggable(LitElement) {
     hasChanged(newVal: string) {
       return sizeHelper.validate(newVal, true, true);
     },
-    attribute: 'grid-Portlet-card-size',
+    attribute: 'grid-portlet-card-size',
   })
   gridPortletCardSize = 'medium';
   @property({ type: String, attribute: 'default-org-logo' })
