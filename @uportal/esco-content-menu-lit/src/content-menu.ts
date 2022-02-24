@@ -70,12 +70,14 @@ export class ContentMenu extends LitLoggable(LitElement) {
   userInfoPortletUrl = '';
   @property({ type: String, attribute: 'switch-org-portlet-url' })
   switchOrgPortletUrl = '';
-  @property({ type: String, attribute: 'org-attribute-name' })
+  @property({ type: String, attribute: 'user-org-id-attribute-name' })
   orgAttributeName = 'ESCOSIRENCourant[0]';
   @property({ type: String, attribute: 'org-logo-url-attribute-name' })
   orgLogoUrlAttributeName = 'ESCOSIRENCourant[0]';
-  @property({ type: String, attribute: 'user-all-orgs-attribute-name' })
+  @property({ type: String, attribute: 'user-all-orgs-id-attribute-name' })
   userAllOrgsIdAttributeName = 'ESCOSIREN';
+  @property({ type: String, attribute: 'card-hover-src' })
+  cardHoverSrc = 'none';
   @property({
     type: String,
     hasChanged(newVal: string) {
@@ -320,15 +322,16 @@ export class ContentMenu extends LitLoggable(LitElement) {
               .portlets="${this.portlets as never[]}"
               .favorites="${this.favorites as never[]}"
               parent-screen-size="${this.screenSize}"
-              card-size="${this.gridPortletCardSize}"
+              portlet-card-size="${this.gridPortletCardSize}"
               ?hide-action="${this.hideAction}"
               favorite-api-url="${this.favoriteApiUrl}"
               layout-api-url="${this.layoutApiUrl}"
               user-info-api-url="${this.userInfoApiUrl}"
               context-api-url="${this.contextApiUrl}"
               portlet-api-url="${this.portletApiUrl}"
-              @toggle-favorite=${this.actionToggleFav}
+              card-hover-src="${this.cardHoverSrc}"
               ?debug="${this.debug}"
+              @toggle-favorite=${this.actionToggleFav}
             ></esco-content-grid>
           </div>
         `
