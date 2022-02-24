@@ -29,6 +29,10 @@
         <dd>small</dd>
       </dl>
       <dl>
+        <dt>card-hover-src</dt>
+        <dd>title</dd>
+      </dl>
+      <dl>
         <dt>background-is-dark</dt>
         <dd></dd>
       </dl>
@@ -52,7 +56,12 @@
     </div>
     <hr />
     <div>
-      <esco-portlet-card is-favorite="true" size="small" debug />
+      <esco-portlet-card
+        is-favorite="true"
+        size="small"
+        card-hover-src="title"
+        debug
+      />
     </div>
     <script defer>
       document.querySelectorAll('esco-portlet-card').forEach((card) => {

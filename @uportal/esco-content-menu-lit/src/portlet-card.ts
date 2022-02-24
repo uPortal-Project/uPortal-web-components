@@ -32,6 +32,8 @@ export class PortletCard extends LitLoggable(LitElement) {
     },
   })
   size = 'medium';
+  @property({ type: String, attribute: 'card-hover-src' })
+  cardHoverSrc = 'none';
   @property({ type: Boolean, attribute: 'background-is-dark' })
   backgroundIsDark = false;
   @property({ type: Boolean, attribute: 'is-favorite' })
@@ -46,6 +48,7 @@ export class PortletCard extends LitLoggable(LitElement) {
 
   private fname = '';
   private chanId = 0;
+  private pTitle = '';
   private description = '';
   private portletTitle = '';
   private canFavorite = false;
@@ -67,6 +70,7 @@ export class PortletCard extends LitLoggable(LitElement) {
     if (this.portletDesc !== undefined) {
       this.fname = this.portletDesc?.fname ?? '';
       this.chanId = this.portletDesc?.id ?? 0;
+      this.pTitle = this.portletDesc?.title ?? '';
       this.description = this.portletDesc?.description ?? '';
       this.portletTitle = this.portletDesc?.title ?? '';
       this.canFavorite = this.portletDesc?.canAdd
@@ -76,6 +80,18 @@ export class PortletCard extends LitLoggable(LitElement) {
         ? pathHelper.getUrl(this.portletDesc.parameters.iconUrl.value)
         : '';
       this.dataIsParsed = true;
+    }
+  }
+
+  getHoverText(): string {
+    switch (this.cardHoverSrc) {
+      case 'title':
+        return this.pTitle;
+      case 'desc':
+      case 'description':
+        return this.description;
+      default:
+        return '';
     }
   }
 
@@ -101,7 +117,7 @@ export class PortletCard extends LitLoggable(LitElement) {
       });
 
     return html`
-      <div class="${classMap(appClasses)}">
+      <div class="${classMap(appClasses)}" title="${this.getHoverText()}">
         <div class="portlet-card-icon">${this.renderIcon()}</div>
         <div class="portlet-card-title">${this.portletTitle}</div>
         <div class="portlet-card-description">${this.renderEllipsis()}</div>
