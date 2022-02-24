@@ -50,7 +50,7 @@ export class ContentGrid extends LitLoggable(LitElement) {
     hasChanged(newVal: string) {
       return sizeHelper.validate(newVal, true, true);
     },
-    attribute: 'card-size',
+    attribute: 'portlet-card-size',
   })
   cardSize = 'medium';
   @property({
@@ -81,6 +81,8 @@ export class ContentGrid extends LitLoggable(LitElement) {
   userInfoApiUrl =
     (process.env.APP_PORTAL_CONTEXT ?? '') +
     (process.env.APP_USER_INFO_URI ?? '');
+  @property({ type: String, attribute: 'card-hover-src' })
+  cardHoverSrc = 'none';
   @property({ type: Array, reflect: true })
   favorites = [];
   @property({ type: Array, attribute: 'all-categories', reflect: true })
@@ -89,6 +91,8 @@ export class ContentGrid extends LitLoggable(LitElement) {
   portlets = [];
   @property({ type: Boolean, attribute: 'hide-title' })
   hideTitle = false;
+  @property({ type: Boolean, attribute: 'show-footer-categories' })
+  showFooterCategories = false;
   @property({ type: Boolean, attribute: 'hide-action' })
   hideAction = false;
   @property({ type: Boolean, attribute: 'use-external-filter' })
@@ -460,9 +464,7 @@ export class ContentGrid extends LitLoggable(LitElement) {
   }
 
   renderCatFilterFooter(): TemplateResult {
-    if (this.hideTitle) {
-      return html``;
-    } else {
+    if (this.showFooterCategories) {
       return html`
         <select class="footer-categories" @change=${this.catFilterChange}>
           <option class="default" selected value="">
@@ -482,6 +484,8 @@ export class ContentGrid extends LitLoggable(LitElement) {
           )}
         </select>
       `;
+    } else {
+      return html``;
     }
   }
 
@@ -513,6 +517,7 @@ export class ContentGrid extends LitLoggable(LitElement) {
               .portletDesc="${portlet}"
               ?is-favorite=${this.isFavorite(portlet.fname)}
               size="${this.portletCardSize()}"
+              card-hover-src="${this.cardHoverSrc}"
               ?hide-action=${this.hideAction}
               ?background-is-dark="${this.portletBackgroundIsDark}"
               ?debug="${this.debug}"
