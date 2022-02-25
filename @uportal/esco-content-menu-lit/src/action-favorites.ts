@@ -29,8 +29,6 @@ export class ActionFavorites extends LitLoggable(LitElement) {
   backGroundIsDark = false;
   @property({ type: Boolean })
   isFavorite = false;
-  @property({ type: Boolean })
-  debug = false;
 
   constructor() {
     super();
