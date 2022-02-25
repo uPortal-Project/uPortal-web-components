@@ -1,5 +1,5 @@
 {
-  "name": "@uportal/esco-content-menu",
+  "name": "@uportal/esco-content-menu-lit",
   "version": "2.0.0",
   "description": "Web component to display into eyebrow menu a user information menu with profile picture and more.",
   "license": "Apache-2.0",
