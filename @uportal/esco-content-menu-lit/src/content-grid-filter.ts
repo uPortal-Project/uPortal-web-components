@@ -19,10 +19,6 @@ export class ContentGridFilter extends LitLoggable(LitElement) {
     type: String,
     attribute: 'filter-Category',
     reflect: true,
-    hasChanged(newVal: string, oldVal: string) {
-      console.debug('filterCategory hasChanged', newVal, oldVal);
-      return true;
-    },
   })
   filterCategory: string | null = null;
 
