@@ -300,8 +300,10 @@ export class ContentMenu extends LitLoggable(LitElement) {
                     org-display-name="${this.currentOrg.displayName}"
                     org-img-url="${this.getOrgImage()}"
                     user-info-portlet-url="${this.userInfoPortletUrl}"
-                    switch-org-portlet-url="${this.switchOrgPortletUrl}"
-                    ?enable-switch=${this.isOtherOrgs()}
+                    switch-org-portlet-url="${this.isOtherOrgs()
+                      ? this.switchOrgPortletUrl
+                      : ''}"
+                    }
                   ></esco-content-user>
                 </slot>
                 <esco-content-favorites

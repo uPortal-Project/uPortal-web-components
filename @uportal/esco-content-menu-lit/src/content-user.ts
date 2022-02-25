@@ -124,7 +124,7 @@ export class ContentUser extends LitLoggable(LitElement) {
                   >
                 </div>
               </div>
-              ${this.enableSwitch
+              ${this.switchOrgPortletUrl !== ''
                 ? html`
                     <div class="other-orgs">
                       <a
