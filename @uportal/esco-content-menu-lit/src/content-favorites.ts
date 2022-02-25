@@ -335,7 +335,7 @@ export class ContentFavorites extends LitLoggable(LitElement) {
                   : html`
                       <esco-content-grid
                         hide-title
-                        card-size="${this._elementSize}"
+                        portlet-card-size="${this._elementSize}"
                         .favorites="${this.favorites}"
                         .portlets="${calcFavorites as never[]}"
                         ?hide-action="${this.hideAction}"
