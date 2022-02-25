@@ -44,6 +44,14 @@ export class ActionFavorites extends LitLoggable(LitElement) {
     langHelper.setLocale(lang);
   }
 
+  protected shouldUpdate(): boolean {
+    if (this.fname === '') {
+      this.errorLog('fname attribute is required');
+      return false;
+    }
+    return true;
+  }
+
   firstUpdated(): void {
     this.setLogIdentifier(this.fname);
     this.debugLog('First update');
