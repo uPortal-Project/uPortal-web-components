@@ -52,7 +52,7 @@ export class ContentGrid extends LitLoggable(LitElement) {
     },
     attribute: 'portlet-card-size',
   })
-  cardSize = 'medium';
+  cardSize = 'auto';
   @property({
     type: String,
     hasChanged(newVal: string) {
