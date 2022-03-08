@@ -22,6 +22,7 @@ export class HeaderButtons extends LitLoggable(LitElement) {
   messages = [];
   @property({ type: String, attribute: 'sign-out-url' })
   signOutUrl = process.env.APP_LOGOUT_URL;
+
   constructor() {
     super();
     this.debugLog('Component loaded');
@@ -37,11 +38,17 @@ export class HeaderButtons extends LitLoggable(LitElement) {
   }
 
   protected willUpdate(
-    changedProperties: Map<string | number | symbol, unknown>
+    _changedProperties: Map<string | number | symbol, unknown>
   ): void {
-    if (changedProperties.has('messages')) {
+    if (_changedProperties.has('messages')) {
       langHelper.setReference(this.messages);
     }
+  }
+
+  onClose(e: Event): void {
+    e.preventDefault();
+    const closeEvt = new CustomEvent('close');
+    this.dispatchEvent(closeEvt);
   }
 
   render(): TemplateResult {
@@ -69,12 +76,6 @@ export class HeaderButtons extends LitLoggable(LitElement) {
         ${unsafeHTML(`${icon(faSignOutAlt).html}`)}
       </a>
     </section>`;
-  }
-
-  onClose(e: Event): void {
-    e.preventDefault();
-    const closeEvt = new CustomEvent('close');
-    this.dispatchEvent(closeEvt);
   }
 
   static styles = css`

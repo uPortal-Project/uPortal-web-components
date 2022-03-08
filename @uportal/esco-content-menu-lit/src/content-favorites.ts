@@ -166,24 +166,6 @@ export class ContentFavorites extends LitLoggable(LitElement) {
     this.updateNavigation();
   }
 
-  debounceUpdateNavigation = debounce(this.updateNavigation, 500);
-
-  updateNavigation(): void {
-    this._swiperObj?.update();
-    this._prevSiperBtnIsAtive = this._swiperObj?.isBeginning ? false : true;
-    this._nextSiperBtnIsAtive = this._swiperObj?.isEnd ? false : true;
-  }
-
-  swipeRight(): void {
-    this._swiperObj?.slideNext();
-    this.debounceUpdateNavigation();
-  }
-
-  swipeLeft(): void {
-    this._swiperObj?.slidePrev();
-    this.debounceUpdateNavigation();
-  }
-
   debounceCalculateSize = debounce(this.calculateSize, 300);
 
   calculateSize(): void {
@@ -213,6 +195,32 @@ export class ContentFavorites extends LitLoggable(LitElement) {
     return this.cardSize;
   }
 
+  getRenderPortletUrl(portlet: Portlet): string {
+    return portletService.getRenderUrl(portlet, this.contextApiUrl);
+  }
+
+  hasAlternativeMaximizedUrl(portlet: Portlet): boolean {
+    return portletService.getAlternativeMaximizedUrl(portlet)?.length > 0;
+  }
+
+  debounceUpdateNavigation = debounce(this.updateNavigation, 500);
+
+  updateNavigation(): void {
+    this._swiperObj?.update();
+    this._prevSiperBtnIsAtive = this._swiperObj?.isBeginning ? false : true;
+    this._nextSiperBtnIsAtive = this._swiperObj?.isEnd ? false : true;
+  }
+
+  swipeRight(): void {
+    this._swiperObj?.slideNext();
+    this.debounceUpdateNavigation();
+  }
+
+  swipeLeft(): void {
+    this._swiperObj?.slidePrev();
+    this.debounceUpdateNavigation();
+  }
+
   favorited(): Portlet[] {
     return (this.portlets as Portlet[])
       .filter((portlet) => (this.favorites as string[]).includes(portlet.fname))
@@ -222,14 +230,6 @@ export class ContentFavorites extends LitLoggable(LitElement) {
           (this.favorites as string[]).indexOf(b.fname)
         );
       });
-  }
-
-  getRenderPortletUrl(portlet: Portlet): string {
-    return portletService.getRenderUrl(portlet, this.contextApiUrl);
-  }
-
-  hasAlternativeMaximizedUrl(portlet: Portlet): boolean {
-    return portletService.getAlternativeMaximizedUrl(portlet)?.length > 0;
   }
 
   toggleFavorite(e: CustomEvent): void {

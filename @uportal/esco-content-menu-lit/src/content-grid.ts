@@ -103,15 +103,15 @@ export class ContentGrid extends LitLoggable(LitElement) {
   portletBackgroundIsDark = false;
 
   @state()
-  isVisible = false;
+  _isVisible = false;
   @state()
-  filterValue = '';
+  _filterValue = '';
   @state()
-  filterCategory = '';
+  _filterCategory = '';
   @state()
-  localFavorites: string[] | undefined = undefined;
+  _localFavorites: string[] | undefined = undefined;
   @state()
-  localPortlets: Portlet[] | undefined = undefined;
+  _localPortlets: Portlet[] | undefined = undefined;
 
   constructor() {
     super();
@@ -181,6 +181,10 @@ export class ContentGrid extends LitLoggable(LitElement) {
     );
   }
 
+  shouldUpdate(): boolean {
+    return this.portlets.length > 0 || this._localPortlets !== undefined;
+  }
+
   willUpdate(changedProperties: PropertyValues): void {
     if (changedProperties.has('parentScreenSize')) {
       this.elementSize = this.parentScreenSize;
@@ -200,37 +204,28 @@ export class ContentGrid extends LitLoggable(LitElement) {
     );
   }
 
-  getExternalFilter(e: CustomEvent): void {
-    if (
-      e.detail?.category &&
-      this.allCategories.includes(e.detail.category) &&
-      this.filterCategory != e.detail.category
-    ) {
-      this.filterCategory = e.detail.category;
-    }
-
-    if (e.detail?.value && this.filterValue != e.detail.value) {
-      this.filterValue = e.detail.value;
+  async fetchPortlets(): Promise<void> {
+    const portlets = await portletService.fetch(
+      this.userInfoApiUrl,
+      this.portletApiUrl,
+      this.debug
+    );
+    if (portlets !== null) {
+      this._localPortlets = portletService.portletRegistryToArray(portlets);
+    } else {
+      this.errorLog('No portlets found');
     }
   }
 
-  sendExternalFilter(): void {
-    const filterEvt = new CustomEvent('esco-cm-grid-filter', {
-      detail: {
-        category: this.filterCategory,
-        value: this.filterValue,
-      },
-    });
-    window.dispatchEvent(filterEvt);
-  }
-
-  sendCategories(): void {
-    const catsEvt = new CustomEvent('esco-cm-categories', {
-      detail: {
-        categories: this.allCategories,
-      },
-    });
-    window.dispatchEvent(catsEvt);
+  async fetchFavorites(): Promise<void> {
+    const favoritesTree = await favoritesService.fetch(
+      this.userInfoApiUrl,
+      this.layoutApiUrl,
+      this.debug
+    );
+    if (favoritesTree != null) {
+      this._localFavorites = favoritesService.flattenFavorites(favoritesTree);
+    }
   }
 
   reload(): void {
@@ -247,53 +242,32 @@ export class ContentGrid extends LitLoggable(LitElement) {
 
   calculateCategories(): void {
     const portlets =
-      this.portlets.length > 0 ? this.portlets : this.localPortlets;
+      this.portlets.length > 0 ? this.portlets : this._localPortlets;
     const allCategories = portlets?.flatMap(({ categories }) => categories);
     this.allCategories = [...new Set(allCategories)].sort() as string[];
     this.sendCategories();
   }
 
-  async fetchPortlets(): Promise<void> {
-    const portlets = await portletService.fetch(
-      this.userInfoApiUrl,
-      this.portletApiUrl,
-      this.debug
-    );
-    if (portlets !== undefined) {
-      this.localPortlets = portletService.portletRegistryToArray(portlets);
-    }
-  }
-
-  async fetchFavorites(): Promise<void> {
-    const favoritesTree = await favoritesService.fetch(
-      this.userInfoApiUrl,
-      this.layoutApiUrl,
-      this.debug
-    );
-
-    this.localFavorites = favoritesService.flattenFavorites(favoritesTree);
-  }
-
   filteredPortlets(): Portlet[] {
     const portlets: Portlet[] =
-      this.portlets.length > 0 ? this.portlets : this.localPortlets ?? [];
+      this.portlets.length > 0 ? this.portlets : this._localPortlets ?? [];
     const categoryFilter =
-      this.filterCategory.trim() === ''
+      this._filterCategory.trim() === ''
         ? // no filter applied return everything
           (portlets: Portlet[]): Portlet[] => portlets
         : // filter by category
           (portlets: Portlet[]): Portlet[] =>
-            matchSorter(portlets, this.filterCategory, {
+            matchSorter(portlets, this._filterCategory, {
               keys: ['categories'],
               threshold: matchSorter.rankings.EQUAL,
             });
     const valueFilter =
-      this.filterValue.trim() === ''
+      this._filterValue.trim() === ''
         ? // no filter applied return everything
           (portlets: Portlet[]): Portlet[] => portlets
         : // filter and sort by best match
           (portlets: Portlet[]): Portlet[] =>
-            matchSorter(portlets, this.filterValue, {
+            matchSorter(portlets, this._filterValue, {
               keys: ['title', 'name', 'description'],
               threshold: matchSorter.rankings.ACRONYM,
             });
@@ -314,14 +288,72 @@ export class ContentGrid extends LitLoggable(LitElement) {
   getRenderPortletUrl(portlet: Portlet): string {
     return portletService.getRenderUrl(portlet, this.contextApiUrl);
   }
+
   hasAlternativeMaximizedUrl(portlet: Portlet): string {
     return portletService.getAlternativeMaximizedUrl(portlet);
   }
+
   isFavorite(fname: string): boolean {
     const favorites =
-      this.favorites.length > 0 ? this.favorites : this.localFavorites;
+      this.favorites.length > 0 ? this.favorites : this._localFavorites;
     return favorites?.includes(fname as never) || false;
   }
+
+  debounceCatFilterChange = debounce((value) => {
+    this._filterCategory = value;
+    this.sendExternalFilter();
+  }, 500);
+
+  catFilterChange(e: Event): void {
+    const target = (e.target || e.srcElement) as HTMLInputElement;
+    const value = target?.value;
+    this.debounceCatFilterChange(value);
+  }
+
+  debounceValFilterChange = debounce((value) => {
+    this._filterValue = value;
+    this.sendExternalFilter();
+  }, 500);
+
+  valFilterChange(e: Event): void {
+    const target = (e.target || e.srcElement) as HTMLInputElement;
+    const value = target?.value;
+    this.debounceValFilterChange(value);
+  }
+
+  getExternalFilter(e: CustomEvent): void {
+    if (
+      e.detail?.category &&
+      this.allCategories.includes(e.detail.category) &&
+      this._filterCategory != e.detail.category
+    ) {
+      this._filterCategory = e.detail.category;
+    }
+
+    if (e.detail?.value && this._filterValue != e.detail.value) {
+      this._filterValue = e.detail.value;
+    }
+  }
+
+  sendExternalFilter(): void {
+    const filterEvt = new CustomEvent('esco-cm-grid-filter', {
+      detail: {
+        category: this._filterCategory,
+        value: this._filterValue,
+      },
+    });
+    window.dispatchEvent(filterEvt);
+  }
+
+  sendCategories(): void {
+    const catsEvt = new CustomEvent('esco-cm-categories', {
+      detail: {
+        categories: this.allCategories,
+      },
+    });
+    window.dispatchEvent(catsEvt);
+  }
+
   toggleFavorite(e: CustomEvent): void {
     const GFUevent = new CustomEvent('gridFavoritesUpdated', {
       bubbles: true,
@@ -335,12 +367,12 @@ export class ContentGrid extends LitLoggable(LitElement) {
     this.dispatchEvent(TFevent);
 
     if (this.favorites.length == 0) {
-      if (this.localFavorites === undefined) this.localFavorites = [];
-      if (!this.localFavorites.includes(e.detail.fname)) {
-        this.localFavorites.push(e.detail.fname);
+      if (this._localFavorites === undefined) this._localFavorites = [];
+      if (!this._localFavorites.includes(e.detail.fname)) {
+        this._localFavorites.push(e.detail.fname);
       } else {
-        this.localFavorites.splice(
-          this.localFavorites.indexOf(e.detail.fname),
+        this._localFavorites.splice(
+          this._localFavorites.indexOf(e.detail.fname),
           1
         );
       }
@@ -412,8 +444,8 @@ export class ContentGrid extends LitLoggable(LitElement) {
       return html`
         <div
           class="filter custom-caret ${classMap({
-            opened: this.isVisible,
-            closed: !this.isVisible,
+            opened: this._isVisible,
+            closed: !this._isVisible,
           })}"
         >
           <input
@@ -421,7 +453,7 @@ export class ContentGrid extends LitLoggable(LitElement) {
               'services.filter',
               msg(str`Search a service...`)
             )}"
-            .value="${this.filterValue}"
+            .value="${this._filterValue}"
             placeholder="${langHelper.localTransation(
               'services.filter',
               msg(str`Search a service...`)
@@ -429,7 +461,7 @@ export class ContentGrid extends LitLoggable(LitElement) {
             type="text"
             @keyup=${this.valFilterChange}
             @focus=${() => {
-              this.filterValue = '';
+              this._filterValue = '';
               this.sendExternalFilter();
             }}
             autofocus
@@ -445,7 +477,7 @@ export class ContentGrid extends LitLoggable(LitElement) {
               (cat) =>
                 html`<option
                   value="${(cat as string) ?? ''}"
-                  ?selected=${this.filterCategory === cat}
+                  ?selected=${this._filterCategory === cat}
                 >
                   ${cat}
                 </option> `
@@ -453,7 +485,7 @@ export class ContentGrid extends LitLoggable(LitElement) {
           </select>
           <div
             @click="${() => {
-              this.isVisible = !this.isVisible;
+              this._isVisible = !this._isVisible;
             }}"
           >
             ${unsafeHTML(`${icon(faSearch).html}`)}
@@ -477,7 +509,7 @@ export class ContentGrid extends LitLoggable(LitElement) {
             (cat) =>
               html`<option
                 value="${(cat as string) ?? ''}"
-                ?selected=${this.filterCategory === cat}
+                ?selected=${this._filterCategory === cat}
               >
                 ${cat}
               </option> `
@@ -530,26 +562,6 @@ export class ContentGrid extends LitLoggable(LitElement) {
 
     return template;
   }
-
-  catFilterChange(e: Event): void {
-    const target = (e.target || e.srcElement) as HTMLInputElement;
-    const value = target?.value;
-    this.debounceCatFilterChange(value);
-  }
-  debounceCatFilterChange = debounce((value) => {
-    this.filterCategory = value;
-    this.sendExternalFilter();
-  }, 500);
-
-  valFilterChange(e: Event): void {
-    const target = (e.target || e.srcElement) as HTMLInputElement;
-    const value = target?.value;
-    this.debounceValFilterChange(value);
-  }
-  debounceValFilterChange = debounce((value) => {
-    this.filterValue = value;
-    this.sendExternalFilter();
-  }, 500);
 
   static styles = css`
     ${unsafeCSS(ContentGridScss)}

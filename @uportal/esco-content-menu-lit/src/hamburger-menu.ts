@@ -82,9 +82,9 @@ export class HamburgerMenu extends LitLoggable(LitElement) {
   debug = false;
 
   @state()
-  isAppended = false;
+  _isAppended = false;
   @state()
-  isVisible = false;
+  _isVisible = false;
 
   constructor() {
     super();
@@ -101,14 +101,14 @@ export class HamburgerMenu extends LitLoggable(LitElement) {
 
   toggleMenu(e: Event): void {
     e.preventDefault();
-    this.isVisible = !this.isVisible;
+    this._isVisible = !this._isVisible;
     const html = document.querySelector('html');
     if (html) {
-      html.style.overflowY = this.isVisible ? 'hidden' : 'auto';
+      html.style.overflowY = this._isVisible ? 'hidden' : 'auto';
     }
     const toggleEvt = new CustomEvent('toggle', {
       detail: {
-        isVisible: this.isVisible,
+        isVisible: this._isVisible,
       },
     });
     this.dispatchEvent(toggleEvt);
@@ -116,7 +116,7 @@ export class HamburgerMenu extends LitLoggable(LitElement) {
 
   render(): TemplateResult {
     const isVisibleStyle = {
-      display: this.isVisible ? 'inherit' : 'none',
+      display: this._isVisible ? 'inherit' : 'none',
     };
     return html`
       <div class="hamburger-menu">
@@ -143,7 +143,7 @@ export class HamburgerMenu extends LitLoggable(LitElement) {
           <slot name="menu-content">
             <esco-content-menu
               class="${classMap({
-                'active-menu': this.isVisible,
+                'active-menu': this._isVisible,
               })}"
               context-api-url="${this.contextApiUrl}"
               ?debug="${this.debug}"
@@ -153,7 +153,7 @@ export class HamburgerMenu extends LitLoggable(LitElement) {
               force-org-logo="${this.forceOrgLogo}"
               grid-portlet-card-size="${this.gridPortletCardSize}"
               hide-action-mode="${this.hideActionMode}"
-              ?is-hidden="${!this.isVisible}"
+              ?is-hidden="${!this._isVisible}"
               layout-api-url="${this.layoutApiUrl}"
               .messages="${this.messages}"
               organization-api-url="${this.organizationApiUrl}"

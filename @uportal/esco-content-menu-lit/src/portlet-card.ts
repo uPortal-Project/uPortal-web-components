@@ -44,15 +44,23 @@ export class PortletCard extends LitLoggable(LitElement) {
   debug = false;
 
   @state()
-  dataIsParsed = false;
+  _dataIsParsed = false;
 
-  private fname = '';
-  private chanId = 0;
-  private pTitle = '';
-  private description = '';
-  private portletTitle = '';
-  private canFavorite = false;
-  private iconUrl = '';
+  private _fname = '';
+  private _chanId = 0;
+  private _pTitle = '';
+  private _description = '';
+  private _portletTitle = '';
+  private _canFavorite = false;
+  private _iconUrl = '';
+
+  shouldUpdate(): boolean {
+    if (this.portletDesc !== undefined) return true;
+    this.errorLog(
+      'Attribute portlet-desc or property portletDesc must be defined'
+    );
+    return false;
+  }
 
   willUpdate(changedProperties: Map<string | number | symbol, unknown>): void {
     if (changedProperties.has('portletDesc')) {
@@ -62,34 +70,34 @@ export class PortletCard extends LitLoggable(LitElement) {
   }
 
   firstUpdated(): void {
-    this.setLogIdentifier(this.fname);
+    this.setLogIdentifier(this._fname);
     this.debugLog('First update', this);
   }
 
   parseDesc(): void {
     if (this.portletDesc !== undefined) {
-      this.fname = this.portletDesc?.fname ?? '';
-      this.chanId = this.portletDesc?.id ?? 0;
-      this.pTitle = this.portletDesc?.title ?? '';
-      this.description = this.portletDesc?.description ?? '';
-      this.portletTitle = this.portletDesc?.title ?? '';
-      this.canFavorite = this.portletDesc?.canAdd
+      this._fname = this.portletDesc?.fname ?? '';
+      this._chanId = this.portletDesc?.id ?? 0;
+      this._pTitle = this.portletDesc?.title ?? '';
+      this._description = this.portletDesc?.description ?? '';
+      this._portletTitle = this.portletDesc?.title ?? '';
+      this._canFavorite = this.portletDesc?.canAdd
         ? this.portletDesc.canAdd
         : true;
-      this.iconUrl = this.portletDesc.parameters?.iconUrl?.value
+      this._iconUrl = this.portletDesc.parameters?.iconUrl?.value
         ? pathHelper.getUrl(this.portletDesc.parameters.iconUrl.value)
         : '';
-      this.dataIsParsed = true;
+      this._dataIsParsed = true;
     }
   }
 
   getHoverText(): string {
     switch (this.cardHoverSrc) {
       case 'title':
-        return this.pTitle;
+        return this._pTitle;
       case 'desc':
       case 'description':
-        return this.description;
+        return this._description;
       default:
         return '';
     }
@@ -105,7 +113,7 @@ export class PortletCard extends LitLoggable(LitElement) {
   render(): TemplateResult {
     const appClasses = {
       [this.cssClass.toLowerCase()]: true,
-      [textHelper.sanitize(this.fname.toLowerCase())]: true,
+      [textHelper.sanitize(this._fname.toLowerCase())]: true,
       [this.size.toLowerCase() + '-card']: true,
       'background-dark': this.backgroundIsDark,
       'hide-action': this.hideAction,
@@ -119,7 +127,7 @@ export class PortletCard extends LitLoggable(LitElement) {
     return html`
       <div class="${classMap(appClasses)}" title="${this.getHoverText()}">
         <div class="portlet-card-icon">${this.renderIcon()}</div>
-        <div class="portlet-card-title">${this.portletTitle}</div>
+        <div class="portlet-card-title">${this._portletTitle}</div>
         <div class="portlet-card-description">${this.renderEllipsis()}</div>
         ${this.renderActionFavorites()}
       </div>
@@ -130,23 +138,26 @@ export class PortletCard extends LitLoggable(LitElement) {
     const style = {
       'background-color': this.iconBackgroundColor,
     };
-    const img = html`<img src="${this.iconUrl}" alt="${this.portletTitle}" />`;
+    const img = html`<img
+      src="${this._iconUrl}"
+      alt="${this._portletTitle}"
+    />`;
     return html`
       <div style=${styleMap(style)} class="img-wrapper">
-        ${this.iconUrl
+        ${this._iconUrl
           ? img
           : html`<div class="defaultIcon">
-              <p>${textHelper.getAcronym(this.fname)}</p>
+              <p>${textHelper.getAcronym(this._fname)}</p>
             </div>`}
       </div>
     `;
   }
 
   renderEllipsis(): TemplateResult {
-    if (this.dataIsParsed) {
+    if (this._dataIsParsed) {
       return html`
         <lit-ellipsis
-          message="${textHelper.truncate(this.description)}"
+          message="${textHelper.truncate(this._description)}"
           line-height="20px"
           end-char="..."
         ></lit-ellipsis>
@@ -159,15 +170,14 @@ export class PortletCard extends LitLoggable(LitElement) {
   renderActionFavorites(): TemplateResult {
     let returnHTML = html``;
     let afHTML = html``;
-    if (this.canFavorite) {
+    if (this._canFavorite) {
       afHTML = html`
         <esco-action-favorites
           .messages="${this.messages}"
-          fname="${this.fname}"
-          chan-id="${this.chanId}"
+          fname="${this._fname}"
+          chan-id="${this._chanId}"
           .isFavorite="${this.isFavorite}"
           ?background-is-dark="${this.backgroundIsDark}"
-          ?debug="${this.debug}"
           @toggle=${this.toggleFavorite}
         /></esco-action-favorites>
       `;
