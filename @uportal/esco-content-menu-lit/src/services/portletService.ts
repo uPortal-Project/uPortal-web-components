@@ -6,7 +6,7 @@ export default class portletService {
     userInfoApiUrl: string,
     portletApiUrl: string,
     debug: boolean
-  ): Promise<FetchPortletResult | undefined> {
+  ): Promise<FetchPortletResult | null> {
     try {
       const requestHeaders: HeadersInit = new Headers();
       if (!debug) {
@@ -33,7 +33,7 @@ export default class portletService {
       return portlets;
     } catch (err) {
       console.error(err);
-      return undefined;
+      return null;
     }
   }
 
