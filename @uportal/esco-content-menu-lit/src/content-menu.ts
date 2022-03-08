@@ -96,19 +96,19 @@ export class ContentMenu extends LitLoggable(LitElement) {
   fakeAttribute = false;
 
   @state()
-  screenSize = 'medium';
+  _screenSize = 'medium';
   @state()
-  hideAction = false;
+  _hideAction = false;
   @state()
-  currentOrg: Organization | null = null;
+  _currentOrg: Organization | null = null;
   @state()
-  currentUser: UserInfo | null = null;
+  _currentUser: UserInfo | null = null;
   @state()
-  currentUserOrgs: OrgInfo | null = null;
+  _currentUserOrgs: OrgInfo | null = null;
   @state()
-  portlets: Portlet[] | null = null;
+  _portlets: Portlet[] | null = null;
   @state()
-  favorites: string[] | null = null;
+  _favorites: string[] | null = null;
 
   constructor() {
     super();
@@ -125,7 +125,7 @@ export class ContentMenu extends LitLoggable(LitElement) {
     window.removeEventListener('resize', this.calculateSize.bind(this));
   }
 
-  protected shouldUpdate(): boolean {
+  shouldUpdate(): boolean {
     if (this.defaultOrgLogo === '') {
       this.errorLog('default-org-logo attribute is required');
       return false;
@@ -136,10 +136,10 @@ export class ContentMenu extends LitLoggable(LitElement) {
   updated(changedProperties: Map<string | number | symbol, unknown>): void {
     if (changedProperties.has('userInfoApiUrl')) {
       if (changedProperties.has('portletApiUrl')) {
-        if (!this.portlets) this.fetchPortlets();
+        if (!this._portlets) this.fetchPortlets();
       }
       if (changedProperties.has('layoutApiUrl')) {
-        if (!this.favorites) this.fetchFavorites();
+        if (!this._favorites) this.fetchFavorites();
       }
       if (
         changedProperties.has('organizationApiUrl') ||
@@ -160,10 +160,13 @@ export class ContentMenu extends LitLoggable(LitElement) {
       this.portletApiUrl,
       this.debug
     );
-    if (portlets)
-      this.portlets = portletService
+    if (portlets) {
+      this._portlets = portletService
         .portletRegistryToArray(portlets)
         .sort(portletService.sortPortlets);
+    } else {
+      this.errorLog('No portlets fetch from API');
+    }
   }
   async fetchFavorites(): Promise<void> {
     const favoritesTree = await favoritesService.fetch(
@@ -171,7 +174,9 @@ export class ContentMenu extends LitLoggable(LitElement) {
       this.layoutApiUrl,
       this.debug
     );
-    this.favorites = favoritesService.flattenFavorites(favoritesTree);
+    if (favoritesTree) {
+      this._favorites = favoritesService.flattenFavorites(favoritesTree);
+    }
   }
   async fetchUserInfo(): Promise<void> {
     const fetchResult = await OrganizationService.fetch(
@@ -180,18 +185,24 @@ export class ContentMenu extends LitLoggable(LitElement) {
       this.userAllOrgsIdAttributeName,
       this.debug
     );
-    this.currentUser = fetchResult?.user as UserInfo;
-    this.currentUserOrgs = fetchResult?.organizations as OrgInfo;
-    this.currentOrg = OrganizationService.getCurrentOrganization(
-      this.currentUser,
-      this.userAllOrgsIdAttributeName,
-      this.currentUserOrgs
-    );
+    if (fetchResult) {
+      this.debugLog('userInfo API result', fetchResult);
+      this._currentUser = fetchResult?.user as UserInfo;
+      this._currentUserOrgs = fetchResult?.organizations as OrgInfo;
+      if (this._currentUser && this._currentUserOrgs)
+        this._currentOrg = OrganizationService.getCurrentOrganization(
+          this._currentUser,
+          this.userAllOrgsIdAttributeName,
+          this._currentUserOrgs
+        );
+    } else {
+      this.errorLog('No user infos fetch from API');
+    }
   }
 
   calculateSize(): void {
     if (this.isHidden) return;
-    this.screenSize = sizeHelper.breakPointName(
+    this._screenSize = sizeHelper.breakPointName(
       sizeHelper.elementWidth(this.shadowRoot?.querySelector('#content-menu'))
     );
     this.debugLog(
@@ -200,17 +211,17 @@ export class ContentMenu extends LitLoggable(LitElement) {
     );
     switch (this.hideActionMode) {
       case 'auto':
-        this.hideAction =
-          this.screenSize === 'small' || this.screenSize === 'smaller';
+        this._hideAction =
+          this._screenSize === 'small' || this._screenSize === 'smaller';
         break;
       case 'never':
-        this.hideAction = false;
+        this._hideAction = false;
         break;
       default:
         // case of 'always' hidden
-        this.hideAction = true;
+        this._hideAction = true;
     }
-    this.debugLog('calculateSize', this.screenSize);
+    this.debugLog('calculateSize', this._screenSize);
   }
 
   onClose(e: Event): void {
@@ -221,7 +232,8 @@ export class ContentMenu extends LitLoggable(LitElement) {
 
   isOtherOrgs(): boolean {
     return (
-      (this.currentUserOrgs && Object.keys(this.currentUserOrgs).length > 1) ??
+      (this._currentUserOrgs &&
+        Object.keys(this._currentUserOrgs).length > 1) ??
       false
     );
   }
@@ -230,7 +242,7 @@ export class ContentMenu extends LitLoggable(LitElement) {
     return (
       this.forceOrgLogo ||
       OrganizationService.getOrganizationLogo(
-        this.currentOrg,
+        this._currentOrg,
         this.orgLogoUrlAttributeName
       ) ||
       this.defaultOrgLogo
@@ -238,11 +250,13 @@ export class ContentMenu extends LitLoggable(LitElement) {
   }
 
   actionToggleFav(e: CustomEvent): void {
-    if (!this.favorites) this.favorites = [];
-    if (!this.favorites.includes(e.detail.fname)) {
-      this.favorites = [...this.favorites, e.detail.fname];
+    if (!this._favorites) this._favorites = [];
+    if (!this._favorites.includes(e.detail.fname)) {
+      this._favorites = [...this._favorites, e.detail.fname];
     } else {
-      this.favorites = this.favorites.filter((name) => name != e.detail.fname);
+      this._favorites = this._favorites.filter(
+        (name) => name != e.detail.fname
+      );
     }
     if (!this.debug && e.detail?.chanId !== undefined) {
       if (e.detail?.isFavorite) {
@@ -267,15 +281,12 @@ export class ContentMenu extends LitLoggable(LitElement) {
       'linear-gradient(0deg, rgba(0,0,0,.2),rgba(0,0,0,.2)), url(' +
       this.getOrgImage() +
       ');';
-    return this.portlets &&
-      this.favorites &&
-      this.currentUser &&
-      this.currentOrg
+    return this._portlets && this._favorites
       ? html`
           <div
             id="content-menu"
             class="content-menu toggler-menu ${classMap({
-              [this.screenSize]: true,
+              [this._screenSize]: true,
               'active-menu': !this.isHidden,
             })}"
           >
@@ -294,25 +305,24 @@ export class ContentMenu extends LitLoggable(LitElement) {
                 <slot name="content-user">
                   <esco-content-user
                     .messages=${this.messages}
-                    parent-screen-size="${this.screenSize}"
-                    user-display-name="${this.currentUser.name}"
-                    user-avatar-url="${this.currentUser.picture ?? ''}"
-                    org-display-name="${this.currentOrg.displayName}"
+                    parent-screen-size="${this._screenSize}"
+                    user-display-name="${this._currentUser?.name ?? ''}"
+                    user-avatar-url="${this._currentUser?.picture ?? ''}"
+                    org-display-name="${this._currentOrg?.displayName ?? ''}"
                     org-img-url="${this.getOrgImage()}"
                     user-info-portlet-url="${this.userInfoPortletUrl}"
                     switch-org-portlet-url="${this.isOtherOrgs()
                       ? this.switchOrgPortletUrl
                       : ''}"
-                    }
                   ></esco-content-user>
                 </slot>
                 <esco-content-favorites
                   .messages=${this.messages}
-                  .portlets="${this.portlets as never[]}"
-                  .favorites="${this.favorites as never[]}"
-                  parent-screen-size="${this.screenSize}"
+                  .portlets="${this._portlets as never[]}"
+                  .favorites="${this._favorites as never[]}"
+                  parent-screen-size="${this._screenSize}"
                   card-size="${this.favoritesPortletCardSize}"
-                  ?hide-action="${this.hideAction}"
+                  ?hide-action="${this._hideAction}"
                   favorite-api-url="${this.favoriteApiUrl}"
                   ?hide="${this.isHidden}"
                   user-info-api-url="${this.userInfoApiUrl}"
@@ -329,11 +339,11 @@ export class ContentMenu extends LitLoggable(LitElement) {
             </header>
             <esco-content-grid
               .messages=${this.messages}
-              .portlets="${this.portlets as never[]}"
-              .favorites="${this.favorites as never[]}"
-              parent-screen-size="${this.screenSize}"
+              .portlets="${this._portlets as never[]}"
+              .favorites="${this._favorites as never[]}"
+              parent-screen-size="${this._screenSize}"
               portlet-card-size="${this.gridPortletCardSize}"
-              ?hide-action="${this.hideAction}"
+              ?hide-action="${this._hideAction}"
               favorite-api-url="${this.favoriteApiUrl}"
               layout-api-url="${this.layoutApiUrl}"
               user-info-api-url="${this.userInfoApiUrl}"
