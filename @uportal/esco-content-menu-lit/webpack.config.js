@@ -49,9 +49,6 @@ let config = {
               additionalData: `@use 'sass:math';
               @import "src/styles/vars.scss";
               @import "src/styles/common.scss";`,
-              sassOptions: {
-                includePaths: [__dirname, 'src', 'src/styles'],
-              },
             },
           },
         ],
