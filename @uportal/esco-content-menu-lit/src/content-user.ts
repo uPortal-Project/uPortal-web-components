@@ -61,10 +61,8 @@ export class ContentUser extends LitLoggable(LitElement) {
     langHelper.setLocale(lang);
   }
 
-  protected willUpdate(
-    changedProperties: Map<string | number | symbol, unknown>
-  ): void {
-    if (changedProperties.has('messages')) {
+  willUpdate(_changedProperties: Map<string | number | symbol, unknown>): void {
+    if (_changedProperties.has('messages')) {
       langHelper.setReference(this.messages);
     }
   }
