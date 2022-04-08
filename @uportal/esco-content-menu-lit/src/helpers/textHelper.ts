@@ -15,11 +15,19 @@ export default class textHelper {
   }
 
   static getAcronym(str: string): string {
-    return (
+    /*return (
       str
         .match(/\b(\w)/g)
         ?.join('')
         .toUpperCase() ?? ''
-    );
+    );*/
+    return str
+      .split(/[\s,']+/)
+      .map((word) => {
+        return word.length >= 4 || word != word.toLowerCase()
+          ? word.split('')[0].toUpperCase()
+          : '';
+      })
+      .join('');
   }
 }

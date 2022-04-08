@@ -147,7 +147,7 @@ export class PortletCard extends LitLoggable(LitElement) {
         ${this._iconUrl
           ? img
           : html`<div class="defaultIcon">
-              <p>${textHelper.getAcronym(this._fname)}</p>
+              <p>${textHelper.getAcronym(this._portletTitle)}</p>
             </div>`}
       </div>
     `;
