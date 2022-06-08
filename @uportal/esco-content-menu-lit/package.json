@@ -35,7 +35,7 @@
     "@babel/preset-env": "^7.1.0",
     "@babel/preset-typescript": "^7.1.0",
     "@lit/localize-tools": "^0.4.0",
-    "@types/lodash": "^4.14.178",
+    "@types/lodash": "^4.14.182",
     "@typescript-eslint/eslint-plugin": "^5.27.1",
     "@typescript-eslint/parser": "^5.27.1",
     "acorn": "^8.7.1",
