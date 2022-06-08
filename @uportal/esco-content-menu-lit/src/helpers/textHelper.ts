@@ -15,12 +15,6 @@ export default class textHelper {
   }
 
   static getAcronym(str: string): string {
-    /*return (
-      str
-        .match(/\b(\w)/g)
-        ?.join('')
-        .toUpperCase() ?? ''
-    );*/
     return str
       .split(/[\s,']+/)
       .map((word) => {
