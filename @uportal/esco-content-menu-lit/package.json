@@ -23,7 +23,7 @@
     "@lit/localize": "^0.11.0",
     "@uportal/open-id-connect": "^1.37.0",
     "concurrently": "^7.0.0",
-    "core-js": "^3.21.1",
+    "core-js": "^3.22.8",
     "lit": "^2.0.2",
     "lodash": "^4.17.21",
     "match-sorter": "^6.3.1",
