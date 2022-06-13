@@ -323,8 +323,8 @@ export class ContentGrid extends LitLoggable(LitElement) {
 
   getExternalFilter(e: CustomEvent): void {
     if (
-      e.detail?.category &&
-      this.allCategories.includes(e.detail.category) &&
+      (this.allCategories.includes(e.detail.category) ||
+        e.detail.category == '') &&
       this._filterCategory != e.detail.category
     ) {
       this._filterCategory = e.detail.category;
