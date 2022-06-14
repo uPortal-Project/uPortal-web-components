@@ -78,6 +78,7 @@ let config = {
       new TerserPlugin({
         include: /\.min\.js$/,
         parallel: true,
+        extractComments: false,
       }),
     ],
     sideEffects: true,
