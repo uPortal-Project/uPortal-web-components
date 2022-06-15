@@ -28,7 +28,7 @@ compile 'org.webjars.npm:uportal__esco-content-menu-lit:{version number goes her
 
 ## Usage as Web Component
 
-### internationalization <a id="internationalization"/>
+### internationalization
 
 The `hamburger-menu`, `content-grid`, and `content-menu` components support an internationalization mixin. This adds the additional prop `messages` which can be applied to override the default text messages in the various components. This property will trickle down to the PortletCard and ActionFavorites components, as well.
 
@@ -73,7 +73,7 @@ The available messages to override are as follows:
 }
 ```
 
-### The hamburger menu <a id="hamburger-menu"/>
+### The hamburger menu
 
 This is the main component that show a hamburger menu and that open an entire page with `content-menu` component.
 
@@ -200,7 +200,7 @@ This component is a main one as it will load into one page all main elements (th
 
 #### Properties
 
-This use the same properties from the `hamburger-menu` ([see on hamburger-menu details](#hamburger-menu)):
+This use the same properties from the `hamburger-menu` ([see on hamburger-menu details](#the-hamburger-menu)):
 
 - `messages`
 - `context-api-url`
