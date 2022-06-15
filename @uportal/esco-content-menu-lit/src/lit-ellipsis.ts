@@ -5,6 +5,7 @@ import { customElement, property, query } from 'lit/decorators.js';
 import { LitLoggable } from '@mixins/litLoggable';
 /*Dependencies*/
 import debounce from 'lodash/debounce';
+import striptags from 'striptags';
 
 @customElement('lit-ellipsis')
 export class Ellipsis extends LitLoggable(LitElement) {
@@ -85,8 +86,7 @@ export class Ellipsis extends LitLoggable(LitElement) {
       height = this.sentence.getBoundingClientRect().height || lineHeight;
     }
 
-    const endStr =
-      this.endHtml !== '' ? this.endHtml.replace(/<[^>]+>/g, '') : '';
+    const endStr = this.endHtml !== '' ? striptags(this.endHtml) : '';
     const endLen =
       this.endChar === '...' ? 3 : endStr.length + this.endChar.length;
 
