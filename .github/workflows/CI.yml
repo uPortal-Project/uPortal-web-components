@@ -9,7 +9,7 @@ jobs:
     name: '${{ matrix.platform }}: node.js ${{ matrix.node-version }}'
     strategy:
       matrix:
-        platform: [ubuntu-latest, windows-latest, macos-latest]
+        platform: [ubuntu-latest, windows-2019, macos-latest]
         node-version: [14]
     runs-on: ${{ matrix.platform }}
     steps:
