@@ -39,7 +39,7 @@ export class ContentMenu extends LitLoggable(LitElement) {
     },
     attribute: 'grid-Portlet-card-size',
   })
-  gridPortletCardSize = 'medium';
+  gridPortletCardSize = 'auto';
   @property({ type: String, attribute: 'default-org-logo' })
   defaultOrgLogo = '';
   @property({ type: String, attribute: 'force-org-logo' })
