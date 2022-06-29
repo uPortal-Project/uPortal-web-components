@@ -39,12 +39,21 @@ export class Ellipsis extends LitLoggable(LitElement) {
   }
 
   firstUpdated(): void {
+    this.setLogIdentifier('ellipsis');
+    this.debugLog('First update', this);
     this.debounceRun();
   }
 
   debounceRun = debounce(this.run, 500);
 
-  run(): void {
+  async run(): Promise<void> {
+    this.debugLog('running', this.message);
+    await this.updateComplete;
+    this.debugLog('render completed', this.message);
+    if (this.sentence.offsetWidth < 1 || this.sentence.offsetHeight < 1) {
+      this.errorLog('Component is hidden, stop running');
+      return;
+    }
     if (this.message?.length <= 0) return;
     const lineHeight = parseInt(this.height, 10);
 
@@ -52,11 +61,13 @@ export class Ellipsis extends LitLoggable(LitElement) {
     this.sentence.style.height = '100%';
     const availableHeight =
       this.sentence.getBoundingClientRect().height || lineHeight;
+
     if (availableHeight < lineHeight) return;
 
     this.sentence.innerHTML = this.message;
     this.sentence.style.height = 'auto';
     let height = this.sentence.getBoundingClientRect().height || lineHeight;
+
     const start = 0;
     let end = this.message.length;
 
@@ -67,7 +78,7 @@ export class Ellipsis extends LitLoggable(LitElement) {
         ? goalMaxHeight
         : maxHeight;
 
-    if (height < finalMaxHeight) return;
+    if (height <= finalMaxHeight) return;
 
     while (Math.abs(end - start) > 1) {
       const half = Math.ceil((end - start) / 2);
@@ -96,6 +107,7 @@ export class Ellipsis extends LitLoggable(LitElement) {
       .trim();
     const match = nodeDelStr.match(/\s+/g);
     const extraLen = match && match.length ? match.length : 0;
+
     this.sentence.innerHTML =
       this.sentence.innerHTML.substring(0, nodeLen - endLen - extraLen).trim() +
       this.endChar +
@@ -103,7 +115,9 @@ export class Ellipsis extends LitLoggable(LitElement) {
   }
 
   render(): TemplateResult {
-    return html` <div class="autofit-ellipsis" id="sentence">...</div> `;
+    return html`
+      <div class="autofit-ellipsis" id="sentence">${this.message}</div>
+    `;
   }
 
   static styles = css`
