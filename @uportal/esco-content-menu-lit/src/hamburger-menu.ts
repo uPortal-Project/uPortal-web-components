@@ -115,9 +115,6 @@ export class HamburgerMenu extends LitLoggable(LitElement) {
   }
 
   render(): TemplateResult {
-    const isVisibleStyle = {
-      display: this._isVisible ? 'inherit' : 'none',
-    };
     return html`
       <div class="hamburger-menu">
         <div
@@ -138,40 +135,45 @@ export class HamburgerMenu extends LitLoggable(LitElement) {
             </div>
           </slot>
         </div>
-
-        <div style="${styleMap(isVisibleStyle)}">
-          <slot name="menu-content">
-            <esco-content-menu
-              class="${classMap({
-                'active-menu': this._isVisible,
-              })}"
-              context-api-url="${this.contextApiUrl}"
-              ?debug="${this.debug}"
-              default-org-logo="${this.defaultOrgLogo}"
-              favorite-api-url="${this.favoriteApiUrl}"
-              favorites-portlet-card-size="${this.favoritesPortletCardSize}"
-              force-org-logo="${this.forceOrgLogo}"
-              grid-portlet-card-size="${this.gridPortletCardSize}"
-              hide-action-mode="${this.hideActionMode}"
-              ?is-hidden="${!this._isVisible}"
-              layout-api-url="${this.layoutApiUrl}"
-              .messages="${this.messages}"
-              organization-api-url="${this.organizationApiUrl}"
-              org-logo-url-attribute-name="${this.orgLogoUrlAttributeName}"
-              portlet-api-url="${this.portletApiUrl}"
-              sign-out-url="${this.signoutUrl}"
-              ?show-favorites-in-slider="${this.showFavoritesInSlider}"
-              switch-org-portlet-url="${this.switchOrgPortletUrl}"
-              user-org-id-attribute-name="${this.orgAttributeName}"
-              user-all-orgs-id-attribute-name="${this
-                .userAllOrgsIdAttributeName}"
-              user-info-api-url="${this.userInfoApiUrl}"
-              user-info-portlet-url="${this.userInfoPortletUrl}"
-              @close=${this.toggleMenu.bind(this)}
-              ?fake-attribute="${true}"
-            ></esco-content-menu>
-          </slot>
-        </div>
+        ${this._isVisible
+          ? html`
+              <div>
+                <slot name="menu-content">
+                  <esco-content-menu
+                    class="${classMap({
+                      'active-menu': this._isVisible,
+                    })}"
+                    context-api-url="${this.contextApiUrl}"
+                    ?debug="${this.debug}"
+                    default-org-logo="${this.defaultOrgLogo}"
+                    favorite-api-url="${this.favoriteApiUrl}"
+                    favorites-portlet-card-size="${this
+                      .favoritesPortletCardSize}"
+                    force-org-logo="${this.forceOrgLogo}"
+                    grid-portlet-card-size="${this.gridPortletCardSize}"
+                    hide-action-mode="${this.hideActionMode}"
+                    ?is-hidden="${!this._isVisible}"
+                    layout-api-url="${this.layoutApiUrl}"
+                    .messages="${this.messages}"
+                    organization-api-url="${this.organizationApiUrl}"
+                    org-logo-url-attribute-name="${this
+                      .orgLogoUrlAttributeName}"
+                    portlet-api-url="${this.portletApiUrl}"
+                    sign-out-url="${this.signoutUrl}"
+                    ?show-favorites-in-slider="${this.showFavoritesInSlider}"
+                    switch-org-portlet-url="${this.switchOrgPortletUrl}"
+                    user-org-id-attribute-name="${this.orgAttributeName}"
+                    user-all-orgs-id-attribute-name="${this
+                      .userAllOrgsIdAttributeName}"
+                    user-info-api-url="${this.userInfoApiUrl}"
+                    user-info-portlet-url="${this.userInfoPortletUrl}"
+                    @close=${this.toggleMenu.bind(this)}
+                    ?fake-attribute="${true}"
+                  ></esco-content-menu>
+                </slot>
+              </div>
+            `
+          : html``}
       </div>
     `;
   }
