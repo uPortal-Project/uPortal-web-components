@@ -548,7 +548,7 @@ export class ContentGrid extends LitLoggable(LitElement) {
               .messages=${this.messages}
               .portletDesc="${portlet}"
               ?is-favorite=${this.isFavorite(portlet.fname)}
-              size="${this.portletCardSize()}"
+              size="${cardSize}"
               card-hover-src="${this.cardHoverSrc}"
               ?hide-action=${this.hideAction}
               ?background-is-dark="${this.portletBackgroundIsDark}"
