@@ -1,11 +1,12 @@
 /*Lit*/
-import { html, LitElement, css, TemplateResult } from 'lit';
-import { customElement, property, query } from 'lit/decorators.js';
+import { html, LitElement, css, TemplateResult, PropertyValueMap } from 'lit';
+import { customElement, property, query, state } from 'lit/decorators.js';
+import { styleMap } from 'lit/directives/style-map.js';
 /*Mixins*/
 import { LitLoggable } from '@mixins/litLoggable';
 /*Dependencies*/
 import debounce from 'lodash/debounce';
-import striptags from 'striptags';
+// import striptags from 'striptags';
 
 @customElement('lit-ellipsis')
 export class Ellipsis extends LitLoggable(LitElement) {
@@ -17,8 +18,11 @@ export class Ellipsis extends LitLoggable(LitElement) {
   height = '22px';
   @property({ type: String, attribute: 'end-char' })
   endChar = '...';
-  @property({ type: String, attribute: 'end-html' })
-  endHtml = '';
+
+  @state()
+  _ellipsisContent = '';
+  @state()
+  _nbLines = 'auto';
 
   @query('#sentence')
   sentence!: HTMLDivElement;
@@ -38,6 +42,15 @@ export class Ellipsis extends LitLoggable(LitElement) {
     window.removeEventListener('resize', this.debounceRun.bind(this), false);
   }
 
+  willUpdate(
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    _changedProperties: PropertyValueMap<any> | Map<PropertyKey, unknown>
+  ): void {
+    if (_changedProperties.has('message')) {
+      this._ellipsisContent = this.message;
+    }
+  }
+
   firstUpdated(): void {
     this.setLogIdentifier('ellipsis');
     this.debugLog('First update', this);
@@ -49,80 +62,52 @@ export class Ellipsis extends LitLoggable(LitElement) {
   async run(): Promise<void> {
     this.debugLog('running', this.message);
     await this.updateComplete;
-    this.debugLog('render completed', this.message);
     if (this.sentence.offsetWidth < 1 || this.sentence.offsetHeight < 1) {
-      this.errorLog('Component is hidden, stop running');
+      this.messageLog('Component is hidden, stop running');
       return;
     }
     if (this.message?.length <= 0) return;
+
     const lineHeight = parseInt(this.height, 10);
 
-    this.sentence.innerHTML = '';
+    this._ellipsisContent = '';
+    await this.updateComplete;
     this.sentence.style.height = '100%';
     const availableHeight =
       this.sentence.getBoundingClientRect().height || lineHeight;
 
     if (availableHeight < lineHeight) return;
 
-    this.sentence.innerHTML = this.message;
+    const autoNbLines = Math.floor(availableHeight / lineHeight);
+
+    this._nbLines =
+      this.clamp > 0 && this.clamp < autoNbLines
+        ? this.clamp.toString()
+        : autoNbLines.toString();
+
+    this._ellipsisContent = this.message;
     this.sentence.style.height = 'auto';
-    let height = this.sentence.getBoundingClientRect().height || lineHeight;
-
-    const start = 0;
-    let end = this.message.length;
-
-    const maxHeight = lineHeight * Math.trunc(availableHeight / lineHeight);
-    const goalMaxHeight = lineHeight * (this.clamp > 0 ? this.clamp : 1);
-    const finalMaxHeight =
-      this.clamp > 0 && goalMaxHeight < availableHeight
-        ? goalMaxHeight
-        : maxHeight;
-
-    if (height <= finalMaxHeight) return;
-
-    while (Math.abs(end - start) > 1) {
-      const half = Math.ceil((end - start) / 2);
-      this.sentence.innerHTML = this.message.substring(0, half).trim();
-      height = this.sentence.getBoundingClientRect().height || lineHeight;
-      if (height <= finalMaxHeight) {
-        break;
-      } else {
-        end = half;
-      }
-    }
-    while (height > finalMaxHeight) {
-      this.sentence.innerHTML = this.sentence.innerHTML
-        .substring(0, this.sentence.innerHTML.trimEnd().length - 1)
-        .trim();
-      height = this.sentence.getBoundingClientRect().height || lineHeight;
-    }
-
-    const endStr = this.endHtml !== '' ? striptags(this.endHtml) : '';
-    const endLen =
-      this.endChar === '...' ? 3 : endStr.length + this.endChar.length;
-
-    const nodeLen = this.sentence.innerHTML.trimRight().length;
-    const nodeDelStr = this.sentence.innerHTML
-      .substring(nodeLen - endLen, nodeLen)
-      .trim();
-    const match = nodeDelStr.match(/\s+/g);
-    const extraLen = match && match.length ? match.length : 0;
-
-    this.sentence.innerHTML =
-      this.sentence.innerHTML.substring(0, nodeLen - endLen - extraLen).trim() +
-      this.endChar +
-      this.endHtml;
   }
 
   render(): TemplateResult {
+    const ellipsis = this.endChar !== '...' ? this.endChar : 'ellipsis';
+    const style = {
+      '-webkit-line-clamp': this._nbLines,
+      'text-overflow': `'${ellipsis}'`,
+    };
     return html`
-      <div class="autofit-ellipsis" id="sentence">${this.message}</div>
+      <div class="autofit-ellipsis" style="${styleMap(style)}" id="sentence">
+        ${this._ellipsisContent}
+      </div>
     `;
   }
 
   static styles = css`
     .autofit-ellipsis {
-      height: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
     }
   `;
 }
