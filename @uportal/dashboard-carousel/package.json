@@ -12,7 +12,7 @@
     "build": "vue-cli-service build --target wc --name dashboard \"src/components/*.vue\""
   },
   "engines": {
-    "node": "^14.0.0",
+    "node": "^16.0.0",
     "npm": "^6.0.0"
   },
   "dependencies": {
