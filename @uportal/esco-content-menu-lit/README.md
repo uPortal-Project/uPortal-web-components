@@ -227,7 +227,7 @@ and with additional properties to work with the `hamburger-menu`:
 - ~~`call-on-close`: type: `Function`, default: `{}`, provide to this property a callback function to call after clicking on the header-button close of the `header-buttons` component.~~ Deprecated, use close event instead.
 - `show-favorites-in-slider`: type: `Boolean`, default: `false`, if present (true), show favorites in a slider.
 - `is-hidden`: type: `Boolean`, default: `false`, used by the `hamburger-menu` to indicate the state of the page.
-- ~~`id`: type: `String`, default: `null`, provide an id to be able to select the dome element, as example if you want to manage manualy an `hamburger-menu`~~ Deprecated.
+- ~~`id`: type: `String`, default: `null`, provide an id to be able to select the dom element, as example if you want to manage manualy an `hamburger-menu`~~ Deprecated.
 
 #### Events
 
