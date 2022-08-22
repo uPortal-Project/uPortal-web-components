@@ -108,7 +108,7 @@ For some integration you could need a bit more, like into uPortal you will need 
 #### Properties
 
 - `messages`: type: `Array of Objects`, see [internationalization](#internationalization)
-- `context-api-url`: type: `String`, default: `/uPortal`, usefull to provide a different uPortal context on which to do request
+- `context-api-url`: type: `String`, default: `/uPortal`, useful to provide a different uPortal context on which to do request
 - `favorite-api-url`: type: `String`, default: `/uPortal/api/layout`, the uri/url of the favorites api
 - `layout-api-url`: type: `String`, default: `/uPortal/api/v4-3/dlm/layout.json`, the uri/url of the layout api to request the favorite list in the oser defined order (only needed to get favorite's order defined by the user)
 - `portlet-api-url`: type: `String`, default: `/uPortal/api/v4-3/dlm/portletRegistry.json`, the uri/url of the portletRegistry api to obtains user authorized portlet list
