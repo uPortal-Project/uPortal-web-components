@@ -461,7 +461,7 @@ Somme work would be needed to move on the `content-carousel`.
 
 ### The content user
 
-This component permit to show user information with his organization information.
+This component permit to show user information with their organization information.
 Few work would be need to be able to use it as a standalone component: like having a fetch service like for portlets or favorite. But some parts are institutional developpments to be able to obtain organization informations, so we are waiting new usecase before to do something.
 
 #### Html
