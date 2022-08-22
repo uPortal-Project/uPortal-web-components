@@ -433,7 +433,7 @@ The component `action-favorite` is really simple, it show a start button that pe
 - ~~`user-info-api-url`: type: `String`, default: `/uPortal/api/v5-1/userinfo`, url/uri on which the api request is done to obtain user information and the jwt token,~~ Deprecated.
 - `fname`: type: `String`, required: `true`, the portlet fname that permit to identify the portlet into favorite's list, usefull for the callback function and apply a css class,
 - `is-favorite`: type: `Boolean`, default: `false`, provide the favorite state,
-- `back-ground-is-dark`: type: `Boolean`, default: `false`, permit to apply a style depending on background color, as the component is used as embeded,
+- `back-ground-is-dark`: type: `Boolean`, default: `false`, permit to apply a style depending on background color, as the component is used as embedded,
 - ~~`debug`: type: `Boolean`, default: `false`, for the demo/debug mode to be able to run in a standalone way (disable favorites api call)~~ Deprecated
 
 #### Events
