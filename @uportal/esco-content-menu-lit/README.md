@@ -132,7 +132,7 @@ For some integration you could need a bit more, like into uPortal you will need 
 
 ##### Emitted
 
-- `toggle`: traget: `component`, details: `fname,chanId,isFavorite`, Emit when menu is open or close.
+- `toggle`: target: `component`, details: `fname,chanId,isFavorite`, Emit when menu is open or close.
 
 #### Slots
 
