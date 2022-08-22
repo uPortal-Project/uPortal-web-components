@@ -321,7 +321,7 @@ and additional properties to work with the parent component `content-menu`:
 
 ##### Emited
 
-- `gridFavoritesUpdated`, target : `window`, details: `fname,chanId,isFavorite`, emited when a portlet is added to favorites.
+- `gridFavoritesUpdated`, target : `window`, details: `fname,chanId,isFavorite`, emitted when a portlet is added to favorites.
 - `esco-cm-grid-filter`, target : `window`, details: `category,value`, emited when portlets are filteredor when `esco-cm-request-grid-filter` event is received.
 - `esco-cm-categories`, target : `window`, details: `categories`, emited when categories list is calculated or when `esco-cm-request-categories` event is received.
 - `toggle-favorite`, target : `component`, details: `fname,chanId,isFavorite`, emited when a portlet is added to favorites.
