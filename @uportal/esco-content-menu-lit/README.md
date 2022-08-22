@@ -584,7 +584,7 @@ This component permit to apply an auto-fit/trunc or a line-clamping to a text wh
 #### Properties
 
 - `message`: type: `String`, default: `''`, the text to "ellipsise",
-- `line-clamp`: type: `Number`, default: `0`, when we want a number of line, else will apply an auto-fit on te available size (the parent should have a defined height),
+- `line-clamp`: type: `Number`, default: `0`, when we want a number of line, else will apply an auto-fit on the available size (the parent should have a defined height),
 - `line-height`: type: `String`, default: `'22px'`, the line heigth of the text is required for the auto-fit,
 - `end-char`: type: `String`, default: `'...'`, a text to apply when a trunc appear,
 - `end-html`: type: `String`, default: `''`, a text to apply at end of the html.
