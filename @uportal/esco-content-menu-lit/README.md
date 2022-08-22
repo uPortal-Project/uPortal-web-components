@@ -118,7 +118,7 @@ For some integration you could need a bit more, like into uPortal you will need 
 - `default-org-logo`: type: `String`, required: true, an url/uri to provide an institutional picture when none is found from an optional api (not provided into uPortal),
 - `user-info-portlet-url`: type: `String`, default: `''`, an url/uri to the user information application,
 - `switch-org-portlet-url`: type: `String`, default: `''`, an optional url/url of a rest api to obtain institutional organization information,
-- `favorites-portlet-card-size`: type: possible value `auto|large|medium|small|smaller`, default: `small`, define the size of portlet-cards component into `favorite-content` component part,
+- `favorites-portlet-card-size`: type: possible value `auto|large|medium|small|smaller`, default: `small`, define the size of portlet-cards component into `favorite-content` component part
 - `grid-portlet-card-size`: type: possible value `auto|large|medium|small|smaller`, default: `medium`, define the size of `portlet-cards` component into `grid-content` component part,
 - `hide-action-mode: type`: possible value `auto|always|never`, default: `auto`, define if we should show the actions, `auto` don't show on `small` breakpoint,
 - `user-org-id-attribute-name`: type: `String`, default: `'ESCOSIRENCourant[0]'`, the attribute object path to obtain the id of the organization to retrieve from the organization's api
