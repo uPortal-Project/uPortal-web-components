@@ -343,7 +343,7 @@ export class ContentFavorites extends LitLoggable(LitElement) {
                         hide-title
                         portlet-card-size="${this._elementSize}"
                         .favorites="${this.favorites}"
-                        .portlets="${calcFavorites as never[]}"
+                        .portlets="${calcFavorites}"
                         ?hide-action="${this.hideAction}"
                         favorite-api-url="${this.favoriteApiUrl}"
                         user-info-api-url="${this.userInfoApiUrl}"

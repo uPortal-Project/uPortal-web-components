@@ -88,7 +88,7 @@ export class ContentGrid extends LitLoggable(LitElement) {
   @property({ type: Array, attribute: 'all-categories', reflect: true })
   allCategories: string[] = [];
   @property({ type: Array })
-  portlets = [];
+  portlets: Portlet[] = [];
   @property({ type: Boolean, attribute: 'hide-title' })
   hideTitle = false;
   @property({ type: Boolean, attribute: 'show-footer-categories' })
