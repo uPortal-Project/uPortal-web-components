@@ -132,6 +132,12 @@ export default class portletService {
     return portlet?.parameters?.alternativeMaximizedLink?.value;
   }
 
+  static getAlternativeMaximizedTarget(portlet: Portlet): string {
+    return (
+      portlet?.parameters?.alternativeMaximizedLinkTarget?.value ?? '_blank'
+    );
+  }
+
   static getRenderUrl(portlet: Portlet, context: string): string {
     return portlet?.parameters?.alternativeMaximizedLink?.value
       ? portlet.parameters.alternativeMaximizedLink.value

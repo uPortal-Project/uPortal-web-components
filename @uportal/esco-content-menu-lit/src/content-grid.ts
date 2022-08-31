@@ -293,6 +293,10 @@ export class ContentGrid extends LitLoggable(LitElement) {
     return portletService.getAlternativeMaximizedUrl(portlet);
   }
 
+  getAlternativeMaximizedTarget(portlet: Portlet): string {
+    return portletService.getAlternativeMaximizedTarget(portlet);
+  }
+
   isFavorite(fname: string): boolean {
     const favorites =
       this.favorites.length > 0 ? this.favorites : this._localFavorites;
@@ -537,7 +541,7 @@ export class ContentGrid extends LitLoggable(LitElement) {
           <a
             href="${this.getRenderPortletUrl(portlet)}"
             target="${this.hasAlternativeMaximizedUrl(portlet)
-              ? '_blank'
+              ? this.getAlternativeMaximizedTarget(portlet)
               : '_self'}"
             rel="${this.hasAlternativeMaximizedUrl(portlet)
               ? 'noopener noreferrer'

@@ -203,6 +203,10 @@ export class ContentFavorites extends LitLoggable(LitElement) {
     return portletService.getAlternativeMaximizedUrl(portlet)?.length > 0;
   }
 
+  getAlternativeMaximizedTarget(portlet: Portlet): string {
+    return portletService.getAlternativeMaximizedTarget(portlet);
+  }
+
   debounceUpdateNavigation = debounce(this.updateNavigation, 500);
 
   updateNavigation(): void {
@@ -287,7 +291,9 @@ export class ContentFavorites extends LitLoggable(LitElement) {
                                   <a
                                     href="${this.getRenderPortletUrl(portlet)}"
                                     target="${hasAlternativeMaximizedUrl
-                                      ? '_blank'
+                                      ? this.getAlternativeMaximizedTarget(
+                                          portlet
+                                        )
                                       : '_self'}"
                                     rel="${hasAlternativeMaximizedUrl
                                       ? 'noopener noreferrer'

@@ -2055,6 +2055,11 @@
                       "name": "alternativeMaximizedLink",
                       "value": "/portail/api/ExternalURLStats?fname=ITSM&service=https://itsm.escolan.recia.fr/pages/UI.php?login_mode=cas"
                     },
+                    "alternativeMaximizedLinkTarget": {
+                      "description": "",
+                      "name": "alternativeMaximizedLinkTarget",
+                      "value": "_self"
+                    },
                     "blockImpersonation": {
                       "description": "",
                       "name": "blockImpersonation",
