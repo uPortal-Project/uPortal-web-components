@@ -10,10 +10,8 @@ export default class portletService {
     try {
       const requestHeaders: HeadersInit = new Headers();
       if (!debug) {
-        requestHeaders.set(
-          'Authorization',
-          (await oidc({ userInfoApiUrl })).encoded
-        );
+        const token = (await oidc({ userInfoApiUrl })).encoded;
+        requestHeaders.set('Authorization', `Bearer ${token}`);
       }
 
       const options = {

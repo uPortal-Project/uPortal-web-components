@@ -25,7 +25,7 @@ export default class OrganizationService {
         });
         userInfo = decoded;
         const orgIds = get(decoded, userAllOrgIdAttribute, null);
-        requestHeaders.set('Authorization', encoded);
+        requestHeaders.set('Authorization', `Bearer ${encoded}`);
         if ((orgIds as string)?.length > 0)
           fetchUrl = orgApiUrl + '?ids=' + orgIds;
       }
