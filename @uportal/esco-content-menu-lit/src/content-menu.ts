@@ -246,7 +246,6 @@ export class ContentMenu extends LitLoggable(LitElement) {
             this._currentOrg,
             this.orgLogoUrlAttributeName
           ) ?? this.defaultOrgLogo;
-    console.log('getOrgImage', orgImage);
     return orgImage;
   }
 
@@ -279,11 +278,9 @@ export class ContentMenu extends LitLoggable(LitElement) {
   render(): TemplateResult {
     this.debugLog('Render');
     const orgImage = this.getOrgImage();
-    console.log('render', orgImage);
     const headerBGImg = {
       backgroundImage: `linear-gradient(0deg, rgba(0,0,0,.2),rgba(0,0,0,.2)), url(${orgImage})`,
     };
-    console.log('render', headerBGImg);
     return this._portlets && this._favorites
       ? html`
           <div
