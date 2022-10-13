@@ -239,14 +239,15 @@ export class ContentMenu extends LitLoggable(LitElement) {
   }
 
   getOrgImage(): string {
-    return (
-      this.forceOrgLogo ||
-      OrganizationService.getOrganizationLogo(
-        this._currentOrg,
-        this.orgLogoUrlAttributeName
-      ) ||
-      this.defaultOrgLogo
-    );
+    const orgImage =
+      this.forceOrgLogo != ''
+        ? this.forceOrgLogo
+        : OrganizationService.getOrganizationLogo(
+            this._currentOrg,
+            this.orgLogoUrlAttributeName
+          ) ?? this.defaultOrgLogo;
+    console.log('getOrgImage', orgImage);
+    return orgImage;
   }
 
   actionToggleFav(e: CustomEvent): void {
@@ -277,10 +278,12 @@ export class ContentMenu extends LitLoggable(LitElement) {
 
   render(): TemplateResult {
     this.debugLog('Render');
-    const headerBGImg =
-      'linear-gradient(0deg, rgba(0,0,0,.2),rgba(0,0,0,.2)), url(' +
-      this.getOrgImage() +
-      ');';
+    const orgImage = this.getOrgImage();
+    console.log('render', orgImage);
+    const headerBGImg = {
+      backgroundImage: `linear-gradient(0deg, rgba(0,0,0,.2),rgba(0,0,0,.2)), url(${orgImage})`,
+    };
+    console.log('render', headerBGImg);
     return this._portlets && this._favorites
       ? html`
           <div
@@ -309,7 +312,7 @@ export class ContentMenu extends LitLoggable(LitElement) {
                     user-display-name="${this._currentUser?.name ?? ''}"
                     user-avatar-url="${this._currentUser?.picture ?? ''}"
                     org-display-name="${this._currentOrg?.displayName ?? ''}"
-                    org-img-url="${this.getOrgImage()}"
+                    org-img-url="${orgImage}"
                     user-info-portlet-url="${this.userInfoPortletUrl}"
                     switch-org-portlet-url="${this.isOtherOrgs()
                       ? this.switchOrgPortletUrl
@@ -332,10 +335,7 @@ export class ContentMenu extends LitLoggable(LitElement) {
                   @toggle-favorite=${this.actionToggleFav}
                 ></esco-content-favorites>
               </div>
-              <div
-                style="${styleMap({ 'background-image': headerBGImg })}"
-                class="background"
-              ></div>
+              <div style="${styleMap(headerBGImg)}" class="background"></div>
             </header>
             <esco-content-grid
               .messages=${this.messages}
