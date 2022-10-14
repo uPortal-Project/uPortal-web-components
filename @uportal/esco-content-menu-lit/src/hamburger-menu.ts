@@ -64,7 +64,7 @@ export class HamburgerMenu extends LitLoggable(LitElement) {
   @property({ type: String, attribute: 'user-org-id-attribute-name' })
   orgAttributeName = 'ESCOSIRENCourant[0]';
   @property({ type: String, attribute: 'org-logo-url-attribute-name' })
-  orgLogoUrlAttributeName = 'ESCOSIRENCourant[0]';
+  orgLogoUrlAttributeName = 'otherAttributes.ESCOStructureLogo[0]';
   @property({ type: String, attribute: 'user-all-orgs-id-attribute-name' })
   userAllOrgsIdAttributeName = 'ESCOSIREN';
   @property({
