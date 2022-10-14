@@ -109,6 +109,10 @@ export class ContentMenu extends LitLoggable(LitElement) {
   _portlets: Portlet[] | null = null;
   @state()
   _favorites: string[] | null = null;
+  @state()
+  _inError = false;
+
+  private _errorMessage = '';
 
   constructor() {
     super();
@@ -165,7 +169,7 @@ export class ContentMenu extends LitLoggable(LitElement) {
         .portletRegistryToArray(portlets)
         .sort(portletService.sortPortlets);
     } else {
-      this.errorLog('No portlets fetch from API');
+      this._error('No portlets fetch from API');
     }
   }
   async fetchFavorites(): Promise<void> {
@@ -196,7 +200,7 @@ export class ContentMenu extends LitLoggable(LitElement) {
           this._currentUserOrgs
         );
     } else {
-      this.errorLog('No user infos fetch from API');
+      this._error('No user infos fetch from API');
     }
   }
 
@@ -281,7 +285,7 @@ export class ContentMenu extends LitLoggable(LitElement) {
     const headerBGImg = {
       backgroundImage: `linear-gradient(0deg, rgba(0,0,0,.2),rgba(0,0,0,.2)), url(${orgImage})`,
     };
-    return this._portlets && this._favorites
+    return this._portlets && this._favorites && this._currentUser
       ? html`
           <div
             id="content-menu"
@@ -352,6 +356,10 @@ export class ContentMenu extends LitLoggable(LitElement) {
             ></esco-content-grid>
           </div>
         `
+      : this._inError
+      ? html`<div id="content-menu" class="content-menu error">
+          <p class="error-message">${this._errorMessage}</p>
+        </div>`
       : html`<div id="content-menu" class="content-menu spinner">
           <lit-spinner></lit-spinner>
         </div>`;
@@ -362,4 +370,10 @@ export class ContentMenu extends LitLoggable(LitElement) {
       ${unsafeCSS(ContentMenuScss)}
     `,
   ];
+
+  _error(errorMessage: string): void {
+    this._inError = true;
+    this._errorMessage = errorMessage;
+    this.errorLog(errorMessage);
+  }
 }
