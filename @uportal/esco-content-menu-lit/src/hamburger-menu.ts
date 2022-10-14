@@ -84,6 +84,8 @@ export class HamburgerMenu extends LitLoggable(LitElement) {
   _isAppended = false;
   @state()
   _isVisible = false;
+  @state()
+  _isLoaded = false;
 
   constructor() {
     super();
@@ -101,6 +103,9 @@ export class HamburgerMenu extends LitLoggable(LitElement) {
   toggleMenu(e: Event): void {
     e.preventDefault();
     this._isVisible = !this._isVisible;
+    if (this._isVisible && !this._isLoaded) {
+      this._isLoaded = true;
+    }
     const html = document.querySelector('html');
     if (html) {
       html.style.overflowY = this._isVisible ? 'hidden' : 'auto';
@@ -134,7 +139,7 @@ export class HamburgerMenu extends LitLoggable(LitElement) {
             </div>
           </slot>
         </div>
-        ${this._isVisible
+        ${this._isLoaded
           ? html`
               <div>
                 <slot name="menu-content">
