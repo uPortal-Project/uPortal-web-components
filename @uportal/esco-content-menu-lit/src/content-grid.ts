@@ -359,17 +359,6 @@ export class ContentGrid extends LitLoggable(LitElement) {
   }
 
   toggleFavorite(e: CustomEvent): void {
-    const GFUevent = new CustomEvent('gridFavoritesUpdated', {
-      bubbles: true,
-      detail: e.detail,
-    });
-    window.dispatchEvent(GFUevent);
-    const TFevent = new CustomEvent('toggle-favorite', {
-      bubbles: true,
-      detail: e.detail,
-    });
-    this.dispatchEvent(TFevent);
-
     if (this.favorites.length == 0) {
       if (this._localFavorites === undefined) this._localFavorites = [];
       if (!this._localFavorites.includes(e.detail.fname)) {
@@ -400,7 +389,20 @@ export class ContentGrid extends LitLoggable(LitElement) {
           e.detail.chanId
         );
       }
+      favoritesService.deleteCachedData(this.favoriteApiUrl);
+      e.detail.send = true;
     }
+
+    const GFUevent = new CustomEvent('gridFavoritesUpdated', {
+      bubbles: true,
+      detail: e.detail,
+    });
+    window.dispatchEvent(GFUevent);
+    const TFevent = new CustomEvent('toggle-favorite', {
+      bubbles: true,
+      detail: e.detail,
+    });
+    this.dispatchEvent(TFevent);
   }
 
   render(): TemplateResult {

@@ -262,7 +262,7 @@ export class ContentMenu extends LitLoggable(LitElement) {
         (name) => name != e.detail.fname
       );
     }
-    if (!this.debug && e.detail?.chanId !== undefined) {
+    if (!this.debug && !e.detail.send && e.detail?.chanId !== undefined) {
       if (e.detail?.isFavorite) {
         favoritesService.add(
           this.userInfoApiUrl,

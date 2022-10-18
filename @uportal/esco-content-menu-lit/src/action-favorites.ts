@@ -72,6 +72,7 @@ export class ActionFavorites extends LitLoggable(LitElement) {
         fname: this.fname,
         chanId: this.chanId,
         isFavorite: this.isFavorite,
+        send: false,
       },
     });
     this.dispatchEvent(toggleEvt);
