@@ -65,9 +65,9 @@ export class ContentFavorites extends LitLoggable(LitElement) {
     (process.env.APP_PORTAL_CONTEXT ?? '') +
     (process.env.APP_USER_INFO_URI ?? '');
   @property({ type: Array })
-  portlets = [];
+  portlets: Portlet[] = [];
   @property({ type: Array })
-  favorites = [];
+  favorites: string[] = [];
   @property({ type: Boolean })
   hide = false;
   @property({ type: Boolean, attribute: 'hide-action' })

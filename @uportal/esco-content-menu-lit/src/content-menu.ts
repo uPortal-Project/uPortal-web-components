@@ -322,8 +322,8 @@ export class ContentMenu extends LitLoggable(LitElement) {
                 </slot>
                 <esco-content-favorites
                   .messages=${this.messages}
-                  .portlets="${this._portlets as never[]}"
-                  .favorites="${this._favorites as never[]}"
+                  .portlets="${this._portlets}"
+                  .favorites="${this._favorites}"
                   parent-screen-size="${this._screenSize}"
                   card-size="${this.favoritesPortletCardSize}"
                   ?hide-action="${this._hideAction}"
@@ -340,8 +340,8 @@ export class ContentMenu extends LitLoggable(LitElement) {
             </header>
             <esco-content-grid
               .messages=${this.messages}
-              .portlets="${this._portlets as never[]}"
-              .favorites="${this._favorites as never[]}"
+              .portlets="${this._portlets}"
+              .favorites="${this._favorites}"
               parent-screen-size="${this._screenSize}"
               portlet-card-size="${this.gridPortletCardSize}"
               ?hide-action="${this._hideAction}"
