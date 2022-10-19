@@ -1,7 +1,9 @@
+import cachedService from './cachedService';
 import oidc from '@uportal/open-id-connect';
 import uniqBy from 'lodash/uniqBy';
+import textHelper from '@helpers/textHelper';
 
-export default class portletService {
+export default class portletService extends cachedService {
   static async fetch(
     userInfoApiUrl: string,
     portletApiUrl: string,
@@ -9,9 +11,15 @@ export default class portletService {
   ): Promise<FetchPortletResult | null> {
     try {
       const requestHeaders: HeadersInit = new Headers();
+
       if (!debug) {
-        const token = (await oidc({ userInfoApiUrl })).encoded;
-        requestHeaders.set('Authorization', `Bearer ${token}`);
+        const { encoded, decoded } = await oidc({
+          userInfoApiUrl,
+        });
+        requestHeaders.set('Authorization', `Bearer ${encoded}`);
+        this.token = textHelper.sanitize(decoded.name);
+      } else {
+        this.token = 'debug';
       }
 
       const options = {
@@ -20,13 +28,10 @@ export default class portletService {
         headers: requestHeaders,
       };
 
-      const response = await fetch(portletApiUrl, options);
-
-      if (!response.ok) {
-        throw new Error(response.statusText);
-      }
-
-      const portlets: FetchPortletResult = await response.json();
+      const portlets: FetchPortletResult = await this.getDatas(
+        portletApiUrl,
+        options
+      );
 
       return portlets;
     } catch (err) {

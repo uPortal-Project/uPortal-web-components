@@ -1,9 +1,11 @@
+import cachedService from './cachedService';
 import oidc from '@uportal/open-id-connect';
 import type { JWT } from '@uportal/open-id-connect';
 import get from 'lodash/get';
 import isString from 'lodash/isString';
+import textHelper from '@helpers/textHelper';
 
-export default class OrganizationService {
+export default class OrganizationService extends cachedService {
   static async fetch(
     userInfoApiUrl: string,
     orgApiUrl: string,
@@ -19,10 +21,12 @@ export default class OrganizationService {
         const userInfoRequest = await fetch(userInfoApiUrl);
         userInfo = await userInfoRequest.json();
         fetchUrl = orgApiUrl;
+        this.token = 'debug';
       } else {
         const { encoded, decoded } = await oidc({
           userInfoApiUrl,
         });
+        this.token = textHelper.sanitize(decoded.name);
         userInfo = decoded;
         const orgIds = get(decoded, userAllOrgIdAttribute, null);
         requestHeaders.set('Authorization', `Bearer ${encoded}`);
@@ -36,12 +40,8 @@ export default class OrganizationService {
           credentials: 'same-origin' as RequestCredentials,
           headers: requestHeaders,
         };
-        const response = await fetch(fetchUrl, options);
-        if (!response.ok) {
-          throw new Error(response.statusText);
-        }
 
-        orgInfo = await response.json();
+        orgInfo = await this.getDatas(fetchUrl, options);
       }
       return {
         user: userInfo,

@@ -90,6 +90,10 @@ export class ContentMenu extends LitLoggable(LitElement) {
   isHidden = false;
   @property({ type: Boolean, attribute: 'show-favorites-in-slider' })
   showFavoritesInSlider = false;
+  @property({ type: Boolean, attribute: 'disableCache' })
+  disableCache = false;
+  @property({ type: Number, attribute: 'cache-ttl' })
+  cacheTTL = parseInt(process.env.CACHE_TTL ?? '60');
   @property({ type: Boolean })
   debug = false;
   @property({ type: Boolean, attribute: 'fake-attribute' })
@@ -129,10 +133,25 @@ export class ContentMenu extends LitLoggable(LitElement) {
     window.removeEventListener('resize', this.calculateSize.bind(this));
   }
 
-  shouldUpdate(): boolean {
+  shouldUpdate(
+    changedProperties: Map<string | number | symbol, unknown>
+  ): boolean {
     if (this.defaultOrgLogo === '') {
       this.errorLog('default-org-logo attribute is required');
       return false;
+    }
+    if (changedProperties.has('cacheTTL')) {
+      portletService.cacheTtl = this.cacheTTL;
+      favoritesService.cacheTtl = this.cacheTTL;
+      OrganizationService.cacheTtl = this.cacheTTL;
+    }
+    if (
+      changedProperties.has('disableCache') ||
+      changedProperties.has('debug')
+    ) {
+      portletService.enabled = !this.disableCache && !this.debug;
+      favoritesService.enabled = !this.disableCache && !this.debug;
+      OrganizationService.enabled = !this.disableCache && !this.debug;
     }
     return true;
   }
@@ -276,6 +295,7 @@ export class ContentMenu extends LitLoggable(LitElement) {
           e.detail.chanId
         );
       }
+      favoritesService.deleteCachedData(this.layoutApiUrl);
     }
   }
 
@@ -333,6 +353,8 @@ export class ContentMenu extends LitLoggable(LitElement) {
                   context-api-url="${this.contextApiUrl}"
                   ?debug="${this.debug}"
                   ?disable-swiper="${!this.showFavoritesInSlider}"
+                  ?disable-cache="${this.disableCache}"
+                  cache-ttl="${this.cacheTTL}"
                   @toggle-favorite=${this.actionToggleFav}
                 ></esco-content-favorites>
               </div>
@@ -351,6 +373,8 @@ export class ContentMenu extends LitLoggable(LitElement) {
               context-api-url="${this.contextApiUrl}"
               portlet-api-url="${this.portletApiUrl}"
               card-hover-src="${this.cardHoverSrc}"
+              ?disable-cache="${this.disableCache}"
+              cache-ttl="${this.cacheTTL}"
               ?debug="${this.debug}"
               @toggle-favorite=${this.actionToggleFav}
             ></esco-content-grid>

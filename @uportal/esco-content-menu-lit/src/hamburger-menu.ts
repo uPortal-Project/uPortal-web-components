@@ -77,6 +77,10 @@ export class HamburgerMenu extends LitLoggable(LitElement) {
   hideActionMode = 'auto';
   @property({ type: Boolean, attribute: 'show-favorites-in-slider' })
   showFavoritesInSlider = false;
+  @property({ type: Boolean, attribute: 'disableCache' })
+  disableCache = false;
+  @property({ type: Number, attribute: 'cache-ttl' })
+  cacheTTL = process.env.CACHE_TTL ?? 60;
   @property({ type: Boolean })
   debug = false;
 
@@ -173,6 +177,8 @@ export class HamburgerMenu extends LitLoggable(LitElement) {
                     user-info-portlet-url="${this.userInfoPortletUrl}"
                     @close=${this.toggleMenu.bind(this)}
                     ?fake-attribute="${true}"
+                    ?disable-cache="${this.disableCache}"
+                    cache-ttl="${this.cacheTTL}"
                   ></esco-content-menu>
                 </slot>
               </div>

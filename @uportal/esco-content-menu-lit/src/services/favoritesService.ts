@@ -1,6 +1,8 @@
+import cachedService from './cachedService';
 import oidc from '@uportal/open-id-connect';
+import textHelper from '@helpers/textHelper';
 
-export default class favoritesService {
+export default class favoritesService extends cachedService {
   static async fetch(
     userInfoApiUrl: string,
     layoutApiUrl: string,
@@ -9,8 +11,13 @@ export default class favoritesService {
     try {
       const requestHeaders: HeadersInit = new Headers();
       if (!debug) {
-        const token = (await oidc({ userInfoApiUrl })).encoded;
-        requestHeaders.set('Authorization', `Bearer ${token}`);
+        const { encoded, decoded } = await oidc({
+          userInfoApiUrl,
+        });
+        requestHeaders.set('Authorization', `Bearer ${encoded}`);
+        this.token = textHelper.sanitize(decoded.name);
+      } else {
+        this.token = 'debug';
       }
 
       const options = {
@@ -19,13 +26,7 @@ export default class favoritesService {
         headers: requestHeaders,
       };
 
-      const response = await fetch(layoutApiUrl, options);
-
-      if (!response.ok) {
-        throw new Error(response.statusText);
-      }
-
-      const layout: FetchLayout = await response.json();
+      const layout: FetchLayout = await this.getDatas(layoutApiUrl, options);
 
       if (
         layout?.authenticated &&
@@ -40,6 +41,15 @@ export default class favoritesService {
       console.error(err, userInfoApiUrl, layoutApiUrl, debug);
       return null;
     }
+  }
+
+  static async renew(
+    userInfoApiUrl: string,
+    layoutApiUrl: string,
+    debug: boolean
+  ) {
+    await this.deleteCachedData(layoutApiUrl);
+    return await this.fetch(userInfoApiUrl, layoutApiUrl, debug);
   }
 
   static async add(

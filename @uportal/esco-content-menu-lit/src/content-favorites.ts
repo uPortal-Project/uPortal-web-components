@@ -74,6 +74,10 @@ export class ContentFavorites extends LitLoggable(LitElement) {
   hideAction = false;
   @property({ type: Boolean, attribute: 'disable-swiper' })
   disableSwiper = false;
+  @property({ type: Boolean, attribute: 'disableCache' })
+  disableCache = false;
+  @property({ type: Number, attribute: 'cache-ttl' })
+  cacheTTL = parseInt(process.env.CACHE_TTL ?? '60');
   @property({ type: Boolean })
   debug = false;
 
@@ -120,6 +124,21 @@ export class ContentFavorites extends LitLoggable(LitElement) {
       this.debounceCalculateSize.bind(this),
       false
     );
+  }
+
+  shouldUpdate(
+    changedProperties: Map<string | number | symbol, unknown>
+  ): boolean {
+    if (changedProperties.has('cacheTTL')) {
+      portletService.cacheTtl = this.cacheTTL;
+    }
+    if (
+      changedProperties.has('disableCache') ||
+      changedProperties.has('debug')
+    ) {
+      portletService.enabled = !this.disableCache && !this.debug;
+    }
+    return true;
   }
 
   willUpdate(changedProperties: Map<string | number | symbol, unknown>): void {
@@ -351,6 +370,8 @@ export class ContentFavorites extends LitLoggable(LitElement) {
                         parent-screen-size="${this.parentScreenSize}"
                         context-api-url="${this.contextApiUrl}"
                         portlet-api-url="${this.portletApiUrl}"
+                        ?disable-cache="${this.disableCache}"
+                        cache-ttl="${this.cacheTTL}"
                         ?debug=${this.debug}
                         @gridFavoritesUpdated="${this.toggleFavorite}"
                       ></esco-content-grid>

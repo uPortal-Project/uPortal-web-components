@@ -97,6 +97,10 @@ export class ContentGrid extends LitLoggable(LitElement) {
   hideAction = false;
   @property({ type: Boolean, attribute: 'use-external-filter' })
   useExternalFilter = false;
+  @property({ type: Boolean, attribute: 'disableCache' })
+  disableCache = false;
+  @property({ type: Number, attribute: 'cache-ttl' })
+  cacheTTL = parseInt(process.env.CACHE_TTL ?? '60');
   @property({ type: Boolean })
   debug = false;
   @property({ type: Boolean, attribute: 'portlet-background-is-dark' })
@@ -181,7 +185,20 @@ export class ContentGrid extends LitLoggable(LitElement) {
     );
   }
 
-  shouldUpdate(): boolean {
+  shouldUpdate(
+    changedProperties: Map<string | number | symbol, unknown>
+  ): boolean {
+    if (changedProperties.has('cacheTTL')) {
+      portletService.cacheTtl = this.cacheTTL;
+      favoritesService.cacheTtl = this.cacheTTL;
+    }
+    if (
+      changedProperties.has('disableCache') ||
+      changedProperties.has('debug')
+    ) {
+      portletService.enabled = !this.disableCache && !this.debug;
+      favoritesService.enabled = !this.disableCache && !this.debug;
+    }
     return this.portlets.length > 0 || this._localPortlets !== undefined;
   }
 
