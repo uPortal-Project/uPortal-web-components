@@ -22,6 +22,8 @@ export class HeaderButtons extends LitLoggable(LitElement) {
   messages = [];
   @property({ type: String, attribute: 'sign-out-url' })
   signOutUrl = process.env.APP_LOGOUT_URL;
+  @property({ type: Boolean, attribute: 'only-close' })
+  onlyClose = false;
 
   constructor() {
     super();
@@ -65,16 +67,20 @@ export class HeaderButtons extends LitLoggable(LitElement) {
       >
         ${unsafeHTML(`${icon(faTimes).html}`)}
       </button>
-      <a
-        href="${this.signOutUrl || '#'}"
-        title="${langHelper.localTransation(
-          'buttons.logout',
-          msg(str`Sign Out`)
-        )}"
-        class="signout"
-      >
-        ${unsafeHTML(`${icon(faSignOutAlt).html}`)}
-      </a>
+      ${this.onlyClose
+        ? html``
+        : html`
+            <a
+              href="${this.signOutUrl || '#'}"
+              title="${langHelper.localTransation(
+                'buttons.logout',
+                msg(str`Sign Out`)
+              )}"
+              class="signout"
+            >
+              ${unsafeHTML(`${icon(faSignOutAlt).html}`)}
+            </a>
+          `}
     </section>`;
   }
 

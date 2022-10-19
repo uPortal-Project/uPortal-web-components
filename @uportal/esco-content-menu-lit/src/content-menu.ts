@@ -382,10 +382,28 @@ export class ContentMenu extends LitLoggable(LitElement) {
         `
       : this._inError
       ? html`<div id="content-menu" class="content-menu error">
-          <p class="error-message">${this._errorMessage}</p>
+          <header>
+            <esco-header-buttons
+              .messages=${this.messages}
+              only-close
+              @close=${this.onClose}
+            ></esco-header-buttons>
+          </header>
+          <section>
+            <p class="error-message">${this._errorMessage}</p>
+          </section>
         </div>`
       : html`<div id="content-menu" class="content-menu spinner">
-          <lit-spinner></lit-spinner>
+          <header>
+            <esco-header-buttons
+              .messages=${this.messages}
+              only-close
+              @close=${this.onClose}
+            ></esco-header-buttons>
+          </header>
+          <section>
+            <lit-spinner></lit-spinner>
+          </section>
         </div>`;
   }
 
