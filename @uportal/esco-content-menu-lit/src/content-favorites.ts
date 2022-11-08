@@ -74,7 +74,7 @@ export class ContentFavorites extends LitLoggable(LitElement) {
   hideAction = false;
   @property({ type: Boolean, attribute: 'disable-swiper' })
   disableSwiper = false;
-  @property({ type: Boolean, attribute: 'disableCache' })
+  @property({ type: Boolean, attribute: 'disable-cache' })
   disableCache = false;
   @property({ type: Number, attribute: 'cache-ttl' })
   cacheTTL = parseInt(process.env.CACHE_TTL ?? '60');
@@ -132,11 +132,8 @@ export class ContentFavorites extends LitLoggable(LitElement) {
     if (changedProperties.has('cacheTTL')) {
       portletService.cacheTtl = this.cacheTTL;
     }
-    if (
-      changedProperties.has('disableCache') ||
-      changedProperties.has('debug')
-    ) {
-      portletService.enabled = !this.disableCache && !this.debug;
+    if (changedProperties.has('disableCache')) {
+      portletService.enabled = !this.disableCache;
     }
     return true;
   }

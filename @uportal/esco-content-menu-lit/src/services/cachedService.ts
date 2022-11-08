@@ -12,7 +12,8 @@ export default class cachedService {
     this._ttl = ttl;
   }
   static async getDatas(url: string, options: RequestInit | undefined) {
-    if (!this._enabled || !window.caches) {
+    const isCacheAvailable = await this.isCacheAvailable();
+    if (!this._enabled || !isCacheAvailable) {
       const response = await fetch(url, options);
       if (!response.ok) {
         console.error(response.statusText);
@@ -72,5 +73,15 @@ export default class cachedService {
   static generateCacheName(token: string) {
     const timestamp = Math.floor(Date.now() / (1000 * this._ttl));
     return `${timestamp}_${token}`;
+  }
+  static async isCacheAvailable(): Promise<boolean> {
+    if (!window.caches) return false;
+    try {
+      await caches.open('test');
+      return true;
+    } catch (e) {
+      console.warn('Cache not available');
+      return false;
+    }
   }
 }

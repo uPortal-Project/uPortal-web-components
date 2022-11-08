@@ -90,7 +90,7 @@ export class ContentMenu extends LitLoggable(LitElement) {
   isHidden = false;
   @property({ type: Boolean, attribute: 'show-favorites-in-slider' })
   showFavoritesInSlider = false;
-  @property({ type: Boolean, attribute: 'disableCache' })
+  @property({ type: Boolean, attribute: 'disable-cache' })
   disableCache = false;
   @property({ type: Number, attribute: 'cache-ttl' })
   cacheTTL = parseInt(process.env.CACHE_TTL ?? '60');
@@ -145,13 +145,10 @@ export class ContentMenu extends LitLoggable(LitElement) {
       favoritesService.cacheTtl = this.cacheTTL;
       OrganizationService.cacheTtl = this.cacheTTL;
     }
-    if (
-      changedProperties.has('disableCache') ||
-      changedProperties.has('debug')
-    ) {
-      portletService.enabled = !this.disableCache && !this.debug;
-      favoritesService.enabled = !this.disableCache && !this.debug;
-      OrganizationService.enabled = !this.disableCache && !this.debug;
+    if (changedProperties.has('disableCache')) {
+      portletService.enabled = !this.disableCache;
+      favoritesService.enabled = !this.disableCache;
+      OrganizationService.enabled = !this.disableCache;
     }
     return true;
   }
