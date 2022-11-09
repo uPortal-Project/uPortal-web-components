@@ -9,15 +9,67 @@
       opacity: 0.7;
     }
 
-    > .menu-wrapper,
-    > slot > .menu-wrapper {
-      margin: 0 10px;
+    .menu-icon {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-items: center;
+      width: 28px;
+      height: 28px;
+      margin: 0 var(--content-menu-icon-spaces, 10px);
 
-      > .hm-line {
-        height: 2px;
-        background-color: #fff;
-        margin: 5px 0;
-        width: 25px;
+      &.hamburger-icon {
+        flex-direction: column;
+        flex-wrap: nowrap;
+        .icon-elem {
+          flex: 0 1 2px;
+          width: 100%;
+          margin: auto 0px;
+          content: ' ';
+          background-color: var(--content-menu-icon-font-color, #fff);
+          border-radius: 1px;
+        }
+      }
+
+      &.four-square-icon,
+      &.four-circle-icon {
+        .icon-elem {
+          flex: 0 1 10px;
+          width: 10px;
+          height: 10px;
+          margin: 2px;
+          content: ' ';
+          background-color: var(--content-menu-icon-font-color, #fff);
+          border-radius: 1px;
+        }
+      }
+
+      &.nine-square-icon,
+      &.nine-circle-icon {
+        .icon-elem {
+          flex: 0 1 6px;
+          width: 6px;
+          height: 6px;
+          margin: 1.6px;
+          content: ' ';
+          background-color: var(--content-menu-icon-font-color, #fff);
+          border-radius: 1px;
+        }
+      }
+
+      &.four-circle-icon,
+      &.nine-circle-icon {
+        .icon-elem {
+          border-radius: 50%;
+        }
+      }
+
+      &.empty-icon {
+        .icon-elem {
+          box-sizing: border-box;
+          background-color: transparent;
+          border: 1.5px solid var(--content-menu-icon-font-color, #fff);
+        }
       }
     }
   }

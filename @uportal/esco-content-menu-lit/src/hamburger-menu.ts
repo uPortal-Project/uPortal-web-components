@@ -77,6 +77,24 @@ export class HamburgerMenu extends LitLoggable(LitElement) {
   hideActionMode = 'auto';
   @property({ type: Boolean, attribute: 'show-favorites-in-slider' })
   showFavoritesInSlider = false;
+  @property({
+    type: String,
+    hasChanged(newVal: string) {
+      return [
+        'hamburger',
+        'four-square',
+        'four-empty-square',
+        'nine-square',
+        'nine-empty-square',
+        'four-circle',
+        'four-empty-circle',
+        'nine-circle',
+        'nine-empty-circle',
+      ].includes(newVal);
+    },
+    attribute: 'icon-type',
+  })
+  iconType = 'hamburger';
   @property({ type: Boolean, attribute: 'disable-cache' })
   disableCache = false;
   @property({ type: Number, attribute: 'cache-ttl' })
@@ -135,13 +153,7 @@ export class HamburgerMenu extends LitLoggable(LitElement) {
           aria-controls="content-menu"
           @click=${this.toggleMenu}
         >
-          <slot name="menu-icon">
-            <div class="menu-wrapper">
-              <div class="hm-line"></div>
-              <div class="hm-line"></div>
-              <div class="hm-line"></div>
-            </div>
-          </slot>
+          ${this._renderIcon()}
         </div>
         ${this._isLoaded
           ? html`
@@ -187,6 +199,64 @@ export class HamburgerMenu extends LitLoggable(LitElement) {
       </div>
     `;
   }
+
+  private _renderIcon() {
+    const classes = {
+      'menu-icon': true,
+      'hamburger-icon': false,
+      'four-square-icon': false,
+      'nine-square-icon': false,
+      'four-circle-icon': false,
+      'nine-circle-icon': false,
+      'empty-icon': false,
+    };
+    let elNumber = 3;
+    switch (this.iconType) {
+      case 'four-empty-square':
+        classes['empty-icon'] = true;
+      // eslint-disable-next-line no-fallthrough
+      case 'four-square':
+        classes['four-square-icon'] = true;
+        elNumber = 4;
+        break;
+      case 'nine-empty-square':
+        classes['empty-icon'] = true;
+      // eslint-disable-next-line no-fallthrough
+      case 'nine-square':
+        classes['nine-square-icon'] = true;
+        elNumber = 9;
+        break;
+      case 'four-empty-circle':
+        classes['empty-icon'] = true;
+      // eslint-disable-next-line no-fallthrough
+      case 'four-circle':
+        classes['four-circle-icon'] = true;
+        elNumber = 4;
+        break;
+      case 'nine-empty-circle':
+        classes['empty-icon'] = true;
+      // eslint-disable-next-line no-fallthrough
+      case 'nine-circle':
+        classes['nine-circle-icon'] = true;
+        elNumber = 9;
+        break;
+      default:
+        classes['hamburger-icon'] = true;
+        elNumber = 3;
+        break;
+    }
+    return html`
+      <slot name="menu-icon" slot="menu-icon">
+        <div class="${classMap(classes)}">
+          ${[...Array(elNumber)].map(
+            (element, index) =>
+              html`<div id="icon-elem-${index}" class="icon-elem"></div>`
+          )}
+        </div>
+      </slot>
+    `;
+  }
+
   static styles = [
     css`
       ${unsafeCSS(HamburgerMenuScss)}
