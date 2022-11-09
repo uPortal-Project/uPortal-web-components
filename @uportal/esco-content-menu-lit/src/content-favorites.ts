@@ -155,7 +155,7 @@ export class ContentFavorites extends LitLoggable(LitElement) {
       this._swiperObj = new Swiper(swiperEl, {
         modules: [Navigation],
         slidesPerView: 'auto',
-        spaceBetween: 15,
+        spaceBetween: 5,
         speed: 800,
         freeMode: true,
         navigation: {
