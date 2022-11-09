@@ -12,8 +12,8 @@
     .menu-icon {
       display: flex;
       flex-wrap: wrap;
-      align-items: center;
-      justify-items: center;
+      align-content: center;
+      justify-content: center;
       width: 28px;
       height: 28px;
       margin: 0 var(--content-menu-icon-spaces, 10px);
@@ -24,7 +24,7 @@
         .icon-elem {
           flex: 0 1 2px;
           width: 100%;
-          margin: auto 0px;
+          margin: 2.5px 0px;
           content: ' ';
           background-color: var(--content-menu-icon-font-color, #fff);
           border-radius: 1px;
@@ -50,7 +50,7 @@
           flex: 0 1 6px;
           width: 6px;
           height: 6px;
-          margin: 1.6px;
+          margin: 1px;
           content: ' ';
           background-color: var(--content-menu-icon-font-color, #fff);
           border-radius: 1px;
