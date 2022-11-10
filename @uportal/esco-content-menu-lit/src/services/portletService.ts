@@ -12,7 +12,7 @@ export default class portletService extends cachedService {
     try {
       const requestHeaders: HeadersInit = new Headers();
       if (!debug) {
-        const claims = ['private'];
+        const claims = ['private', 'name'];
         const search = new URLSearchParams({
           claims: claims.join(','),
         });
