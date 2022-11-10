@@ -403,7 +403,7 @@ export class ContentGrid extends LitLoggable(LitElement) {
           e.detail.chanId
         );
       }
-      favoritesService.deleteCachedData(this.favoriteApiUrl);
+      favoritesService.deleteCachedData(this.layoutApiUrl);
       e.detail.send = true;
     }
 
