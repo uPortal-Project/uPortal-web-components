@@ -23,6 +23,11 @@ export default class OrganizationService extends cachedService {
         fetchUrl = orgApiUrl;
         this.token = 'debug';
       } else {
+        const claims = ['private', 'name', 'ESCOSIRENCourant', 'ESCOSIREN'];
+        const search = new URLSearchParams({
+          claims: claims.join(','),
+        });
+        userInfoApiUrl = `${userInfoApiUrl}?${search}`;
         const { encoded, decoded } = await oidc({
           userInfoApiUrl,
         });

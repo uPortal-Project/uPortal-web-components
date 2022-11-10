@@ -11,8 +11,12 @@ export default class portletService extends cachedService {
   ): Promise<FetchPortletResult | null> {
     try {
       const requestHeaders: HeadersInit = new Headers();
-
       if (!debug) {
+        const claims = ['private'];
+        const search = new URLSearchParams({
+          claims: claims.join(','),
+        });
+        userInfoApiUrl = `${userInfoApiUrl}?${search}`;
         const { encoded, decoded } = await oidc({
           userInfoApiUrl,
         });
