@@ -11,11 +11,6 @@ export default class favoritesService extends cachedService {
     try {
       const requestHeaders: HeadersInit = new Headers();
       if (!debug) {
-        const claims = ['private', 'name'];
-        const search = new URLSearchParams({
-          claims: claims.join(','),
-        });
-        userInfoApiUrl = `${userInfoApiUrl}?${search}`;
         const { encoded, decoded } = await oidc({
           userInfoApiUrl,
         });
