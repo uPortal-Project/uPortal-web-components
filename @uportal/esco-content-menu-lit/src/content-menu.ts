@@ -212,7 +212,7 @@ export class ContentMenu extends LitLoggable(LitElement) {
       if (this._currentUser && this._currentUserOrgs)
         this._currentOrg = OrganizationService.getCurrentOrganization(
           this._currentUser,
-          this.userAllOrgsIdAttributeName,
+          this.orgAttributeName,
           this._currentUserOrgs
         );
     } else {
