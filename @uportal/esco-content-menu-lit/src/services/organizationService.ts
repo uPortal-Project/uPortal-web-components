@@ -21,12 +21,12 @@ export default class OrganizationService extends cachedService {
         const userInfoRequest = await fetch(userInfoApiUrl);
         userInfo = await userInfoRequest.json();
         fetchUrl = orgApiUrl;
-        this.token = 'debug';
+        this.token = textHelper.hashCode('debug');
       } else {
         const { encoded, decoded } = await oidc({
           userInfoApiUrl,
         });
-        this.token = textHelper.sanitize(decoded.name);
+        this.token = textHelper.hashCode(decoded.iss + decoded.name);
         userInfo = decoded;
         const orgIds = get(decoded, userAllOrgIdAttribute, null);
         requestHeaders.set('Authorization', `Bearer ${encoded}`);

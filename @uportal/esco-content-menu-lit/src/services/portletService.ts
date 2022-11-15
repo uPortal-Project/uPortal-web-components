@@ -16,9 +16,9 @@ export default class portletService extends cachedService {
           userInfoApiUrl,
         });
         requestHeaders.set('Authorization', `Bearer ${encoded}`);
-        this.token = textHelper.sanitize(decoded.name);
+        this.token = textHelper.hashCode(decoded.iss + decoded.name);
       } else {
-        this.token = 'debug';
+        this.token = textHelper.hashCode('debug');
       }
 
       const options = {
