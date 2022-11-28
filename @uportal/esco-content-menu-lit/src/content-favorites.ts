@@ -7,6 +7,7 @@ import { styleMap } from 'lit/directives/style-map.js';
 import { repeat } from 'lit/directives/repeat.js';
 /*SCSS*/
 import ContentFavoritesScss from '@styles/content-favorites.scss';
+import SwiperCss from 'swiper/swiper-bundle.min.css';
 /*Localization*/
 import { msg, localized, str } from '@lit/localize';
 import { setLocale } from '@helpers/localization';
@@ -290,10 +291,6 @@ export class ContentFavorites extends LitLoggable(LitElement) {
             ? html`
                 ${!this.disableSwiper
                   ? html`
-                      <link
-                        rel="stylesheet"
-                        href="https://unpkg.com/swiper@8/swiper-bundle.min.css"
-                      />
                       <div id="swiper" class="swiper">
                         <div class="swiper-wrapper">
                           ${repeat(
@@ -390,6 +387,9 @@ export class ContentFavorites extends LitLoggable(LitElement) {
   static styles = [
     css`
       ${unsafeCSS(ContentFavoritesScss)}
+    `,
+    css`
+      ${unsafeCSS(SwiperCss)}
     `,
   ];
 }

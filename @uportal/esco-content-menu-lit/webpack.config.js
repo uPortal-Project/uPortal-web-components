@@ -64,6 +64,7 @@ let config = {
       '@styles': path.resolve(__dirname, 'src/styles/'),
       '@locales': path.resolve(__dirname, 'src/locales/'),
     },
+    exportsFields: [],
   },
   devServer: {
     static: {
