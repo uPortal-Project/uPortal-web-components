@@ -8,6 +8,7 @@ import HamburgerMenuScss from '@styles/hamburger-menu.scss';
 import { LitLoggable } from '@mixins/litLoggable';
 /*Helpers*/
 import sizeHelper from '@helpers/sizeHelper';
+import pathHelper from '@helpers/pathHelper';
 /*Components*/
 import './content-menu';
 
@@ -15,6 +16,8 @@ import './content-menu';
 export class HamburgerMenu extends LitLoggable(LitElement) {
   @property({ type: Array })
   messages = [];
+  @property({ type: String, attribute: 'portal-base-url' })
+  portalBaseUrl = process.env.APP_PORTAL_BASE_URL ?? '';
   @property({
     type: String,
     hasChanged(newVal: string) {
@@ -163,6 +166,7 @@ export class HamburgerMenu extends LitLoggable(LitElement) {
                     class="${classMap({
                       'active-menu': this._isVisible,
                     })}"
+                    portal-base-url="${this.portalBaseUrl}"
                     context-api-url="${this.contextApiUrl}"
                     ?debug="${this.debug}"
                     default-org-logo="${this.defaultOrgLogo}"

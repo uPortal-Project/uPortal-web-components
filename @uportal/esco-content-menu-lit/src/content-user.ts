@@ -76,6 +76,8 @@ export class ContentUser extends LitLoggable(LitElement) {
               'linear-gradient(0deg, rgba(0,0,0,.2),rgba(0,0,0,.2)), url(' +
               this.orgImgUrl +
               ')',
+            'background-repeat': 'no-repeat',
+            'background-size': 'cover',
           }
         : {};
     this.debugLog('Style : ', style);

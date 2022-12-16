@@ -19,6 +19,8 @@ import './action-favorites';
 export class PortletCard extends LitLoggable(LitElement) {
   @property({ type: Array })
   messages = [];
+  @property({ type: String, attribute: 'base-url' })
+  baseUrl = '';
   @property({ type: Object, attribute: 'portlet-desc' })
   portletDesc: Portlet | undefined;
   @property({ type: String, attribute: 'css-class' })
@@ -85,7 +87,11 @@ export class PortletCard extends LitLoggable(LitElement) {
         ? this.portletDesc.canAdd
         : true;
       this._iconUrl = this.portletDesc.parameters?.iconUrl?.value
-        ? pathHelper.getUrl(this.portletDesc.parameters.iconUrl.value)
+        ? pathHelper.getUrl(
+            this.portletDesc.parameters.iconUrl.value,
+            this.baseUrl,
+            this.debug
+          )
         : '';
       this._dataIsParsed = true;
     }

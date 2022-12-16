@@ -18,6 +18,7 @@ import { LitLoggable } from '@mixins/litLoggable';
 import portletService from '@services/portletService';
 /*Helpers*/
 import sizeHelper from '@helpers/sizeHelper';
+import pathHelper from '@helpers/pathHelper';
 /*Dependencies*/
 import { icon } from '@fortawesome/fontawesome-svg-core';
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons/faChevronLeft';
@@ -33,6 +34,8 @@ import './content-grid';
 export class ContentFavorites extends LitLoggable(LitElement) {
   @property({ type: Array })
   messages = [];
+  @property({ type: String, attribute: 'portal-base-url' })
+  portalBaseUrl = process.env.APP_PORTAL_BASE_URL ?? '';
   @property({
     type: String,
     hasChanged(newVal: string) {
@@ -302,7 +305,11 @@ export class ContentFavorites extends LitLoggable(LitElement) {
                               return html`
                                 <div class="swiper-slide">
                                   <a
-                                    href="${this.getRenderPortletUrl(portlet)}"
+                                    href="${pathHelper.getUrl(
+                                      this.getRenderPortletUrl(portlet),
+                                      this.portalBaseUrl,
+                                      this.debug
+                                    )}"
                                     target="${hasAlternativeMaximizedUrl
                                       ? this.getAlternativeMaximizedTarget(
                                           portlet
@@ -315,6 +322,7 @@ export class ContentFavorites extends LitLoggable(LitElement) {
                                   >
                                     <esco-portlet-card
                                       .messages="${this.messages}"
+                                      base-url="${this.portalBaseUrl}"
                                       .portletDesc="${portlet}"
                                       is-favorite
                                       size="${this.portletCardSize()}"
@@ -354,6 +362,7 @@ export class ContentFavorites extends LitLoggable(LitElement) {
                   : html`
                       <esco-content-grid
                         hide-title
+                        portal-base-url="${this.portalBaseUrl}"
                         portlet-card-size="${this._elementSize}"
                         .favorites="${this.favorites}"
                         .portlets="${calcFavorites}"

@@ -13,6 +13,7 @@ import favoritesService from '@services/favoritesService';
 import OrganizationService from '@services/organizationService';
 /*Helpers*/
 import sizeHelper from '@helpers/sizeHelper';
+import pathHelper from '@helpers/pathHelper';
 /*Components*/
 import './content-user';
 import './content-favorites';
@@ -24,6 +25,8 @@ import './lit-spinner';
 export class ContentMenu extends LitLoggable(LitElement) {
   @property({ type: Array })
   messages = [];
+  @property({ type: String, attribute: 'portal-base-url' })
+  portalBaseUrl = process.env.APP_PORTAL_BASE_URL ?? '';
   @property({
     type: String,
     hasChanged(newVal: string) {
@@ -65,7 +68,7 @@ export class ContentMenu extends LitLoggable(LitElement) {
     (process.env.APP_PORTAL_CONTEXT ?? '') +
     (process.env.APP_USER_INFO_URI ?? '');
   @property({ type: String, attribute: 'sign-out-url' })
-  signoutUrl = process.env.APP_LOGOUT_URL;
+  signoutUrl = process.env.APP_LOGOUT_URL ?? '';
   @property({ type: String, attribute: 'user-info-portlet-url' })
   userInfoPortletUrl = '';
   @property({ type: String, attribute: 'switch-org-portlet-url' })
@@ -176,8 +179,8 @@ export class ContentMenu extends LitLoggable(LitElement) {
 
   async fetchPortlets(): Promise<void> {
     const portlets = await portletService.fetch(
-      this.userInfoApiUrl,
-      this.portletApiUrl,
+      pathHelper.getUrl(this.userInfoApiUrl, this.portalBaseUrl, this.debug),
+      pathHelper.getUrl(this.portletApiUrl, this.portalBaseUrl, this.debug),
       this.debug
     );
     if (portlets) {
@@ -190,8 +193,8 @@ export class ContentMenu extends LitLoggable(LitElement) {
   }
   async fetchFavorites(): Promise<void> {
     const favoritesTree = await favoritesService.fetch(
-      this.userInfoApiUrl,
-      this.layoutApiUrl,
+      pathHelper.getUrl(this.userInfoApiUrl, this.portalBaseUrl, this.debug),
+      pathHelper.getUrl(this.layoutApiUrl, this.portalBaseUrl, this.debug),
       this.debug
     );
     if (favoritesTree) {
@@ -200,8 +203,12 @@ export class ContentMenu extends LitLoggable(LitElement) {
   }
   async fetchUserInfo(): Promise<void> {
     const fetchResult = await OrganizationService.fetch(
-      this.userInfoApiUrl,
-      this.organizationApiUrl,
+      pathHelper.getUrl(this.userInfoApiUrl, this.portalBaseUrl, this.debug),
+      pathHelper.getUrl(
+        this.organizationApiUrl,
+        this.portalBaseUrl,
+        this.debug
+      ),
       this.userAllOrgsIdAttributeName,
       this.debug
     );
@@ -281,14 +288,30 @@ export class ContentMenu extends LitLoggable(LitElement) {
     if (!this.debug && !e.detail.send && e.detail?.chanId !== undefined) {
       if (e.detail?.isFavorite) {
         favoritesService.add(
-          this.userInfoApiUrl,
-          this.favoriteApiUrl,
+          pathHelper.getUrl(
+            this.userInfoApiUrl,
+            this.portalBaseUrl,
+            this.debug
+          ),
+          pathHelper.getUrl(
+            this.favoriteApiUrl,
+            this.portalBaseUrl,
+            this.debug
+          ),
           e.detail.chanId
         );
       } else {
         favoritesService.remove(
-          this.userInfoApiUrl,
-          this.favoriteApiUrl,
+          pathHelper.getUrl(
+            this.userInfoApiUrl,
+            this.portalBaseUrl,
+            this.debug
+          ),
+          pathHelper.getUrl(
+            this.favoriteApiUrl,
+            this.portalBaseUrl,
+            this.debug
+          ),
           e.detail.chanId
         );
       }
@@ -298,9 +321,35 @@ export class ContentMenu extends LitLoggable(LitElement) {
 
   render(): TemplateResult {
     this.debugLog('Render');
-    const orgImage = this.getOrgImage();
+    const orgImageUrl = pathHelper.getUrl(
+      this.getOrgImage(),
+      this.portalBaseUrl,
+      this.debug
+    );
+    const signOutUrl = pathHelper.getUrl(
+      this.signoutUrl,
+      this.portalBaseUrl,
+      this.debug
+    );
+    const avatarUrl = this._currentUser?.picture
+      ? pathHelper.getUrl(
+          this._currentUser.picture,
+          this.portalBaseUrl,
+          this.debug
+        )
+      : '';
+    const userInfoUrl = pathHelper.getUrl(
+      this.userInfoPortletUrl,
+      this.portalBaseUrl,
+      this.debug
+    );
+    const switchOrgUrl = pathHelper.getUrl(
+      this.switchOrgPortletUrl,
+      this.portalBaseUrl,
+      this.debug
+    );
     const headerBGImg = {
-      backgroundImage: `linear-gradient(0deg, rgba(0,0,0,.2),rgba(0,0,0,.2)), url(${orgImage})`,
+      backgroundImage: `linear-gradient(0deg, rgba(0,0,0,.2),rgba(0,0,0,.2)), url(${orgImageUrl})`,
     };
     return this._portlets && this._favorites && this._currentUser
       ? html`
@@ -316,7 +365,7 @@ export class ContentMenu extends LitLoggable(LitElement) {
                 <slot name="header-buttons">
                   <esco-header-buttons
                     .messages=${this.messages}
-                    sign-out-url="${this.signoutUrl ?? ''}"
+                    sign-out-url="${signOutUrl}"
                     @close=${this.onClose}
                   ></esco-header-buttons>
                 </slot>
@@ -328,17 +377,18 @@ export class ContentMenu extends LitLoggable(LitElement) {
                     .messages=${this.messages}
                     parent-screen-size="${this._screenSize}"
                     user-display-name="${this._currentUser?.name ?? ''}"
-                    user-avatar-url="${this._currentUser?.picture ?? ''}"
+                    user-avatar-url="${avatarUrl}"
                     org-display-name="${this._currentOrg?.displayName ?? ''}"
-                    org-img-url="${orgImage}"
-                    user-info-portlet-url="${this.userInfoPortletUrl}"
+                    org-img-url="${orgImageUrl}"
+                    user-info-portlet-url="${userInfoUrl}"
                     switch-org-portlet-url="${this.isOtherOrgs()
-                      ? this.switchOrgPortletUrl
+                      ? switchOrgUrl
                       : ''}"
                   ></esco-content-user>
                 </slot>
                 <esco-content-favorites
                   .messages=${this.messages}
+                  portal-base-url="${this.portalBaseUrl}"
                   .portlets="${this._portlets}"
                   .favorites="${this._favorites}"
                   parent-screen-size="${this._screenSize}"
@@ -359,6 +409,7 @@ export class ContentMenu extends LitLoggable(LitElement) {
             </header>
             <esco-content-grid
               .messages=${this.messages}
+              portal-base-url="${this.portalBaseUrl}"
               .portlets="${this._portlets}"
               .favorites="${this._favorites}"
               parent-screen-size="${this._screenSize}"

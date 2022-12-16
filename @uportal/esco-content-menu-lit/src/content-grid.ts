@@ -24,6 +24,7 @@ import portletService from '@services/portletService';
 import favoritesService from '@services/favoritesService';
 /*Helpers*/
 import sizeHelper from '@helpers/sizeHelper';
+import pathHelper from '@helpers/pathHelper';
 /*Dependencies*/
 import { icon } from '@fortawesome/fontawesome-svg-core';
 import { faSearch } from '@fortawesome/free-solid-svg-icons/faSearch';
@@ -37,6 +38,8 @@ import './portlet-card';
 export class ContentGrid extends LitLoggable(LitElement) {
   @property({ type: Array })
   messages = [];
+  @property({ type: String, attribute: 'portal-base-url' })
+  portalBaseUrl = process.env.APP_PORTAL_BASE_URL ?? '';
   @property({
     type: String,
     hasChanged(newVal: string) {
@@ -220,8 +223,8 @@ export class ContentGrid extends LitLoggable(LitElement) {
 
   async fetchPortlets(): Promise<void> {
     const portlets = await portletService.fetch(
-      this.userInfoApiUrl,
-      this.portletApiUrl,
+      pathHelper.getUrl(this.userInfoApiUrl, this.portalBaseUrl, this.debug),
+      pathHelper.getUrl(this.portletApiUrl, this.portalBaseUrl, this.debug),
       this.debug
     );
     if (portlets !== null) {
@@ -233,8 +236,8 @@ export class ContentGrid extends LitLoggable(LitElement) {
 
   async fetchFavorites(): Promise<void> {
     const favoritesTree = await favoritesService.fetch(
-      this.userInfoApiUrl,
-      this.layoutApiUrl,
+      pathHelper.getUrl(this.userInfoApiUrl, this.portalBaseUrl, this.debug),
+      pathHelper.getUrl(this.layoutApiUrl, this.portalBaseUrl, this.debug),
       this.debug
     );
     if (favoritesTree != null) {
@@ -555,7 +558,11 @@ export class ContentGrid extends LitLoggable(LitElement) {
           })}"
         >
           <a
-            href="${this.getRenderPortletUrl(portlet)}"
+            href="${pathHelper.getUrl(
+              this.getRenderPortletUrl(portlet),
+              this.portalBaseUrl,
+              this.debug
+            )}"
             target="${this.hasAlternativeMaximizedUrl(portlet)
               ? this.getAlternativeMaximizedTarget(portlet)
               : '_self'}"
@@ -566,6 +573,7 @@ export class ContentGrid extends LitLoggable(LitElement) {
           >
             <esco-portlet-card
               .messages=${this.messages}
+              base-url=${this.portalBaseUrl}
               .portletDesc="${portlet}"
               ?is-favorite=${this.isFavorite(portlet.fname)}
               size="${cardSize}"

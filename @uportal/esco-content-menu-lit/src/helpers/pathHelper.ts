@@ -1,7 +1,12 @@
 export default class pathHelper {
-  static getUrl(path: string): string {
+  static getUrl(path: string, baseUrl = '', debug = false): string {
     if (!path.startsWith('http')) {
-      return process.env.VUE_APP_PORTAL_BASE_URL ?? '' + path;
+      baseUrl =
+        baseUrl !== '' ? baseUrl : process.env.APP_PORTAL_BASE_URL ?? '';
+      if (baseUrl !== '' && !baseUrl.startsWith('http')) {
+        baseUrl = `${debug ? 'http' : 'https'}://${baseUrl}`;
+      }
+      return baseUrl + path;
     }
     return path;
   }
