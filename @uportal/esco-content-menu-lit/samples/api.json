@@ -16279,6 +16279,11 @@
                   "description": "",
                   "name": "showChrome",
                   "value": "false"
+                },
+                "iconUrl": {
+                  "description": "",
+                  "name": "iconUrl",
+                  "value": "/test.png"
                 }
               },
               "ratingsCount": 0,

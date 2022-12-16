@@ -116,12 +116,13 @@
         messages='[{"locales": ["fr", "fr-FR"], "messages": { "message": {"filter": {
           "selectOption": "Ensemble des catégories" } ,"favorites": {
             "add": "Add me to your favorites!" } }}}]'
+        portal-base-url="localhost:3000"
         parent-screen-size="1600"
         portlet-card-size="auto"
-        favorite-api-url="http://localhost:3000/layout"
-        layout-api-url="http://localhost:3000/layout"
-        user-info-api-url="http://localhost:3000/userinfo"
-        portlet-api-url="http://localhost:3000/portletRegistry"
+        favorite-api-url="/layout"
+        layout-api-url="/layout"
+        user-info-api-url="/userinfo"
+        portlet-api-url="/portletRegistry"
         card-hover-src="title"
         show-footer-categories
         debug

@@ -74,9 +74,10 @@
       <esco-content-favorites
         messages='[{"locales": ["fr", "fr-FR"], "messages": { "message": {"favorites": {
         "title": "Tous les favoris !!!", "remove":"Enlever"} }}}]'
+        portal-base-url="localhost:3000"
         parent-screen-size="medium"
         portlet-card-size="small"
-        user-info-api-url="http://localhost:3000/userinfo"
+        user-info-api-url="/userinfo"
         debug
       ></esco-content-favorites>
       <script defer>
@@ -507,7 +508,7 @@
                 description: '',
                 name: 'iconUrl',
                 value:
-                  'https://noswap.com/pub/tango/tango-icon-theme-0.8.90/32x32/categories/preferences-system.png',
+                  '/tango-icon-theme-0.8.90/32x32/categories/preferences-system.png',
               },
             },
             ratingsCount: 0,

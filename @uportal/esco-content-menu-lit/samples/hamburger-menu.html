@@ -107,14 +107,15 @@
     <div class="darkBackground">
       <esco-hamburger-menu
         messages='[{"locales": ["fr", "fr-FR"], "messages": { "message": {"favorites": { "add": "Add me to your favorites!" } }}}]'
+        portal-base-url="localhost:3000"
         default-org-logo="https://lycees.netocentre.fr/annuaire_images/default_banner_v1.jpg"
         favorites-portlet-card-size="small"
         grid-portlet-card-size="auto"
         hide-action-mode="never"
-        portlet-api-url="http://localhost:3000/portletRegistry"
-        layout-api-url="http://localhost:3000/layout"
-        organization-api-url="http://localhost:3000/orginfo"
-        user-info-api-url="http://localhost:3000/userinfo"
+        portlet-api-url="/portletRegistry"
+        layout-api-url="/layout"
+        organization-api-url="/orginfo"
+        user-info-api-url="/userinfo"
         sign-out-url="#signout"
         user-info-portlet-url="#user-info"
         switch-org-portlet-url="#switch-org"
