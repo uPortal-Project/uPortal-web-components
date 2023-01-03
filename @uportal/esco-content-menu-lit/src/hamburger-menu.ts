@@ -8,7 +8,6 @@ import HamburgerMenuScss from '@styles/hamburger-menu.scss';
 import { LitLoggable } from '@mixins/litLoggable';
 /*Helpers*/
 import sizeHelper from '@helpers/sizeHelper';
-import pathHelper from '@helpers/pathHelper';
 /*Components*/
 import './content-menu';
 

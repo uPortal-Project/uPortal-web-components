@@ -33,7 +33,7 @@ export default class cachedService {
 
     return cachedDatas;
   }
-  static async getCachedData(cacheName: string, url: string): Promise<any> {
+  static async getCachedData(cacheName: string, url: string): Promise<unknown> {
     const cacheStorage = await caches.open(cacheName);
     const cachedResponse = await cacheStorage.match(url);
     if (!cachedResponse || !cachedResponse.ok) {
