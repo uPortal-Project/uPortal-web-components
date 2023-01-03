@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path');
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
@@ -24,6 +25,14 @@ const devComponents = [
 ];
 
 const prodComponents = ['hamburger-menu', 'content-grid-filter'];
+
+const PACKAGE = require('./package.json');
+
+const currentDate = new Date().toLocaleString('en-US');
+
+const banner = () => {
+  return `package : ${PACKAGE.name}\nversion : ${PACKAGE.version}\nauthor : ${PACKAGE.author}\nbuild time : ${currentDate}`;
+};
 
 let config = {
   output: {
@@ -103,6 +112,9 @@ module.exports = (env, argv) => {
         chunks: [],
         template: './samples/index.html',
       }),
+      new webpack.BannerPlugin({
+        banner: banner,
+      }),
     ].concat(
       devComponents.map((component) => {
         switch (component) {
@@ -135,7 +147,12 @@ module.exports = (env, argv) => {
       'esco-content-menu': entryFiles,
       'esco-content-menu.min': entryFiles,
     };
-    config.plugins = [new Dotenv()];
+    config.plugins = [
+      new Dotenv(),
+      new webpack.BannerPlugin({
+        banner: banner,
+      }),
+    ];
     if (env.profiling) {
       config.plugins.push(new BundleAnalyzerPlugin());
     }
