@@ -14,6 +14,7 @@ import textHelper from '@helpers/textHelper';
 /*Components*/
 import './lit-ellipsis';
 import './action-favorites';
+import { Ellipsis } from './lit-ellipsis';
 
 @customElement('esco-portlet-card')
 export class PortletCard extends LitLoggable(LitElement) {
@@ -74,6 +75,14 @@ export class PortletCard extends LitLoggable(LitElement) {
   firstUpdated(): void {
     this.setLogIdentifier(this._fname);
     this.debugLog('First update', this);
+  }
+
+  protected updated(): void {
+    this.debugLog('Updated', this);
+    const ellipsis: Ellipsis = this.shadowRoot?.querySelector(
+      'lit-ellipsis'
+    ) as Ellipsis;
+    ellipsis.forceRender();
   }
 
   parseDesc(): void {

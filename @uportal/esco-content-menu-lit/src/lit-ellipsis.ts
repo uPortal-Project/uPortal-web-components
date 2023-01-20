@@ -57,7 +57,7 @@ export class Ellipsis extends LitLoggable(LitElement) {
     this.debounceRun();
   }
 
-  debounceRun = debounce(this.run, 500);
+  debounceRun = debounce(this.run, 200);
 
   async run(): Promise<void> {
     this.debugLog('running', this.message);
@@ -87,6 +87,11 @@ export class Ellipsis extends LitLoggable(LitElement) {
 
     this._ellipsisContent = this.message;
     this.sentence.style.height = 'auto';
+  }
+
+  forceRender() {
+    this.debugLog('forceRender', this);
+    this.debounceRun();
   }
 
   render(): TemplateResult {
