@@ -1,6 +1,8 @@
 import cachedService from './cachedService';
-import oidc from '@uportal/open-id-connect';
-import type { JWT } from '@uportal/open-id-connect';
+import oidc, {
+  JWT,
+  type Response as OIDCResponse,
+} from '@uportal/open-id-connect';
 import get from 'lodash/get';
 import isString from 'lodash/isString';
 import textHelper from '@helpers/textHelper';
@@ -10,26 +12,32 @@ export default class OrganizationService extends cachedService {
     userInfoApiUrl: string,
     orgApiUrl: string,
     userAllOrgIdAttribute: string,
-    debug: boolean
+    userInfo: OIDCResponse | null = null,
+    debug = false
   ): Promise<OrganizationFetchResult | null> {
-    let userInfo: UserInfo | JWT | null = null;
     let orgInfo: OrgInfo | null = null;
     let fetchUrl = '';
     try {
       const requestHeaders: HeadersInit = new Headers();
       if (debug) {
         const userInfoRequest = await fetch(userInfoApiUrl);
-        userInfo = await userInfoRequest.json();
+        userInfo = {
+          encoded: '',
+          decoded: await userInfoRequest.json(),
+        };
         fetchUrl = orgApiUrl;
         this.token = textHelper.hashCode('debug');
       } else {
-        const { encoded, decoded } = await oidc({
-          userInfoApiUrl,
-        });
-        this.token = textHelper.hashCode(decoded.iss + decoded.name);
-        userInfo = decoded;
-        const orgIds = get(decoded, userAllOrgIdAttribute, null);
-        requestHeaders.set('Authorization', `Bearer ${encoded}`);
+        if (userInfo === null || !userInfo?.encoded) {
+          userInfo = await oidc({
+            userInfoApiUrl,
+          });
+        }
+        this.token = textHelper.hashCode(
+          userInfo.decoded.iss + userInfo.decoded.name
+        );
+        const orgIds = get(userInfo.decoded, userAllOrgIdAttribute, null);
+        requestHeaders.set('Authorization', `Bearer ${userInfo.encoded}`);
         if ((orgIds as string)?.length > 0)
           fetchUrl = orgApiUrl + '?ids=' + orgIds;
       }
@@ -44,7 +52,7 @@ export default class OrganizationService extends cachedService {
         orgInfo = await this.getDatas(fetchUrl, options);
       }
       return {
-        user: userInfo,
+        user: userInfo?.decoded,
         organizations: orgInfo,
       } as OrganizationFetchResult;
     } catch (err) {

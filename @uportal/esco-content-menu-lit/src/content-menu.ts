@@ -8,6 +8,7 @@ import ContentMenuScss from '@styles/content-menu.scss';
 /*Mixins*/
 import { LitLoggable } from '@mixins/litLoggable';
 /*Services*/
+import oidc, { type Response as OIDCResponse } from '@uportal/open-id-connect';
 import portletService from '@services/portletService';
 import favoritesService from '@services/favoritesService';
 import OrganizationService from '@services/organizationService';
@@ -157,30 +158,42 @@ export class ContentMenu extends LitLoggable(LitElement) {
   }
 
   updated(changedProperties: Map<string | number | symbol, unknown>): void {
-    if (changedProperties.has('userInfoApiUrl')) {
-      if (changedProperties.has('portletApiUrl')) {
-        if (!this._portlets) this.fetchPortlets();
-      }
-      if (changedProperties.has('layoutApiUrl')) {
-        if (!this._favorites) this.fetchFavorites();
-      }
-      if (
-        changedProperties.has('organizationApiUrl') ||
-        changedProperties.has('userAllOrgsIdAttributeName')
-      ) {
-        this.fetchUserInfo();
-      }
-    }
-
+    this.loadDatas(changedProperties);
     if (changedProperties.has('isHidden')) {
       this.calculateSize();
     }
   }
 
-  async fetchPortlets(): Promise<void> {
+  async loadDatas(
+    changedProperties: Map<string | number | symbol, unknown>
+  ): Promise<void> {
+    if (changedProperties.has('userInfoApiUrl')) {
+      let userInfos: OIDCResponse | null = null;
+      if (!this.debug) {
+        userInfos = await oidc({
+          userInfoApiUrl: this.userInfoApiUrl,
+        });
+      }
+      if (changedProperties.has('portletApiUrl')) {
+        if (!this._portlets) this.fetchPortlets(userInfos);
+      }
+      if (changedProperties.has('layoutApiUrl')) {
+        if (!this._favorites) this.fetchFavorites(userInfos);
+      }
+      if (
+        changedProperties.has('organizationApiUrl') ||
+        changedProperties.has('userAllOrgsIdAttributeName')
+      ) {
+        this.fetchUserInfo(userInfos);
+      }
+    }
+  }
+
+  async fetchPortlets(userInfos: OIDCResponse | null): Promise<void> {
     const portlets = await portletService.fetch(
       pathHelper.getUrl(this.userInfoApiUrl, this.portalBaseUrl, this.debug),
       pathHelper.getUrl(this.portletApiUrl, this.portalBaseUrl, this.debug),
+      userInfos,
       this.debug
     );
     if (portlets) {
@@ -191,17 +204,18 @@ export class ContentMenu extends LitLoggable(LitElement) {
       this._error('No portlets fetch from API');
     }
   }
-  async fetchFavorites(): Promise<void> {
+  async fetchFavorites(userInfos: OIDCResponse | null): Promise<void> {
     const favoritesTree = await favoritesService.fetch(
       pathHelper.getUrl(this.userInfoApiUrl, this.portalBaseUrl, this.debug),
       pathHelper.getUrl(this.layoutApiUrl, this.portalBaseUrl, this.debug),
+      userInfos,
       this.debug
     );
     if (favoritesTree) {
       this._favorites = favoritesService.flattenFavorites(favoritesTree);
     }
   }
-  async fetchUserInfo(): Promise<void> {
+  async fetchUserInfo(userInfos: OIDCResponse | null): Promise<void> {
     const fetchResult = await OrganizationService.fetch(
       pathHelper.getUrl(this.userInfoApiUrl, this.portalBaseUrl, this.debug),
       pathHelper.getUrl(
@@ -210,6 +224,7 @@ export class ContentMenu extends LitLoggable(LitElement) {
         this.debug
       ),
       this.userAllOrgsIdAttributeName,
+      userInfos,
       this.debug
     );
     if (fetchResult) {

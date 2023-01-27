@@ -1,21 +1,26 @@
 import cachedService from './cachedService';
-import oidc from '@uportal/open-id-connect';
+import oidc, { type Response as OIDCResponse } from '@uportal/open-id-connect';
 import textHelper from '@helpers/textHelper';
 
 export default class favoritesService extends cachedService {
   static async fetch(
     userInfoApiUrl: string,
     layoutApiUrl: string,
-    debug: boolean
+    userInfo: OIDCResponse | null = null,
+    debug = false
   ): Promise<LayoutContentGroup[] | null> {
     try {
       const requestHeaders: HeadersInit = new Headers();
       if (!debug) {
-        const { encoded, decoded } = await oidc({
-          userInfoApiUrl,
-        });
-        requestHeaders.set('Authorization', `Bearer ${encoded}`);
-        this.token = textHelper.hashCode(decoded.iss + decoded.name);
+        if (userInfo === null || !userInfo?.encoded) {
+          userInfo = await oidc({
+            userInfoApiUrl,
+          });
+        }
+        requestHeaders.set('Authorization', `Bearer ${userInfo.encoded}`);
+        this.token = textHelper.hashCode(
+          userInfo.decoded.iss + userInfo.decoded.name
+        );
       } else {
         this.token = textHelper.hashCode('debug');
       }
@@ -49,7 +54,7 @@ export default class favoritesService extends cachedService {
     debug: boolean
   ) {
     await this.deleteCachedData(layoutApiUrl);
-    return await this.fetch(userInfoApiUrl, layoutApiUrl, debug);
+    return await this.fetch(userInfoApiUrl, layoutApiUrl, null, debug);
   }
 
   static async add(

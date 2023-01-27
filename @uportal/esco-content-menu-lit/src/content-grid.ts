@@ -20,6 +20,7 @@ import langHelper from '@helpers/langHelper';
 /*Mixins*/
 import { LitLoggable } from '@mixins/litLoggable';
 /*Services*/
+import oidc, { type Response as OIDCResponse } from '@uportal/open-id-connect';
 import portletService from '@services/portletService';
 import favoritesService from '@services/favoritesService';
 /*Helpers*/
@@ -156,7 +157,6 @@ export class ContentGrid extends LitLoggable(LitElement) {
       'gridFavoritesUpdated',
       this.reload.bind(this) as EventListener
     );
-    this.loadData();
   }
 
   disconnectedCallback(): void {
@@ -199,6 +199,7 @@ export class ContentGrid extends LitLoggable(LitElement) {
       portletService.enabled = !this.disableCache && !this.debug;
       favoritesService.enabled = !this.disableCache && !this.debug;
     }
+    this.loadData();
     return this.portlets.length > 0 || this._localPortlets !== undefined;
   }
 
@@ -211,9 +212,15 @@ export class ContentGrid extends LitLoggable(LitElement) {
     }
   }
 
-  loadData(): void {
-    if (this.portlets.length < 1) this.fetchPortlets();
-    if (this.favorites.length < 1) this.fetchFavorites();
+  async loadData(): Promise<void> {
+    let userInfos: OIDCResponse | null = null;
+    if (!this.debug) {
+      userInfos = await oidc({
+        userInfoApiUrl: this.userInfoApiUrl,
+      });
+    }
+    if (this.portlets.length < 1) this.fetchPortlets(userInfos);
+    if (this.favorites.length < 1) this.fetchFavorites(userInfos);
     window.addEventListener(
       'resize',
       this.debounceCalculateSize.bind(this),
@@ -221,10 +228,11 @@ export class ContentGrid extends LitLoggable(LitElement) {
     );
   }
 
-  async fetchPortlets(): Promise<void> {
+  async fetchPortlets(userInfos: OIDCResponse | null): Promise<void> {
     const portlets = await portletService.fetch(
       pathHelper.getUrl(this.userInfoApiUrl, this.portalBaseUrl, this.debug),
       pathHelper.getUrl(this.portletApiUrl, this.portalBaseUrl, this.debug),
+      userInfos,
       this.debug
     );
     if (portlets !== null) {
@@ -234,10 +242,11 @@ export class ContentGrid extends LitLoggable(LitElement) {
     }
   }
 
-  async fetchFavorites(): Promise<void> {
+  async fetchFavorites(userInfos: OIDCResponse | null): Promise<void> {
     const favoritesTree = await favoritesService.fetch(
       pathHelper.getUrl(this.userInfoApiUrl, this.portalBaseUrl, this.debug),
       pathHelper.getUrl(this.layoutApiUrl, this.portalBaseUrl, this.debug),
+      userInfos,
       this.debug
     );
     if (favoritesTree != null) {
@@ -246,7 +255,7 @@ export class ContentGrid extends LitLoggable(LitElement) {
   }
 
   reload(): void {
-    if (!this.debug) this.fetchPortlets();
+    if (!this.debug) this.fetchPortlets(null);
   }
 
   debounceCalculateSize = debounce(this.calculateSize, 500);
