@@ -36,9 +36,10 @@
                 "windowState": "normal",
                 "portletMode": "view",
                 "portletName": "Weather",
-                "lifecycleState": "PUBLISHED",
+                "lifecycleState": "MAINTENANCE",
                 "webAppName": "/WeatherPortlet",
                 "parameters": {
+                  "customMaintenanceMessage": "out of service",
                   "mobileIconUrl": "/uPortal/media/skins/icons/mobile/weather.png",
                   "editable": "true",
                   "iconUrl": "/ResourceServingWebapp/rs/tango/0.8.90/32x32/status/weather-few-clouds.png",
