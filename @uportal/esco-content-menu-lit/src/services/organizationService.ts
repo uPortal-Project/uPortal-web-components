@@ -1,8 +1,5 @@
 import cachedService from './cachedService';
-import oidc, {
-  JWT,
-  type Response as OIDCResponse,
-} from '@uportal/open-id-connect';
+import oidc, { type Response as OIDCResponse } from '@uportal/open-id-connect';
 import get from 'lodash/get';
 import isString from 'lodash/isString';
 import textHelper from '@helpers/textHelper';

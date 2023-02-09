@@ -154,11 +154,11 @@ export class ContentMenu extends LitLoggable(LitElement) {
       favoritesService.enabled = !this.disableCache;
       OrganizationService.enabled = !this.disableCache;
     }
+    this.loadDatas(changedProperties);
     return true;
   }
 
   updated(changedProperties: Map<string | number | symbol, unknown>): void {
-    this.loadDatas(changedProperties);
     if (changedProperties.has('isHidden')) {
       this.calculateSize();
     }
@@ -167,25 +167,23 @@ export class ContentMenu extends LitLoggable(LitElement) {
   async loadDatas(
     changedProperties: Map<string | number | symbol, unknown>
   ): Promise<void> {
-    if (changedProperties.has('userInfoApiUrl')) {
+    if (
+      changedProperties.has('userInfoApiUrl') ||
+      changedProperties.has('portletApiUrl') ||
+      changedProperties.has('layoutApiUrl') ||
+      changedProperties.has('organizationApiUrl') ||
+      changedProperties.has('userAllOrgsIdAttributeName')
+    ) {
       let userInfos: OIDCResponse | null = null;
       if (!this.debug) {
         userInfos = await oidc({
           userInfoApiUrl: this.userInfoApiUrl,
         });
       }
-      if (changedProperties.has('portletApiUrl')) {
-        if (!this._portlets) this.fetchPortlets(userInfos);
-      }
-      if (changedProperties.has('layoutApiUrl')) {
-        if (!this._favorites) this.fetchFavorites(userInfos);
-      }
-      if (
-        changedProperties.has('organizationApiUrl') ||
-        changedProperties.has('userAllOrgsIdAttributeName')
-      ) {
+      if (!this._portlets) this.fetchPortlets(userInfos);
+      if (!this._favorites) this.fetchFavorites(userInfos);
+      if (!this._currentOrg || !this._currentUser)
         this.fetchUserInfo(userInfos);
-      }
     }
   }
 
