@@ -177,7 +177,11 @@ export class ContentMenu extends LitLoggable(LitElement) {
       let userInfos: OIDCResponse | null = null;
       if (!this.debug) {
         userInfos = await oidc({
-          userInfoApiUrl: this.userInfoApiUrl,
+          userInfoApiUrl: pathHelper.getUrl(
+            this.userInfoApiUrl,
+            this.portalBaseUrl,
+            this.debug
+          ),
         });
       }
       if (!this._portlets) this.fetchPortlets(userInfos);
