@@ -14,17 +14,52 @@
       >
         <div class="slick-item" v-for="region of dashboard" :key="region.name">
           <div v-for="card of region.content" :key="card.name">
-            <template v-if="card.widgetTemplate">
-              <WidgetRenderer
-                :template="card.widgetTemplate"
-                :config="card.widgetConfig"
-                :url="card.widgetURL"
-                :type="card.widgetType"
-                :debug="debug"
-              />
+            <template v-if="card.lifecycleState === 'MAINTENANCE'">
+              <div
+                :style="{ height: '100%', width: '100%' }"
+                :title="card.parameters.customMaintenanceMessage"
+              >
+                <h1
+                  class="text-warning h1 mb-0"
+                  :style="{
+                    display: 'flex',
+                    alignItems: 'center',
+                    textAlign: 'center',
+                    justifyContent: 'center',
+                  }"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="36"
+                    height="36"
+                    fill="currentColor"
+                    viewBox="0 0 16 16"
+                    class="bi bi-exclamation-circle"
+                  >
+                    <path
+                      d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
+                    ></path>
+                    <path
+                      d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"
+                    ></path>
+                  </svg>
+                  &nbsp; Out of Service
+                </h1>
+              </div>
             </template>
             <template v-else>
-              <PortletRenderer :portlet-html-url="card.url" :debug="debug" />
+              <template v-if="card.widgetTemplate">
+                <WidgetRenderer
+                  :template="card.widgetTemplate"
+                  :config="card.widgetConfig"
+                  :url="card.widgetURL"
+                  :type="card.widgetType"
+                  :debug="debug"
+                />
+              </template>
+              <template v-else>
+                <PortletRenderer :portlet-html-url="card.url" :debug="debug" />
+              </template>
             </template>
           </div>
         </div>
@@ -252,6 +287,11 @@ ul {
     margin: 0 10px;
     min-width: 125px;
   }
+}
+
+.text-warning {
+  color: red;
+  color: var(--dash-carousel-maint-fg-color, red);
 }
 
 .btn {
