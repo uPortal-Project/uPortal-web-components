@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased][]
 
+## [1.38.1][] - 2021-02-20
+
+- fix(deps): updated lint-staged dependency
+
+## [1.38.0][] - 2021-02-20
+
 - feat(dashboard-carousel): support maintenance mode in layout.json
 - fix(deps): upgraded from node-sass to sass library
 
