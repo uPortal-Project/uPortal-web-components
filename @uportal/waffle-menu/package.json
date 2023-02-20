@@ -27,7 +27,7 @@
     "@fortawesome/vue-fontawesome": "^2.0.0",
     "@vue/cli-plugin-babel": "^4.0.0",
     "@vue/cli-service": "^4.0.0",
-    "node-sass": "^6.0.1",
+    "sass": "^1.58.0",
     "sass-loader": "^10.1.1",
     "vue-template-compiler": "^2.6.5"
   },
