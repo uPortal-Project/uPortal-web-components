@@ -1,6 +1,6 @@
 {
   "name": "@uportal/api-template-vue",
-  "version": "1.37.0",
+  "version": "1.38.0",
   "publishConfig": {
     "access": "public"
   },
@@ -17,7 +17,7 @@
     "npm": "^6.0.0"
   },
   "dependencies": {
-    "@uportal/open-id-connect": "^1.37.0",
+    "@uportal/open-id-connect": "^1.38.0",
     "axios": "^0.22.0",
     "vue": "^2.5.21"
   },
