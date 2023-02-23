@@ -85,6 +85,8 @@ export class ContentGrid extends LitLoggable(LitElement) {
   userInfoApiUrl =
     (process.env.APP_PORTAL_CONTEXT ?? '') +
     (process.env.APP_USER_INFO_URI ?? '');
+  @property({ type: Object, attribute: 'user-info' })
+  userInfo = null;
   @property({ type: String, attribute: 'card-hover-src' })
   cardHoverSrc = 'none';
   @property({ type: Array, reflect: true })
@@ -215,9 +217,13 @@ export class ContentGrid extends LitLoggable(LitElement) {
   async loadData(): Promise<void> {
     let userInfos: OIDCResponse | null = null;
     if (!this.debug) {
-      userInfos = await oidc({
-        userInfoApiUrl: this.userInfoApiUrl,
-      });
+      if (this.userInfo) {
+        userInfos = this.userInfo;
+      } else {
+        userInfos = await oidc({
+          userInfoApiUrl: this.userInfoApiUrl,
+        });
+      }
     }
     if (this.portlets.length < 1) this.fetchPortlets(userInfos);
     if (this.favorites.length < 1) this.fetchFavorites(userInfos);

@@ -1,5 +1,5 @@
 /*Lit*/
-import { html, LitElement, css, TemplateResult, unsafeCSS } from 'lit';
+import { html, LitElement, css, TemplateResult, unsafeCSS, nothing } from 'lit';
 import { unsafeHTML } from 'lit-html/directives/unsafe-html.js';
 import { customElement, property, query, state } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
@@ -68,6 +68,8 @@ export class ContentFavorites extends LitLoggable(LitElement) {
   userInfoApiUrl =
     (process.env.APP_PORTAL_CONTEXT ?? '') +
     (process.env.APP_USER_INFO_URI ?? '');
+  @property({ type: Object, attribute: 'user-info' })
+  userInfo = null;
   @property({ type: Array })
   portlets: Portlet[] = [];
   @property({ type: Array })
@@ -369,6 +371,9 @@ export class ContentFavorites extends LitLoggable(LitElement) {
                         ?hide-action="${this.hideAction}"
                         favorite-api-url="${this.favoriteApiUrl}"
                         user-info-api-url="${this.userInfoApiUrl}"
+                        user-info=${this.userInfo
+                          ? JSON.stringify(this.userInfo)
+                          : nothing}
                         portlet-background-is-dark
                         parent-screen-size="${this.parentScreenSize}"
                         context-api-url="${this.contextApiUrl}"

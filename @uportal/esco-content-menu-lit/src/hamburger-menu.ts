@@ -1,5 +1,5 @@
 /*Lit */
-import { html, LitElement, css, unsafeCSS, TemplateResult } from 'lit';
+import { html, LitElement, css, unsafeCSS, TemplateResult, nothing } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 /*SCSS*/
@@ -57,6 +57,8 @@ export class HamburgerMenu extends LitLoggable(LitElement) {
   userInfoApiUrl =
     (process.env.APP_PORTAL_CONTEXT ?? '') +
     (process.env.APP_USER_INFO_URI ?? '');
+  @property({ type: Object, attribute: 'user-info' })
+  userInfo = null;
   @property({ type: String, attribute: 'sign-out-url' })
   signoutUrl = process.env.APP_LOGOUT_URL ?? '';
   @property({ type: String, attribute: 'user-info-portlet-url' })
@@ -189,6 +191,9 @@ export class HamburgerMenu extends LitLoggable(LitElement) {
                     user-all-orgs-id-attribute-name="${this
                       .userAllOrgsIdAttributeName}"
                     user-info-api-url="${this.userInfoApiUrl}"
+                    user-info=${this.userInfo
+                      ? JSON.stringify(this.userInfo)
+                      : nothing}
                     user-info-portlet-url="${this.userInfoPortletUrl}"
                     @close=${this.toggleMenu.bind(this)}
                     ?fake-attribute="${true}"

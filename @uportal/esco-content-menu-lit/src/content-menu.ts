@@ -1,5 +1,5 @@
 /*Lit*/
-import { html, LitElement, css, unsafeCSS, TemplateResult } from 'lit';
+import { html, LitElement, css, unsafeCSS, TemplateResult, nothing } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 import { styleMap } from 'lit/directives/style-map.js';
@@ -68,6 +68,8 @@ export class ContentMenu extends LitLoggable(LitElement) {
   userInfoApiUrl =
     (process.env.APP_PORTAL_CONTEXT ?? '') +
     (process.env.APP_USER_INFO_URI ?? '');
+  @property({ type: Object, attribute: 'user-info' })
+  userInfo = null;
   @property({ type: String, attribute: 'sign-out-url' })
   signoutUrl = process.env.APP_LOGOUT_URL ?? '';
   @property({ type: String, attribute: 'user-info-portlet-url' })
@@ -168,6 +170,7 @@ export class ContentMenu extends LitLoggable(LitElement) {
     changedProperties: Map<string | number | symbol, unknown>
   ): Promise<void> {
     if (
+      changedProperties.has('userInfo') ||
       changedProperties.has('userInfoApiUrl') ||
       changedProperties.has('portletApiUrl') ||
       changedProperties.has('layoutApiUrl') ||
@@ -176,13 +179,17 @@ export class ContentMenu extends LitLoggable(LitElement) {
     ) {
       let userInfos: OIDCResponse | null = null;
       if (!this.debug) {
-        userInfos = await oidc({
-          userInfoApiUrl: pathHelper.getUrl(
-            this.userInfoApiUrl,
-            this.portalBaseUrl,
-            this.debug
-          ),
-        });
+        if (this.userInfo) {
+          userInfos = this.userInfo;
+        } else {
+          userInfos = await oidc({
+            userInfoApiUrl: pathHelper.getUrl(
+              this.userInfoApiUrl,
+              this.portalBaseUrl,
+              this.debug
+            ),
+          });
+        }
       }
       if (!this._portlets) this.fetchPortlets(userInfos);
       if (!this._favorites) this.fetchFavorites(userInfos);
@@ -414,6 +421,9 @@ export class ContentMenu extends LitLoggable(LitElement) {
                   favorite-api-url="${this.favoriteApiUrl}"
                   ?hide="${this.isHidden}"
                   user-info-api-url="${this.userInfoApiUrl}"
+                  user-info=${this.userInfo
+                    ? JSON.stringify(this.userInfo)
+                    : nothing}
                   context-api-url="${this.contextApiUrl}"
                   ?debug="${this.debug}"
                   ?disable-swiper="${!this.showFavoritesInSlider}"
@@ -435,6 +445,9 @@ export class ContentMenu extends LitLoggable(LitElement) {
               favorite-api-url="${this.favoriteApiUrl}"
               layout-api-url="${this.layoutApiUrl}"
               user-info-api-url="${this.userInfoApiUrl}"
+              user-info=${this.userInfo
+                ? JSON.stringify(this.userInfo)
+                : nothing}
               context-api-url="${this.contextApiUrl}"
               portlet-api-url="${this.portletApiUrl}"
               card-hover-src="${this.cardHoverSrc}"
