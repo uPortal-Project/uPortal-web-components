@@ -123,6 +123,7 @@ export class ContentMenu extends LitLoggable(LitElement) {
   _inError = false;
 
   private _errorMessage = '';
+  private _userInfos: OIDCResponse | null = null;
 
   constructor() {
     super();
@@ -177,12 +178,11 @@ export class ContentMenu extends LitLoggable(LitElement) {
       changedProperties.has('organizationApiUrl') ||
       changedProperties.has('userAllOrgsIdAttributeName')
     ) {
-      let userInfos: OIDCResponse | null = null;
       if (!this.debug) {
         if (this.userInfo) {
-          userInfos = this.userInfo;
+          this._userInfos = this.userInfo;
         } else {
-          userInfos = await oidc({
+          this._userInfos = await oidc({
             userInfoApiUrl: pathHelper.getUrl(
               this.userInfoApiUrl,
               this.portalBaseUrl,
@@ -191,10 +191,10 @@ export class ContentMenu extends LitLoggable(LitElement) {
           });
         }
       }
-      if (!this._portlets) this.fetchPortlets(userInfos);
-      if (!this._favorites) this.fetchFavorites(userInfos);
+      if (!this._portlets) this.fetchPortlets(this._userInfos);
+      if (!this._favorites) this.fetchFavorites(this._userInfos);
       if (!this._currentOrg || !this._currentUser)
-        this.fetchUserInfo(userInfos);
+        this.fetchUserInfo(this._userInfos);
     }
   }
 
@@ -421,8 +421,8 @@ export class ContentMenu extends LitLoggable(LitElement) {
                   favorite-api-url="${this.favoriteApiUrl}"
                   ?hide="${this.isHidden}"
                   user-info-api-url="${this.userInfoApiUrl}"
-                  user-info=${this.userInfo
-                    ? JSON.stringify(this.userInfo)
+                  user-info=${this._userInfos
+                    ? JSON.stringify(this._userInfos)
                     : nothing}
                   context-api-url="${this.contextApiUrl}"
                   ?debug="${this.debug}"
@@ -445,8 +445,8 @@ export class ContentMenu extends LitLoggable(LitElement) {
               favorite-api-url="${this.favoriteApiUrl}"
               layout-api-url="${this.layoutApiUrl}"
               user-info-api-url="${this.userInfoApiUrl}"
-              user-info=${this.userInfo
-                ? JSON.stringify(this.userInfo)
+              user-info=${this._userInfos
+                ? JSON.stringify(this._userInfos)
                 : nothing}
               context-api-url="${this.contextApiUrl}"
               portlet-api-url="${this.portletApiUrl}"
