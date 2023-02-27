@@ -123,6 +123,8 @@ export class ContentGrid extends LitLoggable(LitElement) {
   @state()
   _localPortlets: Portlet[] | undefined = undefined;
 
+  private _loading = false;
+
   constructor() {
     super();
     this.debugLog('Component loaded');
@@ -215,15 +217,22 @@ export class ContentGrid extends LitLoggable(LitElement) {
   }
 
   async loadData(): Promise<void> {
+    if (this._loading) return;
     let userInfos: OIDCResponse | null = null;
     if (!this.debug) {
+      this._loading = true;
       if (this.userInfo) {
         userInfos = this.userInfo;
       } else {
         userInfos = await oidc({
-          userInfoApiUrl: this.userInfoApiUrl,
+          userInfoApiUrl: pathHelper.getUrl(
+            this.userInfoApiUrl,
+            this.portalBaseUrl,
+            this.debug
+          ),
         });
       }
+      this._loading = false;
     }
     if (this.portlets.length < 1) this.fetchPortlets(userInfos);
     if (this.favorites.length < 1) this.fetchFavorites(userInfos);

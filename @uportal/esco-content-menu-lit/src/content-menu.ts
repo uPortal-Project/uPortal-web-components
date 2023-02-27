@@ -124,6 +124,7 @@ export class ContentMenu extends LitLoggable(LitElement) {
 
   private _errorMessage = '';
   private _userInfos: OIDCResponse | null = null;
+  private _loading = false;
 
   constructor() {
     super();
@@ -178,7 +179,9 @@ export class ContentMenu extends LitLoggable(LitElement) {
       changedProperties.has('organizationApiUrl') ||
       changedProperties.has('userAllOrgsIdAttributeName')
     ) {
+      if (this._loading) return;
       if (!this.debug) {
+        this._loading = true;
         if (this.userInfo) {
           this._userInfos = this.userInfo;
         } else {
@@ -190,6 +193,7 @@ export class ContentMenu extends LitLoggable(LitElement) {
             ),
           });
         }
+        this._loading = false;
       }
       if (!this._portlets) this.fetchPortlets(this._userInfos);
       if (!this._favorites) this.fetchFavorites(this._userInfos);
