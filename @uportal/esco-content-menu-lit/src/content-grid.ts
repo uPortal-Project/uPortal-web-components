@@ -203,7 +203,7 @@ export class ContentGrid extends LitLoggable(LitElement) {
       portletService.enabled = !this.disableCache && !this.debug;
       favoritesService.enabled = !this.disableCache && !this.debug;
     }
-    this.loadData();
+    this.loadData(changedProperties.has('userInfo'));
     return this.portlets.length > 0 || this._localPortlets !== undefined;
   }
 
@@ -216,7 +216,7 @@ export class ContentGrid extends LitLoggable(LitElement) {
     }
   }
 
-  async loadData(): Promise<void> {
+  async loadData(reload: boolean): Promise<void> {
     if (this._loading) return;
     let userInfos: OIDCResponse | null = null;
     if (!this.debug) {
@@ -234,8 +234,8 @@ export class ContentGrid extends LitLoggable(LitElement) {
       }
       this._loading = false;
     }
-    if (this.portlets.length < 1) this.fetchPortlets(userInfos);
-    if (this.favorites.length < 1) this.fetchFavorites(userInfos);
+    if (this.portlets.length < 1 || reload) this.fetchPortlets(userInfos);
+    if (this.favorites.length < 1 || reload) this.fetchFavorites(userInfos);
     window.addEventListener(
       'resize',
       this.debounceCalculateSize.bind(this),

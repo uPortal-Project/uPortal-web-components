@@ -179,6 +179,7 @@ export class ContentMenu extends LitLoggable(LitElement) {
       changedProperties.has('organizationApiUrl') ||
       changedProperties.has('userAllOrgsIdAttributeName')
     ) {
+      const userInfoUpdated = changedProperties.has('userInfo');
       if (this._loading) return;
       if (!this.debug) {
         this._loading = true;
@@ -195,9 +196,11 @@ export class ContentMenu extends LitLoggable(LitElement) {
         }
         this._loading = false;
       }
-      if (!this._portlets) this.fetchPortlets(this._userInfos);
-      if (!this._favorites) this.fetchFavorites(this._userInfos);
-      if (!this._currentOrg || !this._currentUser)
+      if (!this._portlets || userInfoUpdated)
+        this.fetchPortlets(this._userInfos);
+      if (!this._favorites || userInfoUpdated)
+        this.fetchFavorites(this._userInfos);
+      if (!this._currentOrg || !this._currentUser || userInfoUpdated)
         this.fetchUserInfo(this._userInfos);
     }
   }
