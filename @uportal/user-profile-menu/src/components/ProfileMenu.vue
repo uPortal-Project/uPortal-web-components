@@ -1,11 +1,11 @@
 <template>
   <div class="profile-menu-container" ref="userProfileMenu">
-    <button class="profile-trigger" @click="toggleMenu()">
+    <button class="profile-trigger" :class="{'active': menuOpen}" @click="toggleMenu()">
       <div class="avatar">
         <img :src="avatarUrl" v-if="avatarUrl && !useInitials" />
         <span class="fallback" v-else>{{ fallbackText }}</span>
       </div>
-      <span>{{ displayText }}</span>
+      <span v-if="useName">{{ displayText }}</span>
     </button>
     <div class="profile-dropdown" v-if="menuOpen">
       <div class="profile-dropdown-section profile-dropdown-header">
@@ -54,6 +54,7 @@ export default {
   },
   props: {
     useInitials: { type: Boolean, default: false, required: false },
+    useName: { type: Boolean, default: true, required: false },
     oidcUrl: {
       type: String,
       default: '/uPortal/api/v5-1/userinfo'
@@ -112,7 +113,7 @@ export default {
   .profile-trigger {
     color: #fff;
     color: var(--user-prof-fg-color, #fff);
-    padding: 0;
+    padding: var(--user-prof-trigger-padding, 0);
     margin-left: auto;
     background: transparent;
     border: 0 none;
@@ -120,6 +121,12 @@ export default {
     justify-content: space-between;
     align-items: center;
     font-size: 1.2rem;
+
+    background-color: var(--user-prof-trigger-bg-color, transparent);
+
+    &.active {
+      background-color: var(--user-prof-trigger-bg-color-active, transparent);
+    }
 
     .avatar {
       $default-avatar-size: 30px;
@@ -156,21 +163,29 @@ export default {
   .profile-dropdown {
     position: absolute;
     top: 125%;
+    top: var(--user-prof-dd-top-position, 125%);
     right: 0;
+    right: var(--user-prof-dd-right-position, 0);
     z-index: 1000;
+    z-index: var(--user-prof-dd-z-position, 1000);
     display: flex;
     min-width: 10rem;
     margin: 0.125rem 0 0;
-    font-size: 1rem;
+    margin: var(--user-prof-dd-margin, 0.125rem 0 0);
+    font-size: var(--user-prof-dd-font-size, 1rem);
     color: hsl(210, 11%, 15%);
     text-align: left;
     list-style: none;
-    background-color: #fff;
+    background-color: #FFF;
+    background-color: var(--user-prof-dd-background, #FFF);
     background-clip: padding-box;
     border: 1px solid rgba(0, 0, 0, 0.05);
+    border: var(--user-prof-dd-border, 1px solid rgba(0, 0, 0, 0.05));
     width: 220px;
+    width: var(--user-prof-dd-width, 220px);
     flex-direction: column;
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.25);
+    box-shadow: var(--user-prof-dd-shadow, 0 0 4px rgba(0, 0, 0, 0.25));
   }
 
   .profile-dropdown-section {
@@ -194,6 +209,21 @@ export default {
       padding: 0;
       margin: 0;
     }
+
+    .list-group .list-group-item {
+      &, &.list-group-item-action {
+        background-color: var(--user-prof-dd-item-bg-color, #FFF);
+        color: var(--user-prof-dd-item-fg-color, black);
+      }
+
+      &.list-group-item-action {
+        &:hover {
+          background-color: var(--user-prof-dd-item-bg-color-hover, #FFF);
+          color: var(--user-prof-dd-item-fg-color-hover, black);
+        }
+      }
+    }
+
   }
 }
 </style>

@@ -45,6 +45,14 @@ export default {
 </script>
 
 <style>
+
+:root {
+  --user-prof-dd-item-bg-color: black;
+  --user-prof-dd-item-fg-color: white;
+  --user-prof-dd-item-bg-color-hover: white;
+  --user-prof-dd-item-fg-color-hover: black;
+}
+
 html {
   font-size: 10px;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
