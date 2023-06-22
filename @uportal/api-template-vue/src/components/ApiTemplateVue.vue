@@ -40,6 +40,10 @@ export default {
     dataApiUrl: {
       type: String,
       default: undefined
+    },
+    state: {
+      type: String,
+      default: '{}'
     }
   },
 
@@ -82,9 +86,17 @@ export default {
       // Load data from the server
       await this.fetchJson();
       // Render the slot content as a new Vue instance
+
+      const state = JSON.parse(this.state);
+
       new Vue({
         el: this.$el.querySelector('.atv-inner'),
-        data: () => ({ data: this.json })
+        data: () => ({ ...state, data: this.json }),
+        methods: {
+          setState(key, value) {
+            this[key] = value;
+          }
+        }
       });
 
       this.$el.querySelector('.atv-inner').style.display = 'block';
