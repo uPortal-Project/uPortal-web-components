@@ -91,10 +91,10 @@ export default {
 
       new Vue({
         el: this.$el.querySelector('.atv-inner'),
-        data: () => ({ ...state, data: this.json }),
+        data: () => ({ state, data: this.json }),
         methods: {
           setState(key, value) {
-            this[key] = value;
+            this.state[key] = value;
           }
         }
       });

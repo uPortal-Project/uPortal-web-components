@@ -3,7 +3,7 @@
     <div v-pre>
       <!-- Directive v-pre required b/c Vue will attempt to process anything in App.vue -->
       <h3>{{ data.displayName[0] }}</h3>
-      <span>state {{ current }}</span>
+      <span>state {{ state.current }}</span>
       <dl>
         <dt>username:</dt>
         <dd>{{ data.username[0] }}</dd>
@@ -11,7 +11,7 @@
         <dd>{{ data.mail[0] }}</dd>
         <dt>Phone:</dt>
         <dd>{{ data.telephoneNumber[0] }}</dd>
-        <button v-on:click="setState('current', current + 1)">Update</button>
+        <button v-on:click="setState('current', state.current + 1)">Update</button>
       </dl>
     </div>
   </api-template-vue>
