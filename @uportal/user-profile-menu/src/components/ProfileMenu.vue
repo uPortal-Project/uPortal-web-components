@@ -5,7 +5,7 @@
         <img :src="avatarUrl" v-if="avatarUrl && !useInitials" />
         <span class="fallback" v-else>{{ fallbackText }}</span>
       </div>
-      <span v-if="useName">{{ displayText }}</span>
+      <span :class="{'sr-only': !useName}">{{ displayText }}</span>
     </button>
     <div class="profile-dropdown" v-if="menuOpen">
       <div class="profile-dropdown-section profile-dropdown-header">
