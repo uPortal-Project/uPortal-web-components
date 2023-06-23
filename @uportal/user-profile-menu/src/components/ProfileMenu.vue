@@ -107,13 +107,13 @@ export default {
   a {
     text-decoration: none;
     color: #495057;
-    color: var(--user-prof-menu-fg-color, #495057);
+    color: var(--user-profile-menu-fg-color, #495057);
   }
 
   .profile-trigger {
     color: #fff;
-    color: var(--user-prof-fg-color, #fff);
-    padding: var(--user-prof-trigger-padding, 0);
+    color: var(--user-profile-fg-color, #fff);
+    padding: var(--user-profile-trigger-padding, 0);
     margin-left: auto;
     background: transparent;
     border: 0 none;
@@ -122,10 +122,10 @@ export default {
     align-items: center;
     font-size: 1.2rem;
 
-    background-color: var(--user-prof-trigger-bg-color, transparent);
+    background-color: var(--user-profile-trigger-bg-color, transparent);
 
     &.active {
-      background-color: var(--user-prof-trigger-bg-color-active, transparent);
+      background-color: var(--user-profile-trigger-bg-color-active, transparent);
     }
 
     .avatar {
@@ -135,18 +135,18 @@ export default {
       overflow: hidden;
       margin: 0 0.2em;
       background-color: #ccc;
-      background-color: var(--user-prof-fallback-bg-color, #ccc);
+      background-color: var(--user-profile-fallback-bg-color, #ccc);
       color: #333;
-      color: var(--user-prof-fallback-fg-color, #333);
+      color: var(--user-profile-fallback-fg-color, #333);
       display: flex;
       align-items: center;
       justify-content: center;
       width: 30px;
-      width: var(--user-prof-avatar-size, $default-avatar-size);
+      width: var(--user-profile-avatar-size, $default-avatar-size);
       height: 30px;
-      height: var(--user-prof-avatar-size, $default-avatar-size);
+      height: var(--user-profile-avatar-size, $default-avatar-size);
       font-size: 30px;
-      font-size: var(--user-prof-avatar-size, $default-avatar-size);
+      font-size: var(--user-profile-avatar-size, $default-avatar-size);
 
       .fallback {
         font-size: 0.5em;
@@ -163,29 +163,29 @@ export default {
   .profile-dropdown {
     position: absolute;
     top: 125%;
-    top: var(--user-prof-dd-top-position, 125%);
+    top: var(--user-profile-dropdown-top-position, 125%);
     right: 0;
-    right: var(--user-prof-dd-right-position, 0);
+    right: var(--user-profile-dropdown-right-position, 0);
     z-index: 1000;
-    z-index: var(--user-prof-dd-z-position, 1000);
+    z-index: var(--user-profile-dropdown-z-position, 1000);
     display: flex;
     min-width: 10rem;
     margin: 0.125rem 0 0;
-    margin: var(--user-prof-dd-margin, 0.125rem 0 0);
-    font-size: var(--user-prof-dd-font-size, 1rem);
+    margin: var(--user-profile-dropdown-margin, 0.125rem 0 0);
+    font-size: var(--user-profile-dropdown-font-size, 1rem);
     color: hsl(210, 11%, 15%);
     text-align: left;
     list-style: none;
     background-color: #FFF;
-    background-color: var(--user-prof-dd-background, #FFF);
+    background-color: var(--user-profile-dropdown-background, #FFF);
     background-clip: padding-box;
     border: 1px solid rgba(0, 0, 0, 0.05);
-    border: var(--user-prof-dd-border, 1px solid rgba(0, 0, 0, 0.05));
+    border: var(--user-profile-dropdown-border, 1px solid rgba(0, 0, 0, 0.05));
     width: 220px;
-    width: var(--user-prof-dd-width, 220px);
+    width: var(--user-profile-dropdown-width, 220px);
     flex-direction: column;
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.25);
-    box-shadow: var(--user-prof-dd-shadow, 0 0 4px rgba(0, 0, 0, 0.25));
+    box-shadow: var(--user-profile-dropdown-shadow, 0 0 4px rgba(0, 0, 0, 0.25));
   }
 
   .profile-dropdown-section {
@@ -198,9 +198,9 @@ export default {
       padding: 1em;
       font-size: 1.2em;
       background-color: #eee;
-      background-color: var(--user-prof-header-bg-color, #eee);
+      background-color: var(--user-profile-header-bg-color, #eee);
       color: #000;
-      color: var(--user-prof-header-fg-color, #000);
+      color: var(--user-profile-header-fg-color, #000);
     }
 
     &.profile-dropdown-content {
@@ -212,14 +212,14 @@ export default {
 
     .list-group .list-group-item {
       &, &.list-group-item-action {
-        background-color: var(--user-prof-dd-item-bg-color, #FFF);
-        color: var(--user-prof-dd-item-fg-color, black);
+        background-color: var(--user-profile-dropdown-item-bg-color, #FFF);
+        color: var(--user-profile-dropdown-item-fg-color, black);
       }
 
       &.list-group-item-action {
         &:hover {
-          background-color: var(--user-prof-dd-item-bg-color-hover, #FFF);
-          color: var(--user-prof-dd-item-fg-color-hover, black);
+          background-color: var(--user-profile-dropdown-item-bg-color-hover, #FFF);
+          color: var(--user-profile-dropdown-item-fg-color-hover, black);
         }
       }
     }

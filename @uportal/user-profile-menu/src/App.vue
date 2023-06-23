@@ -47,10 +47,10 @@ export default {
 <style>
 
 :root {
-  --user-prof-dd-item-bg-color: black;
-  --user-prof-dd-item-fg-color: white;
-  --user-prof-dd-item-bg-color-hover: white;
-  --user-prof-dd-item-fg-color-hover: black;
+  --user-profile-dropdown-item-bg-color: black;
+  --user-profile-dropdown-item-fg-color: white;
+  --user-profile-dropdown-item-bg-color-hover: white;
+  --user-profile-dropdown-item-fg-color-hover: black;
 }
 
 html {
