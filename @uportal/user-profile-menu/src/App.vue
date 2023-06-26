@@ -45,6 +45,14 @@ export default {
 </script>
 
 <style>
+
+:root {
+  --user-profile-dropdown-item-bg-color: black;
+  --user-profile-dropdown-item-fg-color: white;
+  --user-profile-dropdown-item-bg-color-hover: white;
+  --user-profile-dropdown-item-fg-color-hover: black;
+}
+
 html {
   font-size: 10px;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
