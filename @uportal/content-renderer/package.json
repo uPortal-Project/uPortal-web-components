@@ -1,6 +1,6 @@
 {
   "name": "@uportal/content-renderer",
-  "version": "1.38.1",
+  "version": "1.39.0",
   "publishConfig": {
     "access": "public"
   },
@@ -16,7 +16,7 @@
     "npm": "^6.0.0"
   },
   "dependencies": {
-    "@uportal/open-id-connect": "^1.38.1",
+    "@uportal/open-id-connect": "^1.39.0",
     "handlebars": "^4.1.2",
     "jquery": "^3.3.1",
     "ky": "^0.26.0",
