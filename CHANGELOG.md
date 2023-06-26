@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased][]
 
+- feat(api-template-vue): added simple state mechanic for interactive components
+- feat(user-profile-menu): added additional css variables for customization
+
 ## [1.38.1][] - 2021-02-20
 
 - fix(deps): updated lint-staged dependency
