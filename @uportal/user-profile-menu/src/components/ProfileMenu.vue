@@ -121,7 +121,6 @@ export default {
     justify-content: space-between;
     align-items: center;
     font-size: 1.2rem;
-
     background-color: var(--user-profile-trigger-bg-color, transparent);
 
     &.active {
