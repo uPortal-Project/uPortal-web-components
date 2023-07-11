@@ -57,7 +57,7 @@ class GridCarousel extends LitElement {
 
   truncateTitle(title) {
     if (title.length > this.truncateLength) {
-      return title.substring(0, this.truncateLength + 1) + '...';
+      return title.substring(0, this.truncateLength + 1) + '…';
     }
 
     return title;
@@ -65,7 +65,7 @@ class GridCarousel extends LitElement {
 
   mapRegistry(registry) {
     return registry.map(({ fname, parameters, title }) => {
-      const imgUrl =
+      const imageUrl =
         get(parameters, 'waffleIconUrl.value') ||
         get(parameters, 'iconUrl.value') ||
         this.defaultIcon;
@@ -84,7 +84,7 @@ class GridCarousel extends LitElement {
       return {
         id: fname,
         link: alternativeMaximizedLink || this.contextPortletUrl + fname,
-        image: imgUrl ? imgUrl : this.defaultIcon,
+        image: imageUrl ?? this.defaultIcon,
         label: this.truncateTitle(text),
         type: 'box',
         targetLink: targetLinkValue,

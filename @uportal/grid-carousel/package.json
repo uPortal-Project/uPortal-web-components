@@ -1,6 +1,6 @@
 {
   "name": "@uportal/grid-carousel",
-  "private": true,
+  "private": false,
   "version": "1.39.0",
   "main": "src/grid-carousel.js",
   "type": "module",
@@ -20,7 +20,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "lit": "^2.7.2",
+    "lit": "^2.0.0",
     "@uportal/open-id-connect": "^1.39.0",
     "@uportal/portlet-registry-to-array": "^1.39.0",
     "lodash.get": "^4.4.2",
@@ -42,10 +42,11 @@
   "keywords": [
     "apereo",
     "uportal",
-    "waffle",
-    "menu",
+    "grid",
+    "carousel",
+    "favorites",
     "app",
-    "launcher"
+    "web components"
   ],
   "browserslist": [
     "> 1%",

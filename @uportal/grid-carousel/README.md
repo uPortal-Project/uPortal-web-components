@@ -8,6 +8,14 @@
 
 A component (designed for favorites) to show icons and names of portlets in a grid view, then collapsing to a carousel in mobile view.
 
+#### Full
+
+![Example (full)](doc/grid-carousel-full.png)
+
+#### Mobile
+
+![Example (mobile)](doc/grid-carousel-mobile.png)
+
 ## Installation
 
 ```bash

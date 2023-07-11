@@ -1,5 +1,5 @@
 {
-  "lerna": "3.14.1",
+  "lerna": "7.1.1",
   "packages": ["@uportal/*"],
   "version": "1.39.0",
   "command": {
