@@ -1,7 +1,7 @@
 {
   "name": "@uportal/grid-carousel",
   "private": false,
-  "version": "1.39.0",
+  "version": "1.40.0",
   "main": "src/grid-carousel.js",
   "type": "module",
   "exports": {
@@ -20,9 +20,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@uportal/open-id-connect": "^1.40.0",
+    "@uportal/portlet-registry-to-array": "^1.40.0",
     "lit": "^2.0.0",
-    "@uportal/open-id-connect": "^1.39.0",
-    "@uportal/portlet-registry-to-array": "^1.39.0",
     "lodash.get": "^4.4.2",
     "swiper": "^9.4.1"
   },

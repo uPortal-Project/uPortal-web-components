@@ -1,7 +1,7 @@
 {
   "name": "@uportal/sidebar-nav",
   "description": "Sidebar navigation of present links for uPortal",
-  "version": "1.39.0",
+  "version": "1.40.0",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/uPortal-contrib/uPortal-web-components.git"
@@ -35,7 +35,7 @@
     "npm": "^6.0.0"
   },
   "dependencies": {
-    "@uportal/open-id-connect": "^1.39.0",
+    "@uportal/open-id-connect": "^1.40.0",
     "bootstrap": "^4.3.1",
     "core-js": "^3.0.0",
     "vue": "^2.6.10"
