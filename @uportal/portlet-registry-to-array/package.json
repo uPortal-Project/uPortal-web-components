@@ -69,5 +69,6 @@
   },
   "dependencies": {
     "lodash.uniqby": "^4.7.0"
-  }
+  },
+  "gitHead": "62170bf1c46524e05836184f41c50051e37c49ff"
 }

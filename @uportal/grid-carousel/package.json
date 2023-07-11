@@ -56,5 +56,6 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/uPortal-contrib/uPortal-web-components.git"
-  }
+  },
+  "gitHead": "62170bf1c46524e05836184f41c50051e37c49ff"
 }
