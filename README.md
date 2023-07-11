@@ -55,6 +55,7 @@ For example an `example-component` would be loaded by adding
 - [Eyebrow User Info](@uportal/eyebrow-user-info/README.md)
 - [Waffle Menu](@uportal/waffle-menu/README.md)
 - [User Profile Menu](@uportal/user-profile-menu/README.md)
+- [Grid Carousel](@uportal/grid-carousel/README.md)
 
 ## Utilities
 
