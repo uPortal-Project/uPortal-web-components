@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased][]
 
+## [1.40.1][]
+
+- fix(publish): Fixed issue with package.json and publishing for grid-carousel
+
 ## [1.40.0][]
 
 - feat(grid-carousel): added grid-carousel component
@@ -1421,6 +1425,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - **content-carousel**: Initial version of content carousel, a carousel based portlet metadata display system.
 
 [unreleased]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.39.0...HEAD
+[1.40.1]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.40.0...v1.40.1
 [1.40.0]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.39.0...v1.40.0
 [1.39.0]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.38.1...v1.39.0
 [1.38.1]: https://github.com/uPortal-contrib/uPortal-web-components/compare/v1.38.0...v1.38.1
