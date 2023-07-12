@@ -1,6 +1,6 @@
 {
   "name": "@uportal/grid-carousel",
-  "version": "1.40.0",
+  "version": "1.40.1",
   "main": "dist/grid-carousel.umd.js",
   "type": "module",
   "module": "dist/grid-carousel.es.js",
@@ -35,8 +35,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@uportal/open-id-connect": "^1.40.0",
-    "@uportal/portlet-registry-to-array": "^1.40.0",
+    "@uportal/open-id-connect": "^1.40.1",
+    "@uportal/portlet-registry-to-array": "^1.40.1",
     "lit": "^2.0.0",
     "lodash.get": "^4.4.2",
     "swiper": "^9.4.1"
