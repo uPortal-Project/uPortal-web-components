@@ -22,7 +22,8 @@
     "dist/grid-carousel.umd.min.js",
     "dist/grid-carousel.es.min.js",
     "dist/grid-carousel.iife.min.js",
-    "src/open-id-connect.d.ts"
+    "src/grid-carousel.js",
+    "src/index.css"
   ],
   "source": "src/grid-carousel.js",
   "engines": {
