@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased][]
 
+- fix(grid-carousel): Added missing title attribute to links
+
 ## [1.40.1][]
 
 - fix(publish): Fixed issue with package.json and publishing for grid-carousel
