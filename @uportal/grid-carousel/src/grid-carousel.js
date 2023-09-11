@@ -187,6 +187,7 @@ class GridCarousel extends LitElement {
                       <a
                         href="${item.link}"
                         background="${item.image}"
+                        title="${item.label}"
                         target="${item.targetLink}"
                         rel="${item.targetLink === '_blank'
                           ? 'noopener noreferrer'
@@ -211,6 +212,7 @@ class GridCarousel extends LitElement {
                       href="${item.link}"
                       background="${item.image}"
                       target="${item.targetLink}"
+                      title="${item.label}"
                       rel="${item.targetLink === '_blank'
                         ? 'noopener noreferrer'
                         : ''}"
