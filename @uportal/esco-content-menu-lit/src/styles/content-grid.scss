@@ -1,0 +1,286 @@
+.content-grid {
+  min-width: 250px;
+  padding: 0.5em 1.5em;
+
+  ::placeholder {
+    font-style: italic;
+  }
+
+  ::-webkit-input-placeholder {
+    font-style: italic;
+  }
+
+  ::-ms-input-placeholder {
+    font-style: italic;
+  }
+
+  ::-moz-placeholder {
+    font-style: italic;
+  }
+
+  :-moz-placeholder {
+    font-style: italic;
+  }
+
+  :-ms-input-placeholder {
+    font-style: italic;
+  }
+
+  .svg-inline--fa {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome, sans-serif;
+    font-size: inherit;
+    height: 1em;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    &.fa-search {
+      &:before {
+        content: '\f002';
+      }
+    }
+  }
+
+  .footer-categories {
+    display: inline-block;
+    width: 100%;
+    max-width: 50rem;
+    height: calc(2.25rem + 2px);
+    padding: 0.375rem 1.75rem 0.375rem 0.75rem;
+    line-height: 1.5;
+    color: #495057;
+    vertical-align: middle;
+    background-color: #fff;
+    background-size: auto auto;
+    background-size: 8px 10px;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
+
+  > div {
+    display: block;
+    color: #000;
+
+    > .title {
+      padding: 0 20px;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-between;
+
+      > h1,
+      > slot > h1 {
+        margin-bottom: 15px;
+        margin-top: 15px;
+        font-weight: normal;
+        font-size: 24px;
+      }
+
+      > .filter,
+      slot > .filter {
+        margin: auto 0;
+        width: 100%;
+        height: 32px;
+        max-width: 400px;
+        display: flex;
+        flex-flow: row nowrap;
+
+        /* custom caret to override bad firefox one */
+        &.custom-caret {
+          position: relative;
+          cursor: pointer;
+
+          &::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 0;
+            display: inline-block;
+            top: 48%;
+            right: 10px;
+            border-top: 6px solid #000;
+            border-left: 6px solid transparent;
+            border-right: 6px solid transparent;
+            pointer-events: none;
+          }
+
+          select {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            padding: 5px 24px 5px 5px;
+
+            &::-ms-expand {
+              display: none;
+            }
+          }
+        }
+
+        input,
+        select {
+          border: none;
+          height: 100%;
+
+          /* prettier-ignore */
+          box-shadow:
+            0 2px 2px 0 rgba(0, 0, 0, 0.14),
+            0 3px 1px -2px rgba(0, 0, 0, 0.12),
+            0 1px 5px 0 rgba(0, 0, 0, 0.2);
+          outline: none;
+          padding: 0;
+          margin: 0;
+        }
+
+        input {
+          line-height: 32px;
+          border-top-left-radius: 48px;
+          border-bottom-left-radius: 48px;
+          width: 60%;
+          text-indent: 10px;
+          font-size: 16px;
+        }
+
+        select {
+          border-top-right-radius: 48px;
+          border-bottom-right-radius: 48px;
+          width: 40%;
+
+          option.default {
+            font-style: italic;
+            color: grey;
+          }
+        }
+
+        > div {
+          display: none;
+        }
+      }
+    }
+
+    .preamble {
+      display: flex;
+      flex-flow: row wrap;
+      padding: 0 20px;
+    }
+
+    .flex-grid {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: var(--content-grid-flex-grid-justify, center);
+
+      .flex-item {
+        margin: 20px auto;
+        margin: var(--content-griditem-margin, 20px auto);
+        padding: 0 2.5px;
+      }
+
+      /** fix IE flexbox bug on margin auto https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/14593426/. */
+      @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+        .flex-item {
+          margin: 20px 5px;
+        }
+      }
+    }
+
+    a.no-style {
+      text-decoration: none;
+      color: inherit;
+    }
+  }
+
+  &.small,
+  &.smaller {
+    padding: 0.5em;
+    > div {
+      border-radius: 5px;
+      background-color: #f3f3f3;
+
+      > .title {
+        position: relative;
+        border-radius: 5px;
+        background-color: #fff;
+
+        > h1,
+        > slot > h1 {
+          margin-right: $searchSize;
+        }
+
+        > .filter,
+        slot > .filter {
+          margin: auto 0;
+          position: absolute;
+          display: flex;
+          flex-flow: row nowrap;
+          width: calc(100% - 30px);
+          height: calc(100% - 10px);
+          padding: 5px 0;
+          max-width: unset;
+          right: 15px;
+
+          &.closed {
+            width: $searchSize;
+
+            > input,
+            > select,
+            &::after {
+              visibility: hidden;
+              padding: 0;
+              display: none;
+            }
+          }
+
+          > div {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            align-items: center;
+            text-align: center;
+
+            > .fa {
+              margin-left: 5px;
+              font-size: $searchSize;
+              opacity: 0.4;
+            }
+          }
+
+          &.opened {
+            transition: width 1s;
+            backface-visibility: hidden;
+
+            &::after {
+              right: 40px;
+            }
+
+            @media screen and (max-width: 400px) {
+              flex-flow: column wrap;
+              height: 100%;
+
+              > input,
+              > select {
+                width: calc(100% - 42px);
+                height: 50%;
+                border-radius: unset;
+              }
+
+              &::after {
+                right: 50px;
+                top: 75%;
+              }
+
+              > div {
+                flex: 1 1 100%;
+              }
+            }
+
+            > div > .fa {
+              opacity: 1;
+            }
+          }
+        }
+      }
+    }
+  }
+}

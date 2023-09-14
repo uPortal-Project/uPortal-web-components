@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Test : <%= htmlWebpackPlugin.options.title %></title>
+    <style lang="scss"></style>
+  </head>
+  <body>
+    <%= htmlWebpackPlugin.options.header %>
+    <h2><%= htmlWebpackPlugin.options.title %></h2>
+    <div class="parameters">
+      <h3>Parameters</h3>
+      <dl>
+        <dt>portlet-desc</dt>
+        <dd>{Object}(see javascript code}</dd>
+      </dl>
+      <dl>
+        <dt>css-class</dt>
+        <dd></dd>
+      </dl>
+      <dl>
+        <dt>icon-background-color</dt>
+        <dd></dd>
+      </dl>
+      <dl>
+        <dt>size</dt>
+        <dd>small</dd>
+      </dl>
+      <dl>
+        <dt>card-hover-src</dt>
+        <dd>title</dd>
+      </dl>
+      <dl>
+        <dt>background-is-dark</dt>
+        <dd></dd>
+      </dl>
+      <dl>
+        <dt>is-favorite</dt>
+        <dd>true</dd>
+      </dl>
+      <dl>
+        <dt>hide-action</dt>
+        <dd></dd>
+      </dl>
+      <dl>
+        <dt>debug</dt>
+        <dd>true</dd>
+      </dl>
+      <h3>Events</h3>
+      <dl>
+        <dt>close (local)</dt>
+        <dd id="toggleEvt">Not emit</dd>
+      </dl>
+    </div>
+    <hr />
+    <div>
+      <esco-portlet-card
+        is-favorite="true"
+        size="small"
+        card-hover-src="title"
+        debug
+      />
+    </div>
+    <script defer>
+      document.querySelectorAll('esco-portlet-card').forEach((card) => {
+        const portlet = {
+          fname: 'portal-activity',
+          keywords: [],
+          description: "Afficher l'activité dans le portail",
+          title: 'Activité dans le portail',
+          averageRating: 0,
+          name: 'Activité dans le portail',
+          ratingsCount: 0,
+          typeId: 7,
+          id: 22,
+          state: 'PUBLISHED',
+          favorite: false,
+          canAdd: true,
+          parameters: {
+            iconUrl: {
+              name: 'iconUrl',
+              description: '',
+              value:
+                'https://ent.recia.fr/ResourceServingWebapp/rs/tango/0.8.90/32x32/categories/preferences-system.png',
+            },
+          },
+        };
+        card.portletDesc = portlet;
+        card.addEventListener('toggle-favorite', (e) => {
+          const date = new Date().toLocaleTimeString();
+          document.querySelector(
+            '#toggleEvt'
+          ).textContent = `Last emit : ${date} | fname : ${e.detail.fname} | chan-id : ${e.detail.chanId} | is-favorite : ${e.detail.isFavorite}`;
+        });
+      });
+    </script>
+  </body>
+</html>
