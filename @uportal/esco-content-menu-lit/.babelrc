@@ -1,0 +1,21 @@
+{
+  "presets": [
+    ["@babel/preset-typescript"],
+    [
+      "@babel/preset-env",
+      {
+        "corejs": { "version": 3 },
+        "useBuiltIns": "usage",
+        "targets": "defaults",
+        "bugfixes": true,
+        //"debug": true
+      }
+    ]
+  ],
+  "plugins": [
+    ["@babel/plugin-proposal-decorators", { "decoratorsBeforeExport": true }],
+    "@babel/plugin-proposal-class-properties",
+    "@babel/plugin-transform-modules-commonjs",
+    ["@babel/plugin-transform-runtime", { "regenerator": true }]
+  ]
+}
