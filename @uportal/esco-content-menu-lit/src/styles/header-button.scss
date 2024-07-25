@@ -1,0 +1,33 @@
+.content-menu-header-buttons {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+
+  > * {
+    margin-top: 1em;
+  }
+
+  > :first-child {
+    margin-left: 1em;
+  }
+
+  > :last-child {
+    margin-right: 1em;
+  }
+
+  > button > svg,
+  > a > svg {
+    width: 32px;
+    height: 32px;
+    color: white;
+  }
+
+  button {
+    text-decoration: none;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    box-shadow: none;
+    cursor: pointer;
+  }
+}

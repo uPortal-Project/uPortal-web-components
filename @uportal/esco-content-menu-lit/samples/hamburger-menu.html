@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Test : <%= htmlWebpackPlugin.options.title %></title>
+    <style lang="scss"></style>
+  </head>
+  <body>
+    <%= htmlWebpackPlugin.options.header %>
+    <h2><%= htmlWebpackPlugin.options.title %></h2>
+    <div class="parameters">
+      <h3>Parameters</h3>
+      <dl>
+        <dt>messages</dt>
+        <dd>
+          [{"locales": ["fr", "fr-FR"], "messages": { "message": {"favorites": {
+          "add": "Add me to your favorites!" } }}}]
+        </dd>
+      </dl>
+      <dl>
+        <dt>default-org-logo</dt>
+        <dd>
+          https://lycees.netocentre.fr/annuaire_images/default_banner_v1.jpg
+        </dd>
+      </dl>
+      <dl>
+        <dt>force-org-logo</dt>
+        <dd></dd>
+      </dl>
+      <dl>
+        <dt>favorites-portlet-card-size</dt>
+        <dd>small</dd>
+      </dl>
+      <dl>
+        <dt>grid-portlet-card-size</dt>
+        <dd>auto</dd>
+      </dl>
+      <dl>
+        <dt>hide-action-mode</dt>
+        <dd>never</dd>
+      </dl>
+      <dl>
+        <dt>context-api-url</dt>
+        <dd></dd>
+      </dl>
+      <dl>
+        <dt>favorite-api-url</dt>
+        <dd></dd>
+      </dl>
+      <dl>
+        <dt>portlet-api-url</dt>
+        <dd>http://localhost:3000/portletRegistry</dd>
+      </dl>
+      <dl>
+        <dt>layout-api-url</dt>
+        <dd>http://localhost:3000/layout</dd>
+      </dl>
+      <dl>
+        <dt>organization-api-url</dt>
+        <dd>http://localhost:3000/orginfo</dd>
+      </dl>
+      <dl>
+        <dt>user-info-api-url</dt>
+        <dd>http://localhost:3000/userinfo</dd>
+      </dl>
+      <dl>
+        <dt>signout-url</dt>
+        <dd>#signout</dd>
+      </dl>
+      <dl>
+        <dt>user-info-portlet-url</dt>
+        <dd>#user-info</dd>
+      </dl>
+      <dl>
+        <dt>switch-org-portlet-url</dt>
+        <dd>#switch-org</dd>
+      </dl>
+      <dl>
+        <dt>user-org-id-attribute-name</dt>
+        <dd></dd>
+      </dl>
+      <dl>
+        <dt>org-logo-url-attribute-name</dt>
+        <dd></dd>
+      </dl>
+      <dl>
+        <dt>user-all-orgs-id-attribute-name</dt>
+        <dd></dd>
+      </dl>
+      <dl>
+        <dt>show-favorites-in-slider</dt>
+        <dd></dd>
+      </dl>
+      <dl>
+        <dt>debug</dt>
+        <dd>true</dd>
+      </dl>
+      <h3>Events</h3>
+      <dl>
+        <dt>Toggle</dt>
+        <dd id="toggleEvt">Not emit</dd>
+      </dl>
+    </div>
+    <hr />
+    <div class="darkBackground">
+      <esco-hamburger-menu
+        messages='[{"locales": ["fr", "fr-FR"], "messages": { "message": {"favorites": { "add": "Add me to your favorites!" } }}}]'
+        portal-base-url="localhost:3000"
+        default-org-logo="https://lycees.netocentre.fr/annuaire_images/default_banner_v1.jpg"
+        favorites-portlet-card-size="small"
+        grid-portlet-card-size="auto"
+        hide-action-mode="never"
+        portlet-api-url="/portletRegistry"
+        layout-api-url="/layout"
+        organization-api-url="/orginfo"
+        user-info-api-url="/userinfo"
+        sign-out-url="#signout"
+        user-info-portlet-url="#user-info"
+        switch-org-portlet-url="#switch-org"
+        show-favorites-in-slider
+        cache-ttl="120"
+        debug
+      >
+      </esco-hamburger-menu>
+      <div>Test transparence</div>
+      <script defer>
+        document.querySelectorAll('esco-hamburger-menu').forEach((el) => {
+          el.addEventListener('toggle', (e) => {
+            const date = new Date().toLocaleTimeString();
+            document.querySelector(
+              '#toggleEvt'
+            ).textContent = `Last emit : ${date} | Visible : ${e.detail.isVisible}`;
+          });
+        });
+
+        document.addEventListener('click-portlet-card', e => {
+          e.detail.event.preventDefault();
+          console.log(`event: ${e.type}`, { ...e.detail });
+        })
+      </script>
+    </div>
+  </body>
+</html>

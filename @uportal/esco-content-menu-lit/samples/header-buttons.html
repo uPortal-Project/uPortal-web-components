@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Test : <%= htmlWebpackPlugin.options.title %></title>
+    <style lang="scss"></style>
+  </head>
+  <body>
+    <%= htmlWebpackPlugin.options.header %>
+    <h2><%= htmlWebpackPlugin.options.title %></h2>
+    <div class="parameters">
+      <h3>Parameters</h3>
+      <dl>
+        <dt>messages</dt>
+        <dd>
+          [{"locales": ["fr", "fr-FR"], "messages": { "message": {"buttons": {
+          "logout": "Sortir !!!" } }}}]
+        </dd>
+      </dl>
+      <dl>
+        <dt>sign-out-url</dt>
+        <dd>#test-sign-out</dd>
+      </dl>
+      <h3>Events</h3>
+      <dl>
+        <dt>close (local)</dt>
+        <dd id="closeEvt">Not emit</dd>
+      </dl>
+    </div>
+    <hr />
+    <div class="darkBackground">
+      <esco-header-buttons
+        messages='[{"locales": ["fr", "fr-FR"], "messages": { "message": {"buttons": {
+        "logout": "Sortir !!!" } }}}]'
+        sign-out-url="#test-sign-out"
+      ></esco-header-buttons>
+    </div>
+    <script defer>
+      document.querySelectorAll('esco-header-buttons').forEach((el) => {
+        el.addEventListener('close', (e) => {
+          const date = new Date().toLocaleTimeString();
+          document.querySelector(
+            '#closeEvt'
+          ).textContent = `Last emit : ${date}`;
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,165 @@
+<style>
+  body > header {
+    background-color: #1f1f1f;
+    color: #ececec;
+    text-align: center;
+    padding: 20px;
+  }
+  nav ul {
+    margin: 0 0 0 1em; /* indentation */
+    padding: 0;
+    list-style: none;
+    color: #1f1f1f;
+    position: relative;
+  }
+
+  nav ul {
+    margin-left: 0.5em;
+  }
+
+  nav:before,
+  nav ul:before {
+    content: '';
+    display: block;
+    width: 0;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    border-left: 1px solid;
+  }
+
+  nav li {
+    margin: 0;
+    padding: 0 1.5em;
+    line-height: 2em;
+    font-weight: bold;
+    position: relative;
+  }
+
+  nav li:before {
+    content: '';
+    display: block;
+    width: 10px;
+    height: 0;
+    border-top: 1px solid;
+    margin-top: -1px;
+    position: absolute;
+    top: 1em;
+    left: 0;
+  }
+
+  nav li:last-child:before {
+    background: #fff;
+    height: auto;
+    top: 1em;
+    bottom: 0;
+  }
+
+  .parameters dl {
+    width: 100%;
+    overflow: hidden;
+    padding: 5px;
+    margin: 0;
+    color: #1f1f1f;
+  }
+  .parameters dl:nth-child(odd) {
+    background-color: #8eb9d4;
+  }
+  .parameters dl:nth-child(even) {
+    background-color: #a8bfea;
+  }
+
+  .parameters dt {
+    float: left;
+    width: 30%;
+    padding: 0;
+    margin: 0;
+    font-weight: 900;
+  }
+  .parameters dd {
+    float: left;
+    width: 70%;
+    padding: 0;
+    margin: 0;
+  }
+
+  .darkBackground {
+    background-color: #2e2e2e;
+  }
+</style>
+<header>
+  <h1>ESCO Content Menu</h1>
+</header>
+
+<noscript>
+  <strong
+    >We're sorry but esco-content-menu doesn't work properly without JavaScript
+    enabled. Please enable it to continue.</strong
+  >
+</noscript>
+
+<nav>
+  <header>
+    <h2>Components</h2>
+  </header>
+  <ul>
+    <li>
+      <a href="hamburger-menu.html">Hamburger-menu</a>
+      <ul>
+        <li>
+          <a href="content-menu.html">Content-menu</a>
+          <ul>
+            <li>
+              <a href="header-buttons.html">Header-buttons</a>
+            </li>
+            <li>
+              <a href="content-user.html">Content-user</a>
+            </li>
+            <li>
+              <a href="content-favorites.html">Content-favorites</a>
+              <ul>
+                <li>
+                  <a href="portlet-card.html">Portlet-card</a>
+                  <ul>
+                    <li>
+                      <a href="action-favorites.html">Action-favorites</a>
+                    </li>
+                    <li>
+                      <a href="lit-ellipsis.html">Ellipsis</a>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="content-grid.html">Content-grid</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="content-grid.html">Content-grid</a>
+              <ul>
+                <li>
+                  <a href="portlet-card.html">Portlet-card</a>
+                  <ul>
+                    <li>
+                      <a href="action-favorites.html">Action-favorites</a>
+                    </li>
+                    <li>
+                      <a href="lit-ellipsis.html">Ellipsis</a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="lit-spinner.html">Spinner</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a href="content-grid-filter.html">Content-grid-filter</a>
+    </li>
+  </ul>
+</nav>

@@ -1,0 +1,122 @@
+:host {
+  width: inherit;
+}
+.content-user {
+  min-width: 350px;
+  height: 100%;
+  font-size: 14px;
+
+  &.small,
+  &.smaller {
+    min-width: initial;
+    width: 100%;
+    height: 100%;
+    min-height: 150px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    > div {
+      > .org-img {
+        display: none;
+      }
+
+      > .user-info {
+        padding: 15px 0;
+
+        > div {
+          border-top-right-radius: 0;
+          border-bottom-right-radius: 0;
+        }
+      }
+    }
+  }
+
+  > div {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: flex-end;
+
+    > .org-img {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: 1;
+      margin-top: 15px;
+
+      img {
+        width: 270px;
+        height: auto;
+        border-radius: 10px;
+      }
+    }
+
+    > .user-info {
+      padding: 25px 0;
+
+      > div {
+        display: flex;
+        align-items: center;
+        border-top-right-radius: 27px;
+        border-bottom-right-radius: 27px;
+        height: 54px;
+        background-color: rgba(0, 0, 0, 0.7);
+
+        :only-child:not(.user-avatar) {
+          display: inline-block;
+          max-width: 200px;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+
+        span {
+          color: white;
+        }
+
+        .user-avatar {
+          float: left;
+          margin: 0 15px;
+
+          img,
+          svg {
+            width: 68px;
+            height: 68px;
+            border-radius: 50%;
+          }
+
+          svg {
+            color: white;
+            background-color: #b7b7b7;
+          }
+        }
+
+        .wrapper-info {
+          :only-child {
+            display: block;
+          }
+
+          .user-name {
+            font-weight: bold;
+          }
+        }
+
+        .other-orgs {
+          flex: 1;
+
+          > a {
+            float: right;
+            color: white;
+            margin-right: 15px;
+
+            > svg {
+              width: 24px;
+              height: 24px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
