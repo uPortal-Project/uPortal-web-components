@@ -134,6 +134,11 @@
             ).textContent = `Last emit : ${date} | Visible : ${e.detail.isVisible}`;
           });
         });
+
+        document.addEventListener('click-portlet-card', e => {
+          e.detail.event.preventDefault();
+          console.log(`event: ${e.type}`, { ...e.detail });
+        })
       </script>
     </div>
   </body>

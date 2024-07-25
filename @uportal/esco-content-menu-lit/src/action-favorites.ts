@@ -66,6 +66,7 @@ export class ActionFavorites extends LitLoggable(LitElement) {
 
   toggleFavorite(e: Event): void {
     e.preventDefault();
+    e.stopPropagation();
     this.isFavorite = !this.isFavorite;
     const toggleEvt = new CustomEvent('toggle', {
       detail: {

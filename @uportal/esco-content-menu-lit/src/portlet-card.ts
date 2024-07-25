@@ -125,6 +125,19 @@ export class PortletCard extends LitLoggable(LitElement) {
     this.dispatchEvent(toggleEvt);
   }
 
+  clickOnCard(e: Event): void {
+    const clickEvt = new CustomEvent('click-portlet-card', {
+      detail: {
+        event: e,
+        target: this,
+        fname: this._fname,
+      },
+      bubbles: true,
+      composed: true,
+    });
+    document.dispatchEvent(clickEvt);
+  }
+
   render(): TemplateResult {
     const appClasses = {
       [this.cssClass.toLowerCase()]: true,
@@ -140,7 +153,11 @@ export class PortletCard extends LitLoggable(LitElement) {
       });
 
     return html`
-      <div class="${classMap(appClasses)}" title="${this.getHoverText()}">
+      <div
+        class="${classMap(appClasses)}"
+        title="${this.getHoverText()}"
+        @click="${this.clickOnCard}"
+      >
         <div class="portlet-card-icon">${this.renderIcon()}</div>
         <div class="portlet-card-title">${this._portletTitle}</div>
         <div class="portlet-card-description">${this.renderEllipsis()}</div>
