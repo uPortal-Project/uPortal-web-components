@@ -13,7 +13,7 @@
     "postbuild": "cp node_modules/slick-carousel/slick/slick-theme.css dist/slick-theme.css && cp -r node_modules/slick-carousel/slick/fonts dist/fonts"
   },
   "engines": {
-    "node": "^14.0.0",
+    "node": "^20.0.0",
     "npm": "^6.0.0"
   },
   "dependencies": {
