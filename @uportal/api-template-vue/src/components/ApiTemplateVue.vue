@@ -1,6 +1,6 @@
 <template>
   <div class="atv-outer">
-    <div class="atv-spinner p-3">
+    <div class="atv-spinner p-3" v-show="!loaded">
       <div class="spinner-grow text-secondary" role="status">
         <span class="sr-only">Loading...</span>
       </div>
@@ -11,7 +11,7 @@
         <span class="sr-only">Loading...</span>
       </div>
     </div>
-    <div class="atv-inner" style="display: none;">
+    <div class="atv-inner" v-show="loaded">
       <slot>
         <h3>No Content Specified</h3>
         <p>Please specify content for this component using the default slot.</p>
@@ -50,7 +50,8 @@ export default {
   data() {
     return {
       // JSON from dataApiUrl
-      json: []
+      json: [],
+      loaded: false
     };
   },
 
@@ -89,6 +90,10 @@ export default {
 
       const state = JSON.parse(this.state);
 
+      this.loaded = true;
+      // Ensure the DOM is updated before calling new Vue()
+      await this.$nextTick();
+
       new Vue({
         el: this.$el.querySelector('.atv-inner'),
         data: () => ({ state, data: this.json }),
@@ -98,9 +103,6 @@ export default {
           }
         }
       });
-
-      this.$el.querySelector('.atv-inner').style.display = 'block';
-      this.$el.querySelector('.atv-spinner').style.display = 'none';
     }
   },
 
