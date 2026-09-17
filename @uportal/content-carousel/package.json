@@ -22,7 +22,7 @@
     "@uportal/portlet-registry-to-array": "^1.40.2",
     "jquery": "^3.3.1",
     "rss-to-json": "^2.1.1",
-    "vue": "^2.5.20",
+    "vue": "^3.0.0",
     "vue-class-component": "^7.0.0",
     "vue-property-decorator": "^9.0.0",
     "vue-slick": "^1.1.15",
