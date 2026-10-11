@@ -2,7 +2,20 @@
 
 [![Build Status](https://github.com/uPortal-contrib/uPortal-web-components/workflows/CI/badge.svg)](https://github.com/uPortal-contrib/uPortal-web-components/actions?workflow=CI)
 
-> A collection of reusable, standardized, and accessible [web components][] for [uPortal][]
+Reusable, accessible [web components][] for [uPortal][] sites. Colleges and
+universities use uPortal to build the website where students, faculty, and staff
+sign in and find campus content and applications. These components add features
+to that site, such as the `waffle-menu` app launcher, content carousels, and a
+user profile menu. Each component works as a custom HTML tag on the portal page.
+
+## Related projects
+
+- [uPortal][]: the Java framework that runs the portal. Components can call its
+  APIs as the signed-in user. The `open-id-connect` utility gets the
+  OpenID Connect token for those calls.
+- [uPortal-start][]: the starting point for running a portal. It ships some of
+  these components to the browser through its resource server, and
+  `uPortalWebComponentsVersion` sets the version.
 
 ## Installation
 
@@ -82,7 +95,8 @@ Want to chat with the community and contributors? Join us in [Slack][] and the [
 [node]: https://nodejs.org
 [npm]: https://docs.npmjs.com/
 [slack]: https://apereo.slack.com
-[uportal]: https://github.com/Jasig/uPortal
+[uportal]: https://github.com/uPortal-Project/uPortal
+[uportal-start]: https://github.com/uPortal-Project/uPortal-start
 [web components]: https://www.webcomponents.org/introduction
 [webjar]: https://www.webjars.org/
 [yarn]: https://yarnpkg.com/en/
